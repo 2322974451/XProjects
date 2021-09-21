@@ -1,0 +1,7 @@
+C:\Users\shen\Desktop\XProject\UILib\obj\Debug\UILib.csproj.CoreCompileInputs.cache
+C:\Users\shen\Desktop\XProject\UILib\bin\Debug\UILib.dll
+C:\Users\shen\Desktop\XProject\UILib\bin\Debug\UILib.pdb
+C:\Users\shen\Desktop\XProject\UILib\bin\Debug\UnityEngine5.dll
+C:\Users\shen\Desktop\XProject\UILib\obj\Debug\UILib.csproj.CopyComplete
+C:\Users\shen\Desktop\XProject\UILib\obj\Debug\UILib.dll
+C:\Users\shen\Desktop\XProject\UILib\obj\Debug\UILib.pdb

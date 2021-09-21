@@ -1,0 +1,23 @@
+﻿using System;
+
+namespace XMainClient
+{
+	// Token: 0x02000AA9 RID: 2729
+	internal enum NodeType
+	{
+		// Token: 0x04003C5C RID: 15452
+		NODE_TYPE_NONE,
+		// Token: 0x04003C5D RID: 15453
+		NODE_TYPE_BASE,
+		// Token: 0x04003C5E RID: 15454
+		NODE_TYPE_LOGIC,
+		// Token: 0x04003C5F RID: 15455
+		NODE_TYPE_ROOT,
+		// Token: 0x04003C60 RID: 15456
+		NODE_TYPE_ACTION,
+		// Token: 0x04003C61 RID: 15457
+		NODE_TYPE_CONDITION,
+		// Token: 0x04003C62 RID: 15458
+		NODE_TYPE_DECORATION
+	}
+}

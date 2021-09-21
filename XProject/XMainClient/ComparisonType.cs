@@ -1,0 +1,21 @@
+﻿using System;
+
+namespace XMainClient
+{
+	// Token: 0x02000ADE RID: 2782
+	internal enum ComparisonType
+	{
+		// Token: 0x04003CBB RID: 15547
+		FCTYPE_LESS_THAN,
+		// Token: 0x04003CBC RID: 15548
+		FCTYPE_LESS_OR_EQUAL_TO,
+		// Token: 0x04003CBD RID: 15549
+		FCTYPE_EQUAL_TO,
+		// Token: 0x04003CBE RID: 15550
+		FCTYPE_NOT_EQUAL_TO,
+		// Token: 0x04003CBF RID: 15551
+		FCTYPE_GREATER_THAN_OR_EQUAL_TO,
+		// Token: 0x04003CC0 RID: 15552
+		FCTYPE_GREATER_THAN
+	}
+}

@@ -1,0 +1,23 @@
+﻿using System;
+
+namespace XMainClient
+{
+	// Token: 0x02000EBF RID: 3775
+	internal enum PtcHeadFlag
+	{
+		// Token: 0x040058AC RID: 22700
+		PTC_TYPE_FLAG,
+		// Token: 0x040058AD RID: 22701
+		RPC_TYPE_FLAG,
+		// Token: 0x040058AE RID: 22702
+		RPC_TYPE_REPLY = 1,
+		// Token: 0x040058AF RID: 22703
+		RPC_TYPE_ISREQUEST_MASK,
+		// Token: 0x040058B0 RID: 22704
+		RPC_TYPE_REQUEST,
+		// Token: 0x040058B1 RID: 22705
+		RPC_TYPE_COMPRESS,
+		// Token: 0x040058B2 RID: 22706
+		RPC_TYPE_RPCNULL = 8
+	}
+}

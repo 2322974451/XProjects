@@ -1,0 +1,10 @@
+C:\Users\shen\Desktop\XProject\XUtliPoolLib\obj\Debug\XUtliPoolLib.csproj.AssemblyReference.cache
+C:\Users\shen\Desktop\XProject\XUtliPoolLib\obj\Debug\XUtliPoolLib.csproj.CoreCompileInputs.cache
+C:\Users\shen\Desktop\XProject\XUtliPoolLib\bin\Debug\XUtliPoolLib.dll
+C:\Users\shen\Desktop\XProject\XUtliPoolLib\bin\Debug\XUtliPoolLib.pdb
+C:\Users\shen\Desktop\XProject\XUtliPoolLib\bin\Debug\UILib.dll
+C:\Users\shen\Desktop\XProject\XUtliPoolLib\bin\Debug\UnityEngine5.dll
+C:\Users\shen\Desktop\XProject\XUtliPoolLib\bin\Debug\UILib.pdb
+C:\Users\shen\Desktop\XProject\XUtliPoolLib\obj\Debug\XUtliPoolLib.csproj.CopyComplete
+C:\Users\shen\Desktop\XProject\XUtliPoolLib\obj\Debug\XUtliPoolLib.dll
+C:\Users\shen\Desktop\XProject\XUtliPoolLib\obj\Debug\XUtliPoolLib.pdb

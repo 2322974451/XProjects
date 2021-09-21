@@ -1,0 +1,16 @@
+using System;
+using XUtliPoolLib;
+using UnityEngine;
+
+namespace XMainClient
+{
+    internal partial class %(class_name)s
+    {
+        public static bool %(method_name)s(XSkill skill)
+        {
+			//To do... add script here
+
+            return true;
+        }
+    }
+}
