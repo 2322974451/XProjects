@@ -5,11 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001806 RID: 6150
+
 	internal class FashionStorageFashionHairToolTipDlg : FashionStorageTooltipBase<FashionStorageFashionHairToolTipDlg, FashionHairToolTipBehaviour>
 	{
-		// Token: 0x170038EF RID: 14575
-		// (get) Token: 0x0600FEFB RID: 65275 RVA: 0x003C0DB8 File Offset: 0x003BEFB8
+
 		public override string fileName
 		{
 			get
@@ -18,7 +17,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FEFC RID: 65276 RVA: 0x003C0DD0 File Offset: 0x003BEFD0
 		protected override void SetupTopFrame(GameObject goToolTip, ItemList.RowData data, bool bMain, XItem instanceData = null, XItem compareData = null)
 		{
 			base.SetupTopFrame(goToolTip, data, bMain, instanceData, compareData);
@@ -39,25 +37,21 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FEFD RID: 65277 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void SetAllAttrFrames(GameObject goToolTip, XAttrItem item, XAttrItem compareItem, bool bMain)
 		{
 		}
 
-		// Token: 0x0600FEFE RID: 65278 RVA: 0x003C0EB0 File Offset: 0x003BF0B0
 		protected override void SetupOtherFrame(GameObject goToolTip, XItem item, XItem compareItem, bool bMain)
 		{
 			ItemList.RowData itemConf = XBagDocument.GetItemConf(item.itemID);
 			this._SetupDescription(goToolTip, itemConf);
 		}
 
-		// Token: 0x0600FEFF RID: 65279 RVA: 0x003C0ED3 File Offset: 0x003BF0D3
 		protected override void SetupOtherFrame(GameObject goToolTip, ItemList.RowData data)
 		{
 			this._SetupDescription(goToolTip, data);
 		}
 
-		// Token: 0x0600FF00 RID: 65280 RVA: 0x003C0EE0 File Offset: 0x003BF0E0
 		protected void _SetupDescription(GameObject goToolTip, ItemList.RowData data)
 		{
 			Transform transform = goToolTip.transform;
@@ -68,7 +62,6 @@ namespace XMainClient.UI
 			this.totalFrameHeight += (float)ixuisprite.spriteHeight;
 		}
 
-		// Token: 0x040070B7 RID: 28855
 		private IXUILabel time = null;
 	}
 }

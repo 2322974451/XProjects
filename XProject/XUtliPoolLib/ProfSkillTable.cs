@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x02000152 RID: 338
+
 	public class ProfSkillTable : CVSReader
 	{
-		// Token: 0x060007A7 RID: 1959 RVA: 0x00026B64 File Offset: 0x00024D64
+
 		public ProfSkillTable.RowData GetByProfID(int key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -29,7 +29,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x060007A8 RID: 1960 RVA: 0x00026BD0 File Offset: 0x00024DD0
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			ProfSkillTable.RowData rowData = new ProfSkillTable.RowData();
@@ -79,7 +78,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x060007A9 RID: 1961 RVA: 0x00026E28 File Offset: 0x00025028
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -93,73 +91,51 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x0400039E RID: 926
 		public ProfSkillTable.RowData[] Table = null;
 
-		// Token: 0x02000351 RID: 849
 		public class RowData
 		{
-			// Token: 0x04000D37 RID: 3383
+
 			public int ProfID;
 
-			// Token: 0x04000D38 RID: 3384
 			public string ProfName;
 
-			// Token: 0x04000D39 RID: 3385
 			public string Skill1;
 
-			// Token: 0x04000D3A RID: 3386
 			public string Skill2;
 
-			// Token: 0x04000D3B RID: 3387
 			public string Skill3;
 
-			// Token: 0x04000D3C RID: 3388
 			public string Skill4;
 
-			// Token: 0x04000D3D RID: 3389
 			public string ProfIcon;
 
-			// Token: 0x04000D3E RID: 3390
 			public string ProfPic;
 
-			// Token: 0x04000D3F RID: 3391
 			public string ProfHeadIcon;
 
-			// Token: 0x04000D40 RID: 3392
 			public string ProfHeadIcon2;
 
-			// Token: 0x04000D41 RID: 3393
 			public float FixedEnmity;
 
-			// Token: 0x04000D42 RID: 3394
 			public float EnmityCoefficient;
 
-			// Token: 0x04000D43 RID: 3395
 			public string Description;
 
-			// Token: 0x04000D44 RID: 3396
 			public uint PromoteExperienceID;
 
-			// Token: 0x04000D45 RID: 3397
 			public uint OperateLevel;
 
-			// Token: 0x04000D46 RID: 3398
 			public bool PromoteLR;
 
-			// Token: 0x04000D47 RID: 3399
 			public string ProfNameIcon;
 
-			// Token: 0x04000D48 RID: 3400
 			public string ProfIntro;
 
-			// Token: 0x04000D49 RID: 3401
 			public string ProfTypeIntro;
 
-			// Token: 0x04000D4A RID: 3402
 			public string ProfWord1;
 
-			// Token: 0x04000D4B RID: 3403
 			public string ProfWord2;
 		}
 	}

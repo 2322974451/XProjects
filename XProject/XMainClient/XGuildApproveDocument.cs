@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000A76 RID: 2678
+
 	internal class XGuildApproveDocument : XDocComponent
 	{
-		// Token: 0x17002F7C RID: 12156
-		// (get) Token: 0x0600A2E1 RID: 41697 RVA: 0x001BCBD8 File Offset: 0x001BADD8
+
 		public override uint ID
 		{
 			get
@@ -19,13 +18,8 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002F7D RID: 12157
-		// (get) Token: 0x0600A2E2 RID: 41698 RVA: 0x001BCBEF File Offset: 0x001BADEF
-		// (set) Token: 0x0600A2E3 RID: 41699 RVA: 0x001BCBF7 File Offset: 0x001BADF7
 		public XGuildApproveView GuildApproveView { get; set; }
 
-		// Token: 0x17002F7E RID: 12158
-		// (get) Token: 0x0600A2E4 RID: 41700 RVA: 0x001BCC00 File Offset: 0x001BAE00
 		public List<XGuildApplyInfo> ApproveList
 		{
 			get
@@ -34,8 +28,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002F7F RID: 12159
-		// (get) Token: 0x0600A2E5 RID: 41701 RVA: 0x001BCC18 File Offset: 0x001BAE18
 		public GuildApproveSetting ApproveSetting
 		{
 			get
@@ -44,14 +36,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A2E7 RID: 41703 RVA: 0x001BCC48 File Offset: 0x001BAE48
 		public void ReqApproveList()
 		{
 			RpcC2M_FetchGuildApp rpc = new RpcC2M_FetchGuildApp();
 			XSingleton<XClientNetwork>.singleton.Send(rpc);
 		}
 
-		// Token: 0x0600A2E8 RID: 41704 RVA: 0x001BCC68 File Offset: 0x001BAE68
 		public void OnGetApproveList(FetchGAPPRes oRes)
 		{
 			bool flag = oRes.result > ErrorCode.ERR_SUCCESS;
@@ -93,7 +83,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A2E9 RID: 41705 RVA: 0x001BCDE8 File Offset: 0x001BAFE8
 		public void ReqApprove(bool bApprove, int index)
 		{
 			bool flag = index < 0 || index >= this.m_ApproveList.Count;
@@ -106,7 +95,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A2EA RID: 41706 RVA: 0x001BCE58 File Offset: 0x001BB058
 		public void ReqRejectAll()
 		{
 			RpcC2M_GuildApprovalNew rpcC2M_GuildApprovalNew = new RpcC2M_GuildApprovalNew();
@@ -114,7 +102,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_GuildApprovalNew);
 		}
 
-		// Token: 0x0600A2EB RID: 41707 RVA: 0x001BCE88 File Offset: 0x001BB088
 		public void OnApprove(GuildApprovalArg oArg, GuildApprovalRes oRes)
 		{
 			bool flag = oRes.result > ErrorCode.ERR_SUCCESS;
@@ -156,7 +143,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A2EC RID: 41708 RVA: 0x001BCF98 File Offset: 0x001BB198
 		public void ReqSetApprove(GuildApproveSetting setting)
 		{
 			RpcC2M_ChangeGuildSettingNew rpcC2M_ChangeGuildSettingNew = new RpcC2M_ChangeGuildSettingNew();
@@ -165,7 +151,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_ChangeGuildSettingNew);
 		}
 
-		// Token: 0x0600A2ED RID: 41709 RVA: 0x001BCFE4 File Offset: 0x001BB1E4
 		public void OnSetApprove(GuildApproveSetting setting)
 		{
 			this._ApproveSetting = setting;
@@ -176,14 +161,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A2EE RID: 41710 RVA: 0x001BD021 File Offset: 0x001BB221
 		public void OnGuildBrief(GuildBriefRes oRes)
 		{
 			this._ApproveSetting.autoApprove = (oRes.needApproval == 0);
 			this._ApproveSetting.PPT = (int)oRes.recuritppt;
 		}
 
-		// Token: 0x0600A2EF RID: 41711 RVA: 0x001BD04C File Offset: 0x001BB24C
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 			bool flag = this.GuildApproveView != null && this.GuildApproveView.IsVisible();
@@ -193,13 +176,10 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04003AD8 RID: 15064
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("GuildApproveDocument");
 
-		// Token: 0x04003ADA RID: 15066
 		private List<XGuildApplyInfo> m_ApproveList = new List<XGuildApplyInfo>();
 
-		// Token: 0x04003ADB RID: 15067
 		private GuildApproveSetting _ApproveSetting = new GuildApproveSetting();
 	}
 }

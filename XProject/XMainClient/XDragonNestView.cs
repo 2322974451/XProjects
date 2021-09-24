@@ -9,11 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000CD2 RID: 3282
+
 	internal class XDragonNestView : DlgBase<XDragonNestView, XDragonNestBehaviour>
 	{
-		// Token: 0x1700327A RID: 12922
-		// (get) Token: 0x0600B801 RID: 47105 RVA: 0x0024D58C File Offset: 0x0024B78C
+
 		public override string fileName
 		{
 			get
@@ -22,8 +21,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700327B RID: 12923
-		// (get) Token: 0x0600B802 RID: 47106 RVA: 0x0024D5A4 File Offset: 0x0024B7A4
 		public override int layer
 		{
 			get
@@ -32,8 +29,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700327C RID: 12924
-		// (get) Token: 0x0600B803 RID: 47107 RVA: 0x0024D5B8 File Offset: 0x0024B7B8
 		public override bool pushstack
 		{
 			get
@@ -42,8 +37,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700327D RID: 12925
-		// (get) Token: 0x0600B804 RID: 47108 RVA: 0x0024D5CC File Offset: 0x0024B7CC
 		public override bool fullscreenui
 		{
 			get
@@ -52,8 +45,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700327E RID: 12926
-		// (get) Token: 0x0600B805 RID: 47109 RVA: 0x0024D5E0 File Offset: 0x0024B7E0
 		public override bool hideMainMenu
 		{
 			get
@@ -62,8 +53,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700327F RID: 12927
-		// (get) Token: 0x0600B806 RID: 47110 RVA: 0x0024D5F4 File Offset: 0x0024B7F4
 		public override bool autoload
 		{
 			get
@@ -72,7 +61,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B807 RID: 47111 RVA: 0x0024D608 File Offset: 0x0024B808
 		protected override void Init()
 		{
 			base.Init();
@@ -82,7 +70,6 @@ namespace XMainClient
 			this._sweepDoc = XDocuments.GetSpecificDocument<XSweepDocument>(XSweepDocument.uuID);
 		}
 
-		// Token: 0x0600B808 RID: 47112 RVA: 0x0024D660 File Offset: 0x0024B860
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -104,7 +91,6 @@ namespace XMainClient
 			base.uiBehaviour.m_DiffHardLock.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnDiffHardLockClicked));
 		}
 
-		// Token: 0x0600B809 RID: 47113 RVA: 0x0024D828 File Offset: 0x0024BA28
 		private bool OnDiffCheckBoxClicked(IXUICheckBox box)
 		{
 			bool flag = !box.bChecked;
@@ -121,73 +107,62 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B80A RID: 47114 RVA: 0x0024D85A File Offset: 0x0024BA5A
 		private void OnDiffHardLockClicked(IXUISprite sp)
 		{
 			XSingleton<UiUtility>.singleton.ShowSystemTip(XStringDefineProxy.GetString("DRAGON_NEST_HARD_LOCK_TIP"), "fece00");
 		}
 
-		// Token: 0x0600B80B RID: 47115 RVA: 0x0024D877 File Offset: 0x0024BA77
 		private void OnWeakPPTHelpClicked(IXUISprite sp)
 		{
 			base.uiBehaviour.m_WeakTip.gameObject.SetActive(true);
 			base.uiBehaviour.m_WeakBlock.SetVisible(true);
 		}
 
-		// Token: 0x0600B80C RID: 47116 RVA: 0x0024D877 File Offset: 0x0024BA77
 		private void OnWeakPercentClicked(IXUILabel label)
 		{
 			base.uiBehaviour.m_WeakTip.gameObject.SetActive(true);
 			base.uiBehaviour.m_WeakBlock.SetVisible(true);
 		}
 
-		// Token: 0x0600B80D RID: 47117 RVA: 0x0024D8A3 File Offset: 0x0024BAA3
 		private void OnHelpClicked(IXUISprite sp)
 		{
 			DlgBase<XCommonHelpTipView, XCommonHelpTipBehaviour>.singleton.ShowHelp(XSysDefine.XSys_Activity_DragonNest);
 		}
 
-		// Token: 0x0600B80E RID: 47118 RVA: 0x0024D8B6 File Offset: 0x0024BAB6
 		private void OnHelpCloseClicked(IXUISprite sp)
 		{
 			base.uiBehaviour.m_HelpFrame.gameObject.SetActive(false);
 		}
 
-		// Token: 0x0600B80F RID: 47119 RVA: 0x0024D8D0 File Offset: 0x0024BAD0
 		private void _onClickQuanMinSpr(IXUISprite spr)
 		{
 			DlgBase<XCommonHelpTipView, XCommonHelpTipBehaviour>.singleton.ShowHelp(XSysDefine.XSys_DragonNest_QuanMin);
 		}
 
-		// Token: 0x0600B810 RID: 47120 RVA: 0x0024D8E4 File Offset: 0x0024BAE4
 		private bool OnCloseButtonClicked(IXUIButton button)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x0600B811 RID: 47121 RVA: 0x0024D900 File Offset: 0x0024BB00
 		private bool OnSweepButtonClicked(IXUIButton button)
 		{
 			this._sweepDoc.TrySweepQuery(0U, this._doc.CurrentExpID, 1U);
 			return true;
 		}
 
-		// Token: 0x0600B812 RID: 47122 RVA: 0x0024D92C File Offset: 0x0024BB2C
 		private bool OnEnterButtonClicked(IXUIButton button)
 		{
 			this._OnRealEnter((int)this._doc.CurrentExpID);
 			return true;
 		}
 
-		// Token: 0x0600B813 RID: 47123 RVA: 0x0024D954 File Offset: 0x0024BB54
 		private void _OnRealEnter(int id)
 		{
 			XTeamDocument specificDocument = XDocuments.GetSpecificDocument<XTeamDocument>(XTeamDocument.uuID);
 			specificDocument.SetAndMatch(id);
 		}
 
-		// Token: 0x0600B814 RID: 47124 RVA: 0x0024D978 File Offset: 0x0024BB78
 		private void OnDiffChange(uint value)
 		{
 			this._doc.CurrentDiff = value;
@@ -208,14 +183,12 @@ namespace XMainClient
 			this.SetupDetailFrame();
 		}
 
-		// Token: 0x0600B815 RID: 47125 RVA: 0x0024DA8E File Offset: 0x0024BC8E
 		private void OnWeakTipBlockClicked(IXUISprite sp)
 		{
 			base.uiBehaviour.m_WeakTip.gameObject.SetActive(false);
 			base.uiBehaviour.m_WeakBlock.SetVisible(false);
 		}
 
-		// Token: 0x0600B816 RID: 47126 RVA: 0x0024DABC File Offset: 0x0024BCBC
 		private void OnTabClicked(IXUISprite sp)
 		{
 			bool flag = this._doc.CurrentType == (uint)sp.ID;
@@ -228,7 +201,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B817 RID: 47127 RVA: 0x0024DB14 File Offset: 0x0024BD14
 		public void ShowDragonNestByTypeAndDiff(uint type, uint diff)
 		{
 			XDragonNestDocument specificDocument = XDocuments.GetSpecificDocument<XDragonNestDocument>(XDragonNestDocument.uuID);
@@ -245,7 +217,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B818 RID: 47128 RVA: 0x0024DB74 File Offset: 0x0024BD74
 		private void OnTabLockClicked(IXUISprite sp)
 		{
 			XSingleton<UiUtility>.singleton.ShowSystemTip(XStringDefineProxy.GetString("UnlockByLevel", new object[]
@@ -255,19 +226,16 @@ namespace XMainClient
 			}), "fece00");
 		}
 
-		// Token: 0x0600B819 RID: 47129 RVA: 0x0024DBED File Offset: 0x0024BDED
 		private void OnFinishedNestClicked(IXUISprite sp)
 		{
 			XSingleton<UiUtility>.singleton.ShowSystemTip(XStringDefineProxy.GetString("OnlyCanEnterCurrentStage"), "fece00");
 		}
 
-		// Token: 0x0600B81A RID: 47130 RVA: 0x0024DBED File Offset: 0x0024BDED
 		private void OnFinishedNestClicked(IXUITexture tex)
 		{
 			XSingleton<UiUtility>.singleton.ShowSystemTip(XStringDefineProxy.GetString("OnlyCanEnterCurrentStage"), "fece00");
 		}
 
-		// Token: 0x0600B81B RID: 47131 RVA: 0x0024DC0C File Offset: 0x0024BE0C
 		private void OnNestLockByLevelClicked(IXUISprite sp)
 		{
 			XSingleton<UiUtility>.singleton.ShowSystemTip(XStringDefineProxy.GetString("UnlockByLevel", new object[]
@@ -277,7 +245,6 @@ namespace XMainClient
 			}), "fece00");
 		}
 
-		// Token: 0x0600B81C RID: 47132 RVA: 0x0024DC74 File Offset: 0x0024BE74
 		private void OnNestLockByLevelClicked(IXUITexture tex)
 		{
 			XSingleton<UiUtility>.singleton.ShowSystemTip(XStringDefineProxy.GetString("UnlockByLevel", new object[]
@@ -287,7 +254,6 @@ namespace XMainClient
 			}), "fece00");
 		}
 
-		// Token: 0x0600B81D RID: 47133 RVA: 0x0024DCDC File Offset: 0x0024BEDC
 		private void OnNestLockClicked(IXUISprite sp)
 		{
 			DragonNestTable.RowData dragonNestByID = this._doc.GetDragonNestByID((uint)sp.ID);
@@ -299,7 +265,6 @@ namespace XMainClient
 			}), "fece00");
 		}
 
-		// Token: 0x0600B81E RID: 47134 RVA: 0x0024DD58 File Offset: 0x0024BF58
 		private void OnNestLockClicked(IXUITexture tex)
 		{
 			DragonNestTable.RowData dragonNestByID = this._doc.GetDragonNestByID((uint)tex.ID);
@@ -311,7 +276,6 @@ namespace XMainClient
 			}), "fece00");
 		}
 
-		// Token: 0x0600B81F RID: 47135 RVA: 0x0024DDD4 File Offset: 0x0024BFD4
 		private void OnDiffLockByLevelClicked(IXUISprite sp)
 		{
 			XSingleton<UiUtility>.singleton.ShowSystemTip(XStringDefineProxy.GetString("UnlockByLevel", new object[]
@@ -321,13 +285,11 @@ namespace XMainClient
 			}), "fece00");
 		}
 
-		// Token: 0x0600B820 RID: 47136 RVA: 0x0024DE55 File Offset: 0x0024C055
 		private void OnDiffLockClicked(IXUISprite sp)
 		{
 			XSingleton<UiUtility>.singleton.ShowSystemTip(XStringDefineProxy.GetString("UnlockByPreDiff"), "fece00");
 		}
 
-		// Token: 0x0600B821 RID: 47137 RVA: 0x0024DE72 File Offset: 0x0024C072
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -337,7 +299,6 @@ namespace XMainClient
 			this.SetupHelpFrame();
 		}
 
-		// Token: 0x0600B822 RID: 47138 RVA: 0x0024DEA0 File Offset: 0x0024C0A0
 		protected override void OnHide()
 		{
 			base.OnHide();
@@ -348,14 +309,12 @@ namespace XMainClient
 			XSingleton<UiUtility>.singleton.DestroyTextureInActivePool(base.uiBehaviour.m_NestNormalTplPool, "Boss");
 		}
 
-		// Token: 0x0600B823 RID: 47139 RVA: 0x0024DF14 File Offset: 0x0024C114
 		protected override void OnUnload()
 		{
 			this._doc.ResetData();
 			base.OnUnload();
 		}
 
-		// Token: 0x0600B824 RID: 47140 RVA: 0x0024DF2C File Offset: 0x0024C12C
 		public override int[] GetTitanBarItems()
 		{
 			int[] array = new int[1];
@@ -393,7 +352,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B825 RID: 47141 RVA: 0x0024DFE4 File Offset: 0x0024C1E4
 		private string GetWeekDayString(int day)
 		{
 			string result;
@@ -427,7 +385,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B826 RID: 47142 RVA: 0x0024E080 File Offset: 0x0024C280
 		private void SetupResertTip()
 		{
 			string[] array = null;
@@ -463,7 +420,6 @@ namespace XMainClient
 			}));
 		}
 
-		// Token: 0x0600B827 RID: 47143 RVA: 0x0024E190 File Offset: 0x0024C390
 		private void SetupTabFrame()
 		{
 			DragonNestType.RowData[] dragonNestTypeList = this._doc.GetDragonNestTypeList();
@@ -477,7 +433,6 @@ namespace XMainClient
 			base.uiBehaviour.m_TabTplPool.ActualReturnAll(false);
 		}
 
-		// Token: 0x0600B828 RID: 47144 RVA: 0x0024E23C File Offset: 0x0024C43C
 		private void SetupTabTpl(GameObject go, DragonNestType.RowData data)
 		{
 			IXUISprite ixuisprite = go.GetComponent("XUISprite") as IXUISprite;
@@ -502,7 +457,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B829 RID: 47145 RVA: 0x0024E368 File Offset: 0x0024C568
 		private void SetupNormalDragon()
 		{
 			base.uiBehaviour.m_DiffEasyCheckBox.ForceSetFlag(false);
@@ -525,14 +479,12 @@ namespace XMainClient
 			this.OnDiffChange(this._doc.CurrentDiff);
 		}
 
-		// Token: 0x0600B82A RID: 47146 RVA: 0x0024E444 File Offset: 0x0024C644
 		private void SetDiffFrame(uint diff)
 		{
 			base.uiBehaviour.m_NestFrameNormal.gameObject.SetActive(diff == 1U || diff == 0U);
 			base.uiBehaviour.m_NestFrameHard.gameObject.SetActive(diff == 2U);
 		}
 
-		// Token: 0x0600B82B RID: 47147 RVA: 0x0024E484 File Offset: 0x0024C684
 		private void SetupNestFrame()
 		{
 			List<DragonNestTable.RowData> dragonNestListByTypeAndDiff = this._doc.GetDragonNestListByTypeAndDiff(this._doc.CurrentType, this._doc.CurrentDiff);
@@ -585,7 +537,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B82C RID: 47148 RVA: 0x0024E6D8 File Offset: 0x0024C8D8
 		private void SetupNestTpl(GameObject go, DragonNestTable.RowData data, uint wave)
 		{
 			IXUISprite ixuisprite = go.GetComponent("XUISprite") as IXUISprite;
@@ -669,7 +620,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B82D RID: 47149 RVA: 0x0024E9B8 File Offset: 0x0024CBB8
 		private void SetupDetailFrame()
 		{
 			ExpeditionTable.RowData expeditionDataByID = this._expDoc.GetExpeditionDataByID((int)this._doc.CurrentExpID);
@@ -723,7 +673,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B82E RID: 47150 RVA: 0x0024ED64 File Offset: 0x0024CF64
 		private void SetupWeakDetail(DragonNestTable.RowData data, ExpeditionTable.RowData expData)
 		{
 			base.uiBehaviour.m_WeakName.SetText(expData.DNExpeditionName);
@@ -863,7 +812,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B82F RID: 47151 RVA: 0x0024F458 File Offset: 0x0024D658
 		private void SetupItemList(ExpeditionTable.RowData expData)
 		{
 			bool flag = expData.ViewableDropList == null;
@@ -883,7 +831,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B830 RID: 47152 RVA: 0x0024F580 File Offset: 0x0024D780
 		private void SetupEnterCost(ExpeditionTable.RowData expData)
 		{
 			bool flag = expData.CostItem.Count > 0;
@@ -930,7 +877,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B831 RID: 47153 RVA: 0x0024F798 File Offset: 0x0024D998
 		private void SetupSweepCost(ExpeditionTable.RowData expData)
 		{
 			bool flag = !XSingleton<XGameSysMgr>.singleton.IsSystemOpened(XSysDefine.XSys_DragonNest_Sweep);
@@ -959,30 +905,24 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B832 RID: 47154 RVA: 0x0024F8D4 File Offset: 0x0024DAD4
 		private void SetupHelpFrame()
 		{
 			base.uiBehaviour.m_HelpFrame.gameObject.SetActive(false);
 			base.uiBehaviour.m_HelpTip.SetText(XStringDefineProxy.GetString("DragonNestHelpTip"));
 		}
 
-		// Token: 0x0600B833 RID: 47155 RVA: 0x0024F909 File Offset: 0x0024DB09
 		public void RefreshUI()
 		{
 			this.SetupTabFrame();
 			this.SetupNormalDragon();
 		}
 
-		// Token: 0x040048BA RID: 18618
 		private XDragonNestDocument _doc = null;
 
-		// Token: 0x040048BB RID: 18619
 		private XExpeditionDocument _expDoc = null;
 
-		// Token: 0x040048BC RID: 18620
 		private XMainInterfaceDocument _mainDoc = null;
 
-		// Token: 0x040048BD RID: 18621
 		private XSweepDocument _sweepDoc = null;
 	}
 }

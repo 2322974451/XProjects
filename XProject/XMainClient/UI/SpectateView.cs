@@ -9,11 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001858 RID: 6232
+
 	internal class SpectateView : DlgBase<SpectateView, SpectateBehaviour>
 	{
-		// Token: 0x1700397F RID: 14719
-		// (get) Token: 0x06010374 RID: 66420 RVA: 0x003E7B70 File Offset: 0x003E5D70
+
 		public override string fileName
 		{
 			get
@@ -22,8 +21,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003980 RID: 14720
-		// (get) Token: 0x06010375 RID: 66421 RVA: 0x003E7B88 File Offset: 0x003E5D88
 		public override int layer
 		{
 			get
@@ -32,8 +29,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003981 RID: 14721
-		// (get) Token: 0x06010376 RID: 66422 RVA: 0x003E7B9C File Offset: 0x003E5D9C
 		public override bool autoload
 		{
 			get
@@ -42,8 +37,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003982 RID: 14722
-		// (get) Token: 0x06010377 RID: 66423 RVA: 0x003E7BB0 File Offset: 0x003E5DB0
 		public override int group
 		{
 			get
@@ -52,8 +45,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003983 RID: 14723
-		// (get) Token: 0x06010378 RID: 66424 RVA: 0x003E7BC4 File Offset: 0x003E5DC4
 		public override bool hideMainMenu
 		{
 			get
@@ -62,8 +53,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003984 RID: 14724
-		// (get) Token: 0x06010379 RID: 66425 RVA: 0x003E7BD8 File Offset: 0x003E5DD8
 		public override bool pushstack
 		{
 			get
@@ -72,8 +61,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003985 RID: 14725
-		// (get) Token: 0x0601037A RID: 66426 RVA: 0x003E7BEC File Offset: 0x003E5DEC
 		public override bool fullscreenui
 		{
 			get
@@ -82,8 +69,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003986 RID: 14726
-		// (get) Token: 0x0601037B RID: 66427 RVA: 0x003E7C00 File Offset: 0x003E5E00
 		public override int sysid
 		{
 			get
@@ -92,7 +77,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601037C RID: 66428 RVA: 0x003E7C1C File Offset: 0x003E5E1C
 		protected override void Init()
 		{
 			base.Init();
@@ -116,7 +100,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_SettingBtn.SetVisible(XSingleton<XGame>.singleton.CurrentStage.Stage == EXStage.Hall);
 		}
 
-		// Token: 0x0601037D RID: 66429 RVA: 0x003E7D5C File Offset: 0x003E5F5C
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -128,7 +111,6 @@ namespace XMainClient.UI
 			this.MyRecordInit();
 		}
 
-		// Token: 0x0601037E RID: 66430 RVA: 0x003E7DC4 File Offset: 0x003E5FC4
 		public override void RegisterEvent()
 		{
 			base.uiBehaviour.m_Close.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseClicked));
@@ -147,7 +129,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_SettingDeny.RegisterOnCheckEventHandler(new CheckBoxOnCheckEventHandler(this.OnSettingCheckBoxClick));
 		}
 
-		// Token: 0x0601037F RID: 66431 RVA: 0x003E7F40 File Offset: 0x003E6140
 		private void SetupTabs()
 		{
 			base.uiBehaviour.m_SpectateTabs.ReturnAll(false);
@@ -173,20 +154,17 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010380 RID: 66432 RVA: 0x003E80B0 File Offset: 0x003E62B0
 		private void SpectateInit()
 		{
 			this._recommendCheckBox.bChecked = true;
 			this.OnSpectateTabsClick(this._recommendCheckBox);
 		}
 
-		// Token: 0x06010381 RID: 66433 RVA: 0x003E80CD File Offset: 0x003E62CD
 		private void MyRecordInit()
 		{
 			this._doc.SendQueryMyLiveInfo();
 		}
 
-		// Token: 0x06010382 RID: 66434 RVA: 0x003E80DC File Offset: 0x003E62DC
 		protected bool OnCloseClicked(IXUIButton go)
 		{
 			bool flag = XSingleton<XGame>.singleton.CurrentStage.Stage == EXStage.Hall;
@@ -207,7 +185,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x06010383 RID: 66435 RVA: 0x003E8144 File Offset: 0x003E6344
 		private bool OnSpectateTabsClick(IXUICheckBox icheckBox)
 		{
 			bool flag = !icheckBox.bChecked;
@@ -234,7 +211,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x06010384 RID: 66436 RVA: 0x003E81CC File Offset: 0x003E63CC
 		private void OnTagCheckBoxClick(ulong id)
 		{
 			bool flag = id == 0UL;
@@ -252,7 +228,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010385 RID: 66437 RVA: 0x003E8240 File Offset: 0x003E6440
 		private void TurnPageBtnClick(IXUISprite btn)
 		{
 			bool flag = btn.ID == 0UL;
@@ -272,21 +247,18 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010386 RID: 66438 RVA: 0x003E82A0 File Offset: 0x003E64A0
 		private bool OnBroadcastCamera(IXUIButton btn)
 		{
 			XSingleton<XChatIFlyMgr>.singleton.OnOpenWebView();
 			return true;
 		}
 
-		// Token: 0x06010387 RID: 66439 RVA: 0x003E82C0 File Offset: 0x003E64C0
 		private bool OnRefreshBtnClick(IXUIButton btn)
 		{
 			this._doc.SendQuerySpectateInfo(this._doc.CurrTabs);
 			return true;
 		}
 
-		// Token: 0x06010388 RID: 66440 RVA: 0x003E82EC File Offset: 0x003E64EC
 		private bool OnWatchLiveBtnClick(IXUIButton btn)
 		{
 			this._currClickBtn = btn;
@@ -297,7 +269,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x06010389 RID: 66441 RVA: 0x003E839C File Offset: 0x003E659C
 		public void SetWatchBtnGrey(bool isOver)
 		{
 			if (isOver)
@@ -307,7 +278,6 @@ namespace XMainClient.UI
 			this._currClickBtn.SetGrey(false);
 		}
 
-		// Token: 0x0601038A RID: 66442 RVA: 0x003E83E4 File Offset: 0x003E65E4
 		public void RefreshSpectate(int page)
 		{
 			base.uiBehaviour.m_EmptyTips.SetActive(this._doc.MaxPage == 0);
@@ -349,7 +319,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601038B RID: 66443 RVA: 0x003E8634 File Offset: 0x003E6834
 		public void RefreshMyRecord()
 		{
 			this.SetVisibleSettingTextState();
@@ -385,7 +354,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601038C RID: 66444 RVA: 0x003E88D8 File Offset: 0x003E6AD8
 		private void SetMessageInTpl(GameObject go, OneLiveRecordInfo info, bool showWatchBtn, int index = 0)
 		{
 			if (showWatchBtn)
@@ -609,20 +577,17 @@ namespace XMainClient.UI
 			XSingleton<XDebug>.singleton.AddErrorLog("UnDefine LiveType.", null, null, null, null, null);
 		}
 
-		// Token: 0x0601038D RID: 66445 RVA: 0x003E94C4 File Offset: 0x003E76C4
 		private string GetProIconString(RoleType type)
 		{
 			int profID = XFastEnumIntEqualityComparer<RoleType>.ToInt(type);
 			return XLabelSymbolHelper.FormatImage(this.PROFRESSION_ICON_ATLAS, XSingleton<XProfessionSkillMgr>.singleton.GetProfIcon(profID));
 		}
 
-		// Token: 0x0601038E RID: 66446 RVA: 0x003E94F4 File Offset: 0x003E76F4
 		private string GetGuildIconString(int guildIconID)
 		{
 			return XLabelSymbolHelper.FormatImage(SpectateView.GUILD_ICON_ATLAS, "ghicon_" + guildIconID.ToString());
 		}
 
-		// Token: 0x0601038F RID: 66447 RVA: 0x003E9524 File Offset: 0x003E7724
 		private bool OnSettingBtnClick(IXUIButton btn)
 		{
 			base.uiBehaviour.m_SettingFrame.SetActive(true);
@@ -633,14 +598,12 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x06010390 RID: 66448 RVA: 0x003E95C0 File Offset: 0x003E77C0
 		private bool OnSettingCloseBtnClick(IXUIButton btn)
 		{
 			base.uiBehaviour.m_SettingFrame.SetActive(false);
 			return true;
 		}
 
-		// Token: 0x06010391 RID: 66449 RVA: 0x003E95E8 File Offset: 0x003E77E8
 		private bool OnSettingCheckBoxClick(IXUICheckBox icb)
 		{
 			bool flag = !icb.bChecked;
@@ -657,7 +620,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x06010392 RID: 66450 RVA: 0x003E9624 File Offset: 0x003E7824
 		private bool OnSettingOkBtnClick(IXUIButton btn)
 		{
 			RpcC2G_ChangeLiveVisible rpcC2G_ChangeLiveVisible = new RpcC2G_ChangeLiveVisible();
@@ -667,56 +629,40 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x06010393 RID: 66451 RVA: 0x003E9668 File Offset: 0x003E7868
 		public void SetVisibleSettingTextState()
 		{
 			base.uiBehaviour.m_VisText.SetActive(this._doc.VisibleSetting);
 			base.uiBehaviour.m_UnVisText.SetActive(!this._doc.VisibleSetting);
 		}
 
-		// Token: 0x04007456 RID: 29782
 		private XSpectateDocument _doc;
 
-		// Token: 0x04007457 RID: 29783
 		private string PROFRESSION_ICON_ATLAS = "SkillIcon/SkillTree";
 
-		// Token: 0x04007458 RID: 29784
 		private static readonly string GUILD_ICON_ATLAS = "common/Billboard";
 
-		// Token: 0x04007459 RID: 29785
 		private static readonly string TAG_ICON_ATLAS = "common/Universal";
 
-		// Token: 0x0400745A RID: 29786
 		private string _guildTagStr;
 
-		// Token: 0x0400745B RID: 29787
 		private string _friendTagStr;
 
-		// Token: 0x0400745C RID: 29788
 		private string _crossTagStr;
 
-		// Token: 0x0400745D RID: 29789
 		private string _leagueTagStr;
 
-		// Token: 0x0400745E RID: 29790
 		private string _splitSpace = " ";
 
-		// Token: 0x0400745F RID: 29791
 		private string _splitBigSpace = "      ";
 
-		// Token: 0x04007460 RID: 29792
 		private float LastLevelSceneTime = 0f;
 
-		// Token: 0x04007461 RID: 29793
 		private IXUICheckBox _recommendCheckBox;
 
-		// Token: 0x04007462 RID: 29794
 		private IXUICheckBox _spectateTabCheckBox;
 
-		// Token: 0x04007463 RID: 29795
 		private IXUIButton _currClickBtn;
 
-		// Token: 0x04007464 RID: 29796
 		private int _tabCount;
 	}
 }

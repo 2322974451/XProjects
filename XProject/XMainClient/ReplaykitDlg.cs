@@ -9,11 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000BE3 RID: 3043
+
 	internal class ReplaykitDlg : DlgBase<ReplaykitDlg, ReplayBehaviour>
 	{
-		// Token: 0x1700309D RID: 12445
-		// (get) Token: 0x0600AD59 RID: 44377 RVA: 0x002020CC File Offset: 0x002002CC
+
 		public override string fileName
 		{
 			get
@@ -22,8 +21,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700309E RID: 12446
-		// (get) Token: 0x0600AD5A RID: 44378 RVA: 0x002020E4 File Offset: 0x002002E4
 		public override bool autoload
 		{
 			get
@@ -32,8 +29,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700309F RID: 12447
-		// (get) Token: 0x0600AD5B RID: 44379 RVA: 0x002020F8 File Offset: 0x002002F8
 		public override bool isHideChat
 		{
 			get
@@ -42,13 +37,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AD5C RID: 44380 RVA: 0x0020210B File Offset: 0x0020030B
 		protected override void Init()
 		{
 			base.Init();
 		}
 
-		// Token: 0x0600AD5D RID: 44381 RVA: 0x00202118 File Offset: 0x00200318
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -58,7 +51,6 @@ namespace XMainClient
 			base.uiBehaviour.m_btn_switch.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnBtnSwitchClick));
 		}
 
-		// Token: 0x0600AD5E RID: 44382 RVA: 0x002021A4 File Offset: 0x002003A4
 		public void CheckShow()
 		{
 			bool flag = this.isPlaying;
@@ -69,7 +61,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AD5F RID: 44383 RVA: 0x002021D0 File Offset: 0x002003D0
 		public void Show(bool show)
 		{
 			bool flag = DlgBase<BroadMiniDlg, BroadcastMiniBehaviour>.singleton.isBroadcast && show;
@@ -100,7 +91,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AD60 RID: 44384 RVA: 0x00202254 File Offset: 0x00200454
 		private void Refresh()
 		{
 			base.uiBehaviour.m_spr_disable_camera.SetVisible(!ReplaykitDlg.isCameraOpen);
@@ -109,7 +99,6 @@ namespace XMainClient
 			XSingleton<XDebug>.singleton.AddLog("CAMERA: " + ReplaykitDlg.isCameraOpen.ToString(), " micro: " + flag.ToString(), null, null, null, null, XDebugColor.XDebug_None);
 		}
 
-		// Token: 0x0600AD61 RID: 44385 RVA: 0x002022E0 File Offset: 0x002004E0
 		private bool OnBtnCameraClick(IXUIButton btn)
 		{
 			List<float> floatList = XSingleton<XGlobalConfig>.singleton.GetFloatList("ReplayPos");
@@ -135,7 +124,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600AD62 RID: 44386 RVA: 0x00202408 File Offset: 0x00200608
 		private bool OnBtnMicClick(IXUIButton btn)
 		{
 			bool flag = !XSingleton<XUpdater.XUpdater>.singleton.XPlatform.CheckStatus("is_microphone_enabled", "");
@@ -148,7 +136,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600AD63 RID: 44387 RVA: 0x002024A4 File Offset: 0x002006A4
 		public bool OnStopClick(IXUIButton btn)
 		{
 			this.Show(false);
@@ -160,7 +147,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600AD64 RID: 44388 RVA: 0x00202517 File Offset: 0x00200717
 		public void OpenRepaly()
 		{
 			XSingleton<XDebug>.singleton.AddLog("select_broadcast_service", null, null, null, null, null, XDebugColor.XDebug_None);
@@ -169,14 +155,12 @@ namespace XMainClient
 			this.isReadyPlaying = true;
 		}
 
-		// Token: 0x0600AD65 RID: 44389 RVA: 0x00202558 File Offset: 0x00200758
 		private bool OnBtnSwitchClick(IXUIButton btn)
 		{
 			XSingleton<XDebug>.singleton.AddLog("OnBtnSwitchClick", null, null, null, null, null, XDebugColor.XDebug_None);
 			return true;
 		}
 
-		// Token: 0x0600AD66 RID: 44390 RVA: 0x00202584 File Offset: 0x00200784
 		public void ResumeReplay()
 		{
 			bool flag = this.isPlaying;
@@ -187,13 +171,10 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0400414E RID: 16718
 		public bool isPlaying = false;
 
-		// Token: 0x0400414F RID: 16719
 		public bool isReadyPlaying = false;
 
-		// Token: 0x04004150 RID: 16720
 		public static bool isCameraOpen = false;
 	}
 }

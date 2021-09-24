@@ -6,10 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020018B9 RID: 6329
+
 	internal class LoginWindowBehaviour : DlgBehaviourBase
 	{
-		// Token: 0x060107EA RID: 67562 RVA: 0x0040A2CC File Offset: 0x004084CC
+
 		private void Awake()
 		{
 			this.m_normalFrame = base.transform.FindChild("Bg/NormalFrame").gameObject;
@@ -52,100 +52,68 @@ namespace XMainClient.UI
 			this.m_BlockWindow.gameObject.SetActive(false);
 		}
 
-		// Token: 0x0400773C RID: 30524
 		public GameObject m_normalFrame;
 
-		// Token: 0x0400773D RID: 30525
 		public GameObject m_ServerListFrame;
 
-		// Token: 0x0400773E RID: 30526
 		public GameObject m_QueueFrame;
 
-		// Token: 0x0400773F RID: 30527
 		public IXUIInput m_Account;
 
-		// Token: 0x04007740 RID: 30528
 		public IXUIInput m_Password;
 
-		// Token: 0x04007741 RID: 30529
 		public IXUIButton m_Login;
 
-		// Token: 0x04007742 RID: 30530
 		public IXUIButton m_GuestLogin;
 
-		// Token: 0x04007743 RID: 30531
 		public IXUIButton m_QQLogin;
 
-		// Token: 0x04007744 RID: 30532
 		public IXUIButton m_WXLogin;
 
-		// Token: 0x04007745 RID: 30533
 		public IXUITweenTool m_Tween;
 
-		// Token: 0x04007746 RID: 30534
 		public IXUITweenTool m_SelectPlatformTween;
 
-		// Token: 0x04007747 RID: 30535
 		public Transform m_BlockWindow;
 
-		// Token: 0x04007748 RID: 30536
 		public IXUILabel m_Version;
 
-		// Token: 0x04007749 RID: 30537
 		public IXUIButton m_Notice;
 
-		// Token: 0x0400774A RID: 30538
 		public IXUIButton m_CG;
 
-		// Token: 0x0400774B RID: 30539
 		public IXUIButton m_CustomerService;
 
-		// Token: 0x0400774C RID: 30540
 		public IXUIButton m_EnterToSelectChar;
 
-		// Token: 0x0400774D RID: 30541
 		public IXUIButton m_ReturnToLogin;
 
-		// Token: 0x0400774E RID: 30542
 		public IXUISprite m_ServerListButton;
 
-		// Token: 0x0400774F RID: 30543
 		public IXUILabel m_CurrentServer;
 
-		// Token: 0x04007750 RID: 30544
 		public Transform m_ServerList;
 
-		// Token: 0x04007751 RID: 30545
 		public IXUISprite m_CloseServerList;
 
-		// Token: 0x04007752 RID: 30546
 		public XUIPool m_AreaPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04007753 RID: 30547
 		public IXUIScrollView m_AreaScrollView;
 
-		// Token: 0x04007754 RID: 30548
 		public XUIPool m_ServerPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04007755 RID: 30549
 		public IXUIScrollView m_ServerScrollView;
 
-		// Token: 0x04007756 RID: 30550
 		public IXUIWrapContent m_FriendWrapContent;
 
-		// Token: 0x04007757 RID: 30551
 		public IXUIScrollView m_FriendScrollView;
 
-		// Token: 0x04007758 RID: 30552
 		public Transform m_ServerFrame;
 
-		// Token: 0x04007759 RID: 30553
 		public Transform m_FriendFrame;
 
-		// Token: 0x0400775A RID: 30554
 		public IXUILabel m_QueueTip;
 
-		// Token: 0x0400775B RID: 30555
 		public IXUIButton m_LeaveQueue;
 	}
 }

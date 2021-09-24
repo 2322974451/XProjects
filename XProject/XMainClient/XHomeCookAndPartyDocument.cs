@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C34 RID: 3124
+
 	internal class XHomeCookAndPartyDocument : XDocComponent
 	{
-		// Token: 0x1700313D RID: 12605
-		// (get) Token: 0x0600B0E1 RID: 45281 RVA: 0x0021D454 File Offset: 0x0021B654
+
 		public override uint ID
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700313E RID: 12606
-		// (get) Token: 0x0600B0E2 RID: 45282 RVA: 0x0021D46C File Offset: 0x0021B66C
 		public static XHomeCookAndPartyDocument Doc
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700313F RID: 12607
-		// (get) Token: 0x0600B0E3 RID: 45283 RVA: 0x0021D498 File Offset: 0x0021B698
 		public static CookingFoodInfo CookingFoolInfoTable
 		{
 			get
@@ -40,8 +35,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003140 RID: 12608
-		// (get) Token: 0x0600B0E4 RID: 45284 RVA: 0x0021D4B0 File Offset: 0x0021B6B0
 		public static CookingLevel CookingLevelTable
 		{
 			get
@@ -50,8 +43,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003141 RID: 12609
-		// (get) Token: 0x0600B0E5 RID: 45285 RVA: 0x0021D4C8 File Offset: 0x0021B6C8
 		public static GardenBanquetCfg GardenBanquetCfgTable
 		{
 			get
@@ -60,7 +51,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B0E6 RID: 45286 RVA: 0x0021D4E0 File Offset: 0x0021B6E0
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			XHomeCookAndPartyDocument.AsyncLoader.AddTask("Table/CookingFoodInfo", XHomeCookAndPartyDocument._cookingFoodInfoTable, false);
@@ -70,26 +60,22 @@ namespace XMainClient
 			XHomeCookAndPartyDocument.AsyncLoader.Execute(callback);
 		}
 
-		// Token: 0x0600B0E7 RID: 45287 RVA: 0x00114ACA File Offset: 0x00112CCA
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
 		}
 
-		// Token: 0x0600B0E8 RID: 45288 RVA: 0x00114AD5 File Offset: 0x00112CD5
 		protected override void EventSubscribe()
 		{
 			base.EventSubscribe();
 		}
 
-		// Token: 0x0600B0E9 RID: 45289 RVA: 0x0021D552 File Offset: 0x0021B752
 		public override void OnDetachFromHost()
 		{
 			base.OnDetachFromHost();
 			this.ResetBanquetState();
 		}
 
-		// Token: 0x0600B0EA RID: 45290 RVA: 0x0021D564 File Offset: 0x0021B764
 		private void ResetBanquetState()
 		{
 			bool flag = this._curBanquetID > 0U;
@@ -105,21 +91,16 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B0EB RID: 45291 RVA: 0x0021D5A8 File Offset: 0x0021B7A8
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 			this.ResetBanquetState();
 		}
 
-		// Token: 0x0600B0EC RID: 45292 RVA: 0x00114AE9 File Offset: 0x00112CE9
 		public override void OnEnterSceneFinally()
 		{
 			base.OnEnterSceneFinally();
 		}
 
-		// Token: 0x17003142 RID: 12610
-		// (get) Token: 0x0600B0ED RID: 45293 RVA: 0x0021D5B4 File Offset: 0x0021B7B4
-		// (set) Token: 0x0600B0EE RID: 45294 RVA: 0x0021D5CC File Offset: 0x0021B7CC
 		public uint CurBanquetID
 		{
 			get
@@ -132,9 +113,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003143 RID: 12611
-		// (get) Token: 0x0600B0EF RID: 45295 RVA: 0x0021D5D8 File Offset: 0x0021B7D8
-		// (set) Token: 0x0600B0F0 RID: 45296 RVA: 0x0021D5F0 File Offset: 0x0021B7F0
 		public uint CurBanquetState
 		{
 			get
@@ -147,7 +125,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B0F1 RID: 45297 RVA: 0x0021D5FC File Offset: 0x0021B7FC
 		public CookingFoodInfo.RowData GetCookInfoByCuisineID(uint id)
 		{
 			for (int i = 0; i < XHomeCookAndPartyDocument._cookingFoodInfoTable.Table.Length; i++)
@@ -161,7 +138,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x0600B0F2 RID: 45298 RVA: 0x0021D654 File Offset: 0x0021B854
 		public GardenBanquetCfg.RowData GetGardenBanquetInfoByID(uint id)
 		{
 			GardenBanquetCfg.RowData[] table = XHomeCookAndPartyDocument._gardenBanquetCfg.Table;
@@ -176,7 +152,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x0600B0F3 RID: 45299 RVA: 0x0021D6A0 File Offset: 0x0021B8A0
 		public bool IsFoodIdActiveInTable(uint id)
 		{
 			for (int i = 0; i < XHomeCookAndPartyDocument.CookingFoolInfoTable.Table.Length; i++)
@@ -190,7 +165,6 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x0600B0F4 RID: 45300 RVA: 0x0021D700 File Offset: 0x0021B900
 		public void ReqGardenCookingFood(uint foodId)
 		{
 			RpcC2M_GardenCookingFood rpcC2M_GardenCookingFood = new RpcC2M_GardenCookingFood();
@@ -198,7 +172,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_GardenCookingFood);
 		}
 
-		// Token: 0x0600B0F5 RID: 45301 RVA: 0x0021D730 File Offset: 0x0021B930
 		public void AddNewCookItem(uint id)
 		{
 			bool flag = !this._newCookingItems.Contains(id);
@@ -208,7 +181,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B0F6 RID: 45302 RVA: 0x0021D760 File Offset: 0x0021B960
 		public bool RemoveNewCookItem(uint id)
 		{
 			bool flag = this._newCookingItems.Contains(id);
@@ -225,13 +197,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B0F7 RID: 45303 RVA: 0x0021D798 File Offset: 0x0021B998
 		public bool IsNewAddedCookItem(uint id)
 		{
 			return this._newCookingItems.Contains(id);
 		}
 
-		// Token: 0x0600B0F8 RID: 45304 RVA: 0x0021D7C0 File Offset: 0x0021B9C0
 		public void StartCreateFood(uint foodID)
 		{
 			CookingFoodInfo.RowData cookInfoByCuisineID = XHomeCookAndPartyDocument.Doc.GetCookInfoByCuisineID(foodID);
@@ -244,21 +214,18 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B0F9 RID: 45305 RVA: 0x0021D802 File Offset: 0x0021BA02
 		private void TimerUp()
 		{
 			this.StopCreateFoodTimer();
 			this._timerID = XSingleton<XTimerMgr>.singleton.SetTimerAccurate(0.025f, new XTimerMgr.AccurateElapsedEventHandler(this.OnCreatingFood), 0.025f);
 		}
 
-		// Token: 0x0600B0FA RID: 45306 RVA: 0x0021D837 File Offset: 0x0021BA37
 		public void StopCreateFoodTimer()
 		{
 			XSingleton<XTimerMgr>.singleton.KillTimer(this._timerID);
 			this._timerID = 0U;
 		}
 
-		// Token: 0x0600B0FB RID: 45307 RVA: 0x0021D854 File Offset: 0x0021BA54
 		public void CookingFoodSuccess()
 		{
 			bool flag = DlgBase<HomeMainDlg, TabDlgBehaviour>.singleton.IsVisible() && DlgBase<HomeMainDlg, TabDlgBehaviour>.singleton.HomeCookingHandler.IsVisible();
@@ -268,7 +235,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B0FC RID: 45308 RVA: 0x0021D898 File Offset: 0x0021BA98
 		public void BeginToFeast(uint banquet_id)
 		{
 			SceneType sceneType = XSingleton<XScene>.singleton.SceneType;
@@ -309,7 +275,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B0FD RID: 45309 RVA: 0x0021D9B8 File Offset: 0x0021BBB8
 		public void SendActiveFoodMenu(uint foodID)
 		{
 			RpcC2M_ActiveCookbook rpcC2M_ActiveCookbook = new RpcC2M_ActiveCookbook();
@@ -318,7 +283,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_ActiveCookbook);
 		}
 
-		// Token: 0x0600B0FE RID: 45310 RVA: 0x0021D9FC File Offset: 0x0021BBFC
 		public string GetFoodNameByID(uint id)
 		{
 			for (int i = 0; i < XHomeCookAndPartyDocument.CookingFoolInfoTable.Table.Length; i++)
@@ -332,7 +296,6 @@ namespace XMainClient
 			return "";
 		}
 
-		// Token: 0x0600B0FF RID: 45311 RVA: 0x0021DA5C File Offset: 0x0021BC5C
 		public void SortFoodTableData()
 		{
 			CookingFoodInfo.RowData[] table = XHomeCookAndPartyDocument._cookingFoodInfoTable.Table;
@@ -351,7 +314,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B100 RID: 45312 RVA: 0x0021DAC8 File Offset: 0x0021BCC8
 		public bool IsTimeLimited(uint foodId)
 		{
 			uint frequency = XHomeCookAndPartyDocument.Doc.GetCookInfoByCuisineID(foodId).Frequency;
@@ -369,7 +331,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B101 RID: 45313 RVA: 0x0021DB14 File Offset: 0x0021BD14
 		public void SendGardenBanquet(uint banquetID)
 		{
 			RpcC2M_GardenBanquet rpcC2M_GardenBanquet = new RpcC2M_GardenBanquet();
@@ -377,7 +338,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_GardenBanquet);
 		}
 
-		// Token: 0x0600B102 RID: 45314 RVA: 0x0021DB44 File Offset: 0x0021BD44
 		public void OnGardenFeastPhase(PtcG2C_GardenBanquetNotice res)
 		{
 			SceneType sceneType = XSingleton<XScene>.singleton.SceneType;
@@ -434,14 +394,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B103 RID: 45315 RVA: 0x0021DD14 File Offset: 0x0021BF14
 		private bool IsHasRewards()
 		{
 			int @int = XSingleton<XGlobalConfig>.singleton.GetInt("GardenBanquetAwardTimesTSWK");
 			return (ulong)this._totalFeastedTimesWeekly <= (ulong)((long)@int);
 		}
 
-		// Token: 0x0600B104 RID: 45316 RVA: 0x0021DD48 File Offset: 0x0021BF48
 		public void OnHomeFeastingCountDown(object argu, float delay)
 		{
 			this._curFeastRemainTime--;
@@ -460,21 +418,18 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B105 RID: 45317 RVA: 0x0021DDB9 File Offset: 0x0021BFB9
 		private void CountDownTimerUp()
 		{
 			this.StopCountDownTimer();
 			this._CountDownTimerID = XSingleton<XTimerMgr>.singleton.SetTimerAccurate(1f, new XTimerMgr.AccurateElapsedEventHandler(this.OnHomeFeastingCountDown), null);
 		}
 
-		// Token: 0x0600B106 RID: 45318 RVA: 0x0021DDE5 File Offset: 0x0021BFE5
 		private void StopCountDownTimer()
 		{
 			XSingleton<XTimerMgr>.singleton.KillTimer(this._CountDownTimerID);
 			this._CountDownTimerID = 0U;
 		}
 
-		// Token: 0x0600B107 RID: 45319 RVA: 0x0021DE00 File Offset: 0x0021C000
 		public void OnGetGardenFeastRewards()
 		{
 			GardenBanquetCfg.RowData gardenBanquetInfoByID = this.GetGardenBanquetInfoByID(this._curBanquetID);
@@ -499,7 +454,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B108 RID: 45320 RVA: 0x0021DEDC File Offset: 0x0021C0DC
 		public uint GetExpByCookLevel(uint level)
 		{
 			foreach (CookingLevel.RowData rowData in XHomeCookAndPartyDocument._cookingLevelTable.Table)
@@ -513,7 +467,6 @@ namespace XMainClient
 			return 0U;
 		}
 
-		// Token: 0x0600B109 RID: 45321 RVA: 0x0021DF28 File Offset: 0x0021C128
 		public ItemBuffTable.RowData GetItembuffDataByID(uint id)
 		{
 			for (int i = 0; i < XHomeCookAndPartyDocument._itemBuffTable.Table.Length; i++)
@@ -528,7 +481,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x0600B10A RID: 45322 RVA: 0x0021DF78 File Offset: 0x0021C178
 		public uint GetItemIDByBuffID(uint id)
 		{
 			for (int i = 0; i < XHomeCookAndPartyDocument._itemBuffTable.Table.Length; i++)
@@ -546,7 +498,6 @@ namespace XMainClient
 			return 0U;
 		}
 
-		// Token: 0x0600B10B RID: 45323 RVA: 0x0021DFF8 File Offset: 0x0021C1F8
 		private void ChangeFeastPhase()
 		{
 			GardenBanquetCfg.RowData gardenBanquetInfoByID = this.GetGardenBanquetInfoByID(this._curBanquetID);
@@ -601,7 +552,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B10C RID: 45324 RVA: 0x0021E174 File Offset: 0x0021C374
 		public uint GetTotalFeastTimeByID(uint banquetID)
 		{
 			GardenBanquetCfg.RowData gardenBanquetInfoByID = this.GetGardenBanquetInfoByID(banquetID);
@@ -618,13 +568,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B10D RID: 45325 RVA: 0x0021E1B8 File Offset: 0x0021C3B8
 		public string GetHomeFeastAction(uint basicType)
 		{
 			return string.Format("Player_{0}_{1}", XSingleton<XProfessionSkillMgr>.singleton.GetLowerCaseWord(basicType), "yanhui");
 		}
 
-		// Token: 0x0600B10E RID: 45326 RVA: 0x0021E1E4 File Offset: 0x0021C3E4
 		public uint GetMaxLevel()
 		{
 			bool flag = this.MaxCookLevel == 0U;
@@ -640,7 +588,6 @@ namespace XMainClient
 			return this.MaxCookLevel;
 		}
 
-		// Token: 0x0600B10F RID: 45327 RVA: 0x0021E24C File Offset: 0x0021C44C
 		private void EnableBackToMainCity(bool Enable)
 		{
 			bool flag = DlgBase<HomePlantDlg, HomePlantBehaviour>.singleton.IsVisible();
@@ -663,7 +610,6 @@ namespace XMainClient
 			DlgBase<XMainInterface, XMainInterfaceBehaviour>.singleton.BottomDownBtns(Enable);
 		}
 
-		// Token: 0x0600B110 RID: 45328 RVA: 0x0021E2C0 File Offset: 0x0021C4C0
 		private void OnCreatingFood(object argu, float delay)
 		{
 			this._curPassedTime += (float)argu;
@@ -683,14 +629,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B111 RID: 45329 RVA: 0x0021E350 File Offset: 0x0021C550
 		private int SortData(CookingFoodInfo.RowData x1, CookingFoodInfo.RowData x2)
 		{
 			int num = x1.Level.CompareTo(x2.Level);
 			return (num == 0) ? this.FoodActiveCompare(x1.FoodID, x2.FoodID) : num;
 		}
 
-		// Token: 0x0600B112 RID: 45330 RVA: 0x0021E38C File Offset: 0x0021C58C
 		private int FoodActiveCompare(uint foodIdL, uint foodIdR)
 		{
 			bool flag = HomeMainDocument.Doc.IsFoodIDActive(foodIdL);
@@ -716,52 +660,36 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0400440F RID: 17423
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("HomeCookAndPartyDocument");
 
-		// Token: 0x04004410 RID: 17424
 		private static CookingFoodInfo _cookingFoodInfoTable = new CookingFoodInfo();
 
-		// Token: 0x04004411 RID: 17425
 		private static CookingLevel _cookingLevelTable = new CookingLevel();
 
-		// Token: 0x04004412 RID: 17426
 		private static GardenBanquetCfg _gardenBanquetCfg = new GardenBanquetCfg();
 
-		// Token: 0x04004413 RID: 17427
 		private static ItemBuffTable _itemBuffTable = new ItemBuffTable();
 
-		// Token: 0x04004414 RID: 17428
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x04004415 RID: 17429
 		private uint MaxCookLevel = 0U;
 
-		// Token: 0x04004416 RID: 17430
 		private List<uint> _newCookingItems = new List<uint>();
 
-		// Token: 0x04004417 RID: 17431
 		private uint _timerID = 0U;
 
-		// Token: 0x04004418 RID: 17432
 		private uint _curBanquetID = 0U;
 
-		// Token: 0x04004419 RID: 17433
 		private uint _curBanquetState = 0U;
 
-		// Token: 0x0400441A RID: 17434
 		private uint _CountDownTimerID = 0U;
 
-		// Token: 0x0400441B RID: 17435
 		private int _curFeastRemainTime = 0;
 
-		// Token: 0x0400441C RID: 17436
 		private uint _totalFeastedTimesWeekly = 0U;
 
-		// Token: 0x0400441D RID: 17437
 		private uint _timeToCooking = 5U;
 
-		// Token: 0x0400441E RID: 17438
 		protected float _curPassedTime = 0f;
 	}
 }

@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000F3A RID: 3898
+
 	internal class XAttributeMgr : XSingleton<XAttributeMgr>
 	{
-		// Token: 0x17003622 RID: 13858
-		// (get) Token: 0x0600CEF6 RID: 52982 RVA: 0x00300A4C File Offset: 0x002FEC4C
+
 		public XPlayerAttributes XPlayerData
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003623 RID: 13859
-		// (get) Token: 0x0600CEF7 RID: 52983 RVA: 0x00300A64 File Offset: 0x002FEC64
 		public XAttributeMgr.XPlayerCharacterInfo XPlayerCharacters
 		{
 			get
@@ -30,19 +27,14 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003624 RID: 13860
-		// (get) Token: 0x0600CEF8 RID: 52984 RVA: 0x00300A7C File Offset: 0x002FEC7C
-		// (set) Token: 0x0600CEF9 RID: 52985 RVA: 0x00300A84 File Offset: 0x002FEC84
 		public LoginExtraData LoginExData { get; private set; }
 
-		// Token: 0x0600CEFA RID: 52986 RVA: 0x00300A90 File Offset: 0x002FEC90
 		public override bool Init()
 		{
 			this.m_AttrPool.Init(this.blockInit, 8);
 			return true;
 		}
 
-		// Token: 0x0600CEFB RID: 52987 RVA: 0x00300AB8 File Offset: 0x002FECB8
 		public int BackFlowLevel()
 		{
 			int result = 0;
@@ -54,19 +46,16 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CEFC RID: 52988 RVA: 0x00300AF5 File Offset: 0x002FECF5
 		public void GetBuffer(ref SmallBuffer<double> sb, int size, int initSize = 0)
 		{
 			this.m_AttrPool.GetBlock(ref sb, size, initSize);
 		}
 
-		// Token: 0x0600CEFD RID: 52989 RVA: 0x00300B07 File Offset: 0x002FED07
 		public void ReturnBuffer(ref SmallBuffer<double> sb)
 		{
 			this.m_AttrPool.ReturnBlock(ref sb);
 		}
 
-		// Token: 0x0600CEFE RID: 52990 RVA: 0x00300B18 File Offset: 0x002FED18
 		public void ResetPlayerData()
 		{
 			bool flag = this._playerAttributes != null;
@@ -78,7 +67,6 @@ namespace XMainClient
 			XStaticSecurityStatistics.Reset();
 		}
 
-		// Token: 0x0600CEFF RID: 52991 RVA: 0x00300B54 File Offset: 0x002FED54
 		public XPlayerAttributes InitPlayerAttr(RoleBrief brief, KKSG.Attribute attr, List<SkillInfo> skills, List<uint> skillSlot, uint skillPageIndex, RoleSystem system, MilitaryRecord militaryRank)
 		{
 			bool flag = this._playerAttributes != null;
@@ -101,7 +89,6 @@ namespace XMainClient
 			return this._playerAttributes;
 		}
 
-		// Token: 0x0600CF00 RID: 52992 RVA: 0x00300C60 File Offset: 0x002FEE60
 		public XAttributes InitAttrFromServer(ulong id, uint shortId, uint type_id, string name, KKSG.Attribute attr, uint fightgroup, bool isControlled, List<SkillInfo> skills, List<uint> bindskills, XOutLookAttr outlookAttr, uint level, uint payMemberID = 0U)
 		{
 			bool flag = XAttributes.GetCategory(id) == EntityCategory.Category_Role || XAttributes.GetCategory(id) == EntityCategory.Category_DummyRole;
@@ -168,7 +155,6 @@ namespace XMainClient
 			return xattributes;
 		}
 
-		// Token: 0x0600CF01 RID: 52993 RVA: 0x00300EB4 File Offset: 0x002FF0B4
 		public XOthersAttributes InitAttrFromClient(uint id, KKSG.Attribute attr, uint fightgroup)
 		{
 			XEntityStatistics.RowData byID = XSingleton<XEntityMgr>.singleton.EntityStatistics.GetByID(id);
@@ -217,7 +203,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CF02 RID: 52994 RVA: 0x00300FEC File Offset: 0x002FF1EC
 		public bool HasNoRoleOnBackFlowServer()
 		{
 			bool flag = this.LoginExData != null && this.LoginExData.is_backflow_server;
@@ -241,7 +226,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CF03 RID: 52995 RVA: 0x00301060 File Offset: 0x002FF260
 		public XNpcAttributes InitNpcAttr(uint id)
 		{
 			XNpcInfo.RowData byNPCID = XSingleton<XEntityMgr>.singleton.NpcInfo.GetByNPCID(id);
@@ -268,7 +252,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CF04 RID: 52996 RVA: 0x00301134 File Offset: 0x002FF334
 		public bool ProcessAccountData(LoadAccountData roAccountData)
 		{
 			bool flag = roAccountData == null;
@@ -303,19 +286,16 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CF05 RID: 52997 RVA: 0x003012A5 File Offset: 0x002FF4A5
 		public void ProcessLoginExtraData(LoginExtraData data)
 		{
 			this.LoginExData = data;
 		}
 
-		// Token: 0x0600CF06 RID: 52998 RVA: 0x003012B0 File Offset: 0x002FF4B0
 		public void OnLeaveStage()
 		{
 			this._playerAttributes = null;
 		}
 
-		// Token: 0x0600CF07 RID: 52999 RVA: 0x003012BC File Offset: 0x002FF4BC
 		public void OnReconnect()
 		{
 			List<SkillInfo> skills = null;
@@ -339,7 +319,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CF08 RID: 53000 RVA: 0x00301458 File Offset: 0x002FF658
 		private void InitPlayerAttrByReconncet(RoleBrief brief, KKSG.Attribute attr, List<SkillInfo> skills, List<uint> skillSlot, uint skillPageIndex, RoleSystem system, MilitaryRecord militaryRank)
 		{
 			this.InitAttrFromServerByReconncet(brief.roleID, brief.nickID, (uint)XFastEnumIntEqualityComparer<RoleType>.ToInt(brief.type), brief.name, attr, (XSingleton<XGame>.singleton.SyncModeValue != 0) ? XSingleton<XReconnection>.singleton.PlayerApperance.fightgroup : ((uint)XFastEnumIntEqualityComparer<FightGroupType>.ToInt(FightGroupType.FightRole)), true, skills, skillSlot, brief.level, new XOutLookAttr(brief.titleID, militaryRank), brief.paymemberid);
@@ -356,7 +335,6 @@ namespace XMainClient
 			this._playerAttributes.Profession = brief.type;
 		}
 
-		// Token: 0x0600CF09 RID: 53001 RVA: 0x0030155C File Offset: 0x002FF75C
 		private void InitAttrFromServerByReconncet(ulong id, uint shortId, uint type_id, string name, KKSG.Attribute attr, uint fightgroup, bool isControlled, List<SkillInfo> skills, List<uint> bindskills, uint level, XOutLookAttr outlookAttr, uint payMemberID = 0U)
 		{
 			XAttributes playerAttributes = this._playerAttributes;
@@ -393,7 +371,6 @@ namespace XMainClient
 			playerAttributes.Level = level;
 		}
 
-		// Token: 0x0600CF0A RID: 53002 RVA: 0x00301670 File Offset: 0x002FF870
 		private void ParseRoleBriefInfo(List<RoleBriefInfo> list, byte[] data)
 		{
 			bool flag = list.Count >= XGame.RoleCount;
@@ -413,28 +390,22 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04005D0F RID: 23823
 		private SmallBufferPool<double> m_AttrPool = new SmallBufferPool<double>();
 
-		// Token: 0x04005D10 RID: 23824
 		private BlockInfo[] blockInit = new BlockInfo[]
 		{
 			new BlockInfo(XAttributeCommon.AttrCount, 256)
 		};
 
-		// Token: 0x04005D11 RID: 23825
 		private XPlayerAttributes _playerAttributes = null;
 
-		// Token: 0x04005D12 RID: 23826
 		private XAttributeMgr.XPlayerCharacterInfo _playerCharacterInfo = new XAttributeMgr.XPlayerCharacterInfo();
 
-		// Token: 0x020019F3 RID: 6643
 		public class XPlayerCharacterInfo
 		{
-			// Token: 0x040080B6 RID: 32950
+
 			public List<RoleBriefInfo> PlayerBriefInfo = new List<RoleBriefInfo>();
 
-			// Token: 0x040080B7 RID: 32951
 			public int SelectedSlot = 0;
 		}
 	}

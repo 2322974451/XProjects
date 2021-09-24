@@ -4,10 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000D20 RID: 3360
+
 	internal class XGuildMember : XGuildMemberBasicInfo, IComparable<XGuildMember>
 	{
-		// Token: 0x0600BB26 RID: 47910 RVA: 0x00266D94 File Offset: 0x00264F94
+
 		public void Set(GuildMemberData data)
 		{
 			this.uid = data.roleid;
@@ -51,7 +51,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BB27 RID: 47911 RVA: 0x00266EE4 File Offset: 0x002650E4
 		public int CompareTo(XGuildMember other)
 		{
 			bool flag = XGuildMemberBasicInfo.playerID != 0UL && this.uid != other.uid;
@@ -102,22 +101,16 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x04004B8A RID: 19338
 		public uint contribution;
 
-		// Token: 0x04004B8B RID: 19339
 		public bool canSend;
 
-		// Token: 0x04004B8C RID: 19340
 		public uint taskLuck;
 
-		// Token: 0x04004B8D RID: 19341
 		public uint taskScore;
 
-		// Token: 0x04004B8E RID: 19342
 		public bool canRefresh;
 
-		// Token: 0x04004B8F RID: 19343
 		public FetchState fetchState;
 	}
 }

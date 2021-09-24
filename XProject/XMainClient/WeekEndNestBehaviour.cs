@@ -6,10 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000E8A RID: 3722
+
 	internal class WeekEndNestBehaviour : DlgBehaviourBase
 	{
-		// Token: 0x0600C6C1 RID: 50881 RVA: 0x002C03D0 File Offset: 0x002BE5D0
+
 		private void Awake()
 		{
 			Transform transform = base.transform.FindChild("Bg");
@@ -28,40 +28,28 @@ namespace XMainClient
 			this.m_itemPool.SetupPool(transform.FindChild("WeekReward").gameObject, transform2.gameObject, 3U, true);
 		}
 
-		// Token: 0x04005731 RID: 22321
 		public IXUILabel m_timesLab;
 
-		// Token: 0x04005732 RID: 22322
 		public IXUILabel m_tittleLab;
 
-		// Token: 0x04005733 RID: 22323
 		public IXUILabel m_rulesLab;
 
-		// Token: 0x04005734 RID: 22324
 		public IXUISprite m_getSpr;
 
-		// Token: 0x04005735 RID: 22325
 		public IXUIButton m_closedBtn;
 
-		// Token: 0x04005736 RID: 22326
 		public IXUIButton m_helpBtn;
 
-		// Token: 0x04005737 RID: 22327
 		public IXUIButton m_getBtn;
 
-		// Token: 0x04005738 RID: 22328
 		public IXUIButton m_gotoTeamBtn;
 
-		// Token: 0x04005739 RID: 22329
 		public GameObject m_reddotGo;
 
-		// Token: 0x0400573A RID: 22330
 		public Transform m_parentTra;
 
-		// Token: 0x0400573B RID: 22331
 		public IXUITexture m_tex;
 
-		// Token: 0x0400573C RID: 22332
 		public XUIPool m_itemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 	}
 }

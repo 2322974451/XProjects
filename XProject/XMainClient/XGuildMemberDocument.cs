@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000A78 RID: 2680
+
 	internal class XGuildMemberDocument : XDocComponent
 	{
-		// Token: 0x17002F80 RID: 12160
-		// (get) Token: 0x0600A2F3 RID: 41715 RVA: 0x001BD0D0 File Offset: 0x001BB2D0
+
 		public override uint ID
 		{
 			get
@@ -21,13 +20,8 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002F81 RID: 12161
-		// (get) Token: 0x0600A2F4 RID: 41716 RVA: 0x001BD0E7 File Offset: 0x001BB2E7
-		// (set) Token: 0x0600A2F5 RID: 41717 RVA: 0x001BD0EF File Offset: 0x001BB2EF
 		public XGuildMembersView GuildMembersView { get; set; }
 
-		// Token: 0x17002F82 RID: 12162
-		// (get) Token: 0x0600A2F6 RID: 41718 RVA: 0x001BD0F8 File Offset: 0x001BB2F8
 		public List<XGuildMember> MemberList
 		{
 			get
@@ -36,9 +30,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002F83 RID: 12163
-		// (get) Token: 0x0600A2F7 RID: 41719 RVA: 0x001BD110 File Offset: 0x001BB310
-		// (set) Token: 0x0600A2F8 RID: 41720 RVA: 0x001BD128 File Offset: 0x001BB328
 		public GuildMemberSortType SortType
 		{
 			get
@@ -60,8 +51,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002F84 RID: 12164
-		// (get) Token: 0x0600A2F9 RID: 41721 RVA: 0x001BD170 File Offset: 0x001BB370
 		public int SortDirection
 		{
 			get
@@ -70,8 +59,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002F85 RID: 12165
-		// (get) Token: 0x0600A2FA RID: 41722 RVA: 0x001BD188 File Offset: 0x001BB388
 		public uint MaxFatigue
 		{
 			get
@@ -80,8 +67,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002F86 RID: 12166
-		// (get) Token: 0x0600A2FB RID: 41723 RVA: 0x001BD1A0 File Offset: 0x001BB3A0
 		public uint FetchedFatigue
 		{
 			get
@@ -90,14 +75,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A2FD RID: 41725 RVA: 0x001BD1CF File Offset: 0x001BB3CF
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
 			this.REDPOINT_FATIGUE_COUNT = XSingleton<XGlobalConfig>.singleton.GetInt("GuildFatigueRedPointCount");
 		}
 
-		// Token: 0x0600A2FE RID: 41726 RVA: 0x001BD1EF File Offset: 0x001BB3EF
 		protected override void EventSubscribe()
 		{
 			base.EventSubscribe();
@@ -105,7 +88,6 @@ namespace XMainClient
 			base.RegisterEvent(XEventDefine.XEvent_InGuildStateChanged, new XComponent.XEventHandler(this.OnInGuildStateChanged));
 		}
 
-		// Token: 0x0600A2FF RID: 41727 RVA: 0x001BD224 File Offset: 0x001BB424
 		protected bool OnPositionChanged(XEventArgs args)
 		{
 			bool flag = this.GuildMembersView != null && this.GuildMembersView.IsVisible();
@@ -127,13 +109,11 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600A300 RID: 41728 RVA: 0x001BD2D0 File Offset: 0x001BB4D0
 		public bool CheckGuildInheritUids(ulong uid)
 		{
 			return this.m_GuildInheritUids.Contains(uid);
 		}
 
-		// Token: 0x0600A301 RID: 41729 RVA: 0x001BD2F0 File Offset: 0x001BB4F0
 		protected bool OnInGuildStateChanged(XEventArgs args)
 		{
 			XInGuildStateChangedEventArgs xinGuildStateChangedEventArgs = args as XInGuildStateChangedEventArgs;
@@ -146,14 +126,12 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600A302 RID: 41730 RVA: 0x001BD33C File Offset: 0x001BB53C
 		public void ReqMemberList()
 		{
 			RpcC2M_AskGuildMembers rpc = new RpcC2M_AskGuildMembers();
 			XSingleton<XClientNetwork>.singleton.Send(rpc);
 		}
 
-		// Token: 0x0600A303 RID: 41731 RVA: 0x001BD35C File Offset: 0x001BB55C
 		public void onGetMemberList(GuildMemberRes oRes)
 		{
 			bool flag = oRes.result > ErrorCode.ERR_SUCCESS;
@@ -201,7 +179,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A304 RID: 41732 RVA: 0x001BD538 File Offset: 0x001BB738
 		public void SortAndShow()
 		{
 			XGuildMemberBasicInfo.playerID = XSingleton<XEntityMgr>.singleton.Player.Attributes.EntityID;
@@ -218,7 +195,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A305 RID: 41733 RVA: 0x001BD5E0 File Offset: 0x001BB7E0
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 			bool flag = this.GuildMembersView != null && this.GuildMembersView.IsVisible();
@@ -228,7 +204,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A306 RID: 41734 RVA: 0x001BD610 File Offset: 0x001BB810
 		public void ReqChangePosition(ulong uid, bool bIncrease)
 		{
 			GuildPosition guildPosition = GuildPosition.GPOS_COUNT;
@@ -251,7 +226,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A307 RID: 41735 RVA: 0x001BD6C0 File Offset: 0x001BB8C0
 		public GuildPosition GetMemberPosition(ulong memberID)
 		{
 			GuildPosition result = GuildPosition.GPOS_COUNT;
@@ -267,7 +241,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A308 RID: 41736 RVA: 0x001BD720 File Offset: 0x001BB920
 		public void ReqChangePosition(ulong uid, GuildPosition toPosition)
 		{
 			RpcC2M_ChangeMemberPositionNew rpcC2M_ChangeMemberPositionNew = new RpcC2M_ChangeMemberPositionNew();
@@ -276,7 +249,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_ChangeMemberPositionNew);
 		}
 
-		// Token: 0x0600A309 RID: 41737 RVA: 0x001BD760 File Offset: 0x001BB960
 		public void OnChangePosition(ChangeGuildPositionArg oArg, ChangeGuildPositionRes oRes)
 		{
 			bool flag = oRes.result > ErrorCode.ERR_SUCCESS;
@@ -303,7 +275,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A30A RID: 41738 RVA: 0x001BD814 File Offset: 0x001BBA14
 		public void ReqKickAss(ulong uid)
 		{
 			RpcC2M_LeaveFromGuild rpcC2M_LeaveFromGuild = new RpcC2M_LeaveFromGuild();
@@ -311,7 +282,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_LeaveFromGuild);
 		}
 
-		// Token: 0x0600A30B RID: 41739 RVA: 0x001BD844 File Offset: 0x001BBA44
 		public void OnKickAss(LeaveGuildArg oArg, LeaveGuildRes oRes)
 		{
 			bool flag = oRes.result > ErrorCode.ERR_SUCCESS;
@@ -340,7 +310,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A30C RID: 41740 RVA: 0x001BD910 File Offset: 0x001BBB10
 		public void RefreshRedPointState()
 		{
 			bool flag = (ulong)(this.MaxFatigue - this.FetchedFatigue) < (ulong)((long)this.REDPOINT_FATIGUE_COUNT);
@@ -364,7 +333,6 @@ namespace XMainClient
 			XSingleton<XGameSysMgr>.singleton.RecalculateRedPointState(XSysDefine.XSys_GuildHall_Member, true);
 		}
 
-		// Token: 0x0600A30D RID: 41741 RVA: 0x001BD9BC File Offset: 0x001BBBBC
 		public void ReqSendFatigue(int index)
 		{
 			RpcC2M_GuildFatigueOPNew rpcC2M_GuildFatigueOPNew = new RpcC2M_GuildFatigueOPNew();
@@ -377,7 +345,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A30E RID: 41742 RVA: 0x001BDA24 File Offset: 0x001BBC24
 		public void ReqOneKeySendFatigue()
 		{
 			RpcC2M_GuildFatigueOPNew rpcC2M_GuildFatigueOPNew = new RpcC2M_GuildFatigueOPNew();
@@ -386,7 +353,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_GuildFatigueOPNew);
 		}
 
-		// Token: 0x0600A30F RID: 41743 RVA: 0x001BDA60 File Offset: 0x001BBC60
 		public void ReqReceiveFatigue(int index)
 		{
 			RpcC2M_GuildFatigueOPNew rpcC2M_GuildFatigueOPNew = new RpcC2M_GuildFatigueOPNew();
@@ -399,7 +365,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A310 RID: 41744 RVA: 0x001BDAC8 File Offset: 0x001BBCC8
 		public void ReqOneKeyReceiveFatigue()
 		{
 			RpcC2M_GuildFatigueOPNew rpcC2M_GuildFatigueOPNew = new RpcC2M_GuildFatigueOPNew();
@@ -408,7 +373,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_GuildFatigueOPNew);
 		}
 
-		// Token: 0x0600A311 RID: 41745 RVA: 0x001BDB04 File Offset: 0x001BBD04
 		public void OnOperateFatigue(GuildFatigueArg oArg, GuildFatigueRes oRes)
 		{
 			bool flag = oRes.result > ErrorCode.ERR_SUCCESS;
@@ -489,7 +453,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A312 RID: 41746 RVA: 0x001BDD24 File Offset: 0x001BBF24
 		public void RefreshMemberTaskScore(ulong roleid, uint score)
 		{
 			for (int i = 0; i < this.MemberList.Count; i++)
@@ -503,28 +466,20 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04003ADE RID: 15070
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("GuildMemberDocument");
 
-		// Token: 0x04003AE0 RID: 15072
 		private List<XGuildMember> m_MemberList = new List<XGuildMember>();
 
-		// Token: 0x04003AE1 RID: 15073
 		private List<ulong> m_GuildInheritUids = new List<ulong>();
 
-		// Token: 0x04003AE2 RID: 15074
 		private GuildMemberSortType m_SortType = GuildMemberSortType.GMST_CONTRIBUTION;
 
-		// Token: 0x04003AE3 RID: 15075
 		private int m_Direction = -1;
 
-		// Token: 0x04003AE4 RID: 15076
 		private uint m_FatigueMax;
 
-		// Token: 0x04003AE5 RID: 15077
 		private uint m_FatigueFetched;
 
-		// Token: 0x04003AE6 RID: 15078
 		private int REDPOINT_FATIGUE_COUNT = 20;
 	}
 }

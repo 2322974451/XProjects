@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020018D9 RID: 6361
+
 	public class LoverLivenessRecordItem : MonoBehaviour
 	{
-		// Token: 0x06010945 RID: 67909 RVA: 0x00415BE8 File Offset: 0x00413DE8
+
 		private void Awake()
 		{
 			this.m_sprRoot = (base.GetComponent("XUISprite") as IXUISprite);
@@ -17,7 +17,6 @@ namespace XMainClient.UI
 			this.m_contentLab = (base.transform.Find("Bg/Description").GetComponent("XUILabel") as IXUILabel);
 		}
 
-		// Token: 0x06010946 RID: 67910 RVA: 0x00415CA0 File Offset: 0x00413EA0
 		public void Refresh(LoverLivenessRecord record)
 		{
 			bool flag = record == null;
@@ -31,19 +30,14 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04007850 RID: 30800
 		public IXUILabel m_nameLab;
 
-		// Token: 0x04007851 RID: 30801
 		public IXUILabel m_timeLab;
 
-		// Token: 0x04007852 RID: 30802
 		public IXUILabel m_contentLab;
 
-		// Token: 0x04007853 RID: 30803
 		private IXUISprite m_sprRoot;
 
-		// Token: 0x04007854 RID: 30804
 		private IXUISprite m_bgSpr;
 	}
 }

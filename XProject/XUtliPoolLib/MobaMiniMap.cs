@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x0200023D RID: 573
+
 	public class MobaMiniMap : CVSReader
 	{
-		// Token: 0x06000C9D RID: 3229 RVA: 0x00042594 File Offset: 0x00040794
+
 		public MobaMiniMap.RowData GetByPosIndex(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -21,7 +21,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000C9E RID: 3230 RVA: 0x000425CC File Offset: 0x000407CC
 		private MobaMiniMap.RowData BinarySearchPosIndex(uint key)
 		{
 			int num = 0;
@@ -80,7 +79,6 @@ namespace XUtliPoolLib
 			return null;
 		}
 
-		// Token: 0x06000C9F RID: 3231 RVA: 0x000426A8 File Offset: 0x000408A8
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			MobaMiniMap.RowData rowData = new MobaMiniMap.RowData();
@@ -94,7 +92,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x06000CA0 RID: 3232 RVA: 0x00042720 File Offset: 0x00040920
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -108,19 +105,15 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x0400078B RID: 1931
 		public MobaMiniMap.RowData[] Table = null;
 
-		// Token: 0x020003CC RID: 972
 		public class RowData
 		{
-			// Token: 0x0400111C RID: 4380
+
 			public uint PosIndex;
 
-			// Token: 0x0400111D RID: 4381
 			public SeqRef<float> Position;
 
-			// Token: 0x0400111E RID: 4382
 			public string[] Icon;
 		}
 	}

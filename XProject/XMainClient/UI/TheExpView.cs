@@ -9,11 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001712 RID: 5906
+
 	internal class TheExpView : DlgBase<TheExpView, TheExpBehaviour>
 	{
-		// Token: 0x17003798 RID: 14232
-		// (get) Token: 0x0600F3CE RID: 62414 RVA: 0x00367CD0 File Offset: 0x00365ED0
+
 		public override string fileName
 		{
 			get
@@ -22,8 +21,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003799 RID: 14233
-		// (get) Token: 0x0600F3CF RID: 62415 RVA: 0x00367CE8 File Offset: 0x00365EE8
 		public override int layer
 		{
 			get
@@ -32,8 +29,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700379A RID: 14234
-		// (get) Token: 0x0600F3D0 RID: 62416 RVA: 0x00367CFC File Offset: 0x00365EFC
 		public override bool autoload
 		{
 			get
@@ -42,8 +37,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700379B RID: 14235
-		// (get) Token: 0x0600F3D1 RID: 62417 RVA: 0x00367D10 File Offset: 0x00365F10
 		public override bool hideMainMenu
 		{
 			get
@@ -52,8 +45,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700379C RID: 14236
-		// (get) Token: 0x0600F3D2 RID: 62418 RVA: 0x00367D24 File Offset: 0x00365F24
 		public override bool pushstack
 		{
 			get
@@ -62,8 +53,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700379D RID: 14237
-		// (get) Token: 0x0600F3D3 RID: 62419 RVA: 0x00367D38 File Offset: 0x00365F38
 		public override bool fullscreenui
 		{
 			get
@@ -72,7 +61,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F3D4 RID: 62420 RVA: 0x00367D4C File Offset: 0x00365F4C
 		protected override void Init()
 		{
 			this._doc = (XSingleton<XGame>.singleton.Doc.GetXComponent(XExpeditionDocument.uuID) as XExpeditionDocument);
@@ -90,8 +78,6 @@ namespace XMainClient.UI
 			DlgHandlerBase.EnsureCreate<NestStarRewardHandler>(ref this._nestStarRewardHandler, base.uiBehaviour.m_parent, false, this);
 		}
 
-		// Token: 0x1700379E RID: 14238
-		// (get) Token: 0x0600F3D5 RID: 62421 RVA: 0x00367E40 File Offset: 0x00366040
 		public override int group
 		{
 			get
@@ -100,7 +86,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F3D6 RID: 62422 RVA: 0x00367E54 File Offset: 0x00366054
 		public override void RegisterEvent()
 		{
 			base.uiBehaviour.m_Close.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseClicked));
@@ -111,14 +96,12 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_quanMinSpr.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this._onClickQuanMinSpr));
 		}
 
-		// Token: 0x0600F3D7 RID: 62423 RVA: 0x00367F10 File Offset: 0x00366110
 		public bool OnHelpClicked(IXUIButton button)
 		{
 			DlgBase<XCommonHelpTipView, XCommonHelpTipBehaviour>.singleton.ShowHelp(XSysDefine.XSys_Activity_Nest);
 			return true;
 		}
 
-		// Token: 0x0600F3D8 RID: 62424 RVA: 0x00367F34 File Offset: 0x00366134
 		protected override void OnUnload()
 		{
 			this._doc = null;
@@ -133,7 +116,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x0600F3D9 RID: 62425 RVA: 0x00367F80 File Offset: 0x00366180
 		public void ShowView(int expid = -1)
 		{
 			base.Load();
@@ -146,7 +128,6 @@ namespace XMainClient.UI
 			this._RefreshTabs();
 		}
 
-		// Token: 0x0600F3DA RID: 62426 RVA: 0x00367FBC File Offset: 0x003661BC
 		public void ShowViewByExpID(int expID)
 		{
 			base.Load();
@@ -159,13 +140,11 @@ namespace XMainClient.UI
 			this._RefreshTabs();
 		}
 
-		// Token: 0x0600F3DB RID: 62427 RVA: 0x00367FF8 File Offset: 0x003661F8
 		private string _GetSubCategoryName(int SubCategory)
 		{
 			return string.Format("TeamSubCategory{0}{1}", XFastEnumIntEqualityComparer<TeamLevelType>.ToInt(TeamLevelType.TeamLevelNest), SubCategory);
 		}
 
-		// Token: 0x0600F3DC RID: 62428 RVA: 0x00368028 File Offset: 0x00366228
 		private void _RefreshTabs()
 		{
 			HashSet<int> hashSet = new HashSet<int>();
@@ -274,7 +253,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F3DD RID: 62429 RVA: 0x003683C0 File Offset: 0x003665C0
 		private void _OnLockClicked(IXUISprite iSp)
 		{
 			ExpeditionTable.RowData expeditionDataByID = this._doc.GetExpeditionDataByID((int)iSp.ID);
@@ -289,7 +267,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F3DE RID: 62430 RVA: 0x00368444 File Offset: 0x00366644
 		private void _UITabControlCallback(ulong id)
 		{
 			int num = (int)id;
@@ -312,7 +289,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F3DF RID: 62431 RVA: 0x0036850C File Offset: 0x0036670C
 		private void _RefreshDiffs()
 		{
 			for (int i = 1; i < base.uiBehaviour.m_DiffList.Count; i++)
@@ -386,7 +362,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F3E0 RID: 62432 RVA: 0x00368750 File Offset: 0x00366950
 		private bool _SetDiff(GameObject go, int index, NestListTable.RowData rowData)
 		{
 			IXUISprite ixuisprite = go.GetComponent("XUISprite") as IXUISprite;
@@ -398,14 +373,12 @@ namespace XMainClient.UI
 			return sceneRefuseReason == SceneRefuseReason.Admit;
 		}
 
-		// Token: 0x0600F3E1 RID: 62433 RVA: 0x003687DC File Offset: 0x003669DC
 		private void _OnDiffClicked(IXUISprite iSp)
 		{
 			NestListTable.RowData byNestID = XNestDocument.NestListData.GetByNestID((int)iSp.ID);
 			this._TrySelectDiff(byNestID);
 		}
 
-		// Token: 0x0600F3E2 RID: 62434 RVA: 0x00368804 File Offset: 0x00366A04
 		private void _TrySelectDiff(NestListTable.RowData rowData)
 		{
 			bool flag = rowData == null;
@@ -461,7 +434,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F3E3 RID: 62435 RVA: 0x00368954 File Offset: 0x00366B54
 		private void _SelectDiff(int index)
 		{
 			for (int i = 1; i < base.uiBehaviour.m_DiffSelectList.Count; i++)
@@ -470,7 +442,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F3E4 RID: 62436 RVA: 0x003689A0 File Offset: 0x00366BA0
 		private void OnComboBoxChange(NestListTable.RowData nestListData)
 		{
 			this.m_Difficulty = nestListData.Difficulty;
@@ -553,7 +524,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F3E5 RID: 62437 RVA: 0x00368F0C File Offset: 0x0036710C
 		private void SetupSweepCost(ExpeditionTable.RowData expData)
 		{
 			uint sceneIDByExpID = this._doc.GetSceneIDByExpID(expData.DNExpeditionID);
@@ -574,14 +544,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F3E6 RID: 62438 RVA: 0x0036900B File Offset: 0x0036720B
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
 			this.RefreshLeftCount();
 		}
 
-		// Token: 0x0600F3E7 RID: 62439 RVA: 0x0036901C File Offset: 0x0036721C
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -591,7 +559,6 @@ namespace XMainClient.UI
 			this.RefreshLeftCount();
 		}
 
-		// Token: 0x0600F3E8 RID: 62440 RVA: 0x00369080 File Offset: 0x00367280
 		protected override void OnHide()
 		{
 			bool flag = this._nestStarRewardHandler != null;
@@ -604,13 +571,11 @@ namespace XMainClient.UI
 			base.OnHide();
 		}
 
-		// Token: 0x0600F3E9 RID: 62441 RVA: 0x003690CC File Offset: 0x003672CC
 		private void OnClickLockedDificulty(IXUISprite spr)
 		{
 			XSingleton<UiUtility>.singleton.ShowSystemTip(XStringDefineProxy.GetString("NEST_DIFFICULTY_LOCK_MSG"), "fece00");
 		}
 
-		// Token: 0x0600F3EA RID: 62442 RVA: 0x003690EC File Offset: 0x003672EC
 		public void RefreshLeftCount()
 		{
 			int dayCount = this._doc.GetDayCount(TeamLevelType.TeamLevelNest, null);
@@ -618,34 +583,29 @@ namespace XMainClient.UI
 			this._SetSpirit(dayCount, dayMaxCount);
 		}
 
-		// Token: 0x0600F3EB RID: 62443 RVA: 0x0036911F File Offset: 0x0036731F
 		private void _SetSpirit(int cur, int total)
 		{
 			base.uiBehaviour.m_LeftCount.SetText(string.Format("{0}/{1}", cur, total));
 		}
 
-		// Token: 0x0600F3EC RID: 62444 RVA: 0x0036914C File Offset: 0x0036734C
 		private bool _OnAddFatigueClick(IXUIButton sp)
 		{
 			DlgBase<XBuyCountView, XBuyCountBehaviour>.singleton.ActiveShow(TeamLevelType.TeamLevelNest);
 			return true;
 		}
 
-		// Token: 0x0600F3ED RID: 62445 RVA: 0x0036916C File Offset: 0x0036736C
 		protected bool OnCloseClicked(IXUIButton go)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x0600F3EE RID: 62446 RVA: 0x00369188 File Offset: 0x00367388
 		private bool OnSweepButtonClicked(IXUIButton button)
 		{
 			this._sweepDoc.TrySweepQuery(0U, (uint)button.ID, 1U);
 			return true;
 		}
 
-		// Token: 0x0600F3EF RID: 62447 RVA: 0x003691B0 File Offset: 0x003673B0
 		private bool _OnEnterClicked(IXUIButton go)
 		{
 			ExpeditionTable.RowData expeditionDataByID = this._doc.GetExpeditionDataByID((int)go.ID);
@@ -662,14 +622,12 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F3F0 RID: 62448 RVA: 0x0036923C File Offset: 0x0036743C
 		private bool _OnRealEnterClicked(IXUIButton go)
 		{
 			this._OnRealEnter((int)go.ID);
 			return true;
 		}
 
-		// Token: 0x0600F3F1 RID: 62449 RVA: 0x00369260 File Offset: 0x00367460
 		private bool _OnClickPreviewRewardBtn(IXUIButton go)
 		{
 			bool flag = go == null;
@@ -691,7 +649,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F3F2 RID: 62450 RVA: 0x003692AC File Offset: 0x003674AC
 		private bool _OnClickRankBtn(IXUIButton go)
 		{
 			FirstPassDocument.Doc.SetCurDataByNestType((int)go.ID);
@@ -699,69 +656,51 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F3F3 RID: 62451 RVA: 0x003692DE File Offset: 0x003674DE
 		private void _onClickQuanMinSpr(IXUISprite spr)
 		{
 			DlgBase<XCommonHelpTipView, XCommonHelpTipBehaviour>.singleton.ShowHelp(XSysDefine.XSys_Nest_QuanMin);
 		}
 
-		// Token: 0x0600F3F4 RID: 62452 RVA: 0x003692F4 File Offset: 0x003674F4
 		private void _OnRealEnter(int id)
 		{
 			XTeamDocument specificDocument = XDocuments.GetSpecificDocument<XTeamDocument>(XTeamDocument.uuID);
 			specificDocument.SetAndMatch(id);
 		}
 
-		// Token: 0x0600F3F5 RID: 62453 RVA: 0x00369318 File Offset: 0x00367518
 		private void _OnItemClicked(IXUISprite iSp)
 		{
 			XItem mainItem = XBagDocument.MakeXItem((int)iSp.ID, false);
 			XSingleton<UiUtility>.singleton.ShowTooltipDialogWithSearchingCompare(mainItem, iSp, false, 0U);
 		}
 
-		// Token: 0x040068B8 RID: 26808
 		private XExpeditionDocument _doc;
 
-		// Token: 0x040068B9 RID: 26809
 		private XTeamDocument _teamDoc;
 
-		// Token: 0x040068BA RID: 26810
 		private XLevelDocument _LevelDoc;
 
-		// Token: 0x040068BB RID: 26811
 		private XNestDocument _NestDoc;
 
-		// Token: 0x040068BC RID: 26812
 		private XSweepDocument _sweepDoc = null;
 
-		// Token: 0x040068BD RID: 26813
 		private NestStarRewardHandler _nestStarRewardHandler;
 
-		// Token: 0x040068BE RID: 26814
 		private int m_Catergory;
 
-		// Token: 0x040068BF RID: 26815
 		private int m_Difficulty;
 
-		// Token: 0x040068C0 RID: 26816
 		private int m_SpecialExpID = -1;
 
-		// Token: 0x040068C1 RID: 26817
 		private IXUICheckBox[] m_TabCheckboxs;
 
-		// Token: 0x040068C2 RID: 26818
 		private Dictionary<int, ExpeditionTable.RowData> m_FirstOpenExpCache = new Dictionary<int, ExpeditionTable.RowData>();
 
-		// Token: 0x040068C3 RID: 26819
 		private List<int> m_IDCache = new List<int>();
 
-		// Token: 0x040068C4 RID: 26820
 		private List<string> m_NameCache = new List<string>();
 
-		// Token: 0x040068C5 RID: 26821
 		private string m_PPTEnoughColor;
 
-		// Token: 0x040068C6 RID: 26822
 		private string m_PPTNotEnoughColor;
 	}
 }

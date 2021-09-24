@@ -11,11 +11,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000E35 RID: 3637
+
 	internal class XFriendsView : DlgBase<XFriendsView, XFriendsBehaviour>
 	{
-		// Token: 0x17003436 RID: 13366
-		// (get) Token: 0x0600C344 RID: 49988 RVA: 0x002A3FC4 File Offset: 0x002A21C4
+
 		public uint TodaySendLeft
 		{
 			get
@@ -24,8 +23,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003437 RID: 13367
-		// (get) Token: 0x0600C345 RID: 49989 RVA: 0x002A3FDC File Offset: 0x002A21DC
 		public uint TodayReceiveLeft
 		{
 			get
@@ -34,8 +31,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003438 RID: 13368
-		// (get) Token: 0x0600C346 RID: 49990 RVA: 0x002A3FF4 File Offset: 0x002A21F4
 		public uint TodaySendCount
 		{
 			get
@@ -44,8 +39,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003439 RID: 13369
-		// (get) Token: 0x0600C347 RID: 49991 RVA: 0x002A4018 File Offset: 0x002A2218
 		public uint TodayReceiveCount
 		{
 			get
@@ -54,8 +47,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700343A RID: 13370
-		// (get) Token: 0x0600C348 RID: 49992 RVA: 0x002A403C File Offset: 0x002A223C
 		public bool Redpoint
 		{
 			get
@@ -72,14 +63,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C349 RID: 49993 RVA: 0x002A4088 File Offset: 0x002A2288
 		private int GetTabIndexInt(TabIndex index)
 		{
 			return XFastEnumIntEqualityComparer<TabIndex>.ToInt(index);
 		}
 
-		// Token: 0x1700343B RID: 13371
-		// (get) Token: 0x0600C34A RID: 49994 RVA: 0x002A40A0 File Offset: 0x002A22A0
 		public override string fileName
 		{
 			get
@@ -88,8 +76,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700343C RID: 13372
-		// (get) Token: 0x0600C34B RID: 49995 RVA: 0x002A40B8 File Offset: 0x002A22B8
 		public override int group
 		{
 			get
@@ -98,8 +84,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700343D RID: 13373
-		// (get) Token: 0x0600C34C RID: 49996 RVA: 0x002A40CC File Offset: 0x002A22CC
 		public override bool hideMainMenu
 		{
 			get
@@ -108,8 +92,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700343E RID: 13374
-		// (get) Token: 0x0600C34D RID: 49997 RVA: 0x002A40E0 File Offset: 0x002A22E0
 		public override bool autoload
 		{
 			get
@@ -118,8 +100,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700343F RID: 13375
-		// (get) Token: 0x0600C34E RID: 49998 RVA: 0x002A40F4 File Offset: 0x002A22F4
 		public override bool pushstack
 		{
 			get
@@ -128,8 +108,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003440 RID: 13376
-		// (get) Token: 0x0600C34F RID: 49999 RVA: 0x002A4108 File Offset: 0x002A2308
 		public override bool fullscreenui
 		{
 			get
@@ -138,7 +116,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C350 RID: 50000 RVA: 0x002A411C File Offset: 0x002A231C
 		protected override void Init()
 		{
 			this._doc = XDocuments.GetSpecificDocument<XFriendsDocument>(XFriendsDocument.uuID);
@@ -159,7 +136,6 @@ namespace XMainClient
 			DlgHandlerBase.EnsureCreate<XDragonGuildListHandler>(ref this.m_dragonGuildListHandler, base.uiBehaviour.transform.Find("Bg"), false, this);
 		}
 
-		// Token: 0x0600C351 RID: 50001 RVA: 0x002A42E8 File Offset: 0x002A24E8
 		public override void RegisterEvent()
 		{
 			base.uiBehaviour.btnClose.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnClickClose));
@@ -169,7 +145,6 @@ namespace XMainClient
 			base.uiBehaviour.FriendListWrapContent.RegisterItemUpdateEventHandler(new WrapItemUpdateEventHandler(this._RankWrapFriendListUpdated));
 		}
 
-		// Token: 0x0600C352 RID: 50002 RVA: 0x002A4388 File Offset: 0x002A2588
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -261,7 +236,6 @@ namespace XMainClient
 			this._doc.ReqPlatFriendsRank();
 		}
 
-		// Token: 0x0600C353 RID: 50003 RVA: 0x002A4728 File Offset: 0x002A2928
 		protected override void OnHide()
 		{
 			base.OnHide();
@@ -306,7 +280,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C354 RID: 50004 RVA: 0x002A4818 File Offset: 0x002A2A18
 		protected override void OnUnload()
 		{
 			this.m_FriendListTempView = null;
@@ -333,7 +306,6 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x0600C355 RID: 50005 RVA: 0x002A4904 File Offset: 0x002A2B04
 		public void OnRefreshPlatFriendsRank()
 		{
 			bool flag = !base.IsVisible() || this.m_FriendsRankHandler == null;
@@ -343,7 +315,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C356 RID: 50006 RVA: 0x002A4938 File Offset: 0x002A2B38
 		public void OnRefreshSendGiftState(PlatFriendRankInfo2Client info)
 		{
 			bool flag = !base.IsVisible() || this.m_FriendsRankHandler == null;
@@ -353,7 +324,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C357 RID: 50007 RVA: 0x002A4970 File Offset: 0x002A2B70
 		public void NoticeFriend(string openID)
 		{
 			bool flag = !base.IsVisible() || this.m_FriendsRankHandler == null;
@@ -363,14 +333,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C358 RID: 50008 RVA: 0x002A49A8 File Offset: 0x002A2BA8
 		public bool OnClickClose(IXUIButton sp)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x0600C359 RID: 50009 RVA: 0x002A49C4 File Offset: 0x002A2BC4
 		public void ShowTab(XSysDefine sys)
 		{
 			if (sys <= XSysDefine.XSys_Partner)
@@ -401,7 +369,6 @@ namespace XMainClient
 			this.SetVisible(true, true);
 		}
 
-		// Token: 0x0600C35A RID: 50010 RVA: 0x002A4A30 File Offset: 0x002A2C30
 		private void SetTabRedpoint(TabIndex index, bool redpoint)
 		{
 			int tabIndexInt = this.GetTabIndexInt(index);
@@ -414,7 +381,6 @@ namespace XMainClient
 			XSingleton<XGameSysMgr>.singleton.RecalculateRedPointState(XSysDefine.XSys_Friends, true);
 		}
 
-		// Token: 0x0600C35B RID: 50011 RVA: 0x002A4A80 File Offset: 0x002A2C80
 		public void SetRedPoint(TabIndex index, bool repoint)
 		{
 			int tabIndexInt = this.GetTabIndexInt(index);
@@ -425,7 +391,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C35C RID: 50012 RVA: 0x002A4AB0 File Offset: 0x002A2CB0
 		private bool OnClickTab(IXUICheckBox cbx)
 		{
 			bool bChecked = cbx.bChecked;
@@ -437,7 +402,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600C35D RID: 50013 RVA: 0x002A4AEC File Offset: 0x002A2CEC
 		public void UpdateRedpointUI()
 		{
 			for (int i = 0; i < this.mRedpointUI.Length; i++)
@@ -450,7 +414,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C35E RID: 50014 RVA: 0x002A4B3C File Offset: 0x002A2D3C
 		public void OnShowFriendDlg()
 		{
 			bool flag = !base.IsVisible();
@@ -460,7 +423,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C35F RID: 50015 RVA: 0x002A4B60 File Offset: 0x002A2D60
 		public XFriendData GetFriendDataById(ulong uid)
 		{
 			for (int i = 0; i < this.friendData.Count; i++)
@@ -474,7 +436,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x0600C360 RID: 50016 RVA: 0x002A4BB8 File Offset: 0x002A2DB8
 		public XFriendData GetFriendDataByName(string name)
 		{
 			for (int i = 0; i < this.friendData.Count; i++)
@@ -488,7 +449,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x0600C361 RID: 50017 RVA: 0x002A4C14 File Offset: 0x002A2E14
 		public XFriendData GetBlockFriendDataById(ulong uid)
 		{
 			for (int i = 0; i < this.blockFriendData.Count; i++)
@@ -502,7 +462,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x0600C362 RID: 50018 RVA: 0x002A4C6C File Offset: 0x002A2E6C
 		public XFriendData GetBlockFriendDataByName(string name)
 		{
 			for (int i = 0; i < this.blockFriendData.Count; i++)
@@ -516,13 +475,11 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x0600C363 RID: 50019 RVA: 0x002A4CC8 File Offset: 0x002A2EC8
 		public List<XFriendData> GetFriendData()
 		{
 			return this.friendData;
 		}
 
-		// Token: 0x0600C364 RID: 50020 RVA: 0x002A4CE0 File Offset: 0x002A2EE0
 		public bool OnClickSendGiftToFriend(IXUIButton btn)
 		{
 			RpcC2M_FriendGiftOpNew rpcC2M_FriendGiftOpNew = new RpcC2M_FriendGiftOpNew();
@@ -532,7 +489,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600C365 RID: 50021 RVA: 0x002A4D2C File Offset: 0x002A2F2C
 		public bool OnClickReceiveGiftFromFriend(IXUIButton btn)
 		{
 			bool flag = this.m_TodayReceiveLeft > 0U;
@@ -550,14 +506,12 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600C366 RID: 50022 RVA: 0x002A4DA4 File Offset: 0x002A2FA4
 		public bool OnClickSendGiftToFriendNotAvaliable(IXUIButton btn)
 		{
 			XSingleton<UiUtility>.singleton.ShowSystemTip(XSingleton<XFriendsStaticData>.singleton.CannotSendGiftToFriendHintText, "fece00");
 			return true;
 		}
 
-		// Token: 0x0600C367 RID: 50023 RVA: 0x002A4DD4 File Offset: 0x002A2FD4
 		public string GetFriendNameById(ulong uid)
 		{
 			for (int i = 0; i < this.friendData.Count; i++)
@@ -571,7 +525,6 @@ namespace XMainClient
 			return "";
 		}
 
-		// Token: 0x0600C368 RID: 50024 RVA: 0x002A4E34 File Offset: 0x002A3034
 		public string GetBlockFriendNameById(ulong uid)
 		{
 			for (int i = 0; i < this.blockFriendData.Count; i++)
@@ -585,7 +538,6 @@ namespace XMainClient
 			return "";
 		}
 
-		// Token: 0x0600C369 RID: 50025 RVA: 0x002A4E94 File Offset: 0x002A3094
 		private bool OnClickButtonR(IXUIButton sp)
 		{
 			TabIndex currentTabIndex = this.m_CurrentTabIndex;
@@ -626,7 +578,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600C36A RID: 50026 RVA: 0x002A4F8C File Offset: 0x002A318C
 		private bool OnClickButtonL(IXUIButton sp)
 		{
 			TabIndex currentTabIndex = this.m_CurrentTabIndex;
@@ -663,7 +614,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600C36B RID: 50027 RVA: 0x002A5078 File Offset: 0x002A3278
 		public bool OnClickAddQQFriends(IXUIButton sp)
 		{
 			ulong id = sp.ID;
@@ -672,7 +622,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600C36C RID: 50028 RVA: 0x002A50B4 File Offset: 0x002A32B4
 		public bool OnClickChatFriend(IXUIButton sp)
 		{
 			ulong id = sp.ID;
@@ -702,7 +651,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600C36D RID: 50029 RVA: 0x002A518C File Offset: 0x002A338C
 		private bool OnClickAgreeApply(IXUIButton sp)
 		{
 			bool flag = this.GetFriendDataById(sp.ID) != null;
@@ -717,7 +665,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600C36E RID: 50030 RVA: 0x002A5204 File Offset: 0x002A3404
 		public void OnApply(DoAddFriendArg oArg, DoAddFriendRes oRes)
 		{
 			FriendOpType op = oArg.op;
@@ -742,7 +689,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C36F RID: 50031 RVA: 0x002A528C File Offset: 0x002A348C
 		private bool OnClickIgnoreApply(IXUIButton sp)
 		{
 			bool flag = this.GetFriendDataById(sp.ID) != null;
@@ -757,14 +703,12 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600C370 RID: 50032 RVA: 0x002A5304 File Offset: 0x002A3504
 		private bool OnCkickHint(IXUIButton sp)
 		{
 			this.m_FriendsViewHintHandler.SetVisible(true);
 			return true;
 		}
 
-		// Token: 0x0600C371 RID: 50033 RVA: 0x002A5324 File Offset: 0x002A3524
 		private bool DoDeleteFriend(IXUIButton sp)
 		{
 			this.RemoveFriend(sp.ID);
@@ -772,7 +716,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600C372 RID: 50034 RVA: 0x002A5350 File Offset: 0x002A3550
 		public bool OnClickDeleteFriend(IXUIButton sp)
 		{
 			bool flag = TabIndex.BlockFriend == this.m_CurrentTabIndex;
@@ -793,7 +736,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600C373 RID: 50035 RVA: 0x002A53F8 File Offset: 0x002A35F8
 		public bool OnRemoveBlockFriend(IXUIButton sp)
 		{
 			ulong id = sp.ID;
@@ -801,14 +743,12 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600C374 RID: 50036 RVA: 0x002A5420 File Offset: 0x002A3620
 		private void OnClickFriendItemPanel(IXUISprite sp)
 		{
 			ulong id = sp.ID;
 			XCharacterCommonMenuDocument.ReqCharacterMenuInfo(id, false);
 		}
 
-		// Token: 0x0600C375 RID: 50037 RVA: 0x002A5440 File Offset: 0x002A3640
 		public void AddFriendById(ulong id)
 		{
 			bool flag = id == XSingleton<XAttributeMgr>.singleton.XPlayerData.RoleID;
@@ -824,7 +764,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C376 RID: 50038 RVA: 0x002A54A0 File Offset: 0x002A36A0
 		public void AddFriendByName(string name)
 		{
 			RpcC2M_AddFriendNew rpcC2M_AddFriendNew = new RpcC2M_AddFriendNew();
@@ -832,7 +771,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_AddFriendNew);
 		}
 
-		// Token: 0x0600C377 RID: 50039 RVA: 0x002A54D0 File Offset: 0x002A36D0
 		public void AddFriendRes(ErrorCode code, ulong uid)
 		{
 			bool flag = code == ErrorCode.ERR_SUCCESS;
@@ -863,7 +801,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C378 RID: 50040 RVA: 0x002A5568 File Offset: 0x002A3768
 		private bool IsNewFirend(XFriendData data)
 		{
 			for (int i = 0; i < this.friendData.Count; i++)
@@ -877,7 +814,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600C379 RID: 50041 RVA: 0x002A55BC File Offset: 0x002A37BC
 		public void OnFriendOpNotify(PtcM2C_FriendOpNtfNew roPtc)
 		{
 			switch (roPtc.Data.op)
@@ -1071,7 +1007,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C37A RID: 50042 RVA: 0x002A5D20 File Offset: 0x002A3F20
 		private bool _CheckHasGiftToSend()
 		{
 			this.canSendGift = false;
@@ -1088,7 +1023,6 @@ namespace XMainClient
 			return this.canSendGift;
 		}
 
-		// Token: 0x0600C37B RID: 50043 RVA: 0x002A5DAC File Offset: 0x002A3FAC
 		private void CheckGiftSendReceiveState()
 		{
 			bool flag = this._CheckHasGiftToSend();
@@ -1098,7 +1032,6 @@ namespace XMainClient
 			XSingleton<XGameSysMgr>.singleton.RecalculateRedPointState(XSysDefine.XSys_Friends, true);
 		}
 
-		// Token: 0x0600C37C RID: 50044 RVA: 0x002A5DE8 File Offset: 0x002A3FE8
 		public void OnFriendGiftOp(FriendGiftOpArg oArg, FriendGiftOpRes oRes)
 		{
 			bool flag = oRes.errorcode > ErrorCode.ERR_SUCCESS;
@@ -1176,7 +1109,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C37D RID: 50045 RVA: 0x002A60B0 File Offset: 0x002A42B0
 		private void ReceiveGiftReply(XFriendData _data)
 		{
 			ChatInfo chatInfo = new ChatInfo();
@@ -1193,7 +1125,6 @@ namespace XMainClient
 			XSingleton<UiUtility>.singleton.ShowSystemTip(XStringDefineProxy.GetString("FRIENDS_RECEIVE_THX_SEND"), "fece00");
 		}
 
-		// Token: 0x0600C37E RID: 50046 RVA: 0x002A6160 File Offset: 0x002A4360
 		public void RemoveFriend(ulong id)
 		{
 			DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.Load();
@@ -1213,7 +1144,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C37F RID: 50047 RVA: 0x002A6200 File Offset: 0x002A4400
 		private bool DoDeleteFriendByID(IXUIButton btn)
 		{
 			XFriendData friendDataById = this.GetFriendDataById(btn.ID);
@@ -1235,7 +1165,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600C380 RID: 50048 RVA: 0x002A6284 File Offset: 0x002A4484
 		public void RemoveFriendRes(ErrorCode code, ulong roleid)
 		{
 			for (int i = 0; i < this.friendData.Count; i++)
@@ -1262,7 +1191,6 @@ namespace XMainClient
 			DlgBase<XChatView, XChatBehaviour>.singleton.ChatDoc.RemoveFriend(roleid);
 		}
 
-		// Token: 0x0600C381 RID: 50049 RVA: 0x002A6350 File Offset: 0x002A4550
 		public void UpdateFriendInfo(ulong uid, uint daydegree, uint alldegree)
 		{
 			XFriendData friendDataById = this.GetFriendDataById(uid);
@@ -1291,7 +1219,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C382 RID: 50050 RVA: 0x002A6414 File Offset: 0x002A4614
 		public void QueryRoleState()
 		{
 			PtcC2M_RoleStateReportNew ptcC2M_RoleStateReportNew = new PtcC2M_RoleStateReportNew();
@@ -1312,13 +1239,11 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(ptcC2M_RoleStateReportNew);
 		}
 
-		// Token: 0x0600C383 RID: 50051 RVA: 0x002A64E6 File Offset: 0x002A46E6
 		public void SortFriendData()
 		{
 			this.friendData.Sort(new Comparison<XFriendData>(this.CompareFriendData));
 		}
 
-		// Token: 0x0600C384 RID: 50052 RVA: 0x002A6504 File Offset: 0x002A4704
 		public void QueryRoleStateRes(RoleStateNtf rolestate)
 		{
 			for (int i = 0; i < this.friendData.Count; i++)
@@ -1345,7 +1270,6 @@ namespace XMainClient
 			XSingleton<XEventMgr>.singleton.FireEvent(@event);
 		}
 
-		// Token: 0x0600C385 RID: 50053 RVA: 0x002A661C File Offset: 0x002A481C
 		private int CompareOfflineTime(uint lastLogin1, uint lastLogin2)
 		{
 			int num = 0;
@@ -1367,7 +1291,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C386 RID: 50054 RVA: 0x002A6670 File Offset: 0x002A4870
 		private void GetOfflineTime(int lastlogin, out int number, out int unit)
 		{
 			bool flag = lastlogin < 60;
@@ -1410,7 +1333,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C387 RID: 50055 RVA: 0x002A66F0 File Offset: 0x002A48F0
 		private int CompareFriendData(XFriendData a, XFriendData b)
 		{
 			bool flag = a.online == 0U && b.online == 0U;
@@ -1460,20 +1382,17 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C388 RID: 50056 RVA: 0x002A6808 File Offset: 0x002A4A08
 		public int CompareFriendGiftData(XFriendData a, XFriendData b)
 		{
 			return b.receiveAll.CompareTo(a.receiveAll);
 		}
 
-		// Token: 0x0600C389 RID: 50057 RVA: 0x002A682B File Offset: 0x002A4A2B
 		public void ShowFriends(bool refreshChatUI = false)
 		{
 			this.m_RefreshFriendChatUI = refreshChatUI;
 			this._ApplyTabData(TabIndex.ApplyFriend);
 		}
 
-		// Token: 0x0600C38A RID: 50058 RVA: 0x002A6840 File Offset: 0x002A4A40
 		private int _SetTabNumLabel(TabIndex tab)
 		{
 			TabIndex currentTabIndex = this.m_CurrentTabIndex;
@@ -1513,7 +1432,6 @@ namespace XMainClient
 			return num;
 		}
 
-		// Token: 0x0600C38B RID: 50059 RVA: 0x002A6930 File Offset: 0x002A4B30
 		private void _ApplyTabData(TabIndex tab)
 		{
 			bool flag = base.IsVisible();
@@ -1651,7 +1569,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C38C RID: 50060 RVA: 0x002A6DC4 File Offset: 0x002A4FC4
 		private XFriendData GenerateFriendInfo(Friend2Client friend2Client)
 		{
 			return new XFriendData
@@ -1681,7 +1598,6 @@ namespace XMainClient
 			};
 		}
 
-		// Token: 0x0600C38D RID: 50061 RVA: 0x002A6EF4 File Offset: 0x002A50F4
 		public bool IsMyFriend(ulong uid)
 		{
 			for (int i = 0; i < this.friendData.Count; i++)
@@ -1695,7 +1611,6 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x0600C38E RID: 50062 RVA: 0x002A6F40 File Offset: 0x002A5140
 		public uint GetFriendDegreeAll(ulong uid)
 		{
 			for (int i = 0; i < this.friendData.Count; i++)
@@ -1709,7 +1624,6 @@ namespace XMainClient
 			return 0U;
 		}
 
-		// Token: 0x0600C38F RID: 50063 RVA: 0x002A6F9C File Offset: 0x002A519C
 		public bool IsBlock(ulong uid)
 		{
 			for (int i = 0; i < this.blockFriendData.Count; i++)
@@ -1723,7 +1637,6 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x0600C390 RID: 50064 RVA: 0x002A6FE8 File Offset: 0x002A51E8
 		public void RefreshFriendList(bool reset = false)
 		{
 			bool flag = !base.IsVisible();
@@ -1738,7 +1651,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C391 RID: 50065 RVA: 0x002A703C File Offset: 0x002A523C
 		public void SetTencentImage(IXUITexture texture)
 		{
 			bool flag = texture == null;
@@ -1748,14 +1660,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C392 RID: 50066 RVA: 0x002A7064 File Offset: 0x002A5264
 		public void RandomFriend()
 		{
 			RpcC2M_RandomFriendWaitListNew rpc = new RpcC2M_RandomFriendWaitListNew();
 			XSingleton<XClientNetwork>.singleton.Send(rpc);
 		}
 
-		// Token: 0x0600C393 RID: 50067 RVA: 0x002A7084 File Offset: 0x002A5284
 		public void RandomFriendRes(RandomFriendWaitListRes waitList)
 		{
 			bool flag = DlgBase<XFriendsSearchView, XFriendsSearchBehaviour>.singleton.IsVisible();
@@ -1769,7 +1679,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C394 RID: 50068 RVA: 0x002A70C0 File Offset: 0x002A52C0
 		private bool DoAddBlockFriendByID(IXUIButton btn)
 		{
 			RpcC2M_AddBlackListNew rpcC2M_AddBlackListNew = new RpcC2M_AddBlackListNew();
@@ -1784,7 +1693,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600C395 RID: 50069 RVA: 0x002A7120 File Offset: 0x002A5320
 		private bool DoAddBlockFriendByName(IXUIButton btn)
 		{
 			RpcC2M_AddBlackListNew rpcC2M_AddBlackListNew = new RpcC2M_AddBlackListNew();
@@ -1794,7 +1702,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600C396 RID: 50070 RVA: 0x002A7168 File Offset: 0x002A5368
 		public void AddBlockFriend(ulong uid)
 		{
 			bool flag = uid == XSingleton<XAttributeMgr>.singleton.XPlayerData.RoleID;
@@ -1830,7 +1737,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C397 RID: 50071 RVA: 0x002A726C File Offset: 0x002A546C
 		public void AddBlockFriend(string name)
 		{
 			bool flag = name == XSingleton<XAttributeMgr>.singleton.XPlayerData.Name;
@@ -1866,7 +1772,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C398 RID: 50072 RVA: 0x002A7378 File Offset: 0x002A5578
 		public void AddBlockFriendRes(Friend2Client black)
 		{
 			XFriendData item = this.GenerateFriendInfo(black);
@@ -1885,7 +1790,6 @@ namespace XMainClient
 			this.RefreshUI();
 		}
 
-		// Token: 0x0600C399 RID: 50073 RVA: 0x002A7428 File Offset: 0x002A5628
 		public void RefreshBlockFriendData(BlackListNtf blacklist)
 		{
 			this.blockFriendData.Clear();
@@ -1897,13 +1801,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C39A RID: 50074 RVA: 0x002A7480 File Offset: 0x002A5680
 		public void RefreshUI()
 		{
 			this.RefreshFriendList(false);
 		}
 
-		// Token: 0x0600C39B RID: 50075 RVA: 0x002A748C File Offset: 0x002A568C
 		public void RemoveBlockFriend(ulong uid)
 		{
 			RpcC2M_RemoveBlackListNew rpcC2M_RemoveBlackListNew = new RpcC2M_RemoveBlackListNew();
@@ -1911,7 +1813,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_RemoveBlackListNew);
 		}
 
-		// Token: 0x0600C39C RID: 50076 RVA: 0x002A74BC File Offset: 0x002A56BC
 		public void RemoveBlockFriendRes(ErrorCode code, ulong roleid)
 		{
 			bool flag = code == ErrorCode.ERR_SUCCESS;
@@ -1931,7 +1832,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C39D RID: 50077 RVA: 0x002A7550 File Offset: 0x002A5750
 		public override void StackRefresh()
 		{
 			this.RefreshUI();
@@ -1942,7 +1842,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C39E RID: 50078 RVA: 0x002A7580 File Offset: 0x002A5780
 		private void _UpdateFriendSendGiftUI(Transform t, XFriendData friendInfo)
 		{
 			bool flag = friendInfo.degreeDay > XSingleton<XFriendsStaticData>.singleton.SendGiftMinDegree;
@@ -1998,7 +1897,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C39F RID: 50079 RVA: 0x002A77A8 File Offset: 0x002A59A8
 		private void _UpdateFriendDegreeUI(Transform t, XFriendData data, uint deltaDay, uint deltaAll)
 		{
 			bool flag = !base.IsVisible();
@@ -2054,7 +1952,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C3A0 RID: 50080 RVA: 0x002A7985 File Offset: 0x002A5B85
 		public void OnClickDegreeHeart(IXUISprite spr)
 		{
 			XSingleton<UiUtility>.singleton.ShowSystemTip(XStringDefineProxy.GetString("FRIENDS_DEGREE_HINT_TEXT_FMT", new object[]
@@ -2063,7 +1960,6 @@ namespace XMainClient
 			}), "fece00");
 		}
 
-		// Token: 0x0600C3A1 RID: 50081 RVA: 0x002A79B8 File Offset: 0x002A5BB8
 		public void UpdateFriendOnlineState(Transform trans, uint online, uint lastlogin)
 		{
 			GameObject gameObject = trans.Find("Online").gameObject;
@@ -2072,9 +1968,6 @@ namespace XMainClient
 			ixuilabel.SetText(string.Empty);
 		}
 
-		// Token: 0x17003441 RID: 13377
-		// (get) Token: 0x0600C3A2 RID: 50082 RVA: 0x002A7A14 File Offset: 0x002A5C14
-		// (set) Token: 0x0600C3A3 RID: 50083 RVA: 0x002A7A2C File Offset: 0x002A5C2C
 		public XMentorshipPupilsHandler MentorshipHandler
 		{
 			get
@@ -2087,13 +1980,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C3A4 RID: 50084 RVA: 0x002A7A36 File Offset: 0x002A5C36
 		private void OnAddTweenFinishEventHandler(IXUITweenTool tween)
 		{
 			tween.gameObject.SetActive(false);
 		}
 
-		// Token: 0x0600C3A5 RID: 50085 RVA: 0x002A7A48 File Offset: 0x002A5C48
 		private void _RankWrapFriendListUpdated(Transform t, int i)
 		{
 			XPlayerInfoChildView friendListTempView = this.m_FriendListTempView;
@@ -2189,7 +2080,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C3A6 RID: 50086 RVA: 0x002A7F1C File Offset: 0x002A611C
 		private bool _CheckHasGiftCanReceive()
 		{
 			this.m_HasGiftCanReceive = false;
@@ -2221,7 +2111,6 @@ namespace XMainClient
 			return this.m_HasGiftCanReceive && XSingleton<XFriendsStaticData>.singleton.ReceiveGifMaxTimes > 0U && DlgBase<XFriendsView, XFriendsBehaviour>.singleton.TodayReceiveCount < XSingleton<XFriendsStaticData>.singleton.ReceiveGifMaxTimes;
 		}
 
-		// Token: 0x0600C3A7 RID: 50087 RVA: 0x002A8010 File Offset: 0x002A6210
 		private void RefreshGiftBtnRedPoint()
 		{
 			bool flag = !base.IsVisible();
@@ -2245,7 +2134,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C3A8 RID: 50088 RVA: 0x002A80DC File Offset: 0x002A62DC
 		public void RefreshDragonGuildPage()
 		{
 			bool flag = (this.m_dragonGuildListHandler != null && this.m_dragonGuildListHandler.IsVisible()) || (this.m_dragonGuildMainHandler != null && this.m_dragonGuildMainHandler.IsVisible());
@@ -2255,7 +2143,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C3A9 RID: 50089 RVA: 0x002A8128 File Offset: 0x002A6328
 		public void NoticeFriendShare(string openID, XFriendsView.ShareType tpye)
 		{
 			this.m_noticeFriendOpenID = openID;
@@ -2294,7 +2181,6 @@ namespace XMainClient
 			XSingleton<UiUtility>.singleton.ShowModalDialog(label, XStringDefineProxy.GetString("FRIEND_SEND_PLAT_FRIEND_OK2"), XStringDefineProxy.GetString("FRIEND_SEND_PLAT_FRIEND_CANCEL"), new ButtonClickEventHandler(this.OnEnsureNoticeFriendPk));
 		}
 
-		// Token: 0x0600C3AA RID: 50090 RVA: 0x002A8268 File Offset: 0x002A6468
 		private bool OnEnsureNoticeFriendPk(IXUIButton btn)
 		{
 			DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.SetVisible(false, true);
@@ -2314,7 +2200,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600C3AB RID: 50091 RVA: 0x002A82BC File Offset: 0x002A64BC
 		private void SharePkToQQFriend()
 		{
 			Dictionary<string, object> dictionary = new Dictionary<string, object>();
@@ -2331,7 +2216,6 @@ namespace XMainClient
 			XSingleton<XUpdater.XUpdater>.singleton.XPlatform.SendExtDara("share_send_to_friend_qq", text);
 		}
 
-		// Token: 0x0600C3AC RID: 50092 RVA: 0x002A83D8 File Offset: 0x002A65D8
 		private void SharePkToWXFriend()
 		{
 			Dictionary<string, object> dictionary = new Dictionary<string, object>();
@@ -2346,117 +2230,81 @@ namespace XMainClient
 			XSingleton<XUpdater.XUpdater>.singleton.XPlatform.SendExtDara("share_send_to_friend_wx", text);
 		}
 
-		// Token: 0x04005485 RID: 21637
 		public Action OnAddBlockSucc;
 
-		// Token: 0x04005486 RID: 21638
 		public Action OnRemoveFriendSucc;
 
-		// Token: 0x04005487 RID: 21639
 		private bool m_RefreshFriendChatUI;
 
-		// Token: 0x04005488 RID: 21640
 		private bool m_HasGiftCanReceive = false;
 
-		// Token: 0x04005489 RID: 21641
 		private uint m_TodaySendLeft;
 
-		// Token: 0x0400548A RID: 21642
 		private uint m_TodayReceiveLeft;
 
-		// Token: 0x0400548B RID: 21643
 		private bool canSendGift = false;
 
-		// Token: 0x0400548C RID: 21644
 		private bool[] mRedpoint = new bool[10];
 
-		// Token: 0x0400548D RID: 21645
 		private GameObject[] mRedpointUI = new GameObject[10];
 
-		// Token: 0x0400548E RID: 21646
 		private TabIndex m_CurrentTabIndex = TabIndex.ShowFriend;
 
-		// Token: 0x0400548F RID: 21647
 		private int m_FriendListTitleHeight;
 
-		// Token: 0x04005490 RID: 21648
 		private XFriendsDocument _doc = null;
 
-		// Token: 0x04005491 RID: 21649
 		public List<XFriendData> friendData = new List<XFriendData>();
 
-		// Token: 0x04005492 RID: 21650
 		public List<XFriendData> blockFriendData = new List<XFriendData>();
 
-		// Token: 0x04005493 RID: 21651
 		public List<XFriendData> applyData = new List<XFriendData>();
 
-		// Token: 0x04005494 RID: 21652
 		private string m_DeleteFriendName = "";
 
-		// Token: 0x04005495 RID: 21653
 		private XPlayerInfoChildView m_FriendListTempView;
 
-		// Token: 0x04005496 RID: 21654
 		private XFriendsViewHintHandler m_FriendsViewHintHandler;
 
-		// Token: 0x04005497 RID: 21655
 		private GameObject m_FriendsViewHintFrame;
 
-		// Token: 0x04005498 RID: 21656
 		private XFriendsViewAddBlockHandler m_FriendsViewAddBlockHandler;
 
-		// Token: 0x04005499 RID: 21657
 		private GameObject m_FriendsViewAddBlockFrame;
 
-		// Token: 0x0400549A RID: 21658
 		private XFriendsViewReceiveGiftHandler m_FriendsViewReceiveGiftHandler;
 
-		// Token: 0x0400549B RID: 21659
 		private GameObject m_FriendsViewReceiveGiftFrame;
 
-		// Token: 0x0400549C RID: 21660
 		private XFriendsRankHandler m_FriendsRankHandler;
 
-		// Token: 0x0400549D RID: 21661
 		private GameObject m_FriendsRankFrame;
 
-		// Token: 0x0400549E RID: 21662
 		private PartnerMainHandler m_partnerMainHandler;
 
-		// Token: 0x0400549F RID: 21663
 		private FriendsWeddingHandler m_weddingMainHandler;
 
-		// Token: 0x040054A0 RID: 21664
 		private XMentorshipPupilsHandler m_mentorshipHandler;
 
-		// Token: 0x040054A1 RID: 21665
 		private XDragonPartnerHandler m_dragonPartnerHandler;
 
-		// Token: 0x040054A2 RID: 21666
 		private XDragonGuildListHandler m_dragonGuildListHandler;
 
-		// Token: 0x040054A3 RID: 21667
 		private XDragonGuildMainHandler m_dragonGuildMainHandler;
 
-		// Token: 0x040054A4 RID: 21668
 		private string m_noticeFriendOpenID;
 
-		// Token: 0x040054A5 RID: 21669
 		private string m_title;
 
-		// Token: 0x040054A6 RID: 21670
 		private string m_description;
 
-		// Token: 0x040054A7 RID: 21671
 		private string m_gameTag;
 
-		// Token: 0x020019CC RID: 6604
 		public enum ShareType
 		{
-			// Token: 0x04007FEF RID: 32751
+
 			PK = 1,
-			// Token: 0x04007FF0 RID: 32752
+
 			Invite
 		}
 	}

@@ -6,10 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000A37 RID: 2615
+
 	internal class RecruitPublishBehaviour : DlgBehaviourBase
 	{
-		// Token: 0x06009F3A RID: 40762 RVA: 0x001A5B60 File Offset: 0x001A3D60
+
 		private void Awake()
 		{
 			this._Close = (base.transform.Find("Bg/Close").GetComponent("XUIButton") as IXUIButton);
@@ -35,30 +35,22 @@ namespace XMainClient
 			this.OtherAwake();
 		}
 
-		// Token: 0x06009F3B RID: 40763 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public virtual void OtherAwake()
 		{
 		}
 
-		// Token: 0x040038C9 RID: 14537
 		public IXUIButton _Close;
 
-		// Token: 0x040038CA RID: 14538
 		public IXUIButton _Submit;
 
-		// Token: 0x040038CB RID: 14539
 		public IXUIScrollView _TypeListScrollView;
 
-		// Token: 0x040038CC RID: 14540
 		public XUIPool _levelOnePool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x040038CD RID: 14541
 		public XUIPool _levelTwoPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x040038CE RID: 14542
 		public IXUICheckBox[] _memberTypes;
 
-		// Token: 0x040038CF RID: 14543
 		public Transform _StartTime;
 	}
 }

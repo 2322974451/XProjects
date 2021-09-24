@@ -1,8 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: XMainClient.UI.HeroBattleHandler
-// Assembly: XMainClient, Version=1.0.6733.32538, Culture=neutral, PublicKeyToken=null
-// MVID: 71510397-FE89-4B5C-BC50-B6D560866D97
-// Assembly location: F:\龙之谷\Client\Assets\Lib\XMainClient.dll
+﻿
 
 using KKSG;
 using System.Collections.Generic;

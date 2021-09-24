@@ -5,17 +5,15 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000FD0 RID: 4048
+
 	internal class MountLoadTask : EquipLoadTask
 	{
-		// Token: 0x0600D23B RID: 53819 RVA: 0x00310B94 File Offset: 0x0030ED94
+
 		public MountLoadTask(EPartType p, MountLoadCallback mountPartLoadCb) : base(p)
 		{
 			this.m_MountPartLoadCb = mountPartLoadCb;
 		}
 
-		// Token: 0x170036C5 RID: 14021
-		// (get) Token: 0x0600D23C RID: 53820 RVA: 0x00310BB4 File Offset: 0x0030EDB4
 		public bool IsSkin
 		{
 			get
@@ -24,7 +22,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D23D RID: 53821 RVA: 0x00310BDC File Offset: 0x0030EDDC
 		public override void Load(XEntity e, int prefessionID, ref FashionPositionInfo newFpi, bool async, HashSet<string> loadedPath)
 		{
 			bool flag = base.IsSamePart(ref newFpi);
@@ -57,14 +54,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D23E RID: 53822 RVA: 0x00310C7B File Offset: 0x0030EE7B
 		public override void Reset(XEntity e)
 		{
 			base.Reset(e);
 			this.xgo = null;
 		}
 
-		// Token: 0x0600D23F RID: 53823 RVA: 0x00310C90 File Offset: 0x0030EE90
 		private static void LoadFinish(XGameObject gameObject, object o, int commandID)
 		{
 			MountLoadTask mountLoadTask = o as MountLoadTask;
@@ -84,7 +79,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D240 RID: 53824 RVA: 0x00310CE4 File Offset: 0x0030EEE4
 		public static void ProcessRender(XGameObject xgo, XEntity e, int layer, bool enable, int renderQueue, bool forceDisable)
 		{
 			bool flag = xgo != null;
@@ -133,13 +127,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D241 RID: 53825 RVA: 0x00310E2C File Offset: 0x0030F02C
 		public virtual void ProcessRender(XEntity e, int layer, bool enable, int renderQueue, bool forceDisable)
 		{
 			MountLoadTask.ProcessRender(this.xgo, e, layer, enable, renderQueue, forceDisable);
 		}
 
-		// Token: 0x0600D242 RID: 53826 RVA: 0x00310E44 File Offset: 0x0030F044
 		public static void ProcessEnable(XGameObject xgo, bool enable, bool forceDisable, int layer)
 		{
 			bool flag = xgo != null;
@@ -163,7 +155,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D243 RID: 53827 RVA: 0x00310ED8 File Offset: 0x0030F0D8
 		public static void ProcessRenderQueue(XGameObject xgo, int renderQueue)
 		{
 			bool flag = renderQueue > 1000 && xgo != null;
@@ -184,7 +175,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D244 RID: 53828 RVA: 0x00310F78 File Offset: 0x0030F178
 		public static void ProcessRenderComponent(XGameObject xgo, XEntity e)
 		{
 			bool flag = xgo != null;
@@ -200,25 +190,21 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D245 RID: 53829 RVA: 0x00310FDC File Offset: 0x0030F1DC
 		public virtual void ProcessEnable(bool enable, bool forceDisable, int layer)
 		{
 			MountLoadTask.ProcessEnable(this.xgo, enable, forceDisable, layer);
 		}
 
-		// Token: 0x0600D246 RID: 53830 RVA: 0x00310FEE File Offset: 0x0030F1EE
 		public virtual void ProcessRenderQueue(int renderQueue)
 		{
 			MountLoadTask.ProcessRenderQueue(this.xgo, renderQueue);
 		}
 
-		// Token: 0x0600D247 RID: 53831 RVA: 0x00310FFE File Offset: 0x0030F1FE
 		public virtual void ProcessRenderComponent(XEntity e)
 		{
 			MountLoadTask.ProcessRenderComponent(this.xgo, e);
 		}
 
-		// Token: 0x0600D248 RID: 53832 RVA: 0x00311010 File Offset: 0x0030F210
 		public XAffiliate PostProcess(XEntity e, XAffiliate aff, Transform attachPoint)
 		{
 			bool flag = attachPoint == null;
@@ -251,13 +237,10 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x04005F80 RID: 24448
 		public XGameObject xgo = null;
 
-		// Token: 0x04005F81 RID: 24449
 		private MountLoadCallback m_MountPartLoadCb = null;
 
-		// Token: 0x04005F82 RID: 24450
 		private static CommandCallback mountLoadFinish = new CommandCallback(MountLoadTask.LoadFinish);
 	}
 }

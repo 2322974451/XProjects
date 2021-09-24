@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001812 RID: 6162
+
 	internal class XSpriteAttributeSHandler : DlgHandlerBase
 	{
-		// Token: 0x17003900 RID: 14592
-		// (get) Token: 0x0600FFA2 RID: 65442 RVA: 0x003C7518 File Offset: 0x003C5718
+
 		protected override string FileName
 		{
 			get
@@ -21,7 +20,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FFA3 RID: 65443 RVA: 0x003C7530 File Offset: 0x003C5730
 		protected override void Init()
 		{
 			base.Init();
@@ -32,7 +30,6 @@ namespace XMainClient.UI
 			this.m_MainSkill.SetActive(false);
 		}
 
-		// Token: 0x0600FFA4 RID: 65444 RVA: 0x003C75D4 File Offset: 0x003C57D4
 		private void CreateSpriteSkill(List<uint> passiveSkillID, uint skillID, uint evolutionLevel)
 		{
 			this.m_passiveSkillID = passiveSkillID;
@@ -50,7 +47,6 @@ namespace XMainClient.UI
 			this.SetSkillIcon(this.m_MainSkill, skillID, true, evolutionLevel);
 		}
 
-		// Token: 0x0600FFA5 RID: 65445 RVA: 0x003C7670 File Offset: 0x003C5870
 		private void SetSkillIcon(GameObject go, uint skillID, bool mainSkill = false, uint evolutionLevel = 0U)
 		{
 			IXUISprite ixuisprite = go.transform.FindChild("Icon").GetComponent("XUISprite") as IXUISprite;
@@ -77,7 +73,6 @@ namespace XMainClient.UI
 			ixuilabel2.SetVisible(mainSkill);
 		}
 
-		// Token: 0x0600FFA6 RID: 65446 RVA: 0x003C77B4 File Offset: 0x003C59B4
 		private void OnSkillIconClicked(IXUISprite obj)
 		{
 			uint num = (uint)obj.ID;
@@ -86,7 +81,6 @@ namespace XMainClient.UI
 			DlgBase<XSpriteSkillTipDlg, XSpriteSkillTipBehaviour>.singleton.ShowSpriteSkill(num, flag, flag ? this.m_mainSkillLevel : 0U);
 		}
 
-		// Token: 0x0600FFA7 RID: 65447 RVA: 0x003C7800 File Offset: 0x003C5A00
 		public void SetSpriteAttributeInfo(SpriteInfo spriteData, SpriteInfo compareData = null)
 		{
 			bool flag = spriteData == null;
@@ -101,7 +95,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FFA8 RID: 65448 RVA: 0x003C784C File Offset: 0x003C5A4C
 		public void SetSpriteAttributeInfo(uint spriteID)
 		{
 			this.attrCompareData.Clear();
@@ -116,28 +109,20 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0400712D RID: 28973
 		private XUIPool m_SkillPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x0400712E RID: 28974
 		private IXUIList m_SkillList;
 
-		// Token: 0x0400712F RID: 28975
 		private GameObject m_MainSkill;
 
-		// Token: 0x04007130 RID: 28976
 		private Dictionary<uint, double> attrCompareData = new Dictionary<uint, double>();
 
-		// Token: 0x04007131 RID: 28977
 		private Dictionary<uint, double> aptitudeCompareData = new Dictionary<uint, double>();
 
-		// Token: 0x04007132 RID: 28978
 		private List<uint> m_passiveSkillID = new List<uint>();
 
-		// Token: 0x04007133 RID: 28979
 		private uint m_mainSkillID;
 
-		// Token: 0x04007134 RID: 28980
 		private uint m_mainSkillLevel;
 	}
 }

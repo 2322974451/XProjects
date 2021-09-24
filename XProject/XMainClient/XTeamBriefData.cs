@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000D34 RID: 3380
+
 	internal class XTeamBriefData : XDataBase, IComparable<XTeamBriefData>
 	{
-		// Token: 0x0600BB66 RID: 47974 RVA: 0x00267D64 File Offset: 0x00265F64
+
 		public static string GetStrTeamPPT(double teamPPT, double myPPT)
 		{
 			bool flag = teamPPT == 0.0;
@@ -37,19 +37,16 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600BB67 RID: 47975 RVA: 0x00267DE8 File Offset: 0x00265FE8
 		public XTeamBriefData()
 		{
 			this.goldGroup.teamBrief = this;
 		}
 
-		// Token: 0x0600BB68 RID: 47976 RVA: 0x00267E80 File Offset: 0x00266080
 		public string GetStrTeamPPT(double myPPT = 0.0)
 		{
 			return XTeamBriefData.GetStrTeamPPT(this.teamPPT, myPPT);
 		}
 
-		// Token: 0x0600BB69 RID: 47977 RVA: 0x00267EA0 File Offset: 0x002660A0
 		private void _UpdateRelation()
 		{
 			this.relation.Reset();
@@ -69,7 +66,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BB6A RID: 47978 RVA: 0x00267F48 File Offset: 0x00266148
 		public void SetMembers(List<TeamMember> memberDatas)
 		{
 			this.isTarja = false;
@@ -86,7 +82,6 @@ namespace XMainClient
 			this._UpdateRelation();
 		}
 
-		// Token: 0x0600BB6B RID: 47979 RVA: 0x00268004 File Offset: 0x00266204
 		public void SetData(TeamBrief brief, XExpeditionDocument expDoc)
 		{
 			bool flag = this.dungeonID != brief.expID;
@@ -178,7 +173,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BB6C RID: 47980 RVA: 0x00268284 File Offset: 0x00266484
 		public static int CompareToAccordingToRelation(XTeamBriefData left, XTeamBriefData right)
 		{
 			int num = XFastEnumIntEqualityComparer<XTeamState>.ToInt(left.state).CompareTo(XFastEnumIntEqualityComparer<XTeamState>.ToInt(right.state));
@@ -200,7 +194,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600BB6D RID: 47981 RVA: 0x002682E8 File Offset: 0x002664E8
 		public int CompareTo(XTeamBriefData other)
 		{
 			int num = 0;
@@ -262,7 +255,6 @@ namespace XMainClient
 			return num * XTeamBriefData.dir;
 		}
 
-		// Token: 0x0600BB6E RID: 47982 RVA: 0x002684B0 File Offset: 0x002666B0
 		public override void Recycle()
 		{
 			base.Recycle();
@@ -280,82 +272,56 @@ namespace XMainClient
 			XDataPool<XTeamBriefData>.Recycle(this);
 		}
 
-		// Token: 0x04004BDE RID: 19422
 		public ExpeditionTable.RowData rowData;
 
-		// Token: 0x04004BDF RID: 19423
 		public int currentMemberCount;
 
-		// Token: 0x04004BE0 RID: 19424
 		public int totalMemberCount;
 
-		// Token: 0x04004BE1 RID: 19425
 		public XTeamCategory category;
 
-		// Token: 0x04004BE2 RID: 19426
 		public uint dungeonID = 0U;
 
-		// Token: 0x04004BE3 RID: 19427
 		public int teamID;
 
-		// Token: 0x04004BE4 RID: 19428
 		public string leaderName;
 
-		// Token: 0x04004BE5 RID: 19429
 		public int leaderLevel = 44;
 
-		// Token: 0x04004BE6 RID: 19430
 		public uint leaderPPT = 555U;
 
-		// Token: 0x04004BE7 RID: 19431
 		public RoleType leaderProfession = RoleType.Role_Warrior;
 
-		// Token: 0x04004BE8 RID: 19432
 		public XTeamState state = XTeamState.TS_NOT_FULL;
 
-		// Token: 0x04004BE9 RID: 19433
 		public TeamState actualState = TeamState.TEAM_WAITING;
 
-		// Token: 0x04004BEA RID: 19434
 		public KMatchType matchType = KMatchType.KMT_NONE;
 
-		// Token: 0x04004BEB RID: 19435
 		public bool hasPwd;
 
-		// Token: 0x04004BEC RID: 19436
 		public string password;
 
-		// Token: 0x04004BED RID: 19437
 		public string dungeonName;
 
-		// Token: 0x04004BEE RID: 19438
 		public string teamName;
 
-		// Token: 0x04004BEF RID: 19439
 		public uint dungeonLevel;
 
-		// Token: 0x04004BF0 RID: 19440
 		public List<XTeamMemberBriefData> members = new List<XTeamMemberBriefData>();
 
-		// Token: 0x04004BF1 RID: 19441
 		public XTeamRelation relation = new XTeamRelation();
 
-		// Token: 0x04004BF2 RID: 19442
 		public uint teamPPT = 0U;
 
-		// Token: 0x04004BF3 RID: 19443
 		public bool isTarja = false;
 
-		// Token: 0x04004BF4 RID: 19444
 		public XGoldGroupData goldGroup = default(XGoldGroupData);
 
-		// Token: 0x04004BF5 RID: 19445
 		public XTeamRift rift = null;
 
-		// Token: 0x04004BF6 RID: 19446
 		public bool regression = false;
 
-		// Token: 0x04004BF7 RID: 19447
 		public static int[] DefaultSortDirection = new int[]
 		{
 			1,
@@ -366,10 +332,8 @@ namespace XMainClient
 			1
 		};
 
-		// Token: 0x04004BF8 RID: 19448
 		public static TeamBriefSortType sortType = TeamBriefSortType.TBST_TEAM_ID;
 
-		// Token: 0x04004BF9 RID: 19449
 		public static int dir = 1;
 	}
 }

@@ -9,11 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000BA1 RID: 2977
+
 	internal class LevelRewardMobaBattleHandler : DlgHandlerBase
 	{
-		// Token: 0x17003046 RID: 12358
-		// (get) Token: 0x0600AAD3 RID: 43731 RVA: 0x001ED718 File Offset: 0x001EB918
+
 		protected override string FileName
 		{
 			get
@@ -22,7 +21,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AAD4 RID: 43732 RVA: 0x001ED730 File Offset: 0x001EB930
 		protected override void Init()
 		{
 			base.Init();
@@ -49,7 +47,6 @@ namespace XMainClient
 			this.m_ItemPool.SetupPool(transform2.parent.gameObject, transform2.gameObject, 24U, false);
 		}
 
-		// Token: 0x0600AAD5 RID: 43733 RVA: 0x001ED9C4 File Offset: 0x001EBBC4
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -59,7 +56,6 @@ namespace XMainClient
 			this.m_ShareBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnShareBtnClick));
 		}
 
-		// Token: 0x0600AAD6 RID: 43734 RVA: 0x001EDA3C File Offset: 0x001EBC3C
 		private bool OnBackBtnClick(IXUIButton btn)
 		{
 			bool flag = Time.time - this.m_leaveTime < 5f;
@@ -77,21 +73,18 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600AAD7 RID: 43735 RVA: 0x001EDA80 File Offset: 0x001EBC80
 		private bool OnBattleDataBtnClick(IXUIButton btn)
 		{
 			this.m_PVPDataFrame.SetActive(true);
 			return true;
 		}
 
-		// Token: 0x0600AAD8 RID: 43736 RVA: 0x001EDAA0 File Offset: 0x001EBCA0
 		private bool OnBattleDataCloseBtnClick(IXUIButton btn)
 		{
 			this.m_PVPDataFrame.SetActive(false);
 			return true;
 		}
 
-		// Token: 0x0600AAD9 RID: 43737 RVA: 0x001EDAC0 File Offset: 0x001EBCC0
 		private bool OnShareBtnClick(IXUIButton btn)
 		{
 			XSingleton<PDatabase>.singleton.shareCallbackType = ShareCallBackType.WeekShare;
@@ -100,13 +93,11 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600AADA RID: 43738 RVA: 0x0019F00C File Offset: 0x0019D20C
 		protected override void OnShow()
 		{
 			base.OnShow();
 		}
 
-		// Token: 0x0600AADB RID: 43739 RVA: 0x001EDAF8 File Offset: 0x001EBCF8
 		public void PlayCutScene()
 		{
 			this._doc = XDocuments.GetSpecificDocument<XLevelRewardDocument>(XLevelRewardDocument.uuID);
@@ -124,7 +115,6 @@ namespace XMainClient
 			this._mobaDoc.StartMvpCutScene(blueWin);
 		}
 
-		// Token: 0x0600AADC RID: 43740 RVA: 0x001EDB7C File Offset: 0x001EBD7C
 		public void ShowUI()
 		{
 			DlgBase<XLevelRewardView, XLevelRewardBehaviour>.singleton.SetVisible(true, true);
@@ -183,7 +173,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AADD RID: 43741 RVA: 0x001EDF6C File Offset: 0x001EC16C
 		private void SetupData(GameObject go, XLevelRewardDocument.PVPRoleInfo data, int index, bool isLeft)
 		{
 			Vector3 tplPos = this.m_PlayerPool_L.TplPos;
@@ -270,7 +259,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AADE RID: 43742 RVA: 0x001EE3F0 File Offset: 0x001EC5F0
 		private void OnReportBtnClick(IXUISprite iSp)
 		{
 			bool flag = !DlgBase<XLevelRewardView, XLevelRewardBehaviour>.singleton.IsVisible();
@@ -298,7 +286,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AADF RID: 43743 RVA: 0x001EE4F8 File Offset: 0x001EC6F8
 		private void SetupIconList(Transform ts, XLevelRewardDocument.PVPRoleInfo data, bool isLeft)
 		{
 			List<string> mobaIconList = this._doc.GetMobaIconList(data, this._doc.MobaData.DamageMaxUid, this._doc.MobaData.BeHitMaxUid, this._killMax, this._AssistsMax);
@@ -308,7 +295,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AAE0 RID: 43744 RVA: 0x001EE568 File Offset: 0x001EC768
 		private void AddIcon(Transform ts, string iconName, int index, bool isLeft)
 		{
 			GameObject gameObject = this.m_IconPool.FetchGameObject(false);
@@ -319,7 +305,6 @@ namespace XMainClient
 			ixuisprite.spriteName = iconName;
 		}
 
-		// Token: 0x0600AAE1 RID: 43745 RVA: 0x001EE5D8 File Offset: 0x001EC7D8
 		private void SetupBattleDataUI()
 		{
 			this.m_PVPDataFrame.SetActive(false);
@@ -343,7 +328,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AAE2 RID: 43746 RVA: 0x001EE774 File Offset: 0x001EC974
 		private void SetupBattleDataDetailUI(GameObject go, XLevelRewardDocument.PVPRoleInfo data, bool isteam1)
 		{
 			IXUISprite ixuisprite = go.transform.Find("Detail/Avatar").GetComponent("XUISprite") as IXUISprite;
@@ -384,64 +368,44 @@ namespace XMainClient
 			ixuilabel6.SetText(XSingleton<UiUtility>.singleton.NumberFormat(data.Heal));
 		}
 
-		// Token: 0x04003FA6 RID: 16294
 		private XLevelRewardDocument _doc = null;
 
-		// Token: 0x04003FA7 RID: 16295
 		private XMobaBattleDocument _mobaDoc = null;
 
-		// Token: 0x04003FA8 RID: 16296
 		private XUIPool m_PlayerPool_L = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04003FA9 RID: 16297
 		private XUIPool m_PlayerPool_R = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04003FAA RID: 16298
 		private XUIPool m_IconPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04003FAB RID: 16299
 		private XUIPool m_ItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04003FAC RID: 16300
 		private XUIPool m_BattleDataPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04003FAD RID: 16301
 		private GameObject m_Win;
 
-		// Token: 0x04003FAE RID: 16302
 		private GameObject m_Lose;
 
-		// Token: 0x04003FAF RID: 16303
 		private GameObject m_Draw;
 
-		// Token: 0x04003FB0 RID: 16304
 		private IXUIButton m_BackBtn;
 
-		// Token: 0x04003FB1 RID: 16305
 		private IXUIButton m_BattleDataBtn;
 
-		// Token: 0x04003FB2 RID: 16306
 		private IXUIButton m_BattleDataCloseBtn;
 
-		// Token: 0x04003FB3 RID: 16307
 		private IXUILabel m_Time;
 
-		// Token: 0x04003FB4 RID: 16308
 		private IXUIButton m_ShareBtn;
 
-		// Token: 0x04003FB5 RID: 16309
 		public GameObject m_PVPDataFrame;
 
-		// Token: 0x04003FB6 RID: 16310
 		private float m_leaveTime;
 
-		// Token: 0x04003FB7 RID: 16311
 		private int _killMax;
 
-		// Token: 0x04003FB8 RID: 16312
 		private int _DeathMin;
 
-		// Token: 0x04003FB9 RID: 16313
 		private int _AssistsMax;
 	}
 }

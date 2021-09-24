@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017D5 RID: 6101
+
 	internal class XNPCFavorHandler : DlgHandlerBase
 	{
-		// Token: 0x170038AA RID: 14506
-		// (get) Token: 0x0600FCC5 RID: 64709 RVA: 0x003B041C File Offset: 0x003AE61C
+
 		protected override string FileName
 		{
 			get
@@ -20,7 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FCC6 RID: 64710 RVA: 0x003B0434 File Offset: 0x003AE634
 		protected override void Init()
 		{
 			base.Init();
@@ -32,14 +30,12 @@ namespace XMainClient.UI
 			this.m_WrapContent = (base.PanelObject.transform.Find("Npc/NpcScrollView/WrapContent").GetComponent("XUIWrapContent") as IXUIWrapContent);
 		}
 
-		// Token: 0x0600FCC7 RID: 64711 RVA: 0x003B04EE File Offset: 0x003AE6EE
 		protected override void OnShow()
 		{
 			this.RefreshData();
 			this.m_SendHandler.SetVisible(true);
 		}
 
-		// Token: 0x0600FCC8 RID: 64712 RVA: 0x003B0508 File Offset: 0x003AE708
 		public override void RefreshData()
 		{
 			this.SetupNPCList();
@@ -50,13 +46,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FCC9 RID: 64713 RVA: 0x003B0538 File Offset: 0x003AE738
 		public override void RegisterEvent()
 		{
 			this.m_WrapContent.RegisterItemUpdateEventHandler(new WrapItemUpdateEventHandler(this.NPCWrapListUpdate));
 		}
 
-		// Token: 0x0600FCCA RID: 64714 RVA: 0x003B0554 File Offset: 0x003AE754
 		protected override void OnHide()
 		{
 			bool flag = this.m_doc != null;
@@ -66,7 +60,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FCCB RID: 64715 RVA: 0x003B057B File Offset: 0x003AE77B
 		public override void OnUnload()
 		{
 			this.m_doc = null;
@@ -77,7 +70,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x0600FCCC RID: 64716 RVA: 0x003B05B0 File Offset: 0x003AE7B0
 		private void SetupNPCList()
 		{
 			this.m_NpcBaseDatas = this.m_doc.NPCIds;
@@ -89,7 +81,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FCCD RID: 64717 RVA: 0x003B0604 File Offset: 0x003AE804
 		private void NPCWrapListUpdate(Transform item, int index)
 		{
 			bool flag = this.m_NpcBaseDatas == null || index >= this.m_NpcBaseDatas.Count;
@@ -155,7 +146,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FCCE RID: 64718 RVA: 0x003B0984 File Offset: 0x003AEB84
 		private bool OnSelectNPC(IXUIButton btn)
 		{
 			uint num = (uint)btn.ID;
@@ -180,7 +170,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FCCF RID: 64719 RVA: 0x003B09EC File Offset: 0x003AEBEC
 		public void SkipToNpc(uint npcId)
 		{
 			bool flag = this.m_NpcBaseDatas == null;
@@ -212,7 +201,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FCD0 RID: 64720 RVA: 0x003B0AD4 File Offset: 0x003AECD4
 		private void OnNotifyRefreshSubHandler()
 		{
 			bool flag = this.m_SendHandler.IsVisible();
@@ -222,7 +210,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FCD1 RID: 64721 RVA: 0x003B0B00 File Offset: 0x003AED00
 		private void ToggleSelection(GameObject go, bool bSelect)
 		{
 			Transform transform = go.transform.FindChild("Select");
@@ -242,31 +229,22 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04006F24 RID: 28452
 		private XNPCFavorDocument m_doc;
 
-		// Token: 0x04006F25 RID: 28453
 		private const int MODIFYNUM = 4;
 
-		// Token: 0x04006F26 RID: 28454
 		private IXUIScrollView m_ScrollView;
 
-		// Token: 0x04006F27 RID: 28455
 		private IXUIWrapContent m_WrapContent;
 
-		// Token: 0x04006F28 RID: 28456
 		private GameObject m_SendFrame;
 
-		// Token: 0x04006F29 RID: 28457
 		private XNPCSendSubHandler m_SendHandler = null;
 
-		// Token: 0x04006F2A RID: 28458
 		public uint _selectedNPCID = 0U;
 
-		// Token: 0x04006F2B RID: 28459
 		private GameObject SelectedItem = null;
 
-		// Token: 0x04006F2C RID: 28460
 		private List<uint> m_NpcBaseDatas = null;
 	}
 }

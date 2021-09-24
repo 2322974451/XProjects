@@ -5,11 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017B7 RID: 6071
+
 	internal class ArtifactToolTipDlg : TooltipDlg<ArtifactToolTipDlg, ArtifactTooltipDlgBehaviour>
 	{
-		// Token: 0x17003882 RID: 14466
-		// (get) Token: 0x0600FB44 RID: 64324 RVA: 0x003A4514 File Offset: 0x003A2714
+
 		public override string fileName
 		{
 			get
@@ -18,8 +17,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003883 RID: 14467
-		// (get) Token: 0x0600FB45 RID: 64325 RVA: 0x003A452C File Offset: 0x003A272C
 		protected override int compareWindowDistance
 		{
 			get
@@ -28,7 +25,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FB46 RID: 64326 RVA: 0x003A4540 File Offset: 0x003A2740
 		protected override void Init()
 		{
 			base.Init();
@@ -41,7 +37,6 @@ namespace XMainClient.UI
 			this.m_OperateList[1, 2] = new TooltipButtonOperateTakeOut();
 		}
 
-		// Token: 0x0600FB47 RID: 64327 RVA: 0x003A45D8 File Offset: 0x003A27D8
 		protected override void SetAllAttrFrames(GameObject goToolTip, XAttrItem item, XAttrItem compareItem, bool bMain)
 		{
 			XArtifactItem xartifactItem = item as XArtifactItem;
@@ -53,7 +48,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FB48 RID: 64328 RVA: 0x003A4618 File Offset: 0x003A2818
 		private void _SetupRandFrame(GameObject scrollPanel, XItem mainItem, bool bMain)
 		{
 			XArtifactItem xartifactItem = mainItem as XArtifactItem;
@@ -105,7 +99,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FB49 RID: 64329 RVA: 0x003A4868 File Offset: 0x003A2A68
 		public string GetColor(uint attrValue, uint min, uint max)
 		{
 			bool flag = min >= max;
@@ -139,7 +132,6 @@ namespace XMainClient.UI
 			return XSingleton<UiUtility>.singleton.GetItemQualityRGB(quality);
 		}
 
-		// Token: 0x0600FB4A RID: 64330 RVA: 0x003A490C File Offset: 0x003A2B0C
 		protected override void SetupTopFrame(GameObject goToolTip, ItemList.RowData data, bool bMain, XItem instanceData = null, XItem compareData = null)
 		{
 			base.SetupTopFrame(goToolTip, data, bMain, instanceData, compareData);
@@ -152,7 +144,6 @@ namespace XMainClient.UI
 			gameObject.SetActive(!bMain || XSingleton<TooltipParam>.singleton.bEquiped);
 		}
 
-		// Token: 0x0600FB4B RID: 64331 RVA: 0x003A49A8 File Offset: 0x003A2BA8
 		protected override int _GetPPT(XItem item, bool bMain, ref string valueText)
 		{
 			XArtifactItem xartifactItem = item as XArtifactItem;
@@ -191,7 +182,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FB4C RID: 64332 RVA: 0x003A4AC4 File Offset: 0x003A2CC4
 		protected override void SetupOtherFrame(GameObject goToolTip, XItem mainItem, XItem compareItem, bool bMain)
 		{
 			this._SetupArtifactEffect(goToolTip, mainItem, compareItem, bMain);
@@ -199,7 +189,6 @@ namespace XMainClient.UI
 			base.SetupOtherFrame(goToolTip, mainItem, compareItem, bMain);
 		}
 
-		// Token: 0x0600FB4D RID: 64333 RVA: 0x003A4AEC File Offset: 0x003A2CEC
 		private void _SetupArtifactEffect(GameObject goToolTip, XItem mainItem, XItem compareItem, bool bMain)
 		{
 			XArtifactItem xartifactItem = mainItem as XArtifactItem;
@@ -248,7 +237,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FB4E RID: 64334 RVA: 0x003A4CC4 File Offset: 0x003A2EC4
 		protected int SetupDesFrame(GameObject attrFrame, AttrFrameParam param, bool bMain)
 		{
 			int num = 0;
@@ -286,7 +274,6 @@ namespace XMainClient.UI
 			return ixuisprite.spriteHeight;
 		}
 
-		// Token: 0x0600FB4F RID: 64335 RVA: 0x003A4EF8 File Offset: 0x003A30F8
 		private void _SetupSuitFrame(GameObject goToolTip, XItem mainItem, XItem compareItem, bool bMain)
 		{
 			IXUISprite ixuisprite = goToolTip.transform.FindChild("ScrollPanel/SuitFrame").GetComponent("XUISprite") as IXUISprite;
@@ -374,7 +361,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FB50 RID: 64336 RVA: 0x003A51EC File Offset: 0x003A33EC
 		protected override void SetupToolTipButtons(GameObject goToolTip, XItem item, bool bMain)
 		{
 			base.SetupToolTipButtons(goToolTip, item, bMain);
@@ -397,7 +383,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FB51 RID: 64337 RVA: 0x003A5260 File Offset: 0x003A3460
 		public override bool HideToolTip(bool forceHide = false)
 		{
 			bool flag = base.HideToolTip(forceHide);

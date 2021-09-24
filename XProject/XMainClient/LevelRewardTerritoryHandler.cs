@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000BAD RID: 2989
+
 	internal class LevelRewardTerritoryHandler : DlgHandlerBase
 	{
-		// Token: 0x17003052 RID: 12370
-		// (get) Token: 0x0600AB59 RID: 43865 RVA: 0x001F3774 File Offset: 0x001F1974
+
 		protected override string FileName
 		{
 			get
@@ -21,7 +20,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AB5A RID: 43866 RVA: 0x001F378B File Offset: 0x001F198B
 		protected override void Init()
 		{
 			base.Init();
@@ -29,7 +27,6 @@ namespace XMainClient
 			this.InitUI();
 		}
 
-		// Token: 0x0600AB5B RID: 43867 RVA: 0x001F37AC File Offset: 0x001F19AC
 		public void InitUI()
 		{
 			this.m_btn_close = (base.PanelObject.transform.Find("Bg/Close").GetComponent("XUIButton") as IXUIButton);
@@ -47,14 +44,12 @@ namespace XMainClient
 			this.mRwdPool.SetupPool(this.mRwdTpl.transform.parent.gameObject, this.mRwdTpl, 2U, true);
 		}
 
-		// Token: 0x0600AB5C RID: 43868 RVA: 0x001F3961 File Offset: 0x001F1B61
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			this.m_btn_close.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseClick));
 		}
 
-		// Token: 0x0600AB5D RID: 43869 RVA: 0x001F3984 File Offset: 0x001F1B84
 		private bool OnCloseClick(IXUIButton button)
 		{
 			PtcC2G_LeaveSceneReq proto = new PtcC2G_LeaveSceneReq();
@@ -62,7 +57,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600AB5E RID: 43870 RVA: 0x001F39AC File Offset: 0x001F1BAC
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -74,7 +68,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AB5F RID: 43871 RVA: 0x001F3A08 File Offset: 0x001F1C08
 		public void RefreshAll()
 		{
 			this.RefreshTitleInfo();
@@ -84,7 +77,6 @@ namespace XMainClient
 			this.RefreshRwds();
 		}
 
-		// Token: 0x0600AB60 RID: 43872 RVA: 0x001F3A30 File Offset: 0x001F1C30
 		private void RefreshTitleInfo()
 		{
 			XGuildTerritoryDocument specificDocument = XDocuments.GetSpecificDocument<XGuildTerritoryDocument>(XGuildTerritoryDocument.uuID);
@@ -102,7 +94,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AB61 RID: 43873 RVA: 0x001F3AC8 File Offset: 0x001F1CC8
 		public void RefreshGuildsInfo()
 		{
 			XGuildTerritoryDocument specificDocument = XDocuments.GetSpecificDocument<XGuildTerritoryDocument>(XGuildTerritoryDocument.uuID);
@@ -110,27 +101,23 @@ namespace XMainClient
 			this.mGuildWrap.SetContentCount(specificDocument.guilds.Count, false);
 		}
 
-		// Token: 0x0600AB62 RID: 43874 RVA: 0x001F3B14 File Offset: 0x001F1D14
 		private int SortGuild(GCFGuild x, GCFGuild y)
 		{
 			return (int)(y.brief.point - x.brief.point);
 		}
 
-		// Token: 0x0600AB63 RID: 43875 RVA: 0x001F3B40 File Offset: 0x001F1D40
 		public void RefreshMembersInfo()
 		{
 			XGuildTerritoryDocument specificDocument = XDocuments.GetSpecificDocument<XGuildTerritoryDocument>(XGuildTerritoryDocument.uuID);
 			this.mRankWrap.SetContentCount(specificDocument.roles.Count, false);
 		}
 
-		// Token: 0x0600AB64 RID: 43876 RVA: 0x001F3B74 File Offset: 0x001F1D74
 		private void RefreshMyselfInfo()
 		{
 			XGuildTerritoryDocument specificDocument = XDocuments.GetSpecificDocument<XGuildTerritoryDocument>(XGuildTerritoryDocument.uuID);
 			this.m_lblMyRank.SetText(specificDocument.mmyinfo.rank.ToString());
 		}
 
-		// Token: 0x0600AB65 RID: 43877 RVA: 0x001F3BAC File Offset: 0x001F1DAC
 		private void WrapGuildItemUpdate(Transform t, int index)
 		{
 			XGuildTerritoryDocument specificDocument = XDocuments.GetSpecificDocument<XGuildTerritoryDocument>(XGuildTerritoryDocument.uuID);
@@ -147,7 +134,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AB66 RID: 43878 RVA: 0x001F3C98 File Offset: 0x001F1E98
 		private void WrapRankItemUpdate(Transform t, int index)
 		{
 			XGuildTerritoryDocument specificDocument = XDocuments.GetSpecificDocument<XGuildTerritoryDocument>(XGuildTerritoryDocument.uuID);
@@ -168,7 +154,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AB67 RID: 43879 RVA: 0x001F3DDC File Offset: 0x001F1FDC
 		private void RefreshRwds()
 		{
 			this.mRwdPool.ReturnAll(false);
@@ -188,37 +173,26 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0400401E RID: 16414
 		private XGuildTerritoryDocument _doc = null;
 
-		// Token: 0x0400401F RID: 16415
 		private IXUIButton m_btn_close;
 
-		// Token: 0x04004020 RID: 16416
 		private IXUISprite mSprGuild;
 
-		// Token: 0x04004021 RID: 16417
 		private IXUILabel m_lblGuildName;
 
-		// Token: 0x04004022 RID: 16418
 		private IXUILabel m_lblTown;
 
-		// Token: 0x04004023 RID: 16419
 		private IXUIWrapContent mGuildWrap;
 
-		// Token: 0x04004024 RID: 16420
 		private IXUIWrapContent mRankWrap;
 
-		// Token: 0x04004025 RID: 16421
 		public IXUILabel m_lblMyRank;
 
-		// Token: 0x04004026 RID: 16422
 		private XUIPool mRwdPool;
 
-		// Token: 0x04004027 RID: 16423
 		private GameObject mRwdTpl;
 
-		// Token: 0x04004028 RID: 16424
 		private Vector3 tplPos;
 	}
 }

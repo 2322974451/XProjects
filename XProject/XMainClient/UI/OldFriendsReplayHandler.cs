@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017E5 RID: 6117
+
 	internal class OldFriendsReplayHandler : DlgHandlerBase
 	{
-		// Token: 0x170038B9 RID: 14521
-		// (get) Token: 0x0600FD93 RID: 64915 RVA: 0x003B77C4 File Offset: 0x003B59C4
+
 		protected override string FileName
 		{
 			get
@@ -19,7 +18,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FD94 RID: 64916 RVA: 0x003B77DC File Offset: 0x003B59DC
 		protected override void Init()
 		{
 			base.Init();
@@ -60,30 +58,25 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FD95 RID: 64917 RVA: 0x003B7AF7 File Offset: 0x003B5CF7
 		private void OpenUrl(IXUISprite uiSprite)
 		{
 			XSingleton<UiUtility>.singleton.OpenHtmlUrl("BackThreeFriendsUrl");
 		}
 
-		// Token: 0x0600FD96 RID: 64918 RVA: 0x0019F00C File Offset: 0x0019D20C
 		protected override void OnShow()
 		{
 			base.OnShow();
 		}
 
-		// Token: 0x0600FD97 RID: 64919 RVA: 0x0019EEB0 File Offset: 0x0019D0B0
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 		}
 
-		// Token: 0x0600FD98 RID: 64920 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void OnHide()
 		{
 		}
 
-		// Token: 0x04006FDB RID: 28635
 		protected XUIPool _itemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 	}
 }

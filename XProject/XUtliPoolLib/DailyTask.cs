@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x020000D6 RID: 214
+
 	public class DailyTask : CVSReader
 	{
-		// Token: 0x060005D9 RID: 1497 RVA: 0x0001B090 File Offset: 0x00019290
+
 		public DailyTask.RowData GetBytaskID(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -21,7 +21,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x060005DA RID: 1498 RVA: 0x0001B0C8 File Offset: 0x000192C8
 		private DailyTask.RowData BinarySearchtaskID(uint key)
 		{
 			int num = 0;
@@ -80,7 +79,6 @@ namespace XUtliPoolLib
 			return null;
 		}
 
-		// Token: 0x060005DB RID: 1499 RVA: 0x0001B1A4 File Offset: 0x000193A4
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			DailyTask.RowData rowData = new DailyTask.RowData();
@@ -112,7 +110,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x060005DC RID: 1500 RVA: 0x0001B30C File Offset: 0x0001950C
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -126,46 +123,33 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x04000322 RID: 802
 		public DailyTask.RowData[] Table = null;
 
-		// Token: 0x020002D5 RID: 725
 		public class RowData
 		{
-			// Token: 0x040009B8 RID: 2488
+
 			public uint taskID;
 
-			// Token: 0x040009B9 RID: 2489
 			public uint taskquality;
 
-			// Token: 0x040009BA RID: 2490
 			public uint tasktype;
 
-			// Token: 0x040009BB RID: 2491
 			public uint[] conditionId;
 
-			// Token: 0x040009BC RID: 2492
 			public string taskdescription;
 
-			// Token: 0x040009BD RID: 2493
 			public uint conditionNum;
 
-			// Token: 0x040009BE RID: 2494
 			public uint NPCID;
 
-			// Token: 0x040009BF RID: 2495
 			public SeqListRef<uint> BQ;
 
-			// Token: 0x040009C0 RID: 2496
 			public uint category;
 
-			// Token: 0x040009C1 RID: 2497
 			public uint score;
 
-			// Token: 0x040009C2 RID: 2498
 			public string TaskIcon;
 
-			// Token: 0x040009C3 RID: 2499
 			public string AtlasName;
 		}
 	}

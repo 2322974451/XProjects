@@ -3,10 +3,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x020008A1 RID: 2209
+
 	internal class XBuffReduceSkillCD : BuffEffect
 	{
-		// Token: 0x06008610 RID: 34320 RVA: 0x0010D49C File Offset: 0x0010B69C
+
 		public static bool TryCreate(CombatEffectHelper pEffectHelper, XBuff buff)
 		{
 			bool flag = pEffectHelper.BuffInfo.ReduceSkillCD.Count == 0 && !pEffectHelper.bHasEffect(CombatEffectType.CET_Buff_ReduceCD);
@@ -23,13 +23,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008611 RID: 34321 RVA: 0x0010D4E3 File Offset: 0x0010B6E3
 		public XBuffReduceSkillCD(XBuff buff)
 		{
 			this._buff = buff;
 		}
 
-		// Token: 0x06008612 RID: 34322 RVA: 0x0010D504 File Offset: 0x0010B704
 		private static void _SetSequenceList(SequenceList<uint> _AllList, CombatEffectHelper pEffectHelper)
 		{
 			_AllList.Reset(3);
@@ -50,7 +48,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008613 RID: 34323 RVA: 0x0010D5AC File Offset: 0x0010B7AC
 		public override void OnAdd(XEntity entity, CombatEffectHelper pEffectHelper)
 		{
 			bool isDummy = entity.IsDummy;
@@ -62,7 +59,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008614 RID: 34324 RVA: 0x0010D5EC File Offset: 0x0010B7EC
 		public override void OnRemove(XEntity entity, bool IsReplaced)
 		{
 			bool isDummy = entity.IsDummy;
@@ -73,7 +69,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008615 RID: 34325 RVA: 0x0010D620 File Offset: 0x0010B820
 		public static void DoReduce(SequenceList<uint> datas, XEntity entity)
 		{
 			bool flag = entity == null;
@@ -112,7 +107,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008616 RID: 34326 RVA: 0x0010D700 File Offset: 0x0010B900
 		public static void UnDo(SequenceList<uint> datas, XEntity entity)
 		{
 			bool flag = entity == null;
@@ -136,7 +130,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008617 RID: 34327 RVA: 0x0010D770 File Offset: 0x0010B970
 		public static void DoReduce(int buffID, int buffLevel, XEntity entity)
 		{
 			bool flag = entity == null;
@@ -161,7 +154,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008618 RID: 34328 RVA: 0x0010D7FC File Offset: 0x0010B9FC
 		public static void UnDo(int buffID, int buffLevel, XEntity entity)
 		{
 			bool flag = entity == null;
@@ -186,10 +178,8 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x040029C8 RID: 10696
 		private XBuff _buff = null;
 
-		// Token: 0x040029C9 RID: 10697
 		private SequenceList<uint> _AllList = null;
 	}
 }

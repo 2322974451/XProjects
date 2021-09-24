@@ -4,11 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000B0D RID: 2829
+
 	internal class CombatEffectHelper : XDataBase
 	{
-		// Token: 0x17002FF5 RID: 12277
-		// (get) Token: 0x0600A670 RID: 42608 RVA: 0x001D3ED8 File Offset: 0x001D20D8
+
 		public BuffTable.RowData BuffInfo
 		{
 			get
@@ -17,8 +16,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002FF6 RID: 12278
-		// (get) Token: 0x0600A671 RID: 42609 RVA: 0x001D3EF0 File Offset: 0x001D20F0
 		public EffectDataParams EffectData
 		{
 			get
@@ -27,8 +24,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002FF7 RID: 12279
-		// (get) Token: 0x0600A672 RID: 42610 RVA: 0x001D3F08 File Offset: 0x001D2108
 		public CombatEffectType CacheQueryType
 		{
 			get
@@ -37,8 +32,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002FF8 RID: 12280
-		// (get) Token: 0x0600A673 RID: 42611 RVA: 0x001D3F20 File Offset: 0x001D2120
 		public EffectDataParams.TypeDataCollection CacheTypeDataCollection
 		{
 			get
@@ -47,21 +40,18 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A674 RID: 42612 RVA: 0x001D3F38 File Offset: 0x001D2138
 		public void SetCacheQuery(CombatEffectType type, EffectDataParams.TypeDataCollection collection)
 		{
 			this.m_CacheType = type;
 			this.m_CacheCollection = collection;
 		}
 
-		// Token: 0x0600A675 RID: 42613 RVA: 0x001D3F49 File Offset: 0x001D2149
 		public void ClearCache()
 		{
 			this.m_CacheCollection = null;
 			this.m_CacheType = CombatEffectType.CET_INVALID;
 		}
 
-		// Token: 0x0600A676 RID: 42614 RVA: 0x001D3F5C File Offset: 0x001D215C
 		public BuffTable.RowData GetTemplateBuffTable(uint templateBuffID)
 		{
 			BuffTable.RowData buffData;
@@ -80,7 +70,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A677 RID: 42615 RVA: 0x001D3FA0 File Offset: 0x001D21A0
 		public override void Recycle()
 		{
 			base.Recycle();
@@ -93,7 +82,6 @@ namespace XMainClient
 			this.m_CacheCollection = null;
 		}
 
-		// Token: 0x0600A678 RID: 42616 RVA: 0x001D3FE0 File Offset: 0x001D21E0
 		private bool _IsValidEntity(XEntity entity)
 		{
 			bool flag = entity == null || entity.Deprecated || entity.Destroying || entity.Attributes == null;
@@ -124,7 +112,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A679 RID: 42617 RVA: 0x001D4074 File Offset: 0x001D2274
 		public void Set(BuffTable.RowData pBuffInfo, ulong casterID, XEntity defaultEntity)
 		{
 			bool flag = casterID == 0UL || defaultEntity == null || casterID == defaultEntity.ID;
@@ -138,7 +125,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A67A RID: 42618 RVA: 0x001D40B8 File Offset: 0x001D22B8
 		public void Set(BuffTable.RowData pBuffInfo, XEntity entity)
 		{
 			this.m_SkillHash = 0U;
@@ -154,13 +140,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A67B RID: 42619 RVA: 0x001D412A File Offset: 0x001D232A
 		public void Set(string skillName, XEntity entity)
 		{
 			this.Set(XSingleton<XCommon>.singleton.XHash(skillName), entity);
 		}
 
-		// Token: 0x0600A67C RID: 42620 RVA: 0x001D4140 File Offset: 0x001D2340
 		public void Set(uint skillHash, XEntity entity)
 		{
 			this.m_SkillHash = skillHash;
@@ -187,7 +171,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A67D RID: 42621 RVA: 0x001D41F0 File Offset: 0x001D23F0
 		private static EffectDataParams.TypeDataCollection GetTypeDataList(CombatEffectType type, CombatEffectHelper helper)
 		{
 			bool flag = helper.CacheQueryType == type;
@@ -221,13 +204,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A67E RID: 42622 RVA: 0x001D4250 File Offset: 0x001D2450
 		public bool bHasEffect(CombatEffectType type)
 		{
 			return CombatEffectHelper.GetTypeDataList(type, this) != null;
 		}
 
-		// Token: 0x0600A67F RID: 42623 RVA: 0x001D426C File Offset: 0x001D246C
 		private int GetSum(CombatEffectType type)
 		{
 			EffectDataParams.TypeDataCollection typeDataList = CombatEffectHelper.GetTypeDataList(type, this);
@@ -253,7 +234,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A680 RID: 42624 RVA: 0x001D42F8 File Offset: 0x001D24F8
 		private bool GetSequenceSum(ref CombatEffectHelper.GetSeqDataParam param, SequenceList<float> vecOut, GetBuffDataSeqFloat getBuffDataDelegate, int dim)
 		{
 			bool flag = param.replaceIndex >= param.dim;
@@ -301,7 +281,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A681 RID: 42625 RVA: 0x001D4430 File Offset: 0x001D2630
 		private bool GetVecSequenceSum(ref CombatEffectHelper.GetSeqListDataParam param, SequenceList<float> vecOut, GetBuffDataSeqListFloat getBuffDataDelegate, int dim)
 		{
 			bool flag = param.replaceIndex >= param.dim;
@@ -346,7 +325,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A682 RID: 42626 RVA: 0x001D453C File Offset: 0x001D273C
 		private bool GetVecSequenceSum(ref CombatEffectHelper.GetSeqListDataParam param, SequenceList<int> vecOut, GetBuffDataSeqListInt getBuffDataDelegate, int dim)
 		{
 			bool flag = param.replaceIndex >= param.dim;
@@ -391,7 +369,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A683 RID: 42627 RVA: 0x001D4648 File Offset: 0x001D2848
 		private bool GetVecSequenceSumFromVecString(ref CombatEffectHelper.GetSeqListDataFromVecStringParam param, SequenceList<uint> vecOut, GetBuffDataSeqListString getBuffDataDelegate, int dim)
 		{
 			bool flag = param.replaceIndex >= param.dim;
@@ -436,37 +413,31 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A684 RID: 42628 RVA: 0x001D4754 File Offset: 0x001D2954
 		private float _Double2Float(double d)
 		{
 			return (float)d;
 		}
 
-		// Token: 0x0600A685 RID: 42629 RVA: 0x001D4768 File Offset: 0x001D2968
 		private uint _Double2Uint(double d)
 		{
 			return (uint)d;
 		}
 
-		// Token: 0x0600A686 RID: 42630 RVA: 0x001D477C File Offset: 0x001D297C
 		private int _Double2Int(double d)
 		{
 			return (int)d;
 		}
 
-		// Token: 0x0600A687 RID: 42631 RVA: 0x001D4790 File Offset: 0x001D2990
 		private uint _Uint2Uint(uint u)
 		{
 			return u;
 		}
 
-		// Token: 0x0600A688 RID: 42632 RVA: 0x001D47A4 File Offset: 0x001D29A4
 		private uint _Int2Uint(int u)
 		{
 			return (uint)u;
 		}
 
-		// Token: 0x0600A689 RID: 42633 RVA: 0x001D47B8 File Offset: 0x001D29B8
 		private bool _ReplaceSeq<T, N>(T refData, N value, int replaceIndex, SequenceList<N> vecOut, int dataIndex, int dim) where T : ISeqRef<N> where N : IComparable<N>
 		{
 			bool flag = dim <= replaceIndex;
@@ -494,7 +465,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A68A RID: 42634 RVA: 0x001D4820 File Offset: 0x001D2A20
 		private bool _ReplaceSeq<N>(ISeqRef<N> refData, N value, int replaceIndex, SequenceList<N> vecOut, int dataIndex, int dim)
 		{
 			bool flag = dim <= replaceIndex;
@@ -522,7 +492,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A68B RID: 42635 RVA: 0x001D4880 File Offset: 0x001D2A80
 		private bool _ReplaceVecSeq(ref CombatEffectHelper.GetSeqListDataParam param, ISeqListRef<float> refData, List<int> values, SequenceList<float> vecOut, ref int index, int dim)
 		{
 			bool flag = param.replaceIndex >= dim || (refData.Count != 0 && refData.Count != values.Count);
@@ -556,7 +525,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A68C RID: 42636 RVA: 0x001D493C File Offset: 0x001D2B3C
 		private bool _ReplaceVecSeq(ref CombatEffectHelper.GetSeqListDataParam param, ISeqListRef<int> refData, List<int> values, SequenceList<int> vecOut, ref int index, int dim)
 		{
 			bool flag = param.replaceIndex >= dim || (refData.Count != 0 && refData.Count != values.Count);
@@ -590,7 +558,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A68D RID: 42637 RVA: 0x001D49F8 File Offset: 0x001D2BF8
 		private bool _ReplaceVecSeqFromVecString(ref CombatEffectHelper.GetSeqListDataFromVecStringParam param, ISeqListRef<string> refData, List<int> values, SequenceList<uint> vecOut, ref int index, int dim)
 		{
 			bool flag = param.replaceIndex >= dim || (refData.Count != 0 && refData.Count != values.Count);
@@ -632,25 +599,21 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A68E RID: 42638 RVA: 0x001D4AE8 File Offset: 0x001D2CE8
 		public static float Add(float left, float right)
 		{
 			return left + right;
 		}
 
-		// Token: 0x0600A68F RID: 42639 RVA: 0x001D4B00 File Offset: 0x001D2D00
 		public static int Add(int left, int right)
 		{
 			return left + right;
 		}
 
-		// Token: 0x0600A690 RID: 42640 RVA: 0x001D4B18 File Offset: 0x001D2D18
 		public static uint Add(uint left, uint right)
 		{
 			return left + right;
 		}
 
-		// Token: 0x0600A691 RID: 42641 RVA: 0x001D4B30 File Offset: 0x001D2D30
 		private bool _CompareSeq<T>(T[] left, T[] right, int exclusiveIndex) where T : IComparable<T>
 		{
 			bool flag = left.Length != right.Length;
@@ -678,7 +641,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A692 RID: 42642 RVA: 0x001D4BA0 File Offset: 0x001D2DA0
 		public void Merge(SequenceList<float> datas, int exclusiveIndex)
 		{
 			int num = 0;
@@ -718,7 +680,6 @@ namespace XMainClient
 			datas.Trim(num + 1);
 		}
 
-		// Token: 0x0600A693 RID: 42643 RVA: 0x001D4C7C File Offset: 0x001D2E7C
 		public void Merge(SequenceList<uint> datas, int exclusiveIndex)
 		{
 			int num = 0;
@@ -758,13 +719,11 @@ namespace XMainClient
 			datas.Trim(num + 1);
 		}
 
-		// Token: 0x0600A694 RID: 42644 RVA: 0x001D4D58 File Offset: 0x001D2F58
 		private ISeqRef<float> _GetBuffHPData(BuffTable.RowData pBuffData)
 		{
 			return pBuffData.BuffHP;
 		}
 
-		// Token: 0x0600A695 RID: 42645 RVA: 0x001D4D78 File Offset: 0x001D2F78
 		public bool GetBuffHP(SequenceList<float> vecOut)
 		{
 			CombatEffectHelper.GetSeqDataParam getSeqDataParam;
@@ -776,13 +735,11 @@ namespace XMainClient
 			return this.GetSequenceSum(ref getSeqDataParam, vecOut, new GetBuffDataSeqFloat(this._GetBuffHPData), 2);
 		}
 
-		// Token: 0x0600A696 RID: 42646 RVA: 0x001D4DD0 File Offset: 0x001D2FD0
 		private ISeqListRef<float> _GetBuffChangeAttributeData(BuffTable.RowData pBuffData)
 		{
 			return pBuffData.BuffChangeAttribute;
 		}
 
-		// Token: 0x0600A697 RID: 42647 RVA: 0x001D4DF0 File Offset: 0x001D2FF0
 		public bool GetBuffChangeAttribute(SequenceList<float> vecOut)
 		{
 			CombatEffectHelper.GetSeqListDataParam getSeqListDataParam;
@@ -796,7 +753,6 @@ namespace XMainClient
 			return vecSequenceSum;
 		}
 
-		// Token: 0x0600A698 RID: 42648 RVA: 0x001D4E54 File Offset: 0x001D3054
 		public bool GetSkillDamage(out float ratio)
 		{
 			ratio = 0f;
@@ -815,7 +771,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A699 RID: 42649 RVA: 0x001D4E90 File Offset: 0x001D3090
 		public bool GetSkillCD(out float fOut)
 		{
 			fOut = 0f;
@@ -840,25 +795,21 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A69A RID: 42650 RVA: 0x001D4EE8 File Offset: 0x001D30E8
 		public float GetBuffAuraRadius()
 		{
 			return (float)this.GetSum(CombatEffectType.CET_Buff_AuraRadius) * 0.001f;
 		}
 
-		// Token: 0x0600A69B RID: 42651 RVA: 0x001D4F08 File Offset: 0x001D3108
 		public float GetBuffTriggerRate()
 		{
 			return (float)this.GetSum(CombatEffectType.CET_Buff_TriggerRate) * 0.001f;
 		}
 
-		// Token: 0x0600A69C RID: 42652 RVA: 0x001D4F28 File Offset: 0x001D3128
 		public float GetBuffDuration()
 		{
 			return (float)this.GetSum(CombatEffectType.CET_Buff_Duration) * 0.001f;
 		}
 
-		// Token: 0x0600A69D RID: 42653 RVA: 0x001D4F48 File Offset: 0x001D3148
 		public bool GetSkillAddBuff(ref List<BuffDesc> vecBuffs, XSkillFlags flags)
 		{
 			EffectDataParams.TypeDataCollection typeDataList = CombatEffectHelper.GetTypeDataList(CombatEffectType.CET_Skill_AddBuff, this);
@@ -904,7 +855,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A69E RID: 42654 RVA: 0x001D50AC File Offset: 0x001D32AC
 		public bool GetSkillAddMobBuff(int skillLevel, List<BuffDesc> vecBuffs)
 		{
 			EffectDataParams.TypeDataCollection typeDataList = CombatEffectHelper.GetTypeDataList(CombatEffectType.CET_Skill_AddMobBuff, this);
@@ -941,13 +891,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A69F RID: 42655 RVA: 0x001D51BC File Offset: 0x001D33BC
 		private ISeqListRef<string> _GetBuffReduceSkillCDData(BuffTable.RowData pBuffData)
 		{
 			return pBuffData.ReduceSkillCD;
 		}
 
-		// Token: 0x0600A6A0 RID: 42656 RVA: 0x001D51DC File Offset: 0x001D33DC
 		public bool GetBuffReduceSkillCD(SequenceList<uint> vecOut)
 		{
 			CombatEffectHelper.GetSeqListDataFromVecStringParam getSeqListDataFromVecStringParam;
@@ -961,13 +909,11 @@ namespace XMainClient
 			return vecSequenceSumFromVecString;
 		}
 
-		// Token: 0x0600A6A1 RID: 42657 RVA: 0x001D5238 File Offset: 0x001D3438
 		private ISeqListRef<string> _GetBuffChangeSkillDamageData(BuffTable.RowData pBuffData)
 		{
 			return pBuffData.ChangeSkillDamage;
 		}
 
-		// Token: 0x0600A6A2 RID: 42658 RVA: 0x001D5258 File Offset: 0x001D3458
 		public bool GetBuffChangeSkillDamage(SequenceList<uint> vecOut)
 		{
 			CombatEffectHelper.GetSeqListDataFromVecStringParam getSeqListDataFromVecStringParam;
@@ -979,7 +925,6 @@ namespace XMainClient
 			return this.GetVecSequenceSumFromVecString(ref getSeqListDataFromVecStringParam, vecOut, new GetBuffDataSeqListString(this._GetBuffChangeSkillDamageData), 2);
 		}
 
-		// Token: 0x0600A6A3 RID: 42659 RVA: 0x001D52A8 File Offset: 0x001D34A8
 		public bool GetBuffChangeDamage(out double castDamage, out double receiveDamage)
 		{
 			castDamage = (double)this.GetSum(CombatEffectType.CET_Buff_ChangeDamage_Cast) * 0.001;
@@ -987,19 +932,16 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600A6A4 RID: 42660 RVA: 0x001D52E4 File Offset: 0x001D34E4
 		private ISeqListRef<float> _GetBuffDOTData(BuffTable.RowData pBuffData)
 		{
 			return pBuffData.BuffDOT;
 		}
 
-		// Token: 0x0600A6A5 RID: 42661 RVA: 0x001D5304 File Offset: 0x001D3504
 		private ISeqListRef<int> _GetBuffDOTFromCasterData(BuffTable.RowData pBuffData)
 		{
 			return pBuffData.BuffDOTValueFromCaster;
 		}
 
-		// Token: 0x0600A6A6 RID: 42662 RVA: 0x001D5324 File Offset: 0x001D3524
 		public bool GetBuffRegenerate(SequenceList<float> vecDotOut, SequenceList<int> vecFromCasterOut)
 		{
 			bool flag = true;
@@ -1019,49 +961,36 @@ namespace XMainClient
 			return flag && this.GetVecSequenceSum(ref getSeqListDataParam2, vecFromCasterOut, new GetBuffDataSeqListInt(this._GetBuffDOTFromCasterData), 2);
 		}
 
-		// Token: 0x04003D37 RID: 15671
 		private BuffTable.RowData m_pBuffInfo;
 
-		// Token: 0x04003D38 RID: 15672
 		private EffectDataParams m_pEffectData;
 
-		// Token: 0x04003D39 RID: 15673
 		private uint m_SkillHash;
 
-		// Token: 0x04003D3A RID: 15674
 		private uint m_ActualSkillHash;
 
-		// Token: 0x04003D3B RID: 15675
 		private CombatEffectType m_CacheType;
 
-		// Token: 0x04003D3C RID: 15676
 		private EffectDataParams.TypeDataCollection m_CacheCollection;
 
-		// Token: 0x04003D3D RID: 15677
 		private Dictionary<uint, BuffTable.RowData> m_Template2BuffTable = new Dictionary<uint, BuffTable.RowData>();
 
-		// Token: 0x04003D3E RID: 15678
 		private static float[] startDataBufferFloat = new float[10];
 
-		// Token: 0x04003D3F RID: 15679
 		private static float[] curDataBufferFloat = new float[10];
 
-		// Token: 0x04003D40 RID: 15680
 		private static uint[] startDataBufferUint = new uint[10];
 
-		// Token: 0x04003D41 RID: 15681
 		private static uint[] curDataBufferUint = new uint[10];
 
-		// Token: 0x04003D42 RID: 15682
 		public static readonly char[] ConstantSeparator = new char[]
 		{
 			'^'
 		};
 
-		// Token: 0x02001993 RID: 6547
 		private struct GetSeqDataParam
 		{
-			// Token: 0x06011024 RID: 69668 RVA: 0x00453741 File Offset: 0x00451941
+
 			public GetSeqDataParam(int dimension)
 			{
 				this.helper = null;
@@ -1071,26 +1000,20 @@ namespace XMainClient
 				this.ratio = 0.0;
 			}
 
-			// Token: 0x04007F04 RID: 32516
 			public CombatEffectHelper helper;
 
-			// Token: 0x04007F05 RID: 32517
 			public int dim;
 
-			// Token: 0x04007F06 RID: 32518
 			public CombatEffectType type;
 
-			// Token: 0x04007F07 RID: 32519
 			public int replaceIndex;
 
-			// Token: 0x04007F08 RID: 32520
 			public double ratio;
 		}
 
-		// Token: 0x02001994 RID: 6548
 		private struct GetSeqListDataParam
 		{
-			// Token: 0x06011025 RID: 69669 RVA: 0x0045376F File Offset: 0x0045196F
+
 			public GetSeqListDataParam(int dimension)
 			{
 				this.helper = null;
@@ -1100,26 +1023,20 @@ namespace XMainClient
 				this.ratio = 0.0;
 			}
 
-			// Token: 0x04007F09 RID: 32521
 			public CombatEffectHelper helper;
 
-			// Token: 0x04007F0A RID: 32522
 			public int dim;
 
-			// Token: 0x04007F0B RID: 32523
 			public CombatEffectType type;
 
-			// Token: 0x04007F0C RID: 32524
 			public int replaceIndex;
 
-			// Token: 0x04007F0D RID: 32525
 			public double ratio;
 		}
 
-		// Token: 0x02001995 RID: 6549
 		private struct GetSeqListDataFromVecStringParam
 		{
-			// Token: 0x06011026 RID: 69670 RVA: 0x0045379D File Offset: 0x0045199D
+
 			public GetSeqListDataFromVecStringParam(int dimension)
 			{
 				this.helper = null;
@@ -1129,19 +1046,14 @@ namespace XMainClient
 				this.hashIndex = 0;
 			}
 
-			// Token: 0x04007F0E RID: 32526
 			public CombatEffectHelper helper;
 
-			// Token: 0x04007F0F RID: 32527
 			public int dim;
 
-			// Token: 0x04007F10 RID: 32528
 			public CombatEffectType type;
 
-			// Token: 0x04007F11 RID: 32529
 			public int replaceIndex;
 
-			// Token: 0x04007F12 RID: 32530
 			public int hashIndex;
 		}
 	}

@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001792 RID: 6034
+
 	internal class HeroBattleDlg : DlgBase<HeroBattleDlg, HeroBattleBehaviour>
 	{
-		// Token: 0x17003847 RID: 14407
-		// (get) Token: 0x0600F91A RID: 63770 RVA: 0x00391A6C File Offset: 0x0038FC6C
+
 		public override bool autoload
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003848 RID: 14408
-		// (get) Token: 0x0600F91B RID: 63771 RVA: 0x00391A80 File Offset: 0x0038FC80
 		public override bool pushstack
 		{
 			get
@@ -31,8 +28,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003849 RID: 14409
-		// (get) Token: 0x0600F91C RID: 63772 RVA: 0x00391A94 File Offset: 0x0038FC94
 		public override bool hideMainMenu
 		{
 			get
@@ -41,8 +36,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700384A RID: 14410
-		// (get) Token: 0x0600F91D RID: 63773 RVA: 0x00391AA8 File Offset: 0x0038FCA8
 		public override bool fullscreenui
 		{
 			get
@@ -51,8 +44,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700384B RID: 14411
-		// (get) Token: 0x0600F91E RID: 63774 RVA: 0x00391ABC File Offset: 0x0038FCBC
 		public override string fileName
 		{
 			get
@@ -61,8 +52,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700384C RID: 14412
-		// (get) Token: 0x0600F91F RID: 63775 RVA: 0x00391AD4 File Offset: 0x0038FCD4
 		public override int sysid
 		{
 			get
@@ -71,7 +60,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F920 RID: 63776 RVA: 0x00391AF0 File Offset: 0x0038FCF0
 		protected override void Init()
 		{
 			base.Init();
@@ -86,7 +74,6 @@ namespace XMainClient.UI
 			this._InitUI = true;
 		}
 
-		// Token: 0x0600F921 RID: 63777 RVA: 0x00391BAC File Offset: 0x0038FDAC
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -110,7 +97,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_ResearchBtn.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnResearchBtnClick));
 		}
 
-		// Token: 0x0600F922 RID: 63778 RVA: 0x00391DCC File Offset: 0x0038FFCC
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -133,7 +119,6 @@ namespace XMainClient.UI
 			this.RefreshPrivilegeInfo();
 		}
 
-		// Token: 0x0600F923 RID: 63779 RVA: 0x00391E64 File Offset: 0x00390064
 		protected override void OnHide()
 		{
 			XSingleton<XTimerMgr>.singleton.KillTimer(this._selectAnimToken);
@@ -150,7 +135,6 @@ namespace XMainClient.UI
 			base.OnHide();
 		}
 
-		// Token: 0x0600F924 RID: 63780 RVA: 0x00391EE4 File Offset: 0x003900E4
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
@@ -163,7 +147,6 @@ namespace XMainClient.UI
 			this.RefreshSelectMsg();
 		}
 
-		// Token: 0x0600F925 RID: 63781 RVA: 0x00391F28 File Offset: 0x00390128
 		public override void LeaveStackTop()
 		{
 			base.LeaveStackTop();
@@ -177,7 +160,6 @@ namespace XMainClient.UI
 			this.m_Dummy = null;
 		}
 
-		// Token: 0x0600F926 RID: 63782 RVA: 0x00391F88 File Offset: 0x00390188
 		protected override void OnUnload()
 		{
 			XSingleton<XTimerMgr>.singleton.KillTimer(this._selectAnimToken);
@@ -188,7 +170,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x0600F927 RID: 63783 RVA: 0x00391FD4 File Offset: 0x003901D4
 		public void Refresh()
 		{
 			XTeamDocument specificDocument = XDocuments.GetSpecificDocument<XTeamDocument>(XTeamDocument.uuID);
@@ -196,7 +177,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_TeamMatch.SetEnable(specificDocument.SoloMatchType != KMatchType.KMT_HERO, false);
 		}
 
-		// Token: 0x0600F928 RID: 63784 RVA: 0x00392048 File Offset: 0x00390248
 		public void RefreshInfo()
 		{
 			base.uiBehaviour.m_BattleTotal.SetText(this._doc.BattleTotal.ToString());
@@ -286,7 +266,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F929 RID: 63785 RVA: 0x003926B0 File Offset: 0x003908B0
 		private void SetupRewardPreView()
 		{
 			base.uiBehaviour.m_PreViewItemPool.ReturnAll(true);
@@ -329,7 +308,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F92A RID: 63786 RVA: 0x00392984 File Offset: 0x00390B84
 		public void RefreshSelectMsg()
 		{
 			bool flag = !this._skillDoc.IsPreViewShow && !this._skillDoc.AlreadyGetList.Contains(this._skillDoc.CurrentSelect);
@@ -390,7 +368,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F92B RID: 63787 RVA: 0x00392CEC File Offset: 0x00390EEC
 		public void SetIdleAnimation(object o)
 		{
 			string animationGetLength = o as string;
@@ -401,27 +378,23 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F92C RID: 63788 RVA: 0x00392D1C File Offset: 0x00390F1C
 		private bool OnCloseBtnClick(IXUIButton btn)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x0600F92D RID: 63789 RVA: 0x00392D38 File Offset: 0x00390F38
 		private bool OnHelpBtnClicked(IXUIButton btn)
 		{
 			DlgBase<XCommonHelpTipView, XCommonHelpTipBehaviour>.singleton.ShowHelp(XSysDefine.XSys_HeroBattle);
 			return true;
 		}
 
-		// Token: 0x0600F92E RID: 63790 RVA: 0x00392D5B File Offset: 0x00390F5B
 		private void OnGetRewardClick(IXUISprite iSp)
 		{
 			this._doc.QueryGetReward();
 		}
 
-		// Token: 0x0600F92F RID: 63791 RVA: 0x00392D6C File Offset: 0x00390F6C
 		private bool OnMonsterDrag(Vector2 delta)
 		{
 			bool flag = this.m_Dummy != null;
@@ -432,7 +405,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F930 RID: 63792 RVA: 0x00392DB0 File Offset: 0x00390FB0
 		private bool OnBattleRecordBtnClick(IXUIButton btn)
 		{
 			this._doc.QueryBattleRecord();
@@ -440,7 +412,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F931 RID: 63793 RVA: 0x00392DE8 File Offset: 0x00390FE8
 		private bool OnRewardPreViewBtnClick(IXUIButton btn)
 		{
 			base.uiBehaviour.m_RewardPreViewFrame.SetActive(true);
@@ -448,35 +419,30 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F932 RID: 63794 RVA: 0x00392E14 File Offset: 0x00391014
 		private bool OnRewardPreViewCloseBtnClick(IXUIButton btn)
 		{
 			base.uiBehaviour.m_RewardPreViewFrame.SetActive(false);
 			return true;
 		}
 
-		// Token: 0x0600F933 RID: 63795 RVA: 0x00392E3C File Offset: 0x0039103C
 		private bool OnShopBtnClick(IXUIButton btn)
 		{
 			DlgBase<MallSystemDlg, MallSystemBehaviour>.singleton.ShowShopSystem(XSysDefine.XSys_Mall_Honer, 0UL);
 			return true;
 		}
 
-		// Token: 0x0600F934 RID: 63796 RVA: 0x00392E64 File Offset: 0x00391064
 		private bool OnSkillPreViewBtnClick(IXUIButton btn)
 		{
 			this.m_HeroBattleSkillHandler.SetSkillPreViewState(true, 0);
 			return true;
 		}
 
-		// Token: 0x0600F935 RID: 63797 RVA: 0x00392E88 File Offset: 0x00391088
 		private bool OnBuyBtnClick(IXUIButton btn)
 		{
 			this._skillDoc.QueryBuyHero(this._skillDoc.CurrentSelect);
 			return true;
 		}
 
-		// Token: 0x0600F936 RID: 63798 RVA: 0x00392EB4 File Offset: 0x003910B4
 		private bool OnSingleMatchBtnClick(IXUIButton btn)
 		{
 			XTeamDocument specificDocument = XDocuments.GetSpecificDocument<XTeamDocument>(XTeamDocument.uuID);
@@ -496,7 +462,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F937 RID: 63799 RVA: 0x00392F14 File Offset: 0x00391114
 		private bool OnTeamMatchBtnClick(IXUIButton btn)
 		{
 			this.SetVisible(false, true);
@@ -511,7 +476,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F938 RID: 63800 RVA: 0x00392F74 File Offset: 0x00391174
 		private bool OnRankBtnClick(IXUIButton btn)
 		{
 			base.uiBehaviour.m_RankFrame.SetActive(true);
@@ -520,14 +484,12 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F939 RID: 63801 RVA: 0x00392FAC File Offset: 0x003911AC
 		private bool OnRankCloseBtnClick(IXUIButton btn)
 		{
 			base.uiBehaviour.m_RankFrame.SetActive(false);
 			return true;
 		}
 
-		// Token: 0x0600F93A RID: 63802 RVA: 0x00392FD4 File Offset: 0x003911D4
 		public void SetupRankFrame()
 		{
 			bool flag = !base.uiBehaviour.m_RankFrame.activeInHierarchy;
@@ -539,7 +501,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F93B RID: 63803 RVA: 0x00393044 File Offset: 0x00391244
 		public void WrapListUpdated(Transform t, int index)
 		{
 			bool flag = index < 0 || index >= this._doc.MainRankList.Count;
@@ -549,7 +510,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F93C RID: 63804 RVA: 0x00393080 File Offset: 0x00391280
 		public void SetRankTpl(Transform t, int index, bool isMy)
 		{
 			HeroBattleRankData heroBattleRankData = isMy ? this._doc.MyRankData : this._doc.MainRankList[index];
@@ -602,7 +562,6 @@ namespace XMainClient.UI
 			ixuilabel2.RegisterLabelClickEventHandler(new LabelClickEventHandler(this.OnPlayerInfoClick));
 		}
 
-		// Token: 0x0600F93D RID: 63805 RVA: 0x00393284 File Offset: 0x00391484
 		private void OnPlayerInfoClick(IXUILabel label)
 		{
 			bool flag = label.ID == 0UL;
@@ -612,19 +571,16 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F93E RID: 63806 RVA: 0x0023F430 File Offset: 0x0023D630
 		private void OnPrivilegeClick(IXUISprite btn)
 		{
 			DlgBase<XWelfareView, XWelfareBehaviour>.singleton.CheckActiveMemberPrivilege(MemberPrivilege.KingdomPrivilege_Adventurer);
 		}
 
-		// Token: 0x0600F93F RID: 63807 RVA: 0x003932AF File Offset: 0x003914AF
 		private void OnResearchBtnClick(IXUISprite iSp)
 		{
 			XSingleton<UiUtility>.singleton.OpenHtmlUrl("HeroBattlePlayUrl");
 		}
 
-		// Token: 0x0600F940 RID: 63808 RVA: 0x003932C4 File Offset: 0x003914C4
 		private void RefreshPrivilegeInfo()
 		{
 			XWelfareDocument specificDocument = XDocuments.GetSpecificDocument<XWelfareDocument>(XWelfareDocument.uuID);
@@ -642,25 +598,18 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04006CCF RID: 27855
 		private XHeroBattleDocument _doc = null;
 
-		// Token: 0x04006CD0 RID: 27856
 		private XHeroBattleSkillDocument _skillDoc = null;
 
-		// Token: 0x04006CD1 RID: 27857
 		public HeroBattleSkillHandler m_HeroBattleSkillHandler;
 
-		// Token: 0x04006CD2 RID: 27858
 		public BattleRecordHandler m_HeroBattleRecordHandler;
 
-		// Token: 0x04006CD3 RID: 27859
 		private XDummy m_Dummy;
 
-		// Token: 0x04006CD4 RID: 27860
 		private bool _InitUI;
 
-		// Token: 0x04006CD5 RID: 27861
 		private uint _selectAnimToken;
 	}
 }

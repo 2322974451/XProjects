@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000A51 RID: 2641
+
 	internal class EquipFusionDocument : XDocComponent
 	{
-		// Token: 0x17002EEE RID: 12014
-		// (get) Token: 0x0600A03C RID: 41020 RVA: 0x001AC1A8 File Offset: 0x001AA3A8
+
 		public override uint ID
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002EEF RID: 12015
-		// (get) Token: 0x0600A03D RID: 41021 RVA: 0x001AC1C0 File Offset: 0x001AA3C0
 		public static EquipFusionDocument Doc
 		{
 			get
@@ -31,13 +28,8 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002EF0 RID: 12016
-		// (get) Token: 0x0600A03E RID: 41022 RVA: 0x001AC1EB File Offset: 0x001AA3EB
-		// (set) Token: 0x0600A03F RID: 41023 RVA: 0x001AC1F3 File Offset: 0x001AA3F3
 		public EquipFusionHandler Handler { get; set; }
 
-		// Token: 0x17002EF1 RID: 12017
-		// (get) Token: 0x0600A040 RID: 41024 RVA: 0x001AC1FC File Offset: 0x001AA3FC
 		public int NeedNum
 		{
 			get
@@ -46,8 +38,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002EF2 RID: 12018
-		// (get) Token: 0x0600A041 RID: 41025 RVA: 0x001AC214 File Offset: 0x001AA414
 		public int MaterialId
 		{
 			get
@@ -56,8 +46,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002EF3 RID: 12019
-		// (get) Token: 0x0600A042 RID: 41026 RVA: 0x001AC22C File Offset: 0x001AA42C
 		public ulong SelectUid
 		{
 			get
@@ -66,8 +54,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002EF4 RID: 12020
-		// (get) Token: 0x0600A043 RID: 41027 RVA: 0x001AC244 File Offset: 0x001AA444
 		public List<EquipFuseData> FuseDataList
 		{
 			get
@@ -76,17 +62,10 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002EF5 RID: 12021
-		// (get) Token: 0x0600A044 RID: 41028 RVA: 0x001AC25C File Offset: 0x001AA45C
-		// (set) Token: 0x0600A045 RID: 41029 RVA: 0x001AC264 File Offset: 0x001AA464
 		public bool IsBreak { get; set; }
 
-		// Token: 0x17002EF6 RID: 12022
-		// (get) Token: 0x0600A046 RID: 41030 RVA: 0x001AC26D File Offset: 0x001AA46D
-		// (set) Token: 0x0600A047 RID: 41031 RVA: 0x001AC275 File Offset: 0x001AA475
 		public bool IsMax { get; set; }
 
-		// Token: 0x0600A048 RID: 41032 RVA: 0x001AC280 File Offset: 0x001AA480
 		public bool GetEffectPath(uint breakLevel, out string path)
 		{
 			bool flag = this.m_effectPathDic == null;
@@ -152,7 +131,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A049 RID: 41033 RVA: 0x001AC3F4 File Offset: 0x001AA5F4
 		public string GetFuseIconName(uint breakLevel)
 		{
 			bool flag = this.m_fuseIconNameDic == null;
@@ -216,7 +194,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A04A RID: 41034 RVA: 0x001AC560 File Offset: 0x001AA760
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			EquipFusionDocument.AsyncLoader.AddTask("Table/EquipFusion", EquipFusionDocument.m_equipfusionTab, false);
@@ -224,7 +201,6 @@ namespace XMainClient
 			EquipFusionDocument.AsyncLoader.Execute(callback);
 		}
 
-		// Token: 0x0600A04B RID: 41035 RVA: 0x001AC59C File Offset: 0x001AA79C
 		public static void OnTableLoaded()
 		{
 			for (int i = 0; i < EquipFusionDocument.m_equipfusionTab.Table.Length; i++)
@@ -243,32 +219,27 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A04C RID: 41036 RVA: 0x00114ACA File Offset: 0x00112CCA
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
 		}
 
-		// Token: 0x0600A04D RID: 41037 RVA: 0x001AC623 File Offset: 0x001AA823
 		protected override void EventSubscribe()
 		{
 			base.RegisterEvent(XEventDefine.XEvent_AddItem, new XComponent.XEventHandler(this.OnAddItem));
 			base.EventSubscribe();
 		}
 
-		// Token: 0x0600A04E RID: 41038 RVA: 0x001AC642 File Offset: 0x001AA842
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 			EquipFusionDocument.IsEquipDown = false;
 		}
 
-		// Token: 0x0600A04F RID: 41039 RVA: 0x00114ADF File Offset: 0x00112CDF
 		public override void OnDetachFromHost()
 		{
 			base.OnDetachFromHost();
 		}
 
-		// Token: 0x0600A050 RID: 41040 RVA: 0x001AC64C File Offset: 0x001AA84C
 		public void SelectEquip(ulong uid)
 		{
 			XItem itemByUID = XBagDocument.BagDoc.GetItemByUID(uid);
@@ -312,7 +283,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A051 RID: 41041 RVA: 0x001AC750 File Offset: 0x001AA950
 		public void AddMaterial(int itemId)
 		{
 			this.m_materialId = itemId;
@@ -323,7 +293,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A052 RID: 41042 RVA: 0x001AC78C File Offset: 0x001AA98C
 		public void ReqEquipFuseMes()
 		{
 			RpcC2G_FuseEquip rpcC2G_FuseEquip = new RpcC2G_FuseEquip();
@@ -341,7 +310,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_FuseEquip);
 		}
 
-		// Token: 0x0600A053 RID: 41043 RVA: 0x001AC7FC File Offset: 0x001AA9FC
 		public void OnGetEquipFuseInfo(FuseEquipRes oRes)
 		{
 			bool flag = oRes == null;
@@ -383,14 +351,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A054 RID: 41044 RVA: 0x001AC8D4 File Offset: 0x001AAAD4
 		private void ClearSelectMaterial()
 		{
 			this.m_materialId = 0;
 			this.m_needNum = 0;
 		}
 
-		// Token: 0x0600A055 RID: 41045 RVA: 0x001AC8E8 File Offset: 0x001AAAE8
 		public List<EquipFuseData> GetNowFuseData(XItem item, uint profession)
 		{
 			List<EquipFuseData> list = new List<EquipFuseData>();
@@ -441,7 +407,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A056 RID: 41046 RVA: 0x001ACAA0 File Offset: 0x001AACA0
 		private void SetFuseData()
 		{
 			XItem itemByUID = XBagDocument.BagDoc.GetItemByUID(this.m_selectUid);
@@ -480,7 +445,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A057 RID: 41047 RVA: 0x001ACC54 File Offset: 0x001AAE54
 		private void GetTotalAddAttr(XequipFuseInfo info, EquipList.RowData equipRow, uint profession, bool needNextAttr)
 		{
 			this.m_addAttrDic.Clear();
@@ -556,7 +520,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A058 RID: 41048 RVA: 0x001ACFA8 File Offset: 0x001AB1A8
 		private void GetNextTotalAddAttr(XequipFuseInfo info, EquipList.RowData equipRow, uint profession)
 		{
 			EquipFusionTable.RowData fuseData = this.GetFuseData(profession, equipRow, info.BreakNum);
@@ -601,7 +564,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A059 RID: 41049 RVA: 0x001AD168 File Offset: 0x001AB368
 		private bool IsNewAttr(uint attrId, uint attrNum)
 		{
 			for (int i = 0; i < this.m_fuseDataList.Count; i++)
@@ -616,7 +578,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600A05A RID: 41050 RVA: 0x001AD1D0 File Offset: 0x001AB3D0
 		private bool OnAddItem(XEventArgs args)
 		{
 			bool flag = this.Handler != null && this.Handler.IsVisible();
@@ -627,7 +588,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600A05B RID: 41051 RVA: 0x001AD20C File Offset: 0x001AB40C
 		public uint GetAddExp(uint coreItemId)
 		{
 			EquipFusionExpTable.RowData byCoreItemId = EquipFusionDocument.m_equipFusionExpTab.GetByCoreItemId(coreItemId);
@@ -644,7 +604,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A05C RID: 41052 RVA: 0x001AD23C File Offset: 0x001AB43C
 		public SeqListRef<uint> GetAssistItems(uint coreItemId)
 		{
 			EquipFusionExpTable.RowData byCoreItemId = EquipFusionDocument.m_equipFusionExpTab.GetByCoreItemId(coreItemId);
@@ -661,13 +620,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A05D RID: 41053 RVA: 0x001AD274 File Offset: 0x001AB474
 		private static ulong MakeKey(uint profession, uint slot, uint equipType, uint breakNum)
 		{
 			return (ulong)profession << 48 | (ulong)slot << 32 | (ulong)((ulong)equipType << 16) | (ulong)breakNum;
 		}
 
-		// Token: 0x0600A05E RID: 41054 RVA: 0x001AD29C File Offset: 0x001AB49C
 		public EquipFusionTable.RowData GetFuseData(uint profession, uint slot, uint equipType, uint breakNum)
 		{
 			ulong key = EquipFusionDocument.MakeKey(profession, slot, equipType, breakNum);
@@ -686,7 +643,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A05F RID: 41055 RVA: 0x001AD318 File Offset: 0x001AB518
 		public EquipFusionTable.RowData GetFuseData(uint profession, EquipList.RowData row, uint breakNum)
 		{
 			bool flag = row == null;
@@ -702,43 +658,30 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x04003970 RID: 14704
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("EquipFusionDocument");
 
-		// Token: 0x04003971 RID: 14705
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x04003972 RID: 14706
 		public static EquipFusionExpTable m_equipFusionExpTab = new EquipFusionExpTable();
 
-		// Token: 0x04003973 RID: 14707
 		public static EquipFusionTable m_equipfusionTab = new EquipFusionTable();
 
-		// Token: 0x04003974 RID: 14708
 		private ulong m_selectUid = 0UL;
 
-		// Token: 0x04003975 RID: 14709
 		private int m_materialId = 0;
 
-		// Token: 0x04003976 RID: 14710
 		private int m_needNum = 0;
 
-		// Token: 0x04003977 RID: 14711
 		private List<EquipFuseData> m_fuseDataList = new List<EquipFuseData>();
 
-		// Token: 0x04003978 RID: 14712
 		private Dictionary<uint, string> m_effectPathDic;
 
-		// Token: 0x04003979 RID: 14713
 		private Dictionary<uint, string> m_fuseIconNameDic;
 
-		// Token: 0x0400397D RID: 14717
 		public static bool IsEquipDown = false;
 
-		// Token: 0x0400397E RID: 14718
 		private Dictionary<uint, XTuple<uint, uint>> m_addAttrDic = new Dictionary<uint, XTuple<uint, uint>>();
 
-		// Token: 0x0400397F RID: 14719
 		private static Dictionary<ulong, EquipFusionTable.RowData> m_equipFusionDic = new Dictionary<ulong, EquipFusionTable.RowData>();
 	}
 }

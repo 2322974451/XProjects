@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200191D RID: 6429
+
 	internal class JadeBagHandler : DlgHandlerBase
 	{
-		// Token: 0x17003AEF RID: 15087
-		// (get) Token: 0x06010D18 RID: 68888 RVA: 0x0043B4E8 File Offset: 0x004396E8
+
 		private XItemMorePowerfulTipMgr powerfullMgr
 		{
 			get
@@ -19,8 +18,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003AF0 RID: 15088
-		// (get) Token: 0x06010D19 RID: 68889 RVA: 0x0043B504 File Offset: 0x00439704
 		protected override string FileName
 		{
 			get
@@ -29,7 +26,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010D1A RID: 68890 RVA: 0x0043B51C File Offset: 0x0043971C
 		protected override void Init()
 		{
 			base.Init();
@@ -40,7 +36,6 @@ namespace XMainClient.UI
 			this.m_Limit = (base.PanelObject.transform.Find("Limit").GetComponent("XUILabel") as IXUILabel);
 		}
 
-		// Token: 0x06010D1B RID: 68891 RVA: 0x0043B5E9 File Offset: 0x004397E9
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -48,7 +43,6 @@ namespace XMainClient.UI
 			this.m_Close.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this._OnCloseClicked));
 		}
 
-		// Token: 0x06010D1C RID: 68892 RVA: 0x0043B623 File Offset: 0x00439823
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -56,7 +50,6 @@ namespace XMainClient.UI
 			this._doc.NewItems.bCanClear = true;
 		}
 
-		// Token: 0x06010D1D RID: 68893 RVA: 0x0043B646 File Offset: 0x00439846
 		protected override void OnHide()
 		{
 			this.powerfullMgr.ReturnAll();
@@ -64,21 +57,18 @@ namespace XMainClient.UI
 			base.OnHide();
 		}
 
-		// Token: 0x06010D1E RID: 68894 RVA: 0x0043B66D File Offset: 0x0043986D
 		public override void OnUnload()
 		{
 			this.powerfullMgr.Unload();
 			base.OnUnload();
 		}
 
-		// Token: 0x06010D1F RID: 68895 RVA: 0x0035654D File Offset: 0x0035474D
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
 			this.RefreshData();
 		}
 
-		// Token: 0x06010D20 RID: 68896 RVA: 0x0043B684 File Offset: 0x00439884
 		public override void RefreshData()
 		{
 			base.RefreshData();
@@ -101,7 +91,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010D21 RID: 68897 RVA: 0x0043B738 File Offset: 0x00439938
 		private void _OnBagWrapContentUpdated(Transform t, int index)
 		{
 			bool flag = index < 0 || index >= this._doc.SelectedSlotItemList.Count;
@@ -136,7 +125,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010D22 RID: 68898 RVA: 0x0043B8A4 File Offset: 0x00439AA4
 		private void _OnBagJadeClicked(IXUISprite iSp)
 		{
 			int num = (int)iSp.ID;
@@ -158,7 +146,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010D23 RID: 68899 RVA: 0x0043B95C File Offset: 0x00439B5C
 		private bool _Equip(IXUIButton btn)
 		{
 			this._doc.ReqPutOnJade(this.m_TargetJadeUID);
@@ -167,28 +154,21 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x06010D24 RID: 68900 RVA: 0x001A6C1F File Offset: 0x001A4E1F
 		private void _OnCloseClicked(IXUISprite iSp)
 		{
 			base.SetVisible(false);
 		}
 
-		// Token: 0x04007B6F RID: 31599
 		private XJadeDocument _doc = null;
 
-		// Token: 0x04007B70 RID: 31600
 		private IXUIWrapContent m_WrapContent;
 
-		// Token: 0x04007B71 RID: 31601
 		private IXUIScrollView m_ScrollView;
 
-		// Token: 0x04007B72 RID: 31602
 		private IXUISprite m_Close;
 
-		// Token: 0x04007B73 RID: 31603
 		private IXUILabel m_Limit;
 
-		// Token: 0x04007B74 RID: 31604
 		private ulong m_TargetJadeUID = 0UL;
 	}
 }

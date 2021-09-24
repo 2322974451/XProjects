@@ -4,16 +4,11 @@ using UnityEngine;
 using XMainClient;
 using XUtliPoolLib;
 
-// Token: 0x02000003 RID: 3
 public class TitleDisplay
 {
-	// Token: 0x17000003 RID: 3
-	// (get) Token: 0x0600000C RID: 12 RVA: 0x000024A2 File Offset: 0x000006A2
-	// (set) Token: 0x0600000D RID: 13 RVA: 0x000024AA File Offset: 0x000006AA
+
 	public Transform transform { get; private set; }
 
-	// Token: 0x17000004 RID: 4
-	// (get) Token: 0x0600000E RID: 14 RVA: 0x000024B4 File Offset: 0x000006B4
 	public GameObject gameObject
 	{
 		get
@@ -22,7 +17,6 @@ public class TitleDisplay
 		}
 	}
 
-	// Token: 0x0600000F RID: 15 RVA: 0x000024D4 File Offset: 0x000006D4
 	public void Init(Transform go)
 	{
 		this.transform = go;
@@ -34,7 +28,6 @@ public class TitleDisplay
 		this.m_ItemPool.SetupPool(transform.parent.gameObject, transform.gameObject, 2U, true);
 	}
 
-	// Token: 0x06000010 RID: 16 RVA: 0x000025B0 File Offset: 0x000007B0
 	public void Set(TitleTable.RowData rowData)
 	{
 		bool flag = rowData == null;
@@ -80,7 +73,6 @@ public class TitleDisplay
 		}
 	}
 
-	// Token: 0x06000011 RID: 17 RVA: 0x000027F0 File Offset: 0x000009F0
 	public void Reset()
 	{
 		bool flag = this.m_titleEffect != null;
@@ -91,24 +83,17 @@ public class TitleDisplay
 		this.m_TitleTexture.SetTexturePath("");
 	}
 
-	// Token: 0x04000009 RID: 9
 	private XUIPool m_ItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-	// Token: 0x0400000A RID: 10
 	private IXUILabel m_FightValue;
 
-	// Token: 0x0400000B RID: 11
 	private IXUISpriteAnimation m_TitleName;
 
-	// Token: 0x0400000C RID: 12
 	private IXUISprite m_TitleSprite;
 
-	// Token: 0x0400000D RID: 13
 	private IXUITexture m_TitleTexture;
 
-	// Token: 0x0400000E RID: 14
 	private XFx m_titleEffect;
 
-	// Token: 0x0400000F RID: 15
 	private int m_selectTitle = -1;
 }

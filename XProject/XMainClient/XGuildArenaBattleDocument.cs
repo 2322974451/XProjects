@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000930 RID: 2352
+
 	internal class XGuildArenaBattleDocument : XDocComponent
 	{
-		// Token: 0x17002BCD RID: 11213
-		// (get) Token: 0x06008DDA RID: 36314 RVA: 0x00137CF8 File Offset: 0x00135EF8
+
 		public override uint ID
 		{
 			get
@@ -20,13 +19,10 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008DDB RID: 36315 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 		}
 
-		// Token: 0x17002BCE RID: 11214
-		// (get) Token: 0x06008DDC RID: 36316 RVA: 0x00137D10 File Offset: 0x00135F10
 		public GVGBattleInfo BlueInfo
 		{
 			get
@@ -35,8 +31,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002BCF RID: 11215
-		// (get) Token: 0x06008DDD RID: 36317 RVA: 0x00137D28 File Offset: 0x00135F28
 		public GVGBattleInfo RedInfo
 		{
 			get
@@ -45,13 +39,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008DDE RID: 36318 RVA: 0x00137D40 File Offset: 0x00135F40
 		private ulong GetMyGuildID()
 		{
 			return XDocuments.GetSpecificDocument<XGuildDocument>(XGuildDocument.uuID).BasicData.uid;
 		}
 
-		// Token: 0x06008DDF RID: 36319 RVA: 0x00137D68 File Offset: 0x00135F68
 		public int GetBattleSignNumber()
 		{
 			SceneType sceneType = XSingleton<XScene>.singleton.SceneType;
@@ -72,8 +64,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x17002BD0 RID: 11216
-		// (get) Token: 0x06008DE0 RID: 36320 RVA: 0x00137DC8 File Offset: 0x00135FC8
 		public double InspireCDTime
 		{
 			get
@@ -82,8 +72,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002BD1 RID: 11217
-		// (get) Token: 0x06008DE1 RID: 36321 RVA: 0x00137DE0 File Offset: 0x00135FE0
 		private IGVGBattlePrepare CurView
 		{
 			get
@@ -102,8 +90,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002BD2 RID: 11218
-		// (get) Token: 0x06008DE2 RID: 36322 RVA: 0x00137E18 File Offset: 0x00136018
 		private bool IsGVG
 		{
 			get
@@ -113,7 +99,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008DE3 RID: 36323 RVA: 0x00137E48 File Offset: 0x00136048
 		public override void OnEnterSceneFinally()
 		{
 			base.OnEnterSceneFinally();
@@ -124,7 +109,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008DE4 RID: 36324 RVA: 0x00137E70 File Offset: 0x00136070
 		public override void OnLeaveScene()
 		{
 			bool isGVG = this.IsGVG;
@@ -134,14 +118,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008DE5 RID: 36325 RVA: 0x00137E8F File Offset: 0x0013608F
 		public override void Update(float fDeltaT)
 		{
 			base.Update(fDeltaT);
 			this.InspireUpdate(fDeltaT);
 		}
 
-		// Token: 0x06008DE6 RID: 36326 RVA: 0x00137EA4 File Offset: 0x001360A4
 		public void OnUpdateGuildArenaBattle(GmfRoleDatas data)
 		{
 			XSingleton<XDebug>.singleton.AddGreenLog("OnUpdateGuildArenaBattle", data.halfrole11.inspire.ToString(), "  ", data.halfrole22.inspire.ToString(), null, null);
@@ -186,7 +168,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008DE7 RID: 36327 RVA: 0x00138054 File Offset: 0x00136254
 		private void CheckRoleState(List<GmfRole> roles, ulong roleID, ref GuildMatchFightState state, ref XGuildArenaBattleDocument.ReadyType type)
 		{
 			bool flag = roles == null;
@@ -209,7 +190,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008DE8 RID: 36328 RVA: 0x001380B4 File Offset: 0x001362B4
 		private void SpectateSpecial(GmfRoleDatas data)
 		{
 			bool bSpectator = XSingleton<XScene>.singleton.bSpectator;
@@ -270,7 +250,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008DE9 RID: 36329 RVA: 0x001382F8 File Offset: 0x001364F8
 		private void MatchPoint()
 		{
 			int num = 0;
@@ -303,7 +282,6 @@ namespace XMainClient
 			this.GMFGroupRedMatchPoint = num2;
 		}
 
-		// Token: 0x06008DEA RID: 36330 RVA: 0x00138408 File Offset: 0x00136608
 		public void OnUpdateBattleEnd(GmfOneBattleEnd data)
 		{
 			XSingleton<XDebug>.singleton.AddLog("XMainClient.XGuildArenaBattleDocument.OnUpdateBattleEnd ", data.ToString(), null, null, null, null, XDebugColor.XDebug_None);
@@ -385,7 +363,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008DEB RID: 36331 RVA: 0x00138700 File Offset: 0x00136900
 		public void ReceiveGuildCombatNotify(GmfGuildCombatPara param)
 		{
 			XSingleton<XDebug>.singleton.AddLog("XMainClient.XGuildArenaBattleDocument.ReceiveGuildCombatNotify ", null, null, null, null, null, XDebugColor.XDebug_None);
@@ -429,7 +406,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008DEC RID: 36332 RVA: 0x001388D4 File Offset: 0x00136AD4
 		public void OnAllFightEnd(GmfAllFightEnd data)
 		{
 			bool flag = !this.IsGMF();
@@ -528,31 +504,26 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008DED RID: 36333 RVA: 0x00138C3C File Offset: 0x00136E3C
 		public void OnGmfJoinBattle(GmfJoinBattleArg oRes)
 		{
 			XSingleton<XDebug>.singleton.AddLog("XMainClient.XGuildArenaBattleDocument.GmfJoinBattleArg ", oRes.leftTime.ToString(), null, null, null, null, XDebugColor.XDebug_None);
 		}
 
-		// Token: 0x06008DEE RID: 36334 RVA: 0x00138C6D File Offset: 0x00136E6D
 		public void GetJoinBattleRes()
 		{
 			XSingleton<XDebug>.singleton.AddLog("XMainClient.XGuildArenaBattleDocument.GetJoinBattleRes ", null, null, null, null, null, XDebugColor.XDebug_None);
 		}
 
-		// Token: 0x06008DEF RID: 36335 RVA: 0x00138C88 File Offset: 0x00136E88
 		public void OnWaitOtherLoad(GmfWaitOtherArg oRes)
 		{
 			XSingleton<XDebug>.singleton.AddLog("XMainClient.XGuildArenaBattleDocument.OnWaitOtherLoad ", oRes.lefttime.ToString(), null, null, null, null, XDebugColor.XDebug_None);
 		}
 
-		// Token: 0x06008DF0 RID: 36336 RVA: 0x00138CBC File Offset: 0x00136EBC
 		public void OnWaitFightBegin(GmfWaitFightArg oRes)
 		{
 			XSingleton<XDebug>.singleton.AddLog("XMainClient.XGuildArenaBattleDocument.OnWaitFightBegin ", oRes.lefttime.ToString(), null, null, null, null, XDebugColor.XDebug_None);
 		}
 
-		// Token: 0x06008DF1 RID: 36337 RVA: 0x00138CF0 File Offset: 0x00136EF0
 		public void ReadyReq(ulong roleid, GMFReadyType type)
 		{
 			XSingleton<XDebug>.singleton.AddLog("XMainClient.XGuildArenaBattleDocument.ReadyReq ", type.ToString(), null, null, null, null, XDebugColor.XDebug_None);
@@ -562,7 +533,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_GmfReadyReq);
 		}
 
-		// Token: 0x06008DF2 RID: 36338 RVA: 0x00138D4C File Offset: 0x00136F4C
 		public void OnReadyReq(GmfReadyRes oRes)
 		{
 			XSingleton<XDebug>.singleton.AddLog("XMainClient.XGuildArenaBattleDocument.OnReadyReq ", oRes.ToString(), null, null, null, null, XDebugColor.XDebug_None);
@@ -581,7 +551,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008DF3 RID: 36339 RVA: 0x00138DB8 File Offset: 0x00136FB8
 		public void InspireReq()
 		{
 			XSingleton<XDebug>.singleton.AddLog("XMainClient.XGuildArenaBattleDocument.InspireReq ", null, null, null, null, null, XDebugColor.XDebug_None);
@@ -589,7 +558,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpc);
 		}
 
-		// Token: 0x06008DF4 RID: 36340 RVA: 0x00138DF0 File Offset: 0x00136FF0
 		private void InspireUpdate(float detailTime)
 		{
 			bool flag = this.m_InspireCDTime > 0.0;
@@ -603,7 +571,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008DF5 RID: 36341 RVA: 0x00138E34 File Offset: 0x00137034
 		public void OnInspireReq(InspireRes oRes)
 		{
 			XSingleton<XDebug>.singleton.AddLog("XMainClient.XGuildArenaBattleDocument.OnInspireReq ", oRes.ToString(), null, null, null, null, XDebugColor.XDebug_None);
@@ -625,7 +592,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008DF6 RID: 36342 RVA: 0x00138F08 File Offset: 0x00137108
 		public void OnBattleState(GmfBatlleStatePara Data)
 		{
 			XSingleton<XDebug>.singleton.AddLog("XMainClient.XGuildArenaBattleDocument.OnBattleState ", Data.state.ToString(), " ", Data.lefttime.ToString(), null, null, XDebugColor.XDebug_None);
@@ -694,7 +660,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008DF7 RID: 36343 RVA: 0x001390F0 File Offset: 0x001372F0
 		public void OnBekicked(GmfKickRes res)
 		{
 			string text = string.Format(XSingleton<XStringTable>.singleton.GetString("GUILD_ARENA_BEKICKED"), res.kickname);
@@ -717,7 +682,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008DF8 RID: 36344 RVA: 0x001391A4 File Offset: 0x001373A4
 		private void OnBekickedCallback(object o)
 		{
 			this.bCantUpForKicked = false;
@@ -728,12 +692,10 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008DF9 RID: 36345 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public void ChangeSpectator(XRole role)
 		{
 		}
 
-		// Token: 0x06008DFA RID: 36346 RVA: 0x001391D4 File Offset: 0x001373D4
 		private void ConvertSceneTypeToPattern(SceneType type, ref GuildArenaBattlePattern pattern)
 		{
 			if (type != SceneType.SCENE_GMF)
@@ -756,7 +718,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008DFB RID: 36347 RVA: 0x00139208 File Offset: 0x00137408
 		private void EnterGVG()
 		{
 			this.ConvertSceneTypeToPattern(XSingleton<XScene>.singleton.SceneType, ref this.Pattern);
@@ -784,7 +745,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008DFC RID: 36348 RVA: 0x001392C8 File Offset: 0x001374C8
 		private void LeaveGVG()
 		{
 			bool flag = this.fxEncourageButton != null;
@@ -807,7 +767,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008DFD RID: 36349 RVA: 0x00139350 File Offset: 0x00137550
 		public void ReceiveDuelRoundResult(GprOneBattleEnd res)
 		{
 			XSingleton<XDebug>.singleton.AddGreenLog("XMainClient.XGuildArenaBattleDocument.ReceiveDuelRoundResult", null, null, null, null, null);
@@ -848,7 +807,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008DFE RID: 36350 RVA: 0x001394AC File Offset: 0x001376AC
 		public void ReceiveDuelFinalResult(GprAllFightEnd res)
 		{
 			XSingleton<XDebug>.singleton.AddGreenLog("XMainClient.XGuildArenaBattleDocument.ReceiveDuelFinalResult", null, null, null, null, null);
@@ -886,7 +844,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008DFF RID: 36351 RVA: 0x001395F3 File Offset: 0x001377F3
 		protected override void EventSubscribe()
 		{
 			base.EventSubscribe();
@@ -894,7 +851,6 @@ namespace XMainClient
 			base.RegisterEvent(XEventDefine.XEvent_FightGroupChanged, new XComponent.XEventHandler(this.OnFightGroupChanged));
 		}
 
-		// Token: 0x06008E00 RID: 36352 RVA: 0x0013962C File Offset: 0x0013782C
 		private bool OnFightGroupChanged(XEventArgs e)
 		{
 			bool flag = !this.IsGPR() && !this.IsGCF();
@@ -966,14 +922,12 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008E01 RID: 36353 RVA: 0x0013976C File Offset: 0x0013796C
 		private void UpdateIndicateHandle(BattleIndicateHandler handler, XEntity entity)
 		{
 			handler.MiniMapDel(entity);
 			handler.MiniMapAdd(entity);
 		}
 
-		// Token: 0x06008E02 RID: 36354 RVA: 0x00139780 File Offset: 0x00137980
 		private bool OnActionEvent(XEventArgs arg)
 		{
 			XRealDeadEventArgs xrealDeadEventArgs = arg as XRealDeadEventArgs;
@@ -1010,7 +964,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008E03 RID: 36355 RVA: 0x00139810 File Offset: 0x00137A10
 		public void ReceiveBattleSkill(PvpBattleKill battleSkillInfo)
 		{
 			bool flag = !this.CurView.IsVisible();
@@ -1032,7 +985,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008E04 RID: 36356 RVA: 0x001398D4 File Offset: 0x00137AD4
 		private bool TryGetBattleName(ulong roleID, out string targetName, out bool position)
 		{
 			targetName = string.Empty;
@@ -1063,32 +1015,27 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008E05 RID: 36357 RVA: 0x00139938 File Offset: 0x00137B38
 		public bool IsGPR()
 		{
 			return XSingleton<XScene>.singleton.SceneType == SceneType.SCENE_GPR;
 		}
 
-		// Token: 0x06008E06 RID: 36358 RVA: 0x00139958 File Offset: 0x00137B58
 		public bool IsGMF()
 		{
 			return XSingleton<XScene>.singleton.SceneType == SceneType.SCENE_GMF;
 		}
 
-		// Token: 0x06008E07 RID: 36359 RVA: 0x00139978 File Offset: 0x00137B78
 		public bool IsGCF()
 		{
 			return XSingleton<XScene>.singleton.SceneType == SceneType.SCENE_GCF;
 		}
 
-		// Token: 0x06008E08 RID: 36360 RVA: 0x00139998 File Offset: 0x00137B98
 		public void NotifyVSPayRevive(VsPayRevivePara para)
 		{
 			this.ReviveItemID = para.itemid;
 			this.ReviveItemNumber = para.itemcount;
 		}
 
-		// Token: 0x06008E09 RID: 36361 RVA: 0x001399B4 File Offset: 0x00137BB4
 		public void SendVSPayRevive()
 		{
 			bool flag = this.ReviveItemID > 0U;
@@ -1116,7 +1063,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008E0A RID: 36362 RVA: 0x00139A48 File Offset: 0x00137C48
 		public void ReceiveVSPayRevive(VsPayRevivePara oArg, VsPayReviveRes oRes)
 		{
 			bool flag = oRes.ret > ErrorCode.ERR_SUCCESS;
@@ -1131,122 +1077,89 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04002E25 RID: 11813
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("XGuildArenaBattleDocument");
 
-		// Token: 0x04002E26 RID: 11814
 		private GVGBattleInfo _blueInfo = new GVGBattleInfo();
 
-		// Token: 0x04002E27 RID: 11815
 		private GVGBattleInfo _redInfo = new GVGBattleInfo();
 
-		// Token: 0x04002E28 RID: 11816
 		public double m_InspireCDTime = 0.0;
 
-		// Token: 0x04002E29 RID: 11817
 		public uint ReviveItemID = 0U;
 
-		// Token: 0x04002E2A RID: 11818
 		public uint ReviveItemNumber = 0U;
 
-		// Token: 0x04002E2B RID: 11819
 		public GuildArenaBattlePattern Pattern = GuildArenaBattlePattern.GPR;
 
-		// Token: 0x04002E2C RID: 11820
 		public XGuildArenaBattleDocument.ReadyType MyReadyType = XGuildArenaBattleDocument.ReadyType.Observer;
 
-		// Token: 0x04002E2D RID: 11821
 		public GuildMatchFightState MyFightState = GuildMatchFightState.GUILD_MF_NONE;
 
-		// Token: 0x04002E2E RID: 11822
 		public GmfRoleDatas mGmfRoleDatas = null;
 
-		// Token: 0x04002E2F RID: 11823
 		public int GMFGroupBlueMatchPoint = 0;
 
-		// Token: 0x04002E30 RID: 11824
 		public int GMFGroupRedMatchPoint = 0;
 
-		// Token: 0x04002E31 RID: 11825
 		public XGuildArenaBattleDocument.BattleEndData blueBattleEndData = new XGuildArenaBattleDocument.BattleEndData();
 
-		// Token: 0x04002E32 RID: 11826
 		public XGuildArenaBattleDocument.BattleEndData redBattleEndData = new XGuildArenaBattleDocument.BattleEndData();
 
-		// Token: 0x04002E33 RID: 11827
 		public XGuildArenaBattleDocument.GuildArenaSection mArenaSection;
 
-		// Token: 0x04002E34 RID: 11828
 		public GVGCombatInfo blueCombatInfo = new GVGCombatInfo();
 
-		// Token: 0x04002E35 RID: 11829
 		public GVGCombatInfo redCombatInfo = new GVGCombatInfo();
 
-		// Token: 0x04002E36 RID: 11830
 		public XGuildArenaBattleDocument.BattleEndData blueAllFightEnd = new XGuildArenaBattleDocument.BattleEndData();
 
-		// Token: 0x04002E37 RID: 11831
 		public XGuildArenaBattleDocument.BattleEndData redAllFightEnd = new XGuildArenaBattleDocument.BattleEndData();
 
-		// Token: 0x04002E38 RID: 11832
 		public uint _kicked_token = 0U;
 
-		// Token: 0x04002E39 RID: 11833
 		public bool bCantUpForKicked = false;
 
-		// Token: 0x04002E3A RID: 11834
 		protected internal XFx fxEncourageButton;
 
-		// Token: 0x04002E3B RID: 11835
 		protected internal XFx fxEncourageProgressNum;
 
-		// Token: 0x04002E3C RID: 11836
 		protected internal XFx fxEncourageProgressAdd;
 
-		// Token: 0x04002E3D RID: 11837
 		public GVGDuelResult BlueDuelResult = new GVGDuelResult();
 
-		// Token: 0x04002E3E RID: 11838
 		public GVGDuelResult RedDuelResult = new GVGDuelResult();
 
-		// Token: 0x04002E3F RID: 11839
 		public uint Round = 0U;
 
-		// Token: 0x04002E40 RID: 11840
 		public bool InBattleGroup = false;
 
-		// Token: 0x0200195D RID: 6493
 		public enum GuildArenaSection
 		{
-			// Token: 0x04007DE8 RID: 32232
+
 			Prepare,
-			// Token: 0x04007DE9 RID: 32233
+
 			Battle,
-			// Token: 0x04007DEA RID: 32234
+
 			Result
 		}
 
-		// Token: 0x0200195E RID: 6494
 		public enum ReadyType
 		{
-			// Token: 0x04007DEC RID: 32236
+
 			Ready,
-			// Token: 0x04007DED RID: 32237
+
 			NoReady,
-			// Token: 0x04007DEE RID: 32238
+
 			Observer
 		}
 
-		// Token: 0x0200195F RID: 6495
 		public class BattleEndData
 		{
-			// Token: 0x04007DEF RID: 32239
+
 			public bool isWin = true;
 
-			// Token: 0x04007DF0 RID: 32240
 			public GmfRoleBrief Role = null;
 
-			// Token: 0x04007DF1 RID: 32241
 			public GmfGuildBrief Guild = null;
 		}
 	}

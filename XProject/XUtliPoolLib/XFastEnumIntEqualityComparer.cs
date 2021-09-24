@@ -1,8 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: XUtliPoolLib.XFastEnumIntEqualityComparer`1
-// Assembly: XUtliPoolLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 1D0B5E37-6957-4C11-AC8A-5F5BE652A435
-// Assembly location: F:\龙之谷\Client\Assets\Lib\XUtliPoolLib.dll
+﻿
 
 using System.Collections.Generic;
 using System.Runtime.InteropServices;

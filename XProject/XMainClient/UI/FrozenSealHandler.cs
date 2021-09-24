@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017E2 RID: 6114
+
 	internal class FrozenSealHandler : DlgHandlerBase
 	{
-		// Token: 0x170038B6 RID: 14518
-		// (get) Token: 0x0600FD6B RID: 64875 RVA: 0x003B64C8 File Offset: 0x003B46C8
+
 		protected override string FileName
 		{
 			get
@@ -20,7 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FD6C RID: 64876 RVA: 0x003B64E0 File Offset: 0x003B46E0
 		protected override void Init()
 		{
 			base.Init();
@@ -33,13 +31,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FD6D RID: 64877 RVA: 0x0019EEB0 File Offset: 0x0019D0B0
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 		}
 
-		// Token: 0x0600FD6E RID: 64878 RVA: 0x003B6524 File Offset: 0x003B4724
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -58,7 +54,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FD6F RID: 64879 RVA: 0x003B658C File Offset: 0x003B478C
 		protected bool OnFetch(IXUIButton btn)
 		{
 			RpcC2G_GetSpActivityReward rpcC2G_GetSpActivityReward = new RpcC2G_GetSpActivityReward();
@@ -68,7 +63,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FD70 RID: 64880 RVA: 0x003B65D8 File Offset: 0x003B47D8
 		protected bool OnJump(IXUIButton btn)
 		{
 			uint num = (uint)btn.ID;
@@ -106,7 +100,6 @@ namespace XMainClient.UI
 			return false;
 		}
 
-		// Token: 0x0600FD71 RID: 64881 RVA: 0x003B66D4 File Offset: 0x003B48D4
 		protected void InitItemInfo(Transform item, SuperActivityTask.RowData data)
 		{
 			IXUILabel ixuilabel = item.FindChild("Name").GetComponent("XUILabel") as IXUILabel;
@@ -159,7 +152,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FD72 RID: 64882 RVA: 0x003B697C File Offset: 0x003B4B7C
 		protected void RefreshItemState(uint taskid, ActivityTaskState state)
 		{
 			Transform parent = null;
@@ -192,7 +184,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FD73 RID: 64883 RVA: 0x003B6A38 File Offset: 0x003B4C38
 		protected void UpdateItemState(uint taskid, ActivityTaskState state)
 		{
 			for (int i = 0; i < this._sortList.Count; i++)
@@ -217,13 +208,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FD74 RID: 64884 RVA: 0x003B6AB8 File Offset: 0x003B4CB8
 		protected FrozenSealState GetFrozenSealStateById(ulong id)
 		{
 			return FrozenSealState.CanFetch;
 		}
 
-		// Token: 0x0600FD75 RID: 64885 RVA: 0x003B6ACC File Offset: 0x003B4CCC
 		protected Transform GetChildByName(Transform parent, string name)
 		{
 			foreach (object obj in parent)
@@ -239,7 +228,6 @@ namespace XMainClient.UI
 			return null;
 		}
 
-		// Token: 0x0600FD76 RID: 64886 RVA: 0x003B6B50 File Offset: 0x003B4D50
 		protected void RefreshAllItem()
 		{
 			this.UpdateTime();
@@ -248,7 +236,6 @@ namespace XMainClient.UI
 			this._scrollview.SetPosition(0f);
 		}
 
-		// Token: 0x0600FD77 RID: 64887 RVA: 0x003B6B7C File Offset: 0x003B4D7C
 		public void UpdateTime()
 		{
 			int remainDays = XTempActivityDocument.Doc.GetRemainDays(this.curActid);
@@ -266,7 +253,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FD78 RID: 64888 RVA: 0x003B6BE0 File Offset: 0x003B4DE0
 		protected void UpdateStates()
 		{
 			for (int i = 0; i < XOperatingActivityDocument.Doc.SealDatas.Count; i++)
@@ -290,7 +276,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FD79 RID: 64889 RVA: 0x003B6C70 File Offset: 0x003B4E70
 		protected void RefreshAllStates()
 		{
 			List<SuperActivityTask.RowData> sealDatas = XOperatingActivityDocument.Doc.SealDatas;
@@ -302,14 +287,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FD7A RID: 64890 RVA: 0x003B6CE8 File Offset: 0x003B4EE8
 		protected int SortItemList(FrozenSealHandler.FrozenSealSortData x1, FrozenSealHandler.FrozenSealSortData x2)
 		{
 			int num = (x1.state.CompareTo(x2.state) == 0) ? x1.id.CompareTo(x2.id) : x1.state.CompareTo(x2.state);
 			return -num;
 		}
 
-		// Token: 0x0600FD7B RID: 64891 RVA: 0x003B6D4C File Offset: 0x003B4F4C
 		public void SortListItems()
 		{
 			this._sortList.Sort(new Comparison<FrozenSealHandler.FrozenSealSortData>(this.SortItemList));
@@ -320,7 +303,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FD7C RID: 64892 RVA: 0x003B6E20 File Offset: 0x003B5020
 		public void InitScrollView()
 		{
 			this._scrollview = (base.transform.FindChild("Scrollview").GetComponent("XUIScrollView") as IXUIScrollView);
@@ -338,7 +320,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FD7D RID: 64893 RVA: 0x003B6F50 File Offset: 0x003B5150
 		public void RefreshItemWithTaskidAndState(uint taskId, ActivityTaskState state)
 		{
 			this.UpdateItemState(taskId, state);
@@ -346,7 +327,6 @@ namespace XMainClient.UI
 			this.SortListItems();
 		}
 
-		// Token: 0x0600FD7E RID: 64894 RVA: 0x003B6F6C File Offset: 0x003B516C
 		public void Clear()
 		{
 			this._itemsDic.Clear();
@@ -355,7 +335,6 @@ namespace XMainClient.UI
 			this._frozenSealPool.ReturnAll(false);
 		}
 
-		// Token: 0x0600FD7F RID: 64895 RVA: 0x003B6FA4 File Offset: 0x003B51A4
 		private void InitUIPool()
 		{
 			Transform transform = base.transform.FindChild("Scrollview/FirstPassFsItem");
@@ -364,34 +343,25 @@ namespace XMainClient.UI
 			this._rewardPool.SetupPool(base.transform.gameObject, transform2.gameObject, 2U, false);
 		}
 
-		// Token: 0x04006FC6 RID: 28614
 		protected XUIPool _frozenSealPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006FC7 RID: 28615
 		protected XUIPool _rewardPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006FC8 RID: 28616
 		protected Dictionary<ulong, Transform> _itemsDic = new Dictionary<ulong, Transform>();
 
-		// Token: 0x04006FC9 RID: 28617
 		protected List<FrozenSealHandler.FrozenSealSortData> _sortList = new List<FrozenSealHandler.FrozenSealSortData>();
 
-		// Token: 0x04006FCA RID: 28618
 		protected uint curActid = 0U;
 
-		// Token: 0x04006FCB RID: 28619
 		protected IXUIScrollView _scrollview;
 
-		// Token: 0x04006FCC RID: 28620
 		protected IXUILabel _timeLabel;
 
-		// Token: 0x02001A0D RID: 6669
 		public class FrozenSealSortData
 		{
-			// Token: 0x04008219 RID: 33305
+
 			public ulong id = 0UL;
 
-			// Token: 0x0400821A RID: 33306
 			public FrozenSealState state = FrozenSealState.None;
 		}
 	}

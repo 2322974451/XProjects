@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x020000E7 RID: 231
+
 	public class ExpBackTable : CVSReader
 	{
-		// Token: 0x0600061C RID: 1564 RVA: 0x0001D3FC File Offset: 0x0001B5FC
+
 		public ExpBackTable.RowData GetBytype(int key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -29,7 +29,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x0600061D RID: 1565 RVA: 0x0001D468 File Offset: 0x0001B668
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			ExpBackTable.RowData rowData = new ExpBackTable.RowData();
@@ -47,7 +46,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x0600061E RID: 1566 RVA: 0x0001D514 File Offset: 0x0001B714
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -61,25 +59,19 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x04000333 RID: 819
 		public ExpBackTable.RowData[] Table = null;
 
-		// Token: 0x020002E6 RID: 742
 		public class RowData
 		{
-			// Token: 0x04000A79 RID: 2681
+
 			public int type;
 
-			// Token: 0x04000A7A RID: 2682
 			public int count;
 
-			// Token: 0x04000A7B RID: 2683
 			public int exp;
 
-			// Token: 0x04000A7C RID: 2684
 			public int freeExpParam;
 
-			// Token: 0x04000A7D RID: 2685
 			public int moneyCostParam;
 		}
 	}

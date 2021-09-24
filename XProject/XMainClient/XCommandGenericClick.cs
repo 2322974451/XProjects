@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000DA2 RID: 3490
+
 	internal class XCommandGenericClick : XBaseCommand
 	{
-		// Token: 0x0600BDA2 RID: 48546 RVA: 0x00276C68 File Offset: 0x00274E68
+
 		public override bool Execute()
 		{
 			bool flag = this._finger == null;
@@ -32,13 +32,11 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600BDA3 RID: 48547 RVA: 0x001E3B34 File Offset: 0x001E1D34
 		public override void OnFinish()
 		{
 			this.Stop();
 		}
 
-		// Token: 0x0600BDA4 RID: 48548 RVA: 0x00276DA3 File Offset: 0x00274FA3
 		public override void Stop()
 		{
 			XSingleton<XTutorialMgr>.singleton.Exculsive = false;
@@ -47,7 +45,6 @@ namespace XMainClient
 			base.Stop();
 		}
 
-		// Token: 0x04004D43 RID: 19779
 		private GameObject _finger;
 	}
 }

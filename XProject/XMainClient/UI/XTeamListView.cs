@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020018C5 RID: 6341
+
 	internal class XTeamListView : DlgBase<XTeamListView, XTeamListBehaviour>
 	{
-		// Token: 0x17003A50 RID: 14928
-		// (get) Token: 0x0601088A RID: 67722 RVA: 0x0040EE7C File Offset: 0x0040D07C
+
 		public override string fileName
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003A51 RID: 14929
-		// (get) Token: 0x0601088B RID: 67723 RVA: 0x0040EE94 File Offset: 0x0040D094
 		public override int layer
 		{
 			get
@@ -31,8 +28,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003A52 RID: 14930
-		// (get) Token: 0x0601088C RID: 67724 RVA: 0x0040EEA8 File Offset: 0x0040D0A8
 		public override int group
 		{
 			get
@@ -41,8 +36,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003A53 RID: 14931
-		// (get) Token: 0x0601088D RID: 67725 RVA: 0x0040EEBC File Offset: 0x0040D0BC
 		public override bool autoload
 		{
 			get
@@ -51,8 +44,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003A54 RID: 14932
-		// (get) Token: 0x0601088E RID: 67726 RVA: 0x0040EED0 File Offset: 0x0040D0D0
 		public override bool hideMainMenu
 		{
 			get
@@ -61,8 +52,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003A55 RID: 14933
-		// (get) Token: 0x0601088F RID: 67727 RVA: 0x0040EEE4 File Offset: 0x0040D0E4
 		public override bool pushstack
 		{
 			get
@@ -71,7 +60,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010890 RID: 67728 RVA: 0x0040EEF7 File Offset: 0x0040D0F7
 		protected override void Init()
 		{
 			this.doc = XDocuments.GetSpecificDocument<XTeamDocument>(XTeamDocument.uuID);
@@ -79,7 +67,6 @@ namespace XMainClient.UI
 			this.doc.InitTeamListSelection();
 		}
 
-		// Token: 0x06010891 RID: 67729 RVA: 0x0040EF22 File Offset: 0x0040D122
 		protected override void OnUnload()
 		{
 			this.doc.AllListView = null;
@@ -88,7 +75,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x06010892 RID: 67730 RVA: 0x0040EF5C File Offset: 0x0040D15C
 		public override void RegisterEvent()
 		{
 			base.uiBehaviour.m_Close.RegisterClickEventHandler(new ButtonClickEventHandler(this._OnCloseBtnClick));
@@ -97,7 +83,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_BtnJoin.RegisterClickEventHandler(new ButtonClickEventHandler(this._OnJoinBtnClick));
 		}
 
-		// Token: 0x06010893 RID: 67731 RVA: 0x0040EFE0 File Offset: 0x0040D1E0
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -112,7 +97,6 @@ namespace XMainClient.UI
 			this.RefreshPage();
 		}
 
-		// Token: 0x06010894 RID: 67732 RVA: 0x0040F077 File Offset: 0x0040D277
 		protected override void OnHide()
 		{
 			base.OnHide();
@@ -120,14 +104,12 @@ namespace XMainClient.UI
 			this._TimerID = 0U;
 		}
 
-		// Token: 0x06010895 RID: 67733 RVA: 0x0040F099 File Offset: 0x0040D299
 		public override void StackRefresh()
 		{
 			XSingleton<XTimerMgr>.singleton.KillTimer(this._TimerID);
 			this._AutoRefresh(null);
 		}
 
-		// Token: 0x06010896 RID: 67734 RVA: 0x0040F0B8 File Offset: 0x0040D2B8
 		private void _InitCategories()
 		{
 			XExpeditionDocument specificDocument = XDocuments.GetSpecificDocument<XExpeditionDocument>(XExpeditionDocument.uuID);
@@ -152,7 +134,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_CategoryScrollView.ResetPosition();
 		}
 
-		// Token: 0x06010897 RID: 67735 RVA: 0x0040F298 File Offset: 0x0040D498
 		private IXUICheckBox _SetCategory(GameObject go, ulong id, string strName)
 		{
 			Transform transform = go.transform.FindChild("Normal");
@@ -164,7 +145,6 @@ namespace XMainClient.UI
 			return ixuicheckBox;
 		}
 
-		// Token: 0x06010898 RID: 67736 RVA: 0x0040F310 File Offset: 0x0040D510
 		private void _RefreshCategoryStates()
 		{
 			bool bChecked = true;
@@ -186,7 +166,6 @@ namespace XMainClient.UI
 			this.m_SelectAll.bChecked = bChecked;
 		}
 
-		// Token: 0x06010899 RID: 67737 RVA: 0x0040F390 File Offset: 0x0040D590
 		private bool _OnCategoryStateChanged(IXUICheckBox ckb)
 		{
 			bool flag = false;
@@ -233,7 +212,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0601089A RID: 67738 RVA: 0x0040F46C File Offset: 0x0040D66C
 		private void _SelectAll(bool bSelect)
 		{
 			for (int i = 0; i < this.m_SelectedCategoriesGo.Count; i++)
@@ -251,7 +229,6 @@ namespace XMainClient.UI
 			this._RefreshCategoryStates();
 		}
 
-		// Token: 0x0601089B RID: 67739 RVA: 0x0040F4DC File Offset: 0x0040D6DC
 		private void _AutoRefresh(object param)
 		{
 			bool flag = base.IsVisible();
@@ -262,7 +239,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601089C RID: 67740 RVA: 0x0040F528 File Offset: 0x0040D728
 		public void RefreshPage()
 		{
 			List<XTeamBriefData> teamList = this.doc.TeamList;
@@ -296,7 +272,6 @@ namespace XMainClient.UI
 			this._UpdateButtonState(xteamBriefData);
 		}
 
-		// Token: 0x0601089D RID: 67741 RVA: 0x0040F608 File Offset: 0x0040D808
 		private void WrapContentItemUpdated(Transform t, int index)
 		{
 			List<XTeamBriefData> teamList = this.doc.TeamList;
@@ -362,7 +337,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601089E RID: 67742 RVA: 0x0040F960 File Offset: 0x0040DB60
 		private bool _OnTitleClickEventHandler(ulong ID)
 		{
 			this.doc.TeamListSortType = (TeamBriefSortType)ID;
@@ -370,7 +344,6 @@ namespace XMainClient.UI
 			return this.doc.TeamListSortDirection > 0;
 		}
 
-		// Token: 0x0601089F RID: 67743 RVA: 0x0040F99C File Offset: 0x0040DB9C
 		private void _UpdateButtonState(XTeamBriefData briefData)
 		{
 			base.uiBehaviour.m_BtnJoin.SetEnable(this.m_SelectedTeamID != 0 && !this.doc.bInTeam, false);
@@ -385,14 +358,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060108A0 RID: 67744 RVA: 0x0040FA2C File Offset: 0x0040DC2C
 		private bool _OnCloseBtnClick(IXUIButton go)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x060108A1 RID: 67745 RVA: 0x0040FA48 File Offset: 0x0040DC48
 		private bool _OnPressTarjaInfo(IXUISprite sprite, bool pressed)
 		{
 			IXUILabel ixuilabel = sprite.transform.Find("Info").GetComponent("XUILabel") as IXUILabel;
@@ -413,7 +384,6 @@ namespace XMainClient.UI
 			return false;
 		}
 
-		// Token: 0x060108A2 RID: 67746 RVA: 0x0040FAD4 File Offset: 0x0040DCD4
 		private void _OnTeamClick(IXUISprite iSp)
 		{
 			int num = (int)iSp.ID;
@@ -432,14 +402,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060108A3 RID: 67747 RVA: 0x0040FB54 File Offset: 0x0040DD54
 		private bool _OnJoinBtnClick(IXUIButton go)
 		{
 			this._RealShowJoinTeamView();
 			return true;
 		}
 
-		// Token: 0x060108A4 RID: 67748 RVA: 0x0040FB70 File Offset: 0x0040DD70
 		private void _RealShowJoinTeamView()
 		{
 			bool bInTeam = this.doc.bInTeam;
@@ -458,22 +426,16 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x040077BC RID: 30652
 		private XTeamDocument doc;
 
-		// Token: 0x040077BD RID: 30653
 		private bool _bFirstOpen = false;
 
-		// Token: 0x040077BE RID: 30654
 		private uint _TimerID = 0U;
 
-		// Token: 0x040077BF RID: 30655
 		private int m_SelectedTeamID = 0;
 
-		// Token: 0x040077C0 RID: 30656
 		private List<IXUICheckBox> m_SelectedCategoriesGo = new List<IXUICheckBox>();
 
-		// Token: 0x040077C1 RID: 30657
 		private IXUICheckBox m_SelectAll;
 	}
 }

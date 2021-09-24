@@ -4,10 +4,10 @@ using UILib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001831 RID: 6193
+
 	internal class GuildArenaCombatInfo : DlgHandlerBase
 	{
-		// Token: 0x06010143 RID: 65859 RVA: 0x003D6D18 File Offset: 0x003D4F18
+
 		protected override void Init()
 		{
 			base.Init();
@@ -18,7 +18,6 @@ namespace XMainClient.UI
 			this.m_watchBtn.SetVisible(false);
 		}
 
-		// Token: 0x06010144 RID: 65860 RVA: 0x003D6DD0 File Offset: 0x003D4FD0
 		public void Set(int combat, int index)
 		{
 			this.m_combatID = combat;
@@ -37,8 +36,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700392C RID: 14636
-		// (get) Token: 0x06010145 RID: 65861 RVA: 0x003D6E24 File Offset: 0x003D5024
 		public uint BattleID
 		{
 			get
@@ -47,7 +44,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010146 RID: 65862 RVA: 0x003D6E3C File Offset: 0x003D503C
 		public void SetCombatGroup(uint selectTabIndex)
 		{
 			this.m_GroupData = this.m_Doc.GetGuildGroup(selectTabIndex, this.BattleID);
@@ -67,7 +63,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010147 RID: 65863 RVA: 0x003D6F10 File Offset: 0x003D5110
 		private void SetNextWinner(uint selectTabIndex)
 		{
 			switch (this.m_battleID)
@@ -87,20 +82,17 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010148 RID: 65864 RVA: 0x003D6FEC File Offset: 0x003D51EC
 		public void SetCombatState(uint state, uint watchID = 0U)
 		{
 			this.m_watchBtn.SetVisible(state == 2U && watchID > 0U);
 		}
 
-		// Token: 0x06010149 RID: 65865 RVA: 0x003D7006 File Offset: 0x003D5206
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			this.m_watchBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnWatchClick));
 		}
 
-		// Token: 0x0601014A RID: 65866 RVA: 0x003D7028 File Offset: 0x003D5228
 		public override void OnUnload()
 		{
 			DlgHandlerBase.EnsureUnload<GuildArenaGuildInfo>(ref this.m_guildMemberA);
@@ -108,7 +100,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x0601014B RID: 65867 RVA: 0x003D704C File Offset: 0x003D524C
 		private bool OnWatchClick(IXUIButton watchBtn)
 		{
 			bool flag = watchBtn.ID > 0UL;
@@ -120,28 +111,20 @@ namespace XMainClient.UI
 			return false;
 		}
 
-		// Token: 0x040072B2 RID: 29362
 		private GuildArenaGuildInfo m_guildMemberA;
 
-		// Token: 0x040072B3 RID: 29363
 		private GuildArenaGuildInfo m_guildMemberB;
 
-		// Token: 0x040072B4 RID: 29364
 		private IXUIButton m_watchBtn;
 
-		// Token: 0x040072B5 RID: 29365
 		private int m_combatID;
 
-		// Token: 0x040072B6 RID: 29366
 		private int m_index;
 
-		// Token: 0x040072B7 RID: 29367
 		private uint m_battleID;
 
-		// Token: 0x040072B8 RID: 29368
 		private XGuildArenaDocument m_Doc;
 
-		// Token: 0x040072B9 RID: 29369
 		private GuildArenaGroupData m_GroupData;
 	}
 }

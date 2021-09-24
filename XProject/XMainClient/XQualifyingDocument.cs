@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x020009BC RID: 2492
+
 	internal class XQualifyingDocument : XDocComponent
 	{
-		// Token: 0x17002D6E RID: 11630
-		// (get) Token: 0x060096E9 RID: 38633 RVA: 0x0016D9F4 File Offset: 0x0016BBF4
+
 		public override uint ID
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002D6F RID: 11631
-		// (get) Token: 0x060096EA RID: 38634 RVA: 0x0016DA0C File Offset: 0x0016BC0C
 		public uint MatchTime
 		{
 			get
@@ -31,8 +28,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002D70 RID: 11632
-		// (get) Token: 0x060096EB RID: 38635 RVA: 0x0016DA24 File Offset: 0x0016BC24
 		public uint CurrentTime
 		{
 			get
@@ -41,8 +36,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002D71 RID: 11633
-		// (get) Token: 0x060096EC RID: 38636 RVA: 0x0016DA3C File Offset: 0x0016BC3C
 		public bool IsMatching
 		{
 			get
@@ -51,8 +44,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002D72 RID: 11634
-		// (get) Token: 0x060096ED RID: 38637 RVA: 0x0016DA54 File Offset: 0x0016BC54
 		public uint RankRewardLeftTime
 		{
 			get
@@ -61,8 +52,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002D73 RID: 11635
-		// (get) Token: 0x060096EE RID: 38638 RVA: 0x0016DA6C File Offset: 0x0016BC6C
 		public float RewardSignTime
 		{
 			get
@@ -71,8 +60,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002D74 RID: 11636
-		// (get) Token: 0x060096EF RID: 38639 RVA: 0x0016DA84 File Offset: 0x0016BC84
 		public uint MatchTotalCount
 		{
 			get
@@ -81,8 +68,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002D75 RID: 11637
-		// (get) Token: 0x060096F0 RID: 38640 RVA: 0x0016DAC0 File Offset: 0x0016BCC0
 		public uint MatchTotalWin
 		{
 			get
@@ -91,8 +76,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002D76 RID: 11638
-		// (get) Token: 0x060096F1 RID: 38641 RVA: 0x0016DAE0 File Offset: 0x0016BCE0
 		public uint MatchTotalDraw
 		{
 			get
@@ -101,8 +84,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002D77 RID: 11639
-		// (get) Token: 0x060096F2 RID: 38642 RVA: 0x0016DB00 File Offset: 0x0016BD00
 		public uint MatchTotalLose
 		{
 			get
@@ -111,8 +92,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002D78 RID: 11640
-		// (get) Token: 0x060096F3 RID: 38643 RVA: 0x0016DB20 File Offset: 0x0016BD20
 		public uint ContinueWin
 		{
 			get
@@ -121,8 +100,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002D79 RID: 11641
-		// (get) Token: 0x060096F4 RID: 38644 RVA: 0x0016DB38 File Offset: 0x0016BD38
 		public uint ContinueLose
 		{
 			get
@@ -131,8 +108,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002D7A RID: 11642
-		// (get) Token: 0x060096F5 RID: 38645 RVA: 0x0016DB50 File Offset: 0x0016BD50
 		public List<uint> ProfessionWin
 		{
 			get
@@ -141,8 +116,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002D7B RID: 11643
-		// (get) Token: 0x060096F6 RID: 38646 RVA: 0x0016DB68 File Offset: 0x0016BD68
 		public uint MaxRewardRank
 		{
 			get
@@ -151,8 +124,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002D7C RID: 11644
-		// (get) Token: 0x060096F7 RID: 38647 RVA: 0x0016DB80 File Offset: 0x0016BD80
 		public uint MatchTotalPercent
 		{
 			get
@@ -179,8 +150,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002D7D RID: 11645
-		// (get) Token: 0x060096F8 RID: 38648 RVA: 0x0016DBCC File Offset: 0x0016BDCC
 		public uint MatchRank
 		{
 			get
@@ -189,8 +158,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002D7E RID: 11646
-		// (get) Token: 0x060096F9 RID: 38649 RVA: 0x0016DBEC File Offset: 0x0016BDEC
 		public uint WinStreak
 		{
 			get
@@ -199,8 +166,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002D7F RID: 11647
-		// (get) Token: 0x060096FA RID: 38650 RVA: 0x0016DC04 File Offset: 0x0016BE04
 		public uint WinOfPoint
 		{
 			get
@@ -209,9 +174,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002D80 RID: 11648
-		// (get) Token: 0x060096FC RID: 38652 RVA: 0x0016DC34 File Offset: 0x0016BE34
-		// (set) Token: 0x060096FB RID: 38651 RVA: 0x0016DC23 File Offset: 0x0016BE23
 		public int LastWinOfPoint
 		{
 			get
@@ -224,8 +186,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002D81 RID: 11649
-		// (get) Token: 0x060096FD RID: 38653 RVA: 0x0016DC54 File Offset: 0x0016BE54
 		public uint LeftFirstRewardCount
 		{
 			get
@@ -234,8 +194,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002D82 RID: 11650
-		// (get) Token: 0x060096FE RID: 38654 RVA: 0x0016DC6C File Offset: 0x0016BE6C
 		public List<PkOneRecord> GameRecords
 		{
 			get
@@ -244,8 +202,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002D83 RID: 11651
-		// (get) Token: 0x060096FF RID: 38655 RVA: 0x0016DC84 File Offset: 0x0016BE84
 		public List<BattleRecordGameInfo> GameRecords2V2
 		{
 			get
@@ -254,8 +210,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002D84 RID: 11652
-		// (get) Token: 0x06009700 RID: 38656 RVA: 0x0016DC9C File Offset: 0x0016BE9C
 		public List<PointRewardStatus> PointRewardList
 		{
 			get
@@ -264,8 +218,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002D85 RID: 11653
-		// (get) Token: 0x06009701 RID: 38657 RVA: 0x0016DCB4 File Offset: 0x0016BEB4
 		public List<RankRewardStatus> RankRewardList
 		{
 			get
@@ -274,8 +226,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002D86 RID: 11654
-		// (get) Token: 0x06009702 RID: 38658 RVA: 0x0016DCCC File Offset: 0x0016BECC
 		public List<List<QualifyingRankInfo>> RankList
 		{
 			get
@@ -284,9 +234,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002D87 RID: 11655
-		// (get) Token: 0x06009703 RID: 38659 RVA: 0x0016DCE4 File Offset: 0x0016BEE4
-		// (set) Token: 0x06009704 RID: 38660 RVA: 0x0016DCFC File Offset: 0x0016BEFC
 		public bool RedPoint
 		{
 			get
@@ -299,7 +246,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009705 RID: 38661 RVA: 0x0016DD08 File Offset: 0x0016BF08
 		public void SetCurrentSys(int num)
 		{
 			this.CurrentSelect = num;
@@ -310,7 +256,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009706 RID: 38662 RVA: 0x0016DD38 File Offset: 0x0016BF38
 		public void InitFxNum()
 		{
 			for (int i = 0; i < this._lastWinOfPoint.Length; i++)
@@ -319,7 +264,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009707 RID: 38663 RVA: 0x0016DD6A File Offset: 0x0016BF6A
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			XQualifyingDocument.AsyncLoader.AddTask("Table/PkPointReward", XQualifyingDocument._pkPointTable, false);
@@ -327,7 +271,6 @@ namespace XMainClient
 			XQualifyingDocument.AsyncLoader.Execute(callback);
 		}
 
-		// Token: 0x06009708 RID: 38664 RVA: 0x0016DDA8 File Offset: 0x0016BFA8
 		public override void OnEnterSceneFinally()
 		{
 			base.OnEnterSceneFinally();
@@ -356,14 +299,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009709 RID: 38665 RVA: 0x0016DE77 File Offset: 0x0016C077
 		public override void OnLeaveScene()
 		{
 			base.OnLeaveScene();
 			this._isMatching = false;
 		}
 
-		// Token: 0x0600970A RID: 38666 RVA: 0x0016DE88 File Offset: 0x0016C088
 		public void SendBeginMatch()
 		{
 			bool flag = this.CurrentSelect == 0;
@@ -387,7 +328,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600970B RID: 38667 RVA: 0x0016DF0C File Offset: 0x0016C10C
 		public void SendEndMatch()
 		{
 			bool flag = this.CurrentSelect == 0;
@@ -404,7 +344,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600970C RID: 38668 RVA: 0x0016DF64 File Offset: 0x0016C164
 		public void SendQueryPKInfo()
 		{
 			RpcC2M_PkReqC2M rpcC2M_PkReqC2M = new RpcC2M_PkReqC2M();
@@ -412,7 +351,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_PkReqC2M);
 		}
 
-		// Token: 0x0600970D RID: 38669 RVA: 0x0016DF94 File Offset: 0x0016C194
 		public void SendQueryRankInfo(uint profession)
 		{
 			RpcC2M_ClientQueryRankListNtf rpcC2M_ClientQueryRankListNtf = new RpcC2M_ClientQueryRankListNtf();
@@ -430,7 +368,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_ClientQueryRankListNtf);
 		}
 
-		// Token: 0x0600970E RID: 38670 RVA: 0x0016E004 File Offset: 0x0016C204
 		public void SendFetchPointReward(uint index)
 		{
 			RpcC2M_PkReqC2M rpcC2M_PkReqC2M = new RpcC2M_PkReqC2M();
@@ -439,7 +376,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_PkReqC2M);
 		}
 
-		// Token: 0x0600970F RID: 38671 RVA: 0x0016E040 File Offset: 0x0016C240
 		public void SetQulifyingRewardCount(PkRecord data)
 		{
 			bool flag = data == null;
@@ -450,7 +386,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009710 RID: 38672 RVA: 0x0016E074 File Offset: 0x0016C274
 		public void SetQualifyingInfo(QueryPkInfoRes oRes)
 		{
 			this._matchTotalWin[0] = oRes.info.histweek.win;
@@ -515,7 +450,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009711 RID: 38673 RVA: 0x0016E404 File Offset: 0x0016C604
 		public void Set2V2BattleRecord(List<PkOneRec> list)
 		{
 			this._gameRecords2V2.Clear();
@@ -544,7 +478,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009712 RID: 38674 RVA: 0x0016E564 File Offset: 0x0016C764
 		public BattleRecordPlayerInfo GetOnePlayerInfo(PvpRoleBrief data)
 		{
 			return new BattleRecordPlayerInfo
@@ -555,7 +488,6 @@ namespace XMainClient
 			};
 		}
 
-		// Token: 0x06009713 RID: 38675 RVA: 0x0016E5A4 File Offset: 0x0016C7A4
 		public int GetIconIndex(uint point)
 		{
 			int result = 0;
@@ -570,7 +502,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009714 RID: 38676 RVA: 0x0016E604 File Offset: 0x0016C804
 		public void SetChallengeRecordInfo(QueryPkInfoRes oRes)
 		{
 			this._continueWin = oRes.info.histweek.continuewin;
@@ -599,7 +530,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009715 RID: 38677 RVA: 0x0016E700 File Offset: 0x0016C900
 		public void SetMatchTime(uint time, bool status)
 		{
 			this._matchTime = time;
@@ -625,7 +555,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009716 RID: 38678 RVA: 0x0016E7B4 File Offset: 0x0016C9B4
 		public void SetMatchButtonTime()
 		{
 			bool flag = !DlgBase<XQualifyingView, XQualifyingBehaviour>.singleton.IsVisible();
@@ -640,7 +569,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009717 RID: 38679 RVA: 0x0016E834 File Offset: 0x0016CA34
 		public int PointRewardCompare(int reward1, int reward2)
 		{
 			int num = (int)this.PointRewardList[reward1].status;
@@ -668,7 +596,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009718 RID: 38680 RVA: 0x0016E8A0 File Offset: 0x0016CAA0
 		public void RefreshPointReward(uint index)
 		{
 			this._pointRewardList[(int)index].status = 2U;
@@ -691,7 +618,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009719 RID: 38681 RVA: 0x0016E958 File Offset: 0x0016CB58
 		public void OnGetRankInfo(ClientQueryRankListRes oRes, int profession)
 		{
 			this._rankList[profession].Clear();
@@ -716,7 +642,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600971A RID: 38682 RVA: 0x0016EA78 File Offset: 0x0016CC78
 		public void OnGetLastSeasonRankInfo(ClientQueryRankListRes oRes)
 		{
 			bool flag = oRes.RankList == null;
@@ -741,7 +666,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600971B RID: 38683 RVA: 0x0016EB98 File Offset: 0x0016CD98
 		public void SetPkRoleInfo(List<PkRoleInfo> otherInfo)
 		{
 			this.PkInfoList.Clear();
@@ -792,113 +716,78 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600971C RID: 38684 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public static void OnPkHyperLinkClick(string param)
 		{
 		}
 
-		// Token: 0x0600971D RID: 38685 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 		}
 
-		// Token: 0x04003376 RID: 13174
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("QualifyingDocument");
 
-		// Token: 0x04003377 RID: 13175
 		public static readonly int DATACOUNT = 2;
 
-		// Token: 0x04003378 RID: 13176
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x04003379 RID: 13177
 		private uint _matchTime = 0U;
 
-		// Token: 0x0400337A RID: 13178
 		private uint _currentTime = 0U;
 
-		// Token: 0x0400337B RID: 13179
 		private bool _isMatching = false;
 
-		// Token: 0x0400337C RID: 13180
 		private uint _rankRewardLeftTime = 0U;
 
-		// Token: 0x0400337D RID: 13181
 		private float _rewardSignTime;
 
-		// Token: 0x0400337E RID: 13182
 		private uint[] _matchTotalWin = new uint[XQualifyingDocument.DATACOUNT];
 
-		// Token: 0x0400337F RID: 13183
 		private uint[] _matchTotalDraw = new uint[XQualifyingDocument.DATACOUNT];
 
-		// Token: 0x04003380 RID: 13184
 		private uint[] _matchTotalLose = new uint[XQualifyingDocument.DATACOUNT];
 
-		// Token: 0x04003381 RID: 13185
 		private uint _continueWin = 0U;
 
-		// Token: 0x04003382 RID: 13186
 		private uint _continueLose = 0U;
 
-		// Token: 0x04003383 RID: 13187
 		private List<uint> _professionWin = new List<uint>();
 
-		// Token: 0x04003384 RID: 13188
 		private uint[] _matchRank = new uint[XQualifyingDocument.DATACOUNT];
 
-		// Token: 0x04003385 RID: 13189
 		private static uint _maxRewardRank;
 
-		// Token: 0x04003386 RID: 13190
 		private uint _winStreak = 0U;
 
-		// Token: 0x04003387 RID: 13191
 		private uint[] _winOfPoint = new uint[XQualifyingDocument.DATACOUNT];
 
-		// Token: 0x04003388 RID: 13192
 		private int[] _lastWinOfPoint = new int[XQualifyingDocument.DATACOUNT];
 
-		// Token: 0x04003389 RID: 13193
 		private uint _leftFirstRewardCount = 0U;
 
-		// Token: 0x0400338A RID: 13194
 		private List<PkOneRecord> _gameRecords = new List<PkOneRecord>();
 
-		// Token: 0x0400338B RID: 13195
 		private List<BattleRecordGameInfo> _gameRecords2V2 = new List<BattleRecordGameInfo>();
 
-		// Token: 0x0400338C RID: 13196
 		private float _beginTime = 0f;
 
-		// Token: 0x0400338D RID: 13197
 		private static PkPointTable _pkPointTable = new PkPointTable();
 
-		// Token: 0x0400338E RID: 13198
 		private static PkRankTable _pkRankTable = new PkRankTable();
 
-		// Token: 0x0400338F RID: 13199
 		private List<PointRewardStatus> _pointRewardList = new List<PointRewardStatus>();
 
-		// Token: 0x04003390 RID: 13200
 		private List<RankRewardStatus> _rankRewardList = new List<RankRewardStatus>();
 
-		// Token: 0x04003391 RID: 13201
 		private List<List<QualifyingRankInfo>> _rankList = new List<List<QualifyingRankInfo>>();
 
-		// Token: 0x04003392 RID: 13202
 		public List<QualifyingRankInfo> LastSeasonRankList = new List<QualifyingRankInfo>();
 
-		// Token: 0x04003393 RID: 13203
 		private bool _redPoint = false;
 
-		// Token: 0x04003394 RID: 13204
 		public List<PkInfo> PkInfoList = new List<PkInfo>();
 
-		// Token: 0x04003395 RID: 13205
 		private bool _lastSceneIsQualifying = false;
 
-		// Token: 0x04003396 RID: 13206
 		public int CurrentSelect = 0;
 	}
 }

@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000D4F RID: 3407
+
 	public class XTeamTowerRankInfo : XBaseRankInfo
 	{
-		// Token: 0x0600BC49 RID: 48201 RVA: 0x0026D274 File Offset: 0x0026B474
+
 		public override void ProcessData(RankData data)
 		{
 			this.memberCount = (uint)data.RoleIds.Count;
@@ -34,31 +34,23 @@ namespace XMainClient
 			this.startType = data.starttype;
 		}
 
-		// Token: 0x0600BC4A RID: 48202 RVA: 0x0026D3B8 File Offset: 0x0026B5B8
 		public override string GetValue()
 		{
 			return this.m_Time;
 		}
 
-		// Token: 0x04004C5C RID: 19548
 		public ulong id1;
 
-		// Token: 0x04004C5D RID: 19549
 		public string name1;
 
-		// Token: 0x04004C5E RID: 19550
 		public string formatname1;
 
-		// Token: 0x04004C5F RID: 19551
 		public uint diff;
 
-		// Token: 0x04004C60 RID: 19552
 		public uint levelCount;
 
-		// Token: 0x04004C61 RID: 19553
 		public uint memberCount;
 
-		// Token: 0x04004C62 RID: 19554
 		private string m_Time;
 	}
 }

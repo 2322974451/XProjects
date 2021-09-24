@@ -5,26 +5,16 @@ using UnityEngine;
 
 namespace XUtliPoolLib
 {
-	// Token: 0x020001D0 RID: 464
+
 	public class XUIPool
 	{
-		// Token: 0x170000C8 RID: 200
-		// (get) Token: 0x06000AB5 RID: 2741 RVA: 0x00039531 File Offset: 0x00037731
-		// (set) Token: 0x06000AB6 RID: 2742 RVA: 0x00039539 File Offset: 0x00037739
+
 		public int TplWidth { get; set; }
 
-		// Token: 0x170000C9 RID: 201
-		// (get) Token: 0x06000AB7 RID: 2743 RVA: 0x00039542 File Offset: 0x00037742
-		// (set) Token: 0x06000AB8 RID: 2744 RVA: 0x0003954A File Offset: 0x0003774A
 		public int TplHeight { get; set; }
 
-		// Token: 0x170000CA RID: 202
-		// (get) Token: 0x06000AB9 RID: 2745 RVA: 0x00039553 File Offset: 0x00037753
-		// (set) Token: 0x06000ABA RID: 2746 RVA: 0x0003955B File Offset: 0x0003775B
 		public Vector3 TplPos { get; set; }
 
-		// Token: 0x170000CB RID: 203
-		// (get) Token: 0x06000ABB RID: 2747 RVA: 0x00039564 File Offset: 0x00037764
 		public bool IsValid
 		{
 			get
@@ -33,8 +23,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x170000CC RID: 204
-		// (get) Token: 0x06000ABC RID: 2748 RVA: 0x00039584 File Offset: 0x00037784
 		public int ActiveCount
 		{
 			get
@@ -43,13 +31,11 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000ABD RID: 2749 RVA: 0x0003959C File Offset: 0x0003779C
 		public XUIPool(IXUITool uiTool)
 		{
 			this._uiTool = uiTool;
 		}
 
-		// Token: 0x06000ABE RID: 2750 RVA: 0x000395DC File Offset: 0x000377DC
 		public void SetupPool(GameObject parent, GameObject tpl, uint Count, bool bEffectiveMode = true)
 		{
 			this._pool.Clear();
@@ -121,7 +107,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000ABF RID: 2751 RVA: 0x00039838 File Offset: 0x00037A38
 		public GameObject FetchGameObject(bool fadeIn = false)
 		{
 			this._ActiveCount++;
@@ -188,7 +173,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000AC0 RID: 2752 RVA: 0x00039AB0 File Offset: 0x00037CB0
 		private void CheckFadeIn(bool fadeIn, GameObject go)
 		{
 			bool flag = !fadeIn;
@@ -207,7 +191,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000AC1 RID: 2753 RVA: 0x00039B00 File Offset: 0x00037D00
 		public void FakeReturnAll()
 		{
 			this._ToBeRemoved.Clear();
@@ -222,7 +205,6 @@ namespace XUtliPoolLib
 			this._ActiveCount = 0;
 		}
 
-		// Token: 0x06000AC2 RID: 2754 RVA: 0x00039B60 File Offset: 0x00037D60
 		public void ActualReturnAll(bool bChangeParent = false)
 		{
 			while (this._ToBeRemoved.Count > 0)
@@ -233,7 +215,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000AC3 RID: 2755 RVA: 0x00039BB4 File Offset: 0x00037DB4
 		public void ReturnAll(bool bChangeParent = false)
 		{
 			for (int i = 0; i < this._pool.Count; i++)
@@ -248,7 +229,6 @@ namespace XUtliPoolLib
 			this._ActiveCount = 0;
 		}
 
-		// Token: 0x06000AC4 RID: 2756 RVA: 0x00039C28 File Offset: 0x00037E28
 		public void ReturnAllDisable()
 		{
 			for (int i = 0; i < this._pool.Count; i++)
@@ -266,7 +246,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000AC5 RID: 2757 RVA: 0x00039C9C File Offset: 0x00037E9C
 		public void ReturnInstance(GameObject go, bool bChangeParent = false)
 		{
 			this._DisableGameObject(go, bChangeParent);
@@ -288,7 +267,6 @@ namespace XUtliPoolLib
 			this._ActiveCount--;
 		}
 
-		// Token: 0x06000AC6 RID: 2758 RVA: 0x00039D24 File Offset: 0x00037F24
 		public void ReturnAny(int count, bool bChangeParent = false)
 		{
 			int num = 0;
@@ -306,7 +284,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000AC7 RID: 2759 RVA: 0x00039D9C File Offset: 0x00037F9C
 		private void _DisableGameObject(GameObject go, bool bChangeParent)
 		{
 			if (bChangeParent)
@@ -324,7 +301,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000AC8 RID: 2760 RVA: 0x00039E00 File Offset: 0x00038000
 		public void GetActiveList(List<GameObject> ret)
 		{
 			int i = 0;
@@ -353,13 +329,11 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000AC9 RID: 2761 RVA: 0x00039E89 File Offset: 0x00038089
 		protected void MakeGameObjectEnabled(GameObject go, bool enabled)
 		{
 			go.SetActive(enabled);
 		}
 
-		// Token: 0x06000ACA RID: 2762 RVA: 0x00039E94 File Offset: 0x00038094
 		public void PlayFadeInWithActiveList()
 		{
 			List<GameObject> list = ListPool<GameObject>.Get();
@@ -385,28 +359,20 @@ namespace XUtliPoolLib
 			ListPool<GameObject>.Release(list);
 		}
 
-		// Token: 0x04000518 RID: 1304
 		public static int _far_far_away = 1000;
 
-		// Token: 0x04000519 RID: 1305
 		public GameObject _tpl;
 
-		// Token: 0x0400051A RID: 1306
 		protected List<GameObject> _pool = new List<GameObject>();
 
-		// Token: 0x0400051B RID: 1307
 		protected List<bool> _used = new List<bool>();
 
-		// Token: 0x0400051C RID: 1308
 		protected Stack<int> _ToBeRemoved = new Stack<int>();
 
-		// Token: 0x0400051D RID: 1309
 		protected bool _bEffectiveMode = true;
 
-		// Token: 0x0400051E RID: 1310
 		public IXUITool _uiTool = null;
 
-		// Token: 0x04000522 RID: 1314
 		private int _ActiveCount;
 	}
 }

@@ -5,23 +5,21 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000B08 RID: 2824
+
 	internal class XCombatEffectManager : XSingleton<XCombatEffectManager>
 	{
-		// Token: 0x0600A657 RID: 42583 RVA: 0x001D38A5 File Offset: 0x001D1AA5
+
 		public void SetDirty()
 		{
 			this.m_bDirty = true;
 		}
 
-		// Token: 0x0600A658 RID: 42584 RVA: 0x001D38B0 File Offset: 0x001D1AB0
 		public override bool Init()
 		{
 			this.SetDirty();
 			return true;
 		}
 
-		// Token: 0x0600A659 RID: 42585 RVA: 0x001D38CC File Offset: 0x001D1ACC
 		public void InitFromGlobalConfig()
 		{
 			this.m_ArtifactDisableSceneTypes.Clear();
@@ -48,19 +46,16 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A65A RID: 42586 RVA: 0x001D39A8 File Offset: 0x001D1BA8
 		public bool IsArtifactEnabled()
 		{
 			return !this.m_ArtifactDisableSceneTypes.Contains(XSingleton<XScene>.singleton.SceneType);
 		}
 
-		// Token: 0x0600A65B RID: 42587 RVA: 0x001D39D4 File Offset: 0x001D1BD4
 		public bool IsSkillEmblemEnabled()
 		{
 			return !this.m_SkillEmblemDisableSceneTypes.Contains(XSingleton<XScene>.singleton.SceneType);
 		}
 
-		// Token: 0x0600A65C RID: 42588 RVA: 0x001D3A00 File Offset: 0x001D1C00
 		public EffectDataParams GetEffectDataByBuff(uint buffID)
 		{
 			EffectDataParams result;
@@ -68,7 +63,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A65D RID: 42589 RVA: 0x001D3A24 File Offset: 0x001D1C24
 		public EffectDataParams GetEffectDataBySkill(uint skillID)
 		{
 			EffectDataParams result;
@@ -76,7 +70,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A65E RID: 42590 RVA: 0x001D3A48 File Offset: 0x001D1C48
 		public void ArrangeEffectData()
 		{
 			bool flag = !this.m_bDirty || !XStage.IsConcreteStage(XSingleton<XGame>.singleton.CurrentStage.Stage);
@@ -184,19 +177,14 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04003D32 RID: 15666
 		private Dictionary<uint, EffectDataParams> m_buff2EffectData = new Dictionary<uint, EffectDataParams>();
 
-		// Token: 0x04003D33 RID: 15667
 		private Dictionary<uint, EffectDataParams> m_skill2EffectData = new Dictionary<uint, EffectDataParams>();
 
-		// Token: 0x04003D34 RID: 15668
 		private HashSet<SceneType> m_ArtifactDisableSceneTypes = new HashSet<SceneType>(default(XFastEnumIntEqualityComparer<SceneType>));
 
-		// Token: 0x04003D35 RID: 15669
 		private HashSet<SceneType> m_SkillEmblemDisableSceneTypes = new HashSet<SceneType>(default(XFastEnumIntEqualityComparer<SceneType>));
 
-		// Token: 0x04003D36 RID: 15670
 		private bool m_bDirty = false;
 	}
 }

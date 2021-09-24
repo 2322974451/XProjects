@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x0200091C RID: 2332
+
 	internal class XJokerKingDocument : XDocComponent
 	{
-		// Token: 0x17002B8C RID: 11148
-		// (get) Token: 0x06008CB8 RID: 36024 RVA: 0x00131D78 File Offset: 0x0012FF78
+
 		public override uint ID
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002B8D RID: 11149
-		// (get) Token: 0x06008CB9 RID: 36025 RVA: 0x00131D90 File Offset: 0x0012FF90
 		public uint JokerKingTimes
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002B8E RID: 11150
-		// (get) Token: 0x06008CBA RID: 36026 RVA: 0x00131DA8 File Offset: 0x0012FFA8
 		public CardMatchState MatchState
 		{
 			get
@@ -40,9 +35,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002B8F RID: 11151
-		// (get) Token: 0x06008CBB RID: 36027 RVA: 0x00131DC0 File Offset: 0x0012FFC0
-		// (set) Token: 0x06008CBC RID: 36028 RVA: 0x00131DD8 File Offset: 0x0012FFD8
 		public double TimeLeft
 		{
 			get
@@ -55,8 +47,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002B90 RID: 11152
-		// (get) Token: 0x06008CBD RID: 36029 RVA: 0x00131DE4 File Offset: 0x0012FFE4
 		public uint ChangeCount
 		{
 			get
@@ -65,8 +55,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002B91 RID: 11153
-		// (get) Token: 0x06008CBE RID: 36030 RVA: 0x00131DFC File Offset: 0x0012FFFC
 		public uint MatchRound
 		{
 			get
@@ -75,8 +63,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002B92 RID: 11154
-		// (get) Token: 0x06008CBF RID: 36031 RVA: 0x00131E14 File Offset: 0x00130014
 		public uint MatchResult
 		{
 			get
@@ -85,8 +71,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002B93 RID: 11155
-		// (get) Token: 0x06008CC0 RID: 36032 RVA: 0x00131E2C File Offset: 0x0013002C
 		public List<uint> MatchJockers
 		{
 			get
@@ -95,8 +79,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002B94 RID: 11156
-		// (get) Token: 0x06008CC1 RID: 36033 RVA: 0x00131E44 File Offset: 0x00130044
 		public uint MatchJockerStore
 		{
 			get
@@ -105,8 +87,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002B95 RID: 11157
-		// (get) Token: 0x06008CC2 RID: 36034 RVA: 0x00131E5C File Offset: 0x0013005C
 		public List<uint> MatchBestJockers
 		{
 			get
@@ -115,8 +95,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002B96 RID: 11158
-		// (get) Token: 0x06008CC3 RID: 36035 RVA: 0x00131E74 File Offset: 0x00130074
 		public string MatchBestJockerName
 		{
 			get
@@ -125,8 +103,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002B97 RID: 11159
-		// (get) Token: 0x06008CC4 RID: 36036 RVA: 0x00131E8C File Offset: 0x0013008C
 		public List<string> MatchRankNames
 		{
 			get
@@ -135,8 +111,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002B98 RID: 11160
-		// (get) Token: 0x06008CC5 RID: 36037 RVA: 0x00131EA4 File Offset: 0x001300A4
 		public List<int> MatchRankScores
 		{
 			get
@@ -145,8 +119,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002B99 RID: 11161
-		// (get) Token: 0x06008CC6 RID: 36038 RVA: 0x00131EBC File Offset: 0x001300BC
 		public List<ItemBrief> MatchItems
 		{
 			get
@@ -155,8 +127,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002B9A RID: 11162
-		// (get) Token: 0x06008CC7 RID: 36039 RVA: 0x00131ED4 File Offset: 0x001300D4
 		public bool IsBegin
 		{
 			get
@@ -165,8 +135,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002B9B RID: 11163
-		// (get) Token: 0x06008CC8 RID: 36040 RVA: 0x00131EEC File Offset: 0x001300EC
 		public bool IsCanBegin
 		{
 			get
@@ -175,8 +143,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002B9C RID: 11164
-		// (get) Token: 0x06008CC9 RID: 36041 RVA: 0x00131F04 File Offset: 0x00130104
 		public bool IsSignUp
 		{
 			get
@@ -185,9 +151,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002B9D RID: 11165
-		// (get) Token: 0x06008CCB RID: 36043 RVA: 0x00131F8C File Offset: 0x0013018C
-		// (set) Token: 0x06008CCA RID: 36042 RVA: 0x00131F1C File Offset: 0x0013011C
 		public bool bAvaiableIconWhenShow
 		{
 			get
@@ -208,7 +171,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008CCC RID: 36044 RVA: 0x00131FA4 File Offset: 0x001301A4
 		public void JokerKingGameOver()
 		{
 			this.m_isSignUp = false;
@@ -222,32 +184,27 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008CCD RID: 36045 RVA: 0x00131FF8 File Offset: 0x001301F8
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			XJokerKingDocument.AsynLoader.AddTask("Table/PokerTournamentReward", XJokerKingDocument.JokerTournamed, false);
 			XJokerKingDocument.AsynLoader.Execute(callback);
 		}
 
-		// Token: 0x06008CCE RID: 36046 RVA: 0x0013201D File Offset: 0x0013021D
 		public void JokerKingMatchQuery()
 		{
 			this.SendJokerKingMsg(CardMatchOp.CardMatch_Query, 0U);
 		}
 
-		// Token: 0x06008CCF RID: 36047 RVA: 0x00132029 File Offset: 0x00130229
 		public void JokerKingMatchAdd()
 		{
 			this.SendJokerKingMsg(CardMatchOp.CardMatch_Add, 0U);
 		}
 
-		// Token: 0x06008CD0 RID: 36048 RVA: 0x00132035 File Offset: 0x00130235
 		public void JokerKingMatchExit()
 		{
 			this.SendJokerKingMsg(CardMatchOp.CardMatch_Del, 0U);
 		}
 
-		// Token: 0x06008CD1 RID: 36049 RVA: 0x00132044 File Offset: 0x00130244
 		public void JokerKingMatchSignUp()
 		{
 			int @int = XSingleton<XGlobalConfig>.singleton.GetInt("PokerTournamentSignUpNum");
@@ -262,7 +219,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008CD2 RID: 36050 RVA: 0x0013209C File Offset: 0x0013029C
 		public void JokerKingRoundChange(uint card)
 		{
 			bool flag = this.wattingPTC;
@@ -273,7 +229,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008CD3 RID: 36051 RVA: 0x001320C8 File Offset: 0x001302C8
 		private void SendJokerKingMsg(CardMatchOp op, uint card = 0U)
 		{
 			XSingleton<XDebug>.singleton.AddGreenLog("Send JokerKing Message:", op.ToString(), null, null, null, null);
@@ -284,7 +239,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(ptcC2M_PokerTournamentReq);
 		}
 
-		// Token: 0x06008CD4 RID: 36052 RVA: 0x0013212C File Offset: 0x0013032C
 		public void JokerKingRoundOver()
 		{
 			PtcC2M_PokerTournamentReq ptcC2M_PokerTournamentReq = new PtcC2M_PokerTournamentReq();
@@ -292,7 +246,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(ptcC2M_PokerTournamentReq);
 		}
 
-		// Token: 0x06008CD5 RID: 36053 RVA: 0x0013215C File Offset: 0x0013035C
 		public void SendJokerMatchRank()
 		{
 			PtcC2M_GuildCardRankReq ptcC2M_GuildCardRankReq = new PtcC2M_GuildCardRankReq();
@@ -300,7 +253,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(ptcC2M_GuildCardRankReq);
 		}
 
-		// Token: 0x06008CD6 RID: 36054 RVA: 0x0013218C File Offset: 0x0013038C
 		public void ReceiveJokerRank(List<string> names, List<int> scores)
 		{
 			XSingleton<XDebug>.singleton.AddGreenLog("Length:", names.Count.ToString(), null, null, null, null);
@@ -332,7 +284,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008CD7 RID: 36055 RVA: 0x00132280 File Offset: 0x00130480
 		public void ReceiveJokerKingMatchInfo(GuildCardMatchNtf ntf)
 		{
 			XSingleton<XDebug>.singleton.AddGreenLog("Receive JokerKing Message:", ntf.op.ToString(), null, null, null, null);
@@ -372,7 +323,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008CD8 RID: 36056 RVA: 0x00132368 File Offset: 0x00130568
 		private void JokerBegion()
 		{
 			this.m_matchState = CardMatchState.CardMatch_StateBegin;
@@ -383,7 +333,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008CD9 RID: 36057 RVA: 0x0013239C File Offset: 0x0013059C
 		private void JokerMatchOver()
 		{
 			this.m_matchJokers.Clear();
@@ -396,7 +345,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008CDA RID: 36058 RVA: 0x001323EC File Offset: 0x001305EC
 		private void SetMatchData(GuildCardMatchNtf ntf)
 		{
 			this.m_matchState = ntf.state;
@@ -411,7 +359,6 @@ namespace XMainClient
 			this.m_matchJokers.AddRange(ntf.cards);
 		}
 
-		// Token: 0x06008CDB RID: 36059 RVA: 0x001324A4 File Offset: 0x001306A4
 		private void ShowJokerJoin(GuildCardMatchNtf ntf)
 		{
 			this.SetMatchData(ntf);
@@ -423,7 +370,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008CDC RID: 36060 RVA: 0x001324E0 File Offset: 0x001306E0
 		private void ShowMatchBegin(GuildCardMatchNtf ntf)
 		{
 			this.SetMatchData(ntf);
@@ -435,7 +381,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008CDD RID: 36061 RVA: 0x0013251C File Offset: 0x0013071C
 		public override void Update(float fDeltaT)
 		{
 			base.Update(fDeltaT);
@@ -450,7 +395,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008CDE RID: 36062 RVA: 0x00132560 File Offset: 0x00130760
 		private void ShowJokerQuery(GuildCardMatchNtf ntf)
 		{
 			this.m_matchState = ntf.state;
@@ -467,7 +411,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008CDF RID: 36063 RVA: 0x00132600 File Offset: 0x00130800
 		private void ShowWaittingJocker(GuildCardMatchNtf ntf)
 		{
 			this.m_timeLeft = ntf.timeleft + 1U;
@@ -480,7 +423,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008CE0 RID: 36064 RVA: 0x00132654 File Offset: 0x00130854
 		public void EndJockerGame(GuildCardMatchNtf ntf)
 		{
 			this.m_matchState = CardMatchState.CardMatch_StateRoundEnd;
@@ -514,7 +456,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008CE1 RID: 36065 RVA: 0x00132780 File Offset: 0x00130980
 		private void ChangeJocker(GuildCardMatchNtf ntf)
 		{
 			this.wattingPTC = false;
@@ -553,7 +494,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008CE2 RID: 36066 RVA: 0x00132888 File Offset: 0x00130A88
 		private void JokerSignUpResult(GuildCardMatchNtf ntf)
 		{
 			XSingleton<XDebug>.singleton.AddGreenLog("Sign Up:", ntf.sign_up.ToString(), null, null, null, null);
@@ -566,7 +506,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008CE3 RID: 36067 RVA: 0x001328EC File Offset: 0x00130AEC
 		private void JokerKingQueryResult(GuildCardMatchNtf ntf)
 		{
 			XSingleton<XDebug>.singleton.AddGreenLog("ntf Query:", ntf.state.ToString(), ntf.isbegin.ToString(), ntf.sign_up.ToString(), null, null);
@@ -580,7 +519,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008CE4 RID: 36068 RVA: 0x0013297C File Offset: 0x00130B7C
 		public void SetBestJocker(List<uint> jockers, string name)
 		{
 			this.m_matchBestJockers.Clear();
@@ -593,7 +531,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008CE5 RID: 36069 RVA: 0x001329C8 File Offset: 0x00130BC8
 		private void ClearBestJoker()
 		{
 			this.m_matchBestJockers.Clear();
@@ -605,78 +542,54 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008CE6 RID: 36070 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 		}
 
-		// Token: 0x04002D8A RID: 11658
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("XJokerKingDocument");
 
-		// Token: 0x04002D8B RID: 11659
 		public static XTableAsyncLoader AsynLoader = new XTableAsyncLoader();
 
-		// Token: 0x04002D8C RID: 11660
 		public static PokerTournamentReward JokerTournamed = new PokerTournamentReward();
 
-		// Token: 0x04002D8D RID: 11661
 		private CardMatchState m_matchState;
 
-		// Token: 0x04002D8E RID: 11662
 		private double m_timeLeft;
 
-		// Token: 0x04002D8F RID: 11663
 		private uint m_changeount;
 
-		// Token: 0x04002D90 RID: 11664
 		private uint m_matchRound;
 
-		// Token: 0x04002D91 RID: 11665
 		private uint m_matchResult;
 
-		// Token: 0x04002D92 RID: 11666
 		private uint m_matchJockerStore;
 
-		// Token: 0x04002D93 RID: 11667
 		private uint m_oldJockerID = 0U;
 
-		// Token: 0x04002D94 RID: 11668
 		private string m_matchBestName = string.Empty;
 
-		// Token: 0x04002D95 RID: 11669
 		private List<uint> m_matchJokers = new List<uint>();
 
-		// Token: 0x04002D96 RID: 11670
 		private List<uint> m_matchBestJockers = new List<uint>();
 
-		// Token: 0x04002D97 RID: 11671
 		private List<ItemBrief> m_matchItems = new List<ItemBrief>();
 
-		// Token: 0x04002D98 RID: 11672
 		private List<string> m_matchRankName = new List<string>();
 
-		// Token: 0x04002D99 RID: 11673
 		private List<int> m_matchRankScore = new List<int>();
 
-		// Token: 0x04002D9A RID: 11674
 		private uint JokerToken;
 
-		// Token: 0x04002D9B RID: 11675
 		private bool m_isBegion = false;
 
-		// Token: 0x04002D9C RID: 11676
 		private bool m_isSignUp = false;
 
-		// Token: 0x04002D9D RID: 11677
 		private bool m_isCanBegion = false;
 
-		// Token: 0x04002D9E RID: 11678
 		private uint m_JokerKingTimes = 0U;
 
-		// Token: 0x04002D9F RID: 11679
 		public bool wattingPTC = false;
 
-		// Token: 0x04002DA0 RID: 11680
 		private bool m_bAvaiableIconWhenShow = false;
 	}
 }

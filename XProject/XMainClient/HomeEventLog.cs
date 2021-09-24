@@ -4,10 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C36 RID: 3126
+
 	internal class HomeEventLog
 	{
-		// Token: 0x0600B140 RID: 45376 RVA: 0x0021F0C8 File Offset: 0x0021D2C8
+
 		public HomeEventLog(GardenEventLog log, uint severTime)
 		{
 			bool flag = log == null;
@@ -19,8 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003153 RID: 12627
-		// (get) Token: 0x0600B141 RID: 45377 RVA: 0x0021F10C File Offset: 0x0021D30C
 		public ulong RoleID
 		{
 			get
@@ -29,8 +27,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003154 RID: 12628
-		// (get) Token: 0x0600B142 RID: 45378 RVA: 0x0021F124 File Offset: 0x0021D324
 		public string Txt
 		{
 			get
@@ -39,8 +35,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003155 RID: 12629
-		// (get) Token: 0x0600B143 RID: 45379 RVA: 0x0021F13C File Offset: 0x0021D33C
 		public string Time
 		{
 			get
@@ -49,7 +43,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B144 RID: 45380 RVA: 0x0021F154 File Offset: 0x0021D354
 		private void SetTime(ulong endT, ulong startT)
 		{
 			ulong num = (endT > startT) ? (endT - startT) : 0UL;
@@ -92,7 +85,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B145 RID: 45381 RVA: 0x0021F244 File Offset: 0x0021D444
 		private void SetTxt(GardenEventLog log)
 		{
 			switch (log.event_type)
@@ -372,25 +364,20 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B146 RID: 45382 RVA: 0x0021F928 File Offset: 0x0021DB28
 		private PlantSeed.RowData GetSeedRow(uint seedId)
 		{
 			return HomePlantDocument.PlantSeedTable.GetBySeedID(seedId);
 		}
 
-		// Token: 0x0600B147 RID: 45383 RVA: 0x0021F948 File Offset: 0x0021DB48
 		private PlantSprite.RowData GetPlantSprite(uint spriteId)
 		{
 			return HomePlantDocument.PlantSpriteTable.GetBySpriteID(spriteId);
 		}
 
-		// Token: 0x04004433 RID: 17459
 		private ulong m_roleId;
 
-		// Token: 0x04004434 RID: 17460
 		private string m_txt;
 
-		// Token: 0x04004435 RID: 17461
 		private string m_time;
 	}
 }

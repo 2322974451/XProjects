@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x0200106F RID: 4207
+
 	internal class Process_RpcC2I_QueryGateIP
 	{
-		// Token: 0x0600D674 RID: 54900 RVA: 0x0032618C File Offset: 0x0032438C
+
 		public static void OnReply(QueryGateArg oArg, QueryGateRes oRes)
 		{
 			bool flag = XSingleton<XClientNetwork>.singleton.OnAuthorized(oArg, oRes);
@@ -33,7 +33,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D675 RID: 54901 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public static void OnTimeout(QueryGateArg oArg)
 		{
 		}

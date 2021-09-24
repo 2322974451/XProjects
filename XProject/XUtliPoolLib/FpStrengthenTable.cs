@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x020000FA RID: 250
+
 	public class FpStrengthenTable : CVSReader
 	{
-		// Token: 0x0600065E RID: 1630 RVA: 0x0001ED14 File Offset: 0x0001CF14
+
 		public FpStrengthenTable.RowData GetByBQID(int key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -21,7 +21,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x0600065F RID: 1631 RVA: 0x0001ED4C File Offset: 0x0001CF4C
 		private FpStrengthenTable.RowData BinarySearchBQID(int key)
 		{
 			int num = 0;
@@ -80,7 +79,6 @@ namespace XUtliPoolLib
 			return null;
 		}
 
-		// Token: 0x06000660 RID: 1632 RVA: 0x0001EE28 File Offset: 0x0001D028
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			FpStrengthenTable.RowData rowData = new FpStrengthenTable.RowData();
@@ -102,7 +100,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x06000661 RID: 1633 RVA: 0x0001EF08 File Offset: 0x0001D108
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -116,31 +113,23 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x04000346 RID: 838
 		public FpStrengthenTable.RowData[] Table = null;
 
-		// Token: 0x020002F9 RID: 761
 		public class RowData
 		{
-			// Token: 0x04000AF7 RID: 2807
+
 			public int BQID;
 
-			// Token: 0x04000AF8 RID: 2808
 			public int Bqtype;
 
-			// Token: 0x04000AF9 RID: 2809
 			public int BQSystem;
 
-			// Token: 0x04000AFA RID: 2810
 			public string BQTips;
 
-			// Token: 0x04000AFB RID: 2811
 			public string BQImageID;
 
-			// Token: 0x04000AFC RID: 2812
 			public string BQName;
 
-			// Token: 0x04000AFD RID: 2813
 			public int ShowLevel;
 		}
 	}

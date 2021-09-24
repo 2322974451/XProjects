@@ -5,12 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000DBD RID: 3517
+
 	internal sealed class XActor : XObject
 	{
-		// Token: 0x1700335D RID: 13149
-		// (get) Token: 0x0600BE92 RID: 48786 RVA: 0x0027D014 File Offset: 0x0027B214
-		// (set) Token: 0x0600BE93 RID: 48787 RVA: 0x0027D02C File Offset: 0x0027B22C
+
 		public uint Fashion
 		{
 			get
@@ -23,8 +21,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700335E RID: 13150
-		// (get) Token: 0x0600BE94 RID: 48788 RVA: 0x0027D038 File Offset: 0x0027B238
 		public XDummy Dummy
 		{
 			get
@@ -33,7 +29,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BE95 RID: 48789 RVA: 0x0027D050 File Offset: 0x0027B250
 		public XActor(Vector3 pos, string clip)
 		{
 			XPlayer player = XSingleton<XEntityMgr>.singleton.Player;
@@ -58,7 +53,6 @@ namespace XMainClient
 			this.TurnOnSkinnedMesh(this._actor);
 		}
 
-		// Token: 0x0600BE96 RID: 48790 RVA: 0x0027D15C File Offset: 0x0027B35C
 		public XActor(uint id, Vector3 pos, string clip)
 		{
 			XEntityStatistics.RowData byID = XSingleton<XEntityMgr>.singleton.EntityStatistics.GetByID(id);
@@ -73,7 +67,6 @@ namespace XMainClient
 			this.TurnOnSkinnedMesh(this._actor);
 		}
 
-		// Token: 0x0600BE97 RID: 48791 RVA: 0x0027D230 File Offset: 0x0027B430
 		public XActor(string prefab, Vector3 pos, Quaternion face, string clip)
 		{
 			this._actor = XGameObject.CreateXGameObject(prefab, pos, face, false, true);
@@ -81,7 +74,6 @@ namespace XMainClient
 			this.OverrideAnim(clip);
 		}
 
-		// Token: 0x0600BE98 RID: 48792 RVA: 0x0027D29C File Offset: 0x0027B49C
 		public void OverrideAnim(string clip)
 		{
 			this._clip = clip;
@@ -92,7 +84,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BE99 RID: 48793 RVA: 0x0027D2D4 File Offset: 0x0027B4D4
 		public void ReplaceActor(XDummy dummy)
 		{
 			bool flag = dummy == this._dummy;
@@ -114,13 +105,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BE9A RID: 48794 RVA: 0x0027D3D3 File Offset: 0x0027B5D3
 		public void PlayAnimation(string clip)
 		{
 			this._dummy.OverrideAnimClip("Idle", clip, false, false);
 		}
 
-		// Token: 0x0600BE9B RID: 48795 RVA: 0x0027D3EC File Offset: 0x0027B5EC
 		public override bool Initilize(int flag)
 		{
 			XSingleton<XComponentMgr>.singleton.CreateComponent(this, XAudioComponent.uuID);
@@ -142,7 +131,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600BE9C RID: 48796 RVA: 0x0027D494 File Offset: 0x0027B694
 		public override void Uninitilize()
 		{
 			this.TurnOffSkinnedMesh(this._actor);
@@ -168,8 +156,6 @@ namespace XMainClient
 			base.Uninitilize();
 		}
 
-		// Token: 0x1700335F RID: 13151
-		// (get) Token: 0x0600BE9D RID: 48797 RVA: 0x0027D518 File Offset: 0x0027B718
 		public override XGameObject EngineObject
 		{
 			get
@@ -178,7 +164,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BE9E RID: 48798 RVA: 0x0027D530 File Offset: 0x0027B730
 		private void TurnOnSkinnedMesh(XGameObject o)
 		{
 			bool flag = XSingleton<XScene>.singleton.SceneType != SceneType.SCENE_LOGIN;
@@ -188,13 +173,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BE9F RID: 48799 RVA: 0x0027D560 File Offset: 0x0027B760
 		private void TurnOffSkinnedMesh(XGameObject o)
 		{
 			this._actor.UpdateWhenOffscreen = false;
 		}
 
-		// Token: 0x0600BEA0 RID: 48800 RVA: 0x0027D570 File Offset: 0x0027B770
 		public void GetCurrentAnimLength(OverrideAnimCallback overrideAnimCb)
 		{
 			bool flag = this._ator != null;
@@ -204,22 +187,16 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04004DF1 RID: 19953
 		private XGameObject _actor = null;
 
-		// Token: 0x04004DF2 RID: 19954
 		private XAnimator _ator = null;
 
-		// Token: 0x04004DF3 RID: 19955
 		private XDummy _dummy = null;
 
-		// Token: 0x04004DF4 RID: 19956
 		private uint _fashion_id = 0U;
 
-		// Token: 0x04004DF5 RID: 19957
 		private string _clip = null;
 
-		// Token: 0x04004DF6 RID: 19958
 		public bool Replaced = false;
 	}
 }

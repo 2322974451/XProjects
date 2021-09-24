@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001881 RID: 6273
+
 	internal class XWheelOfFortuneHandler : DlgHandlerBase
 	{
-		// Token: 0x0601051E RID: 66846 RVA: 0x003F3E4C File Offset: 0x003F204C
+
 		protected override void Init()
 		{
 			base.Init();
@@ -52,7 +52,6 @@ namespace XMainClient.UI
 			this.m_Fx = XSingleton<XFxMgr>.singleton.CreateUIFx("Effects/FX_Particle/UIfx/UI_WheelOfFortune_fx", base.PanelObject.transform.Find("Bg/Bg/Bg"), false);
 		}
 
-		// Token: 0x0601051F RID: 66847 RVA: 0x003F4188 File Offset: 0x003F2388
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -60,7 +59,6 @@ namespace XMainClient.UI
 			this.m_BtnClose.RegisterClickEventHandler(new ButtonClickEventHandler(this._OnCloseClicked));
 		}
 
-		// Token: 0x06010520 RID: 66848 RVA: 0x003F41C2 File Offset: 0x003F23C2
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -71,7 +69,6 @@ namespace XMainClient.UI
 			this.m_ResultStayTimerToken = 0U;
 		}
 
-		// Token: 0x06010521 RID: 66849 RVA: 0x003F4201 File Offset: 0x003F2401
 		protected override void OnHide()
 		{
 			this._doc.ToggleBlock(false);
@@ -79,7 +76,6 @@ namespace XMainClient.UI
 			base.OnHide();
 		}
 
-		// Token: 0x06010522 RID: 66850 RVA: 0x003F422C File Offset: 0x003F242C
 		public override void OnUnload()
 		{
 			this._doc.ToggleBlock(false);
@@ -94,7 +90,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x06010523 RID: 66851 RVA: 0x003F4294 File Offset: 0x003F2494
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
@@ -127,7 +122,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010524 RID: 66852 RVA: 0x003F43C8 File Offset: 0x003F25C8
 		private void _FinishDoing()
 		{
 			this._doc.ToggleBlock(false);
@@ -143,14 +137,12 @@ namespace XMainClient.UI
 			this.m_ResultStayTimerToken = XSingleton<XTimerMgr>.singleton.SetTimer(this.RESULT_STAY_TIME, new XTimerMgr.ElapsedEventHandler(this._FinishStay), null);
 		}
 
-		// Token: 0x06010525 RID: 66853 RVA: 0x003F4498 File Offset: 0x003F2698
 		private void _FinishStay(object o)
 		{
 			this.m_ResultStayTimerToken = 0U;
 			base.SetVisible(false);
 		}
 
-		// Token: 0x06010526 RID: 66854 RVA: 0x003F44AC File Offset: 0x003F26AC
 		private void _RandomPosition()
 		{
 			for (int i = 0; i < XLotteryBoxItem.POOL_SIZE; i++)
@@ -162,7 +154,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010527 RID: 66855 RVA: 0x003F4504 File Offset: 0x003F2704
 		public void OpenWheel(XLotteryBoxItem item)
 		{
 			base.SetVisible(true);
@@ -177,7 +168,6 @@ namespace XMainClient.UI
 			this.m_ItemUID = item.uid;
 		}
 
-		// Token: 0x06010528 RID: 66856 RVA: 0x003F45B8 File Offset: 0x003F27B8
 		public void ShowResult(int targetIndex)
 		{
 			this.ToggleOperation(true, true);
@@ -199,116 +189,84 @@ namespace XMainClient.UI
 			this.m_CurrentDegree = (float)XWheelOfFortuneHandler.START_DEGREE;
 		}
 
-		// Token: 0x06010529 RID: 66857 RVA: 0x003F4682 File Offset: 0x003F2882
 		public void ToggleOperation(bool bBlockClose, bool bBlockStart)
 		{
 			this.m_BtnClose.SetVisible(!bBlockClose);
 			this.m_BtnStart.SetVisible(!bBlockStart);
 		}
 
-		// Token: 0x0601052A RID: 66858 RVA: 0x003F46A8 File Offset: 0x003F28A8
 		private void _OnItemClicked(IXUISprite icon)
 		{
 			int num = (int)icon.ID;
 			XSingleton<UiUtility>.singleton.ShowTooltipDialog(this.m_DataList[num].itemID, icon, 0U);
 		}
 
-		// Token: 0x0601052B RID: 66859 RVA: 0x003F46D8 File Offset: 0x003F28D8
 		private bool _OnCloseClicked(IXUIButton btn)
 		{
 			base.SetVisible(false);
 			return true;
 		}
 
-		// Token: 0x0601052C RID: 66860 RVA: 0x003F46F4 File Offset: 0x003F28F4
 		private bool _OnStartClicked(IXUIButton btn)
 		{
 			this._doc.UseItem(this.m_ItemUID);
 			return true;
 		}
 
-		// Token: 0x04007575 RID: 30069
 		private static int START_DEGREE = 90;
 
-		// Token: 0x04007576 RID: 30070
 		private int DIRECTION = -1;
 
-		// Token: 0x04007577 RID: 30071
 		private int CIRCLE_DEGREE = 360;
 
-		// Token: 0x04007578 RID: 30072
 		private int FIRST_STAGE_DEGREE = 10;
 
-		// Token: 0x04007579 RID: 30073
 		private int SECOND_STAGE_DEGREE = 3;
 
-		// Token: 0x0400757A RID: 30074
 		private float RESULT_STAY_TIME = 1.5f;
 
-		// Token: 0x0400757B RID: 30075
 		private XCharacterItemDocument _doc;
 
-		// Token: 0x0400757C RID: 30076
 		private GameObject m_Arrow;
 
-		// Token: 0x0400757D RID: 30077
 		private IXCurve m_SpeedCurve;
 
-		// Token: 0x0400757E RID: 30078
 		private IXUIButton m_BtnStart;
 
-		// Token: 0x0400757F RID: 30079
 		private IXUIButton m_BtnClose;
 
-		// Token: 0x04007580 RID: 30080
 		private IXUITweenTool m_ShowTween;
 
-		// Token: 0x04007581 RID: 30081
 		private float m_StartSpeed;
 
-		// Token: 0x04007582 RID: 30082
 		private int[] m_IndexMap = new int[XLotteryBoxItem.POOL_SIZE];
 
-		// Token: 0x04007583 RID: 30083
 		private GameObject[] m_ItemList = new GameObject[XLotteryBoxItem.POOL_SIZE];
 
-		// Token: 0x04007584 RID: 30084
 		private int[] m_DegreeList = new int[XLotteryBoxItem.POOL_SIZE];
 
-		// Token: 0x04007585 RID: 30085
 		private XItem[] m_DataList = new XItem[XLotteryBoxItem.POOL_SIZE];
 
-		// Token: 0x04007586 RID: 30086
 		private int m_TargetIndex;
 
-		// Token: 0x04007587 RID: 30087
 		private int m_TargetDegree;
 
-		// Token: 0x04007588 RID: 30088
 		private XWheelState m_State;
 
-		// Token: 0x04007589 RID: 30089
 		private float m_CurrentDegree;
 
-		// Token: 0x0400758A RID: 30090
 		private float m_CurrentSpeed;
 
-		// Token: 0x0400758B RID: 30091
 		private float m_StartDecSpeedDegree;
 
-		// Token: 0x0400758C RID: 30092
 		private float m_DecSpeedDegreeLength;
 
-		// Token: 0x0400758D RID: 30093
 		private uint m_ResultStayTimerToken = 0U;
 
-		// Token: 0x0400758E RID: 30094
 		private ulong m_ItemUID;
 
-		// Token: 0x0400758F RID: 30095
 		private XItemSelector m_ItemSelector = new XItemSelector(0U);
 
-		// Token: 0x04007590 RID: 30096
 		private XFx m_Fx = null;
 	}
 }

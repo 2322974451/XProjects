@@ -9,10 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000DF4 RID: 3572
+
 	internal class XLevelScriptMgr : XSingleton<XLevelScriptMgr>
 	{
-		// Token: 0x0600C124 RID: 49444 RVA: 0x0028E7B4 File Offset: 0x0028C9B4
+
 		public void RunScript(string funcName)
 		{
 			XSingleton<XDebug>.singleton.AddGreenLog("add script ", funcName, null, null, null, null);
@@ -39,7 +39,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C125 RID: 49445 RVA: 0x0028E890 File Offset: 0x0028CA90
 		public bool IsCurrentCmdFinished()
 		{
 			bool flag = this._currentCmd == null;
@@ -56,13 +55,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C126 RID: 49446 RVA: 0x0028E8CA File Offset: 0x0028CACA
 		public void ClearWallInfo()
 		{
 			this._LevelInfos.Clear();
 		}
 
-		// Token: 0x0600C127 RID: 49447 RVA: 0x0028E8DC File Offset: 0x0028CADC
 		public void PreloadLevelScript(string file)
 		{
 			this.Reset();
@@ -628,13 +625,11 @@ namespace XMainClient
 			XSingleton<XResourceLoaderMgr>.singleton.ClearStream(stream);
 		}
 
-		// Token: 0x0600C128 RID: 49448 RVA: 0x0028F874 File Offset: 0x0028DA74
 		public List<XLevelInfo> GetLevelScriptInfos()
 		{
 			return this._LevelInfos;
 		}
 
-		// Token: 0x0600C129 RID: 49449 RVA: 0x0028F88C File Offset: 0x0028DA8C
 		public void Update()
 		{
 			bool flag = this._CmdQueue == null || this._CmdQueue.Count == 0;
@@ -655,7 +650,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C12A RID: 49450 RVA: 0x0028F938 File Offset: 0x0028DB38
 		public void ExecuteNextCmd()
 		{
 			bool flag = this._currentCmd != null;
@@ -680,7 +674,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C12B RID: 49451 RVA: 0x0028F9CB File Offset: 0x0028DBCB
 		public void Reset()
 		{
 			this._externalString.Clear();
@@ -690,7 +683,6 @@ namespace XMainClient
 			this._LevelScripts.Clear();
 		}
 
-		// Token: 0x0600C12C RID: 49452 RVA: 0x0028FA08 File Offset: 0x0028DC08
 		protected void Execute(LevelCmdDesc cmd)
 		{
 			switch (cmd.cmd)
@@ -1230,7 +1222,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C12D RID: 49453 RVA: 0x00290C94 File Offset: 0x0028EE94
 		public void SetExternalString(string str, bool bOnce)
 		{
 			if (bOnce)
@@ -1248,7 +1239,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C12E RID: 49454 RVA: 0x00290CE8 File Offset: 0x0028EEE8
 		public bool QueryExternalString(string str, bool autoRemove)
 		{
 			bool flag = false;
@@ -1269,7 +1259,6 @@ namespace XMainClient
 			return flag;
 		}
 
-		// Token: 0x0600C12F RID: 49455 RVA: 0x00290D6C File Offset: 0x0028EF6C
 		public bool IsTalkScript(string funcName)
 		{
 			bool flag = !this._LevelScripts.ContainsKey(funcName);
@@ -1288,7 +1277,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C130 RID: 49456 RVA: 0x00290DE0 File Offset: 0x0028EFE0
 		protected void SwitchWallState(string name, bool enabled)
 		{
 			for (int i = 0; i < this._LevelInfos.Count; i++)
@@ -1301,14 +1289,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C131 RID: 49457 RVA: 0x00290E39 File Offset: 0x0028F039
 		public void SyncWallState(string name, bool isOn)
 		{
 			this.SetClientWallState(name, isOn);
 			this.SwitchWallState(name, isOn);
 		}
 
-		// Token: 0x0600C132 RID: 49458 RVA: 0x00290E50 File Offset: 0x0028F050
 		public void SetClientWallState(string name, bool isOn)
 		{
 			GameObject gameObject = GameObject.Find(XSingleton<XSceneMgr>.singleton.GetSceneDynamicPrefix(XSingleton<XScene>.singleton.SceneID));
@@ -1328,7 +1314,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C133 RID: 49459 RVA: 0x00290EC8 File Offset: 0x0028F0C8
 		public void ResetAirWallState()
 		{
 			for (int i = 0; i < this._LevelInfos.Count; i++)
@@ -1337,7 +1322,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C134 RID: 49460 RVA: 0x00290F1C File Offset: 0x0028F11C
 		public void DoScriptJustFx(List<string> param)
 		{
 			float time = float.Parse(param[0]);
@@ -1349,25 +1333,18 @@ namespace XMainClient
 			specificDocument.SetCameraLayer(num, time);
 		}
 
-		// Token: 0x04005167 RID: 20839
 		public uint CommandCount = 0U;
 
-		// Token: 0x04005168 RID: 20840
 		private List<LevelCmdDesc> _CmdQueue = new List<LevelCmdDesc>();
 
-		// Token: 0x04005169 RID: 20841
 		private LevelCmdDesc _currentCmd;
 
-		// Token: 0x0400516A RID: 20842
 		public List<string> _externalString = new List<string>();
 
-		// Token: 0x0400516B RID: 20843
 		public List<string> _onceString = new List<string>();
 
-		// Token: 0x0400516C RID: 20844
 		private Dictionary<string, List<LevelCmdDesc>> _LevelScripts = new Dictionary<string, List<LevelCmdDesc>>();
 
-		// Token: 0x0400516D RID: 20845
 		private List<XLevelInfo> _LevelInfos = new List<XLevelInfo>();
 	}
 }

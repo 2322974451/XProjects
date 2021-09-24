@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017CB RID: 6091
+
 	internal class MilitaryRankDlg : DlgBase<MilitaryRankDlg, MilitaryRankBehaviour>
 	{
-		// Token: 0x17003898 RID: 14488
-		// (get) Token: 0x0600FC51 RID: 64593 RVA: 0x003ACFEC File Offset: 0x003AB1EC
+
 		public override bool autoload
 		{
 			get
@@ -19,8 +18,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003899 RID: 14489
-		// (get) Token: 0x0600FC52 RID: 64594 RVA: 0x003AD000 File Offset: 0x003AB200
 		public override bool pushstack
 		{
 			get
@@ -29,8 +26,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700389A RID: 14490
-		// (get) Token: 0x0600FC53 RID: 64595 RVA: 0x003AD014 File Offset: 0x003AB214
 		public override bool hideMainMenu
 		{
 			get
@@ -39,8 +34,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700389B RID: 14491
-		// (get) Token: 0x0600FC54 RID: 64596 RVA: 0x003AD028 File Offset: 0x003AB228
 		public override bool fullscreenui
 		{
 			get
@@ -49,8 +42,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700389C RID: 14492
-		// (get) Token: 0x0600FC55 RID: 64597 RVA: 0x003AD03C File Offset: 0x003AB23C
 		public override string fileName
 		{
 			get
@@ -59,8 +50,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700389D RID: 14493
-		// (get) Token: 0x0600FC56 RID: 64598 RVA: 0x003AD054 File Offset: 0x003AB254
 		public override int sysid
 		{
 			get
@@ -69,7 +58,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FC57 RID: 64599 RVA: 0x003AD070 File Offset: 0x003AB270
 		protected override void Init()
 		{
 			base.Init();
@@ -79,7 +67,6 @@ namespace XMainClient.UI
 			DlgHandlerBase.EnsureCreate<BattleRecordHandler>(ref this.m_BattleRecordHandler, base.uiBehaviour.m_BattleRecordFrame, null, false);
 		}
 
-		// Token: 0x0600FC58 RID: 64600 RVA: 0x003AD0C8 File Offset: 0x003AB2C8
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -100,7 +87,6 @@ namespace XMainClient.UI
 			ixuibutton.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnHelpBtnClicked));
 		}
 
-		// Token: 0x0600FC59 RID: 64601 RVA: 0x003AD266 File Offset: 0x003AB466
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -108,7 +94,6 @@ namespace XMainClient.UI
 			this._doc.QueryRankInfo();
 		}
 
-		// Token: 0x0600FC5A RID: 64602 RVA: 0x003AD293 File Offset: 0x003AB493
 		protected override void OnHide()
 		{
 			this.m_BattleRecordHandler.SetVisible(false);
@@ -116,26 +101,22 @@ namespace XMainClient.UI
 			base.OnHide();
 		}
 
-		// Token: 0x0600FC5B RID: 64603 RVA: 0x003AD2B7 File Offset: 0x003AB4B7
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
 		}
 
-		// Token: 0x0600FC5C RID: 64604 RVA: 0x003AD2C1 File Offset: 0x003AB4C1
 		public override void LeaveStackTop()
 		{
 			base.LeaveStackTop();
 		}
 
-		// Token: 0x0600FC5D RID: 64605 RVA: 0x003AD2CB File Offset: 0x003AB4CB
 		protected override void OnUnload()
 		{
 			DlgHandlerBase.EnsureUnload<BattleRecordHandler>(ref this.m_BattleRecordHandler);
 			base.OnUnload();
 		}
 
-		// Token: 0x0600FC5E RID: 64606 RVA: 0x003AD2E4 File Offset: 0x003AB4E4
 		public void Refresh()
 		{
 			this.SetBaseInfo();
@@ -144,7 +125,6 @@ namespace XMainClient.UI
 			this.SetRankData(base.uiBehaviour.m_MyRank, true, 0);
 		}
 
-		// Token: 0x0600FC5F RID: 64607 RVA: 0x003AD340 File Offset: 0x003AB540
 		private void SetBaseInfo()
 		{
 			XActivityDocument specificDocument = XDocuments.GetSpecificDocument<XActivityDocument>(XActivityDocument.uuID);
@@ -175,7 +155,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FC60 RID: 64608 RVA: 0x003AD53C File Offset: 0x003AB73C
 		private void WrapListUpdated(Transform t, int i)
 		{
 			bool flag = i < 0 || i >= this._doc.RankList.Count;
@@ -186,7 +165,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FC61 RID: 64609 RVA: 0x003AD59C File Offset: 0x003AB79C
 		private void SetRankData(Transform t, bool isMy, int index)
 		{
 			MilitaryRankData militaryRankData = isMy ? this._doc.MyData : this._doc.RankList[index];
@@ -220,7 +198,6 @@ namespace XMainClient.UI
 			ixuilabel4.SetText(militaryRankData.MilitaryPoint.ToString());
 		}
 
-		// Token: 0x0600FC62 RID: 64610 RVA: 0x003AD77C File Offset: 0x003AB97C
 		private void SetRewardInfo()
 		{
 			base.uiBehaviour.m_RewardItemPool.ReturnAll(true);
@@ -289,20 +266,17 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FC63 RID: 64611 RVA: 0x003ADC70 File Offset: 0x003ABE70
 		private bool OnCloseBtnClick(IXUIButton btn)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x0600FC64 RID: 64612 RVA: 0x003ADC8C File Offset: 0x003ABE8C
 		private void OnRewardBtnClick(IXUISprite iSp)
 		{
 			base.uiBehaviour.m_RewardFrame.SetActive(true);
 		}
 
-		// Token: 0x0600FC65 RID: 64613 RVA: 0x003ADCA4 File Offset: 0x003ABEA4
 		private void OnRecordBtnClick(IXUISprite iSp)
 		{
 			this.m_BattleRecordHandler.SetVisible(true);
@@ -317,7 +291,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FC66 RID: 64614 RVA: 0x003ADCFC File Offset: 0x003ABEFC
 		private bool OnRecordTabClick(IXUICheckBox icb)
 		{
 			bool flag = !icb.bChecked;
@@ -344,13 +317,11 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FC67 RID: 64615 RVA: 0x003ADD5A File Offset: 0x003ABF5A
 		private void OnRewardCloseBtnClick(IXUISprite iSp)
 		{
 			base.uiBehaviour.m_RewardFrame.SetActive(false);
 		}
 
-		// Token: 0x0600FC68 RID: 64616 RVA: 0x003ADD70 File Offset: 0x003ABF70
 		private bool OnRewardCheckBoxClick(IXUICheckBox icb)
 		{
 			bool flag = !icb.bChecked;
@@ -368,17 +339,14 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FC69 RID: 64617 RVA: 0x003ADDD0 File Offset: 0x003ABFD0
 		private bool OnHelpBtnClicked(IXUIButton btn)
 		{
 			DlgBase<XCommonHelpTipView, XCommonHelpTipBehaviour>.singleton.ShowHelp(XSysDefine.XSys_MilitaryRank);
 			return true;
 		}
 
-		// Token: 0x04006EEB RID: 28395
 		private XMilitaryRankDocument _doc = null;
 
-		// Token: 0x04006EEC RID: 28396
 		public BattleRecordHandler m_BattleRecordHandler;
 	}
 }

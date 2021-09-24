@@ -8,3 +8,12 @@ C:\Users\shen\Desktop\XProject\XUtliPoolLib\bin\Debug\UILib.pdb
 C:\Users\shen\Desktop\XProject\XUtliPoolLib\obj\Debug\XUtliPoolLib.csproj.CopyComplete
 C:\Users\shen\Desktop\XProject\XUtliPoolLib\obj\Debug\XUtliPoolLib.dll
 C:\Users\shen\Desktop\XProject\XUtliPoolLib\obj\Debug\XUtliPoolLib.pdb
+D:\XProjects\XProject\XUtliPoolLib\bin\Debug\XUtliPoolLib.dll
+D:\XProjects\XProject\XUtliPoolLib\bin\Debug\XUtliPoolLib.pdb
+D:\XProjects\XProject\XUtliPoolLib\bin\Debug\UILib.dll
+D:\XProjects\XProject\XUtliPoolLib\bin\Debug\UILib.pdb
+D:\XProjects\XProject\XUtliPoolLib\obj\Debug\XUtliPoolLib.csproj.AssemblyReference.cache
+D:\XProjects\XProject\XUtliPoolLib\obj\Debug\XUtliPoolLib.csproj.CoreCompileInputs.cache
+D:\XProjects\XProject\XUtliPoolLib\obj\Debug\XUtliPoolLib.csproj.CopyComplete
+D:\XProjects\XProject\XUtliPoolLib\obj\Debug\XUtliPoolLib.dll
+D:\XProjects\XProject\XUtliPoolLib\obj\Debug\XUtliPoolLib.pdb

@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000FC2 RID: 4034
+
 	internal class XBuffComponent : XComponent
 	{
-		// Token: 0x170036AD RID: 13997
-		// (get) Token: 0x0600D18F RID: 53647 RVA: 0x0030ABAC File Offset: 0x00308DAC
+
 		public override uint ID
 		{
 			get
@@ -19,8 +18,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170036AE RID: 13998
-		// (get) Token: 0x0600D190 RID: 53648 RVA: 0x0030ABC4 File Offset: 0x00308DC4
 		public List<XBuff> BuffList
 		{
 			get
@@ -29,8 +26,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170036AF RID: 13999
-		// (get) Token: 0x0600D191 RID: 53649 RVA: 0x0030ABDC File Offset: 0x00308DDC
 		public List<ServerBuffInfo> ServerBuffList
 		{
 			get
@@ -39,8 +34,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170036B0 RID: 14000
-		// (get) Token: 0x0600D192 RID: 53650 RVA: 0x0030ABF4 File Offset: 0x00308DF4
 		public bool bDemo
 		{
 			get
@@ -49,8 +42,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170036B1 RID: 14001
-		// (get) Token: 0x0600D193 RID: 53651 RVA: 0x0030AC14 File Offset: 0x00308E14
 		public bool bLeavingScene
 		{
 			get
@@ -59,8 +50,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170036B2 RID: 14002
-		// (get) Token: 0x0600D194 RID: 53652 RVA: 0x0030AC2C File Offset: 0x00308E2C
 		public bool bDestroying
 		{
 			get
@@ -69,7 +58,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D195 RID: 53653 RVA: 0x0030AC44 File Offset: 0x00308E44
 		public static void InitConfigs()
 		{
 			XBuffComponent._ParseBounds(ref XBuffComponent.CAST_DAMAGE_CHANGE_LOWERBOUND, ref XBuffComponent.CAST_DAMAGE_CHANGE_UPPERBOUND, "BuffChangeCastDamageLimit");
@@ -83,7 +71,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D196 RID: 53654 RVA: 0x0030ACE0 File Offset: 0x00308EE0
 		private static void _ParseBounds(ref double lowerBound, ref double upperBound, string key)
 		{
 			string[] array = XSingleton<XGlobalConfig>.singleton.GetValue(key).Split(XGlobalConfig.SequenceSeparator);
@@ -99,7 +86,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D197 RID: 53655 RVA: 0x0030AD60 File Offset: 0x00308F60
 		public override void Attached()
 		{
 			bool flag = !XSingleton<XGame>.singleton.SyncMode && this._entity.Attributes != null;
@@ -125,14 +111,12 @@ namespace XMainClient
 			this.m_bDestroying = false;
 		}
 
-		// Token: 0x0600D198 RID: 53656 RVA: 0x0030AE80 File Offset: 0x00309080
 		public bool IsBuffStateOn(XBuffType type)
 		{
 			bool flag = this._entity.Attributes == null;
 			return !flag && this._entity.Attributes.BuffState.IsBuffStateOn(type);
 		}
 
-		// Token: 0x0600D199 RID: 53657 RVA: 0x0030AEC0 File Offset: 0x003090C0
 		public short GetBuffStateCounter(XBuffType type)
 		{
 			bool flag = this._entity.Attributes == null;
@@ -148,7 +132,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600D19A RID: 53658 RVA: 0x0030AF00 File Offset: 0x00309100
 		public void IncBuffState(XBuffType type, int param)
 		{
 			bool flag = this._entity.Attributes == null;
@@ -158,7 +141,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D19B RID: 53659 RVA: 0x0030AF3C File Offset: 0x0030913C
 		public void DecBuffState(XBuffType type, int param)
 		{
 			bool flag = this._entity.Attributes == null;
@@ -168,7 +150,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D19C RID: 53660 RVA: 0x0030AF78 File Offset: 0x00309178
 		public int GetStateParam(XBuffType type)
 		{
 			bool flag = this._entity.Attributes == null;
@@ -184,7 +165,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600D19D RID: 53661 RVA: 0x0030AFB8 File Offset: 0x003091B8
 		public void ClearBuff()
 		{
 			for (int i = 0; i < this._BuffList.Count; i++)
@@ -223,7 +203,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D19E RID: 53662 RVA: 0x0030B0F8 File Offset: 0x003092F8
 		public void OnHurt(HurtInfo rawInput, ProjectDamageResult result)
 		{
 			for (int i = 0; i < this._BuffList.Count; i++)
@@ -237,7 +216,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D19F RID: 53663 RVA: 0x0030B154 File Offset: 0x00309354
 		public void OnCastDamage(HurtInfo rawInput, ProjectDamageResult result)
 		{
 			for (int i = 0; i < this._BuffList.Count; i++)
@@ -251,7 +229,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D1A0 RID: 53664 RVA: 0x0030B1B0 File Offset: 0x003093B0
 		public void OnCastSkill(HurtInfo rawInput)
 		{
 			for (int i = 0; i < this._BuffList.Count; i++)
@@ -265,7 +242,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D1A1 RID: 53665 RVA: 0x0030B200 File Offset: 0x00309400
 		public void MakeSingleEffect(XBuff buff)
 		{
 			bool flag = buff == null;
@@ -287,7 +263,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D1A2 RID: 53666 RVA: 0x0030B27C File Offset: 0x0030947C
 		protected void _CheckRelatedBuffs(BuffTable.RowData rowData, out bool bCanAdd, List<XBuff> buffsShouldRemove)
 		{
 			bCanAdd = true;
@@ -307,7 +282,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D1A3 RID: 53667 RVA: 0x0030B2EC File Offset: 0x003094EC
 		private bool _PreAddBuff(BuffTable.RowData rowData)
 		{
 			List<XBuff> list = ListPool<XBuff>.Get();
@@ -335,7 +309,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600D1A4 RID: 53668 RVA: 0x0030B364 File Offset: 0x00309564
 		private void _PostAddBuff(XBuff newBuff)
 		{
 			bool flag = newBuff == null;
@@ -357,7 +330,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D1A5 RID: 53669 RVA: 0x0030B3E8 File Offset: 0x003095E8
 		private void _AddBuff(BuffDesc buffDesc)
 		{
 			BuffTable.RowData buffData = XSingleton<XBuffTemplateManager>.singleton.GetBuffData(buffDesc.BuffID, buffDesc.BuffLevel);
@@ -395,7 +367,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D1A6 RID: 53670 RVA: 0x0030B4EC File Offset: 0x003096EC
 		private void _AppendBuff(XBuff oldBuff)
 		{
 			CombatEffectHelper data = XDataPool<CombatEffectHelper>.GetData();
@@ -406,7 +377,6 @@ namespace XMainClient
 			oldBuff.OnAppend(this);
 		}
 
-		// Token: 0x0600D1A7 RID: 53671 RVA: 0x0030B540 File Offset: 0x00309740
 		private void _RemoveBuff(XBuff buff, bool bIsReplaced)
 		{
 			UIBuffInfo uibuff = buff.UIBuff;
@@ -416,7 +386,6 @@ namespace XMainClient
 			this._RemoveBuffNotifyDoc(uibuff);
 		}
 
-		// Token: 0x0600D1A8 RID: 53672 RVA: 0x0030B57C File Offset: 0x0030977C
 		private void _SendAIEvent(XBuff buff)
 		{
 			bool flag = buff.BuffInfo.AIEvent[0].Length != 0 && buff.BuffInfo.AIEvent[1].Length != 0;
@@ -431,7 +400,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D1A9 RID: 53673 RVA: 0x0030B650 File Offset: 0x00309850
 		private void PlayFxAtSlot(int slot, int buffID, string fxPath, Dictionary<int, ClientBuffInfo> container, bool scale, XEntity entity)
 		{
 			bool flag = container.ContainsKey(slot);
@@ -466,7 +434,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D1AA RID: 53674 RVA: 0x0030B76C File Offset: 0x0030996C
 		private void _PlayBuffFx(int BuffID, int BuffLevel, float duration)
 		{
 			bool flag = !this._entity.IsVisible;
@@ -546,7 +513,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D1AB RID: 53675 RVA: 0x0030B9F8 File Offset: 0x00309BF8
 		private void _StopBuffFx(int BuffID)
 		{
 			foreach (KeyValuePair<int, ClientBuffInfo> keyValuePair in this._NoScaleFx)
@@ -580,7 +546,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D1AC RID: 53676 RVA: 0x0030BB48 File Offset: 0x00309D48
 		public XBuff GetBuffByID(int buffID)
 		{
 			for (int i = 0; i < this._BuffList.Count; i++)
@@ -599,7 +564,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x0600D1AD RID: 53677 RVA: 0x0030BBAC File Offset: 0x00309DAC
 		protected override void EventSubscribe()
 		{
 			base.RegisterEvent(XEventDefine.XEvent_BuffAdd, new XComponent.XEventHandler(this.OnAddBuffEvent));
@@ -623,7 +587,6 @@ namespace XMainClient
 			base.RegisterEvent(XEventDefine.XEvent_BattleEnd, new XComponent.XEventHandler(this.OnBattleEndEvent));
 		}
 
-		// Token: 0x0600D1AE RID: 53678 RVA: 0x0030BC8C File Offset: 0x00309E8C
 		private bool SkillPlayFinished(XEventArgs args)
 		{
 			this.ClearBuff();
@@ -631,7 +594,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600D1AF RID: 53679 RVA: 0x0030BCB0 File Offset: 0x00309EB0
 		private bool OnLeaveScene(XEventArgs e)
 		{
 			this.m_bLeavingScene = true;
@@ -640,7 +602,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600D1B0 RID: 53680 RVA: 0x0030BCD8 File Offset: 0x00309ED8
 		private bool OnRealDead(XEventArgs e)
 		{
 			XRealDeadEventArgs e2 = e as XRealDeadEventArgs;
@@ -658,7 +619,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600D1B1 RID: 53681 RVA: 0x0030BD44 File Offset: 0x00309F44
 		public void ClearBuffFx()
 		{
 			foreach (KeyValuePair<int, ClientBuffInfo> keyValuePair in this._NoScaleFx)
@@ -683,7 +643,6 @@ namespace XMainClient
 			this._ScaleFx.Clear();
 		}
 
-		// Token: 0x0600D1B2 RID: 53682 RVA: 0x0030BE64 File Offset: 0x0030A064
 		private void _MergeBuff(BuffDesc buffDesc, XBuff existBuff)
 		{
 			BuffTable.RowData buffData = XSingleton<XBuffTemplateManager>.singleton.GetBuffData(buffDesc.BuffID, buffDesc.BuffLevel);
@@ -725,7 +684,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D1B3 RID: 53683 RVA: 0x0030BFA4 File Offset: 0x0030A1A4
 		private bool OnAddBuffEvent(XEventArgs e)
 		{
 			XBuffAddEventArgs xbuffAddEventArgs = e as XBuffAddEventArgs;
@@ -739,7 +697,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600D1B4 RID: 53684 RVA: 0x0030BFE4 File Offset: 0x0030A1E4
 		private bool OnRemoveBuffEvent(XEventArgs e)
 		{
 			XBuffRemoveEventArgs xbuffRemoveEventArgs = e as XBuffRemoveEventArgs;
@@ -766,7 +723,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600D1B5 RID: 53685 RVA: 0x0030C074 File Offset: 0x0030A274
 		private bool OnBattleEndEvent(XEventArgs e)
 		{
 			for (int i = 0; i < this._BuffList.Count; i++)
@@ -780,7 +736,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600D1B6 RID: 53686 RVA: 0x0030C0CC File Offset: 0x0030A2CC
 		public override void Update(float fDeltaT)
 		{
 			for (int i = 0; i < this._BuffList.Count; i++)
@@ -793,7 +748,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D1B7 RID: 53687 RVA: 0x0030C120 File Offset: 0x0030A320
 		public override void PostUpdate(float fDeltaT)
 		{
 			bool bPostUpdating = this._bPostUpdating;
@@ -838,7 +792,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D1B8 RID: 53688 RVA: 0x0030C258 File Offset: 0x0030A458
 		protected bool OnAttributeChange(XEventArgs e)
 		{
 			XAttrChangeEventArgs e2 = e as XAttrChangeEventArgs;
@@ -854,7 +807,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600D1B9 RID: 53689 RVA: 0x0030C2B4 File Offset: 0x0030A4B4
 		protected bool OnQTEChange(XEventArgs e)
 		{
 			XSkillQTEEventArgs e2 = e as XSkillQTEEventArgs;
@@ -870,7 +822,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600D1BA RID: 53690 RVA: 0x0030C310 File Offset: 0x0030A510
 		protected bool OnComboChange(XEventArgs e)
 		{
 			XOnComboChangeEventArgs xonComboChangeEventArgs = e as XOnComboChangeEventArgs;
@@ -886,7 +837,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600D1BB RID: 53691 RVA: 0x0030C370 File Offset: 0x0030A570
 		public double ModifySkillDamage()
 		{
 			double num = 0.0;
@@ -897,7 +847,6 @@ namespace XMainClient
 			return XSingleton<XCommon>.singleton.Clamp(num, XBuffComponent.CAST_DAMAGE_CHANGE_LOWERBOUND, XBuffComponent.CAST_DAMAGE_CHANGE_UPPERBOUND);
 		}
 
-		// Token: 0x0600D1BC RID: 53692 RVA: 0x0030C3D4 File Offset: 0x0030A5D4
 		public double IncReceivedDamage()
 		{
 			double num = 0.0;
@@ -918,7 +867,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600D1BD RID: 53693 RVA: 0x0030C438 File Offset: 0x0030A638
 		public double DecReceivedDamage()
 		{
 			double num = 0.0;
@@ -939,7 +887,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600D1BE RID: 53694 RVA: 0x0030C49C File Offset: 0x0030A69C
 		public double ChangeSkillDamage(uint skillID)
 		{
 			double num = 0.0;
@@ -950,7 +897,6 @@ namespace XMainClient
 			return num;
 		}
 
-		// Token: 0x0600D1BF RID: 53695 RVA: 0x0030C4EC File Offset: 0x0030A6EC
 		public double ModifySkillCost()
 		{
 			double num = 0.0;
@@ -961,7 +907,6 @@ namespace XMainClient
 			return XSingleton<XCommon>.singleton.Clamp(num, XBuffComponent.MP_COST_CHANGE_LOWERBOUND, XBuffComponent.MP_COST_CHANGE_UPPERBOUND);
 		}
 
-		// Token: 0x0600D1C0 RID: 53696 RVA: 0x0030C550 File Offset: 0x0030A750
 		public List<uint> GetBuffList()
 		{
 			this.m_TempBuffList.Clear();
@@ -990,7 +935,6 @@ namespace XMainClient
 			return tempBuffList;
 		}
 
-		// Token: 0x0600D1C1 RID: 53697 RVA: 0x0030C620 File Offset: 0x0030A820
 		public List<UIBuffInfo> GetUIBuffList()
 		{
 			this.m_UIBuffList.Clear();
@@ -1019,7 +963,6 @@ namespace XMainClient
 			return uibuffList;
 		}
 
-		// Token: 0x0600D1C2 RID: 53698 RVA: 0x0030C6F0 File Offset: 0x0030A8F0
 		public void AddBuffByServer(BuffInfo data)
 		{
 			ServerBuffInfo serverBuffInfo = new ServerBuffInfo();
@@ -1041,7 +984,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D1C3 RID: 53699 RVA: 0x0030C7A4 File Offset: 0x0030A9A4
 		private void _OnAddServerBuff(ServerBuffInfo info)
 		{
 			XBuffSpecialState.TryTransform(this._entity, (int)info.buffID, info.transformID, true);
@@ -1051,7 +993,6 @@ namespace XMainClient
 			XBuffSkillsReplace.TrySkillsReplace(this._entity, info.UIBuff, true);
 		}
 
-		// Token: 0x0600D1C4 RID: 53700 RVA: 0x0030C818 File Offset: 0x0030AA18
 		public void RemoveBuffByServer(BuffInfo data)
 		{
 			ServerBuffInfo serverBuffInfo = null;
@@ -1072,7 +1013,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D1C5 RID: 53701 RVA: 0x0030C8B0 File Offset: 0x0030AAB0
 		private void _RemoveBuff(ServerBuffInfo buff, BuffInfo data)
 		{
 			bool flag = buff == null;
@@ -1090,7 +1030,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D1C6 RID: 53702 RVA: 0x0030C8FC File Offset: 0x0030AAFC
 		private void _OnRemoveServerBuff(ServerBuffInfo info)
 		{
 			bool flag = !this.m_bDestroying && !this.m_bLeavingScene;
@@ -1108,7 +1047,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D1C7 RID: 53703 RVA: 0x0030C998 File Offset: 0x0030AB98
 		public void UpdateBuffByServer(BuffInfo data)
 		{
 			UIBuffInfo uibuffInfo = null;
@@ -1136,13 +1074,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D1C8 RID: 53704 RVA: 0x0030CA72 File Offset: 0x0030AC72
 		private void _OnUpdateServerBuff(ServerBuffInfo info)
 		{
 			XBuffSpecialState.TryTransform(this._entity, (int)info.buffID, info.transformID, true);
 		}
 
-		// Token: 0x0600D1C9 RID: 53705 RVA: 0x0030CA90 File Offset: 0x0030AC90
 		public void SetServerAllBuffsInfo(AllBuffsInfo data)
 		{
 			bool flag = data == null;
@@ -1153,7 +1089,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D1CA RID: 53706 RVA: 0x0030CAC8 File Offset: 0x0030ACC8
 		public void SetServerBuffState(uint state)
 		{
 			for (int i = 0; i < XFastEnumIntEqualityComparer<XBuffType>.ToInt(XBuffType.XBuffType_Max); i++)
@@ -1162,7 +1097,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D1CB RID: 53707 RVA: 0x0030CB10 File Offset: 0x0030AD10
 		public void SetServerBuffValues(List<int> index, List<int> values)
 		{
 			for (int i = 0; i < XFastEnumIntEqualityComparer<XBuffType>.ToInt(XBuffType.XBuffType_Max); i++)
@@ -1180,7 +1114,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D1CC RID: 53708 RVA: 0x0030CBD2 File Offset: 0x0030ADD2
 		public override void OnDetachFromHost()
 		{
 			this.m_bDestroying = true;
@@ -1189,7 +1122,6 @@ namespace XMainClient
 			base.OnDetachFromHost();
 		}
 
-		// Token: 0x0600D1CD RID: 53709 RVA: 0x0030CBF1 File Offset: 0x0030ADF1
 		public void InitFromServer(List<BuffInfo> buffs, AllBuffsInfo states)
 		{
 			this.ClearBuff();
@@ -1198,7 +1130,6 @@ namespace XMainClient
 			this.AddBuffByServer(buffs);
 		}
 
-		// Token: 0x0600D1CE RID: 53710 RVA: 0x0030CC14 File Offset: 0x0030AE14
 		public void AddBuffByServer(List<BuffInfo> buffs)
 		{
 			bool flag = buffs == null;
@@ -1211,7 +1142,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D1CF RID: 53711 RVA: 0x0030CC54 File Offset: 0x0030AE54
 		private void _AddBuffNotifyDoc(UIBuffInfo buffInfo)
 		{
 			bool flag = buffInfo == null;
@@ -1230,7 +1160,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D1D0 RID: 53712 RVA: 0x0030CCD4 File Offset: 0x0030AED4
 		private void _RemoveBuffNotifyDoc(UIBuffInfo buffInfo)
 		{
 			bool flag = buffInfo == null;
@@ -1249,7 +1178,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D1D1 RID: 53713 RVA: 0x0030CD54 File Offset: 0x0030AF54
 		private void _UpdateBuffNotifyDoc(UIBuffInfo buffInfo)
 		{
 			bool flag = buffInfo == null;
@@ -1268,13 +1196,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D1D2 RID: 53714 RVA: 0x0030CDD4 File Offset: 0x0030AFD4
 		private void _RefreshQueueImm()
 		{
 			this.PostUpdate(0f);
 		}
 
-		// Token: 0x0600D1D3 RID: 53715 RVA: 0x0030CDE4 File Offset: 0x0030AFE4
 		public XTriggerCondition GetTriggerState(BuffTable.RowData info)
 		{
 			XTriggerCondition xtriggerCondition;
@@ -1287,73 +1213,51 @@ namespace XMainClient
 			return xtriggerCondition;
 		}
 
-		// Token: 0x0600D1D4 RID: 53716 RVA: 0x0030CE2D File Offset: 0x0030B02D
 		public void ClearTriggerStates()
 		{
 			this.m_GlobalTriggerState.Clear();
 		}
 
-		// Token: 0x04005F1E RID: 24350
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("Character_Buff");
 
-		// Token: 0x04005F1F RID: 24351
 		private bool _removeFlag = false;
 
-		// Token: 0x04005F20 RID: 24352
 		private List<XBuff> _BuffList = new List<XBuff>();
 
-		// Token: 0x04005F21 RID: 24353
 		private List<BuffDesc> _AddBuffQueue = new List<BuffDesc>();
 
-		// Token: 0x04005F22 RID: 24354
 		private List<BuffDesc> _AddBuffQueue2 = new List<BuffDesc>();
 
-		// Token: 0x04005F23 RID: 24355
 		private List<ServerBuffInfo> _ServerBuffList = new List<ServerBuffInfo>();
 
-		// Token: 0x04005F24 RID: 24356
 		private Dictionary<int, ClientBuffInfo> _ScaleFx = new Dictionary<int, ClientBuffInfo>();
 
-		// Token: 0x04005F25 RID: 24357
 		private Dictionary<int, ClientBuffInfo> _NoScaleFx = new Dictionary<int, ClientBuffInfo>();
 
-		// Token: 0x04005F26 RID: 24358
 		public Dictionary<int, XTriggerCondition> m_GlobalTriggerState = new Dictionary<int, XTriggerCondition>();
 
-		// Token: 0x04005F27 RID: 24359
 		private bool m_bLeavingScene;
 
-		// Token: 0x04005F28 RID: 24360
 		private bool m_bDestroying;
 
-		// Token: 0x04005F29 RID: 24361
 		private static double CAST_DAMAGE_CHANGE_UPPERBOUND;
 
-		// Token: 0x04005F2A RID: 24362
 		private static double CAST_DAMAGE_CHANGE_LOWERBOUND;
 
-		// Token: 0x04005F2B RID: 24363
 		private static double RECEIVED_DAMAGE_CHANGE_UPPERBOUND;
 
-		// Token: 0x04005F2C RID: 24364
 		private static double RECEIVED_DAMAGE_CHANGE_LOWERBOUND;
 
-		// Token: 0x04005F2D RID: 24365
 		private static double MP_COST_CHANGE_UPPERBOUND;
 
-		// Token: 0x04005F2E RID: 24366
 		private static double MP_COST_CHANGE_LOWERBOUND;
 
-		// Token: 0x04005F2F RID: 24367
 		public static HashSet<int> TransformBuffsChangeOutlook = new HashSet<int>();
 
-		// Token: 0x04005F30 RID: 24368
 		private bool _bPostUpdating = false;
 
-		// Token: 0x04005F31 RID: 24369
 		private List<uint> m_TempBuffList = new List<uint>();
 
-		// Token: 0x04005F32 RID: 24370
 		private List<UIBuffInfo> m_UIBuffList = new List<UIBuffInfo>();
 	}
 }

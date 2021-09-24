@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x020009B0 RID: 2480
+
 	internal class XLevelUpStatusDocument : XDocComponent
 	{
-		// Token: 0x17002D45 RID: 11589
-		// (get) Token: 0x06009639 RID: 38457 RVA: 0x0016A6E4 File Offset: 0x001688E4
+
 		public override uint ID
 		{
 			get
@@ -21,9 +20,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002D46 RID: 11590
-		// (get) Token: 0x0600963A RID: 38458 RVA: 0x0016A6FC File Offset: 0x001688FC
-		// (set) Token: 0x0600963B RID: 38459 RVA: 0x0016A714 File Offset: 0x00168914
 		public bool bBlock
 		{
 			get
@@ -41,8 +37,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002D47 RID: 11591
-		// (get) Token: 0x0600963C RID: 38460 RVA: 0x0016A740 File Offset: 0x00168940
 		public List<uint> NewSkillID
 		{
 			get
@@ -51,9 +45,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002D48 RID: 11592
-		// (get) Token: 0x0600963D RID: 38461 RVA: 0x0016A758 File Offset: 0x00168958
-		// (set) Token: 0x0600963E RID: 38462 RVA: 0x0016A770 File Offset: 0x00168970
 		public uint CurLevel
 		{
 			get
@@ -66,9 +57,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002D49 RID: 11593
-		// (get) Token: 0x0600963F RID: 38463 RVA: 0x0016A77C File Offset: 0x0016897C
-		// (set) Token: 0x06009640 RID: 38464 RVA: 0x0016A794 File Offset: 0x00168994
 		public uint PreLevel
 		{
 			get
@@ -81,9 +69,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002D4A RID: 11594
-		// (get) Token: 0x06009641 RID: 38465 RVA: 0x0016A7A0 File Offset: 0x001689A0
-		// (set) Token: 0x06009642 RID: 38466 RVA: 0x0016A7B8 File Offset: 0x001689B8
 		public List<uint> AttrID
 		{
 			get
@@ -96,9 +81,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002D4B RID: 11595
-		// (get) Token: 0x06009643 RID: 38467 RVA: 0x0016A7C4 File Offset: 0x001689C4
-		// (set) Token: 0x06009644 RID: 38468 RVA: 0x0016A7DC File Offset: 0x001689DC
 		public List<uint> AttrOldValue
 		{
 			get
@@ -111,9 +93,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002D4C RID: 11596
-		// (get) Token: 0x06009645 RID: 38469 RVA: 0x0016A7E8 File Offset: 0x001689E8
-		// (set) Token: 0x06009646 RID: 38470 RVA: 0x0016A800 File Offset: 0x00168A00
 		public List<uint> AttrNewValue
 		{
 			get
@@ -126,17 +105,10 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002D4D RID: 11597
-		// (get) Token: 0x06009647 RID: 38471 RVA: 0x0016A80A File Offset: 0x00168A0A
-		// (set) Token: 0x06009648 RID: 38472 RVA: 0x0016A812 File Offset: 0x00168A12
 		public ulong Exp { get; set; }
 
-		// Token: 0x17002D4E RID: 11598
-		// (get) Token: 0x06009649 RID: 38473 RVA: 0x0016A81B File Offset: 0x00168A1B
-		// (set) Token: 0x0600964A RID: 38474 RVA: 0x0016A823 File Offset: 0x00168A23
 		public ulong MaxExp { get; set; }
 
-		// Token: 0x0600964B RID: 38475 RVA: 0x0016A82C File Offset: 0x00168A2C
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
@@ -144,20 +116,17 @@ namespace XMainClient
 			this.PreLevel = 0U;
 		}
 
-		// Token: 0x0600964C RID: 38476 RVA: 0x0014E32B File Offset: 0x0014C52B
 		public override void OnEnterScene()
 		{
 			base.OnEnterScene();
 		}
 
-		// Token: 0x0600964D RID: 38477 RVA: 0x0016A847 File Offset: 0x00168A47
 		public override void OnEnterSceneFinally()
 		{
 			this._bBlock = false;
 			XSingleton<XTimerMgr>.singleton.SetTimer(0.5f, new XTimerMgr.ElapsedEventHandler(this.ShowLevelUp), null);
 		}
 
-		// Token: 0x0600964E RID: 38478 RVA: 0x0016A870 File Offset: 0x00168A70
 		public void CheckLevelUp()
 		{
 			bool bBlock = this._bBlock;
@@ -214,7 +183,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600964F RID: 38479 RVA: 0x0016AAD0 File Offset: 0x00168CD0
 		public void SetLevelUpStatus()
 		{
 			bool flag = (ulong)this.CurLevel >= (ulong)((long)XSingleton<XGlobalConfig>.singleton.GetInt("ShowLevelUpLimit"));
@@ -225,7 +193,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009650 RID: 38480 RVA: 0x0016AB10 File Offset: 0x00168D10
 		public void LevelRewardShowLevelUp()
 		{
 			bool show = this.Show;
@@ -242,7 +209,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009651 RID: 38481 RVA: 0x0016AB64 File Offset: 0x00168D64
 		public void ShowLevelUp(object o = null)
 		{
 			bool flag = XSingleton<XGame>.singleton.CurrentStage.Stage == EXStage.Hall && this.Show;
@@ -259,7 +225,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009652 RID: 38482 RVA: 0x0016ABCC File Offset: 0x00168DCC
 		public void RefreshNewSkillID()
 		{
 			this._newSkillID.Clear();
@@ -327,7 +292,6 @@ namespace XMainClient
 			XSingleton<XGameSysMgr>.singleton.RecalculateRedPointState(XSysDefine.XSys_Skill, true);
 		}
 
-		// Token: 0x06009653 RID: 38483 RVA: 0x0016AE34 File Offset: 0x00169034
 		private ulong CalGetExp(ulong preExp)
 		{
 			bool flag = this.PreLevel == this.CurLevel;
@@ -351,36 +315,26 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009654 RID: 38484 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 		}
 
-		// Token: 0x04003313 RID: 13075
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("LevelUpStatusDocument");
 
-		// Token: 0x04003314 RID: 13076
 		private uint _PreLevel;
 
-		// Token: 0x04003315 RID: 13077
 		private uint _CurLevel;
 
-		// Token: 0x04003316 RID: 13078
 		private List<uint> _AttrID = new List<uint>();
 
-		// Token: 0x04003317 RID: 13079
 		private List<uint> _AttrOldValue = new List<uint>();
 
-		// Token: 0x04003318 RID: 13080
 		private List<uint> _AttrNewValue = new List<uint>();
 
-		// Token: 0x04003319 RID: 13081
 		public List<uint> _newSkillID = new List<uint>();
 
-		// Token: 0x0400331A RID: 13082
 		private bool Show = false;
 
-		// Token: 0x0400331B RID: 13083
 		private bool _bBlock;
 	}
 }

@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020016CE RID: 5838
+
 	internal class XTargetRewardView : DlgHandlerBase
 	{
-		// Token: 0x0600F0C5 RID: 61637 RVA: 0x00350550 File Offset: 0x0034E750
+
 		protected override void Init()
 		{
 			base.Init();
@@ -55,7 +55,6 @@ namespace XMainClient.UI
 			this.m_GoalList.Refresh();
 		}
 
-		// Token: 0x0600F0C6 RID: 61638 RVA: 0x00350860 File Offset: 0x0034EA60
 		private void WrapContentItemUpdated(Transform t, int index)
 		{
 			bool flag = this._doc != null;
@@ -74,7 +73,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F0C7 RID: 61639 RVA: 0x003508DC File Offset: 0x0034EADC
 		protected void _SetProgressBar(IXUILabel label, IXUIProgress progressBar, TargetItemInfo info)
 		{
 			int num = info.subItems.Count - 1;
@@ -129,7 +127,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F0C8 RID: 61640 RVA: 0x00350A48 File Offset: 0x0034EC48
 		protected void _SetRecord(Transform t, TargetItemInfo info)
 		{
 			IXUILabel ixuilabel = t.Find("TLabel").GetComponent("XUILabel") as IXUILabel;
@@ -184,13 +181,11 @@ namespace XMainClient.UI
 			ixuilabel3.RegisterLabelClickEventHandler(new LabelClickEventHandler(this.OnLabelClick));
 		}
 
-		// Token: 0x0600F0C9 RID: 61641 RVA: 0x00350DB2 File Offset: 0x0034EFB2
 		private void OnLabelClick(IXUILabel uiSprite)
 		{
 			this.ShowDetailView((int)uiSprite.ID);
 		}
 
-		// Token: 0x0600F0CA RID: 61642 RVA: 0x00350DC4 File Offset: 0x0034EFC4
 		private void ShowDetailView(int goalAwardsID)
 		{
 			TargetItemInfo info = new TargetItemInfo();
@@ -212,7 +207,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F0CB RID: 61643 RVA: 0x00350E4C File Offset: 0x0034F04C
 		private bool OnBtnClick(IXUIButton btn)
 		{
 			TargetItemInfo targetItemInfo = new TargetItemInfo();
@@ -235,13 +229,11 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F0CC RID: 61644 RVA: 0x0019EEB0 File Offset: 0x0019D0B0
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 		}
 
-		// Token: 0x0600F0CD RID: 61645 RVA: 0x00350EF8 File Offset: 0x0034F0F8
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -252,27 +244,23 @@ namespace XMainClient.UI
 			this.ReqDetailInfo(0);
 		}
 
-		// Token: 0x0600F0CE RID: 61646 RVA: 0x001E669E File Offset: 0x001E489E
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
 		}
 
-		// Token: 0x0600F0CF RID: 61647 RVA: 0x0025083F File Offset: 0x0024EA3F
 		protected override void OnHide()
 		{
 			base.OnHide();
 			base.PanelObject.SetActive(false);
 		}
 
-		// Token: 0x0600F0D0 RID: 61648 RVA: 0x00350F47 File Offset: 0x0034F147
 		public override void OnUnload()
 		{
 			this._doc = null;
 			base.OnUnload();
 		}
 
-		// Token: 0x0600F0D1 RID: 61649 RVA: 0x00350F58 File Offset: 0x0034F158
 		public bool OnTabControlStateChange(IXUICheckBox chkBox)
 		{
 			bool bChecked = chkBox.bChecked;
@@ -283,13 +271,11 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F0D2 RID: 61650 RVA: 0x00350F85 File Offset: 0x0034F185
 		private void OnTabClick(int index)
 		{
 			this.ReqDetailInfo(index);
 		}
 
-		// Token: 0x0600F0D3 RID: 61651 RVA: 0x00350F90 File Offset: 0x0034F190
 		private void ReqDetailInfo(int index)
 		{
 			bool flag = this._doc != null;
@@ -300,14 +286,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F0D4 RID: 61652 RVA: 0x00350FC8 File Offset: 0x0034F1C8
 		public void RefreshDetails()
 		{
 			this.m_WrapContent.SetContentCount(this._doc.targetAwardDetails.Count, false);
 			this.m_PanelScrollView.ResetPosition();
 		}
 
-		// Token: 0x0600F0D5 RID: 61653 RVA: 0x00350FF4 File Offset: 0x0034F1F4
 		public void RefreshRedPoint()
 		{
 			for (int i = 0; i < this.m_padPoint.Length; i++)
@@ -325,31 +309,22 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x040066BC RID: 26300
 		private XTargetRewardDocument _doc = null;
 
-		// Token: 0x040066BD RID: 26301
 		private XTargetRewardPopWindow popWindow = new XTargetRewardPopWindow();
 
-		// Token: 0x040066BE RID: 26302
 		private IXUICheckBox[] m_padTabs = new IXUICheckBox[4];
 
-		// Token: 0x040066BF RID: 26303
 		private IXUISprite[] m_padPoint = new IXUISprite[4];
 
-		// Token: 0x040066C0 RID: 26304
 		public TargetRewardType m_targetRewardType;
 
-		// Token: 0x040066C1 RID: 26305
 		public IXUIWrapContent m_WrapContent;
 
-		// Token: 0x040066C2 RID: 26306
 		public IXUIScrollView m_PanelScrollView;
 
-		// Token: 0x040066C3 RID: 26307
 		private IXUIList m_GoalList;
 
-		// Token: 0x040066C4 RID: 26308
 		private int maxAwardNum = 4;
 	}
 }

@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017FD RID: 6141
+
 	internal class FashionStorageDlg : DlgBase<FashionStorageDlg, FashionStorageBehaviour>
 	{
-		// Token: 0x170038E9 RID: 14569
-		// (get) Token: 0x0600FEAE RID: 65198 RVA: 0x003BEF08 File Offset: 0x003BD108
+
 		public override string fileName
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170038EA RID: 14570
-		// (get) Token: 0x0600FEAF RID: 65199 RVA: 0x003BEF20 File Offset: 0x003BD120
 		public override bool pushstack
 		{
 			get
@@ -31,8 +28,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170038EB RID: 14571
-		// (get) Token: 0x0600FEB0 RID: 65200 RVA: 0x003BEF34 File Offset: 0x003BD134
 		public override bool autoload
 		{
 			get
@@ -41,8 +36,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170038EC RID: 14572
-		// (get) Token: 0x0600FEB1 RID: 65201 RVA: 0x003BEF48 File Offset: 0x003BD148
 		public override bool hideMainMenu
 		{
 			get
@@ -51,7 +44,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FEB2 RID: 65202 RVA: 0x003BEF5C File Offset: 0x003BD15C
 		protected override void Init()
 		{
 			base.Init();
@@ -64,7 +56,6 @@ namespace XMainClient.UI
 			this.m_effectFrame = DlgHandlerBase.EnsureCreate<FashionStorageEffectFrame>(ref this.m_effectFrame, base.uiBehaviour.m_effectFrame, null, false);
 		}
 
-		// Token: 0x0600FEB3 RID: 65203 RVA: 0x003BF034 File Offset: 0x003BD234
 		private void ItemWrapContentUpdate(Transform t, int index)
 		{
 			bool flag = this.m_SelectList == null || index >= this.m_SelectList.Count || this.m_SelectList[index] == null;
@@ -92,7 +83,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FEB4 RID: 65204 RVA: 0x003BF1E4 File Offset: 0x003BD3E4
 		public void Refresh()
 		{
 			this.OnTabChange(this.m_doc.fashionStorageType, true, false);
@@ -113,7 +103,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FEB5 RID: 65205 RVA: 0x003BF294 File Offset: 0x003BD494
 		private void RefreshRedPoint()
 		{
 			base.uiBehaviour.m_outLookRedPoint.SetVisible(this.m_doc.SuitRedPoint);
@@ -122,7 +111,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_effectRedPoint.SetVisible(this.m_doc.fashionStorageType == FashionStorageType.OutLook && this.m_doc.SuitRedPoint);
 		}
 
-		// Token: 0x0600FEB6 RID: 65206 RVA: 0x003BF324 File Offset: 0x003BD524
 		private void SetSelectIndex(int index = -1)
 		{
 			bool flag = this.m_SelectList == null || this.m_SelectList.Count == 0;
@@ -168,7 +156,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FEB7 RID: 65207 RVA: 0x003BF430 File Offset: 0x003BD630
 		private void OnReSelect()
 		{
 			uint[] fashionList = this.m_select.GetFashionList();
@@ -188,7 +175,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FEB8 RID: 65208 RVA: 0x003BF49C File Offset: 0x003BD69C
 		private void SetupEffect(uint effectid)
 		{
 			bool flag = effectid == 0U;
@@ -232,7 +218,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FEB9 RID: 65209 RVA: 0x003BF580 File Offset: 0x003BD780
 		private void ReSetSelect()
 		{
 			this.ShowAvatar(null);
@@ -251,7 +236,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FEBA RID: 65210 RVA: 0x003BF5D8 File Offset: 0x003BD7D8
 		private void ShowFx(bool fx = false)
 		{
 			bool flag = this.m_fashionFx == null;
@@ -261,7 +245,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FEBB RID: 65211 RVA: 0x003BF618 File Offset: 0x003BD818
 		private void DestroyFx()
 		{
 			bool flag = this.m_fashionFx == null;
@@ -272,7 +255,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FEBC RID: 65212 RVA: 0x003BF650 File Offset: 0x003BD850
 		private void ResetNormalParts()
 		{
 			bool flag = this.allParts == null;
@@ -289,7 +271,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FEBD RID: 65213 RVA: 0x003BF6A4 File Offset: 0x003BD8A4
 		private void SetPartInfo(uint[] part = null)
 		{
 			this.ResetNormalParts();
@@ -377,14 +358,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FEBE RID: 65214 RVA: 0x003BF95B File Offset: 0x003BDB5B
 		private void _EffectSpriteClick(IXUISprite sprite)
 		{
 			XSingleton<XDebug>.singleton.AddGreenLog("_EffectSpriteClick", null, null, null, null, null);
 			this.Switch(FashionStoragePreview.Effect);
 		}
 
-		// Token: 0x0600FEBF RID: 65215 RVA: 0x003BF97C File Offset: 0x003BDB7C
 		private void OnClickPart(IXUISprite sprite)
 		{
 			bool flag = sprite.ID == 0UL;
@@ -397,14 +376,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FEC0 RID: 65216 RVA: 0x003BF9E0 File Offset: 0x003BDBE0
 		private void OnSelectClick(IXUISprite sprite)
 		{
 			this.Switch(FashionStoragePreview.None);
 			this.SetSelectIndex((int)sprite.ID);
 		}
 
-		// Token: 0x0600FEC1 RID: 65217 RVA: 0x003BF9FC File Offset: 0x003BDBFC
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -415,7 +392,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_effectSprite.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this._EffectSpriteClick));
 		}
 
-		// Token: 0x0600FEC2 RID: 65218 RVA: 0x003BFAA4 File Offset: 0x003BDCA4
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -426,7 +402,6 @@ namespace XMainClient.UI
 			this.OnTabChange(this.m_doc.fashionStorageType, true, true);
 		}
 
-		// Token: 0x0600FEC3 RID: 65219 RVA: 0x003BFAFC File Offset: 0x003BDCFC
 		protected override void OnHide()
 		{
 			this.DestroyFx();
@@ -445,15 +420,12 @@ namespace XMainClient.UI
 			base.OnHide();
 		}
 
-		// Token: 0x0600FEC4 RID: 65220 RVA: 0x003BFB67 File Offset: 0x003BDD67
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
 			base.Alloc3DAvatarPool("FashionStorageDlg");
 		}
 
-		// Token: 0x170038ED RID: 14573
-		// (get) Token: 0x0600FEC5 RID: 65221 RVA: 0x003BFB80 File Offset: 0x003BDD80
 		private OutLook outLook
 		{
 			get
@@ -472,7 +444,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FEC6 RID: 65222 RVA: 0x003BFBD4 File Offset: 0x003BDDD4
 		public void ShowAvatar()
 		{
 			bool flag = !base.IsVisible();
@@ -490,7 +461,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FEC7 RID: 65223 RVA: 0x003BFC1C File Offset: 0x003BDE1C
 		private void ShowAvatar(uint[] fashionList = null)
 		{
 			this.outLook.display_fashion.display_fashions.Clear();
@@ -537,7 +507,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FEC8 RID: 65224 RVA: 0x003BFDBC File Offset: 0x003BDFBC
 		private bool OnAvatarDrag(Vector2 delta)
 		{
 			bool flag = this.m_Dummy != null;
@@ -553,7 +522,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FEC9 RID: 65225 RVA: 0x003BFE38 File Offset: 0x003BE038
 		protected override void OnUnload()
 		{
 			this.m_outLook = null;
@@ -571,14 +539,12 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x0600FECA RID: 65226 RVA: 0x003BFEB8 File Offset: 0x003BE0B8
 		private bool OnCloseClick(IXUIButton btn)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return false;
 		}
 
-		// Token: 0x0600FECB RID: 65227 RVA: 0x003BFED4 File Offset: 0x003BE0D4
 		private bool OnTabClick(IXUICheckBox check)
 		{
 			bool bChecked = check.bChecked;
@@ -591,7 +557,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FECC RID: 65228 RVA: 0x003BFF10 File Offset: 0x003BE110
 		private void OnTabChange(FashionStorageType define, bool atOnce = false, bool reset = false)
 		{
 			bool flag = !atOnce && define == this.m_doc.fashionStorageType;
@@ -618,7 +583,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FECD RID: 65229 RVA: 0x003BFFD0 File Offset: 0x003BE1D0
 		public void Switch(FashionStoragePreview preview)
 		{
 			bool flag = !base.IsVisible() || this.m_previewType == preview;
@@ -629,7 +593,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FECE RID: 65230 RVA: 0x003C0008 File Offset: 0x003BE208
 		private void SwitchOutLook()
 		{
 			bool flag = this.m_doc.fashionStorageType == FashionStorageType.OutLook;
@@ -640,46 +603,32 @@ namespace XMainClient.UI
 			this.SetupEffect(flag ? this.m_doc.selfEffectID : 0U);
 		}
 
-		// Token: 0x0400709E RID: 28830
 		private XFashionStorageDocument m_doc;
 
-		// Token: 0x0400709F RID: 28831
 		private List<IFashionStorageSelect> m_SelectList;
 
-		// Token: 0x040070A0 RID: 28832
 		private IFashionStorageSelect m_select;
 
-		// Token: 0x040070A1 RID: 28833
 		private FashionStotageDisplayHandle m_FashinListFrame;
 
-		// Token: 0x040070A2 RID: 28834
 		private FashionStorageAttributeFrame m_AttributeFrame;
 
-		// Token: 0x040070A3 RID: 28835
 		private FashionStorageHairColorFrame m_HairColorFrame;
 
-		// Token: 0x040070A4 RID: 28836
 		private FashionStorageEffectFrame m_effectFrame;
 
-		// Token: 0x040070A5 RID: 28837
 		private Vector3 m_dummyAngle = new Vector3(0f, 180f, 0f);
 
-		// Token: 0x040070A6 RID: 28838
 		private XFx m_fashionFx;
 
-		// Token: 0x040070A7 RID: 28839
 		private XDummy m_Dummy;
 
-		// Token: 0x040070A8 RID: 28840
 		private string m_fashionFxURL = "Effects/FX_Particle/UIfx/UI_UI_FashionStorageDlg_fx01";
 
-		// Token: 0x040070A9 RID: 28841
 		private FashionStoragePreview m_previewType = FashionStoragePreview.None;
 
-		// Token: 0x040070AA RID: 28842
 		private uint[] allParts = null;
 
-		// Token: 0x040070AB RID: 28843
 		private OutLook m_outLook;
 	}
 }

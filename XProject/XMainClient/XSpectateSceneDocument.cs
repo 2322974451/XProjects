@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x020009DD RID: 2525
+
 	internal class XSpectateSceneDocument : XDocComponent
 	{
-		// Token: 0x17002DEC RID: 11756
-		// (get) Token: 0x060099E7 RID: 39399 RVA: 0x00183104 File Offset: 0x00181304
+
 		public override uint ID
 		{
 			get
@@ -21,9 +20,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002DED RID: 11757
-		// (get) Token: 0x060099E8 RID: 39400 RVA: 0x0018311C File Offset: 0x0018131C
-		// (set) Token: 0x060099E9 RID: 39401 RVA: 0x00183134 File Offset: 0x00181334
 		public SpectateSceneView _SpectateSceneView
 		{
 			get
@@ -36,8 +32,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002DEE RID: 11758
-		// (get) Token: 0x060099EA RID: 39402 RVA: 0x00183140 File Offset: 0x00181340
 		public uint CurrentBuffID
 		{
 			get
@@ -46,8 +40,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002DEF RID: 11759
-		// (get) Token: 0x060099EB RID: 39403 RVA: 0x00183158 File Offset: 0x00181358
 		public bool ShowStrengthPresevedBar
 		{
 			get
@@ -56,13 +48,8 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002DF0 RID: 11760
-		// (get) Token: 0x060099EC RID: 39404 RVA: 0x00183170 File Offset: 0x00181370
-		// (set) Token: 0x060099ED RID: 39405 RVA: 0x00183178 File Offset: 0x00181378
 		public bool ShowTeamMemberDamageHUD { get; set; }
 
-		// Token: 0x17002DF1 RID: 11761
-		// (get) Token: 0x060099EE RID: 39406 RVA: 0x00183184 File Offset: 0x00181384
 		public LiveTable LiveConfigTable
 		{
 			get
@@ -71,26 +58,20 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002DF2 RID: 11762
-		// (get) Token: 0x060099EF RID: 39407 RVA: 0x0018319B File Offset: 0x0018139B
-		// (set) Token: 0x060099F0 RID: 39408 RVA: 0x001831A3 File Offset: 0x001813A3
 		public bool IsCrossServerBattle { get; set; }
 
-		// Token: 0x060099F1 RID: 39409 RVA: 0x001831AC File Offset: 0x001813AC
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			XSpectateSceneDocument.AsyncLoader.AddTask("Table/LiveTable", XSpectateSceneDocument._liveConfigTable, false);
 			XSpectateSceneDocument.AsyncLoader.Execute(callback);
 		}
 
-		// Token: 0x060099F2 RID: 39410 RVA: 0x001831D1 File Offset: 0x001813D1
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
 			this.ShowTeamMemberDamageHUD = (XSingleton<XGlobalConfig>.singleton.GetInt("ShowTeamMemberDamageHUD") == 1);
 		}
 
-		// Token: 0x060099F3 RID: 39411 RVA: 0x001831F8 File Offset: 0x001813F8
 		public void GetTargetNum(bool isBattle = false)
 		{
 			LiveTable.RowData rowData;
@@ -114,19 +95,16 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060099F4 RID: 39412 RVA: 0x00183287 File Offset: 0x00181487
 		public override void OnEnterScene()
 		{
 			base.OnEnterScene();
 			this._BattleLines.Clear();
 		}
 
-		// Token: 0x060099F5 RID: 39413 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public override void OnEnterSceneFinally()
 		{
 		}
 
-		// Token: 0x060099F6 RID: 39414 RVA: 0x001832A0 File Offset: 0x001814A0
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 			bool flag = this._view != null && this._view.IsLoaded() && this._view.IsVisible();
@@ -136,7 +114,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060099F7 RID: 39415 RVA: 0x001832E0 File Offset: 0x001814E0
 		protected override void EventSubscribe()
 		{
 			base.EventSubscribe();
@@ -152,7 +129,6 @@ namespace XMainClient
 			base.RegisterEvent(XEventDefine.XEvent_OnEntityDeleted, new XComponent.XEventHandler(this.OnEntityDelete));
 		}
 
-		// Token: 0x060099F8 RID: 39416 RVA: 0x001833E0 File Offset: 0x001815E0
 		public override void OnLeaveScene()
 		{
 			base.OnLeaveScene();
@@ -165,7 +141,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060099F9 RID: 39417 RVA: 0x00183420 File Offset: 0x00181620
 		public bool TryGetSummonedIsBlueTeam(XEntity entity, out bool isBlueTeam)
 		{
 			isBlueTeam = true;
@@ -210,7 +185,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060099FA RID: 39418 RVA: 0x001834E8 File Offset: 0x001816E8
 		public bool TryGetTeam(XEntity entity, out bool isBlueTeam)
 		{
 			isBlueTeam = true;
@@ -249,7 +223,6 @@ namespace XMainClient
 			return this.IsBlueTeamDict.TryGetValue(entity.Attributes.RoleID, out isBlueTeam);
 		}
 
-		// Token: 0x060099FB RID: 39419 RVA: 0x001835D8 File Offset: 0x001817D8
 		public bool TryGetEntityIsBlueTeam(XEntity entity, out bool isBlueTeam)
 		{
 			isBlueTeam = true;
@@ -289,7 +262,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060099FC RID: 39420 RVA: 0x001836C4 File Offset: 0x001818C4
 		public void DealWithTeamMessage(OneLiveRecordInfo data)
 		{
 			XSingleton<XDebug>.singleton.AddLog("Get TeamMonitor Data In Spectator Mode.", null, null, null, null, null, XDebugColor.XDebug_None);
@@ -380,7 +352,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060099FD RID: 39421 RVA: 0x00183A70 File Offset: 0x00181C70
 		public void DealWithUnitAppear(XEntity entity)
 		{
 			bool flag = !entity.IsRole;
@@ -446,7 +417,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060099FE RID: 39422 RVA: 0x00183CC4 File Offset: 0x00181EC4
 		public void DealWithUnitDisAppear(ulong roleID)
 		{
 			bool flag = !DlgBase<SpectateSceneView, SpectateSceneBehaviour>.singleton.IsLoaded();
@@ -465,7 +435,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060099FF RID: 39423 RVA: 0x00183D3C File Offset: 0x00181F3C
 		public void DeleteMonitorByRoleID(ulong roleID)
 		{
 			XSingleton<XDebug>.singleton.AddLog("GuildArena DeleteMonitorByRoleID ID = ", roleID.ToString(), null, null, null, null, XDebugColor.XDebug_None);
@@ -494,7 +463,6 @@ namespace XMainClient
 			XSingleton<XDebug>.singleton.AddLog("Delete Monitor in Spectate Mode fail. MayBe isn't a role. ID = ", roleID.ToString(), null, null, null, null, XDebugColor.XDebug_None);
 		}
 
-		// Token: 0x06009A00 RID: 39424 RVA: 0x00183E70 File Offset: 0x00182070
 		private void ChangeSpectateWhenWatchNull()
 		{
 			bool flag = XSingleton<XEntityMgr>.singleton.Player != null && XSingleton<XEntityMgr>.singleton.Player.WatchTo == null;
@@ -524,7 +492,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009A01 RID: 39425 RVA: 0x00183F94 File Offset: 0x00182194
 		protected bool OnProjectDamage(XEventArgs args)
 		{
 			bool flag = this._view == null || !this._view.IsVisible();
@@ -542,7 +509,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009A02 RID: 39426 RVA: 0x00183FE8 File Offset: 0x001821E8
 		protected bool OnArmorRecover(XEventArgs args)
 		{
 			XArmorRecoverArgs xarmorRecoverArgs = args as XArmorRecoverArgs;
@@ -562,7 +528,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009A03 RID: 39427 RVA: 0x0018403C File Offset: 0x0018223C
 		protected bool OnArmorBroken(XEventArgs args)
 		{
 			XArmorBrokenArgs xarmorBrokenArgs = args as XArmorBrokenArgs;
@@ -582,7 +547,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009A04 RID: 39428 RVA: 0x00184090 File Offset: 0x00182290
 		protected bool OnWoozyOn(XEventArgs args)
 		{
 			XWoozyOnArgs xwoozyOnArgs = args as XWoozyOnArgs;
@@ -600,7 +564,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009A05 RID: 39429 RVA: 0x001840D0 File Offset: 0x001822D0
 		protected bool OnWoozyOff(XEventArgs args)
 		{
 			XWoozyOffArgs xwoozyOffArgs = args as XWoozyOffArgs;
@@ -618,7 +581,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009A06 RID: 39430 RVA: 0x00184110 File Offset: 0x00182310
 		protected bool OnStrengthPresevedOn(XEventArgs args)
 		{
 			this._showStrengthPresevedBar = true;
@@ -638,7 +600,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009A07 RID: 39431 RVA: 0x00184160 File Offset: 0x00182360
 		protected bool OnStrengthPresevedOff(XEventArgs args)
 		{
 			XStrengthPresevationOffArgs xstrengthPresevationOffArgs = args as XStrengthPresevationOffArgs;
@@ -675,7 +636,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009A08 RID: 39432 RVA: 0x001841D8 File Offset: 0x001823D8
 		protected bool OnBuffChange(XEventArgs args)
 		{
 			XBuffChangeEventArgs xbuffChangeEventArgs = args as XBuffChangeEventArgs;
@@ -683,7 +643,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x06009A09 RID: 39433 RVA: 0x00184200 File Offset: 0x00182400
 		protected void OnBuffChange(XEntity entity)
 		{
 			bool flag = entity == null || !DlgBase<SpectateSceneView, SpectateSceneBehaviour>.singleton.IsLoaded();
@@ -712,7 +671,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009A0A RID: 39434 RVA: 0x001842C8 File Offset: 0x001824C8
 		public bool CheckBindQTE()
 		{
 			List<uint> buffList = XSingleton<XEntityMgr>.singleton.Player.Buffs.GetBuffList();
@@ -733,7 +691,6 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x06009A0B RID: 39435 RVA: 0x0018436C File Offset: 0x0018256C
 		public void LineStateChange(ulong e1, ulong e2, bool on)
 		{
 			BattleLine battleLine = this.FindBattleLine(e1, e2);
@@ -766,7 +723,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009A0C RID: 39436 RVA: 0x001844C8 File Offset: 0x001826C8
 		public void RefreshTowerSceneInfo(PtcG2C_TowerSceneInfoNtf infoNtf)
 		{
 			XExpeditionDocument specificDocument = XDocuments.GetSpecificDocument<XExpeditionDocument>(XExpeditionDocument.uuID);
@@ -782,7 +738,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009A0D RID: 39437 RVA: 0x00184550 File Offset: 0x00182750
 		protected BattleLine FindBattleLine(ulong e1, ulong e2)
 		{
 			for (int i = 0; i < this._BattleLines.Count; i++)
@@ -796,7 +751,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x06009A0E RID: 39438 RVA: 0x001845EC File Offset: 0x001827EC
 		private bool OnEntityCreate(XEventArgs args)
 		{
 			XOnEntityCreatedArgs xonEntityCreatedArgs = args as XOnEntityCreatedArgs;
@@ -805,7 +759,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x06009A0F RID: 39439 RVA: 0x00184620 File Offset: 0x00182820
 		private bool OnEntityDelete(XEventArgs args)
 		{
 			XOnEntityDeletedArgs xonEntityDeletedArgs = args as XOnEntityDeletedArgs;
@@ -814,7 +767,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x06009A10 RID: 39440 RVA: 0x00184654 File Offset: 0x00182854
 		private void MiniMapAdd(XEntity e)
 		{
 			bool flag = DlgBase<SpectateSceneView, SpectateSceneBehaviour>.singleton.IsLoaded();
@@ -828,7 +780,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009A11 RID: 39441 RVA: 0x00184694 File Offset: 0x00182894
 		private void MiniMapDel(ulong uid)
 		{
 			bool flag = DlgBase<SpectateSceneView, SpectateSceneBehaviour>.singleton.IsLoaded();
@@ -842,7 +793,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009A12 RID: 39442 RVA: 0x001846D4 File Offset: 0x001828D4
 		public static void SetMiniMapElement(ulong id, string spriteName, int width, int height)
 		{
 			bool flag = DlgBase<SpectateSceneView, SpectateSceneBehaviour>.singleton.IsLoaded();
@@ -856,7 +806,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009A13 RID: 39443 RVA: 0x00184718 File Offset: 0x00182918
 		public static void ResetMiniMapElement(ulong id)
 		{
 			bool flag = DlgBase<SpectateSceneView, SpectateSceneBehaviour>.singleton.IsLoaded();
@@ -870,7 +819,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009A14 RID: 39444 RVA: 0x00184758 File Offset: 0x00182958
 		public override void Update(float fDeltaT)
 		{
 			base.Update(fDeltaT);
@@ -881,14 +829,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009A15 RID: 39445 RVA: 0x00184878 File Offset: 0x00182A78
 		public void SendCommendBtnClick()
 		{
 			RpcC2G_CommendWatchBattle rpc = new RpcC2G_CommendWatchBattle();
 			XSingleton<XClientNetwork>.singleton.Send(rpc);
 		}
 
-		// Token: 0x06009A16 RID: 39446 RVA: 0x00184898 File Offset: 0x00182A98
 		public void LevelScene()
 		{
 			bool flag = Time.time - this.LastLevelSceneTime < 5f;
@@ -899,7 +845,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009A17 RID: 39447 RVA: 0x001848D8 File Offset: 0x00182AD8
 		public static bool WhetherWathchNumShow(int watchNum, int commendNum, int sceneType)
 		{
 			LiveTable.RowData bySceneType = XSpectateSceneDocument._liveConfigTable.GetBySceneType(sceneType);
@@ -917,7 +862,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009A18 RID: 39448 RVA: 0x00184924 File Offset: 0x00182B24
 		public void CommendClickSuccess()
 		{
 			bool flag = DlgBase<SpectateSceneView, SpectateSceneBehaviour>.singleton.IsVisible() && DlgBase<SpectateSceneView, SpectateSceneBehaviour>.singleton.SpectateHandler != null;
@@ -927,7 +871,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009A19 RID: 39449 RVA: 0x00184964 File Offset: 0x00182B64
 		public static void SetMiniMapSize(Vector2 size, float scale = 0f)
 		{
 			bool flag = DlgBase<SpectateSceneView, SpectateSceneBehaviour>.singleton.IsLoaded();
@@ -941,7 +884,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009A1A RID: 39450 RVA: 0x001849A8 File Offset: 0x00182BA8
 		public static uint AddMiniMapFx(Vector3 pos, string fx)
 		{
 			bool flag = DlgBase<SpectateSceneView, SpectateSceneBehaviour>.singleton.IsLoaded();
@@ -956,7 +898,6 @@ namespace XMainClient
 			return 0U;
 		}
 
-		// Token: 0x06009A1B RID: 39451 RVA: 0x001849F0 File Offset: 0x00182BF0
 		public static void DelMiniMapFx(uint token)
 		{
 			bool flag = DlgBase<SpectateSceneView, SpectateSceneBehaviour>.singleton.IsLoaded();
@@ -970,7 +911,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009A1C RID: 39452 RVA: 0x00184A30 File Offset: 0x00182C30
 		public static uint AddMiniMapPic(Vector3 pos, string fx)
 		{
 			bool flag = DlgBase<SpectateSceneView, SpectateSceneBehaviour>.singleton.IsLoaded();
@@ -985,7 +925,6 @@ namespace XMainClient
 			return 0U;
 		}
 
-		// Token: 0x06009A1D RID: 39453 RVA: 0x00184A78 File Offset: 0x00182C78
 		public static void DelMiniMapPic(uint token)
 		{
 			bool flag = DlgBase<SpectateSceneView, SpectateSceneBehaviour>.singleton.IsLoaded();
@@ -999,7 +938,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009A1E RID: 39454 RVA: 0x00184AB8 File Offset: 0x00182CB8
 		public void SendCheckTime()
 		{
 			bool sceneStarted = XSingleton<XScene>.singleton.SceneStarted;
@@ -1010,7 +948,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009A1F RID: 39455 RVA: 0x00184AE8 File Offset: 0x00182CE8
 		public void ResetSceneTime(int time)
 		{
 			bool flag = !DlgBase<SpectateSceneView, SpectateSceneBehaviour>.singleton.IsVisible();
@@ -1020,7 +957,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009A20 RID: 39456 RVA: 0x00184B18 File Offset: 0x00182D18
 		public void ChangeSpectator(XRole role)
 		{
 			bool flag = DlgBase<SpectateSceneView, SpectateSceneBehaviour>.singleton.IsLoaded();
@@ -1052,73 +988,50 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x040034E7 RID: 13543
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("SpectateSceneDocument");
 
-		// Token: 0x040034E8 RID: 13544
 		private SpectateSceneView _view = null;
 
-		// Token: 0x040034E9 RID: 13545
 		private uint _currentBuffID = 0U;
 
-		// Token: 0x040034EA RID: 13546
 		private bool _showStrengthPresevedBar = false;
 
-		// Token: 0x040034EB RID: 13547
 		private XEntity _strengthPresevedEntity = null;
 
-		// Token: 0x040034EC RID: 13548
 		private List<BattleLine> _BattleLines = new List<BattleLine>();
 
-		// Token: 0x040034ED RID: 13549
 		private static string LINEFX = "Effects/FX_Particle/Roles/Lzg_Ty/shuangren_xian";
 
-		// Token: 0x040034EF RID: 13551
 		public List<XTeamBloodUIData> LeftTeamMonitorData = new List<XTeamBloodUIData>();
 
-		// Token: 0x040034F0 RID: 13552
 		public List<XTeamBloodUIData> RightTeamMonitorData = new List<XTeamBloodUIData>();
 
-		// Token: 0x040034F1 RID: 13553
 		public Dictionary<ulong, bool> IsBlueTeamDict = new Dictionary<ulong, bool>();
 
-		// Token: 0x040034F2 RID: 13554
 		public HashSet<ulong> UnInitRoleList = new HashSet<ulong>();
 
-		// Token: 0x040034F3 RID: 13555
 		public ulong BlueSaveID = 0UL;
 
-		// Token: 0x040034F4 RID: 13556
 		public ulong RedSaveID = 0UL;
 
-		// Token: 0x040034F5 RID: 13557
 		public uint BlueFightGroup = uint.MaxValue;
 
-		// Token: 0x040034F6 RID: 13558
 		public uint RedFightGroup = uint.MaxValue;
 
-		// Token: 0x040034F7 RID: 13559
 		public int WatchNum = 0;
 
-		// Token: 0x040034F8 RID: 13560
 		public int CommendNum = 0;
 
-		// Token: 0x040034F9 RID: 13561
 		public int WatchTarget;
 
-		// Token: 0x040034FA RID: 13562
 		public int CommendTarget;
 
-		// Token: 0x040034FB RID: 13563
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x040034FC RID: 13564
 		private static LiveTable _liveConfigTable = new LiveTable();
 
-		// Token: 0x040034FD RID: 13565
 		private float LastLevelSceneTime = 0f;
 
-		// Token: 0x040034FE RID: 13566
 		public OneLiveRecordInfo liveRecordInfo;
 	}
 }

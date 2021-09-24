@@ -3,11 +3,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000EE1 RID: 3809
+
 	internal sealed class XCombinedSkill : XArtsSkill
 	{
-		// Token: 0x17003536 RID: 13622
-		// (get) Token: 0x0600C9EB RID: 51691 RVA: 0x002D9560 File Offset: 0x002D7760
+
 		public override int SkillType
 		{
 			get
@@ -16,8 +15,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003537 RID: 13623
-		// (get) Token: 0x0600C9EC RID: 51692 RVA: 0x002D9574 File Offset: 0x002D7774
 		public override XSkillCore MainCore
 		{
 			get
@@ -26,7 +23,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C9ED RID: 51693 RVA: 0x002D958C File Offset: 0x002D778C
 		public override void Initialize(XEntity firer)
 		{
 			base.Initialize(firer);
@@ -34,14 +30,12 @@ namespace XMainClient
 			XSingleton<BufferPoolMgr>.singleton.GetSmallBuffer(ref this._combined_token, 16, 0);
 		}
 
-		// Token: 0x0600C9EE RID: 51694 RVA: 0x002D95BB File Offset: 0x002D77BB
 		public override void Uninitialize()
 		{
 			base.Uninitialize();
 			XSingleton<BufferPoolMgr>.singleton.ReturnSmallBuffer(ref this._combined_token);
 		}
 
-		// Token: 0x0600C9EF RID: 51695 RVA: 0x002D95D8 File Offset: 0x002D77D8
 		protected override bool InnerProcessTimer(object param, int id)
 		{
 			bool flag = !base.InnerProcessTimer(param, id);
@@ -57,13 +51,11 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x0600C9F0 RID: 51696 RVA: 0x002D9614 File Offset: 0x002D7814
 		public override uint GetCombinedId()
 		{
 			return (uint)this._combined_id;
 		}
 
-		// Token: 0x0600C9F1 RID: 51697 RVA: 0x002D962C File Offset: 0x002D782C
 		public override void TriggerAnim()
 		{
 			bool flag = this._firer.Ator != null;
@@ -74,13 +66,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C9F2 RID: 51698 RVA: 0x002D969F File Offset: 0x002D789F
 		public void ShutDown()
 		{
 			this._shut_down = true;
 		}
 
-		// Token: 0x0600C9F3 RID: 51699 RVA: 0x002D96AC File Offset: 0x002D78AC
 		protected override void FireEvents()
 		{
 			float at = this.MainCore.Soul.Combined[this._combined_id].At;
@@ -244,7 +234,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C9F4 RID: 51700 RVA: 0x002D9F90 File Offset: 0x002D8190
 		protected override bool Present()
 		{
 			bool shut_down = this._shut_down;
@@ -260,7 +249,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C9F5 RID: 51701 RVA: 0x002D9FD8 File Offset: 0x002D81D8
 		public void CombinedStop(bool cleanUp)
 		{
 			bool combined_set_camera_effect = this._combined_set_camera_effect;
@@ -340,7 +328,6 @@ namespace XMainClient
 			this._combined_set_not_selected = false;
 		}
 
-		// Token: 0x0600C9F6 RID: 51702 RVA: 0x002DA278 File Offset: 0x002D8478
 		private void MainCoreStart()
 		{
 			this._result_time = 0;
@@ -446,7 +433,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C9F7 RID: 51703 RVA: 0x002DAA54 File Offset: 0x002D8C54
 		protected override bool Launch(XSkillCore core)
 		{
 			bool flag = core.Soul.Combined.Count > 0;
@@ -466,7 +452,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C9F8 RID: 51704 RVA: 0x002DAAAC File Offset: 0x002D8CAC
 		public void CombinedKillTimerAll()
 		{
 			for (int i = 0; i < this._combined_token.Count; i++)
@@ -476,7 +461,6 @@ namespace XMainClient
 			this._combined_token.Clear();
 		}
 
-		// Token: 0x0600C9F9 RID: 51705 RVA: 0x002DAAFC File Offset: 0x002D8CFC
 		private void Combined(object param)
 		{
 			this._combined_id = (int)param;
@@ -524,39 +508,30 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C9FA RID: 51706 RVA: 0x002DAD2D File Offset: 0x002D8F2D
 		public void AddedCombinedTimerToken(uint token)
 		{
 			this._combined_token.Add(token);
 		}
 
-		// Token: 0x04005944 RID: 22852
 		private XSkillCore _main_core = null;
 
-		// Token: 0x04005945 RID: 22853
 		private int _combined_id = 0;
 
-		// Token: 0x04005946 RID: 22854
 		private uint _combine_token = 0U;
 
-		// Token: 0x04005947 RID: 22855
 		private int _result_time = 0;
 
-		// Token: 0x04005948 RID: 22856
 		private bool _shut_down = false;
 
-		// Token: 0x04005949 RID: 22857
 		private float _shut_down_elapsed = 0f;
 
-		// Token: 0x0400594A RID: 22858
 		private SmallBuffer<uint> _combined_token;
 
-		// Token: 0x020019E4 RID: 6628
 		private enum ECombinedSkillTimerCb
 		{
-			// Token: 0x04008087 RID: 32903
+
 			ECombined = 25,
-			// Token: 0x04008088 RID: 32904
+
 			ECombinedSkillNum
 		}
 	}

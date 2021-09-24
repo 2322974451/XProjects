@@ -9,11 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200181D RID: 6173
+
 	internal class BossRushDlg : DlgBase<BossRushDlg, BossRushBehavior>
 	{
-		// Token: 0x1700390D RID: 14605
-		// (get) Token: 0x06010040 RID: 65600 RVA: 0x003CD9A8 File Offset: 0x003CBBA8
+
 		public override string fileName
 		{
 			get
@@ -22,8 +21,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700390E RID: 14606
-		// (get) Token: 0x06010041 RID: 65601 RVA: 0x003CD9C0 File Offset: 0x003CBBC0
 		public override bool pushstack
 		{
 			get
@@ -32,8 +29,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700390F RID: 14607
-		// (get) Token: 0x06010042 RID: 65602 RVA: 0x003CD9D4 File Offset: 0x003CBBD4
 		public override int sysid
 		{
 			get
@@ -42,8 +37,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003910 RID: 14608
-		// (get) Token: 0x06010043 RID: 65603 RVA: 0x003CD9F0 File Offset: 0x003CBBF0
 		public override bool hideMainMenu
 		{
 			get
@@ -52,8 +45,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003911 RID: 14609
-		// (get) Token: 0x06010044 RID: 65604 RVA: 0x003CDA04 File Offset: 0x003CBC04
 		public override bool fullscreenui
 		{
 			get
@@ -62,8 +53,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003912 RID: 14610
-		// (get) Token: 0x06010045 RID: 65605 RVA: 0x003CDA18 File Offset: 0x003CBC18
 		public bool isHallUI
 		{
 			get
@@ -72,8 +61,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003913 RID: 14611
-		// (get) Token: 0x06010046 RID: 65606 RVA: 0x003CDA3C File Offset: 0x003CBC3C
 		public bool isBattle
 		{
 			get
@@ -82,8 +69,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003914 RID: 14612
-		// (get) Token: 0x06010047 RID: 65607 RVA: 0x003CDA60 File Offset: 0x003CBC60
 		public uint killAllMonster
 		{
 			get
@@ -103,8 +88,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003915 RID: 14613
-		// (get) Token: 0x06010048 RID: 65608 RVA: 0x003CDAD4 File Offset: 0x003CBCD4
 		public bool isWin
 		{
 			get
@@ -124,8 +107,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003916 RID: 14614
-		// (get) Token: 0x06010049 RID: 65609 RVA: 0x003CDB48 File Offset: 0x003CBD48
 		private bool isPrivilege
 		{
 			get
@@ -136,7 +117,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601004A RID: 65610 RVA: 0x003CDB78 File Offset: 0x003CBD78
 		protected override void Init()
 		{
 			base.Init();
@@ -151,7 +131,6 @@ namespace XMainClient.UI
 			this.colors[3] = "[" + XSingleton<XGlobalConfig>.singleton.GetValue("Diff3Color") + "]";
 		}
 
-		// Token: 0x0601004B RID: 65611 RVA: 0x003CDC98 File Offset: 0x003CBE98
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -164,20 +143,17 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_sprPrivilegeBg.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnMemberPrivilegeClicked));
 		}
 
-		// Token: 0x0601004C RID: 65612 RVA: 0x0023F430 File Offset: 0x0023D630
 		private void OnMemberPrivilegeClicked(IXUISprite btn)
 		{
 			DlgBase<XWelfareView, XWelfareBehaviour>.singleton.CheckActiveMemberPrivilege(MemberPrivilege.KingdomPrivilege_Adventurer);
 		}
 
-		// Token: 0x0601004D RID: 65613 RVA: 0x003CDD78 File Offset: 0x003CBF78
 		public bool OnHelpClicked(IXUIButton button)
 		{
 			DlgBase<XCommonHelpTipView, XCommonHelpTipBehaviour>.singleton.ShowHelp(XSysDefine.XSys_BossRush);
 			return true;
 		}
 
-		// Token: 0x0601004E RID: 65614 RVA: 0x003CDD98 File Offset: 0x003CBF98
 		protected override void OnShow()
 		{
 			this.m_animPanel.SetActive(false);
@@ -189,7 +165,6 @@ namespace XMainClient.UI
 			this.isProcessFighting = false;
 		}
 
-		// Token: 0x0601004F RID: 65615 RVA: 0x003CDE0C File Offset: 0x003CC00C
 		protected bool OnMonsterDrag(Vector2 delta)
 		{
 			bool flag = this.m_Dummy != null;
@@ -200,7 +175,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x06010050 RID: 65616 RVA: 0x003CDE4F File Offset: 0x003CC04F
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
@@ -208,7 +182,6 @@ namespace XMainClient.UI
 			this.RefreshBoss();
 		}
 
-		// Token: 0x06010051 RID: 65617 RVA: 0x003CDE6C File Offset: 0x003CC06C
 		public override void LeaveStackTop()
 		{
 			base.LeaveStackTop();
@@ -218,7 +191,6 @@ namespace XMainClient.UI
 			this.m_Dummy = null;
 		}
 
-		// Token: 0x06010052 RID: 65618 RVA: 0x003CDEC4 File Offset: 0x003CC0C4
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
@@ -229,7 +201,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010053 RID: 65619 RVA: 0x003CDEF3 File Offset: 0x003CC0F3
 		protected override void OnHide()
 		{
 			base.OnHide();
@@ -238,7 +209,6 @@ namespace XMainClient.UI
 			this.m_Dummy = null;
 		}
 
-		// Token: 0x06010054 RID: 65620 RVA: 0x003CDF1C File Offset: 0x003CC11C
 		protected override void OnUnload()
 		{
 			XSingleton<XBossRefreshAnimHander>.singleton.OnUnload();
@@ -253,7 +223,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x06010055 RID: 65621 RVA: 0x003CDF74 File Offset: 0x003CC174
 		private bool OnClose(IXUIButton btn)
 		{
 			bool isHallUI = this.isHallUI;
@@ -269,7 +238,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x06010056 RID: 65622 RVA: 0x003CDFB0 File Offset: 0x003CC1B0
 		private bool OnGoBattle(IXUIButton btn)
 		{
 			bool flag = XTeamDocument.GoSingleBattleBeforeNeed(new ButtonClickEventHandler(this.OnGoBattle), btn) || this.isProcessFighting;
@@ -295,7 +263,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x06010057 RID: 65623 RVA: 0x003CE014 File Offset: 0x003CC214
 		private bool OnSweepButtonClicked(IXUIButton button)
 		{
 			bool flag = DlgBase<XWelfareView, XWelfareBehaviour>.singleton.CheckActiveMemberPrivilege(MemberPrivilege.KingdomPrivilege_Commerce);
@@ -306,13 +273,11 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x06010058 RID: 65624 RVA: 0x003CE04A File Offset: 0x003CC24A
 		public void MakeTips()
 		{
 			XSingleton<UiUtility>.singleton.ShowSystemTip(XStringDefineProxy.GetString("BOSSRUSH_NOTE"), "fece00");
 		}
 
-		// Token: 0x06010059 RID: 65625 RVA: 0x003CE068 File Offset: 0x003CC268
 		public bool GoBattle()
 		{
 			XLevelState ls = XSingleton<XLevelStatistics>.singleton.ls;
@@ -362,7 +327,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0601005A RID: 65626 RVA: 0x003CE1AC File Offset: 0x003CC3AC
 		public IEnumerator LoadBossAssets()
 		{
 			DlgBase<XBlockInputView, XBlockInputBehaviour>.singleton.SetVisible(true, true);
@@ -375,7 +339,6 @@ namespace XMainClient.UI
 			yield break;
 		}
 
-		// Token: 0x0601005B RID: 65627 RVA: 0x003CE1BC File Offset: 0x003CC3BC
 		public void OnBossFadein()
 		{
 			this.MakeTips();
@@ -389,14 +352,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601005C RID: 65628 RVA: 0x003CE208 File Offset: 0x003CC408
 		public void ResetState()
 		{
 			XBattleSkillDocument specificDocument = XDocuments.GetSpecificDocument<XBattleSkillDocument>(XBattleSkillDocument.uuID);
 			specificDocument.OnCoolDown(null);
 		}
 
-		// Token: 0x0601005D RID: 65629 RVA: 0x003CE22C File Offset: 0x003CC42C
 		private bool OpenAnimDlg(IXUIButton btn)
 		{
 			bool flag = this.isDelayRefresh || this.isProcessFighting;
@@ -454,7 +415,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0601005E RID: 65630 RVA: 0x003CE39C File Offset: 0x003CC59C
 		public void OnResOpenAnimDlg()
 		{
 			bool flag = base.IsVisible();
@@ -465,20 +425,17 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601005F RID: 65631 RVA: 0x003CE3D3 File Offset: 0x003CC5D3
 		public void DelayRefresh()
 		{
 			this.isDelayRefresh = true;
 			this.m_timertoken = XSingleton<XTimerMgr>.singleton.SetTimer(0.3f, new XTimerMgr.ElapsedEventHandler(this.Refresh), null);
 		}
 
-		// Token: 0x06010060 RID: 65632 RVA: 0x003CE3FF File Offset: 0x003CC5FF
 		public void Refresh()
 		{
 			this.Refresh(null);
 		}
 
-		// Token: 0x06010061 RID: 65633 RVA: 0x003CE40C File Offset: 0x003CC60C
 		public void Refresh(object obj)
 		{
 			this.isDelayRefresh = false;
@@ -497,8 +454,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003917 RID: 14615
-		// (get) Token: 0x06010062 RID: 65634 RVA: 0x003CE46C File Offset: 0x003CC66C
 		public string bossName
 		{
 			get
@@ -523,7 +478,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010063 RID: 65635 RVA: 0x003CE4E8 File Offset: 0x003CC6E8
 		private void RefreshBoss()
 		{
 			byte[] bossdifficult = this._doc.bossRushRow.bossdifficult;
@@ -564,7 +518,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010064 RID: 65636 RVA: 0x003CE7F0 File Offset: 0x003CC9F0
 		private void RefreshRwd()
 		{
 			for (int i = 0; i < this._doc.bossRushRow.reward.Count; i++)
@@ -592,13 +545,11 @@ namespace XMainClient.UI
 			this.m_uiBehaviour.m_sprBuff2.SetColor(XSingleton<UiUtility>.singleton.ParseColor(value2, 0));
 		}
 
-		// Token: 0x06010065 RID: 65637 RVA: 0x003CEA53 File Offset: 0x003CCC53
 		private void OnIconClick(IXUISprite spr)
 		{
 			XSingleton<UiUtility>.singleton.ShowTooltipDialog((int)spr.ID, spr.gameObject);
 		}
 
-		// Token: 0x06010066 RID: 65638 RVA: 0x003CEA70 File Offset: 0x003CCC70
 		private void RefreshBtns()
 		{
 			bool flag = this._doc == null || this._doc.respData == null || !base.IsVisible();
@@ -623,7 +574,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010067 RID: 65639 RVA: 0x003CEB84 File Offset: 0x003CCD84
 		private void RefreshPriviledge()
 		{
 			XWelfareDocument specificDocument = XDocuments.GetSpecificDocument<XWelfareDocument>(XWelfareDocument.uuID);
@@ -670,7 +620,6 @@ namespace XMainClient.UI
 			}));
 		}
 
-		// Token: 0x06010068 RID: 65640 RVA: 0x003CEDF4 File Offset: 0x003CCFF4
 		private void RefreshNoPriviedge()
 		{
 			int currefreshcount = this._doc.respData.currefreshcount;
@@ -713,31 +662,23 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010069 RID: 65641 RVA: 0x003CEFF2 File Offset: 0x003CD1F2
 		public void PlayRefreshEff()
 		{
 			base.uiBehaviour.m_objFx.SetActive(true);
 		}
 
-		// Token: 0x040071E0 RID: 29152
 		private XBossBushDocument _doc = null;
 
-		// Token: 0x040071E1 RID: 29153
 		private XSweepDocument _sweepDoc = null;
 
-		// Token: 0x040071E2 RID: 29154
 		private XWelfareDocument _welfareDoc = null;
 
-		// Token: 0x040071E3 RID: 29155
 		public GameObject m_animPanel;
 
-		// Token: 0x040071E4 RID: 29156
 		private XDummy m_Dummy;
 
-		// Token: 0x040071E5 RID: 29157
 		private uint m_timertoken = 0U;
 
-		// Token: 0x040071E6 RID: 29158
 		public string[] colors = new string[]
 		{
 			"[00e901]",
@@ -746,25 +687,18 @@ namespace XMainClient.UI
 			"[aa7de4]"
 		};
 
-		// Token: 0x040071E7 RID: 29159
 		public bool startFromHall = false;
 
-		// Token: 0x040071E8 RID: 29160
 		private int killedboss = 0;
 
-		// Token: 0x040071E9 RID: 29161
 		public bool backHall = false;
 
-		// Token: 0x040071EA RID: 29162
 		private int refreshCost = 0;
 
-		// Token: 0x040071EB RID: 29163
 		private int refreshItemid = 1;
 
-		// Token: 0x040071EC RID: 29164
 		private bool isProcessFighting = false;
 
-		// Token: 0x040071ED RID: 29165
 		private bool isDelayRefresh = false;
 	}
 }

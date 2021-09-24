@@ -6,10 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017CC RID: 6092
+
 	internal class HeroAttrBehaviour : DlgBehaviourBase
 	{
-		// Token: 0x0600FC6B RID: 64619 RVA: 0x003ADE00 File Offset: 0x003AC000
+
 		private void Awake()
 		{
 			this.m_Close = (base.transform.Find("Close").GetComponent("XUIButton") as IXUIButton);
@@ -33,46 +33,32 @@ namespace XMainClient.UI
 			this.m_GamePlayScrollView = (this.m_GamePlayFrame.transform.Find("ScrollView").GetComponent("XUIScrollView") as IXUIScrollView);
 		}
 
-		// Token: 0x04006EED RID: 28397
 		public IXUIButton m_Close;
 
-		// Token: 0x04006EEE RID: 28398
 		public GameObject m_HeroFrame;
 
-		// Token: 0x04006EEF RID: 28399
 		public GameObject m_SkillFrame;
 
-		// Token: 0x04006EF0 RID: 28400
 		public GameObject m_GamePlayFrame;
 
-		// Token: 0x04006EF1 RID: 28401
 		public IXUICheckBox[] m_Tab = new IXUICheckBox[3];
 
-		// Token: 0x04006EF2 RID: 28402
 		public IXUISprite m_HeroIcon;
 
-		// Token: 0x04006EF3 RID: 28403
 		public IXUILabel m_HeroName;
 
-		// Token: 0x04006EF4 RID: 28404
 		public IXUILabel m_HeroSmallTips;
 
-		// Token: 0x04006EF5 RID: 28405
 		public IXUIScrollView m_DescScrollView;
 
-		// Token: 0x04006EF6 RID: 28406
 		public XUIPool m_AttrPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006EF7 RID: 28407
 		public XUIPool m_SkillPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006EF8 RID: 28408
 		public IXUIScrollView m_ScrollView;
 
-		// Token: 0x04006EF9 RID: 28409
 		public IXUILabel m_GamePlayTips;
 
-		// Token: 0x04006EFA RID: 28410
 		public IXUIScrollView m_GamePlayScrollView;
 	}
 }

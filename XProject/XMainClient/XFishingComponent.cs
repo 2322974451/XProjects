@@ -3,11 +3,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000FC3 RID: 4035
+
 	internal class XFishingComponent : XComponent
 	{
-		// Token: 0x170036B3 RID: 14003
-		// (get) Token: 0x0600D1D7 RID: 53719 RVA: 0x0030CEE4 File Offset: 0x0030B0E4
+
 		public override uint ID
 		{
 			get
@@ -16,14 +15,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D1D8 RID: 53720 RVA: 0x0030CEFB File Offset: 0x0030B0FB
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
 			this._fishingRodPresentation = XSingleton<XEntityMgr>.singleton.EntityInfo.GetByPresentID(50001U);
 		}
 
-		// Token: 0x0600D1D9 RID: 53721 RVA: 0x0030CF20 File Offset: 0x0030B120
 		public override void Attached()
 		{
 			this._entity.Equipment.EquipFishing(true, XFishingComponent.fishing_present_id);
@@ -41,7 +38,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D1DA RID: 53722 RVA: 0x0030CFF8 File Offset: 0x0030B1F8
 		public override void OnDetachFromHost()
 		{
 			this._entity.Equipment.EquipFishing(false, 0U);
@@ -66,7 +62,6 @@ namespace XMainClient
 			base.OnDetachFromHost();
 		}
 
-		// Token: 0x0600D1DB RID: 53723 RVA: 0x0030D0B0 File Offset: 0x0030B2B0
 		public void PlayAnimationWithResult(bool haveFish)
 		{
 			this._haveFish = haveFish;
@@ -78,7 +73,6 @@ namespace XMainClient
 			this._timerToken = XSingleton<XTimerMgr>.singleton.SetTimer(0.5f, new XTimerMgr.ElapsedEventHandler(this.OnFishingStateChange), null);
 		}
 
-		// Token: 0x0600D1DC RID: 53724 RVA: 0x0030D144 File Offset: 0x0030B344
 		private void OnFishingStateChange(object o = null)
 		{
 			float num = 5f;
@@ -169,22 +163,16 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04005F33 RID: 24371
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("FishingComponent");
 
-		// Token: 0x04005F34 RID: 24372
 		private static uint fishing_present_id = 50001U;
 
-		// Token: 0x04005F35 RID: 24373
 		private bool _haveFish;
 
-		// Token: 0x04005F36 RID: 24374
 		private HomeFishingState _currState;
 
-		// Token: 0x04005F37 RID: 24375
 		private uint _timerToken;
 
-		// Token: 0x04005F38 RID: 24376
 		private XEntityPresentation.RowData _fishingRodPresentation;
 	}
 }

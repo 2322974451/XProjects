@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001759 RID: 5977
+
 	internal class ExchangeItemDlg : DlgBase<ExchangeItemDlg, ExchangeItemBehaviour>
 	{
-		// Token: 0x17003800 RID: 14336
-		// (get) Token: 0x0600F6DB RID: 63195 RVA: 0x00381314 File Offset: 0x0037F514
+
 		public override bool autoload
 		{
 			get
@@ -19,8 +18,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003801 RID: 14337
-		// (get) Token: 0x0600F6DC RID: 63196 RVA: 0x00381328 File Offset: 0x0037F528
 		public override string fileName
 		{
 			get
@@ -29,14 +26,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F6DD RID: 63197 RVA: 0x0038133F File Offset: 0x0037F53F
 		protected override void Init()
 		{
 			base.Init();
 			this._doc = XDocuments.GetSpecificDocument<XExchangeItemDocument>(XExchangeItemDocument.uuID);
 		}
 
-		// Token: 0x0600F6DE RID: 63198 RVA: 0x0038135C File Offset: 0x0037F55C
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -51,7 +46,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_OtherVoiceBtn.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnAudioPlayClick));
 		}
 
-		// Token: 0x0600F6DF RID: 63199 RVA: 0x00381464 File Offset: 0x0037F664
 		protected override void OnShow()
 		{
 			base.uiBehaviour.m_MyVoiceBtn.SetVisible(false);
@@ -65,7 +59,6 @@ namespace XMainClient.UI
 			base.OnShow();
 		}
 
-		// Token: 0x0600F6E0 RID: 63200 RVA: 0x00381504 File Offset: 0x0037F704
 		public void InitShow(string name, uint prof)
 		{
 			this.SetVisibleWithAnimation(true, null);
@@ -93,7 +86,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_ItemScrollView.ResetPosition();
 		}
 
-		// Token: 0x0600F6E1 RID: 63201 RVA: 0x003816D8 File Offset: 0x0037F8D8
 		public void RefreshMyItemList()
 		{
 			base.uiBehaviour.m_MyItemPool.FakeReturnAll();
@@ -118,7 +110,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_MyItemPool.ActualReturnAll(false);
 		}
 
-		// Token: 0x0600F6E2 RID: 63202 RVA: 0x003818D8 File Offset: 0x0037FAD8
 		public void OnMySelectChange(ulong SelectID)
 		{
 			bool flag = SelectID == 0UL;
@@ -158,7 +149,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F6E3 RID: 63203 RVA: 0x00381A50 File Offset: 0x0037FC50
 		public void OnOtherSelectChange(int SelectID)
 		{
 			bool flag = SelectID == 0;
@@ -184,14 +174,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F6E4 RID: 63204 RVA: 0x00381B1C File Offset: 0x0037FD1C
 		public void OnEnsureStateChange()
 		{
 			base.uiBehaviour.m_MyEnsureText.SetText(XStringDefineProxy.GetString(string.Format("ExchangeMyEnsureTips_{0}", this._doc.MyEnsureState ? 1 : 0)));
 			base.uiBehaviour.m_OtherEnsureText.SetText(XStringDefineProxy.GetString(string.Format("ExchangeOtherEnsureTips_{0}", this._doc.OtherEnsureState ? 1 : 0)));
 		}
 
-		// Token: 0x0600F6E5 RID: 63205 RVA: 0x00381B98 File Offset: 0x0037FD98
 		public void OnTipsChange()
 		{
 			string text = XStringDefineProxy.GetString(string.Format("ExchangeTips_{0}", this._doc.TipsState));
@@ -203,7 +191,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_Tips.SetText(text);
 		}
 
-		// Token: 0x0600F6E6 RID: 63206 RVA: 0x00381C0C File Offset: 0x0037FE0C
 		protected override void OnHide()
 		{
 			XSingleton<XTimerMgr>.singleton.KillTimer(this._audioPlayToken);
@@ -215,21 +202,18 @@ namespace XMainClient.UI
 			base.OnHide();
 		}
 
-		// Token: 0x0600F6E7 RID: 63207 RVA: 0x00381C7F File Offset: 0x0037FE7F
 		protected override void OnUnload()
 		{
 			XSingleton<XTimerMgr>.singleton.KillTimer(this._audioPlayToken);
 			base.OnUnload();
 		}
 
-		// Token: 0x0600F6E8 RID: 63208 RVA: 0x00381C9C File Offset: 0x0037FE9C
 		private bool OnCloseBtnClick(IXUIButton btn)
 		{
 			this._doc.QueryCloseUI();
 			return true;
 		}
 
-		// Token: 0x0600F6E9 RID: 63209 RVA: 0x00381CBC File Offset: 0x0037FEBC
 		private void OnItemClick(IXUISprite iSp)
 		{
 			bool flag = this._doc.CurrentSelectUid != iSp.ID;
@@ -239,14 +223,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F6EA RID: 63210 RVA: 0x00381CF8 File Offset: 0x0037FEF8
 		private bool OnEnsureBtnClick(IXUIButton btn)
 		{
 			this._doc.QueryEnsureExchange(!this._doc.MyEnsureState);
 			return true;
 		}
 
-		// Token: 0x0600F6EB RID: 63211 RVA: 0x00381D28 File Offset: 0x0037FF28
 		public void RefreshMyChat()
 		{
 			bool flag = this._doc.MyAudioID == 0UL;
@@ -265,7 +247,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F6EC RID: 63212 RVA: 0x00381DE4 File Offset: 0x0037FFE4
 		public void RefreshOtherChat()
 		{
 			bool flag = this._doc.OtherAudioID == 0UL;
@@ -284,7 +265,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F6ED RID: 63213 RVA: 0x00381EA0 File Offset: 0x003800A0
 		private void OnAudioPlayClick(IXUISprite iSp)
 		{
 			XSingleton<XChatIFlyMgr>.singleton.StopAutoPlay();
@@ -308,14 +288,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F6EE RID: 63214 RVA: 0x00381FFB File Offset: 0x003801FB
 		private void OnPlayEnd(object o = null)
 		{
 			base.uiBehaviour.m_MyVoiceAni.StopAndReset();
 			base.uiBehaviour.m_OtherVoiceAni.StopAndReset();
 		}
 
-		// Token: 0x0600F6EF RID: 63215 RVA: 0x00382020 File Offset: 0x00380220
 		private bool OnInputBtnClick(IXUIButton btn)
 		{
 			DlgBase<XChatInputView, XChatInputBehaviour>.singleton.ShowChatInput(new ChatInputStringBack(this.OnInputStringGet));
@@ -324,14 +302,12 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F6F0 RID: 63216 RVA: 0x00382063 File Offset: 0x00380263
 		public void OnInputStringGet(string str)
 		{
 			XSingleton<XDebug>.singleton.AddLog("Player input string is ", str, null, null, null, null, XDebugColor.XDebug_None);
 			this._doc.SendChat(str, 0UL, 0U);
 		}
 
-		// Token: 0x0600F6F1 RID: 63217 RVA: 0x0038208C File Offset: 0x0038028C
 		private void OnVoiceButtonDrag(IXUIButton sp, Vector2 delta)
 		{
 			this.m_DragDistance += delta;
@@ -346,7 +322,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F6F2 RID: 63218 RVA: 0x003820D8 File Offset: 0x003802D8
 		private void OnVoiceButton(IXUIButton sp, bool state)
 		{
 			if (state)
@@ -381,19 +356,14 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04006B5E RID: 27486
 		private XExchangeItemDocument _doc = null;
 
-		// Token: 0x04006B5F RID: 27487
 		private readonly int COLNUM = 4;
 
-		// Token: 0x04006B60 RID: 27488
 		private Vector2 m_DragDistance = Vector2.zero;
 
-		// Token: 0x04006B61 RID: 27489
 		private bool m_CancelRecord = false;
 
-		// Token: 0x04006B62 RID: 27490
 		private uint _audioPlayToken;
 	}
 }

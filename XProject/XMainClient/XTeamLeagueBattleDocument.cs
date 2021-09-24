@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000A01 RID: 2561
+
 	internal class XTeamLeagueBattleDocument : XDocComponent
 	{
-		// Token: 0x17002E78 RID: 11896
-		// (get) Token: 0x06009CE2 RID: 40162 RVA: 0x00197274 File Offset: 0x00195474
+
 		public override uint ID
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002E79 RID: 11897
-		// (get) Token: 0x06009CE3 RID: 40163 RVA: 0x0019728C File Offset: 0x0019548C
 		public LeagueBattleTeamData LoadingInfoBlue
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002E7A RID: 11898
-		// (get) Token: 0x06009CE4 RID: 40164 RVA: 0x001972A4 File Offset: 0x001954A4
 		public LeagueBattleTeamData LoadingInfoRed
 		{
 			get
@@ -40,8 +35,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002E7B RID: 11899
-		// (get) Token: 0x06009CE5 RID: 40165 RVA: 0x001972BC File Offset: 0x001954BC
 		public LeagueBattleOneTeam BattleBaseInfoBlue
 		{
 			get
@@ -50,8 +43,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002E7C RID: 11900
-		// (get) Token: 0x06009CE6 RID: 40166 RVA: 0x001972D4 File Offset: 0x001954D4
 		public LeagueBattleOneTeam BattleBaseInfoRed
 		{
 			get
@@ -60,19 +51,16 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009CE7 RID: 40167 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 		}
 
-		// Token: 0x06009CE8 RID: 40168 RVA: 0x001972EC File Offset: 0x001954EC
 		public override void OnEnterSceneFinally()
 		{
 			base.OnEnterSceneFinally();
 			DlgBase<XTeamLeagueLoadingView, XTeamLeagueLoadingBehaviour>.singleton.HidePkLoading();
 		}
 
-		// Token: 0x06009CE9 RID: 40169 RVA: 0x00197304 File Offset: 0x00195504
 		public ulong GetBattleTeamLeagueID(ulong roleID)
 		{
 			bool flag = this.LoadingInfoBlue != null;
@@ -102,7 +90,6 @@ namespace XMainClient
 			return 0UL;
 		}
 
-		// Token: 0x06009CEA RID: 40170 RVA: 0x001973E0 File Offset: 0x001955E0
 		public void SetBattlePKInfo(LeagueBattleLoadInfoNtf data)
 		{
 			XFreeTeamVersusLeagueDocument specificDocument = XDocuments.GetSpecificDocument<XFreeTeamVersusLeagueDocument>(XFreeTeamVersusLeagueDocument.uuID);
@@ -136,7 +123,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009CEB RID: 40171 RVA: 0x001974AC File Offset: 0x001956AC
 		public void UpdateBattleBaseData(LeagueBattleBaseDataNtf data)
 		{
 			XSingleton<XDebug>.singleton.AddLog("[TeamLeague]UpdateBattleBaseData", null, null, null, null, null, XDebugColor.XDebug_None);
@@ -236,7 +222,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009CEC RID: 40172 RVA: 0x001977D0 File Offset: 0x001959D0
 		public void ReqBattle(LeagueBattleReadyOper type)
 		{
 			RpcC2G_LeagueBattleReadyReq rpcC2G_LeagueBattleReadyReq = new RpcC2G_LeagueBattleReadyReq();
@@ -244,7 +229,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_LeagueBattleReadyReq);
 		}
 
-		// Token: 0x06009CED RID: 40173 RVA: 0x00197800 File Offset: 0x00195A00
 		public void OnLeagueBattleStateNtf(LeagueBattleStateNtf data)
 		{
 			XSingleton<XDebug>.singleton.AddLog("[TeamLeague]OnLeagueBattleStateNtf", data.state.ToString(), " ", data.lefttime.ToString(), null, null, XDebugColor.XDebug_None);
@@ -279,7 +263,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009CEE RID: 40174 RVA: 0x00197944 File Offset: 0x00195B44
 		public void OnSmallReward(LeagueBattleOneResultNtf data)
 		{
 			bool flag = data == null;
@@ -297,7 +280,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009CEF RID: 40175 RVA: 0x00197994 File Offset: 0x00195B94
 		public void OnBigReward(LeagueBattleResultNtf data)
 		{
 			bool flag = data == null;
@@ -315,7 +297,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009CF0 RID: 40176 RVA: 0x001979E4 File Offset: 0x00195BE4
 		public bool FindBlueMember(ulong roleid)
 		{
 			bool flag = this.m_LoadingInfoBlue == null;
@@ -340,7 +321,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009CF1 RID: 40177 RVA: 0x00197A64 File Offset: 0x00195C64
 		public bool FindRedMember(ulong roleid)
 		{
 			bool flag = this.m_LoadingInfoRed == null;
@@ -365,43 +345,30 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x04003726 RID: 14118
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("TeamLeagueBattleDocument");
 
-		// Token: 0x04003727 RID: 14119
 		private LeagueBattleTeamData m_LoadingInfoBlue;
 
-		// Token: 0x04003728 RID: 14120
 		private LeagueBattleTeamData m_LoadingInfoRed;
 
-		// Token: 0x04003729 RID: 14121
 		private LeagueBattleOneTeam m_BattleBaseInfoBlue;
 
-		// Token: 0x0400372A RID: 14122
 		private LeagueBattleOneTeam m_BattleBaseInfoRed;
 
-		// Token: 0x0400372B RID: 14123
 		public bool IsInTeamLeague = false;
 
-		// Token: 0x0400372C RID: 14124
 		public bool IsInBattleTeamLeague = false;
 
-		// Token: 0x0400372D RID: 14125
 		public LeagueBattleRoleState SelfBattleState = LeagueBattleRoleState.LBRoleState_None;
 
-		// Token: 0x0400372E RID: 14126
 		public int BlueCanBattleNum = 0;
 
-		// Token: 0x0400372F RID: 14127
 		public int RedCanBattleNum = 0;
 
-		// Token: 0x04003730 RID: 14128
 		public ulong BluePKingRoleID = 0UL;
 
-		// Token: 0x04003731 RID: 14129
 		public ulong RedPKingRoleID = 0UL;
 
-		// Token: 0x04003732 RID: 14130
 		public LeagueBattleFightState BattleState = LeagueBattleFightState.LBFight_None;
 	}
 }

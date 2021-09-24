@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000E49 RID: 3657
+
 	internal class XLevelUpStatusView : DlgBase<XLevelUpStatusView, XLevelUpStatusBehaviour>
 	{
-		// Token: 0x17003460 RID: 13408
-		// (get) Token: 0x0600C447 RID: 50247 RVA: 0x002ACF64 File Offset: 0x002AB164
+
 		public override string fileName
 		{
 			get
@@ -19,8 +18,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003461 RID: 13409
-		// (get) Token: 0x0600C448 RID: 50248 RVA: 0x002ACF7C File Offset: 0x002AB17C
 		public override bool autoload
 		{
 			get
@@ -29,7 +26,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C449 RID: 50249 RVA: 0x002ACF90 File Offset: 0x002AB190
 		protected override void Init()
 		{
 			base.Init();
@@ -40,13 +36,11 @@ namespace XMainClient
 			base.uiBehaviour.m_FishFrame.SetActive(false);
 		}
 
-		// Token: 0x0600C44A RID: 50250 RVA: 0x002AD017 File Offset: 0x002AB217
 		public override void RegisterEvent()
 		{
 			base.uiBehaviour.m_Close.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseClick));
 		}
 
-		// Token: 0x0600C44B RID: 50251 RVA: 0x002AD038 File Offset: 0x002AB238
 		protected override void OnHide()
 		{
 			base.OnHide();
@@ -59,7 +53,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C44C RID: 50252 RVA: 0x002AD090 File Offset: 0x002AB290
 		public void OnPlayTweenFinish(IXUITweenTool iPlayTween)
 		{
 			bool flag = base.IsVisible();
@@ -69,7 +62,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C44D RID: 50253 RVA: 0x002AD0B4 File Offset: 0x002AB2B4
 		public bool OnCloseClick(IXUIButton button)
 		{
 			bool flag = this.canClose;
@@ -80,7 +72,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600C44E RID: 50254 RVA: 0x002AD0DC File Offset: 0x002AB2DC
 		private void PlayWingEff()
 		{
 			uint curLevel = this._doc.CurLevel;
@@ -99,7 +90,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C44F RID: 50255 RVA: 0x002AD17C File Offset: 0x002AB37C
 		public void ShowLevelUpStatus()
 		{
 			base.uiBehaviour.m_Close.gameObject.GetComponent<Collider>().enabled = true;
@@ -109,7 +99,6 @@ namespace XMainClient
 			base.uiBehaviour.m_tweenLevel.PlayTween(true, -1f);
 		}
 
-		// Token: 0x0600C450 RID: 50256 RVA: 0x002AD1E0 File Offset: 0x002AB3E0
 		private void Handler(object arg)
 		{
 			this.timetoken = XSingleton<XTimerMgr>.singleton.SetTimer(2f, new XTimerMgr.ElapsedEventHandler(this.EnableCollider), null);
@@ -118,7 +107,6 @@ namespace XMainClient
 			this.ShowLevelUp();
 		}
 
-		// Token: 0x0600C451 RID: 50257 RVA: 0x002AD240 File Offset: 0x002AB440
 		private void EnableCollider(object o)
 		{
 			this.canClose = true;
@@ -126,7 +114,6 @@ namespace XMainClient
 			this._doc.CurLevel = 0U;
 		}
 
-		// Token: 0x0600C452 RID: 50258 RVA: 0x002AD264 File Offset: 0x002AB464
 		public void ShowLevelUp()
 		{
 			base.uiBehaviour.m_AttrFrame.SetActive(true);
@@ -193,7 +180,6 @@ namespace XMainClient
 			base.uiBehaviour.m_iPlayTween.PlayTween(true, -1f);
 		}
 
-		// Token: 0x0600C453 RID: 50259 RVA: 0x002AD728 File Offset: 0x002AB928
 		public int SkillPoint(uint level)
 		{
 			PlayerLevelTable levelTable = XSingleton<XEntityMgr>.singleton.LevelTable;
@@ -208,16 +194,12 @@ namespace XMainClient
 			return 1;
 		}
 
-		// Token: 0x0400555C RID: 21852
 		private XLevelUpStatusDocument _doc;
 
-		// Token: 0x0400555D RID: 21853
 		private uint timetoken = 0U;
 
-		// Token: 0x0400555E RID: 21854
 		private bool canClose = false;
 
-		// Token: 0x0400555F RID: 21855
 		private XAttributeDefine[] AttrInfos = new XAttributeDefine[]
 		{
 			XAttributeDefine.XAttr_Strength_Total,

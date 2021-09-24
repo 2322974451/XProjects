@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000D18 RID: 3352
+
 	internal class XTeamSettingHandler : DlgHandlerBase
 	{
-		// Token: 0x170032EA RID: 13034
-		// (get) Token: 0x0600BB00 RID: 47872 RVA: 0x002657F0 File Offset: 0x002639F0
+
 		protected override string FileName
 		{
 			get
@@ -21,7 +20,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BB01 RID: 47873 RVA: 0x00265808 File Offset: 0x00263A08
 		protected override void Init()
 		{
 			base.Init();
@@ -51,7 +49,6 @@ namespace XMainClient
 			this.doc = XDocuments.GetSpecificDocument<XTeamDocument>(XTeamDocument.uuID);
 		}
 
-		// Token: 0x0600BB02 RID: 47874 RVA: 0x002659F4 File Offset: 0x00263BF4
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -67,14 +64,12 @@ namespace XMainClient
 			this.m_SubPPT.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this._OnSubPPTClicked));
 		}
 
-		// Token: 0x0600BB03 RID: 47875 RVA: 0x001F8A12 File Offset: 0x001F6C12
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.RefreshData();
 		}
 
-		// Token: 0x0600BB04 RID: 47876 RVA: 0x00265AD4 File Offset: 0x00263CD4
 		public override void RefreshData()
 		{
 			base.RefreshData();
@@ -139,13 +134,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BB05 RID: 47877 RVA: 0x001A6C1F File Offset: 0x001A4E1F
 		private void _OnCloseClicked(IXUISprite iSp)
 		{
 			base.SetVisible(false);
 		}
 
-		// Token: 0x0600BB06 RID: 47878 RVA: 0x00265E24 File Offset: 0x00264024
 		private bool _OnOKClicked(IXUIButton btn)
 		{
 			bool flag = !this.doc.bInTeam;
@@ -198,7 +191,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600BB07 RID: 47879 RVA: 0x00265FE8 File Offset: 0x002641E8
 		private bool _DoOK(IXUIButton btn)
 		{
 			TeamExtraInfo teamExtraInfo = new TeamExtraInfo();
@@ -239,7 +231,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600BB08 RID: 47880 RVA: 0x002660FC File Offset: 0x002642FC
 		private bool _OnOpenRewardChanged(IXUICheckBox ckb)
 		{
 			bool bChecked = ckb.bChecked;
@@ -261,7 +252,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600BB09 RID: 47881 RVA: 0x0026616C File Offset: 0x0026436C
 		private bool _OnOpenPPTChanged(IXUICheckBox ckb)
 		{
 			bool flag = ckb.bChecked && this.m_CurPPT < this.m_MinPPT;
@@ -273,14 +263,12 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600BB0A RID: 47882 RVA: 0x002661B0 File Offset: 0x002643B0
 		private bool _OnRewardChanged(IXUICheckBox ckb)
 		{
 			this.m_OpenReward.bChecked = ckb.bChecked;
 			return true;
 		}
 
-		// Token: 0x0600BB0B RID: 47883 RVA: 0x002661D8 File Offset: 0x002643D8
 		private void _OnAddPPTClicked(IXUISprite iSp)
 		{
 			bool flag = !this.m_OpenPPT.bChecked;
@@ -295,7 +283,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BB0C RID: 47884 RVA: 0x00266230 File Offset: 0x00264430
 		private void _OnSubPPTClicked(IXUISprite iSp)
 		{
 			bool flag = !this.m_OpenPPT.bChecked;
@@ -310,52 +297,37 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BB0D RID: 47885 RVA: 0x00266283 File Offset: 0x00264483
 		private void _RefreshPPT()
 		{
 			this.m_PPT.SetText(this.m_OpenPPT.bChecked ? this.m_CurPPT.ToString() : "0");
 		}
 
-		// Token: 0x04004B63 RID: 19299
 		private IXUISprite m_Close;
 
-		// Token: 0x04004B64 RID: 19300
 		private IXUIButton m_BtnOK;
 
-		// Token: 0x04004B65 RID: 19301
 		private List<IXUICheckBox> m_RewardList = new List<IXUICheckBox>();
 
-		// Token: 0x04004B66 RID: 19302
 		private IXUICheckBox m_OpenReward;
 
-		// Token: 0x04004B67 RID: 19303
 		private IXUICheckBox m_OpenPPT;
 
-		// Token: 0x04004B68 RID: 19304
 		private IXUISprite m_AddPPT;
 
-		// Token: 0x04004B69 RID: 19305
 		private IXUISprite m_SubPPT;
 
-		// Token: 0x04004B6A RID: 19306
 		private IXUILabel m_PPT;
 
-		// Token: 0x04004B6B RID: 19307
 		private GameObject m_DisableReward;
 
-		// Token: 0x04004B6C RID: 19308
 		private XTeamDocument doc;
 
-		// Token: 0x04004B6D RID: 19309
 		private int m_RewardCount;
 
-		// Token: 0x04004B6E RID: 19310
 		private uint m_CurPPT;
 
-		// Token: 0x04004B6F RID: 19311
 		private uint m_MinPPT;
 
-		// Token: 0x04004B70 RID: 19312
 		private uint m_StepPPT;
 	}
 }

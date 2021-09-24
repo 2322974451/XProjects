@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x02000225 RID: 549
+
 	public class ArgentaDaily : CVSReader
 	{
-		// Token: 0x06000C44 RID: 3140 RVA: 0x000406B4 File Offset: 0x0003E8B4
+
 		public ArgentaDaily.RowData GetByID(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -29,7 +29,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000C45 RID: 3141 RVA: 0x00040720 File Offset: 0x0003E920
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			ArgentaDaily.RowData rowData = new ArgentaDaily.RowData();
@@ -45,7 +44,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x06000C46 RID: 3142 RVA: 0x000407B4 File Offset: 0x0003E9B4
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -59,22 +57,17 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x04000773 RID: 1907
 		public ArgentaDaily.RowData[] Table = null;
 
-		// Token: 0x020003B4 RID: 948
 		public class RowData
 		{
-			// Token: 0x04001098 RID: 4248
+
 			public uint ID;
 
-			// Token: 0x04001099 RID: 4249
 			public SeqListRef<uint> Reward;
 
-			// Token: 0x0400109A RID: 4250
 			public string Description;
 
-			// Token: 0x0400109B RID: 4251
 			public string Title;
 		}
 	}

@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017AB RID: 6059
+
 	internal class ArtifactAtlasHandler : DlgHandlerBase
 	{
-		// Token: 0x17003870 RID: 14448
-		// (get) Token: 0x0600FA76 RID: 64118 RVA: 0x0039E538 File Offset: 0x0039C738
+
 		protected override string FileName
 		{
 			get
@@ -19,7 +18,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FA77 RID: 64119 RVA: 0x0039E550 File Offset: 0x0039C750
 		protected override void Init()
 		{
 			base.Init();
@@ -29,21 +27,18 @@ namespace XMainClient.UI
 			this.InitSuit();
 		}
 
-		// Token: 0x0600FA78 RID: 64120 RVA: 0x0039E5A8 File Offset: 0x0039C7A8
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			this.m_closedBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnClosed));
 		}
 
-		// Token: 0x0600FA79 RID: 64121 RVA: 0x0039E5CA File Offset: 0x0039C7CA
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.ShowItemType();
 		}
 
-		// Token: 0x0600FA7A RID: 64122 RVA: 0x0039E5DC File Offset: 0x0039C7DC
 		protected override void OnHide()
 		{
 			base.OnHide();
@@ -59,19 +54,16 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FA7B RID: 64123 RVA: 0x0022CCF0 File Offset: 0x0022AEF0
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
 		}
 
-		// Token: 0x0600FA7C RID: 64124 RVA: 0x0019EF07 File Offset: 0x0019D107
 		public override void OnUnload()
 		{
 			base.OnUnload();
 		}
 
-		// Token: 0x0600FA7D RID: 64125 RVA: 0x0039E628 File Offset: 0x0039C828
 		private void InitTypeList()
 		{
 			Transform transform = base.PanelObject.transform.Find("Bg/TypeList");
@@ -84,7 +76,6 @@ namespace XMainClient.UI
 			this.m_itemType2ndPool.SetupPool(transform.parent.gameObject, transform.gameObject, 5U, false);
 		}
 
-		// Token: 0x0600FA7E RID: 64126 RVA: 0x0039E6F0 File Offset: 0x0039C8F0
 		private void InitSuit()
 		{
 			Transform transform = base.PanelObject.transform.Find("Bg/Bg/p");
@@ -116,7 +107,6 @@ namespace XMainClient.UI
 			this.m_suitNameLab = (base.PanelObject.transform.Find("Bg/Bg/SuitName").GetComponent("XUILabel") as IXUILabel);
 		}
 
-		// Token: 0x0600FA7F RID: 64127 RVA: 0x0039E8C0 File Offset: 0x0039CAC0
 		private void ShowItemType()
 		{
 			List<ArtifactSuitLevel> levelSuitList = this.m_doc.GetLevelSuitList();
@@ -194,7 +184,6 @@ namespace XMainClient.UI
 			this.m_itemTypeTable.Reposition();
 		}
 
-		// Token: 0x0600FA80 RID: 64128 RVA: 0x0039ED54 File Offset: 0x0039CF54
 		private void FillSuitContent(uint suitId)
 		{
 			ArtifactSuit suitBySuitId = ArtifactDocument.SuitMgr.GetSuitBySuitId(suitId);
@@ -249,7 +238,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FA81 RID: 64129 RVA: 0x0039EEEC File Offset: 0x0039D0EC
 		private void FillEffectDes(uint artifactId)
 		{
 			ArtifactListTable.RowData artifactListRowData = ArtifactDocument.GetArtifactListRowData(artifactId);
@@ -261,7 +249,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FA82 RID: 64130 RVA: 0x0039EF54 File Offset: 0x0039D154
 		private void FillSuitDes(uint suitId)
 		{
 			this.m_suitAttrPool.ReturnAll(true);
@@ -301,7 +288,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FA83 RID: 64131 RVA: 0x0039F11C File Offset: 0x0039D31C
 		private void RefreshItemList()
 		{
 			bool flag = !base.IsVisible();
@@ -315,7 +301,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FA84 RID: 64132 RVA: 0x0039F154 File Offset: 0x0039D354
 		private void OnClickItemType1st(IXUISprite spr)
 		{
 			bool flag = spr.spriteName == "l_add_00";
@@ -329,7 +314,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FA85 RID: 64133 RVA: 0x0039F190 File Offset: 0x0039D390
 		private void OnSelectItem(IXUISprite spr)
 		{
 			uint num = (uint)spr.ID;
@@ -341,14 +325,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FA86 RID: 64134 RVA: 0x0039F1C4 File Offset: 0x0039D3C4
 		private bool OnClosed(IXUIButton btn)
 		{
 			base.SetVisible(false);
 			return true;
 		}
 
-		// Token: 0x0600FA87 RID: 64135 RVA: 0x0039F1E0 File Offset: 0x0039D3E0
 		private bool OnClickItemType2nd(IXUICheckBox cb)
 		{
 			bool flag = !cb.bChecked;
@@ -372,7 +354,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FA88 RID: 64136 RVA: 0x0039F238 File Offset: 0x0039D438
 		private void SetSelectStatus(bool isSelected)
 		{
 			this.m_curItemType2nd.gameObject.transform.FindChild("UnSelectLab").gameObject.SetActive(!isSelected);
@@ -391,49 +372,34 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04006DC8 RID: 28104
 		private readonly int m_itemCount = 4;
 
-		// Token: 0x04006DC9 RID: 28105
 		private uint m_selectArtifactId = 0U;
 
-		// Token: 0x04006DCA RID: 28106
 		private IXUIButton m_closedBtn;
 
-		// Token: 0x04006DCB RID: 28107
 		private ArtifactAtlasDocument m_doc;
 
-		// Token: 0x04006DCC RID: 28108
 		private IXUITable m_itemTypeTable;
 
-		// Token: 0x04006DCD RID: 28109
 		private IXUICheckBox m_curItemType2nd;
 
-		// Token: 0x04006DCE RID: 28110
 		private IXUIScrollView m_itemTypeScrollView;
 
-		// Token: 0x04006DCF RID: 28111
 		private XUIPool m_itemType1stPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006DD0 RID: 28112
 		private XUIPool m_itemType2ndPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006DD1 RID: 28113
 		private IXUILabel m_suitNameLab;
 
-		// Token: 0x04006DD2 RID: 28114
 		private IXUILabel m_effectTittleLab;
 
-		// Token: 0x04006DD3 RID: 28115
 		private IXUILabel m_effectDesLab;
 
-		// Token: 0x04006DD4 RID: 28116
 		private GameObject[] m_suitItemsGo;
 
-		// Token: 0x04006DD5 RID: 28117
 		private Transform m_suitPanelTra;
 
-		// Token: 0x04006DD6 RID: 28118
 		private XUIPool m_suitAttrPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 	}
 }

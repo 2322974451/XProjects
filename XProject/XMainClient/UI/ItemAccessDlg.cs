@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020018C6 RID: 6342
+
 	internal class ItemAccessDlg : DlgBase<ItemAccessDlg, ItemAccessDlgBehaviour>
 	{
-		// Token: 0x17003A56 RID: 14934
-		// (get) Token: 0x060108A6 RID: 67750 RVA: 0x0040FBFC File Offset: 0x0040DDFC
+
 		public override string fileName
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003A57 RID: 14935
-		// (get) Token: 0x060108A7 RID: 67751 RVA: 0x0040FC14 File Offset: 0x0040DE14
 		public override int layer
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003A58 RID: 14936
-		// (get) Token: 0x060108A8 RID: 67752 RVA: 0x0040FC28 File Offset: 0x0040DE28
 		public override bool autoload
 		{
 			get
@@ -40,26 +35,22 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060108A9 RID: 67753 RVA: 0x0040FC3B File Offset: 0x0040DE3B
 		protected override void Init()
 		{
 			this._bqDocument = XDocuments.GetSpecificDocument<XFPStrengthenDocument>(XFPStrengthenDocument.uuID);
 		}
 
-		// Token: 0x060108AA RID: 67754 RVA: 0x0040FC4E File Offset: 0x0040DE4E
 		public override void RegisterEvent()
 		{
 			base.uiBehaviour.m_Close.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseClicked));
 		}
 
-		// Token: 0x060108AB RID: 67755 RVA: 0x0040FC70 File Offset: 0x0040DE70
 		protected bool OnCloseClicked(IXUIButton go)
 		{
 			this.SetVisible(false, true);
 			return true;
 		}
 
-		// Token: 0x060108AC RID: 67756 RVA: 0x0040FC8C File Offset: 0x0040DE8C
 		public void ShowAccess(int itemid, List<int> ids, List<int> param, AccessCallback callback = null)
 		{
 			this.SetVisible(true, true);
@@ -72,7 +63,6 @@ namespace XMainClient.UI
 			this.SetScrollViewItems(ids, param);
 		}
 
-		// Token: 0x060108AD RID: 67757 RVA: 0x0040FD0C File Offset: 0x0040DF0C
 		public void ShowMonsterAccess(uint monsterID, List<int> BQList, List<int> param, AccessCallback callback = null)
 		{
 			this.SetVisible(true, true);
@@ -110,7 +100,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060108AE RID: 67758 RVA: 0x0040FE40 File Offset: 0x0040E040
 		private void SetScrollViewItems(List<int> BQList, List<int> param)
 		{
 			bool flag = BQList == null || param == null;
@@ -287,7 +276,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060108AF RID: 67759 RVA: 0x004104E0 File Offset: 0x0040E6E0
 		private int Compare(AccessData left, AccessData right)
 		{
 			bool isOpen = left.IsOpen;
@@ -303,7 +291,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x060108B0 RID: 67760 RVA: 0x00410504 File Offset: 0x0040E704
 		public bool GoToAccessSys(IXUIButton sp)
 		{
 			int num = (int)sp.ID;
@@ -414,16 +401,12 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x040077C2 RID: 30658
 		private XFPStrengthenDocument _bqDocument;
 
-		// Token: 0x040077C3 RID: 30659
 		private AccessCallback _callback;
 
-		// Token: 0x040077C4 RID: 30660
 		private int _access_item = 0;
 
-		// Token: 0x040077C5 RID: 30661
 		private Dictionary<int, int> _idParam = new Dictionary<int, int>();
 	}
 }

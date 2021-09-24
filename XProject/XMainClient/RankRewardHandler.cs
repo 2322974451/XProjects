@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000A28 RID: 2600
+
 	internal class RankRewardHandler : DlgHandlerBase
 	{
-		// Token: 0x17002ECC RID: 11980
-		// (get) Token: 0x06009EC5 RID: 40645 RVA: 0x001A29E0 File Offset: 0x001A0BE0
+
 		protected override string FileName
 		{
 			get
@@ -20,7 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009EC6 RID: 40646 RVA: 0x001A29F8 File Offset: 0x001A0BF8
 		protected override void Init()
 		{
 			base.Init();
@@ -33,21 +31,18 @@ namespace XMainClient
 			this.m_ItemPool.SetupPool(null, transform.Find("ScrollView/Item").gameObject, 5U, false);
 		}
 
-		// Token: 0x06009EC7 RID: 40647 RVA: 0x001A2ADC File Offset: 0x001A0CDC
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			this.m_Close.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseClicked));
 		}
 
-		// Token: 0x06009EC8 RID: 40648 RVA: 0x001A2B00 File Offset: 0x001A0D00
 		public bool OnCloseClicked(IXUIButton btn)
 		{
 			base.SetVisible(false);
 			return true;
 		}
 
-		// Token: 0x06009EC9 RID: 40649 RVA: 0x001A2B1B File Offset: 0x001A0D1B
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -55,20 +50,17 @@ namespace XMainClient
 			this.RefreshText();
 		}
 
-		// Token: 0x06009ECA RID: 40650 RVA: 0x0019EF07 File Offset: 0x0019D107
 		public override void OnUnload()
 		{
 			base.OnUnload();
 		}
 
-		// Token: 0x06009ECB RID: 40651 RVA: 0x001A2B34 File Offset: 0x001A0D34
 		public void SetData(List<RankRewardData> data, XSysDefine sys)
 		{
 			this.m_Data = data;
 			this.Sys = sys;
 		}
 
-		// Token: 0x06009ECC RID: 40652 RVA: 0x001A2B48 File Offset: 0x001A0D48
 		public void RefreshList(bool resetPos = true)
 		{
 			bool flag = this.m_Data == null;
@@ -112,7 +104,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009ECD RID: 40653 RVA: 0x001A2E00 File Offset: 0x001A1000
 		private void RefreshText()
 		{
 			this.m_RightText.gameObject.SetActive(false);
@@ -126,28 +117,20 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0400387E RID: 14462
 		private List<RankRewardData> m_Data;
 
-		// Token: 0x0400387F RID: 14463
 		public XSysDefine Sys;
 
-		// Token: 0x04003880 RID: 14464
 		public IXUIButton m_Close;
 
-		// Token: 0x04003881 RID: 14465
 		public XUIPool m_RewardPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04003882 RID: 14466
 		public XUIPool m_ItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04003883 RID: 14467
 		public IXUILabel m_RightText;
 
-		// Token: 0x04003884 RID: 14468
 		public IXUILabel m_BottomText;
 
-		// Token: 0x04003885 RID: 14469
 		public IXUIScrollView m_ScrollView;
 	}
 }

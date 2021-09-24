@@ -8,10 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000D13 RID: 3347
+
 	internal class XTeamPartnerBonusHandler : DlgHandlerBase
 	{
-		// Token: 0x0600BACE RID: 47822 RVA: 0x00263890 File Offset: 0x00261A90
+
 		protected override void Init()
 		{
 			base.Init();
@@ -44,7 +44,6 @@ namespace XMainClient
 			this.m_PopPanel.SetActive(false);
 		}
 
-		// Token: 0x0600BACF RID: 47823 RVA: 0x00263BA4 File Offset: 0x00261DA4
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -52,13 +51,11 @@ namespace XMainClient
 			this.m_BtnOpenPop.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this._OnPopOpenClicked));
 		}
 
-		// Token: 0x0600BAD0 RID: 47824 RVA: 0x00263BDE File Offset: 0x00261DDE
 		private void _OnPopCloseClicked(IXUISprite iSp)
 		{
 			this.m_PopPanel.SetActive(false);
 		}
 
-		// Token: 0x0600BAD1 RID: 47825 RVA: 0x00263BF0 File Offset: 0x00261DF0
 		private void _OnPopOpenClicked(IXUISprite iSp)
 		{
 			bool flag = this.IsHadDragonGuildMemberInTeam();
@@ -82,7 +79,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BAD2 RID: 47826 RVA: 0x00263C80 File Offset: 0x00261E80
 		public void RefreshCurrent()
 		{
 			this.m_CurrentBuffData = null;
@@ -144,7 +140,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BAD3 RID: 47827 RVA: 0x00263E88 File Offset: 0x00262088
 		private bool IsHadDragonGuildMemberInTeam()
 		{
 			bool result = false;
@@ -177,7 +172,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600BAD4 RID: 47828 RVA: 0x00263F50 File Offset: 0x00262150
 		public void RefreshPop()
 		{
 			bool flag = !this.m_PopPanel.activeSelf;
@@ -208,7 +202,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BAD5 RID: 47829 RVA: 0x00264045 File Offset: 0x00262245
 		public override void RefreshData()
 		{
 			base.RefreshData();
@@ -216,7 +209,6 @@ namespace XMainClient
 			this.RefreshPop();
 		}
 
-		// Token: 0x0600BAD6 RID: 47830 RVA: 0x00264060 File Offset: 0x00262260
 		private void _RefreshDetailInfo(GameObject go, DragonGuildTable.RowData rowData)
 		{
 			IXUILabel ixuilabel = go.transform.Find("Level").GetComponent("XUILabel") as IXUILabel;
@@ -226,7 +218,6 @@ namespace XMainClient
 			this._RefreshBuff(gameObject, rowData);
 		}
 
-		// Token: 0x0600BAD7 RID: 47831 RVA: 0x002640E0 File Offset: 0x002622E0
 		private void _RefreshBuff(GameObject go, DragonGuildTable.RowData rowData)
 		{
 			IXUILabel ixuilabel = go.GetComponent("XUILabel") as IXUILabel;
@@ -245,80 +236,56 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BAD8 RID: 47832 RVA: 0x00264180 File Offset: 0x00262380
 		private bool _OnGotoPartnerClicked(IXUIButton btn)
 		{
 			DlgBase<XFriendsView, XFriendsBehaviour>.singleton.ShowTab(XSysDefine.XSys_GuildCollectSummon);
 			return true;
 		}
 
-		// Token: 0x04004B26 RID: 19238
 		private GameObject m_CurrentBuff;
 
-		// Token: 0x04004B27 RID: 19239
 		private GameObject m_DisableBuff;
 
-		// Token: 0x04004B28 RID: 19240
 		private IXUILabel[] m_Levels;
 
-		// Token: 0x04004B29 RID: 19241
 		private List<int> m_QualityLevels;
 
-		// Token: 0x04004B2A RID: 19242
 		private IXUILabel m_DisableLevel;
 
-		// Token: 0x04004B2B RID: 19243
 		private GameObject m_Active;
 
-		// Token: 0x04004B2C RID: 19244
 		private GameObject m_Disactive;
 
-		// Token: 0x04004B2D RID: 19245
 		private GameObject m_PopActive;
 
-		// Token: 0x04004B2E RID: 19246
 		private GameObject m_PopDisactive;
 
-		// Token: 0x04004B2F RID: 19247
 		private IXUISprite m_BtnOpenPop;
 
-		// Token: 0x04004B30 RID: 19248
 		private GameObject m_PopPanel;
 
-		// Token: 0x04004B31 RID: 19249
 		private IXUISprite m_PopClose;
 
-		// Token: 0x04004B32 RID: 19250
 		private GameObject m_PopEmpty;
 
-		// Token: 0x04004B33 RID: 19251
 		private GameObject m_PopCurrentBuff;
 
-		// Token: 0x04004B34 RID: 19252
 		private GameObject m_PopNextBuff;
 
-		// Token: 0x04004B35 RID: 19253
 		private GameObject m_PopFinalBuff;
 
-		// Token: 0x04004B36 RID: 19254
 		private XTeamDocument _TeamDoc;
 
-		// Token: 0x04004B37 RID: 19255
 		private XDragonGuildDocument _Doc;
 
-		// Token: 0x04004B38 RID: 19256
 		private DragonGuildTable.RowData m_CurrentBuffData;
 
-		// Token: 0x04004B39 RID: 19257
 		private DragonGuildTable.RowData m_NextBuffData;
 
-		// Token: 0x04004B3A RID: 19258
 		private bool m_bFullLevel;
 
-		// Token: 0x04004B3B RID: 19259
 		private bool m_bActive;
 
-		// Token: 0x04004B3C RID: 19260
 		public bool bConsiderTeam = false;
 	}
 }

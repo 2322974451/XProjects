@@ -5,11 +5,10 @@ using ProtoBuf.Meta;
 
 namespace ProtoBuf
 {
-	// Token: 0x02000849 RID: 2121
+
 	internal sealed class NetObjectCache
 	{
-		// Token: 0x1700293F RID: 10559
-		// (get) Token: 0x0600826D RID: 33389 RVA: 0x000FA4D4 File Offset: 0x000F86D4
+
 		private MutableList List
 		{
 			get
@@ -23,7 +22,6 @@ namespace ProtoBuf
 			}
 		}
 
-		// Token: 0x0600826E RID: 33390 RVA: 0x000FA504 File Offset: 0x000F8704
 		internal object GetKeyedObject(int key)
 		{
 			bool flag = key-- == 0;
@@ -57,7 +55,6 @@ namespace ProtoBuf
 			return result;
 		}
 
-		// Token: 0x0600826F RID: 33391 RVA: 0x000FA5AC File Offset: 0x000F87AC
 		internal void SetKeyedObject(int key, object value)
 		{
 			bool flag = key-- == 0;
@@ -107,7 +104,6 @@ namespace ProtoBuf
 			}
 		}
 
-		// Token: 0x06008270 RID: 33392 RVA: 0x000FA684 File Offset: 0x000F8884
 		internal int AddObjectKey(object value, out bool existing)
 		{
 			bool flag = value == null;
@@ -181,7 +177,6 @@ namespace ProtoBuf
 			return result;
 		}
 
-		// Token: 0x06008271 RID: 33393 RVA: 0x000FA7B0 File Offset: 0x000F89B0
 		internal void RegisterTrappedObject(object value)
 		{
 			bool flag = this.rootObject == null;
@@ -208,7 +203,6 @@ namespace ProtoBuf
 			}
 		}
 
-		// Token: 0x06008272 RID: 33394 RVA: 0x000FA838 File Offset: 0x000F8A38
 		internal void Clear()
 		{
 			this.trapStartIndex = 0;
@@ -230,45 +224,35 @@ namespace ProtoBuf
 			}
 		}
 
-		// Token: 0x0400286D RID: 10349
 		internal const int Root = 0;
 
-		// Token: 0x0400286E RID: 10350
 		private MutableList underlyingList;
 
-		// Token: 0x0400286F RID: 10351
 		private object rootObject;
 
-		// Token: 0x04002870 RID: 10352
 		private int trapStartIndex;
 
-		// Token: 0x04002871 RID: 10353
 		private Dictionary<string, int> stringKeys;
 
-		// Token: 0x04002872 RID: 10354
 		private Dictionary<object, int> objectKeys;
 
-		// Token: 0x0200193D RID: 6461
 		private sealed class ReferenceComparer : IEqualityComparer<object>
 		{
-			// Token: 0x06010F9E RID: 69534 RVA: 0x0000311A File Offset: 0x0000131A
+
 			private ReferenceComparer()
 			{
 			}
 
-			// Token: 0x06010F9F RID: 69535 RVA: 0x0045219C File Offset: 0x0045039C
 			bool IEqualityComparer<object>.Equals(object x, object y)
 			{
 				return x == y;
 			}
 
-			// Token: 0x06010FA0 RID: 69536 RVA: 0x004521B4 File Offset: 0x004503B4
 			int IEqualityComparer<object>.GetHashCode(object obj)
 			{
 				return RuntimeHelpers.GetHashCode(obj);
 			}
 
-			// Token: 0x04007D61 RID: 32097
 			public static readonly NetObjectCache.ReferenceComparer Default = new NetObjectCache.ReferenceComparer();
 		}
 	}

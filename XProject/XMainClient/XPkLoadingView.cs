@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000E50 RID: 3664
+
 	internal class XPkLoadingView : DlgBase<XPkLoadingView, XPkLoadingBehaviour>
 	{
-		// Token: 0x17003466 RID: 13414
-		// (get) Token: 0x0600C479 RID: 50297 RVA: 0x002AE9E8 File Offset: 0x002ACBE8
+
 		public override string fileName
 		{
 			get
@@ -19,8 +18,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003467 RID: 13415
-		// (get) Token: 0x0600C47A RID: 50298 RVA: 0x002AEA00 File Offset: 0x002ACC00
 		public override int layer
 		{
 			get
@@ -29,8 +26,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003468 RID: 13416
-		// (get) Token: 0x0600C47B RID: 50299 RVA: 0x002AEA14 File Offset: 0x002ACC14
 		public override bool autoload
 		{
 			get
@@ -39,8 +34,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003469 RID: 13417
-		// (get) Token: 0x0600C47C RID: 50300 RVA: 0x002AEA28 File Offset: 0x002ACC28
 		public bool IsLoadingOver
 		{
 			get
@@ -49,8 +42,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700346A RID: 13418
-		// (get) Token: 0x0600C47D RID: 50301 RVA: 0x002AEA40 File Offset: 0x002ACC40
 		public override bool needOnTop
 		{
 			get
@@ -59,7 +50,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C47E RID: 50302 RVA: 0x002AEA53 File Offset: 0x002ACC53
 		protected override void Init()
 		{
 			base.Init();
@@ -67,14 +57,12 @@ namespace XMainClient
 			this._doc = XDocuments.GetSpecificDocument<XQualifyingDocument>(XQualifyingDocument.uuID);
 		}
 
-		// Token: 0x0600C47F RID: 50303 RVA: 0x002AEA74 File Offset: 0x002ACC74
 		public void ShowPkLoading(SceneType sceneType)
 		{
 			this._SceneType = sceneType;
 			this.SetVisible(true, true);
 		}
 
-		// Token: 0x0600C480 RID: 50304 RVA: 0x002AEA88 File Offset: 0x002ACC88
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -94,7 +82,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C481 RID: 50305 RVA: 0x002AEAE8 File Offset: 0x002ACCE8
 		protected override void OnHide()
 		{
 			base.OnHide();
@@ -104,19 +91,16 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C482 RID: 50306 RVA: 0x002AEB33 File Offset: 0x002ACD33
 		protected override void OnUnload()
 		{
 			base.OnUnload();
 		}
 
-		// Token: 0x0600C483 RID: 50307 RVA: 0x002AEB3D File Offset: 0x002ACD3D
 		private void LoadingOver(object o)
 		{
 			this._isLoadingOver = true;
 		}
 
-		// Token: 0x0600C484 RID: 50308 RVA: 0x002AEB48 File Offset: 0x002ACD48
 		private void SetRoleInfo()
 		{
 			for (int i = 0; i < base.uiBehaviour.m_Detail.Length; i++)
@@ -160,7 +144,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C485 RID: 50309 RVA: 0x002AEE78 File Offset: 0x002AD078
 		private void SetInvFightInfo()
 		{
 			for (int i = 0; i < base.uiBehaviour.m_Detail.Length; i++)
@@ -189,7 +172,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C486 RID: 50310 RVA: 0x002AF010 File Offset: 0x002AD210
 		public void HidePkLoading()
 		{
 			bool flag = !base.IsVisible();
@@ -200,19 +182,15 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C487 RID: 50311 RVA: 0x002AF061 File Offset: 0x002AD261
 		private void OnPkLoadingTweenFinish(IXUITweenTool tween)
 		{
 			this.SetVisible(false, true);
 		}
 
-		// Token: 0x0400558B RID: 21899
 		private SceneType _SceneType;
 
-		// Token: 0x0400558C RID: 21900
 		private XQualifyingDocument _doc = null;
 
-		// Token: 0x0400558D RID: 21901
 		private bool _isLoadingOver = false;
 	}
 }

@@ -7,10 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000D06 RID: 3334
+
 	internal class XPetSkillHandler : DlgHandlerBase
 	{
-		// Token: 0x0600BA68 RID: 47720 RVA: 0x0025FF48 File Offset: 0x0025E148
+
 		protected override void Init()
 		{
 			base.Init();
@@ -43,20 +43,17 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BA69 RID: 47721 RVA: 0x0019EEB0 File Offset: 0x0019D0B0
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 		}
 
-		// Token: 0x0600BA6A RID: 47722 RVA: 0x002600EB File Offset: 0x0025E2EB
 		public override void OnUnload()
 		{
 			this._PetDoc = null;
 			base.OnUnload();
 		}
 
-		// Token: 0x0600BA6B RID: 47723 RVA: 0x002600FC File Offset: 0x0025E2FC
 		public void Refresh(XPet pet)
 		{
 			this.CurPet = pet;
@@ -106,7 +103,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BA6C RID: 47724 RVA: 0x002602D8 File Offset: 0x0025E4D8
 		private bool _DrawSkillIcon(GameObject go, XPet.Skill skillInfo, int index = -1, bool isCover = false)
 		{
 			IXUISprite ixuisprite = null;
@@ -211,7 +207,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600BA6D RID: 47725 RVA: 0x00260544 File Offset: 0x0025E744
 		private void _OnSkillClicked(IXUISprite iSp)
 		{
 			bool flag = this.CurPet == null;
@@ -260,7 +255,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BA6E RID: 47726 RVA: 0x002607C8 File Offset: 0x0025E9C8
 		public void PlayNewSkillTip(int newSkillIndex, uint lostSkillId = 0U)
 		{
 			bool flag = !DlgBase<XPetMainView, XPetMainBehaviour>.singleton.IsVisible();
@@ -292,13 +286,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BA6F RID: 47727 RVA: 0x0026091E File Offset: 0x0025EB1E
 		private void _OnSkillClose(IXUISprite iSp)
 		{
 			this.m_SkillTips.SetVisible(false);
 		}
 
-		// Token: 0x0600BA70 RID: 47728 RVA: 0x00260930 File Offset: 0x0025EB30
 		private void _OnNewSkillCloseClick(IXUISprite iSp)
 		{
 			this.m_NewSkill.gameObject.SetActive(false);
@@ -307,61 +299,42 @@ namespace XMainClient
 			XSingleton<XFxMgr>.singleton.CreateAndPlay("Effects/FX_Particle/VehicleFX/Vehicle_jnjh", parent, Vector3.zero, Vector3.one, 1f, false, 3f, true);
 		}
 
-		// Token: 0x04004A95 RID: 19093
 		private XPetDocument _PetDoc;
 
-		// Token: 0x04004A96 RID: 19094
 		public XPet CurPet = null;
 
-		// Token: 0x04004A97 RID: 19095
 		public bool HasGetSkillUI = false;
 
-		// Token: 0x04004A98 RID: 19096
 		private static readonly uint SKILL_HORIZONTAL_NUM_MAX = 4U;
 
-		// Token: 0x04004A99 RID: 19097
 		private static readonly uint SKILL_VERTICAL_NUM_MAX = 2U;
 
-		// Token: 0x04004A9A RID: 19098
 		public static readonly uint SKILL_MAX = 8U;
 
-		// Token: 0x04004A9B RID: 19099
 		private Transform m_SkillTpl;
 
-		// Token: 0x04004A9C RID: 19100
 		private IXUISprite m_SkillTips;
 
-		// Token: 0x04004A9D RID: 19101
 		private XUIPool m_SkillPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04004A9E RID: 19102
 		private Transform m_NewSkill;
 
-		// Token: 0x04004A9F RID: 19103
 		private IXUILabel m_NewSkillText;
 
-		// Token: 0x04004AA0 RID: 19104
 		private Transform m_NewSkillIcon;
 
-		// Token: 0x04004AA1 RID: 19105
 		private IXUISprite m_NewSkillClose;
 
-		// Token: 0x04004AA2 RID: 19106
 		private IXUISprite uiSkillTipsClose;
 
-		// Token: 0x04004AA3 RID: 19107
 		private IXUISprite uiIcon;
 
-		// Token: 0x04004AA4 RID: 19108
 		private IXUISprite uiQuality;
 
-		// Token: 0x04004AA5 RID: 19109
 		private IXUILabel uiName;
 
-		// Token: 0x04004AA6 RID: 19110
 		private IXUILabel uiExplanation;
 
-		// Token: 0x04004AA7 RID: 19111
 		private IXUILabel uiOpenCondition;
 	}
 }

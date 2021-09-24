@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x02000237 RID: 567
+
 	public class MobaLevel : CVSReader
 	{
-		// Token: 0x06000C86 RID: 3206 RVA: 0x00041E78 File Offset: 0x00040078
+
 		public MobaLevel.RowData GetByLevel(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -21,7 +21,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000C87 RID: 3207 RVA: 0x00041EB0 File Offset: 0x000400B0
 		private MobaLevel.RowData BinarySearchLevel(uint key)
 		{
 			int num = 0;
@@ -80,7 +79,6 @@ namespace XUtliPoolLib
 			return null;
 		}
 
-		// Token: 0x06000C88 RID: 3208 RVA: 0x00041F8C File Offset: 0x0004018C
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			MobaLevel.RowData rowData = new MobaLevel.RowData();
@@ -92,7 +90,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x06000C89 RID: 3209 RVA: 0x00041FEC File Offset: 0x000401EC
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -106,16 +103,13 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x04000785 RID: 1925
 		public MobaLevel.RowData[] Table = null;
 
-		// Token: 0x020003C6 RID: 966
 		public class RowData
 		{
-			// Token: 0x04001106 RID: 4358
+
 			public uint Level;
 
-			// Token: 0x04001107 RID: 4359
 			public double Exp;
 		}
 	}

@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001756 RID: 5974
+
 	internal class BattleContiDlg : DlgBase<BattleContiDlg, BattleContiBehaviour>
 	{
-		// Token: 0x170037F7 RID: 14327
-		// (get) Token: 0x0600F6B4 RID: 63156 RVA: 0x0037FED4 File Offset: 0x0037E0D4
+
 		public ulong CurEnemy
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170037F8 RID: 14328
-		// (get) Token: 0x0600F6B5 RID: 63157 RVA: 0x0037FEEC File Offset: 0x0037E0EC
 		public override string fileName
 		{
 			get
@@ -31,8 +28,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170037F9 RID: 14329
-		// (get) Token: 0x0600F6B6 RID: 63158 RVA: 0x0037FF04 File Offset: 0x0037E104
 		public override int layer
 		{
 			get
@@ -41,8 +36,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170037FA RID: 14330
-		// (get) Token: 0x0600F6B7 RID: 63159 RVA: 0x0037FF18 File Offset: 0x0037E118
 		public override bool autoload
 		{
 			get
@@ -51,7 +44,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F6B8 RID: 63160 RVA: 0x0037FF2C File Offset: 0x0037E12C
 		protected override void Init()
 		{
 			bool flag = XSingleton<XScene>.singleton.SceneType == SceneType.SCENE_HEROBATTLE;
@@ -86,7 +78,6 @@ namespace XMainClient.UI
 			this.HideAll();
 		}
 
-		// Token: 0x0600F6B9 RID: 63161 RVA: 0x0037FFE0 File Offset: 0x0037E1E0
 		private void InitMultiMode()
 		{
 			this._mode = KillInfoMode.Multiple;
@@ -110,7 +101,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F6BA RID: 63162 RVA: 0x00380128 File Offset: 0x0037E328
 		public void AddBattleSkill(GVGBattleSkill battleSkill)
 		{
 			bool flag = !base.IsVisible();
@@ -126,7 +116,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F6BB RID: 63163 RVA: 0x00380168 File Offset: 0x0037E368
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -137,7 +126,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F6BC RID: 63164 RVA: 0x0038019C File Offset: 0x0037E39C
 		private void SetBattleSkill(GVGBattleSkill battleSkill)
 		{
 			bool flag = battleSkill.contiKillCount >= 0;
@@ -191,7 +179,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F6BD RID: 63165 RVA: 0x00380310 File Offset: 0x0037E510
 		private void UpdateBattleSkill()
 		{
 			bool flag = this.m_battleKiller == null;
@@ -260,7 +247,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F6BE RID: 63166 RVA: 0x00380580 File Offset: 0x0037E780
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
@@ -268,7 +254,6 @@ namespace XMainClient.UI
 			this.UpdateConKiller();
 		}
 
-		// Token: 0x0600F6BF RID: 63167 RVA: 0x00380598 File Offset: 0x0037E798
 		private void UpdateConKiller()
 		{
 			this.m_conKillerTime.Update();
@@ -293,7 +278,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F6C0 RID: 63168 RVA: 0x00380620 File Offset: 0x0037E820
 		public void Set(GVGBattleSkill battle, IXUILabel l1, IXUILabel l2)
 		{
 			bool flag = battle == null;
@@ -326,20 +310,17 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F6C1 RID: 63169 RVA: 0x003806E6 File Offset: 0x0037E8E6
 		public void HideKillInfo()
 		{
 			base.uiBehaviour.m_killer.gameObject.transform.parent.localPosition = XGameUI.Far_Far_Away;
 		}
 
-		// Token: 0x0600F6C2 RID: 63170 RVA: 0x0038070E File Offset: 0x0037E90E
 		public void HideAll()
 		{
 			this.HideConKill();
 			this.HideAssit();
 		}
 
-		// Token: 0x0600F6C3 RID: 63171 RVA: 0x00380720 File Offset: 0x0037E920
 		public void HideConKill()
 		{
 			base.uiBehaviour.m_KillText.SetAlpha(0f);
@@ -351,13 +332,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F6C4 RID: 63172 RVA: 0x0038077F File Offset: 0x0037E97F
 		public void HideAssit()
 		{
 			base.uiBehaviour.m_AssitIcon.gameObject.transform.localPosition = XGameUI.Far_Far_Away;
 		}
 
-		// Token: 0x0600F6C5 RID: 63173 RVA: 0x003807A4 File Offset: 0x0037E9A4
 		public void ShowConKill(int count, bool isRevenge)
 		{
 			this._currShow = count;
@@ -423,7 +402,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F6C6 RID: 63174 RVA: 0x00380A18 File Offset: 0x0037EC18
 		private bool IsRevenge(ulong deadID)
 		{
 			bool flag = this._curEnemy == deadID;
@@ -440,7 +418,6 @@ namespace XMainClient.UI
 			return flag;
 		}
 
-		// Token: 0x0600F6C7 RID: 63175 RVA: 0x00380A78 File Offset: 0x0037EC78
 		private void ChangeEnemy(ulong KillID)
 		{
 			XEntity entityConsiderDeath = XSingleton<XEntityMgr>.singleton.GetEntityConsiderDeath(KillID);
@@ -460,55 +437,39 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F6C8 RID: 63176 RVA: 0x00380AFE File Offset: 0x0037ECFE
 		public void ClearRevenge()
 		{
 			this._curEnemy = 0UL;
 		}
 
-		// Token: 0x04006B34 RID: 27444
 		private XElapseTimer m_conKillerTime = new XElapseTimer();
 
-		// Token: 0x04006B35 RID: 27445
 		private XElapseTimer m_battleKiller = new XElapseTimer();
 
-		// Token: 0x04006B36 RID: 27446
 		private Queue<GVGBattleSkill> _waitQueue = new Queue<GVGBattleSkill>();
 
-		// Token: 0x04006B37 RID: 27447
 		private GVGBattleSkill m_battleSkillTemp;
 
-		// Token: 0x04006B38 RID: 27448
 		private KillInfoMode _mode;
 
-		// Token: 0x04006B39 RID: 27449
 		public Queue<GVGBattleSkill> _showqueue = new Queue<GVGBattleSkill>();
 
-		// Token: 0x04006B3A RID: 27450
 		private static readonly uint MULTIPLESHOWMAX = 5U;
 
-		// Token: 0x04006B3B RID: 27451
 		private static readonly float EACHSHOWTIME = 5f;
 
-		// Token: 0x04006B3C RID: 27452
 		private List<IXUILabel> _killLabelList = new List<IXUILabel>();
 
-		// Token: 0x04006B3D RID: 27453
 		private XUIPool _killInfoPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006B3E RID: 27454
 		private MyBattleKillInfo myInfoTemp = new MyBattleKillInfo();
 
-		// Token: 0x04006B3F RID: 27455
 		private Queue<MyBattleKillInfo> _killOrAssitQueue = new Queue<MyBattleKillInfo>();
 
-		// Token: 0x04006B40 RID: 27456
 		private int _currShow;
 
-		// Token: 0x04006B41 RID: 27457
 		private bool _isRevengePlay = false;
 
-		// Token: 0x04006B42 RID: 27458
 		private ulong _curEnemy = 0UL;
 	}
 }

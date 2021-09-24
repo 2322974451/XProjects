@@ -8,10 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001723 RID: 5923
+
 	internal class BattleVoiceHandler : DlgHandlerBase
 	{
-		// Token: 0x0600F4A1 RID: 62625 RVA: 0x0036F81C File Offset: 0x0036DA1C
+
 		protected override void Init()
 		{
 			base.Init();
@@ -19,7 +19,6 @@ namespace XMainClient.UI
 			this.m_pool.SetupPool(this.tpl.transform.parent.gameObject, this.tpl, 2U, true);
 		}
 
-		// Token: 0x0600F4A2 RID: 62626 RVA: 0x0036F87C File Offset: 0x0036DA7C
 		public void Refresh(List<VoipRoomMember> _server)
 		{
 			this.dic.Clear();
@@ -44,7 +43,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F4A3 RID: 62627 RVA: 0x0036F9B0 File Offset: 0x0036DBB0
 		public void Play(ulong[] roleids, int[] states)
 		{
 			bool flag = DlgBase<BattleMain, BattleMainBehaviour>.singleton.IsLoaded();
@@ -62,13 +60,10 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04006985 RID: 27013
 		public GameObject tpl;
 
-		// Token: 0x04006986 RID: 27014
 		private XUIPool m_pool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006987 RID: 27015
 		public Dictionary<ulong, BattleVoiceNode> dic = new Dictionary<ulong, BattleVoiceNode>();
 	}
 }

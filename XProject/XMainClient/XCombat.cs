@@ -4,10 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000FF4 RID: 4084
+
 	internal sealed class XCombat : XSingleton<XCombat>
 	{
-		// Token: 0x0600D461 RID: 54369 RVA: 0x00320070 File Offset: 0x0031E270
+
 		public override bool Init()
 		{
 			bool flag = this._async_loader == null;
@@ -35,14 +35,12 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600D462 RID: 54370 RVA: 0x00320135 File Offset: 0x0031E335
 		public override void Uninit()
 		{
 			XCombat.oAttackApplyStateHandlers.Clear();
 			this._async_loader = null;
 		}
 
-		// Token: 0x0600D463 RID: 54371 RVA: 0x0032014C File Offset: 0x0031E34C
 		public double GetBaseCriticalProb(XAttributes attributes, double value)
 		{
 			bool flag = attributes == null;
@@ -59,13 +57,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600D464 RID: 54372 RVA: 0x00320190 File Offset: 0x0031E390
 		public double GetCombatValue(int combatParam, double value)
 		{
 			return value / (value + (double)combatParam);
 		}
 
-		// Token: 0x0600D465 RID: 54373 RVA: 0x003201A8 File Offset: 0x0031E3A8
 		public CombatParamTable.RowData GetCombatParam(uint Level)
 		{
 			bool flag = Level == 0U || (ulong)Level >= (ulong)((long)XCombat.oTable.Table.Length);
@@ -81,7 +77,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600D466 RID: 54374 RVA: 0x003201F8 File Offset: 0x0031E3F8
 		public XAttributeDefine MapElementToAttrAttack(DamageElement de)
 		{
 			XAttributeDefine result;
@@ -109,7 +104,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600D467 RID: 54375 RVA: 0x00320258 File Offset: 0x0031E458
 		public XAttributeDefine MapElementToAttrDefense(DamageElement de)
 		{
 			XAttributeDefine result;
@@ -137,7 +131,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600D468 RID: 54376 RVA: 0x003202B8 File Offset: 0x0031E4B8
 		private void ApplySkillBuff(HurtInfo rawInput, List<BuffDesc> Buffs)
 		{
 			for (int i = 0; i < Buffs.Count; i++)
@@ -178,7 +171,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D469 RID: 54377 RVA: 0x003203C4 File Offset: 0x0031E5C4
 		private bool _OnApplyBuff(XSkillExternalArgs arg)
 		{
 			XSkillExternalBuffArgs xskillExternalBuffArgs = arg as XSkillExternalBuffArgs;
@@ -193,7 +185,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600D46A RID: 54378 RVA: 0x00320428 File Offset: 0x0031E628
 		private void GetBaseDamage(XAttributes casterAttr, XAttributes targetAttr, SkillEffect eff, ref ProjectDamageResult result)
 		{
 			CombatParamTable.RowData combatParam = this.GetCombatParam(targetAttr.Level);
@@ -257,7 +248,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D46B RID: 54379 RVA: 0x00320714 File Offset: 0x0031E914
 		public double GetCritialRatio(XAttributes casterAttr)
 		{
 			double attr = casterAttr.GetAttr(XAttributeDefine.XAttr_CritDamage_Total);
@@ -276,7 +266,6 @@ namespace XMainClient
 			return num;
 		}
 
-		// Token: 0x0600D46C RID: 54380 RVA: 0x00320798 File Offset: 0x0031E998
 		public void CaculateSkillDamage(HurtInfo rawInput, ProjectDamageResult result, SkillEffect eff)
 		{
 			XAttributes attributes = rawInput.Caster.Attributes;
@@ -343,7 +332,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D46D RID: 54381 RVA: 0x00320A88 File Offset: 0x0031EC88
 		public static void CaculateSuperArmorChange(HurtInfo rawInput, ProjectDamageResult result, SkillEffect eff)
 		{
 			XWoozyComponent xwoozyComponent = rawInput.Target.GetXComponent(XWoozyComponent.uuID) as XWoozyComponent;
@@ -399,7 +387,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D46E RID: 54382 RVA: 0x00320C5C File Offset: 0x0031EE5C
 		public void ProjectDemonstrationStart(HurtInfo rawInput)
 		{
 			SkillStartEffect skillStartEffect = XSingleton<XSkillEffectMgr>.singleton.GetSkillStartEffect(rawInput.SkillID, 1U, null, 0U, XSingleton<XScene>.singleton.IsPVPScene);
@@ -410,7 +397,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D46F RID: 54383 RVA: 0x00320CA8 File Offset: 0x0031EEA8
 		public void ProjectStart(HurtInfo rawInput)
 		{
 			bool syncMode = XSingleton<XGame>.singleton.SyncMode;
@@ -481,7 +467,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D470 RID: 54384 RVA: 0x00320F5C File Offset: 0x0031F15C
 		public void ProjectEnd(HurtInfo rawInput)
 		{
 			bool syncMode = XSingleton<XGame>.singleton.SyncMode;
@@ -511,7 +496,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D471 RID: 54385 RVA: 0x003210A4 File Offset: 0x0031F2A4
 		public ProjectDamageResult ProjectDamage(HurtInfo rawInput)
 		{
 			ProjectDamageResult data = XDataPool<ProjectDamageResult>.GetData();
@@ -575,7 +559,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600D472 RID: 54386 RVA: 0x00321288 File Offset: 0x0031F488
 		public static void BuffEffect(HurtInfo rawInput, ProjectDamageResult result)
 		{
 			XBuff.EffectEnumeratorPriorityCur = XBuffEffectPrioriy.BEP_START;
@@ -609,19 +592,16 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D473 RID: 54387 RVA: 0x00321328 File Offset: 0x0031F528
 		public static double CheckChangeHPLimit(double damage, XEntity entity, bool bIgnoreImmortal, bool bForceCantDie)
 		{
 			return XCombat._CheckChangeHPLimit(XAttributeDefine.XAttr_CurrentHP_Basic, damage, true, entity, bIgnoreImmortal, bForceCantDie);
 		}
 
-		// Token: 0x0600D474 RID: 54388 RVA: 0x00321348 File Offset: 0x0031F548
 		public static double CheckChangeHPLimit(XAttributeDefine attr, double value, XEntity entity, bool bIgnoreImmortal, bool bForceCantDie)
 		{
 			return XCombat._CheckChangeHPLimit(attr, value, false, entity, bIgnoreImmortal, bForceCantDie);
 		}
 
-		// Token: 0x0600D475 RID: 54389 RVA: 0x00321368 File Offset: 0x0031F568
 		private static double _CheckChangeHPLimit(XAttributeDefine attr, double value, bool bIsDamage, XEntity entity, bool bIgnoreImmortal, bool bForceCantDie)
 		{
 			double result;
@@ -636,7 +616,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600D476 RID: 54390 RVA: 0x0032139C File Offset: 0x0031F59C
 		private static void ChangeHPAndFireEvent(HurtInfo rawInput, ProjectDamageResult result, bool bShowHUD)
 		{
 			bool flag = rawInput == null || result == null || rawInput.Target == null;
@@ -704,7 +683,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D477 RID: 54391 RVA: 0x003215DC File Offset: 0x0031F7DC
 		public void ChangeHPAndFireEventByQTE(double Value, XEntity target)
 		{
 			Value = XCombat.CheckChangeHPLimit(Value, target, false, false);
@@ -715,7 +693,6 @@ namespace XMainClient
 			XSingleton<XEventMgr>.singleton.FireEvent(@event);
 		}
 
-		// Token: 0x0600D478 RID: 54392 RVA: 0x00321624 File Offset: 0x0031F824
 		private bool CheckState(HurtInfo rawInput, ProjectDamageResult result)
 		{
 			bool flag = !XEntity.ValideEntity(rawInput.Target);
@@ -752,7 +729,6 @@ namespace XMainClient
 			return result2;
 		}
 
-		// Token: 0x0600D479 RID: 54393 RVA: 0x003216B4 File Offset: 0x0031F8B4
 		public static void ProjectExternalDamage(double damage, ulong CasterID, XEntity target, bool bShowHUD, int flag = 0)
 		{
 			bool flag2 = target == null;
@@ -784,19 +760,14 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x040060ED RID: 24813
 		private XTableAsyncLoader _async_loader = null;
 
-		// Token: 0x040060EE RID: 24814
 		private static CombatParamTable oTable = new CombatParamTable();
 
-		// Token: 0x040060EF RID: 24815
 		private static List<AttackApplyState> oAttackApplyStateHandlers;
 
-		// Token: 0x040060F0 RID: 24816
 		private double PhysicalAvoidenceLimit;
 
-		// Token: 0x040060F1 RID: 24817
 		private double MagicAvoidenceLimit;
 	}
 }

@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x0200014A RID: 330
+
 	public class PlantSeed : CVSReader
 	{
-		// Token: 0x0600078A RID: 1930 RVA: 0x000260DC File Offset: 0x000242DC
+
 		public PlantSeed.RowData GetBySeedID(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -29,7 +29,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x0600078B RID: 1931 RVA: 0x00026148 File Offset: 0x00024348
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			PlantSeed.RowData rowData = new PlantSeed.RowData();
@@ -69,7 +68,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x0600078C RID: 1932 RVA: 0x0002631C File Offset: 0x0002451C
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -83,58 +81,41 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x04000396 RID: 918
 		public PlantSeed.RowData[] Table = null;
 
-		// Token: 0x02000349 RID: 841
 		public class RowData
 		{
-			// Token: 0x04000D08 RID: 3336
+
 			public uint SeedID;
 
-			// Token: 0x04000D09 RID: 3337
 			public string SeedName;
 
-			// Token: 0x04000D0A RID: 3338
 			public SeqRef<int> PlantID;
 
-			// Token: 0x04000D0B RID: 3339
 			public string PlantName;
 
-			// Token: 0x04000D0C RID: 3340
 			public uint GrowUpAmount;
 
-			// Token: 0x04000D0D RID: 3341
 			public uint GrowUpAmountPerMinute;
 
-			// Token: 0x04000D0E RID: 3342
 			public uint PredictGrowUpTime;
 
-			// Token: 0x04000D0F RID: 3343
 			public SeqRef<uint> HarvestPlant;
 
-			// Token: 0x04000D10 RID: 3344
 			public SeqRef<uint> ExtraDropItem;
 
-			// Token: 0x04000D11 RID: 3345
 			public uint IncreaseGrowUpRate;
 
-			// Token: 0x04000D12 RID: 3346
 			public uint ReduceGrowUpRate;
 
-			// Token: 0x04000D13 RID: 3347
 			public uint PlantStateCD;
 
-			// Token: 0x04000D14 RID: 3348
 			public uint BadStateGrowUpRate;
 
-			// Token: 0x04000D15 RID: 3349
 			public SeqRef<int> StealAward;
 
-			// Token: 0x04000D16 RID: 3350
 			public uint CanStealMaxTimes;
 
-			// Token: 0x04000D17 RID: 3351
 			public uint InitUpAmount;
 		}
 	}

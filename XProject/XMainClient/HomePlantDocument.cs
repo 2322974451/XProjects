@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C3B RID: 3131
+
 	internal class HomePlantDocument : XDocComponent
 	{
-		// Token: 0x17003156 RID: 12630
-		// (get) Token: 0x0600B148 RID: 45384 RVA: 0x0021F968 File Offset: 0x0021DB68
+
 		public override uint ID
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003157 RID: 12631
-		// (get) Token: 0x0600B149 RID: 45385 RVA: 0x0021F980 File Offset: 0x0021DB80
 		public static HomePlantDocument Doc
 		{
 			get
@@ -31,8 +28,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003158 RID: 12632
-		// (get) Token: 0x0600B14A RID: 45386 RVA: 0x0021F9AC File Offset: 0x0021DBAC
 		public static PlantSeed PlantSeedTable
 		{
 			get
@@ -41,8 +36,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003159 RID: 12633
-		// (get) Token: 0x0600B14B RID: 45387 RVA: 0x0021F9C4 File Offset: 0x0021DBC4
 		public static PlantSprite PlantSpriteTable
 		{
 			get
@@ -51,8 +44,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700315A RID: 12634
-		// (get) Token: 0x0600B14C RID: 45388 RVA: 0x0021F9DC File Offset: 0x0021DBDC
 		public HomeTypeEnum HomeType
 		{
 			get
@@ -61,9 +52,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700315B RID: 12635
-		// (get) Token: 0x0600B14D RID: 45389 RVA: 0x0021F9F4 File Offset: 0x0021DBF4
-		// (set) Token: 0x0600B14E RID: 45390 RVA: 0x0021FA0C File Offset: 0x0021DC0C
 		public ulong GardenId
 		{
 			get
@@ -77,7 +65,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B14F RID: 45391 RVA: 0x0021FA20 File Offset: 0x0021DC20
 		private void SetHomeType()
 		{
 			bool flag = this.m_gardenId == 0UL;
@@ -108,9 +95,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700315C RID: 12636
-		// (get) Token: 0x0600B151 RID: 45393 RVA: 0x0021FAEC File Offset: 0x0021DCEC
-		// (set) Token: 0x0600B150 RID: 45392 RVA: 0x0021FAA4 File Offset: 0x0021DCA4
 		public bool HadRedDot
 		{
 			get
@@ -132,7 +116,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B152 RID: 45394 RVA: 0x0021FB04 File Offset: 0x0021DD04
 		private Dictionary<uint, Farmland> GetAllFarmland()
 		{
 			bool flag = this.HomeType == HomeTypeEnum.GuildHome;
@@ -148,7 +131,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B153 RID: 45395 RVA: 0x0021FB3E File Offset: 0x0021DD3E
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			HomePlantDocument.AsyncLoader.AddTask("Table/PlantSeed", HomePlantDocument.m_PlantSeedTable, false);
@@ -156,13 +138,11 @@ namespace XMainClient
 			HomePlantDocument.AsyncLoader.Execute(callback);
 		}
 
-		// Token: 0x0600B154 RID: 45396 RVA: 0x00114ACA File Offset: 0x00112CCA
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
 		}
 
-		// Token: 0x0600B155 RID: 45397 RVA: 0x0021FB79 File Offset: 0x0021DD79
 		protected override void EventSubscribe()
 		{
 			base.RegisterEvent(XEventDefine.XEvent_GuildLevelChanged, new XComponent.XEventHandler(this.OnGuildLevelChanged));
@@ -170,7 +150,6 @@ namespace XMainClient
 			base.EventSubscribe();
 		}
 
-		// Token: 0x0600B156 RID: 45398 RVA: 0x0021FBB0 File Offset: 0x0021DDB0
 		public override void OnDetachFromHost()
 		{
 			XSingleton<XTimerMgr>.singleton.KillTimer(this.m_token);
@@ -183,7 +162,6 @@ namespace XMainClient
 			base.OnDetachFromHost();
 		}
 
-		// Token: 0x0600B157 RID: 45399 RVA: 0x0021FBF8 File Offset: 0x0021DDF8
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 			bool bIsDriveingTroubleMaker = this.m_bIsDriveingTroubleMaker;
@@ -193,13 +171,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B158 RID: 45400 RVA: 0x00114AE9 File Offset: 0x00112CE9
 		public override void OnEnterSceneFinally()
 		{
 			base.OnEnterSceneFinally();
 		}
 
-		// Token: 0x0600B159 RID: 45401 RVA: 0x0021FC18 File Offset: 0x0021DE18
 		protected bool OnGuildLevelChanged(XEventArgs args)
 		{
 			bool flag = XSingleton<XScene>.singleton.SceneType == SceneType.SCENE_GUILD_HALL && this.HomeType == HomeTypeEnum.GuildHome;
@@ -210,7 +186,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B15A RID: 45402 RVA: 0x0021FC54 File Offset: 0x0021DE54
 		private bool OnPlayerLevelChange(XEventArgs arg)
 		{
 			bool flag = XSingleton<XScene>.singleton.SceneType == SceneType.SCENE_FAMILYGARDEN && (this.HomeType == HomeTypeEnum.MyHome || this.HomeType == HomeTypeEnum.OtherHome);
@@ -221,7 +196,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B15B RID: 45403 RVA: 0x0021FC9C File Offset: 0x0021DE9C
 		public void StartPlant(uint farmlandID, uint seedID, bool isCancle = false)
 		{
 			RpcC2M_StartPlant rpcC2M_StartPlant = new RpcC2M_StartPlant();
@@ -233,7 +207,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_StartPlant);
 		}
 
-		// Token: 0x0600B15C RID: 45404 RVA: 0x0021FD08 File Offset: 0x0021DF08
 		public void FetchPlantInfo(uint farmId = 0U)
 		{
 			RpcC2M_FetchPlantInfo rpcC2M_FetchPlantInfo = new RpcC2M_FetchPlantInfo();
@@ -243,7 +216,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_FetchPlantInfo);
 		}
 
-		// Token: 0x0600B15D RID: 45405 RVA: 0x0021FD5C File Offset: 0x0021DF5C
 		public void PlantCultivation(uint farmlandID, PlantGrowState type)
 		{
 			RpcC2M_PlantCultivation rpcC2M_PlantCultivation = new RpcC2M_PlantCultivation();
@@ -254,7 +226,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_PlantCultivation);
 		}
 
-		// Token: 0x0600B15E RID: 45406 RVA: 0x0021FDBC File Offset: 0x0021DFBC
 		public void PlantHarvest(uint farmlandID)
 		{
 			RpcC2M_PlantHarvest rpcC2M_PlantHarvest = new RpcC2M_PlantHarvest();
@@ -264,7 +235,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_PlantHarvest);
 		}
 
-		// Token: 0x0600B15F RID: 45407 RVA: 0x0021FE10 File Offset: 0x0021E010
 		public void HomeSteal(uint farmlandID)
 		{
 			RpcC2M_GardenSteal rpcC2M_GardenSteal = new RpcC2M_GardenSteal();
@@ -274,7 +244,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_GardenSteal);
 		}
 
-		// Token: 0x0600B160 RID: 45408 RVA: 0x0021FE64 File Offset: 0x0021E064
 		public void DriveTroubleMaker()
 		{
 			bool flag = !this.HomeSprite.IsHadSprite;
@@ -289,7 +258,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B161 RID: 45409 RVA: 0x0021FEDC File Offset: 0x0021E0DC
 		public void ReqBreakNewFarmland(uint farmlandId)
 		{
 			RpcC2M_OPenGardenFarmland rpcC2M_OPenGardenFarmland = new RpcC2M_OPenGardenFarmland();
@@ -299,7 +267,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_OPenGardenFarmland);
 		}
 
-		// Token: 0x0600B162 RID: 45410 RVA: 0x0021FF30 File Offset: 0x0021E130
 		public void OnStartPlantBack(StartPlantArg oArg, StartPlantRes oRes)
 		{
 			bool flag = oRes == null;
@@ -343,7 +310,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B163 RID: 45411 RVA: 0x00220034 File Offset: 0x0021E234
 		public void OnFetchPlantInfoBack(uint farmId, FetchPlantInfoRes oRes)
 		{
 			bool flag = oRes.result > ErrorCode.ERR_SUCCESS;
@@ -459,7 +425,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B164 RID: 45412 RVA: 0x00220338 File Offset: 0x0021E538
 		public void OnPlantCultivationBack(PlantCultivationArg oArg, PlantCultivationRes oRes)
 		{
 			uint farmland_id = oArg.farmland_id;
@@ -498,7 +463,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B165 RID: 45413 RVA: 0x00220480 File Offset: 0x0021E680
 		public void OnPlantHarvestBack(uint famland_id, PlantHarvestRes oRes)
 		{
 			bool flag = oRes.result > ErrorCode.ERR_SUCCESS;
@@ -548,7 +512,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B166 RID: 45414 RVA: 0x0022061C File Offset: 0x0021E81C
 		public void OnHomeStealBack(uint famland_id, GardenStealRes oRes)
 		{
 			bool flag = oRes.result > ErrorCode.ERR_SUCCESS;
@@ -573,7 +536,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B167 RID: 45415 RVA: 0x002206B8 File Offset: 0x0021E8B8
 		public void OnDriveTroubleMakerBack(GardenExpelSpriteRes oRes)
 		{
 			this.m_bIsDriveingTroubleMaker = false;
@@ -608,7 +570,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B168 RID: 45416 RVA: 0x00220780 File Offset: 0x0021E980
 		public void OnBreakNewFarmlandBack(uint farmlandId, OpenGardenFarmlandRes oRes)
 		{
 			bool flag = oRes.result > ErrorCode.ERR_SUCCESS;
@@ -629,7 +590,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B169 RID: 45417 RVA: 0x002207F0 File Offset: 0x0021E9F0
 		public void OnGetHomeEventBack(PtcG2C_GardenPlantEventNotice roPtc)
 		{
 			bool flag = roPtc.Data.garden_id != this.GardenId;
@@ -703,8 +663,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700315D RID: 12637
-		// (get) Token: 0x0600B16A RID: 45418 RVA: 0x0022099C File Offset: 0x0021EB9C
 		public List<XItem> HadSeedList
 		{
 			get
@@ -713,13 +671,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B16B RID: 45419 RVA: 0x002209B4 File Offset: 0x0021EBB4
 		public List<XItem> GetHadSeedsList()
 		{
 			return this.HadSeedList;
 		}
 
-		// Token: 0x0600B16C RID: 45420 RVA: 0x002209CC File Offset: 0x0021EBCC
 		public void GetHadSeedList()
 		{
 			this.m_hadSeedList.Clear();
@@ -737,7 +693,6 @@ namespace XMainClient
 			XSingleton<XGame>.singleton.Doc.XBagDoc.GetItemsByType(typeFilter, ref this.m_hadSeedList);
 		}
 
-		// Token: 0x0600B16D RID: 45421 RVA: 0x00220A24 File Offset: 0x0021EC24
 		public Farmland GetFarmland(uint farmlandId)
 		{
 			bool flag = this.HomeType == HomeTypeEnum.GuildHome;
@@ -753,7 +708,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B16E RID: 45422 RVA: 0x00220A60 File Offset: 0x0021EC60
 		public uint GetFarmlandIdByNpcId(uint npcId)
 		{
 			bool flag = this.HomeType == HomeTypeEnum.GuildHome;
@@ -769,7 +723,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B16F RID: 45423 RVA: 0x00220A9C File Offset: 0x0021EC9C
 		private void GetFarmlandNpcIds(ref List<uint> lst)
 		{
 			bool flag = this.HomeType == HomeTypeEnum.GuildHome;
@@ -783,7 +736,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B170 RID: 45424 RVA: 0x00220AD8 File Offset: 0x0021ECD8
 		public void SetHadRedDot()
 		{
 			bool flag = this.HomeType != HomeTypeEnum.MyHome;
@@ -808,7 +760,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B171 RID: 45425 RVA: 0x00220B84 File Offset: 0x0021ED84
 		public void SetFarmlandBoxStatus(bool status)
 		{
 			List<uint> list = new List<uint>();
@@ -824,7 +775,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B172 RID: 45426 RVA: 0x00220BE4 File Offset: 0x0021EDE4
 		public void ClearFarmInfo()
 		{
 			bool flag = this.HomeType == HomeTypeEnum.GuildHome;
@@ -838,7 +788,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B173 RID: 45427 RVA: 0x00220C20 File Offset: 0x0021EE20
 		public uint GetNpcIdByFarmId(uint farmId)
 		{
 			bool flag = this.HomeType == HomeTypeEnum.GuildHome;
@@ -876,7 +825,6 @@ namespace XMainClient
 			return 0U;
 		}
 
-		// Token: 0x0600B174 RID: 45428 RVA: 0x00220CEC File Offset: 0x0021EEEC
 		public bool GetBreakHomeFarmlandData(out int param0, out int param1)
 		{
 			param0 = 0;
@@ -899,7 +847,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B175 RID: 45429 RVA: 0x00220D68 File Offset: 0x0021EF68
 		private int GetBreakFarmlandNum()
 		{
 			bool flag = this.HomeType == HomeTypeEnum.GuildHome;
@@ -915,7 +862,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B176 RID: 45430 RVA: 0x00220DA4 File Offset: 0x0021EFA4
 		public PlantGrowState GrowStateTrans(CropState state)
 		{
 			PlantGrowState result;
@@ -937,7 +883,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B177 RID: 45431 RVA: 0x00220DDC File Offset: 0x0021EFDC
 		private GardenQuestType GetQuestType()
 		{
 			GardenQuestType result;
@@ -959,7 +904,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B178 RID: 45432 RVA: 0x00220E18 File Offset: 0x0021F018
 		public string GetHomePlantAction(ActionType type)
 		{
 			uint basicTypeID = XSingleton<XAttributeMgr>.singleton.XPlayerData.BasicTypeID;
@@ -984,7 +928,6 @@ namespace XMainClient
 			return string.Format("Player_{0}_{1}", XSingleton<XProfessionSkillMgr>.singleton.GetLowerCaseWord(basicTypeID), arg);
 		}
 
-		// Token: 0x0600B179 RID: 45433 RVA: 0x00220E9C File Offset: 0x0021F09C
 		public void ClickFarmModle(XNpc npc)
 		{
 			bool bIsPlayingAction = this.m_bIsPlayingAction;
@@ -995,7 +938,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B17A RID: 45434 RVA: 0x00220ED4 File Offset: 0x0021F0D4
 		public void CliclTroubleMakerModle(XNpc npc)
 		{
 			bool flag = !XOutlookHelper.CanPlaySpecifiedAnimation(XSingleton<XEntityMgr>.singleton.Player);
@@ -1014,7 +956,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B17B RID: 45435 RVA: 0x00220F6C File Offset: 0x0021F16C
 		private void PlayActionEnd(object o = null)
 		{
 			XNpc xnpc = o as XNpc;
@@ -1027,7 +968,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B17C RID: 45436 RVA: 0x00220FB3 File Offset: 0x0021F1B3
 		public void PlayerActionEnd(XNpc npc)
 		{
 			this.m_targetNpc = npc;
@@ -1035,7 +975,6 @@ namespace XMainClient
 			this.m_bShouldUpdate = true;
 		}
 
-		// Token: 0x0600B17D RID: 45437 RVA: 0x00220FD0 File Offset: 0x0021F1D0
 		public override void Update(float fDeltaT)
 		{
 			bool bShouldUpdate = this.m_bShouldUpdate;
@@ -1057,70 +996,48 @@ namespace XMainClient
 			base.Update(fDeltaT);
 		}
 
-		// Token: 0x0400444E RID: 17486
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("HomePlantDocument");
 
-		// Token: 0x0400444F RID: 17487
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x04004450 RID: 17488
 		private static PlantSeed m_PlantSeedTable = new PlantSeed();
 
-		// Token: 0x04004451 RID: 17489
 		private static PlantSprite m_PlantSpriteTable = new PlantSprite();
 
-		// Token: 0x04004452 RID: 17490
 		public Farm m_farm = new Farm();
 
-		// Token: 0x04004453 RID: 17491
 		public HomeSpriteClass HomeSprite = new HomeSpriteClass();
 
-		// Token: 0x04004454 RID: 17492
 		public string HomeOwnerName = "";
 
-		// Token: 0x04004455 RID: 17493
 		private bool m_bIsDriveingTroubleMaker = false;
 
-		// Token: 0x04004456 RID: 17494
 		private HomeTypeEnum m_homeType = HomeTypeEnum.None;
 
-		// Token: 0x04004457 RID: 17495
 		public static readonly string PlantEffectPath = "Effects/FX_Particle/UIfx/UI_jy_zz";
 
-		// Token: 0x04004458 RID: 17496
 		private ulong m_gardenId = 0UL;
 
-		// Token: 0x04004459 RID: 17497
 		private bool m_hadRedDot = false;
 
-		// Token: 0x0400445A RID: 17498
 		public HomePlantDlg View;
 
-		// Token: 0x0400445B RID: 17499
 		private List<XItem> m_hadSeedList = new List<XItem>();
 
-		// Token: 0x0400445C RID: 17500
 		public uint CurFarmlandId = 1U;
 
-		// Token: 0x0400445D RID: 17501
 		private SeqList<int> HomeFarmlandIds;
 
-		// Token: 0x0400445E RID: 17502
 		private SeqList<int> GuildFarmlandIds;
 
-		// Token: 0x0400445F RID: 17503
 		private bool m_bIsPlayingAction = false;
 
-		// Token: 0x04004460 RID: 17504
 		private uint m_token;
 
-		// Token: 0x04004461 RID: 17505
 		private bool m_bShouldUpdate = false;
 
-		// Token: 0x04004462 RID: 17506
 		private float m_timeCounter = 0f;
 
-		// Token: 0x04004463 RID: 17507
 		private XNpc m_targetNpc = null;
 	}
 }

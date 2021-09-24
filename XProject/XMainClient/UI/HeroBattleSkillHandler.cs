@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001798 RID: 6040
+
 	internal class HeroBattleSkillHandler : DlgHandlerBase
 	{
-		// Token: 0x1700384F RID: 14415
-		// (get) Token: 0x0600F959 RID: 63833 RVA: 0x00393E30 File Offset: 0x00392030
+
 		protected override string FileName
 		{
 			get
@@ -20,7 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F95A RID: 63834 RVA: 0x00393E48 File Offset: 0x00392048
 		protected override void Init()
 		{
 			base.Init();
@@ -82,7 +80,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F95B RID: 63835 RVA: 0x003942EC File Offset: 0x003924EC
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -92,7 +89,6 @@ namespace XMainClient.UI
 			this.m_BuyBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnBuyBtnClick));
 		}
 
-		// Token: 0x0600F95C RID: 63836 RVA: 0x00394364 File Offset: 0x00392564
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -120,7 +116,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F95D RID: 63837 RVA: 0x00394444 File Offset: 0x00392644
 		protected override void OnHide()
 		{
 			base.OnHide();
@@ -155,7 +150,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F95E RID: 63838 RVA: 0x00394518 File Offset: 0x00392718
 		public override void OnUnload()
 		{
 			this.LastSelectSprite = null;
@@ -183,7 +177,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x0600F95F RID: 63839 RVA: 0x003945DC File Offset: 0x003927DC
 		public void SetFx()
 		{
 			bool isBattleScene = this._isBattleScene;
@@ -199,7 +192,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F960 RID: 63840 RVA: 0x00394650 File Offset: 0x00392850
 		private bool OnCloseBtnClick(IXUIButton btn)
 		{
 			bool isBattleScene = this._isBattleScene;
@@ -219,21 +211,18 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F961 RID: 63841 RVA: 0x00394698 File Offset: 0x00392898
 		private void OnPlayBtnClick(IXUISprite iSp)
 		{
 			this.SetPlayBtnState(false);
 			XSingleton<XSkillPreViewMgr>.singleton.ShowSkill(this._doc.Dummy, this._currSkill, this._doc.CurrentEntityStatisticsID[this.HandlerType]);
 		}
 
-		// Token: 0x0600F962 RID: 63842 RVA: 0x003946D4 File Offset: 0x003928D4
 		private bool OnOKBtnClick(IXUIButton btn)
 		{
 			this._doc.QuerySelectBattleHero();
 			return true;
 		}
 
-		// Token: 0x0600F963 RID: 63843 RVA: 0x003946F4 File Offset: 0x003928F4
 		public bool OnSureUseExperienceTicket(IXUIButton btn)
 		{
 			DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.SetVisible(false, true);
@@ -241,7 +230,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F964 RID: 63844 RVA: 0x00394720 File Offset: 0x00392920
 		public void OnExperienceClick(IXUISprite iSp)
 		{
 			bool flag = !this._doc.CSSH && this._doc.TAS.Contains((uint)iSp.ID);
@@ -276,7 +264,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F965 RID: 63845 RVA: 0x003948B4 File Offset: 0x00392AB4
 		public void OnTabClick(IXUISprite iSp)
 		{
 			bool flag = this._isBattleScene && this._battleFirstClick;
@@ -343,7 +330,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F966 RID: 63846 RVA: 0x00394B50 File Offset: 0x00392D50
 		private int Compare(uint x, uint y)
 		{
 			bool flag = x == y;
@@ -399,7 +385,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F967 RID: 63847 RVA: 0x00394D0C File Offset: 0x00392F0C
 		public void SetupTabs()
 		{
 			this.LastSelectSprite = null;
@@ -435,7 +420,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F968 RID: 63848 RVA: 0x00394F1C File Offset: 0x0039311C
 		public void RefreshTab()
 		{
 			List<GameObject> list = ListPool<GameObject>.Get();
@@ -455,7 +439,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F969 RID: 63849 RVA: 0x00394FB8 File Offset: 0x003931B8
 		private void RefreshSingleTab(OverWatchTable.RowData data, GameObject go)
 		{
 			GameObject gameObject = go.transform.Find("Bg/Have").gameObject;
@@ -483,7 +466,6 @@ namespace XMainClient.UI
 			gameObject5.SetActive(this._isBattleScene && !this._doc.CSSH && this._doc.TAS.Contains(data.HeroID));
 		}
 
-		// Token: 0x0600F96A RID: 63850 RVA: 0x0039521C File Offset: 0x0039341C
 		private void SetupPreViewInfo(int index = 0)
 		{
 			this._doc.ReplaceDummy(this.HandlerType);
@@ -539,7 +521,6 @@ namespace XMainClient.UI
 			ixuicheckBox.bChecked = true;
 		}
 
-		// Token: 0x0600F96B RID: 63851 RVA: 0x003954FC File Offset: 0x003936FC
 		public List<uint> SkillInfo()
 		{
 			List<uint> list = new List<uint>();
@@ -556,7 +537,6 @@ namespace XMainClient.UI
 			return list;
 		}
 
-		// Token: 0x0600F96C RID: 63852 RVA: 0x003955C4 File Offset: 0x003937C4
 		private bool OnSkillPreViewClick(IXUICheckBox icb)
 		{
 			bool flag = !icb.bChecked;
@@ -574,14 +554,12 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F96D RID: 63853 RVA: 0x003955FC File Offset: 0x003937FC
 		private bool OnBuyBtnClick(IXUIButton btn)
 		{
 			this._doc.QueryBuyHero(this._doc.CurrentSelect);
 			return true;
 		}
 
-		// Token: 0x0600F96E RID: 63854 RVA: 0x00395628 File Offset: 0x00393828
 		private void SetupSkillInfo()
 		{
 			SkillList.RowData skillConfig = XSingleton<XSkillEffectMgr>.singleton.GetSkillConfig(this._currSkill, 0U, this._doc.CurrentEntityStatisticsID[this.HandlerType]);
@@ -592,7 +570,6 @@ namespace XMainClient.UI
 			XSingleton<XSkillPreViewMgr>.singleton.SkillShowBegin(this._doc.Dummy, this._doc.BlackHouseCamera);
 		}
 
-		// Token: 0x0600F96F RID: 63855 RVA: 0x003956C0 File Offset: 0x003938C0
 		public void SetSkillPreViewState(bool state, int index = 0)
 		{
 			this._doc.IsPreViewShow = state;
@@ -629,7 +606,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F970 RID: 63856 RVA: 0x003957D8 File Offset: 0x003939D8
 		private void SetBuyBtnPrice(IXUIButton btn)
 		{
 			OverWatchTable.RowData byHeroID = this._heroDoc.OverWatchReader.GetByHeroID(this._doc.CurrentSelect);
@@ -640,7 +616,6 @@ namespace XMainClient.UI
 			ixuilabel.SetText(byHeroID.Price[1].ToString());
 		}
 
-		// Token: 0x0600F971 RID: 63857 RVA: 0x0039588C File Offset: 0x00393A8C
 		public void SetUVRectangle()
 		{
 			Rect rect = this._doc.BlackHouseCamera.rect;
@@ -649,13 +624,11 @@ namespace XMainClient.UI
 			this.m_Snapshot.SetUVRect(rect);
 		}
 
-		// Token: 0x0600F972 RID: 63858 RVA: 0x003958FA File Offset: 0x00393AFA
 		public void SetPlayBtnState(bool state)
 		{
 			this.m_PlayBtn.transform.localPosition = (state ? Vector3.zero : XGameUI.Far_Far_Away);
 		}
 
-		// Token: 0x0600F973 RID: 63859 RVA: 0x0039591D File Offset: 0x00393B1D
 		public void SetCountDown(float time, bool isChooseHero)
 		{
 			this.m_CountDownTips.SetText(XStringDefineProxy.GetString(isChooseHero ? "HeroBattleSelectHeroTips" : "HeroBattleChangeHeroTips"));
@@ -663,7 +636,6 @@ namespace XMainClient.UI
 			this._CountDownTime = Time.realtimeSinceStartup + time;
 		}
 
-		// Token: 0x0600F974 RID: 63860 RVA: 0x00395954 File Offset: 0x00393B54
 		public override void OnUpdate()
 		{
 			bool onCountDown = this._OnCountDown;
@@ -683,97 +655,66 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04006CEC RID: 27884
 		private XHeroBattleSkillDocument _doc = null;
 
-		// Token: 0x04006CED RID: 27885
 		private XHeroBattleDocument _heroDoc = null;
 
-		// Token: 0x04006CEE RID: 27886
 		public GameObject m_ShowFrame;
 
-		// Token: 0x04006CEF RID: 27887
 		public IXUIButton m_BuyBtn;
 
-		// Token: 0x04006CF0 RID: 27888
 		private IXUIButton m_OKBtn;
 
-		// Token: 0x04006CF1 RID: 27889
 		private IXUISprite m_PlayBtn;
 
-		// Token: 0x04006CF2 RID: 27890
 		private IXUIButton m_CloseBtn;
 
-		// Token: 0x04006CF3 RID: 27891
 		public IXUILabel m_HeroName;
 
-		// Token: 0x04006CF4 RID: 27892
 		private IXUILabel m_SkillName;
 
-		// Token: 0x04006CF5 RID: 27893
 		private IXUILabel m_SkillDesc;
 
-		// Token: 0x04006CF6 RID: 27894
 		private GameObject m_Back;
 
-		// Token: 0x04006CF7 RID: 27895
 		private XUIPool m_TabPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006CF8 RID: 27896
 		private XUIPool m_SkillPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006CF9 RID: 27897
 		private IXUIPanel m_Panel;
 
-		// Token: 0x04006CFA RID: 27898
 		private bool _isBattleScene;
 
-		// Token: 0x04006CFB RID: 27899
 		public RenderTexture skillPreView;
 
-		// Token: 0x04006CFC RID: 27900
 		public IXUITexture m_Snapshot;
 
-		// Token: 0x04006CFD RID: 27901
 		public IXUISprite LastSelectSprite;
 
-		// Token: 0x04006CFE RID: 27902
 		private uint _currSkill;
 
-		// Token: 0x04006CFF RID: 27903
 		private bool _OnCountDown;
 
-		// Token: 0x04006D00 RID: 27904
 		private float _CountDownTime;
 
-		// Token: 0x04006D01 RID: 27905
 		private IXUILabel m_CountDown;
 
-		// Token: 0x04006D02 RID: 27906
 		private IXUILabel m_CountDownTips;
 
-		// Token: 0x04006D03 RID: 27907
 		private bool _showRefresh;
 
-		// Token: 0x04006D04 RID: 27908
 		private bool _battleFirstClick;
 
-		// Token: 0x04006D05 RID: 27909
 		private IXUISprite m_BoxC;
 
-		// Token: 0x04006D06 RID: 27910
 		private Transform _FxTs;
 
-		// Token: 0x04006D07 RID: 27911
 		private XFx _Fx;
 
-		// Token: 0x04006D08 RID: 27912
 		public IXUIButton OtherViewBuyBtn = null;
 
-		// Token: 0x04006D09 RID: 27913
 		public int HandlerType;
 
-		// Token: 0x04006D0A RID: 27914
 		public HeroBattleTeamHandler m_HeroBattleTeamHandler;
 	}
 }

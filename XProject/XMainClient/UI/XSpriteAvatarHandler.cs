@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200185F RID: 6239
+
 	internal class XSpriteAvatarHandler : DlgHandlerBase
 	{
-		// Token: 0x1700398F RID: 14735
-		// (get) Token: 0x060103EA RID: 66538 RVA: 0x003ECEB4 File Offset: 0x003EB0B4
+
 		protected override string FileName
 		{
 			get
@@ -21,7 +20,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060103EB RID: 66539 RVA: 0x003ECECC File Offset: 0x003EB0CC
 		protected override void Init()
 		{
 			base.Init();
@@ -40,14 +38,12 @@ namespace XMainClient.UI
 			this.m_Snapshot = (base.PanelObject.transform.Find("Snapshot").GetComponent("UIDummy") as IUIDummy);
 		}
 
-		// Token: 0x060103EC RID: 66540 RVA: 0x003ED0A1 File Offset: 0x003EB2A1
 		protected override void OnShow()
 		{
 			base.OnShow();
 			base.Alloc3DAvatarPool("XSpriteAvatarHandler", 1);
 		}
 
-		// Token: 0x060103ED RID: 66541 RVA: 0x003ED0B8 File Offset: 0x003EB2B8
 		protected override void OnHide()
 		{
 			base.OnHide();
@@ -59,13 +55,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060103EE RID: 66542 RVA: 0x0019EEB0 File Offset: 0x0019D0B0
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 		}
 
-		// Token: 0x060103EF RID: 66543 RVA: 0x003ED0FA File Offset: 0x003EB2FA
 		public override void OnUnload()
 		{
 			base.Return3DAvatarPool();
@@ -73,7 +67,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x060103F0 RID: 66544 RVA: 0x003ED114 File Offset: 0x003EB314
 		public void HideAvatar()
 		{
 			bool flag = this.m_Dummy != null;
@@ -90,7 +83,6 @@ namespace XMainClient.UI
 			this.m_MoonPool.ReturnAll(false);
 		}
 
-		// Token: 0x060103F1 RID: 66545 RVA: 0x003ED1BC File Offset: 0x003EB3BC
 		public void SetSpriteInfoByIndex(int index, int avatarIndex = 0, bool needClickEvent = false, bool showLevel = true)
 		{
 			bool flag = index >= this._doc.SpriteList.Count;
@@ -100,7 +92,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060103F2 RID: 66546 RVA: 0x003ED210 File Offset: 0x003EB410
 		public void SetSpriteInfo(SpriteInfo spriteData, XAttributes attributes, int avatarIndex = 6, bool needClickEvent = false, bool showLevel = true)
 		{
 			if (needClickEvent)
@@ -167,7 +158,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060103F3 RID: 66547 RVA: 0x003ED530 File Offset: 0x003EB730
 		public void SetSpriteInfo(uint spriteID, bool showLevel = true, uint power = 0U)
 		{
 			this.m_SpriteData = null;
@@ -192,7 +182,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060103F4 RID: 66548 RVA: 0x003ED6A8 File Offset: 0x003EB8A8
 		private void ChangeMatColor(XGameObject xobject, uint presentID)
 		{
 			XSpriteSystemDocument specificDocument = XDocuments.GetSpecificDocument<XSpriteSystemDocument>(XSpriteSystemDocument.uuID);
@@ -204,7 +193,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060103F5 RID: 66549 RVA: 0x003ED6E8 File Offset: 0x003EB8E8
 		public XEntityPresentation.RowData GetSpritePresent()
 		{
 			bool flag = this.m_Dummy == null;
@@ -228,7 +216,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x060103F6 RID: 66550 RVA: 0x003ED734 File Offset: 0x003EB934
 		public void ResetSpriteAnim()
 		{
 			bool flag = this.m_Dummy == null;
@@ -238,7 +225,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060103F7 RID: 66551 RVA: 0x003ED760 File Offset: 0x003EB960
 		public float SetSpriteAnim(string clipname)
 		{
 			bool flag = this.m_Dummy == null;
@@ -254,7 +240,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x060103F8 RID: 66552 RVA: 0x003ED794 File Offset: 0x003EB994
 		private uint GetSpriteOneLevelPower(SpriteTable.RowData spriteInfo)
 		{
 			List<uint> list = new List<uint>();
@@ -274,7 +259,6 @@ namespace XMainClient.UI
 			return (uint)num;
 		}
 
-		// Token: 0x060103F9 RID: 66553 RVA: 0x003ED868 File Offset: 0x003EBA68
 		private void OnClickAvatar(IXUISprite btn)
 		{
 			bool flag = this.m_SpriteData != null;
@@ -292,49 +276,34 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x040074B5 RID: 29877
 		private XSpriteSystemDocument _doc;
 
-		// Token: 0x040074B6 RID: 29878
 		private XUIPool m_StarPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x040074B7 RID: 29879
 		private XUIPool m_MoonPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x040074B8 RID: 29880
 		private IXUILabel m_Name;
 
-		// Token: 0x040074B9 RID: 29881
 		private IXUILabel m_Power;
 
-		// Token: 0x040074BA RID: 29882
 		private IXUILabel m_Level;
 
-		// Token: 0x040074BB RID: 29883
 		private IXUISprite m_LevelFrame;
 
-		// Token: 0x040074BC RID: 29884
 		private IUIDummy m_Snapshot;
 
-		// Token: 0x040074BD RID: 29885
 		private IXUISprite m_Avatar;
 
-		// Token: 0x040074BE RID: 29886
 		private IXUISprite m_Quality;
 
-		// Token: 0x040074BF RID: 29887
 		private GameObject m_StarGrid;
 
-		// Token: 0x040074C0 RID: 29888
 		private XDummy m_Dummy;
 
-		// Token: 0x040074C1 RID: 29889
 		private SpriteInfo m_SpriteData = null;
 
-		// Token: 0x040074C2 RID: 29890
 		private XAttributes m_Attributes = null;
 
-		// Token: 0x040074C3 RID: 29891
 		private SpriteTable.RowData m_SpriteInfo = null;
 	}
 }

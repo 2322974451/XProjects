@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200180B RID: 6155
+
 	internal class TaJieHelpDlg : DlgBase<TaJieHelpDlg, TaJieHelpBehaviour>
 	{
-		// Token: 0x170038F2 RID: 14578
-		// (get) Token: 0x0600FF24 RID: 65316 RVA: 0x003C2168 File Offset: 0x003C0368
+
 		public override string fileName
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170038F3 RID: 14579
-		// (get) Token: 0x0600FF25 RID: 65317 RVA: 0x003C2180 File Offset: 0x003C0380
 		public override bool autoload
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170038F4 RID: 14580
-		// (get) Token: 0x0600FF26 RID: 65318 RVA: 0x003C2194 File Offset: 0x003C0394
 		public override bool hideMainMenu
 		{
 			get
@@ -40,8 +35,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170038F5 RID: 14581
-		// (get) Token: 0x0600FF27 RID: 65319 RVA: 0x003C21A8 File Offset: 0x003C03A8
 		public override bool pushstack
 		{
 			get
@@ -50,8 +43,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170038F6 RID: 14582
-		// (get) Token: 0x0600FF28 RID: 65320 RVA: 0x003C21BC File Offset: 0x003C03BC
 		public override bool fullscreenui
 		{
 			get
@@ -60,26 +51,22 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FF29 RID: 65321 RVA: 0x003C21CF File Offset: 0x003C03CF
 		protected override void OnLoad()
 		{
 			base.OnLoad();
 		}
 
-		// Token: 0x0600FF2A RID: 65322 RVA: 0x003C21D9 File Offset: 0x003C03D9
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			base.uiBehaviour.m_closedBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseClicked));
 		}
 
-		// Token: 0x0600FF2B RID: 65323 RVA: 0x003C2200 File Offset: 0x003C0400
 		protected override void OnUnload()
 		{
 			base.OnUnload();
 		}
 
-		// Token: 0x0600FF2C RID: 65324 RVA: 0x003C220A File Offset: 0x003C040A
 		protected override void Init()
 		{
 			base.Init();
@@ -87,34 +74,29 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_wrapContent.RegisterItemUpdateEventHandler(new WrapItemUpdateEventHandler(this.WrapContentItemUpdated));
 		}
 
-		// Token: 0x0600FF2D RID: 65325 RVA: 0x003C223C File Offset: 0x003C043C
 		protected override void OnHide()
 		{
 			base.OnHide();
 		}
 
-		// Token: 0x0600FF2E RID: 65326 RVA: 0x003C2246 File Offset: 0x003C0446
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.FillContent();
 		}
 
-		// Token: 0x0600FF2F RID: 65327 RVA: 0x003C2257 File Offset: 0x003C0457
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
 			this.FillContent();
 		}
 
-		// Token: 0x0600FF30 RID: 65328 RVA: 0x003C2268 File Offset: 0x003C0468
 		private void FillContent()
 		{
 			this.m_tempData = this.m_doc.GetTaJieHelpData();
 			base.uiBehaviour.m_wrapContent.SetContentCount(this.m_tempData.Count, false);
 		}
 
-		// Token: 0x0600FF31 RID: 65329 RVA: 0x003C229C File Offset: 0x003C049C
 		private void WrapContentItemUpdated(Transform t, int index)
 		{
 			TaJieHelpTab.RowData rowData = this.m_tempData[index];
@@ -160,7 +142,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FF32 RID: 65330 RVA: 0x003C2458 File Offset: 0x003C0658
 		private bool OnCloseClicked(IXUIButton btn)
 		{
 			string label = XSingleton<UiUtility>.singleton.ReplaceReturn(XSingleton<XStringTable>.singleton.GetString("TaJieHelpTips4"));
@@ -168,7 +149,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FF33 RID: 65331 RVA: 0x003C24CC File Offset: 0x003C06CC
 		private bool DoOK(IXUIButton btn)
 		{
 			XSingleton<UiUtility>.singleton.CloseModalDlg();
@@ -177,7 +157,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FF34 RID: 65332 RVA: 0x003C2500 File Offset: 0x003C0700
 		private bool DoCancle(IXUIButton btn)
 		{
 			XSingleton<UiUtility>.singleton.CloseModalDlg();
@@ -185,7 +164,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FF35 RID: 65333 RVA: 0x003C2528 File Offset: 0x003C0728
 		private bool OnGoClick(IXUIButton btn)
 		{
 			ulong id = btn.ID;
@@ -210,10 +188,8 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x040070CB RID: 28875
 		private TaJieHelpDocument m_doc;
 
-		// Token: 0x040070CC RID: 28876
 		private List<TaJieHelpTab.RowData> m_tempData;
 	}
 }

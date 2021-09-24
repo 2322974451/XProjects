@@ -9,10 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000EF3 RID: 3827
+
 	internal class ActivityExpeditionHandler : DlgHandlerBase
 	{
-		// Token: 0x0600CB20 RID: 52000 RVA: 0x002E36CC File Offset: 0x002E18CC
+
 		protected override void Init()
 		{
 			base.Init();
@@ -23,28 +23,24 @@ namespace XMainClient
 			this._TeamDoc = XDocuments.GetSpecificDocument<XTeamDocument>(XTeamDocument.uuID);
 		}
 
-		// Token: 0x0600CB21 RID: 52001 RVA: 0x002E3742 File Offset: 0x002E1942
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.ShowExpediFrame();
 		}
 
-		// Token: 0x0600CB22 RID: 52002 RVA: 0x002E3753 File Offset: 0x002E1953
 		protected override void OnHide()
 		{
 			this.m_ExpediPool.ReturnAll(false);
 			base.OnHide();
 		}
 
-		// Token: 0x0600CB23 RID: 52003 RVA: 0x002E376A File Offset: 0x002E196A
 		public override void OnUnload()
 		{
 			this._doc.ExpeditionView = null;
 			base.OnUnload();
 		}
 
-		// Token: 0x0600CB24 RID: 52004 RVA: 0x002E3780 File Offset: 0x002E1980
 		public void ShowExpediFrame()
 		{
 			this.m_ExpediPool.ReturnAll(false);
@@ -113,13 +109,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CB25 RID: 52005 RVA: 0x002E3B18 File Offset: 0x002E1D18
 		protected void OnExpediBgClicked(IXUISprite sp)
 		{
 			this.ShowTeamView((uint)sp.ID);
 		}
 
-		// Token: 0x0600CB26 RID: 52006 RVA: 0x002E3B2C File Offset: 0x002E1D2C
 		protected bool OnDoClicked(IXUIButton btn)
 		{
 			bool flag = this._TeamDoc.MyTeam != null && (ulong)this._TeamDoc.MyTeam.teamBrief.dungeonID == btn.ID;
@@ -137,27 +131,22 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CB27 RID: 52007 RVA: 0x002E3B96 File Offset: 0x002E1D96
 		protected void ShowTeamView(uint id)
 		{
 			this._TeamDoc.TryChangeToExpID((int)id);
 			DlgBase<XTeamView, TabDlgBehaviour>.singleton.ShowTeamView();
 		}
 
-		// Token: 0x0600CB28 RID: 52008 RVA: 0x002E3BB4 File Offset: 0x002E1DB4
 		public static int GetDayLeftCount()
 		{
 			XExpeditionDocument specificDocument = XDocuments.GetSpecificDocument<XExpeditionDocument>(XExpeditionDocument.uuID);
 			return specificDocument.GetDayCount(TeamLevelType.TeamLevelExpdition, null);
 		}
 
-		// Token: 0x040059CF RID: 22991
 		public XUIPool m_ExpediPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x040059D0 RID: 22992
 		private XExpeditionDocument _doc;
 
-		// Token: 0x040059D1 RID: 22993
 		private XTeamDocument _TeamDoc;
 	}
 }

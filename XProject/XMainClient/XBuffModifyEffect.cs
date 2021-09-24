@@ -4,10 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x020008A5 RID: 2213
+
 	internal struct XBuffModifyEffect
 	{
-		// Token: 0x06008623 RID: 34339 RVA: 0x0010DAF8 File Offset: 0x0010BCF8
+
 		public bool TryCreate(CombatEffectHelper pEffectHelper, XBuff buff)
 		{
 			BuffTable.RowData buffInfo = pEffectHelper.BuffInfo;
@@ -95,7 +95,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x06008624 RID: 34340 RVA: 0x0010DDBC File Offset: 0x0010BFBC
 		public void Destroy()
 		{
 			bool flag = this.m_ChangeSkillDamage != null;
@@ -106,31 +105,26 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008625 RID: 34341 RVA: 0x0010DDEC File Offset: 0x0010BFEC
 		public double ModifySkillDamage()
 		{
 			return this.m_CastDamageModify;
 		}
 
-		// Token: 0x06008626 RID: 34342 RVA: 0x0010DE04 File Offset: 0x0010C004
 		public double IncReceivedDamage()
 		{
 			return this.m_IncReceivedDamageModify;
 		}
 
-		// Token: 0x06008627 RID: 34343 RVA: 0x0010DE1C File Offset: 0x0010C01C
 		public double DecReceivedDamage()
 		{
 			return this.m_DecReceivedDamageModify;
 		}
 
-		// Token: 0x06008628 RID: 34344 RVA: 0x0010DE34 File Offset: 0x0010C034
 		public double ModifySkillCost()
 		{
 			return this.m_CostModify;
 		}
 
-		// Token: 0x06008629 RID: 34345 RVA: 0x0010DE4C File Offset: 0x0010C04C
 		public double ChangeSkillDamage(uint skillID)
 		{
 			double num = default;
@@ -147,7 +141,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600862A RID: 34346 RVA: 0x0010DE8C File Offset: 0x0010C08C
 		private void _RefreshSecuriy(XBuff buff)
 		{
 			bool flag = buff.BuffComponent == null;
@@ -166,31 +159,24 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600862B RID: 34347 RVA: 0x0010DEEA File Offset: 0x0010C0EA
 		public void OnRemove(XBuff buff)
 		{
 			this._RefreshSecuriy(buff);
 		}
 
-		// Token: 0x0600862C RID: 34348 RVA: 0x0010DEEA File Offset: 0x0010C0EA
 		public void OnBattleEnd(XBuff buff)
 		{
 			this._RefreshSecuriy(buff);
 		}
 
-		// Token: 0x040029CF RID: 10703
 		private double m_CostModify;
 
-		// Token: 0x040029D0 RID: 10704
 		private double m_CastDamageModify;
 
-		// Token: 0x040029D1 RID: 10705
 		private double m_IncReceivedDamageModify;
 
-		// Token: 0x040029D2 RID: 10706
 		private double m_DecReceivedDamageModify;
 
-		// Token: 0x040029D3 RID: 10707
 		private Dictionary<uint, double> m_ChangeSkillDamage;
 	}
 }

@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x020000BB RID: 187
+
 	public class BuyFatigueTable : CVSReader
 	{
-		// Token: 0x0600055F RID: 1375 RVA: 0x00018380 File Offset: 0x00016580
+
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			BuyFatigueTable.RowData rowData = new BuyFatigueTable.RowData();
@@ -21,7 +21,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x06000560 RID: 1376 RVA: 0x00018414 File Offset: 0x00016614
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -35,22 +34,17 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x040002E1 RID: 737
 		public BuyFatigueTable.RowData[] Table = null;
 
-		// Token: 0x020002B9 RID: 697
 		public class RowData
 		{
-			// Token: 0x04000957 RID: 2391
+
 			public int FatigueID;
 
-			// Token: 0x04000958 RID: 2392
 			public int Value;
 
-			// Token: 0x04000959 RID: 2393
 			public int[] DragonCoinCost;
 
-			// Token: 0x0400095A RID: 2394
 			public int[] DiamondCost;
 		}
 	}

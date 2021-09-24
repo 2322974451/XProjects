@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x02000127 RID: 295
+
 	public class LevelSealTypeTable : CVSReader
 	{
-		// Token: 0x0600070D RID: 1805 RVA: 0x000231D4 File Offset: 0x000213D4
+
 		public LevelSealTypeTable.RowData GetByType(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -29,7 +29,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x0600070E RID: 1806 RVA: 0x00023240 File Offset: 0x00021440
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			LevelSealTypeTable.RowData rowData = new LevelSealTypeTable.RowData();
@@ -63,7 +62,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x0600070F RID: 1807 RVA: 0x000233C0 File Offset: 0x000215C0
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -77,49 +75,35 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x04000373 RID: 883
 		public LevelSealTypeTable.RowData[] Table = null;
 
-		// Token: 0x02000326 RID: 806
 		public class RowData
 		{
-			// Token: 0x04000C23 RID: 3107
+
 			public uint Type;
 
-			// Token: 0x04000C24 RID: 3108
 			public uint Level;
 
-			// Token: 0x04000C25 RID: 3109
 			public uint Time;
 
-			// Token: 0x04000C26 RID: 3110
 			public string UnlockBossName;
 
-			// Token: 0x04000C27 RID: 3111
 			public uint UnlockBossCount;
 
-			// Token: 0x04000C28 RID: 3112
 			public string NowSealImage;
 
-			// Token: 0x04000C29 RID: 3113
 			public string NextSealImageL;
 
-			// Token: 0x04000C2A RID: 3114
 			public string NextSealImageR;
 
-			// Token: 0x04000C2B RID: 3115
 			public string NextSealImageBig;
 
-			// Token: 0x04000C2C RID: 3116
 			public SeqRef<uint> ExchangeInfo;
 
-			// Token: 0x04000C2D RID: 3117
 			public SeqListRef<uint> CollectAward;
 
-			// Token: 0x04000C2E RID: 3118
 			public SeqListRef<uint> PlayerAward;
 
-			// Token: 0x04000C2F RID: 3119
 			public int ApplyStudentLevel;
 		}
 	}

@@ -5,11 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000FBA RID: 4026
+
 	internal class XAudioComponent : XComponent
 	{
-		// Token: 0x170036A5 RID: 13989
-		// (get) Token: 0x0600D13A RID: 53562 RVA: 0x00306AC8 File Offset: 0x00304CC8
+
 		public override uint ID
 		{
 			get
@@ -18,7 +17,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D13B RID: 53563 RVA: 0x00306AE0 File Offset: 0x00304CE0
 		private static void _Init(XGameObject gameObject, object o, int commandID)
 		{
 			XAudioComponent xaudioComponent = o as XAudioComponent;
@@ -26,7 +24,6 @@ namespace XMainClient
 			xaudioComponent.InitEmitter();
 		}
 
-		// Token: 0x0600D13C RID: 53564 RVA: 0x00306B08 File Offset: 0x00304D08
 		private void InitEmitter()
 		{
 			bool flag = this._emitter != null && this.cachedGo != null;
@@ -42,7 +39,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D13D RID: 53565 RVA: 0x00306B68 File Offset: 0x00304D68
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
@@ -53,18 +49,15 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D13E RID: 53566 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public override void Attached()
 		{
 		}
 
-		// Token: 0x0600D13F RID: 53567 RVA: 0x00306BB4 File Offset: 0x00304DB4
 		protected override void EventSubscribe()
 		{
 			base.RegisterEvent(XEventDefine.XEvent_PlaySound, new XComponent.XEventHandler(this.Play));
 		}
 
-		// Token: 0x0600D140 RID: 53568 RVA: 0x00306BCC File Offset: 0x00304DCC
 		public override void OnDetachFromHost()
 		{
 			bool flag = this._emitter != null;
@@ -77,7 +70,6 @@ namespace XMainClient
 			base.OnDetachFromHost();
 		}
 
-		// Token: 0x0600D141 RID: 53569 RVA: 0x00306C1C File Offset: 0x00304E1C
 		public void StopChannel(AudioChannel channel)
 		{
 			bool flag = this._emitter != null;
@@ -87,14 +79,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D142 RID: 53570 RVA: 0x00306C44 File Offset: 0x00304E44
 		public bool IsPlaying(AudioChannel channel)
 		{
 			bool flag = this._emitter != null;
 			return flag && this._emitter.IsPlaying(channel);
 		}
 
-		// Token: 0x0600D143 RID: 53571 RVA: 0x00306C74 File Offset: 0x00304E74
 		public void Set3DPos(Vector3 pos)
 		{
 			bool flag = this._host == null;
@@ -110,7 +100,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D144 RID: 53572 RVA: 0x00306CD0 File Offset: 0x00304ED0
 		protected bool Play(XEventArgs e)
 		{
 			XPlaySoundArgs xplaySoundArgs = e as XPlaySoundArgs;
@@ -179,16 +168,12 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x04005EB1 RID: 24241
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("Audio");
 
-		// Token: 0x04005EB2 RID: 24242
 		private IXFmod _emitter = null;
 
-		// Token: 0x04005EB3 RID: 24243
 		private static CommandCallback _initCb = new CommandCallback(XAudioComponent._Init);
 
-		// Token: 0x04005EB4 RID: 24244
 		private GameObject cachedGo;
 	}
 }

@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000DB5 RID: 3509
+
 	internal class XBuffRegenerate : BuffEffect
 	{
-		// Token: 0x0600BE31 RID: 48689 RVA: 0x00279938 File Offset: 0x00277B38
+
 		public static bool TryCreate(CombatEffectHelper pEffectHelper, XBuff buff)
 		{
 			bool flag = pEffectHelper.BuffInfo.BuffDOT.Count == 0 && !pEffectHelper.bHasEffect(CombatEffectType.CET_Buff_DOTorHOT);
@@ -25,14 +25,12 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600BE32 RID: 48690 RVA: 0x00279980 File Offset: 0x00277B80
 		public XBuffRegenerate(XBuff buff)
 		{
 			this._buff = buff;
 			this._onTimeCb = new XTimerMgr.AccurateElapsedEventHandler(this.OnTimer);
 		}
 
-		// Token: 0x0600BE33 RID: 48691 RVA: 0x002799D4 File Offset: 0x00277BD4
 		private void ConvertSpecialBuff(DotTimeInfo info)
 		{
 			bool flag = info.attrID == XAttributeDefine.XAttr_MaxHP_Percent;
@@ -43,7 +41,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BE34 RID: 48692 RVA: 0x00279A30 File Offset: 0x00277C30
 		private double _GetCasterAttr(XEntity caster, int attrID, int attrValue)
 		{
 			bool flag = caster != null && !caster.Deprecated;
@@ -59,7 +56,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600BE35 RID: 48693 RVA: 0x00279A7C File Offset: 0x00277C7C
 		public override void OnAdd(XEntity entity, CombatEffectHelper pEffectHelper)
 		{
 			bool isDummy = entity.IsDummy;
@@ -165,7 +161,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BE36 RID: 48694 RVA: 0x00279E08 File Offset: 0x00278008
 		public override void OnRemove(XEntity entity, bool IsReplaced)
 		{
 			bool isDummy = entity.IsDummy;
@@ -207,7 +202,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BE37 RID: 48695 RVA: 0x00279FBC File Offset: 0x002781BC
 		public void OnTimer(object o, float delay)
 		{
 			float num = float.MaxValue;
@@ -249,25 +243,18 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04004DAF RID: 19887
 		private XBuff _buff = null;
 
-		// Token: 0x04004DB0 RID: 19888
 		private XBuffComponent _component = null;
 
-		// Token: 0x04004DB1 RID: 19889
 		private uint _TimeToken = 0U;
 
-		// Token: 0x04004DB2 RID: 19890
 		private List<DotTimeInfo> _Dots = null;
 
-		// Token: 0x04004DB3 RID: 19891
 		private float _StartTime;
 
-		// Token: 0x04004DB4 RID: 19892
 		private float _NextTime;
 
-		// Token: 0x04004DB5 RID: 19893
 		private XTimerMgr.AccurateElapsedEventHandler _onTimeCb = null;
 	}
 }

@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001823 RID: 6179
+
 	internal class EquipSetItemView : EquipSetItemBaseView
 	{
-		// Token: 0x060100B9 RID: 65721 RVA: 0x003D2434 File Offset: 0x003D0634
+
 		public override void FindFrom(Transform t)
 		{
 			bool flag = null != t;
@@ -28,37 +28,26 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04007235 RID: 29237
 		public GameObject goItem1;
 
-		// Token: 0x04007236 RID: 29238
 		public GameObject goItem2;
 
-		// Token: 0x04007237 RID: 29239
 		public GameObject goItem3;
 
-		// Token: 0x04007238 RID: 29240
 		public GameObject goItem4;
 
-		// Token: 0x04007239 RID: 29241
 		public IXUILabel lbItemCount1;
 
-		// Token: 0x0400723A RID: 29242
 		public IXUILabel lbItemCount2;
 
-		// Token: 0x0400723B RID: 29243
 		public IXUILabel lbItemCount3;
 
-		// Token: 0x0400723C RID: 29244
 		public IXUILabel lbItemCount4;
 
-		// Token: 0x0400723D RID: 29245
 		public IXUIButton btnCreate;
 
-		// Token: 0x0400723E RID: 29246
 		public IXUILabel lbCost;
 
-		// Token: 0x0400723F RID: 29247
 		public GameObject goRedpoint;
 	}
 }

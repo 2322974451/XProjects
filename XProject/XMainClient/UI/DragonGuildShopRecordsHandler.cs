@@ -5,11 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020016DA RID: 5850
+
 	internal class DragonGuildShopRecordsHandler : DlgHandlerBase
 	{
-		// Token: 0x1700374A RID: 14154
-		// (get) Token: 0x0600F146 RID: 61766 RVA: 0x00353AD0 File Offset: 0x00351CD0
+
 		private XDragonGuildDocument m_doc
 		{
 			get
@@ -18,8 +17,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700374B RID: 14155
-		// (get) Token: 0x0600F147 RID: 61767 RVA: 0x00353AE8 File Offset: 0x00351CE8
 		protected override string FileName
 		{
 			get
@@ -28,7 +25,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F148 RID: 61768 RVA: 0x00353B00 File Offset: 0x00351D00
 		protected override void Init()
 		{
 			base.Init();
@@ -42,47 +38,40 @@ namespace XMainClient.UI
 			this.m_wrapContent.RegisterItemUpdateEventHandler(new WrapItemUpdateEventHandler(this.WrapContentItemUpdated));
 		}
 
-		// Token: 0x0600F149 RID: 61769 RVA: 0x00353BDB File Offset: 0x00351DDB
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			this.m_closeBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnClosedClicked));
 		}
 
-		// Token: 0x0600F14A RID: 61770 RVA: 0x00353BFD File Offset: 0x00351DFD
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.m_doc.ReqShopRecords();
 		}
 
-		// Token: 0x0600F14B RID: 61771 RVA: 0x0019EEFD File Offset: 0x0019D0FD
 		protected override void OnHide()
 		{
 			base.OnHide();
 		}
 
-		// Token: 0x0600F14C RID: 61772 RVA: 0x0022CCF0 File Offset: 0x0022AEF0
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
 		}
 
-		// Token: 0x0600F14D RID: 61773 RVA: 0x00353C13 File Offset: 0x00351E13
 		public override void OnUnload()
 		{
 			this.m_doc.ShopRecordsHandler = null;
 			base.OnUnload();
 		}
 
-		// Token: 0x0600F14E RID: 61774 RVA: 0x00353C29 File Offset: 0x00351E29
 		private void FillDefault()
 		{
 			this.m_tipsGo.SetActive(true);
 			this.m_wrapContent.gameObject.SetActive(false);
 		}
 
-		// Token: 0x0600F14F RID: 61775 RVA: 0x00353C4C File Offset: 0x00351E4C
 		public void FillContent()
 		{
 			bool flag = this.m_doc.ShopRecordList == null;
@@ -108,7 +97,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F150 RID: 61776 RVA: 0x00353CFC File Offset: 0x00351EFC
 		private void WrapContentItemUpdated(Transform t, int index)
 		{
 			bool flag = index >= this.m_doc.ShopRecordList.Count;
@@ -132,7 +120,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F151 RID: 61777 RVA: 0x00353E28 File Offset: 0x00352028
 		private void OnClickName(IXUILabelSymbol iSp)
 		{
 			bool flag = this.m_doc.ShopRecordList == null;
@@ -148,23 +135,18 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F152 RID: 61778 RVA: 0x00353E80 File Offset: 0x00352080
 		private bool OnClosedClicked(IXUIButton sp)
 		{
 			base.SetVisible(false);
 			return true;
 		}
 
-		// Token: 0x04006711 RID: 26385
 		private IXUIButton m_closeBtn;
 
-		// Token: 0x04006712 RID: 26386
 		private IXUIWrapContent m_wrapContent;
 
-		// Token: 0x04006713 RID: 26387
 		private GameObject m_tipsGo;
 
-		// Token: 0x04006714 RID: 26388
 		private IXUIScrollView m_ScrollView;
 	}
 }

@@ -5,11 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001915 RID: 6421
+
 	internal class EmblemTooltipDlg : TooltipDlg<EmblemTooltipDlg, EmblemTooltipDlgBehaviour>
 	{
-		// Token: 0x17003AE3 RID: 15075
-		// (get) Token: 0x06010CC1 RID: 68801 RVA: 0x00438310 File Offset: 0x00436510
+
 		public override string fileName
 		{
 			get
@@ -18,7 +17,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010CC2 RID: 68802 RVA: 0x00438328 File Offset: 0x00436528
 		protected override void Init()
 		{
 			base.Init();
@@ -31,7 +29,6 @@ namespace XMainClient.UI
 			this.m_OperateList[1, 1] = new TooltipButtonOperateEmblemSmelt();
 		}
 
-		// Token: 0x06010CC3 RID: 68803 RVA: 0x004383C0 File Offset: 0x004365C0
 		public void ShowToolTip(ulong MainUID, ulong CompareUID, bool bShowButtons = true)
 		{
 			XItem itemByUID = XSingleton<XGame>.singleton.Doc.XBagDoc.GetItemByUID(MainUID);
@@ -44,7 +41,6 @@ namespace XMainClient.UI
 			this.ShowToolTip(itemByUID, xitem, bShowButtons, 0U);
 		}
 
-		// Token: 0x06010CC4 RID: 68804 RVA: 0x00438418 File Offset: 0x00436618
 		protected override void SetupOtherFrame(GameObject goToolTip, XItem mainItem, XItem compareItem, bool bMain)
 		{
 			Transform transform = goToolTip.transform.Find("ScrollPanel");
@@ -87,7 +83,6 @@ namespace XMainClient.UI
 			base.SetupOtherFrame(goToolTip, mainItem, compareItem, bMain);
 		}
 
-		// Token: 0x06010CC5 RID: 68805 RVA: 0x004385D3 File Offset: 0x004367D3
 		protected override void SetupTopFrame(GameObject goToolTip, ItemList.RowData data, bool bMain, XItem instanceData = null, XItem compareData = null)
 		{
 			base.SetupTopFrame(goToolTip, data, bMain, instanceData, compareData);
@@ -96,7 +91,6 @@ namespace XMainClient.UI
 			base._SetupProf(goToolTip, data, bMain, instanceData, 2);
 		}
 
-		// Token: 0x06010CC6 RID: 68806 RVA: 0x00438608 File Offset: 0x00436808
 		protected override int SetupAttrFrame(GameObject attrFrame, AttrFrameParam param, bool bMain)
 		{
 			int num = 0;
@@ -134,7 +128,6 @@ namespace XMainClient.UI
 			return ixuisprite.spriteHeight;
 		}
 
-		// Token: 0x06010CC7 RID: 68807 RVA: 0x00438814 File Offset: 0x00436A14
 		protected override void SetAllAttrFrames(GameObject goToolTip, XAttrItem item, XAttrItem compareItem, bool bMain)
 		{
 			bool flag = item == null || item.changeAttr.Count == 0;
@@ -145,7 +138,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010CC8 RID: 68808 RVA: 0x00438860 File Offset: 0x00436A60
 		protected void SetEmlemAttrFrame(GameObject scrollPanel, XAttrItem item, XAttrItem compareItem, bool bMain)
 		{
 			GameObject gameObject = base.uiBehaviour.m_AttrFramePool.FetchGameObject(false);
@@ -197,7 +189,6 @@ namespace XMainClient.UI
 			XSingleton<XGameUI>.singleton.m_uiTool.MarkParentAsChanged(gameObject);
 		}
 
-		// Token: 0x06010CC9 RID: 68809 RVA: 0x00438A70 File Offset: 0x00436C70
 		protected override void SetAttrOther(Transform ParentTra, AttrFrameParam param)
 		{
 			bool flag = param.AttrList.Count <= 2;
@@ -209,7 +200,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010CCA RID: 68810 RVA: 0x00438ADC File Offset: 0x00436CDC
 		private int SetAttrThird(GameObject attrFrame, AttrFrameParam param)
 		{
 			int num = 0;
@@ -240,7 +230,6 @@ namespace XMainClient.UI
 			return ixuisprite.spriteHeight;
 		}
 
-		// Token: 0x06010CCB RID: 68811 RVA: 0x00438CF4 File Offset: 0x00436EF4
 		protected override int _GetPPT(XItem item, bool bMain, ref string valueText)
 		{
 			XEmblemItem xemblemItem = item as XEmblemItem;
@@ -307,7 +296,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x06010CCC RID: 68812 RVA: 0x00438E50 File Offset: 0x00437050
 		protected override void SetupToolTipButtons(GameObject goToolTip, XItem item, bool bMain)
 		{
 			base.SetupToolTipButtons(goToolTip, item, bMain);
@@ -330,7 +318,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04007B3B RID: 31547
 		private AttrFrameParam tmpAttrFrameParam = new AttrFrameParam();
 	}
 }

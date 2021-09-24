@@ -6,11 +6,10 @@ using ProtoBuf.Meta;
 
 namespace ProtoBuf.Serializers
 {
-	// Token: 0x02000867 RID: 2151
+
 	internal sealed class ImmutableCollectionDecorator : ListDecorator
 	{
-		// Token: 0x1700298F RID: 10639
-		// (get) Token: 0x060083A9 RID: 33705 RVA: 0x000FFF3C File Offset: 0x000FE13C
+
 		protected override bool RequireAdd
 		{
 			get
@@ -19,7 +18,6 @@ namespace ProtoBuf.Serializers
 			}
 		}
 
-		// Token: 0x060083AA RID: 33706 RVA: 0x000FFF50 File Offset: 0x000FE150
 		private static Type ResolveIReadOnlyCollection(Type declaredType, Type t)
 		{
 			foreach (Type type in declaredType.GetInterfaces())
@@ -44,7 +42,6 @@ namespace ProtoBuf.Serializers
 			return null;
 		}
 
-		// Token: 0x060083AB RID: 33707 RVA: 0x000FFFD8 File Offset: 0x000FE1D8
 		internal static bool IdentifyImmutable(TypeModel model, Type declaredType, out MethodInfo builderFactory, out MethodInfo add, out MethodInfo addRange, out MethodInfo finish)
 		{
 			MethodInfo methodInfo;
@@ -192,7 +189,6 @@ namespace ProtoBuf.Serializers
 			return result;
 		}
 
-		// Token: 0x060083AC RID: 33708 RVA: 0x00100324 File Offset: 0x000FE524
 		internal ImmutableCollectionDecorator(TypeModel model, Type declaredType, Type concreteType, IProtoSerializer tail, int fieldNumber, bool writePacked, WireType packedWireType, bool returnList, bool overwriteList, bool supportNull, MethodInfo builderFactory, MethodInfo add, MethodInfo addRange, MethodInfo finish) : base(model, declaredType, concreteType, tail, fieldNumber, writePacked, packedWireType, returnList, overwriteList, supportNull)
 		{
 			this.builderFactory = builderFactory;
@@ -201,7 +197,6 @@ namespace ProtoBuf.Serializers
 			this.finish = finish;
 		}
 
-		// Token: 0x060083AD RID: 33709 RVA: 0x0010036C File Offset: 0x000FE56C
 		public override object Read(object value, ProtoReader source)
 		{
 			object obj = this.builderFactory.Invoke(null, null);
@@ -248,16 +243,12 @@ namespace ProtoBuf.Serializers
 			return this.finish.Invoke(obj, null);
 		}
 
-		// Token: 0x040028E8 RID: 10472
 		private readonly MethodInfo builderFactory;
 
-		// Token: 0x040028E9 RID: 10473
 		private readonly MethodInfo add;
 
-		// Token: 0x040028EA RID: 10474
 		private readonly MethodInfo addRange;
 
-		// Token: 0x040028EB RID: 10475
 		private readonly MethodInfo finish;
 	}
 }

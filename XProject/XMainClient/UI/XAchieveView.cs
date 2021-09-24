@@ -7,10 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200181F RID: 6175
+
 	internal class XAchieveView : DlgHandlerBase
 	{
-		// Token: 0x06010075 RID: 65653 RVA: 0x003CF804 File Offset: 0x003CDA04
+
 		private void InitDetail()
 		{
 			this.m_PanelScrollView = (base.PanelObject.transform.FindChild("detail/detail").GetComponent("XUIScrollView") as IXUIScrollView);
@@ -18,7 +18,6 @@ namespace XMainClient.UI
 			this.m_WrapContent.RegisterItemUpdateEventHandler(new WrapItemUpdateEventHandler(this.WrapContentItemUpdated));
 		}
 
-		// Token: 0x06010076 RID: 65654 RVA: 0x003CF880 File Offset: 0x003CDA80
 		private void ReqDetailInfo(int index)
 		{
 			bool flag = this._doc != null;
@@ -29,14 +28,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010077 RID: 65655 RVA: 0x003CF8B6 File Offset: 0x003CDAB6
 		public void RefreshDetails()
 		{
 			this.m_WrapContent.SetContentCount(this._doc.achievesDetails.Count, false);
 			this.m_PanelScrollView.ResetPosition();
 		}
 
-		// Token: 0x06010078 RID: 65656 RVA: 0x003CF8E4 File Offset: 0x003CDAE4
 		private void WrapContentItemUpdated(Transform t, int index)
 		{
 			bool flag = this._doc != null;
@@ -55,7 +52,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010079 RID: 65657 RVA: 0x003CF960 File Offset: 0x003CDB60
 		protected void _SetRecord(Transform t, AchieveItemInfo info)
 		{
 			IXUILabel ixuilabel = t.Find("TLabel").GetComponent("XUILabel") as IXUILabel;
@@ -119,14 +115,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601007A RID: 65658 RVA: 0x003CFCA4 File Offset: 0x003CDEA4
 		public bool UnCompleteTipsBtn(IXUIButton btn)
 		{
 			XSingleton<UiUtility>.singleton.ShowSystemTip(XStringDefineProxy.GetString("Achi_Or_Des_UnComplete"), "fece00");
 			return true;
 		}
 
-		// Token: 0x0601007B RID: 65659 RVA: 0x003CFCD4 File Offset: 0x003CDED4
 		private bool OnBtnClick(IXUIButton btn)
 		{
 			AchieveItemInfo achieveItemInfo = new AchieveItemInfo();
@@ -149,7 +143,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0601007C RID: 65660 RVA: 0x003CFD84 File Offset: 0x003CDF84
 		private void InitSurvey()
 		{
 			this.m_labAchipoint = (base.PanelObject.transform.Find("survey/title/Bg/TextLabel").GetComponent("XUILabel") as IXUILabel);
@@ -170,7 +163,6 @@ namespace XMainClient.UI
 			this.m_getBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnGetRewardBtnClick));
 		}
 
-		// Token: 0x0601007D RID: 65661 RVA: 0x003CFF80 File Offset: 0x003CE180
 		public bool OnGetRewardBtnClick(IXUIButton btn)
 		{
 			bool flag = this._doc != null && this._doc.achieveSurveyInfo != null;
@@ -181,7 +173,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0601007E RID: 65662 RVA: 0x003CFFCC File Offset: 0x003CE1CC
 		public void RequstSurvey()
 		{
 			bool flag = this._doc != null;
@@ -191,7 +182,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601007F RID: 65663 RVA: 0x003CFFF4 File Offset: 0x003CE1F4
 		public void RefreshSurvey()
 		{
 			bool flag = this._doc != null && this._doc.achieveSurveyInfo != null;
@@ -205,7 +195,6 @@ namespace XMainClient.UI
 			this.RefreshPoints();
 		}
 
-		// Token: 0x06010080 RID: 65664 RVA: 0x003D0060 File Offset: 0x003CE260
 		private void RefreshRws()
 		{
 			AchievementPointRewardTable.RowData[] table = XDesignationDocument.achieveRwdTable.Table;
@@ -253,7 +242,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010081 RID: 65665 RVA: 0x003D02BC File Offset: 0x003CE4BC
 		private void RefreshTypes()
 		{
 			for (int i = 0; i < this.m_lblAchiType.Length; i++)
@@ -271,7 +259,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010082 RID: 65666 RVA: 0x003D0368 File Offset: 0x003CE568
 		private AchieveBriefInfo ParseBriefInfo(int index)
 		{
 			List<AchieveBriefInfo> dataList = this._doc.achieveSurveyInfo.dataList;
@@ -286,7 +273,6 @@ namespace XMainClient.UI
 			return null;
 		}
 
-		// Token: 0x06010083 RID: 65667 RVA: 0x003D03C4 File Offset: 0x003CE5C4
 		private void RefreshProAll()
 		{
 			uint achievePoint = this._doc.achieveSurveyInfo.achievePoint;
@@ -296,7 +282,6 @@ namespace XMainClient.UI
 			this.m_lblAchiAll.SetText(achievePoint + "/" + maxAchievePoint);
 		}
 
-		// Token: 0x06010084 RID: 65668 RVA: 0x003D0430 File Offset: 0x003CE630
 		public void RefreshPoints()
 		{
 			bool bState = false;
@@ -330,7 +315,6 @@ namespace XMainClient.UI
 			XSingleton<XGameSysMgr>.singleton.RecalculateRedPointState(XSysDefine.XSys_Reward, true);
 		}
 
-		// Token: 0x06010085 RID: 65669 RVA: 0x003D0508 File Offset: 0x003CE708
 		protected override void Init()
 		{
 			base.Init();
@@ -354,13 +338,11 @@ namespace XMainClient.UI
 			this.InitDetail();
 		}
 
-		// Token: 0x06010086 RID: 65670 RVA: 0x0019EEB0 File Offset: 0x0019D0B0
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 		}
 
-		// Token: 0x06010087 RID: 65671 RVA: 0x003D0674 File Offset: 0x003CE874
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -372,27 +354,23 @@ namespace XMainClient.UI
 			this.RequstSurvey();
 		}
 
-		// Token: 0x06010088 RID: 65672 RVA: 0x001E669E File Offset: 0x001E489E
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
 		}
 
-		// Token: 0x06010089 RID: 65673 RVA: 0x0025083F File Offset: 0x0024EA3F
 		protected override void OnHide()
 		{
 			base.OnHide();
 			base.PanelObject.SetActive(false);
 		}
 
-		// Token: 0x0601008A RID: 65674 RVA: 0x003D06D5 File Offset: 0x003CE8D5
 		public override void OnUnload()
 		{
 			this._doc = null;
 			base.OnUnload();
 		}
 
-		// Token: 0x0601008B RID: 65675 RVA: 0x003D06E8 File Offset: 0x003CE8E8
 		public bool OnTabControlStateChange(IXUICheckBox chkBox)
 		{
 			bool bChecked = chkBox.bChecked;
@@ -403,7 +381,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0601008C RID: 65676 RVA: 0x003D0718 File Offset: 0x003CE918
 		private void OnTabClick(int index)
 		{
 			this.m_objDetail.SetActive(index > 0);
@@ -419,61 +396,42 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x040071F5 RID: 29173
 		public IXUIWrapContent m_WrapContent;
 
-		// Token: 0x040071F6 RID: 29174
 		public IXUIScrollView m_PanelScrollView;
 
-		// Token: 0x040071F7 RID: 29175
 		public AchieveType m_achieveType;
 
-		// Token: 0x040071F8 RID: 29176
 		private List<AchieveItemInfo> list = new List<AchieveItemInfo>();
 
-		// Token: 0x040071F9 RID: 29177
 		private IXUILabel m_labAchipoint;
 
-		// Token: 0x040071FA RID: 29178
 		private IXUIProgress m_proAchiAll;
 
-		// Token: 0x040071FB RID: 29179
 		private IXUILabel m_lblAchiAll;
 
-		// Token: 0x040071FC RID: 29180
 		private IXUILabel m_rewarDesc;
 
-		// Token: 0x040071FD RID: 29181
 		private IXUIButton m_getBtn;
 
-		// Token: 0x040071FE RID: 29182
 		private IXUISprite m_sprRed;
 
-		// Token: 0x040071FF RID: 29183
 		private IXUIProgress[] m_proAchivType = new IXUIProgress[5];
 
-		// Token: 0x04007200 RID: 29184
 		private IXUILabel[] m_lblAchiType = new IXUILabel[5];
 
-		// Token: 0x04007201 RID: 29185
 		private GameObject[] m_rwds = new GameObject[3];
 
-		// Token: 0x04007202 RID: 29186
 		private bool canClaimPoint = false;
 
-		// Token: 0x04007203 RID: 29187
 		private XDesignationDocument _doc = null;
 
-		// Token: 0x04007204 RID: 29188
 		private IXUICheckBox[] m_padTabs = new IXUICheckBox[6];
 
-		// Token: 0x04007205 RID: 29189
 		private IXUISprite[] m_padPoint = new IXUISprite[6];
 
-		// Token: 0x04007206 RID: 29190
 		private GameObject m_objSurvey;
 
-		// Token: 0x04007207 RID: 29191
 		private GameObject m_objDetail;
 	}
 }

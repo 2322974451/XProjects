@@ -8,10 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000BB5 RID: 2997
+
 	internal class CarnivalContentHander : DlgHandlerBase
 	{
-		// Token: 0x0600AB98 RID: 43928 RVA: 0x001F5CEC File Offset: 0x001F3EEC
+
 		protected override void Init()
 		{
 			base.Init();
@@ -26,7 +26,6 @@ namespace XMainClient
 			this.itemTpl.SetActive(false);
 		}
 
-		// Token: 0x0600AB99 RID: 43929 RVA: 0x001F5E10 File Offset: 0x001F4010
 		public void Refresh()
 		{
 			XCarnivalDocument doc = DlgBase<CarnivalDlg, CarnivalBehavior>.singleton.doc;
@@ -68,7 +67,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AB9A RID: 43930 RVA: 0x001F6018 File Offset: 0x001F4218
 		private bool OnTabClick(IXUICheckBox box)
 		{
 			bool bChecked = box.bChecked;
@@ -81,7 +79,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600AB9B RID: 43931 RVA: 0x001F6058 File Offset: 0x001F4258
 		public void RefreshTab()
 		{
 			XCarnivalDocument doc = DlgBase<CarnivalDlg, CarnivalBehavior>.singleton.doc;
@@ -96,7 +93,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AB9C RID: 43932 RVA: 0x001F60E4 File Offset: 0x001F42E4
 		public void RefreshList()
 		{
 			this.currList = DlgBase<CarnivalDlg, CarnivalBehavior>.singleton.doc.GetCurrList();
@@ -105,7 +101,6 @@ namespace XMainClient
 			this.m_scroll.ResetPosition();
 		}
 
-		// Token: 0x0600AB9D RID: 43933 RVA: 0x001F6144 File Offset: 0x001F4344
 		private int StateValue(SpActivityNode node)
 		{
 			bool flag = node.state == 1U;
@@ -129,7 +124,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600AB9E RID: 43934 RVA: 0x001F617C File Offset: 0x001F437C
 		private int SortList(SpActivityNode x, SpActivityNode y)
 		{
 			bool flag = x.state != y.state;
@@ -145,7 +139,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600AB9F RID: 43935 RVA: 0x001F61CC File Offset: 0x001F43CC
 		private void UpdateItem(Transform t, int index)
 		{
 			IXUIButton ixuibutton = t.Find("Get").GetComponent("XUIButton") as IXUIButton;
@@ -214,7 +207,6 @@ namespace XMainClient
 			this.SetBtn(ixuibutton, carnivalState);
 		}
 
-		// Token: 0x0600ABA0 RID: 43936 RVA: 0x001F6494 File Offset: 0x001F4694
 		private void SetBtn(IXUIButton btn, CarnivalState type)
 		{
 			btn.SetEnable(type != CarnivalState.Lock && type != CarnivalState.Desc, false);
@@ -229,7 +221,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600ABA1 RID: 43937 RVA: 0x001F6548 File Offset: 0x001F4748
 		private bool OnBtnClick(IXUIButton btn)
 		{
 			ulong id = btn.ID;
@@ -274,13 +265,11 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600ABA2 RID: 43938 RVA: 0x001F6698 File Offset: 0x001F4898
 		private GameObject FetchItem()
 		{
 			return this.NewGameobject();
 		}
 
-		// Token: 0x0600ABA3 RID: 43939 RVA: 0x001F66B0 File Offset: 0x001F48B0
 		private void DestroyChilds(Transform pa)
 		{
 			for (int i = 0; i < pa.childCount; i++)
@@ -290,7 +279,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600ABA4 RID: 43940 RVA: 0x001F66EC File Offset: 0x001F48EC
 		private GameObject NewGameobject()
 		{
 			GameObject gameObject = XCommon.Instantiate<GameObject>(this.itemTpl);
@@ -298,34 +286,24 @@ namespace XMainClient
 			return gameObject;
 		}
 
-		// Token: 0x04004064 RID: 16484
 		public GameObject boxTpl;
 
-		// Token: 0x04004065 RID: 16485
 		public GameObject itemTpl;
 
-		// Token: 0x04004066 RID: 16486
 		public IXUIScrollView m_scroll;
 
-		// Token: 0x04004067 RID: 16487
 		public IXUIWrapContent m_content;
 
-		// Token: 0x04004068 RID: 16488
 		public XUIPool m_tabpool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04004069 RID: 16489
 		public List<IXUICheckBox> m_boxs = new List<IXUICheckBox>();
 
-		// Token: 0x0400406A RID: 16490
 		private List<SpActivityNode> currList = new List<SpActivityNode>();
 
-		// Token: 0x0400406B RID: 16491
 		private List<GameObject> itemspool = new List<GameObject>();
 
-		// Token: 0x0400406C RID: 16492
 		private int width = 90;
 
-		// Token: 0x0400406D RID: 16493
 		private Vector3 itempos = Vector3.zero;
 	}
 }

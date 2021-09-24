@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace XUtliPoolLib
 {
-	// Token: 0x020001E0 RID: 480
+
 	public class XEngineCommandMgr : XSingleton<XEngineCommandMgr>
 	{
-		// Token: 0x06000AE7 RID: 2791 RVA: 0x0003A314 File Offset: 0x00038514
+
 		private SimpleQueue GetCurrentQueue()
 		{
 			bool flag = this.m_currentQueue == null;
@@ -18,7 +18,6 @@ namespace XUtliPoolLib
 			return this.m_currentQueue;
 		}
 
-		// Token: 0x06000AE8 RID: 2792 RVA: 0x0003A348 File Offset: 0x00038548
 		private SimpleQueue GeBackQueue(SimpleQueue queue)
 		{
 			bool flag = queue == this.m_commandQueue0;
@@ -34,7 +33,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000AE9 RID: 2793 RVA: 0x0003A378 File Offset: 0x00038578
 		private void SwapQueue()
 		{
 			bool flag = this.m_currentQueue != null;
@@ -52,7 +50,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000AEA RID: 2794 RVA: 0x0003A3C8 File Offset: 0x000385C8
 		public XEngineCommand CreateCommand(ExecuteCommandHandler handler, XGameObject gameObject, int commandID = -1)
 		{
 			bool hasData = this.m_commandQueue.HasData;
@@ -73,7 +70,6 @@ namespace XUtliPoolLib
 			return xengineCommand;
 		}
 
-		// Token: 0x06000AEB RID: 2795 RVA: 0x0003A434 File Offset: 0x00038634
 		public void AppendCommand(XEngineCommand command)
 		{
 			bool flag = command.CanExecute();
@@ -94,7 +90,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000AEC RID: 2796 RVA: 0x0003A4A8 File Offset: 0x000386A8
 		public XObjAsyncData GetObjAsyncData()
 		{
 			bool hasData = this.m_objAsyncDataQueue.HasData;
@@ -110,7 +105,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000AED RID: 2797 RVA: 0x0003A4DC File Offset: 0x000386DC
 		public void ReturnCommand(XEngineCommand command)
 		{
 			bool flag = command.data != null;
@@ -123,7 +117,6 @@ namespace XUtliPoolLib
 			this.m_commandQueue.Enqueue(command);
 		}
 
-		// Token: 0x06000AEE RID: 2798 RVA: 0x0003A52C File Offset: 0x0003872C
 		public GameObject GetGameObject()
 		{
 			bool flag = this.m_gameObjectQueue.Count > 0;
@@ -139,7 +132,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000AEF RID: 2799 RVA: 0x0003A568 File Offset: 0x00038768
 		public void ReturnGameObject(GameObject go)
 		{
 			bool flag = go != null;
@@ -155,7 +147,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000AF0 RID: 2800 RVA: 0x0003A5D0 File Offset: 0x000387D0
 		public void Update()
 		{
 			SimpleQueue currentQueue = this.GetCurrentQueue();
@@ -199,7 +190,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000AF1 RID: 2801 RVA: 0x0003A6DC File Offset: 0x000388DC
 		public void Clear()
 		{
 			while (this.m_commandQueue0.HasData)
@@ -222,22 +212,16 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x0400056E RID: 1390
 		private SimpleQueue m_currentQueue = null;
 
-		// Token: 0x0400056F RID: 1391
 		private SimpleQueue m_commandQueue0 = new SimpleQueue();
 
-		// Token: 0x04000570 RID: 1392
 		private SimpleQueue m_commandQueue1 = new SimpleQueue();
 
-		// Token: 0x04000571 RID: 1393
 		private SimpleQueue m_commandQueue = new SimpleQueue();
 
-		// Token: 0x04000572 RID: 1394
 		private SimpleQueue m_objAsyncDataQueue = new SimpleQueue();
 
-		// Token: 0x04000573 RID: 1395
 		private Queue<GameObject> m_gameObjectQueue = new Queue<GameObject>();
 	}
 }

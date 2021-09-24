@@ -9,17 +9,12 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000DCA RID: 3530
+
 	internal class XGameSysMgr : XSingleton<XGameSysMgr>, IGameSysMgr, IXInterface
 	{
-		// Token: 0x170033C9 RID: 13257
-		// (get) Token: 0x0600C01B RID: 49179 RVA: 0x002854E4 File Offset: 0x002836E4
-		// (set) Token: 0x0600C01C RID: 49180 RVA: 0x002854EC File Offset: 0x002836EC
+
 		public bool Deprecated { get; set; }
 
-		// Token: 0x170033CA RID: 13258
-		// (get) Token: 0x0600C01D RID: 49181 RVA: 0x002854F8 File Offset: 0x002836F8
-		// (set) Token: 0x0600C01E RID: 49182 RVA: 0x00285510 File Offset: 0x00283710
 		public bool bStopBlockRedPoint
 		{
 			get
@@ -33,9 +28,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170033CB RID: 13259
-		// (get) Token: 0x0600C01F RID: 49183 RVA: 0x00285538 File Offset: 0x00283738
-		// (set) Token: 0x0600C020 RID: 49184 RVA: 0x00285550 File Offset: 0x00283750
 		public float GetFlowerRemainTime
 		{
 			get
@@ -48,9 +40,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170033CC RID: 13260
-		// (get) Token: 0x0600C021 RID: 49185 RVA: 0x0028555C File Offset: 0x0028375C
-		// (set) Token: 0x0600C022 RID: 49186 RVA: 0x00285574 File Offset: 0x00283774
 		public float OnlineRewardRemainTime
 		{
 			get
@@ -64,7 +53,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C023 RID: 49187 RVA: 0x00285588 File Offset: 0x00283788
 		public override bool Init()
 		{
 			bool flag = this._async_loader == null;
@@ -113,8 +101,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x170033CD RID: 13261
-		// (get) Token: 0x0600C024 RID: 49188 RVA: 0x002856C4 File Offset: 0x002838C4
 		public HashSet<XSysDefine> SysH5
 		{
 			get
@@ -123,21 +109,18 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C025 RID: 49189 RVA: 0x002856DC File Offset: 0x002838DC
 		public string GetSystemName(XSysDefine define)
 		{
 			int sysID = XFastEnumIntEqualityComparer<XSysDefine>.ToInt(define);
 			return this.GetSystemName(sysID);
 		}
 
-		// Token: 0x0600C026 RID: 49190 RVA: 0x002856FC File Offset: 0x002838FC
 		public string GetSystemName(int sysID)
 		{
 			OpenSystemTable.RowData bySystemID = this._openSystemTable.GetBySystemID(sysID);
 			return (bySystemID == null) ? string.Empty : bySystemID.SystemDescription;
 		}
 
-		// Token: 0x0600C027 RID: 49191 RVA: 0x0028572C File Offset: 0x0028392C
 		public int GetSystemOpenLevel(XSysDefine define)
 		{
 			int key = XFastEnumIntEqualityComparer<XSysDefine>.ToInt(define);
@@ -145,14 +128,12 @@ namespace XMainClient
 			return (bySystemID == null) ? 0 : bySystemID.PlayerLevel;
 		}
 
-		// Token: 0x0600C028 RID: 49192 RVA: 0x00285760 File Offset: 0x00283960
 		public OpenSystemTable.RowData GetSystemOpen(XSysDefine define)
 		{
 			int key = XFastEnumIntEqualityComparer<XSysDefine>.ToInt(define);
 			return this._openSystemTable.GetBySystemID(key);
 		}
 
-		// Token: 0x0600C029 RID: 49193 RVA: 0x00285788 File Offset: 0x00283988
 		public override void Uninit()
 		{
 			this.redPointState.Clear();
@@ -169,13 +150,11 @@ namespace XMainClient
 			this._async_loader = null;
 		}
 
-		// Token: 0x0600C02A RID: 49194 RVA: 0x002857F9 File Offset: 0x002839F9
 		public void Reset()
 		{
 			this.OnlineTime = null;
 		}
 
-		// Token: 0x0600C02B RID: 49195 RVA: 0x00285804 File Offset: 0x00283A04
 		public void InitWhenSelectRole(uint level)
 		{
 			string[] names = Enum.GetNames(typeof(XSysDefine));
@@ -194,7 +173,6 @@ namespace XMainClient
 			this.bStopBlockRedPoint = (this.optionsDoc.GetValue(XOptionsDefine.OD_STOP_BLOCK_REDPOINT) != 0);
 		}
 
-		// Token: 0x0600C02C RID: 49196 RVA: 0x002858A4 File Offset: 0x00283AA4
 		private void _InitAlwaysOpenedSystems()
 		{
 			for (int i = 0; i < this._allXSysDefines.Length; i++)
@@ -207,7 +185,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C02D RID: 49197 RVA: 0x00285924 File Offset: 0x00283B24
 		private void _InitNoRedPointLevel()
 		{
 			for (int i = 0; i < this._openSystemTable.Table.Length; i++)
@@ -239,7 +216,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C02E RID: 49198 RVA: 0x00285A04 File Offset: 0x00283C04
 		private void _CheckSystemId()
 		{
 			HashSet<int> hashSet = new HashSet<int>();
@@ -258,7 +234,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C02F RID: 49199 RVA: 0x00285AA0 File Offset: 0x00283CA0
 		public void OnLevelChanged(uint newLevel)
 		{
 			this.m_PlayerLevel = newLevel;
@@ -270,13 +245,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C030 RID: 49200 RVA: 0x00285AD8 File Offset: 0x00283CD8
 		public bool IsSystemOpen(int sys)
 		{
 			return this.IsSystemOpened((XSysDefine)sys);
 		}
 
-		// Token: 0x0600C031 RID: 49201 RVA: 0x00285AF4 File Offset: 0x00283CF4
 		public bool IsSystemOpened(XSysDefine sys)
 		{
 			XPlayerAttributes xplayerData = XSingleton<XAttributeMgr>.singleton.XPlayerData;
@@ -284,7 +257,6 @@ namespace XMainClient
 			return !flag && this.IsSystemOpened(sys, xplayerData);
 		}
 
-		// Token: 0x0600C032 RID: 49202 RVA: 0x00285B28 File Offset: 0x00283D28
 		public bool IsSystemOpened(XSysDefine sys, XPlayerAttributes attr)
 		{
 			bool flag = sys == XSysDefine.XSys_Invalid || sys == XSysDefine.XSys_Num;
@@ -301,7 +273,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C033 RID: 49203 RVA: 0x00285B78 File Offset: 0x00283D78
 		protected void SetupSysAnnounceTable()
 		{
 			SystemAnnounce.RowData[] table = this._announceSystemTable.Table;
@@ -327,7 +298,6 @@ namespace XMainClient
 			ListPool<int>.Release(list);
 		}
 
-		// Token: 0x0600C034 RID: 49204 RVA: 0x00285C2C File Offset: 0x00283E2C
 		public void GamePause(bool pause)
 		{
 			XSingleton<XDebug>.singleton.AddLog(pause ? "Game to BackGround." : "Game back to ForeGround.", null, null, null, null, null, XDebugColor.XDebug_None);
@@ -343,7 +313,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C035 RID: 49205 RVA: 0x00285CD0 File Offset: 0x00283ED0
 		public XSysDefine GetNextAnnounceSystem(out int level)
 		{
 			XPlayerAttributes xplayerAttributes = XSingleton<XEntityMgr>.singleton.Player.Attributes as XPlayerAttributes;
@@ -362,7 +331,6 @@ namespace XMainClient
 			return XSysDefine.XSys_Invalid;
 		}
 
-		// Token: 0x0600C036 RID: 49206 RVA: 0x00285DAC File Offset: 0x00283FAC
 		public void Update(float fDeltaT)
 		{
 			float num = this.GetFlowerRemainTime;
@@ -387,7 +355,6 @@ namespace XMainClient
 			this.OnlineRewardRemainTime = num2;
 		}
 
-		// Token: 0x0600C037 RID: 49207 RVA: 0x00285E28 File Offset: 0x00284028
 		public List<XSysDefine> GetChildSys(XSysDefine sys)
 		{
 			this._ReturnList.Clear();
@@ -691,7 +658,6 @@ namespace XMainClient
 			return this._ReturnList;
 		}
 
-		// Token: 0x0600C038 RID: 49208 RVA: 0x00286A5C File Offset: 0x00284C5C
 		public XSysDefine GetParentSys(XSysDefine sys)
 		{
 			XSysDefine result = sys;
@@ -1193,13 +1159,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C039 RID: 49209 RVA: 0x00287158 File Offset: 0x00285358
 		public OpenSystemTable.RowData GetSysData(int sysid)
 		{
 			return this._openSystemTable.GetBySystemID(sysid);
 		}
 
-		// Token: 0x0600C03A RID: 49210 RVA: 0x00287178 File Offset: 0x00285378
 		public SystemAnnounce.RowData GetSysAnnounceData(int sysid, int level)
 		{
 			for (int i = 0; i < this._announceSystemTable.Table.Length; i++)
@@ -1213,7 +1177,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x0600C03B RID: 49211 RVA: 0x002871EC File Offset: 0x002853EC
 		public SystemAnnounce.RowData GetSysAnnounceData(uint level)
 		{
 			for (int i = 0; i < this._announceSystemTable.Table.Length; i++)
@@ -1243,7 +1206,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x0600C03C RID: 49212 RVA: 0x002872A4 File Offset: 0x002854A4
 		public int GetSysOpenLevel(int sysid)
 		{
 			OpenSystemTable.RowData bySystemID = this._openSystemTable.GetBySystemID(sysid);
@@ -1260,7 +1222,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C03D RID: 49213 RVA: 0x002872D8 File Offset: 0x002854D8
 		public int GetSysOpenServerDay(int sysid)
 		{
 			OpenSystemTable.RowData bySystemID = this._openSystemTable.GetBySystemID(sysid);
@@ -1301,13 +1262,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C03E RID: 49214 RVA: 0x002873CC File Offset: 0x002855CC
 		public int GetSysOpenLevel(XSysDefine sys)
 		{
 			return this.GetSysOpenLevel(XFastEnumIntEqualityComparer<XSysDefine>.ToInt(sys));
 		}
 
-		// Token: 0x0600C03F RID: 49215 RVA: 0x002873EC File Offset: 0x002855EC
 		public string GetSysName(int sysid)
 		{
 			OpenSystemTable.RowData bySystemID = this._openSystemTable.GetBySystemID(sysid);
@@ -1324,7 +1283,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C040 RID: 49216 RVA: 0x00287420 File Offset: 0x00285620
 		public string GetSysIcon(int sysid)
 		{
 			OpenSystemTable.RowData bySystemID = this._openSystemTable.GetBySystemID(sysid);
@@ -1341,7 +1299,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C041 RID: 49217 RVA: 0x00287454 File Offset: 0x00285654
 		public string GetSysAnnounceIcon(int sysid)
 		{
 			for (int i = 0; i < this._announceSystemTable.Table.Length; i++)
@@ -1355,7 +1312,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x0600C042 RID: 49218 RVA: 0x002874B4 File Offset: 0x002856B4
 		public void OnSysOpen(XSysDefine sys)
 		{
 			if (sys <= XSysDefine.XSys_Char)
@@ -1375,7 +1331,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C043 RID: 49219 RVA: 0x002874F0 File Offset: 0x002856F0
 		public void RecalculateRedPointState(XSysDefine sys, bool bImmUpdateUI = true)
 		{
 			if (sys <= XSysDefine.XSys_GuildRelax_JokerMatch)
@@ -2087,7 +2042,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C044 RID: 49220 RVA: 0x00288974 File Offset: 0x00286B74
 		private void UpdateParentRedPoint(XSysDefine define)
 		{
 			this.UpdateRedPointOnHallUI(define);
@@ -2101,7 +2055,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C045 RID: 49221 RVA: 0x002889C0 File Offset: 0x00286BC0
 		protected void UpdateLevel1SystemState(XSysDefine sys)
 		{
 			this.redPointState.SetFlag(XFastEnumIntEqualityComparer<XSysDefine>.ToInt(XSysDefine.XSys_Bag), this.GetSysRedPointStateConsiderBlock(XSysDefine.XSys_Bag_Item));
@@ -2251,7 +2204,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C046 RID: 49222 RVA: 0x002891D0 File Offset: 0x002873D0
 		public void AttachSysRedPointRelative(int sys, int childSys, bool bImmCalculate)
 		{
 			int num = XFastEnumIntEqualityComparer<XSysDefine>.ToInt((XSysDefine)childSys);
@@ -2277,7 +2229,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C047 RID: 49223 RVA: 0x00289258 File Offset: 0x00287458
 		public void AttachSysRedPointRelativeUI(int sys, GameObject go)
 		{
 			this.sysRedPointRelativeUI[sys] = go;
@@ -2288,26 +2239,22 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C048 RID: 49224 RVA: 0x00289291 File Offset: 0x00287491
 		public void DetachSysRedPointRelative(int sys)
 		{
 			this.sysRedPointRelative[sys] = null;
 		}
 
-		// Token: 0x0600C049 RID: 49225 RVA: 0x0028929D File Offset: 0x0028749D
 		public void DetachSysRedPointRelativeUI(int sys)
 		{
 			this.sysRedPointRelativeUI[sys] = null;
 		}
 
-		// Token: 0x0600C04A RID: 49226 RVA: 0x002892AC File Offset: 0x002874AC
 		public void ForceUpdateSysRedPointImmediately(int sys, bool redpoint)
 		{
 			this.redPointState.SetFlag(sys, redpoint);
 			this.RecalculateRedPointState((XSysDefine)sys, true);
 		}
 
-		// Token: 0x0600C04B RID: 49227 RVA: 0x002892D4 File Offset: 0x002874D4
 		public void UpdateRedPointOnHallUI(XSysDefine sys)
 		{
 			bool flag = !DlgBase<XMainInterface, XMainInterfaceBehaviour>.singleton.IsVisible();
@@ -2386,7 +2333,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C04C RID: 49228 RVA: 0x0028944C File Offset: 0x0028764C
 		public void UpdateSubSysRedPointsUI(XSysDefine sys)
 		{
 			int num = XFastEnumIntEqualityComparer<XSysDefine>.ToInt(sys);
@@ -2402,7 +2348,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C04D RID: 49229 RVA: 0x00289498 File Offset: 0x00287698
 		public void UpdateRelativeSysRedPointsUI(XSysDefine sys)
 		{
 			int num = XFastEnumIntEqualityComparer<XSysDefine>.ToInt(sys);
@@ -2418,7 +2363,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C04E RID: 49230 RVA: 0x002894F0 File Offset: 0x002876F0
 		public void RegisterSubSysRedPointMgr(XSysDefine sys, XSubSysRedPointMgr mgr)
 		{
 			int num = XFastEnumIntEqualityComparer<XSysDefine>.ToInt(sys);
@@ -2429,7 +2373,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C04F RID: 49231 RVA: 0x00289528 File Offset: 0x00287728
 		public void OnLeaveScene(bool transfer)
 		{
 			for (int i = 0; i < this.subSysRedPoint.Length; i++)
@@ -2438,7 +2381,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C050 RID: 49232 RVA: 0x0028955C File Offset: 0x0028775C
 		public bool GetSysRedPointStateConsiderBlock(XSysDefine sys)
 		{
 			int num = XFastEnumIntEqualityComparer<XSysDefine>.ToInt(sys);
@@ -2465,19 +2407,16 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C051 RID: 49233 RVA: 0x002895DC File Offset: 0x002877DC
 		public bool GetSysRedPointState(int sys)
 		{
 			return this.GetSysRedPointState((XSysDefine)sys);
 		}
 
-		// Token: 0x0600C052 RID: 49234 RVA: 0x002895F8 File Offset: 0x002877F8
 		public bool GetSysRedPointState(XSysDefine sys)
 		{
 			return this.redPointState.IsFlag(XFastEnumIntEqualityComparer<XSysDefine>.ToInt(sys));
 		}
 
-		// Token: 0x0600C053 RID: 49235 RVA: 0x0028961C File Offset: 0x0028781C
 		public void SetSysRedState(XSysDefine sys, bool bState)
 		{
 			bool flag = this.redPointState != null;
@@ -2487,7 +2426,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C054 RID: 49236 RVA: 0x0028964C File Offset: 0x0028784C
 		public void SetSysRedPointState(XSysDefine sys, bool bState)
 		{
 			bool flag = !this.IsSystemOpened(sys);
@@ -2498,13 +2436,11 @@ namespace XMainClient
 			this.redPointState.SetFlag(XFastEnumIntEqualityComparer<XSysDefine>.ToInt(sys), bState);
 		}
 
-		// Token: 0x0600C055 RID: 49237 RVA: 0x0028967E File Offset: 0x0028787E
 		public void OpenSystem(int sys)
 		{
 			this.OpenSystem((XSysDefine)sys, 0UL);
 		}
 
-		// Token: 0x0600C056 RID: 49238 RVA: 0x0028968C File Offset: 0x0028788C
 		public void OpenSystem(XSysDefine sys, ulong param = 0UL)
 		{
 			bool flag = !this.IsSystemOpened(sys);
@@ -3459,7 +3395,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C057 RID: 49239 RVA: 0x0028A96C File Offset: 0x00288B6C
 		public void OpenGuildSystem(XSysDefine sys)
 		{
 			if (sys <= XSysDefine.XSys_GuildRelax_JokerMatch)
@@ -3557,7 +3492,6 @@ namespace XMainClient
 			DlgBase<XGuildMembersView, XGuildMembersBehaviour>.singleton.SetVisibleWithAnimation(true, null);
 		}
 
-		// Token: 0x0600C058 RID: 49240 RVA: 0x0028AB18 File Offset: 0x00288D18
 		private bool GoToTakeDailyTask()
 		{
 			XTaskDocument specificDocument = XDocuments.GetSpecificDocument<XTaskDocument>(XTaskDocument.uuID);
@@ -3574,7 +3508,6 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x0600C059 RID: 49241 RVA: 0x0028ABB0 File Offset: 0x00288DB0
 		private bool GoToTakeWeeklyTask()
 		{
 			XTaskDocument specificDocument = XDocuments.GetSpecificDocument<XTaskDocument>(XTaskDocument.uuID);
@@ -3591,64 +3524,44 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x0400504B RID: 20555
 		private XTableAsyncLoader _async_loader = null;
 
-		// Token: 0x0400504C RID: 20556
 		private OpenSystemTable _openSystemTable = new OpenSystemTable();
 
-		// Token: 0x0400504D RID: 20557
 		private SystemAnnounce _announceSystemTable = new SystemAnnounce();
 
-		// Token: 0x0400504E RID: 20558
 		private uint m_PlayerLevel;
 
-		// Token: 0x0400504F RID: 20559
 		private XOptionsDocument optionsDoc;
 
-		// Token: 0x04005050 RID: 20560
 		private SysIntCache alwaysOpen = new SysIntCache(1024);
 
-		// Token: 0x04005051 RID: 20561
 		private SysIntCache redPointState = new SysIntCache(1024);
 
-		// Token: 0x04005052 RID: 20562
 		private List<uint>[] noRedPointLevel = new List<uint>[1024];
 
-		// Token: 0x04005053 RID: 20563
 		private List<XSysDefine>[] sysRedPointRelative = new List<XSysDefine>[1024];
 
-		// Token: 0x04005054 RID: 20564
 		private SysIntCache sysRedPointHasRefreshed = new SysIntCache(1024);
 
-		// Token: 0x04005055 RID: 20565
 		private HashSet<XSysDefine> _sysH5 = new HashSet<XSysDefine>(default(XFastEnumIntEqualityComparer<XSysDefine>));
 
-		// Token: 0x04005056 RID: 20566
 		private GameObject[] sysRedPointRelativeUI = new GameObject[1024];
 
-		// Token: 0x04005057 RID: 20567
 		private XSubSysRedPointMgr[] subSysRedPoint = new XSubSysRedPointMgr[1024];
 
-		// Token: 0x04005058 RID: 20568
 		public List<int> m_AnnounceSys = new List<int>();
 
-		// Token: 0x04005059 RID: 20569
 		private List<XSysDefine> _ReturnList = new List<XSysDefine>();
 
-		// Token: 0x0400505B RID: 20571
 		private bool m_bStopBlockRedPoint;
 
-		// Token: 0x0400505C RID: 20572
 		private float _getFlowerRemainTime;
 
-		// Token: 0x0400505D RID: 20573
 		private float _onlineRewardRemainTime;
 
-		// Token: 0x0400505E RID: 20574
 		private IXUILabel OnlineTime = null;
 
-		// Token: 0x0400505F RID: 20575
 		private XSysDefine[] _allXSysDefines;
 	}
 }

@@ -4,11 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x020009D8 RID: 2520
+
 	internal class XPurchaseDocument : XDocComponent
 	{
-		// Token: 0x17002DD5 RID: 11733
-		// (get) Token: 0x06009959 RID: 39257 RVA: 0x0017E908 File Offset: 0x0017CB08
+
 		public override uint ID
 		{
 			get
@@ -17,7 +16,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600995A RID: 39258 RVA: 0x0017E920 File Offset: 0x0017CB20
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			XPurchaseDocument.AsyncLoader.AddTask("Table/BuyFatigue", XPurchaseDocument._BuyFatigureTable, false);
@@ -26,7 +24,6 @@ namespace XMainClient
 			XPurchaseDocument.AsyncLoader.Execute(callback);
 		}
 
-		// Token: 0x0600995B RID: 39259 RVA: 0x0017E97C File Offset: 0x0017CB7C
 		public void InitPurchaseInfo(BuyGoldFatInfo info)
 		{
 			bool flag = info != null;
@@ -50,7 +47,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600995C RID: 39260 RVA: 0x0017EA60 File Offset: 0x0017CC60
 		public XPurchaseInfo GetPurchaseInfo(int level, int vip, ItemEnum type)
 		{
 			bool flag = type == ItemEnum.GOLD;
@@ -160,7 +156,6 @@ namespace XMainClient
 			return this.myPurchaseInfo;
 		}
 
-		// Token: 0x0600995D RID: 39261 RVA: 0x0017EE8C File Offset: 0x0017D08C
 		public void CommonQuickBuy(ItemEnum itemid, ItemEnum useItem, uint count = 1U)
 		{
 			RpcC2G_BuyGoldAndFatigue rpcC2G_BuyGoldAndFatigue = new RpcC2G_BuyGoldAndFatigue();
@@ -214,7 +209,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_BuyGoldAndFatigue);
 		}
 
-		// Token: 0x0600995E RID: 39262 RVA: 0x0017EF94 File Offset: 0x0017D194
 		public void CommonQuickBuyRandom(ItemEnum itemid, ItemEnum usrItem, uint count)
 		{
 			RpcC2G_BuyGoldAndFatigue rpcC2G_BuyGoldAndFatigue = new RpcC2G_BuyGoldAndFatigue();
@@ -228,33 +222,24 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_BuyGoldAndFatigue);
 		}
 
-		// Token: 0x0600995F RID: 39263 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 		}
 
-		// Token: 0x0400349C RID: 13468
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("XPurchaseDocument");
 
-		// Token: 0x0400349D RID: 13469
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x0400349E RID: 13470
 		private static BuyFatigueTable _BuyFatigureTable = new BuyFatigueTable();
 
-		// Token: 0x0400349F RID: 13471
 		private static BuyGoldTable _BuyGoldTable = new BuyGoldTable();
 
-		// Token: 0x040034A0 RID: 13472
 		public XPurchaseInfo myPurchaseInfo = new XPurchaseInfo();
 
-		// Token: 0x040034A1 RID: 13473
 		public XPurchaseView PurchaseView;
 
-		// Token: 0x040034A2 RID: 13474
 		private static BuyDragonCoin _BuyDragonCoinTable = new BuyDragonCoin();
 
-		// Token: 0x040034A3 RID: 13475
 		public static PurchaseInfo _buyInfo = new PurchaseInfo();
 	}
 }

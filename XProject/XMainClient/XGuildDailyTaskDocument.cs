@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000921 RID: 2337
+
 	internal class XGuildDailyTaskDocument : XDocComponent
 	{
-		// Token: 0x17002B9F RID: 11167
-		// (get) Token: 0x06008CF7 RID: 36087 RVA: 0x00132D5C File Offset: 0x00130F5C
+
 		public override uint ID
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002BA0 RID: 11168
-		// (get) Token: 0x06008CF8 RID: 36088 RVA: 0x00132D74 File Offset: 0x00130F74
 		public static XGuildDailyTaskDocument Doc
 		{
 			get
@@ -30,7 +27,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008CF9 RID: 36089 RVA: 0x00132D9F File Offset: 0x00130F9F
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			XGuildDailyTaskDocument.AsyncLoader.AddTask("Table/DailyTask", XGuildDailyTaskDocument._dailyTaskInfoTable, false);
@@ -38,7 +34,6 @@ namespace XMainClient
 			XGuildDailyTaskDocument.AsyncLoader.Execute(callback);
 		}
 
-		// Token: 0x06008CFA RID: 36090 RVA: 0x00132DDA File Offset: 0x00130FDA
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
@@ -46,34 +41,27 @@ namespace XMainClient
 			this.DailyTaskBeenRefreshIcon = false;
 		}
 
-		// Token: 0x06008CFB RID: 36091 RVA: 0x00132DF5 File Offset: 0x00130FF5
 		protected override void EventSubscribe()
 		{
 			base.EventSubscribe();
 			base.RegisterEvent(XEventDefine.XEvent_TaskStateChange, new XComponent.XEventHandler(this.OnTaskStateChanged));
 		}
 
-		// Token: 0x06008CFC RID: 36092 RVA: 0x00114ADF File Offset: 0x00112CDF
 		public override void OnDetachFromHost()
 		{
 			base.OnDetachFromHost();
 		}
 
-		// Token: 0x06008CFD RID: 36093 RVA: 0x00132E17 File Offset: 0x00131017
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 			this.InitFromServerData(arg.PlayerInfo.task_record);
 		}
 
-		// Token: 0x06008CFE RID: 36094 RVA: 0x00114AE9 File Offset: 0x00112CE9
 		public override void OnEnterSceneFinally()
 		{
 			base.OnEnterSceneFinally();
 		}
 
-		// Token: 0x17002BA1 RID: 11169
-		// (get) Token: 0x06008CFF RID: 36095 RVA: 0x00132E2C File Offset: 0x0013102C
-		// (set) Token: 0x06008D00 RID: 36096 RVA: 0x00132E44 File Offset: 0x00131044
 		public uint TaskRoleLevel
 		{
 			get
@@ -87,9 +75,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002BA2 RID: 11170
-		// (get) Token: 0x06008D01 RID: 36097 RVA: 0x00132E58 File Offset: 0x00131058
-		// (set) Token: 0x06008D02 RID: 36098 RVA: 0x00132E70 File Offset: 0x00131070
 		public uint AskedNum
 		{
 			get
@@ -102,9 +87,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002BA3 RID: 11171
-		// (get) Token: 0x06008D03 RID: 36099 RVA: 0x00132E7C File Offset: 0x0013107C
-		// (set) Token: 0x06008D04 RID: 36100 RVA: 0x00132E94 File Offset: 0x00131094
 		public uint Count
 		{
 			get
@@ -117,9 +99,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002BA4 RID: 11172
-		// (get) Token: 0x06008D05 RID: 36101 RVA: 0x00132EA0 File Offset: 0x001310A0
-		// (set) Token: 0x06008D06 RID: 36102 RVA: 0x00132EB8 File Offset: 0x001310B8
 		public bool IsRewarded
 		{
 			get
@@ -132,8 +111,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002BA5 RID: 11173
-		// (get) Token: 0x06008D07 RID: 36103 RVA: 0x00132EC4 File Offset: 0x001310C4
 		public List<DailyTaskRefreshRoleInfo> DailyTaskRefreshRoleInfoList
 		{
 			get
@@ -142,8 +119,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002BA6 RID: 11174
-		// (get) Token: 0x06008D08 RID: 36104 RVA: 0x00132EDC File Offset: 0x001310DC
 		public List<DailyTaskRefreshRoleInfo> AskInfoList
 		{
 			get
@@ -152,8 +127,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002BA7 RID: 11175
-		// (get) Token: 0x06008D09 RID: 36105 RVA: 0x00132EF4 File Offset: 0x001310F4
 		public List<DailyTaskRefreshInfo> DailyTaskRefreshRecordList
 		{
 			get
@@ -162,8 +135,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002BA8 RID: 11176
-		// (get) Token: 0x06008D0A RID: 36106 RVA: 0x00132F0C File Offset: 0x0013110C
 		public uint Refresh_num
 		{
 			get
@@ -172,8 +143,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002BA9 RID: 11177
-		// (get) Token: 0x06008D0B RID: 36107 RVA: 0x00132F24 File Offset: 0x00131124
 		public uint CurScore
 		{
 			get
@@ -182,8 +151,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002BAA RID: 11178
-		// (get) Token: 0x06008D0C RID: 36108 RVA: 0x00132F3C File Offset: 0x0013113C
 		public uint TodayBuyNumber
 		{
 			get
@@ -192,8 +159,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002BAB RID: 11179
-		// (get) Token: 0x06008D0D RID: 36109 RVA: 0x00132F54 File Offset: 0x00131154
 		public uint HelpNum
 		{
 			get
@@ -202,8 +167,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002BAC RID: 11180
-		// (get) Token: 0x06008D0E RID: 36110 RVA: 0x00132F6C File Offset: 0x0013116C
 		public uint MyLuck
 		{
 			get
@@ -212,24 +175,16 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002BAD RID: 11181
-		// (get) Token: 0x06008D0F RID: 36111 RVA: 0x00132F84 File Offset: 0x00131184
-		// (set) Token: 0x06008D10 RID: 36112 RVA: 0x00132F8C File Offset: 0x0013118C
 		public bool DailyTaskHelpRefreshIcon { get; set; }
 
-		// Token: 0x17002BAE RID: 11182
-		// (get) Token: 0x06008D11 RID: 36113 RVA: 0x00132F95 File Offset: 0x00131195
-		// (set) Token: 0x06008D12 RID: 36114 RVA: 0x00132F9D File Offset: 0x0013119D
 		public bool DailyTaskBeenRefreshIcon { get; set; }
 
-		// Token: 0x06008D13 RID: 36115 RVA: 0x00132FA8 File Offset: 0x001311A8
 		public void SendGetDailyTaskInfo()
 		{
 			RpcC2G_GetDailyTaskInfo rpc = new RpcC2G_GetDailyTaskInfo();
 			XSingleton<XClientNetwork>.singleton.Send(rpc);
 		}
 
-		// Token: 0x06008D14 RID: 36116 RVA: 0x00132FC8 File Offset: 0x001311C8
 		public void OnGetDailyTasks(GetDailyTaskInfoRes res)
 		{
 			this.UpdateTaskContent(res.task);
@@ -247,14 +202,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008D15 RID: 36117 RVA: 0x0013305C File Offset: 0x0013125C
 		public void GiveUpTask()
 		{
 			RpcC2G_DailyTaskGiveUp rpc = new RpcC2G_DailyTaskGiveUp();
 			XSingleton<XClientNetwork>.singleton.Send(rpc);
 		}
 
-		// Token: 0x06008D16 RID: 36118 RVA: 0x0013307C File Offset: 0x0013127C
 		public void OnGiveUpTask(DailyTaskGiveUpRes oRes)
 		{
 			bool flag = oRes.result == ErrorCode.ERR_SUCCESS;
@@ -272,7 +225,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008D17 RID: 36119 RVA: 0x001330D0 File Offset: 0x001312D0
 		private bool OnTaskStateChanged(XEventArgs e)
 		{
 			XTaskStatusChangeArgs xtaskStatusChangeArgs = e as XTaskStatusChangeArgs;
@@ -299,7 +251,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x06008D18 RID: 36120 RVA: 0x00133154 File Offset: 0x00131354
 		private void UpdateTaskContent(List<DailyTaskInfo> task)
 		{
 			this._curGuildDailyTaskList.Clear();
@@ -317,7 +268,6 @@ namespace XMainClient
 			this._curGuildDailyTaskList.Sort(new Comparison<GuildDailyTaskInfo>(this.SortDailyTask));
 		}
 
-		// Token: 0x06008D19 RID: 36121 RVA: 0x001331E8 File Offset: 0x001313E8
 		public DailyTaskReward.RowData GetSingleTaskRewardInfoByID(GuildTaskType type, uint taskID)
 		{
 			DailyTask.RowData dailyTaskTableInfoByID = this.GetDailyTaskTableInfoByID(taskID);
@@ -335,7 +285,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x06008D1A RID: 36122 RVA: 0x00133238 File Offset: 0x00131438
 		public DailyTaskReward.RowData GetTotalTaskRewardInfo(GuildTaskType type, uint count)
 		{
 			uint mappingValueWithQualityAndType = XGuildDailyTaskDocument.GetMappingValueWithQualityAndType(type, 2U, count);
@@ -353,7 +302,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008D1B RID: 36123 RVA: 0x0013326C File Offset: 0x0013146C
 		public bool GoToTakeTask()
 		{
 			XTaskDocument specificDocument = XDocuments.GetSpecificDocument<XTaskDocument>(XTaskDocument.uuID);
@@ -369,7 +317,6 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x06008D1C RID: 36124 RVA: 0x001332EC File Offset: 0x001314EC
 		public int GetRewardedTaskCount()
 		{
 			int num = 0;
@@ -384,7 +331,6 @@ namespace XMainClient
 			return num;
 		}
 
-		// Token: 0x06008D1D RID: 36125 RVA: 0x00133338 File Offset: 0x00131538
 		internal GuildDailyTaskInfo GetTaskInfoByIndex(int index)
 		{
 			bool flag = index < this._curGuildDailyTaskList.Count;
@@ -400,13 +346,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008D1E RID: 36126 RVA: 0x0013336C File Offset: 0x0013156C
 		public int GetTaskItemCount()
 		{
 			return this._curGuildDailyTaskList.Count;
 		}
 
-		// Token: 0x06008D1F RID: 36127 RVA: 0x0013338C File Offset: 0x0013158C
 		public void SendToGetMyTaskReward(uint type, uint id)
 		{
 			RpcC2G_GetDailyTaskReward rpcC2G_GetDailyTaskReward = new RpcC2G_GetDailyTaskReward();
@@ -415,7 +359,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_GetDailyTaskReward);
 		}
 
-		// Token: 0x06008D20 RID: 36128 RVA: 0x001333C8 File Offset: 0x001315C8
 		public void OnGetDailyTaskReward(GetDailyTaskRewardArg oArg, GetDailyTaskRewardRes oRes)
 		{
 			bool flag = oRes.code == ErrorCode.ERR_SUCCESS;
@@ -500,7 +443,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008D21 RID: 36129 RVA: 0x00133668 File Offset: 0x00131868
 		public GuildDailyTaskInfo GetTaskInfoByID(uint id)
 		{
 			for (int i = 0; i < this._curGuildDailyTaskList.Count; i++)
@@ -514,7 +456,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x06008D22 RID: 36130 RVA: 0x001336C0 File Offset: 0x001318C0
 		public DailyTask.RowData GetDailyTaskTableInfoByID(uint taskID)
 		{
 			for (int i = 0; i < XGuildDailyTaskDocument._dailyTaskInfoTable.Table.Length; i++)
@@ -529,7 +470,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x06008D23 RID: 36131 RVA: 0x00133710 File Offset: 0x00131910
 		public List<GuildTaskReward> GetAdditionalRewards()
 		{
 			for (int i = 0; i < XGuildDailyTaskDocument.DailyTaskRewardTable.Table.Length; i++)
@@ -556,13 +496,11 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x06008D24 RID: 36132 RVA: 0x00133828 File Offset: 0x00131A28
 		public static uint GetMappingValueWithQualityAndType(GuildTaskType category, uint type, uint quality)
 		{
 			return (uint)((int)(GuildTaskType)10000 * (int)category + (int)(1000U * type) + (int)quality);
 		}
 
-		// Token: 0x06008D25 RID: 36133 RVA: 0x00133850 File Offset: 0x00131A50
 		public SeqListRef<uint>? GetRewadsByScore(DailyTaskReward.RowData data, uint score)
 		{
 			SeqListRef<uint>? result;
@@ -590,7 +528,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008D26 RID: 36134 RVA: 0x001338D0 File Offset: 0x00131AD0
 		public SeqListRef<uint>? GetExtraRewadsByScore(DailyTaskReward.RowData data, uint score)
 		{
 			SeqListRef<uint>? result;
@@ -618,7 +555,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008D27 RID: 36135 RVA: 0x00133950 File Offset: 0x00131B50
 		private int SortDailyTask(GuildDailyTaskInfo x, GuildDailyTaskInfo y)
 		{
 			bool flag = x.isRewarded ^ y.isRewarded;
@@ -652,7 +588,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008D28 RID: 36136 RVA: 0x001339E8 File Offset: 0x00131BE8
 		private void ResetRewardsMap()
 		{
 			this._guildTaskRewardWithMap.Clear();
@@ -688,7 +623,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008D29 RID: 36137 RVA: 0x00133B24 File Offset: 0x00131D24
 		public void SendDailyTaskAskHelp(PeriodTaskType type, uint taskID)
 		{
 			RpcC2G_DailyTaskAskHelp rpcC2G_DailyTaskAskHelp = new RpcC2G_DailyTaskAskHelp();
@@ -697,7 +631,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_DailyTaskAskHelp);
 		}
 
-		// Token: 0x06008D2A RID: 36138 RVA: 0x00133B60 File Offset: 0x00131D60
 		public void OnGetDailyHelpReply(DailyTaskAskHelpArg oArg, DailyTaskAskHelpRes oRes)
 		{
 			bool flag = oRes.code == ErrorCode.ERR_SUCCESS;
@@ -722,14 +655,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008D2B RID: 36139 RVA: 0x00133C20 File Offset: 0x00131E20
 		public void SendToRefreshTasks()
 		{
 			RpcC2M_GetDailyTaskRefreshInfo rpc = new RpcC2M_GetDailyTaskRefreshInfo();
 			XSingleton<XClientNetwork>.singleton.Send(rpc);
 		}
 
-		// Token: 0x06008D2C RID: 36140 RVA: 0x00133C40 File Offset: 0x00131E40
 		public void OnGetTaskRefreshInfo(GetDailyTaskRefreshInfoRes oRes)
 		{
 			this._dailyTaskRefreshRoleInfoList = oRes.friendinfo;
@@ -753,7 +684,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008D2D RID: 36141 RVA: 0x00133D38 File Offset: 0x00131F38
 		private int SortTaskRefreshInfo(DailyTaskRefreshRoleInfo x, DailyTaskRefreshRoleInfo y)
 		{
 			bool flag = x.luck != y.luck;
@@ -779,14 +709,12 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008D2E RID: 36142 RVA: 0x00133DBC File Offset: 0x00131FBC
 		public void SendToGetAskRefreshTaskInfo()
 		{
 			RpcC2M_GetDailyTaskAskHelp rpc = new RpcC2M_GetDailyTaskAskHelp();
 			XSingleton<XClientNetwork>.singleton.Send(rpc);
 		}
 
-		// Token: 0x06008D2F RID: 36143 RVA: 0x00133DDC File Offset: 0x00131FDC
 		public void OnGetTaskHelpInfo(GetDailyTaskAskHelpRes oRes)
 		{
 			this._askInfoList = oRes.askinfos;
@@ -805,14 +733,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008D30 RID: 36144 RVA: 0x00133E60 File Offset: 0x00132060
 		public void SendToGetRefreshLogInfo()
 		{
 			RpcC2M_GetDailyTaskRefreshRecord rpc = new RpcC2M_GetDailyTaskRefreshRecord();
 			XSingleton<XClientNetwork>.singleton.Send(rpc);
 		}
 
-		// Token: 0x06008D31 RID: 36145 RVA: 0x00133E80 File Offset: 0x00132080
 		public void OnGetRefreshRecordInfo(GetDailyTaskRefreshRecordRes oRes)
 		{
 			this._dailyTaskRefreshRecordList = oRes.records;
@@ -838,7 +764,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008D32 RID: 36146 RVA: 0x00133F04 File Offset: 0x00132104
 		public void SendToRefreshTaskOp(DailyRefreshOperType type, ulong roleID)
 		{
 			RpcC2M_DailyTaskRefreshOper rpcC2M_DailyTaskRefreshOper = new RpcC2M_DailyTaskRefreshOper();
@@ -847,7 +772,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_DailyTaskRefreshOper);
 		}
 
-		// Token: 0x06008D33 RID: 36147 RVA: 0x00133F40 File Offset: 0x00132140
 		public void OnGetTaskRefreshOperResult(DailyTaskRefreshOperArg oArg, DailyTaskRefreshOperRes oRes)
 		{
 			bool flag = oRes.result == ErrorCode.ERR_SUCCESS;
@@ -1023,7 +947,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008D34 RID: 36148 RVA: 0x00134570 File Offset: 0x00132770
 		private void SendNotifyToGuildChannel(DailyTaskRefreshRoleInfo dailyTaskRefreshRoleInfo, int level)
 		{
 			XGuildDocument specificDocument = XDocuments.GetSpecificDocument<XGuildDocument>(XGuildDocument.uuID);
@@ -1061,7 +984,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008D35 RID: 36149 RVA: 0x00134740 File Offset: 0x00132940
 		public void OnGetDailyTaskEvent(PtcM2C_DailyTaskEventNtf roPtc)
 		{
 			bool flag = roPtc.Data.type == DailyTaskIconType.DailyTaskIcon_AskHelp;
@@ -1090,7 +1012,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008D36 RID: 36150 RVA: 0x001347DC File Offset: 0x001329DC
 		public DailyTaskRefreshRoleInfo GetTaskAskInfoByIndex(int index)
 		{
 			bool flag = index < this._askInfoList.Count;
@@ -1106,7 +1027,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008D37 RID: 36151 RVA: 0x00134810 File Offset: 0x00132A10
 		public DailyTaskRefreshRoleInfo GetRefreshTaskItemInfo(int index)
 		{
 			bool flag = index < this._dailyTaskRefreshRoleInfoList.Count;
@@ -1122,7 +1042,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008D38 RID: 36152 RVA: 0x00134844 File Offset: 0x00132A44
 		public DailyTaskRefreshInfo GetRefreshTaskLogInfo(int index)
 		{
 			bool flag = index < this._dailyTaskRefreshRecordList.Count;
@@ -1138,7 +1057,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008D39 RID: 36153 RVA: 0x00134878 File Offset: 0x00132A78
 		public DailyTaskRefreshInfo GetRefreshTaskLogInfoByRoleID(ulong roleID)
 		{
 			for (int i = 0; i < this._dailyTaskRefreshRecordList.Count; i++)
@@ -1152,7 +1070,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x06008D3A RID: 36154 RVA: 0x001348D0 File Offset: 0x00132AD0
 		public void SendGuildDonateReq(uint number, uint itemID, uint reqID, NoticeType type = NoticeType.NT_GUILD_Daily_DONATE_REQ)
 		{
 			XGuildDocument specificDocument = XDocuments.GetSpecificDocument<XGuildDocument>(XGuildDocument.uuID);
@@ -1188,7 +1105,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008D3B RID: 36155 RVA: 0x00134A68 File Offset: 0x00132C68
 		public void InitFromServerData(RoleTask roleTask)
 		{
 			bool flag = roleTask.dailytask.Count == 0;
@@ -1204,7 +1120,6 @@ namespace XMainClient
 			XGuildDonateDocument.Doc.DailyDonatedNum = roleTask.today_donate_count;
 		}
 
-		// Token: 0x06008D3C RID: 36156 RVA: 0x00134AD8 File Offset: 0x00132CD8
 		public void ClearRequesetItems()
 		{
 			this._askInfoList.Clear();
@@ -1216,7 +1131,6 @@ namespace XMainClient
 			this.RefreshRequestSysIcon();
 		}
 
-		// Token: 0x06008D3D RID: 36157 RVA: 0x00134B14 File Offset: 0x00132D14
 		public void OnTaskRefreshNtf(PtcM2C_TaskRefreshNtf roPtc)
 		{
 			this._curScore = roPtc.Data.score;
@@ -1239,7 +1153,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008D3E RID: 36158 RVA: 0x00134BF4 File Offset: 0x00132DF4
 		private void RefreshRequestSysIcon()
 		{
 			bool flag = this._askInfoList.Count == 0;
@@ -1250,58 +1163,40 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04002DAC RID: 11692
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("GuildDailyTaskDocument");
 
-		// Token: 0x04002DAD RID: 11693
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x04002DAE RID: 11694
 		private static DailyTask _dailyTaskInfoTable = new DailyTask();
 
-		// Token: 0x04002DAF RID: 11695
 		public static DailyTaskReward DailyTaskRewardTable = new DailyTaskReward();
 
-		// Token: 0x04002DB0 RID: 11696
 		private Dictionary<uint, DailyTaskReward.RowData> _guildTaskRewardWithMap = new Dictionary<uint, DailyTaskReward.RowData>();
 
-		// Token: 0x04002DB1 RID: 11697
 		private List<GuildDailyTaskInfo> _curGuildDailyTaskList = new List<GuildDailyTaskInfo>();
 
-		// Token: 0x04002DB2 RID: 11698
 		private uint _taskRoleLevel = 1U;
 
-		// Token: 0x04002DB3 RID: 11699
 		private uint _askedNum = 0U;
 
-		// Token: 0x04002DB4 RID: 11700
 		private uint _count = 0U;
 
-		// Token: 0x04002DB5 RID: 11701
 		private bool _isRewarded = false;
 
-		// Token: 0x04002DB6 RID: 11702
 		private List<DailyTaskRefreshRoleInfo> _dailyTaskRefreshRoleInfoList = new List<DailyTaskRefreshRoleInfo>();
 
-		// Token: 0x04002DB7 RID: 11703
 		private uint _myLuck = 1U;
 
-		// Token: 0x04002DB8 RID: 11704
 		private uint _refresh_num;
 
-		// Token: 0x04002DB9 RID: 11705
 		private uint _todayBuyNum;
 
-		// Token: 0x04002DBA RID: 11706
 		private List<DailyTaskRefreshRoleInfo> _askInfoList = new List<DailyTaskRefreshRoleInfo>();
 
-		// Token: 0x04002DBB RID: 11707
 		private uint _helpNum;
 
-		// Token: 0x04002DBC RID: 11708
 		private List<DailyTaskRefreshInfo> _dailyTaskRefreshRecordList = new List<DailyTaskRefreshInfo>();
 
-		// Token: 0x04002DBD RID: 11709
 		private uint _curScore;
 	}
 }

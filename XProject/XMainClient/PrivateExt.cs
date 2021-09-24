@@ -4,10 +4,10 @@ using System.Reflection;
 
 namespace XMainClient
 {
-	// Token: 0x02000B32 RID: 2866
+
 	public static class PrivateExt
 	{
-		// Token: 0x0600A7BB RID: 42939 RVA: 0x001DC2B0 File Offset: 0x001DA4B0
+
 		public static T CallPrivateMethodGeneric<T>(this object obj, string name, params object[] param)
 		{
 			BindingFlags bindingAttr = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.FlattenHierarchy;
@@ -62,7 +62,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A7BC RID: 42940 RVA: 0x001DC404 File Offset: 0x001DA604
 		public static object CallPrivateMethod(this object obj, string name, params object[] param)
 		{
 			BindingFlags bindingAttr = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.FlattenHierarchy;
@@ -133,7 +132,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A7BD RID: 42941 RVA: 0x001DC59C File Offset: 0x001DA79C
 		public static object CallStaticPrivateMethod(string typeName, string name, params object[] param)
 		{
 			BindingFlags bindingAttr = BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.FlattenHierarchy;
@@ -188,7 +186,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A7BE RID: 42942 RVA: 0x001DC6DC File Offset: 0x001DA8DC
 		public static T GetPrivateFieldGeneric<T>(this object obj, string name)
 		{
 			BindingFlags flags = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.FlattenHierarchy;
@@ -207,7 +204,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A7BF RID: 42943 RVA: 0x001DC728 File Offset: 0x001DA928
 		public static object GetPrivateField(this object obj, string name)
 		{
 			BindingFlags flags = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.FlattenHierarchy;
@@ -226,7 +222,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A7C0 RID: 42944 RVA: 0x001DC764 File Offset: 0x001DA964
 		public static object GetStaticPrivateField(string typeName, string name)
 		{
 			BindingFlags flags = BindingFlags.Static | BindingFlags.NonPublic;
@@ -245,7 +240,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A7C1 RID: 42945 RVA: 0x001DC7A0 File Offset: 0x001DA9A0
 		public static T GetPrivatePropertyGeneric<T>(this object obj, string name)
 		{
 			BindingFlags flags = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.FlattenHierarchy;
@@ -264,7 +258,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A7C2 RID: 42946 RVA: 0x001DC7F0 File Offset: 0x001DA9F0
 		public static object GetPrivateProperty(this object obj, string name)
 		{
 			BindingFlags flags = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.FlattenHierarchy;
@@ -283,7 +276,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A7C3 RID: 42947 RVA: 0x001DC834 File Offset: 0x001DAA34
 		public static object GetStaticPrivateProperty(string typeName, string name)
 		{
 			BindingFlags flags = BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.FlattenHierarchy;
@@ -302,7 +294,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A7C4 RID: 42948 RVA: 0x001DC870 File Offset: 0x001DAA70
 		public static void SetPrivateField(this object obj, string name, object value)
 		{
 			BindingFlags flags = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.FlattenHierarchy;
@@ -351,7 +342,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A7C5 RID: 42949 RVA: 0x001DC974 File Offset: 0x001DAB74
 		public static void SetStaticPrivateField(string typeName, string name, object value)
 		{
 			BindingFlags flags = BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.FlattenHierarchy;
@@ -400,7 +390,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A7C6 RID: 42950 RVA: 0x001DCA78 File Offset: 0x001DAC78
 		public static void SetPrivateProperty(this object obj, string name, object value)
 		{
 			BindingFlags flags = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.FlattenHierarchy;
@@ -449,7 +438,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A7C7 RID: 42951 RVA: 0x001DCB80 File Offset: 0x001DAD80
 		public static void SetStaticPrivateProperty(string typeName, string name, object value)
 		{
 			BindingFlags flags = BindingFlags.Static | BindingFlags.NonPublic;

@@ -9,11 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000960 RID: 2400
+
 	internal class XPlatformAbilityDocument : XDocComponent
 	{
-		// Token: 0x17002C4D RID: 11341
-		// (get) Token: 0x060090AD RID: 37037 RVA: 0x00149ED8 File Offset: 0x001480D8
+
 		public override uint ID
 		{
 			get
@@ -22,8 +21,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002C4E RID: 11342
-		// (get) Token: 0x060090AE RID: 37038 RVA: 0x00149EF0 File Offset: 0x001480F0
 		public static XPlatformAbilityDocument Doc
 		{
 			get
@@ -32,8 +29,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002C4F RID: 11343
-		// (get) Token: 0x060090AF RID: 37039 RVA: 0x00149F0C File Offset: 0x0014810C
 		public QQVipInfoClient QQVipInfo
 		{
 			get
@@ -42,7 +37,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060090B0 RID: 37040 RVA: 0x00149F24 File Offset: 0x00148124
 		public void ClickRedPointNtf()
 		{
 			bool flag = !this.QQVipRedPoint;
@@ -54,7 +48,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060090B1 RID: 37041 RVA: 0x00149F6C File Offset: 0x0014816C
 		public void QueryQQVipInfo()
 		{
 			bool flag = XSingleton<XLoginDocument>.singleton.Channel == XAuthorizationChannel.XAuthorization_QQ && XSingleton<XGameSysMgr>.singleton.IsSystemOpened(XSysDefine.XSys_QQVIP);
@@ -66,7 +59,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060090B2 RID: 37042 RVA: 0x00149FC8 File Offset: 0x001481C8
 		public void OnQueryQQVipInfo(QueryQQVipInfoArg oArg, QueryQQVipInfoRes oRes)
 		{
 			bool flag = oRes == null;
@@ -112,7 +104,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060090B3 RID: 37043 RVA: 0x0014A104 File Offset: 0x00148304
 		public void OpenQQVipRechargeH5()
 		{
 			string text = string.Format("{0}?sRoleId={1}&sPartition={2}&sPfkey={3}", new object[]
@@ -129,7 +120,6 @@ namespace XMainClient
 			XSingleton<XUpdater.XUpdater>.singleton.XPlatform.SendExtDara("open_url", Json.Serialize(dictionary));
 		}
 
-		// Token: 0x060090B4 RID: 37044 RVA: 0x0014A1C4 File Offset: 0x001483C4
 		public void OnQQVipPayCallback(string msg)
 		{
 			XSingleton<XDebug>.singleton.AddLog("Pay [OnQQVipPayCallback] msg:" + msg, null, null, null, null, null, XDebugColor.XDebug_None);
@@ -145,18 +135,14 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060090B5 RID: 37045 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 		}
 
-		// Token: 0x04002FE6 RID: 12262
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("PlatformAbilityDocument");
 
-		// Token: 0x04002FE7 RID: 12263
 		private QQVipInfoClient m_qqVipInfo = null;
 
-		// Token: 0x04002FE8 RID: 12264
 		public bool QQVipRedPoint = false;
 	}
 }

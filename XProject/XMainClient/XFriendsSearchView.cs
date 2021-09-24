@@ -9,11 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000E36 RID: 3638
+
 	internal class XFriendsSearchView : DlgBase<XFriendsSearchView, XFriendsSearchBehaviour>
 	{
-		// Token: 0x17003442 RID: 13378
-		// (get) Token: 0x0600C3AE RID: 50094 RVA: 0x002A8508 File Offset: 0x002A6708
+
 		public override string fileName
 		{
 			get
@@ -22,8 +21,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003443 RID: 13379
-		// (get) Token: 0x0600C3AF RID: 50095 RVA: 0x002A8520 File Offset: 0x002A6720
 		public override int group
 		{
 			get
@@ -32,8 +29,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003444 RID: 13380
-		// (get) Token: 0x0600C3B0 RID: 50096 RVA: 0x002A8534 File Offset: 0x002A6734
 		public override bool autoload
 		{
 			get
@@ -42,7 +37,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C3B1 RID: 50097 RVA: 0x002A8547 File Offset: 0x002A6747
 		protected override void Init()
 		{
 			this._doc = XDocuments.GetSpecificDocument<XFriendsDocument>(XFriendsDocument.uuID);
@@ -51,7 +45,6 @@ namespace XMainClient
 			this.mIsListInited = false;
 		}
 
-		// Token: 0x0600C3B2 RID: 50098 RVA: 0x002A8580 File Offset: 0x002A6780
 		public override void RegisterEvent()
 		{
 			base.uiBehaviour.m_Close.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseClicked));
@@ -59,7 +52,6 @@ namespace XMainClient
 			base.uiBehaviour.m_AddFriend.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnAddFriendDirect));
 		}
 
-		// Token: 0x0600C3B3 RID: 50099 RVA: 0x002A85E8 File Offset: 0x002A67E8
 		public void ShowBoard(RandomFriendWaitListRes waitList)
 		{
 			bool flag = !base.IsVisible();
@@ -70,7 +62,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C3B4 RID: 50100 RVA: 0x002A8618 File Offset: 0x002A6818
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -99,7 +90,6 @@ namespace XMainClient
 			this.OnRefreshRandomFriend(this._waitList);
 		}
 
-		// Token: 0x0600C3B5 RID: 50101 RVA: 0x002A8791 File Offset: 0x002A6991
 		protected override void OnHide()
 		{
 			XSingleton<XTimerMgr>.singleton.KillTimer(this.mTimerID);
@@ -107,7 +97,6 @@ namespace XMainClient
 			base.OnHide();
 		}
 
-		// Token: 0x0600C3B6 RID: 50102 RVA: 0x002A87B3 File Offset: 0x002A69B3
 		protected override void OnUnload()
 		{
 			this.m_AddFriendListTempView = null;
@@ -117,7 +106,6 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x0600C3B7 RID: 50103 RVA: 0x002A87E4 File Offset: 0x002A69E4
 		public bool OnCloseClicked(IXUIButton sp)
 		{
 			this.SetVisibleWithAnimation(false, null);
@@ -125,7 +113,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600C3B8 RID: 50104 RVA: 0x002A880C File Offset: 0x002A6A0C
 		public bool OnAddFriend(IXUIButton sp)
 		{
 			ulong id = sp.ID;
@@ -145,14 +132,12 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C3B9 RID: 50105 RVA: 0x002A8870 File Offset: 0x002A6A70
 		public void OnHeadClick(IXUISprite go)
 		{
 			ulong id = go.ID;
 			XCharacterCommonMenuDocument.ReqCharacterMenuInfo(id, false);
 		}
 
-		// Token: 0x0600C3BA RID: 50106 RVA: 0x002A8890 File Offset: 0x002A6A90
 		public bool OnAddFriendDirect(IXUIButton sp)
 		{
 			string text = base.uiBehaviour.m_SearchName.GetText();
@@ -171,7 +156,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C3BB RID: 50107 RVA: 0x002A88FC File Offset: 0x002A6AFC
 		public bool OnRefreshFriends(IXUIButton sp)
 		{
 			bool flag = this.m_RefreshCD > 0;
@@ -197,7 +181,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600C3BC RID: 50108 RVA: 0x002A89C4 File Offset: 0x002A6BC4
 		protected void OnTimer(object param, float delay)
 		{
 			IXUILabel countdownText = base.uiBehaviour.m_CountdownText;
@@ -219,7 +202,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C3BD RID: 50109 RVA: 0x002A8A54 File Offset: 0x002A6C54
 		public void FriendAdded()
 		{
 			bool flag = !base.IsVisible();
@@ -240,7 +222,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C3BE RID: 50110 RVA: 0x002A8AEC File Offset: 0x002A6CEC
 		private void SortRandomFriendByOnlineState(RandomFriendWaitListRes waitList)
 		{
 			this.m_RandomFriendIndexSortList.Clear();
@@ -258,7 +239,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C3BF RID: 50111 RVA: 0x002A8B58 File Offset: 0x002A6D58
 		public void OnRefreshRandomFriend(RandomFriendWaitListRes waitList)
 		{
 			this.SortRandomFriendByOnlineState(waitList);
@@ -296,34 +276,24 @@ namespace XMainClient
 			base.uiBehaviour.m_ScrollView.ResetPosition();
 		}
 
-		// Token: 0x040054A8 RID: 21672
 		private bool mIsListInited;
 
-		// Token: 0x040054A9 RID: 21673
 		private int m_RefreshCD;
 
-		// Token: 0x040054AA RID: 21674
 		private uint mTimerID;
 
-		// Token: 0x040054AB RID: 21675
 		private ulong m_AddFriendId = 0UL;
 
-		// Token: 0x040054AC RID: 21676
 		private XFriendsDocument _doc = null;
 
-		// Token: 0x040054AD RID: 21677
 		private List<GameObject> m_UIList = new List<GameObject>();
 
-		// Token: 0x040054AE RID: 21678
 		private XPlayerInfoChildView m_AddFriendListTempView;
 
-		// Token: 0x040054AF RID: 21679
 		private XTimerMgr.AccurateElapsedEventHandler _onTimeCb = null;
 
-		// Token: 0x040054B0 RID: 21680
 		private RandomFriendWaitListRes _waitList;
 
-		// Token: 0x040054B1 RID: 21681
 		private List<int> m_RandomFriendIndexSortList = new List<int>();
 	}
 }

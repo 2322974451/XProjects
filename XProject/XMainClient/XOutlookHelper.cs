@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000B2D RID: 2861
+
 	internal class XOutlookHelper
 	{
-		// Token: 0x0600A78B RID: 42891 RVA: 0x001DA518 File Offset: 0x001D8718
+
 		public static void SetOutLookReplace(XAttributes attributes, XEntity entity, OutLook outlookData)
 		{
 			bool flag = outlookData == null;
@@ -25,7 +25,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A78C RID: 42892 RVA: 0x001DA580 File Offset: 0x001D8780
 		private static void SetFashion(XAttributes attributes, XEntity entity, OutLook outlookData)
 		{
 			bool flag = entity != null && outlookData.display_fashion != null;
@@ -41,7 +40,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A78D RID: 42893 RVA: 0x001DA5E0 File Offset: 0x001D87E0
 		private static void SetGuildInfo(XAttributes attributes, XEntity entity, OutLook outLookData)
 		{
 			bool flag = entity != null && !entity.IsPlayer && outLookData.guild != null;
@@ -57,7 +55,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A78E RID: 42894 RVA: 0x001DA664 File Offset: 0x001D8864
 		public static void SetOutLook(XAttributes attributes, OutLook outLook, bool bInit = false)
 		{
 			bool flag = outLook == null;
@@ -69,7 +66,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A78F RID: 42895 RVA: 0x001DA6A8 File Offset: 0x001D88A8
 		private static void SetDesignation(XAttributes attributes, XEntity entity, OutLook outlookData)
 		{
 			bool flag = outlookData.designation != null;
@@ -86,7 +82,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A790 RID: 42896 RVA: 0x001DA718 File Offset: 0x001D8918
 		private static void SetPrerogative(XAttributes attributes, XEntity entity, OutLook outlookData)
 		{
 			bool flag = outlookData.pre != null;
@@ -103,7 +98,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A791 RID: 42897 RVA: 0x001DA788 File Offset: 0x001D8988
 		private static void SetTitle(XAttributes attributes, XEntity entity, OutLook outlookData)
 		{
 			bool flag = outlookData.title != null;
@@ -119,7 +113,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A792 RID: 42898 RVA: 0x001DA7E8 File Offset: 0x001D89E8
 		private static void SetMilitaryRank(XAttributes attributes, XEntity entity, OutLook outlookData)
 		{
 			bool flag = outlookData.military != null;
@@ -135,7 +128,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A793 RID: 42899 RVA: 0x001DA848 File Offset: 0x001D8A48
 		private static void SetEnhancemaster(XAttributes attributes, XEntity entity, OutLook outlookData)
 		{
 			bool flag = attributes == null || entity == null || outlookData.equips == null;
@@ -144,7 +136,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A794 RID: 42900 RVA: 0x001DA870 File Offset: 0x001D8A70
 		private static void SetSprite(XAttributes attributes, XEntity entity, OutLook outlookData)
 		{
 			bool flag = outlookData.sprite != null && attributes.Outlook.SetSpriteData(outlookData);
@@ -181,7 +172,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A795 RID: 42901 RVA: 0x001DA968 File Offset: 0x001D8B68
 		public static void SetStatusState(XAttributes attributes, XEntity entity, OutLookState outlookStateData, bool bInit)
 		{
 			bool flag = outlookStateData == null;
@@ -307,7 +297,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A796 RID: 42902 RVA: 0x001DAD08 File Offset: 0x001D8F08
 		public static bool CanPlaySpecifiedAnimation(XEntity entity)
 		{
 			bool flag = entity == null || entity.Attributes == null;

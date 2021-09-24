@@ -5,11 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000F24 RID: 3876
+
 	internal sealed class XBeHitComponent : XActionStateComponent<XBeHitEventArgs>
 	{
-		// Token: 0x170035B9 RID: 13753
-		// (get) Token: 0x0600CD57 RID: 52567 RVA: 0x002F4BB0 File Offset: 0x002F2DB0
+
 		public override uint ID
 		{
 			get
@@ -18,7 +17,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CD58 RID: 52568 RVA: 0x002F4BC8 File Offset: 0x002F2DC8
 		public override string TriggerAnim(string pre)
 		{
 			XEntity xentity = this._entity.IsTransform ? this._entity.Transformer : this._entity;
@@ -40,8 +38,6 @@ namespace XMainClient
 			return "ToBeHit";
 		}
 
-		// Token: 0x170035BA RID: 13754
-		// (get) Token: 0x0600CD59 RID: 52569 RVA: 0x002F4CAC File Offset: 0x002F2EAC
 		public override bool IsUsingCurve
 		{
 			get
@@ -50,8 +46,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170035BB RID: 13755
-		// (get) Token: 0x0600CD5A RID: 52570 RVA: 0x002F4CD4 File Offset: 0x002F2ED4
 		public float TimeSpan
 		{
 			get
@@ -60,8 +54,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170035BC RID: 13756
-		// (get) Token: 0x0600CD5B RID: 52571 RVA: 0x002F4CEC File Offset: 0x002F2EEC
 		public XBeHitState CurrentStateinLogical
 		{
 			get
@@ -70,8 +62,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170035BD RID: 13757
-		// (get) Token: 0x0600CD5C RID: 52572 RVA: 0x002F4D04 File Offset: 0x002F2F04
 		public bool HasFlyPresent
 		{
 			get
@@ -80,8 +70,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170035BE RID: 13758
-		// (get) Token: 0x0600CD5D RID: 52573 RVA: 0x002F4D1C File Offset: 0x002F2F1C
 		public bool HasRollPresent
 		{
 			get
@@ -90,7 +78,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CD5E RID: 52574 RVA: 0x002F4D34 File Offset: 0x002F2F34
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
@@ -99,7 +86,6 @@ namespace XMainClient
 			this._landing_overrided = false;
 		}
 
-		// Token: 0x0600CD5F RID: 52575 RVA: 0x002F4D5C File Offset: 0x002F2F5C
 		public override void OnDetachFromHost()
 		{
 			this.DestroyFx(ref this._hit_fx);
@@ -113,20 +99,17 @@ namespace XMainClient
 			base.OnDetachFromHost();
 		}
 
-		// Token: 0x0600CD60 RID: 52576 RVA: 0x002F4DB0 File Offset: 0x002F2FB0
 		public override void Attached()
 		{
 			this._bHasFlyPresent = (this._entity.Present.PresentLib.HitFly != null && this._entity.Present.PresentLib.HitFly.Length != 0);
 			this._bHasRollPresent = (this._entity.Present.PresentLib.Hit_Roll != null && this._entity.Present.PresentLib.Hit_Roll.Length != 0);
 		}
 
-		// Token: 0x0600CD61 RID: 52577 RVA: 0x002F4E30 File Offset: 0x002F3030
 		protected override void EventSubscribe()
 		{
 			base.RegisterEvent(XEventDefine.XEvent_BeHit, new XComponent.XEventHandler(base.OnActionEvent));
 		}
 
-		// Token: 0x0600CD62 RID: 52578 RVA: 0x002F4E48 File Offset: 0x002F3048
 		protected override void ActionUpdate(float deltaTime)
 		{
 			XEntity xentity = this._entity.IsTransform ? this._entity.Transformer : this._entity;
@@ -256,8 +239,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170035BF RID: 13759
-		// (get) Token: 0x0600CD63 RID: 52579 RVA: 0x002F52C8 File Offset: 0x002F34C8
 		public override int CollisionLayer
 		{
 			get
@@ -267,8 +248,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170035C0 RID: 13760
-		// (get) Token: 0x0600CD64 RID: 52580 RVA: 0x002F5318 File Offset: 0x002F3518
 		public override bool ShouldBePresent
 		{
 			get
@@ -277,14 +256,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CD65 RID: 52581 RVA: 0x002F532C File Offset: 0x002F352C
 		public bool LaidOnGround()
 		{
 			XEntity xentity = this._entity.IsTransform ? this._entity.Transformer : this._entity;
 			return xentity.Machine.Current == this._selfState && this._bHit_Down;
 		}
 
-		// Token: 0x0600CD66 RID: 52582 RVA: 0x002F537C File Offset: 0x002F357C
 		protected override void Cancel(XStateDefine next)
 		{
 			XEntity xentity = this._entity.IsTransform ? this._entity.Transformer : this._entity;
@@ -307,7 +284,6 @@ namespace XMainClient
 			this.TrytoTirggerQTE(true);
 		}
 
-		// Token: 0x0600CD67 RID: 52583 RVA: 0x002F5440 File Offset: 0x002F3640
 		protected override bool OnGetEvent(XBeHitEventArgs e, XStateDefine last)
 		{
 			this._bHit_Down = false;
@@ -320,7 +296,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600CD68 RID: 52584 RVA: 0x002F54BC File Offset: 0x002F36BC
 		public string SaveGetClip(int idx)
 		{
 			bool flag = this._clips[idx] == null;
@@ -365,7 +340,6 @@ namespace XMainClient
 			return this._clips[idx];
 		}
 
-		// Token: 0x0600CD69 RID: 52585 RVA: 0x002F5710 File Offset: 0x002F3910
 		private void Prepare()
 		{
 			this._start_idx = 0;
@@ -478,7 +452,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CD6A RID: 52586 RVA: 0x002F5C04 File Offset: 0x002F3E04
 		protected override void Begin()
 		{
 			XEntity xentity = this._entity.IsTransform ? this._entity.Transformer : this._entity;
@@ -617,7 +590,6 @@ namespace XMainClient
 			this._entity.Machine.TriggerPresent();
 		}
 
-		// Token: 0x0600CD6B RID: 52587 RVA: 0x002F658C File Offset: 0x002F478C
 		private void PlayHitFx(string fx, bool follow, bool sticky, ref XFx xfx)
 		{
 			bool mobShield = this._entity.MobShield;
@@ -653,7 +625,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CD6C RID: 52588 RVA: 0x002F66D8 File Offset: 0x002F48D8
 		private void DestroyFx(ref XFx xfx)
 		{
 			bool flag = xfx != null;
@@ -670,7 +641,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CD6D RID: 52589 RVA: 0x002F6720 File Offset: 0x002F4920
 		private void CalcDeltaPos(float deltaTime, float last_elapsed)
 		{
 			Vector2 vector = Vector2.zero;
@@ -704,8 +674,6 @@ namespace XMainClient
 			this._delta_z = vector.y;
 		}
 
-		// Token: 0x170035C1 RID: 13761
-		// (get) Token: 0x0600CD6E RID: 52590 RVA: 0x002F68D0 File Offset: 0x002F4AD0
 		public override string PresentCommand
 		{
 			get
@@ -714,8 +682,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170035C2 RID: 13762
-		// (get) Token: 0x0600CD6F RID: 52591 RVA: 0x002F68E8 File Offset: 0x002F4AE8
 		public override string PresentName
 		{
 			get
@@ -743,7 +709,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CD70 RID: 52592 RVA: 0x002F6940 File Offset: 0x002F4B40
 		public XQTEState GetQTESpecificPhase()
 		{
 			XQTEState result = XQTEState.QTE_None;
@@ -799,7 +764,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CD71 RID: 52593 RVA: 0x002F6B2C File Offset: 0x002F4D2C
 		private void TrytoTirggerQTE(bool bEnd = false)
 		{
 			XEntity xentity = this._entity.IsTransform ? this._entity.Transformer : this._entity;
@@ -834,148 +798,100 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04005B46 RID: 23366
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("BeHit_Presentation");
 
-		// Token: 0x04005B47 RID: 23367
 		private int _start_idx = 0;
 
-		// Token: 0x04005B48 RID: 23368
 		private Vector2 _pos = Vector2.zero;
 
-		// Token: 0x04005B49 RID: 23369
 		private Vector2 _des = Vector2.zero;
 
-		// Token: 0x04005B4A RID: 23370
 		private XBeHitState _current_default_state = XBeHitState.Hit_Back;
 
-		// Token: 0x04005B4B RID: 23371
 		private XBeHitPhase _phase = XBeHitPhase.Hit_Present;
 
-		// Token: 0x04005B4C RID: 23372
 		private XQTEState _last_set_qte = XQTEState.QTE_None;
 
-		// Token: 0x04005B4D RID: 23373
 		private float _last_offset = 0f;
 
-		// Token: 0x04005B4E RID: 23374
 		private float _last_height = 0f;
 
-		// Token: 0x04005B4F RID: 23375
 		private float _delta_x = 0f;
 
-		// Token: 0x04005B50 RID: 23376
 		private float _delta_y = 0f;
 
-		// Token: 0x04005B51 RID: 23377
 		private float _delta_z = 0f;
 
-		// Token: 0x04005B52 RID: 23378
 		private float _deltaH = 0f;
 
-		// Token: 0x04005B53 RID: 23379
 		private float _land_time = 0f;
 
-		// Token: 0x04005B54 RID: 23380
 		private float _bounce_time = 0f;
 
-		// Token: 0x04005B55 RID: 23381
 		private float _getup_time = 0f;
 
-		// Token: 0x04005B56 RID: 23382
 		private float _hart_time = 0f;
 
-		// Token: 0x04005B57 RID: 23383
 		private float _gravity = 0f;
 
-		// Token: 0x04005B58 RID: 23384
 		private float _rticalV = 0f;
 
-		// Token: 0x04005B59 RID: 23385
 		private float _factor = 0f;
 
-		// Token: 0x04005B5A RID: 23386
 		private float _elapsed = 0f;
 
-		// Token: 0x04005B5B RID: 23387
 		private bool _bChange_to_fly = false;
 
-		// Token: 0x04005B5C RID: 23388
 		private bool _bHit_Down = false;
 
-		// Token: 0x04005B5D RID: 23389
 		private bool _bHit_Bounce = false;
 
-		// Token: 0x04005B5E RID: 23390
 		private bool _bLoop_Hard = false;
 
-		// Token: 0x04005B5F RID: 23391
 		private bool _bHasFlyPresent = false;
 
-		// Token: 0x04005B60 RID: 23392
 		private bool _bHasRollPresent = false;
 
-		// Token: 0x04005B61 RID: 23393
 		private bool _landing_overrided = false;
 
-		// Token: 0x04005B62 RID: 23394
 		private float _total_time = 0f;
 
-		// Token: 0x04005B63 RID: 23395
 		private float _present_straight = 1f;
 
-		// Token: 0x04005B64 RID: 23396
 		private float _hard_straight = 1f;
 
-		// Token: 0x04005B65 RID: 23397
 		private float _height = 0f;
 
-		// Token: 0x04005B66 RID: 23398
 		private float _offset = 0f;
 
-		// Token: 0x04005B67 RID: 23399
 		private string[] _clips = null;
 
-		// Token: 0x04005B68 RID: 23400
 		private float _clip0Length = 0f;
 
-		// Token: 0x04005B69 RID: 23401
 		private XFx _hit_fx = null;
 
-		// Token: 0x04005B6A RID: 23402
 		private XFx _hit_hit_fx = null;
 
-		// Token: 0x04005B6B RID: 23403
 		private XFx _hit_land_fx = null;
 
-		// Token: 0x04005B6C RID: 23404
 		private IXCurve _curve_h = null;
 
-		// Token: 0x04005B6D RID: 23405
 		private IXCurve _curve_v = null;
 
-		// Token: 0x04005B6E RID: 23406
 		private float _curve_height_scale = 1f;
 
-		// Token: 0x04005B6F RID: 23407
 		private float _curve_offset_scale = 1f;
 
-		// Token: 0x04005B70 RID: 23408
 		private float _curve_height_time_scale = 1f;
 
-		// Token: 0x04005B71 RID: 23409
 		private float _curve_offset_time_scale = 1f;
 
-		// Token: 0x04005B72 RID: 23410
 		private float _hard_time_factor = 1f;
 
-		// Token: 0x04005B73 RID: 23411
 		private XHitData _hit_data = null;
 
-		// Token: 0x04005B74 RID: 23412
 		private Vector3 _hit_direction = Vector3.forward;
 
-		// Token: 0x04005B75 RID: 23413
 		private XEntity _hit_from = null;
 	}
 }

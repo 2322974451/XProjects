@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000CA6 RID: 3238
+
 	internal class XThemeActivityDocument : XDocComponent
 	{
-		// Token: 0x17003236 RID: 12854
-		// (get) Token: 0x0600B65C RID: 46684 RVA: 0x00242638 File Offset: 0x00240838
+
 		public override uint ID
 		{
 			get
@@ -19,8 +18,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003237 RID: 12855
-		// (get) Token: 0x0600B65D RID: 46685 RVA: 0x00242650 File Offset: 0x00240850
 		public static ThemeActivity ThemeActivityTable
 		{
 			get
@@ -29,8 +26,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003238 RID: 12856
-		// (get) Token: 0x0600B65E RID: 46686 RVA: 0x00242668 File Offset: 0x00240868
 		public static XThemeActivityDocument Doc
 		{
 			get
@@ -39,13 +34,8 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003239 RID: 12857
-		// (get) Token: 0x0600B65F RID: 46687 RVA: 0x00242693 File Offset: 0x00240893
-		// (set) Token: 0x0600B660 RID: 46688 RVA: 0x0024269B File Offset: 0x0024089B
 		public XThemeActivityView View { get; set; }
 
-		// Token: 0x1700323A RID: 12858
-		// (get) Token: 0x0600B661 RID: 46689 RVA: 0x002426A4 File Offset: 0x002408A4
 		public HashSet<uint> systemIds
 		{
 			get
@@ -67,7 +57,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B662 RID: 46690 RVA: 0x00242738 File Offset: 0x00240938
 		public bool GetSysFirstRedPoint(XSysDefine sys)
 		{
 			bool flag2;
@@ -103,19 +92,16 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B663 RID: 46691 RVA: 0x002427CE File Offset: 0x002409CE
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			XThemeActivityDocument.AsyncLoader.AddTask("Table/ThemeActivity", XThemeActivityDocument.m_ThemeActivityTable, false);
 			XThemeActivityDocument.AsyncLoader.Execute(callback);
 		}
 
-		// Token: 0x0600B664 RID: 46692 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 		}
 
-		// Token: 0x0600B665 RID: 46693 RVA: 0x002427F4 File Offset: 0x002409F4
 		public override void OnEnterSceneFinally()
 		{
 			base.OnEnterSceneFinally();
@@ -126,13 +112,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B666 RID: 46694 RVA: 0x00242830 File Offset: 0x00240A30
 		public bool SysIsOpen(XSysDefine sys)
 		{
 			return XSingleton<XGameSysMgr>.singleton.IsSystemOpened(sys);
 		}
 
-		// Token: 0x0600B667 RID: 46695 RVA: 0x0024285C File Offset: 0x00240A5C
 		public bool isHasHallIcon()
 		{
 			bool flag = !XSingleton<XGameSysMgr>.singleton.IsSystemOpened(XSysDefine.XSys_ThemeActivity);
@@ -158,7 +142,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B668 RID: 46696 RVA: 0x002428D0 File Offset: 0x00240AD0
 		public bool IsHadRedPoint()
 		{
 			for (int i = 0; i < XThemeActivityDocument.ThemeActivityTable.Table.Length; i++)
@@ -179,7 +162,6 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x0600B669 RID: 46697 RVA: 0x00242960 File Offset: 0x00240B60
 		public void RefreshRedPoints()
 		{
 			XSingleton<XGameSysMgr>.singleton.RecalculateRedPointState(XSysDefine.XSys_ThemeActivity, true);
@@ -190,7 +172,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B66A RID: 46698 RVA: 0x00242998 File Offset: 0x00240B98
 		public bool GetTabRedPointState(XSysDefine sys)
 		{
 			bool result;
@@ -214,7 +195,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B66B RID: 46699 RVA: 0x00242A08 File Offset: 0x00240C08
 		public void OnSystemChanged(List<uint> openIds, List<uint> closeIds)
 		{
 			bool flag = !DlgBase<XThemeActivityView, XThemeActivityBehaviour>.singleton.IsVisible();
@@ -267,7 +247,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B66C RID: 46700 RVA: 0x00242AF0 File Offset: 0x00240CF0
 		public void SendJoinScene(uint actid, uint sceneid)
 		{
 			RpcC2G_TactEnterScene rpcC2G_TactEnterScene = new RpcC2G_TactEnterScene();
@@ -276,7 +255,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_TactEnterScene);
 		}
 
-		// Token: 0x0600B66D RID: 46701 RVA: 0x00242B2C File Offset: 0x00240D2C
 		public void SendFirstHint(uint actid)
 		{
 			RpcC2G_ThemeActivityHint rpcC2G_ThemeActivityHint = new RpcC2G_ThemeActivityHint();
@@ -284,7 +262,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_ThemeActivityHint);
 		}
 
-		// Token: 0x0600B66E RID: 46702 RVA: 0x00242B5C File Offset: 0x00240D5C
 		public void SetActivityChange(PtcG2C_ThemeActivityChangeNtf roPtc)
 		{
 			SuperActivityTime.RowData dataByActivityID = XTempActivityDocument.Doc.GetDataByActivityID(roPtc.Data.actid);
@@ -298,19 +275,14 @@ namespace XMainClient
 			this.RefreshRedPoints();
 		}
 
-		// Token: 0x04004763 RID: 18275
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("XThemeActivityDocument");
 
-		// Token: 0x04004764 RID: 18276
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x04004765 RID: 18277
 		private static ThemeActivity m_ThemeActivityTable = new ThemeActivity();
 
-		// Token: 0x04004767 RID: 18279
 		private HashSet<uint> m_systemIds;
 
-		// Token: 0x04004768 RID: 18280
 		private Dictionary<XSysDefine, bool> m_SysFirstRedPointDic = new Dictionary<XSysDefine, bool>();
 	}
 }

@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C52 RID: 3154
+
 	public class MobaKillView : DlgBase<MobaKillView, MobaKillBehaviour>
 	{
-		// Token: 0x17003196 RID: 12694
-		// (get) Token: 0x0600B2E2 RID: 45794 RVA: 0x0022B02C File Offset: 0x0022922C
+
 		public override string fileName
 		{
 			get
@@ -21,7 +20,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B2E3 RID: 45795 RVA: 0x0022B044 File Offset: 0x00229244
 		public void Enqueue(MobaReminder info)
 		{
 			this.m_killInfos.Enqueue(info);
@@ -32,8 +30,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003197 RID: 12695
-		// (get) Token: 0x0600B2E4 RID: 45796 RVA: 0x0022B078 File Offset: 0x00229278
 		public override int layer
 		{
 			get
@@ -42,8 +38,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003198 RID: 12696
-		// (get) Token: 0x0600B2E5 RID: 45797 RVA: 0x0022B08C File Offset: 0x0022928C
 		public override bool autoload
 		{
 			get
@@ -52,14 +46,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B2E6 RID: 45798 RVA: 0x0022B09F File Offset: 0x0022929F
 		protected override void Init()
 		{
 			base.Init();
 			this.m_uiBehaviour.m_playGroup.StopTween();
 		}
 
-		// Token: 0x0600B2E7 RID: 45799 RVA: 0x0022B0BC File Offset: 0x002292BC
 		public override void OnUpdate()
 		{
 			bool flag = this.m_showTimer != null && this.m_showTimer.LeftTime > 0f;
@@ -87,7 +79,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B2E8 RID: 45800 RVA: 0x0022B158 File Offset: 0x00229358
 		private void SetKillerInfo(MobaReminder killInfo)
 		{
 			MobaReminderEnum reminder = killInfo.reminder;
@@ -112,7 +103,6 @@ namespace XMainClient
 			killInfo.Recycle();
 		}
 
-		// Token: 0x0600B2E9 RID: 45801 RVA: 0x0022B1DC File Offset: 0x002293DC
 		private void SwichReminderForMessage(MobaReminder killInfo)
 		{
 			base.uiBehaviour.KillTransform.gameObject.SetActive(false);
@@ -120,7 +110,6 @@ namespace XMainClient
 			base.uiBehaviour.m_MessageLabel.SetText(killInfo.ReminderText);
 		}
 
-		// Token: 0x0600B2EA RID: 45802 RVA: 0x0022B230 File Offset: 0x00229430
 		private void SwichReminderForKiller(MobaReminder killInfo)
 		{
 			base.uiBehaviour.KillTransform.gameObject.SetActive(true);
@@ -160,7 +149,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B2EB RID: 45803 RVA: 0x0022B3E4 File Offset: 0x002295E4
 		private void SetHeader(Transform t, HeroKillUnit unit)
 		{
 			IXUISprite ixuisprite = t.Find("HeroIcon").GetComponent("XUISprite") as IXUISprite;
@@ -192,10 +180,8 @@ namespace XMainClient
 			ixuisprite.SetSprite(strSprite, strAtlas, false);
 		}
 
-		// Token: 0x0400451F RID: 17695
 		private Queue<MobaReminder> m_killInfos = new Queue<MobaReminder>();
 
-		// Token: 0x04004520 RID: 17696
 		private XElapseTimer m_showTimer = new XElapseTimer();
 	}
 }

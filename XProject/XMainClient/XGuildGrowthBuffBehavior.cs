@@ -6,10 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000A62 RID: 2658
+
 	internal class XGuildGrowthBuffBehavior : DlgBehaviourBase
 	{
-		// Token: 0x0600A13F RID: 41279 RVA: 0x001B3A28 File Offset: 0x001B1C28
+
 		private void Awake()
 		{
 			this.CloseBtn = (base.transform.Find("Bg/Close").GetComponent("XUIButton") as IXUIButton);
@@ -35,61 +35,42 @@ namespace XMainClient
 			this.m_PointClick = (base.transform.FindChild("Bg/Point/P").GetComponent("XUISprite") as IXUISprite);
 		}
 
-		// Token: 0x040039FF RID: 14847
 		public IXUIButton CloseBtn;
 
-		// Token: 0x04003A00 RID: 14848
 		public IXUIButton HelpBtn;
 
-		// Token: 0x04003A01 RID: 14849
 		public IXUISprite m_DetailBuffIcon;
 
-		// Token: 0x04003A02 RID: 14850
 		public IXUILabel m_DetailBuffName;
 
-		// Token: 0x04003A03 RID: 14851
 		public IXUILabel m_DetailMaxLevel;
 
-		// Token: 0x04003A04 RID: 14852
 		public IXUILabel m_DetailCurrLevel;
 
-		// Token: 0x04003A05 RID: 14853
 		public IXUILabel m_DetailNextLevel;
 
-		// Token: 0x04003A06 RID: 14854
 		public IXUILabel m_DetailCurrKeepCost;
 
-		// Token: 0x04003A07 RID: 14855
 		public IXUISprite m_DetailCostArrow;
 
-		// Token: 0x04003A08 RID: 14856
 		public IXUILabel m_DetailNextKeepCost;
 
-		// Token: 0x04003A09 RID: 14857
 		public IXUILabel m_NextAttrText;
 
-		// Token: 0x04003A0A RID: 14858
 		public IXUILabelSymbol m_DetailCost;
 
-		// Token: 0x04003A0B RID: 14859
 		public IXUIButton LevelUpBtn;
 
-		// Token: 0x04003A0C RID: 14860
 		public IXUILabel LevelUpText;
 
-		// Token: 0x04003A0D RID: 14861
 		public Transform m_levelUpFx;
 
-		// Token: 0x04003A0E RID: 14862
 		public IXUIScrollView ScrollView;
 
-		// Token: 0x04003A0F RID: 14863
 		public XUIPool BuffItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04003A10 RID: 14864
 		public IXUILabel m_PointLeft;
 
-		// Token: 0x04003A11 RID: 14865
 		public IXUISprite m_PointClick;
 	}
 }

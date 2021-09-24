@@ -6,10 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000E00 RID: 3584
+
 	internal class XTutorialCmdParser
 	{
-		// Token: 0x0600C177 RID: 49527 RVA: 0x00294E1C File Offset: 0x0029301C
+
 		public bool Parse(string file, int initStep, ref Queue<XTutorialCmd> cmdQueue, int execStep)
 		{
 			Stream stream = XSingleton<XResourceLoaderMgr>.singleton.ReadText(file, ".txt", true);
@@ -410,7 +410,6 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x0600C178 RID: 49528 RVA: 0x00295680 File Offset: 0x00293880
 		public bool Parse(string file, ref List<XTutorialMainCmd> cmdList, ref XBetterDictionary<uint, XTutorialMainCmd> _SysTutorial)
 		{
 			XTutorialMainCmd xtutorialMainCmd = new XTutorialMainCmd();
@@ -529,7 +528,6 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x0600C179 RID: 49529 RVA: 0x0029591C File Offset: 0x00293B1C
 		private XTutorialCmdExecuteCondition Str2Condition(string strCondition)
 		{
 			bool flag = strCondition == "playerlevel";
@@ -785,7 +783,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C17A RID: 49530 RVA: 0x00295C18 File Offset: 0x00293E18
 		private XTutorialCmdFinishCondition Str2EndCondition(string strCondition)
 		{
 			bool flag = strCondition == "click";
@@ -937,10 +934,8 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x040051FD RID: 20989
 		private XTutorialCmd _parseTmpCmd;
 
-		// Token: 0x040051FE RID: 20990
 		private string[] _validateCmd = new string[]
 		{
 			"forceclick",

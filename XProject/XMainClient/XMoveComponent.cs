@@ -4,11 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000F2D RID: 3885
+
 	internal sealed class XMoveComponent : XActionStateComponent<XMoveEventArgs>
 	{
-		// Token: 0x170035E1 RID: 13793
-		// (get) Token: 0x0600CDE4 RID: 52708 RVA: 0x002F953C File Offset: 0x002F773C
+
 		public override uint ID
 		{
 			get
@@ -17,8 +16,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170035E2 RID: 13794
-		// (get) Token: 0x0600CDE5 RID: 52709 RVA: 0x002F9554 File Offset: 0x002F7754
 		public override float Speed
 		{
 			get
@@ -27,9 +24,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170035E3 RID: 13795
-		// (get) Token: 0x0600CDE6 RID: 52710 RVA: 0x002F957C File Offset: 0x002F777C
-		// (set) Token: 0x0600CDE7 RID: 52711 RVA: 0x002F9594 File Offset: 0x002F7794
 		public float AnimSpeed
 		{
 			get
@@ -42,14 +36,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CDE8 RID: 52712 RVA: 0x002F95A0 File Offset: 0x002F77A0
 		public XMoveComponent()
 		{
 			this._playTrackFxCb = new XTimerMgr.ElapsedEventHandler(this.PlayTrackFx);
 		}
 
-		// Token: 0x170035E4 RID: 13796
-		// (get) Token: 0x0600CDE9 RID: 52713 RVA: 0x002F965C File Offset: 0x002F785C
 		public override bool IsUsingCurve
 		{
 			get
@@ -58,7 +49,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CDEA RID: 52714 RVA: 0x002F966F File Offset: 0x002F786F
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
@@ -69,7 +59,6 @@ namespace XMainClient
 			this.PrepareAnimations();
 		}
 
-		// Token: 0x0600CDEB RID: 52715 RVA: 0x002F96AC File Offset: 0x002F78AC
 		protected override void EventSubscribe()
 		{
 			base.RegisterEvent(XEventDefine.XEvent_Move, new XComponent.XEventHandler(base.OnActionEvent));
@@ -77,8 +66,6 @@ namespace XMainClient
 			base.RegisterEvent(XEventDefine.XEvent_OnUnMounted, new XComponent.XEventHandler(base.OnMountEvent));
 		}
 
-		// Token: 0x170035E5 RID: 13797
-		// (get) Token: 0x0600CDEC RID: 52716 RVA: 0x002F9700 File Offset: 0x002F7900
 		public override bool SyncPredicted
 		{
 			get
@@ -87,7 +74,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CDED RID: 52717 RVA: 0x002F9728 File Offset: 0x002F7928
 		protected override bool InnerPermitted(XStateDefine state)
 		{
 			bool flag = !this._entity.IsPlayer && this.SyncPredicted;
@@ -103,7 +89,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CDEE RID: 52718 RVA: 0x002F9778 File Offset: 0x002F7978
 		protected override void Cancel(XStateDefine next)
 		{
 			bool flag = next != XStateDefine.XState_Move;
@@ -148,18 +133,15 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CDEF RID: 52719 RVA: 0x002F9918 File Offset: 0x002F7B18
 		protected override void Cease()
 		{
 			this._begin_inertia = false;
 		}
 
-		// Token: 0x0600CDF0 RID: 52720 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public override void OnRejected(XStateDefine current)
 		{
 		}
 
-		// Token: 0x0600CDF1 RID: 52721 RVA: 0x002F9924 File Offset: 0x002F7B24
 		public override string TriggerAnim(string pre)
 		{
 			bool isPlayer = this._entity.IsPlayer;
@@ -189,7 +171,6 @@ namespace XMainClient
 			return text;
 		}
 
-		// Token: 0x0600CDF2 RID: 52722 RVA: 0x002F99F4 File Offset: 0x002F7BF4
 		protected override void ActionUpdate(float deltaTime)
 		{
 			this._last_speed = this._speed;
@@ -237,7 +218,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CDF3 RID: 52723 RVA: 0x002F9B70 File Offset: 0x002F7D70
 		public override void PostUpdate(float fDeltaT)
 		{
 			bool flag = this._entity.Machine.Current != XStateDefine.XState_Move;
@@ -318,8 +298,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170035E6 RID: 13798
-		// (get) Token: 0x0600CDF4 RID: 52724 RVA: 0x002F9F48 File Offset: 0x002F8148
 		public override bool ShouldBePresent
 		{
 			get
@@ -328,7 +306,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CDF5 RID: 52725 RVA: 0x002F9F70 File Offset: 0x002F8170
 		protected override bool OnGetEvent(XMoveEventArgs e, XStateDefine last)
 		{
 			this._stoppage = e.Stoppage;
@@ -369,7 +346,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600CDF6 RID: 52726 RVA: 0x002FA174 File Offset: 0x002F8374
 		protected override void Begin()
 		{
 			this._begin_inertia = false;
@@ -396,7 +372,6 @@ namespace XMainClient
 			this.CheckMove(ref zero);
 		}
 
-		// Token: 0x0600CDF7 RID: 52727 RVA: 0x002FA228 File Offset: 0x002F8428
 		protected override void OnMount(XMount mount)
 		{
 			bool flag = mount != null;
@@ -418,7 +393,6 @@ namespace XMainClient
 			this._entity.Machine.TriggerPresent();
 		}
 
-		// Token: 0x0600CDF8 RID: 52728 RVA: 0x002FA3EC File Offset: 0x002F85EC
 		private void CheckMove(ref Vector3 movement)
 		{
 			bool flag = !this._overlapped;
@@ -444,7 +418,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CDF9 RID: 52729 RVA: 0x002FA488 File Offset: 0x002F8688
 		private bool Overlapped(ref Vector3 movement)
 		{
 			Vector3 vector = this._entity.MoveObj.Position + movement;
@@ -480,8 +453,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x170035E7 RID: 13799
-		// (get) Token: 0x0600CDFA RID: 52730 RVA: 0x002FA560 File Offset: 0x002F8760
 		public override string PresentCommand
 		{
 			get
@@ -490,8 +461,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170035E8 RID: 13800
-		// (get) Token: 0x0600CDFB RID: 52731 RVA: 0x002FA578 File Offset: 0x002F8778
 		public override string PresentName
 		{
 			get
@@ -500,7 +469,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CDFC RID: 52732 RVA: 0x002FA590 File Offset: 0x002F8790
 		private void PlayTrackFx(object o)
 		{
 			bool flag = string.IsNullOrEmpty(this._entity.Present.PresentLib.MoveFx);
@@ -521,7 +489,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CDFD RID: 52733 RVA: 0x002FA644 File Offset: 0x002F8844
 		private void PrepareAnimations()
 		{
 			bool isNotEmptyObject = this._entity.EngineObject.IsNotEmptyObject;
@@ -545,55 +512,38 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04005BBB RID: 23483
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("Basic_Move");
 
-		// Token: 0x04005BBC RID: 23484
 		private bool _begin_inertia = false;
 
-		// Token: 0x04005BBD RID: 23485
 		private bool _stoppage = true;
 
-		// Token: 0x04005BBE RID: 23486
 		private float _speed = 0f;
 
-		// Token: 0x04005BBF RID: 23487
 		private float _last_speed = 0f;
 
-		// Token: 0x04005BC0 RID: 23488
 		private float _target_speed = 0f;
 
-		// Token: 0x04005BC1 RID: 23489
 		private float _anim_speed = 0f;
 
-		// Token: 0x04005BC2 RID: 23490
 		private float _stoppage_dir = 0f;
 
-		// Token: 0x04005BC3 RID: 23491
 		private float _acceleration = 0f;
 
-		// Token: 0x04005BC4 RID: 23492
 		private float _last_angular = 0f;
 
-		// Token: 0x04005BC5 RID: 23493
 		private Vector3 _move_dir = Vector3.forward;
 
-		// Token: 0x04005BC6 RID: 23494
 		private Vector3 _destination = Vector3.zero;
 
-		// Token: 0x04005BC7 RID: 23495
 		private bool _inertia = false;
 
-		// Token: 0x04005BC8 RID: 23496
 		private bool _overlapped = false;
 
-		// Token: 0x04005BC9 RID: 23497
 		private uint _track_fx_1 = 0U;
 
-		// Token: 0x04005BCA RID: 23498
 		private uint _track_fx_2 = 0U;
 
-		// Token: 0x04005BCB RID: 23499
 		private XTimerMgr.ElapsedEventHandler _playTrackFxCb = null;
 	}
 }

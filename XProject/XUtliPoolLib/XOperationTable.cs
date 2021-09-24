@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x02000187 RID: 391
+
 	public class XOperationTable : CVSReader
 	{
-		// Token: 0x06000875 RID: 2165 RVA: 0x0002D9D0 File Offset: 0x0002BBD0
+
 		public XOperationTable.RowData GetByID(int key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -21,7 +21,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000876 RID: 2166 RVA: 0x0002DA08 File Offset: 0x0002BC08
 		private XOperationTable.RowData BinarySearchID(int key)
 		{
 			int num = 0;
@@ -80,7 +79,6 @@ namespace XUtliPoolLib
 			return null;
 		}
 
-		// Token: 0x06000877 RID: 2167 RVA: 0x0002DAE4 File Offset: 0x0002BCE4
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			XOperationTable.RowData rowData = new XOperationTable.RowData();
@@ -104,7 +102,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x06000878 RID: 2168 RVA: 0x0002DBE0 File Offset: 0x0002BDE0
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -118,34 +115,25 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x040003D3 RID: 979
 		public XOperationTable.RowData[] Table = null;
 
-		// Token: 0x02000386 RID: 902
 		public class RowData
 		{
-			// Token: 0x04000FAF RID: 4015
+
 			public int ID;
 
-			// Token: 0x04000FB0 RID: 4016
 			public float Angle;
 
-			// Token: 0x04000FB1 RID: 4017
 			public float Distance;
 
-			// Token: 0x04000FB2 RID: 4018
 			public bool Vertical;
 
-			// Token: 0x04000FB3 RID: 4019
 			public bool Horizontal;
 
-			// Token: 0x04000FB4 RID: 4020
 			public float MaxV;
 
-			// Token: 0x04000FB5 RID: 4021
 			public float MinV;
 
-			// Token: 0x04000FB6 RID: 4022
 			public bool OffSolo;
 		}
 	}

@@ -3,16 +3,15 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000DB2 RID: 3506
+
 	internal struct PercentWatcher
 	{
-		// Token: 0x0600BE22 RID: 48674 RVA: 0x00278D24 File Offset: 0x00276F24
+
 		public static bool IsValidAttr(XAttributeDefine attr)
 		{
 			return attr == XAttributeDefine.XAttr_MaxMP_Percent || attr == XAttributeDefine.XAttr_MaxHP_Percent || attr == XAttributeDefine.XAttr_MaxSuperArmor_Percent;
 		}
 
-		// Token: 0x0600BE23 RID: 48675 RVA: 0x00278D54 File Offset: 0x00276F54
 		public PercentWatcher(XAttributes attributes, XAttributeDefine attr, double targetDeltaPercent)
 		{
 			this.m_bValid = false;
@@ -49,7 +48,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BE24 RID: 48676 RVA: 0x00278E98 File Offset: 0x00277098
 		private void _ChangeBasic()
 		{
 			XAttrChangeEventArgs @event = XEventPool<XAttrChangeEventArgs>.GetEvent();
@@ -59,7 +57,6 @@ namespace XMainClient
 			XSingleton<XEventMgr>.singleton.FireEvent(@event);
 		}
 
-		// Token: 0x0600BE25 RID: 48677 RVA: 0x00278EE4 File Offset: 0x002770E4
 		public void Check()
 		{
 			bool flag = !this.m_bValid;
@@ -73,8 +70,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003352 RID: 13138
-		// (get) Token: 0x0600BE26 RID: 48678 RVA: 0x00278F20 File Offset: 0x00277120
 		public double TargetDeltaValue
 		{
 			get
@@ -83,8 +78,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003353 RID: 13139
-		// (get) Token: 0x0600BE27 RID: 48679 RVA: 0x00278F38 File Offset: 0x00277138
 		public XAttributeDefine BasicAttr
 		{
 			get
@@ -93,19 +86,14 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04004D9D RID: 19869
 		private bool m_bValid;
 
-		// Token: 0x04004D9E RID: 19870
 		private double m_TargetDeltaPercent;
 
-		// Token: 0x04004D9F RID: 19871
 		private double m_TargetDeltaBasic;
 
-		// Token: 0x04004DA0 RID: 19872
 		private XAttributeDefine m_BasicAttr;
 
-		// Token: 0x04004DA1 RID: 19873
 		private XAttributes m_Atributes;
 	}
 }

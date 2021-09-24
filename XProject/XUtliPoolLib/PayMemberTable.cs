@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x0200013C RID: 316
+
 	public class PayMemberTable : CVSReader
 	{
-		// Token: 0x0600075B RID: 1883 RVA: 0x00024FF0 File Offset: 0x000231F0
+
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			PayMemberTable.RowData rowData = new PayMemberTable.RowData();
@@ -69,7 +69,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x0600075C RID: 1884 RVA: 0x00025308 File Offset: 0x00023508
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -83,94 +82,65 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x04000388 RID: 904
 		public PayMemberTable.RowData[] Table = null;
 
-		// Token: 0x0200033B RID: 827
 		public class RowData
 		{
-			// Token: 0x04000CB1 RID: 3249
+
 			public string ParamID;
 
-			// Token: 0x04000CB2 RID: 3250
 			public int ID;
 
-			// Token: 0x04000CB3 RID: 3251
 			public string Name;
 
-			// Token: 0x04000CB4 RID: 3252
 			public int Price;
 
-			// Token: 0x04000CB5 RID: 3253
 			public int Days;
 
-			// Token: 0x04000CB6 RID: 3254
 			public int ChatCount;
 
-			// Token: 0x04000CB7 RID: 3255
 			public int FatigueLimit;
 
-			// Token: 0x04000CB8 RID: 3256
 			public int AbyssCount;
 
-			// Token: 0x04000CB9 RID: 3257
 			public int ReviveCount;
 
-			// Token: 0x04000CBA RID: 3258
 			public int BossRushCount;
 
-			// Token: 0x04000CBB RID: 3259
 			public int BuyGreenAgateLimit;
 
-			// Token: 0x04000CBC RID: 3260
 			public int[] CheckinDoubleDays;
 
-			// Token: 0x04000CBD RID: 3261
 			public int SuperRiskCount;
 
-			// Token: 0x04000CBE RID: 3262
 			public int SystemID;
 
-			// Token: 0x04000CBF RID: 3263
 			public string Icon;
 
-			// Token: 0x04000CC0 RID: 3264
 			public string Desc;
 
-			// Token: 0x04000CC1 RID: 3265
 			public string Tip;
 
-			// Token: 0x04000CC2 RID: 3266
 			public string Detail;
 
-			// Token: 0x04000CC3 RID: 3267
 			public string BuyNtf;
 
-			// Token: 0x04000CC4 RID: 3268
 			public int[] CheckinDoubleEvenDays;
 
-			// Token: 0x04000CC5 RID: 3269
 			public string ServiceCode;
 
-			// Token: 0x04000CC6 RID: 3270
 			public SeqRef<uint> Value;
 
-			// Token: 0x04000CC7 RID: 3271
 			public int AuctionCount;
 
-			// Token: 0x04000CC8 RID: 3272
 			public SeqRef<uint> worldBossbuffid;
 
-			// Token: 0x04000CC9 RID: 3273
 			public SeqRef<uint> guildBossBuffid;
 
-			// Token: 0x04000CCA RID: 3274
 			public int HeroBattleFree;
 
-			// Token: 0x04000CCB RID: 3275
 			public uint NpcFeeling;
 
-			// Token: 0x04000CCC RID: 3276
 			public int ShopRefresh;
 		}
 	}

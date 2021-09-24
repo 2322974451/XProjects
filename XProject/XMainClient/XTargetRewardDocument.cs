@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x020009FA RID: 2554
+
 	internal class XTargetRewardDocument : XDocComponent
 	{
-		// Token: 0x17002E5F RID: 11871
-		// (get) Token: 0x06009C29 RID: 39977 RVA: 0x00192064 File Offset: 0x00190264
+
 		public override uint ID
 		{
 			get
@@ -19,19 +18,16 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009C2A RID: 39978 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 		}
 
-		// Token: 0x06009C2B RID: 39979 RVA: 0x0019207B File Offset: 0x0019027B
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			XTargetRewardDocument.AsyncLoader.AddTask("Table/GoalAwards", XTargetRewardDocument._reader, false);
 			XTargetRewardDocument.AsyncLoader.Execute(callback);
 		}
 
-		// Token: 0x06009C2C RID: 39980 RVA: 0x001920A0 File Offset: 0x001902A0
 		public static void OnTableLoaded()
 		{
 			XTargetRewardDocument.m_GoalAwardsDic.Clear();
@@ -56,7 +52,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009C2D RID: 39981 RVA: 0x00192208 File Offset: 0x00190408
 		public void FetchTargetRewardType(TargetRewardType type)
 		{
 			RpcC2M_GoalAwardsGetList rpcC2M_GoalAwardsGetList = new RpcC2M_GoalAwardsGetList();
@@ -64,7 +59,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_GoalAwardsGetList);
 		}
 
-		// Token: 0x06009C2E RID: 39982 RVA: 0x00192238 File Offset: 0x00190438
 		public uint GetMinRewardLevel(List<GoalAwards.RowData> subItems)
 		{
 			uint num = 500U;
@@ -75,7 +69,6 @@ namespace XMainClient
 			return num;
 		}
 
-		// Token: 0x06009C2F RID: 39983 RVA: 0x0019227C File Offset: 0x0019047C
 		public void OnResTargetRewardType(GoalAwardsGetList_C2M oArg, GoalAwardsGetList_M2C oRes)
 		{
 			this.targetAwardDetails.Clear();
@@ -130,7 +123,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009C30 RID: 39984 RVA: 0x00192544 File Offset: 0x00190744
 		private int Sort(TargetItemInfo x, TargetItemInfo y)
 		{
 			int num = XTargetRewardDocument.m_sortDic.ContainsKey(x.goalAwardsID) ? XTargetRewardDocument.m_sortDic[x.goalAwardsID] : 0;
@@ -166,7 +158,6 @@ namespace XMainClient
 			return num4 - num3;
 		}
 
-		// Token: 0x06009C31 RID: 39985 RVA: 0x0019264C File Offset: 0x0019084C
 		public bool FindTargetInDetailList(uint goalAwardsID)
 		{
 			foreach (TargetItemInfo targetItemInfo in this.targetAwardDetails)
@@ -180,7 +171,6 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x06009C32 RID: 39986 RVA: 0x001926B4 File Offset: 0x001908B4
 		public List<GoalAwards.RowData> FindTarget(uint goalAwardsID)
 		{
 			bool flag = XTargetRewardDocument.m_GoalAwardsDic.ContainsKey(goalAwardsID);
@@ -197,7 +187,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009C33 RID: 39987 RVA: 0x00192700 File Offset: 0x00190900
 		public void ClaimAchieve(int id)
 		{
 			XSingleton<XDebug>.singleton.AddLog("ClaimTarget ", id.ToString(), null, null, null, null, XDebugColor.XDebug_None);
@@ -206,7 +195,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_GoalAwardsGetAwards);
 		}
 
-		// Token: 0x06009C34 RID: 39988 RVA: 0x0019274C File Offset: 0x0019094C
 		public void OnClaimedAchieve(uint id, uint index)
 		{
 			List<GoalAwards.RowData> list = this.FindTarget(id);
@@ -217,7 +205,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009C35 RID: 39989 RVA: 0x00192780 File Offset: 0x00190980
 		public void SetRedPointList(List<uint> redList)
 		{
 			this.InitOpenGoalAward();
@@ -238,7 +225,6 @@ namespace XMainClient
 			this.UpdateAllRedPoint();
 		}
 
-		// Token: 0x06009C36 RID: 39990 RVA: 0x00192824 File Offset: 0x00190A24
 		public void RecalulateRedPoint(List<TargetItemInfo> itemInfo, uint type)
 		{
 			this.m_redList.Remove(type);
@@ -269,19 +255,16 @@ namespace XMainClient
 			this.UpdateAllRedPoint();
 		}
 
-		// Token: 0x06009C37 RID: 39991 RVA: 0x00192908 File Offset: 0x00190B08
 		public void UpdateAllRedPoint()
 		{
 			XSingleton<XGameSysMgr>.singleton.RecalculateRedPointState(XSysDefine.XSys_Reward_Target, true);
 		}
 
-		// Token: 0x06009C38 RID: 39992 RVA: 0x0019291C File Offset: 0x00190B1C
 		public bool HasNewRed()
 		{
 			return this.m_redList.Count > 0;
 		}
 
-		// Token: 0x06009C39 RID: 39993 RVA: 0x0019293C File Offset: 0x00190B3C
 		public void InitOpenGoalAward()
 		{
 			string[] array = XSingleton<XGlobalConfig>.singleton.GetValue("OpenGoalAwards").Split(XGlobalConfig.ListSeparator);
@@ -297,34 +280,24 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x040036B8 RID: 14008
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("TargetRewardDocument");
 
-		// Token: 0x040036B9 RID: 14009
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x040036BA RID: 14010
 		private static GoalAwards _reader = new GoalAwards();
 
-		// Token: 0x040036BB RID: 14011
 		public List<TargetItemInfo> targetAwardDetails = new List<TargetItemInfo>();
 
-		// Token: 0x040036BC RID: 14012
 		private static Dictionary<uint, List<GoalAwards.RowData>> m_GoalAwardsDic = new Dictionary<uint, List<GoalAwards.RowData>>();
 
-		// Token: 0x040036BD RID: 14013
 		private static Dictionary<uint, int> m_sortDic = new Dictionary<uint, int>();
 
-		// Token: 0x040036BE RID: 14014
 		public List<uint> m_redList = new List<uint>();
 
-		// Token: 0x040036BF RID: 14015
 		public XTargetRewardView rwdView;
 
-		// Token: 0x040036C0 RID: 14016
 		public bool[] m_isGoalOpen = new bool[5];
 
-		// Token: 0x040036C1 RID: 14017
 		public static uint[] m_goalLevel = new uint[]
 		{
 			500U,
@@ -334,7 +307,6 @@ namespace XMainClient
 			500U
 		};
 
-		// Token: 0x040036C2 RID: 14018
 		public int m_designationId = 40;
 	}
 }

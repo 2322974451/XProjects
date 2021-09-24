@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001850 RID: 6224
+
 	internal class PPTCheckMgr : XSingleton<PPTCheckMgr>
 	{
-		// Token: 0x060102E9 RID: 66281 RVA: 0x003E2FDC File Offset: 0x003E11DC
+
 		public bool CheckMyPPT(int needPPT)
 		{
 			XMainInterfaceDocument xmainInterfaceDocument = XSingleton<XGame>.singleton.Doc.GetXComponent(XMainInterfaceDocument.uuID) as XMainInterfaceDocument;
@@ -16,7 +16,6 @@ namespace XMainClient.UI
 			return playerPPT >= needPPT;
 		}
 
-		// Token: 0x060102EA RID: 66282 RVA: 0x003E3018 File Offset: 0x003E1218
 		public void ShowPPTNotEnoughDlg(ulong btnID, ButtonClickEventHandler goBattleHandle)
 		{
 			this.mGoStillHandler = goBattleHandle;
@@ -29,7 +28,6 @@ namespace XMainClient.UI
 			DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.SetTweenTargetAndPlay(DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.uiBehaviour.gameObject);
 		}
 
-		// Token: 0x060102EB RID: 66283 RVA: 0x003E30D0 File Offset: 0x003E12D0
 		private bool GoStill(IXUIButton go)
 		{
 			DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.SetVisible(false, true);
@@ -42,7 +40,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x060102EC RID: 66284 RVA: 0x003E3114 File Offset: 0x003E1314
 		private bool GoPowerUp(IXUIButton go)
 		{
 			DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.SetVisible(false, true);
@@ -62,7 +59,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x040073E9 RID: 29673
 		private ButtonClickEventHandler mGoStillHandler;
 	}
 }

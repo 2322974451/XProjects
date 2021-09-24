@@ -4,28 +4,25 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C98 RID: 3224
+
 	internal class TooltipButtonOperateJadeUpgrade : TooltipButtonOperateBase
 	{
-		// Token: 0x0600B600 RID: 46592 RVA: 0x00240A98 File Offset: 0x0023EC98
+
 		public override string GetButtonText()
 		{
 			return XStringDefineProxy.GetString("UPGRADE");
 		}
 
-		// Token: 0x0600B601 RID: 46593 RVA: 0x00240AB4 File Offset: 0x0023ECB4
 		public override bool HasRedPoint(XItem item)
 		{
 			return false;
 		}
 
-		// Token: 0x0600B602 RID: 46594 RVA: 0x00240AC8 File Offset: 0x0023ECC8
 		public override bool IsButtonVisible(XItem item)
 		{
 			return true;
 		}
 
-		// Token: 0x0600B603 RID: 46595 RVA: 0x00240ADC File Offset: 0x0023ECDC
 		public override void OnButtonClick(ulong mainUID, ulong compareUID)
 		{
 			base.OnButtonClick(mainUID, compareUID);

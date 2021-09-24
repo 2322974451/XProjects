@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020016CD RID: 5837
+
 	internal class XTargetRewardPopWindow
 	{
-		// Token: 0x0600F0BF RID: 61631 RVA: 0x00350098 File Offset: 0x0034E298
+
 		public void init()
 		{
 			bool flag = this.wrapContent != null;
@@ -23,7 +23,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F0C0 RID: 61632 RVA: 0x003500F4 File Offset: 0x0034E2F4
 		private bool OnClosePopwindow(IXUIButton btn)
 		{
 			bool flag = this.panelObject != null;
@@ -34,7 +33,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F0C1 RID: 61633 RVA: 0x0035012C File Offset: 0x0034E32C
 		public void ShowPopView(TargetItemInfo info)
 		{
 			bool flag = this.panelObject != null;
@@ -47,7 +45,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F0C2 RID: 61634 RVA: 0x0035018C File Offset: 0x0034E38C
 		private void PopWrapContentItemUpdated(Transform t, int index)
 		{
 			bool flag = this.targetItemInfo != null;
@@ -65,7 +62,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F0C3 RID: 61635 RVA: 0x003501FC File Offset: 0x0034E3FC
 		protected void _SetRecord(Transform t, TargetItemInfo info, int showIndex)
 		{
 			IXUILabel ixuilabel = t.Find("TLabel").GetComponent("XUILabel") as IXUILabel;
@@ -138,22 +134,16 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x040066B6 RID: 26294
 		public Transform panelObject = null;
 
-		// Token: 0x040066B7 RID: 26295
 		public IXUIButton closeBtn = null;
 
-		// Token: 0x040066B8 RID: 26296
 		public IXUIWrapContent wrapContent = null;
 
-		// Token: 0x040066B9 RID: 26297
 		public IXUIScrollView panelScrollView = null;
 
-		// Token: 0x040066BA RID: 26298
 		public TargetItemInfo targetItemInfo = null;
 
-		// Token: 0x040066BB RID: 26299
 		private int maxAwardNum = 3;
 	}
 }

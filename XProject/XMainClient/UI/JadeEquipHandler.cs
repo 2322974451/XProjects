@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200191E RID: 6430
+
 	internal class JadeEquipHandler : DlgHandlerBase
 	{
-		// Token: 0x17003AF1 RID: 15089
-		// (get) Token: 0x06010D26 RID: 68902 RVA: 0x0043B9AC File Offset: 0x00439BAC
+
 		public CharacterEquipHandler EquipHandler
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003AF2 RID: 15090
-		// (get) Token: 0x06010D27 RID: 68903 RVA: 0x0043B9C4 File Offset: 0x00439BC4
 		protected override string FileName
 		{
 			get
@@ -30,7 +27,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010D28 RID: 68904 RVA: 0x0043B9DC File Offset: 0x00439BDC
 		protected override void Init()
 		{
 			base.Init();
@@ -109,7 +105,6 @@ namespace XMainClient.UI
 			this.m_EquipHandler.RegisterItemClickEvents(new SpriteClickEventHandler(this.OnEquipClick));
 		}
 
-		// Token: 0x06010D29 RID: 68905 RVA: 0x0043BEA8 File Offset: 0x0043A0A8
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -126,14 +121,12 @@ namespace XMainClient.UI
 			this.m_Help.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnHelpClicked));
 		}
 
-		// Token: 0x06010D2A RID: 68906 RVA: 0x0043BFEC File Offset: 0x0043A1EC
 		public bool OnHelpClicked(IXUIButton button)
 		{
 			DlgBase<XCommonHelpTipView, XCommonHelpTipBehaviour>.singleton.ShowHelp(XSysDefine.XSys_Item_Jade);
 			return true;
 		}
 
-		// Token: 0x06010D2B RID: 68907 RVA: 0x0043C00C File Offset: 0x0043A20C
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -156,7 +149,6 @@ namespace XMainClient.UI
 			this._DefaultSelect(powerfulEquips);
 		}
 
-		// Token: 0x06010D2C RID: 68908 RVA: 0x0043C0B4 File Offset: 0x0043A2B4
 		private void _DefaultSelect(List<int> powerfulEquips)
 		{
 			int[] array = new int[]
@@ -212,7 +204,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010D2D RID: 68909 RVA: 0x0043C1D0 File Offset: 0x0043A3D0
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
@@ -220,7 +211,6 @@ namespace XMainClient.UI
 			this.SetEquipNew(equipNew);
 		}
 
-		// Token: 0x06010D2E RID: 68910 RVA: 0x0043C214 File Offset: 0x0043A414
 		private void RefreshSmallJade(int pos)
 		{
 			XItem xitem = XBagDocument.BagDoc.EquipBag[pos];
@@ -269,14 +259,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010D2F RID: 68911 RVA: 0x0043C362 File Offset: 0x0043A562
 		protected override void OnHide()
 		{
 			this.m_EquipHandler.SetVisible(false);
 			base.OnHide();
 		}
 
-		// Token: 0x06010D30 RID: 68912 RVA: 0x0043C379 File Offset: 0x0043A579
 		public override void OnUnload()
 		{
 			this.powerfullMgr.Unload();
@@ -285,13 +273,11 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x06010D31 RID: 68913 RVA: 0x0043C3A7 File Offset: 0x0043A5A7
 		public void OnEquipClick(IXUISprite iSp)
 		{
 			this._doc.SelectEquip(iSp.ID);
 		}
 
-		// Token: 0x06010D32 RID: 68914 RVA: 0x0043C3BC File Offset: 0x0043A5BC
 		public void OnSelectedEquipClick(IXUISprite iSp)
 		{
 			XEquipItem xequipItem = XSingleton<XGame>.singleton.Doc.XBagDoc.GetItemByUID(this._doc.selectedEquip) as XEquipItem;
@@ -302,14 +288,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010D33 RID: 68915 RVA: 0x0043C40C File Offset: 0x0043A60C
 		private bool OnJadeShopClick(IXUIButton sp)
 		{
 			XSingleton<UiUtility>.singleton.ShowItemAccess(198, null);
 			return true;
 		}
 
-		// Token: 0x06010D34 RID: 68916 RVA: 0x0043C430 File Offset: 0x0043A630
 		private bool OnJadeUnloadClick(IXUIButton sp)
 		{
 			XJadeDocument specificDocument = XDocuments.GetSpecificDocument<XJadeDocument>(XJadeDocument.uuID);
@@ -330,7 +314,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x06010D35 RID: 68917 RVA: 0x0043C4A0 File Offset: 0x0043A6A0
 		public void SetEquipNew(XEquipItem equip)
 		{
 			this.m_EquipHandler.ShowEquipments();
@@ -419,7 +402,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010D36 RID: 68918 RVA: 0x0043C810 File Offset: 0x0043AA10
 		public static void DrawJadeWithAttr(GameObject go, uint slot, XJadeItem jade, uint iconType = 1U)
 		{
 			XItemDrawerMgr.Param.IconType = iconType;
@@ -427,7 +409,6 @@ namespace XMainClient.UI
 			JadeEquipHandler.DrawAttr(go, jade);
 		}
 
-		// Token: 0x06010D37 RID: 68919 RVA: 0x0043C850 File Offset: 0x0043AA50
 		public static void DrawAttr(GameObject go, XJadeItem jade)
 		{
 			bool flag = jade != null;
@@ -453,7 +434,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010D38 RID: 68920 RVA: 0x0043C960 File Offset: 0x0043AB60
 		private void _OnSlotClicked(IXUISprite iSp)
 		{
 			XEquipItem xequipItem = XSingleton<XGame>.singleton.Doc.XBagDoc.GetItemByUID(this._doc.selectedEquip) as XEquipItem;
@@ -488,7 +468,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010D39 RID: 68921 RVA: 0x0043CA4C File Offset: 0x0043AC4C
 		private void _ToggleOperateMenu(bool bShow, int slotIndex = 0)
 		{
 			if (bShow)
@@ -514,28 +493,24 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010D3A RID: 68922 RVA: 0x0043CB50 File Offset: 0x0043AD50
 		private bool _OnSelectedJadeUpgradeClicked(IXUIButton btn)
 		{
 			this._doc.TryToCompose((uint)this.m_SelectedSlotIndex);
 			return true;
 		}
 
-		// Token: 0x06010D3B RID: 68923 RVA: 0x0043CB78 File Offset: 0x0043AD78
 		private bool _OnSelectedJadeTakeoffClicked(IXUIButton btn)
 		{
 			this._doc.ReqTakeOffJade((uint)this.m_SelectedSlotIndex);
 			return true;
 		}
 
-		// Token: 0x06010D3C RID: 68924 RVA: 0x0043CBA0 File Offset: 0x0043ADA0
 		private bool _OnSelectedJadeChangeClicked(IXUIButton btn)
 		{
 			this._doc.SelectSlot(this.m_SelectedSlotIndex);
 			return true;
 		}
 
-		// Token: 0x06010D3D RID: 68925 RVA: 0x0043CBC8 File Offset: 0x0043ADC8
 		public int RecalcMorePowerfulTip()
 		{
 			int num = -1;
@@ -629,73 +604,50 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x04007B75 RID: 31605
 		private XJadeDocument _doc = null;
 
-		// Token: 0x04007B76 RID: 31606
 		private static uint SLOT_COUNT = 4U;
 
-		// Token: 0x04007B77 RID: 31607
 		private XUIPool m_JadeInfoPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04007B78 RID: 31608
 		private List<GameObject> m_JadeSlots = new List<GameObject>();
 
-		// Token: 0x04007B79 RID: 31609
 		private CharacterEquipHandler m_EquipHandler;
 
-		// Token: 0x04007B7A RID: 31610
 		private GameObject m_SelectedEquip;
 
-		// Token: 0x04007B7B RID: 31611
 		private GameObject m_EmptyEquiped;
 
-		// Token: 0x04007B7C RID: 31612
 		private GameObject m_EquipedPanel;
 
-		// Token: 0x04007B7D RID: 31613
 		private GameObject m_SelectMenu;
 
-		// Token: 0x04007B7E RID: 31614
 		private GameObject m_OperateMenu;
 
-		// Token: 0x04007B7F RID: 31615
 		private IXUITweenTool m_SelectMenuTween;
 
-		// Token: 0x04007B80 RID: 31616
 		private GameObject m_CanReplaceRedpoint;
 
-		// Token: 0x04007B81 RID: 31617
 		private GameObject m_CanUpdateRedpoint;
 
-		// Token: 0x04007B82 RID: 31618
 		private XUIPool m_JadeSlotSmallPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04007B83 RID: 31619
 		private GameObject m_EquipFrame;
 
-		// Token: 0x04007B84 RID: 31620
 		private GameObject[] m_JadeEquip = new GameObject[10];
 
-		// Token: 0x04007B85 RID: 31621
 		private GameObject[,] m_JadeEquipItem;
 
-		// Token: 0x04007B86 RID: 31622
 		private XItemMorePowerfulTipMgr powerfullMgr = new XItemMorePowerfulTipMgr();
 
-		// Token: 0x04007B87 RID: 31623
 		private IXUIButton m_JadeShop;
 
-		// Token: 0x04007B88 RID: 31624
 		private IXUIButton m_JadeUnload;
 
-		// Token: 0x04007B89 RID: 31625
 		private IXUIButton m_Help;
 
-		// Token: 0x04007B8A RID: 31626
 		private int m_SelectedSlotIndex;
 
-		// Token: 0x04007B8B RID: 31627
 		private string[][] m_SlotLevelLimit;
 	}
 }

@@ -3,11 +3,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x0200098B RID: 2443
+
 	public class EquipSuitItemData : IComparable
 	{
-		// Token: 0x17002CA5 RID: 11429
-		// (get) Token: 0x060092AE RID: 37550 RVA: 0x00153A98 File Offset: 0x00151C98
+
 		public int CompareValue
 		{
 			get
@@ -62,7 +61,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060092AF RID: 37551 RVA: 0x00153BB8 File Offset: 0x00151DB8
 		public int CompareTo(object _other)
 		{
 			EquipSuitItemData equipSuitItemData = _other as EquipSuitItemData;
@@ -116,13 +114,10 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x04003137 RID: 12599
 		public bool redpoint;
 
-		// Token: 0x04003138 RID: 12600
 		public EquipList.RowData itemData;
 
-		// Token: 0x04003139 RID: 12601
 		public ItemComposeTable.RowData itemComposeData;
 	}
 }

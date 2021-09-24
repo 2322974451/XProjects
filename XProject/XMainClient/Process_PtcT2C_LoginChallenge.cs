@@ -6,10 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000ED4 RID: 3796
+
 	internal class Process_PtcT2C_LoginChallenge
 	{
-		// Token: 0x0600C900 RID: 51456 RVA: 0x002CFC18 File Offset: 0x002CDE18
+
 		public static void Process(PtcT2C_LoginChallenge roPtc)
 		{
 			bool onReconnect = XSingleton<XClientNetwork>.singleton.XConnect.OnReconnect;

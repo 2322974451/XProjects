@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace XMainClient
 {
-	// Token: 0x02000F0B RID: 3851
+
 	internal class XEmblemItemDrawer : XItemDrawer
 	{
-		// Token: 0x0600CC7A RID: 52346 RVA: 0x002F121C File Offset: 0x002EF41C
+
 		public override void DrawItem(GameObject go, XItem realItem, bool bForceShowNum = false)
 		{
 			this._GetUI(go);
@@ -29,7 +29,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC7B RID: 52347 RVA: 0x002F1290 File Offset: 0x002EF490
 		private void SetCorner(XItem realItem)
 		{
 			bool flag = realItem == null;

@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200171E RID: 5918
+
 	internal class AuctionSellHandler : DlgHandlerBase
 	{
-		// Token: 0x170037A5 RID: 14245
-		// (get) Token: 0x0600F475 RID: 62581 RVA: 0x0036E84C File Offset: 0x0036CA4C
+
 		protected override string FileName
 		{
 			get
@@ -20,7 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F476 RID: 62582 RVA: 0x0036E864 File Offset: 0x0036CA64
 		protected override void Init()
 		{
 			base.Init();
@@ -36,7 +34,6 @@ namespace XMainClient.UI
 			this.m_tqBgSprite = (base.PanelObject.transform.FindChild("tq/p").GetComponent("XUISprite") as IXUISprite);
 		}
 
-		// Token: 0x0600F477 RID: 62583 RVA: 0x0036E9D4 File Offset: 0x0036CBD4
 		private void OnAuctionSellListUpdate(Transform t, int index)
 		{
 			bool flag = t == null;
@@ -75,19 +72,16 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F478 RID: 62584 RVA: 0x0036EB51 File Offset: 0x0036CD51
 		public override void RegisterEvent()
 		{
 			this.m_tqBgSprite.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnMemberPrivilegeClicked));
 		}
 
-		// Token: 0x0600F479 RID: 62585 RVA: 0x0036EB6C File Offset: 0x0036CD6C
 		private void OnMemberPrivilegeClicked(IXUISprite sprite)
 		{
 			DlgBase<XWelfareView, XWelfareBehaviour>.singleton.CheckActiveMemberPrivilege(MemberPrivilege.KingdomPrivilege_Court);
 		}
 
-		// Token: 0x0600F47A RID: 62586 RVA: 0x0036EB7C File Offset: 0x0036CD7C
 		private void OnBagItemUpdate(Transform transform, int index)
 		{
 			IXUISprite ixuisprite = transform.FindChild("Icon").GetComponent("XUISprite") as IXUISprite;
@@ -107,7 +101,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F47B RID: 62587 RVA: 0x0036EC54 File Offset: 0x0036CE54
 		private void OnItemSaleCheckSelected(IXUISprite checkBox)
 		{
 			int num = (int)checkBox.ID;
@@ -119,7 +112,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F47C RID: 62588 RVA: 0x0036ECBC File Offset: 0x0036CEBC
 		private void OnItemSaleClicked(IXUISprite sp)
 		{
 			int num = (int)sp.ID;
@@ -130,7 +122,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F47D RID: 62589 RVA: 0x0036ED10 File Offset: 0x0036CF10
 		private void OnItemClicked(IXUISprite sp)
 		{
 			int num = (int)sp.ID;
@@ -152,7 +143,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F47E RID: 62590 RVA: 0x0036EDCE File Offset: 0x0036CFCE
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -160,14 +150,12 @@ namespace XMainClient.UI
 			this.RefreshData();
 		}
 
-		// Token: 0x0600F47F RID: 62591 RVA: 0x0036EDEB File Offset: 0x0036CFEB
 		public override void RefreshData()
 		{
 			this.m_bagWindow.OnShow();
 			this.RefreshSaleList();
 		}
 
-		// Token: 0x0600F480 RID: 62592 RVA: 0x0036EE04 File Offset: 0x0036D004
 		private void RefreshSaleList()
 		{
 			bool flag = this.m_auctionSellGroup == null;
@@ -196,28 +184,20 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0400695A RID: 26970
 		private AuctionDocument _Doc;
 
-		// Token: 0x0400695B RID: 26971
 		private AuctionWrapContentGroup m_auctionSellGroup;
 
-		// Token: 0x0400695C RID: 26972
 		private XBagWindow m_bagWindow;
 
-		// Token: 0x0400695D RID: 26973
 		private Transform m_emptyInAuction;
 
-		// Token: 0x0400695E RID: 26974
 		private IXUILabel m_curSaleValue;
 
-		// Token: 0x0400695F RID: 26975
 		private IXUISprite m_tqSprite;
 
-		// Token: 0x04006960 RID: 26976
 		private IXUILabel m_tqLabel;
 
-		// Token: 0x04006961 RID: 26977
 		private IXUISprite m_tqBgSprite;
 	}
 }

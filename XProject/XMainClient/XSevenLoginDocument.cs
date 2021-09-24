@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x0200097B RID: 2427
+
 	internal class XSevenLoginDocument : XDocComponent
 	{
-		// Token: 0x17002C8E RID: 11406
-		// (get) Token: 0x0600921D RID: 37405 RVA: 0x00150988 File Offset: 0x0014EB88
+
 		public override uint ID
 		{
 			get
@@ -20,14 +19,8 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002C8F RID: 11407
-		// (get) Token: 0x0600921F RID: 37407 RVA: 0x001509A8 File Offset: 0x0014EBA8
-		// (set) Token: 0x0600921E RID: 37406 RVA: 0x0015099F File Offset: 0x0014EB9F
 		public SevenLoginDlg SevenLoginView { get; set; }
 
-		// Token: 0x17002C90 RID: 11408
-		// (get) Token: 0x06009220 RID: 37408 RVA: 0x001509B0 File Offset: 0x0014EBB0
-		// (set) Token: 0x06009221 RID: 37409 RVA: 0x001509C8 File Offset: 0x0014EBC8
 		public bool bHasAvailableSevenIcon
 		{
 			get
@@ -49,15 +42,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009222 RID: 37410 RVA: 0x00150A0B File Offset: 0x0014EC0B
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			XSevenLoginDocument.AsyncLoader.AddTask("Table/SevenImport", XSevenLoginDocument.m_sevenImportTable, false);
 			XSevenLoginDocument.AsyncLoader.Execute(callback);
 		}
 
-		// Token: 0x17002C91 RID: 11409
-		// (get) Token: 0x06009223 RID: 37411 RVA: 0x00150A30 File Offset: 0x0014EC30
 		public bool bHasAvailableRedPoint
 		{
 			get
@@ -66,8 +56,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002C92 RID: 11410
-		// (get) Token: 0x06009224 RID: 37412 RVA: 0x00150A48 File Offset: 0x0014EC48
 		public List<LoginReward> LoginRewards
 		{
 			get
@@ -76,7 +64,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009225 RID: 37413 RVA: 0x00150A6C File Offset: 0x0014EC6C
 		public uint GetRedayFatigue(int day)
 		{
 			uint num = 0U;
@@ -108,7 +95,6 @@ namespace XMainClient
 			return num;
 		}
 
-		// Token: 0x06009226 RID: 37414 RVA: 0x00150B58 File Offset: 0x0014ED58
 		public override void Update(float fDeltaT)
 		{
 			bool flag = !this.bHasAvailableSevenIcon;
@@ -118,13 +104,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009227 RID: 37415 RVA: 0x00150B84 File Offset: 0x0014ED84
 		public int GetLastSecond()
 		{
 			return (this.m_CurrentLoginDay < this.m_NextImprotDay) ? ((this.m_NextImprotDay - this.m_CurrentLoginDay) * 86400 - (int)this.m_CurrentTime) : 0;
 		}
 
-		// Token: 0x06009228 RID: 37416 RVA: 0x00150BC4 File Offset: 0x0014EDC4
 		public void GetLoginReward(int day)
 		{
 			RpcC2G_ReqGetLoginReward rpcC2G_ReqGetLoginReward = new RpcC2G_ReqGetLoginReward();
@@ -132,7 +116,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_ReqGetLoginReward);
 		}
 
-		// Token: 0x06009229 RID: 37417 RVA: 0x00150BF4 File Offset: 0x0014EDF4
 		public void ReceiveLoginReward(LoginRewardGetReq oArg, LoginRewardGetRet oRes)
 		{
 			bool flag = oRes.ret > ErrorCode.ERR_SUCCESS;
@@ -171,8 +154,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002C93 RID: 11411
-		// (get) Token: 0x0600922A RID: 37418 RVA: 0x00150CD8 File Offset: 0x0014EED8
 		public int LastDay
 		{
 			get
@@ -181,8 +162,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002C94 RID: 11412
-		// (get) Token: 0x0600922B RID: 37419 RVA: 0x00150CF8 File Offset: 0x0014EEF8
 		public int NextImportDay
 		{
 			get
@@ -191,8 +170,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002C95 RID: 11413
-		// (get) Token: 0x0600922C RID: 37420 RVA: 0x00150D10 File Offset: 0x0014EF10
 		public int NextImportItem
 		{
 			get
@@ -201,8 +178,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002C96 RID: 11414
-		// (get) Token: 0x0600922D RID: 37421 RVA: 0x00150D28 File Offset: 0x0014EF28
 		public bool NextGetState
 		{
 			get
@@ -211,7 +186,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600922E RID: 37422 RVA: 0x00150D40 File Offset: 0x0014EF40
 		public bool TryGetHallMessage(out string message, out string spriteName)
 		{
 			message = string.Empty;
@@ -260,21 +234,18 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600922F RID: 37423 RVA: 0x00150E24 File Offset: 0x0014F024
 		public string GetDialogSharedString()
 		{
 			SevenImportTable.RowData byID = XSevenLoginDocument.m_sevenImportTable.GetByID(this.m_NextImprotDay);
 			return (byID == null) ? string.Empty : byID.DialogSharedTexture;
 		}
 
-		// Token: 0x06009230 RID: 37424 RVA: 0x00150E58 File Offset: 0x0014F058
 		public string GetSharedString()
 		{
 			SevenImportTable.RowData byID = XSevenLoginDocument.m_sevenImportTable.GetByID(this.m_NextImprotDay);
 			return (byID == null) ? string.Empty : byID.SharedTexture;
 		}
 
-		// Token: 0x06009231 RID: 37425 RVA: 0x00150E8C File Offset: 0x0014F08C
 		public void OnSevenLoginReward(LoginRewardRet oRes)
 		{
 			this.bHasAvailableSevenIcon = oRes.open;
@@ -327,42 +298,30 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009232 RID: 37426 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void OnReconnected(XReconnectedEventArgs args)
 		{
 		}
 
-		// Token: 0x040030BE RID: 12478
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("XSevenLoginDocument");
 
-		// Token: 0x040030BF RID: 12479
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x040030C0 RID: 12480
 		private static SevenImportTable m_sevenImportTable = new SevenImportTable();
 
-		// Token: 0x040030C2 RID: 12482
 		private List<LoginReward> m_LoginRewards;
 
-		// Token: 0x040030C3 RID: 12483
 		private bool m_bHasAvailableSevenIcon = false;
 
-		// Token: 0x040030C4 RID: 12484
 		private bool m_bHasAvailableSevenRedPoint = false;
 
-		// Token: 0x040030C5 RID: 12485
 		private int m_CurrentLoginDay = 1;
 
-		// Token: 0x040030C6 RID: 12486
 		private double m_CurrentTime = 0.0;
 
-		// Token: 0x040030C7 RID: 12487
 		private int m_NextImprotDay = 0;
 
-		// Token: 0x040030C8 RID: 12488
 		private int m_NextImportItemID = 0;
 
-		// Token: 0x040030C9 RID: 12489
 		private bool m_NextGetState = false;
 	}
 }

@@ -9,11 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000D11 RID: 3345
+
 	internal class XTaskView : DlgBase<XTaskView, XTaskBehaviour>
 	{
-		// Token: 0x170032DF RID: 13023
-		// (get) Token: 0x0600BAAB RID: 47787 RVA: 0x00262ADC File Offset: 0x00260CDC
+
 		public override string fileName
 		{
 			get
@@ -22,8 +21,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170032E0 RID: 13024
-		// (get) Token: 0x0600BAAC RID: 47788 RVA: 0x00262AF4 File Offset: 0x00260CF4
 		public override bool isHideChat
 		{
 			get
@@ -32,8 +29,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170032E1 RID: 13025
-		// (get) Token: 0x0600BAAD RID: 47789 RVA: 0x00262B08 File Offset: 0x00260D08
 		public override int layer
 		{
 			get
@@ -42,8 +37,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170032E2 RID: 13026
-		// (get) Token: 0x0600BAAE RID: 47790 RVA: 0x00262B1C File Offset: 0x00260D1C
 		public override int group
 		{
 			get
@@ -52,8 +45,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170032E3 RID: 13027
-		// (get) Token: 0x0600BAAF RID: 47791 RVA: 0x00262B30 File Offset: 0x00260D30
 		public override bool autoload
 		{
 			get
@@ -62,8 +53,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170032E4 RID: 13028
-		// (get) Token: 0x0600BAB0 RID: 47792 RVA: 0x00262B44 File Offset: 0x00260D44
 		public override bool hideMainMenu
 		{
 			get
@@ -72,8 +61,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170032E5 RID: 13029
-		// (get) Token: 0x0600BAB1 RID: 47793 RVA: 0x00262B58 File Offset: 0x00260D58
 		public override bool pushstack
 		{
 			get
@@ -82,13 +69,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BAB2 RID: 47794 RVA: 0x00262B6B File Offset: 0x00260D6B
 		protected override void Init()
 		{
 			this.doc = XDocuments.GetSpecificDocument<XTaskDocument>(XTaskDocument.uuID);
 		}
 
-		// Token: 0x0600BAB3 RID: 47795 RVA: 0x00262B80 File Offset: 0x00260D80
 		public override void RegisterEvent()
 		{
 			base.uiBehaviour.m_Close.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnCloseClicked));
@@ -96,7 +81,6 @@ namespace XMainClient
 			base.uiBehaviour.m_BtnReward.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnBtnRewardClicked));
 		}
 
-		// Token: 0x0600BAB4 RID: 47796 RVA: 0x00262BE8 File Offset: 0x00260DE8
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -111,13 +95,11 @@ namespace XMainClient
 			this.m_bFirstOpen = false;
 		}
 
-		// Token: 0x0600BAB5 RID: 47797 RVA: 0x00262C3E File Offset: 0x00260E3E
 		public void RefreshPage()
 		{
 			this._RefreshTabs();
 		}
 
-		// Token: 0x0600BAB6 RID: 47798 RVA: 0x00262C48 File Offset: 0x00260E48
 		public void TryShowTaskView()
 		{
 			base.Load();
@@ -128,13 +110,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BAB7 RID: 47799 RVA: 0x00262C84 File Offset: 0x00260E84
 		public void OnCloseClicked(IXUISprite sp)
 		{
 			this.SetVisibleWithAnimation(false, null);
 		}
 
-		// Token: 0x0600BAB8 RID: 47800 RVA: 0x00262C90 File Offset: 0x00260E90
 		public bool OnBtnRewardClicked(IXUIButton btn)
 		{
 			this.doc.DoTask(this.doc.CurrentSelect);
@@ -142,7 +122,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600BAB9 RID: 47801 RVA: 0x00262CC4 File Offset: 0x00260EC4
 		public bool OnBtnGoClicked(IXUIButton btn)
 		{
 			this.doc.DoTask(this.doc.CurrentSelect);
@@ -150,13 +129,11 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600BABA RID: 47802 RVA: 0x00262CF7 File Offset: 0x00260EF7
 		private void OnTabClicked(ulong id)
 		{
 			this.OnTabSelect((uint)id);
 		}
 
-		// Token: 0x0600BABB RID: 47803 RVA: 0x00262D04 File Offset: 0x00260F04
 		private void OnTaskClicked(ulong id)
 		{
 			uint currentSelect = (uint)id;
@@ -164,14 +141,12 @@ namespace XMainClient
 			this.RefreshRightContent();
 		}
 
-		// Token: 0x0600BABC RID: 47804 RVA: 0x00262D2C File Offset: 0x00260F2C
 		private void _OnTaskClicked(IXUISprite iSp)
 		{
 			int index = (int)iSp.ID;
 			this._OnTaskSelected(index);
 		}
 
-		// Token: 0x0600BABD RID: 47805 RVA: 0x00262D4C File Offset: 0x00260F4C
 		private void _OnTaskSelected(int index)
 		{
 			bool flag = index < 0 || index >= this.m_TaskListIDs.Count;
@@ -187,7 +162,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BABE RID: 47806 RVA: 0x00262E04 File Offset: 0x00261004
 		private void _TrySelectTask(uint id)
 		{
 			bool flag = false;
@@ -209,7 +183,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BABF RID: 47807 RVA: 0x00262E78 File Offset: 0x00261078
 		public void OnTabSelect(uint type)
 		{
 			this.m_TaskListIDs.Clear();
@@ -246,7 +219,6 @@ namespace XMainClient
 			this._TrySelectTask(this.doc.CurrentSelect);
 		}
 
-		// Token: 0x0600BAC0 RID: 47808 RVA: 0x00263058 File Offset: 0x00261258
 		private void _RefreshTabs()
 		{
 			this.m_TabListIDs.Clear();
@@ -281,7 +253,6 @@ namespace XMainClient
 			base.uiBehaviour.m_Tabs.SetupTabs(this.m_TabListIDs, this.m_TabListNames, new XUITabControl.UITabControlCallback(this.OnTabClicked), true, 1f, this.m_SelectedTab, true);
 		}
 
-		// Token: 0x0600BAC1 RID: 47809 RVA: 0x002631D4 File Offset: 0x002613D4
 		public void RefreshRightContent()
 		{
 			TaskTableNew.RowData taskData = XTaskDocument.GetTaskData(this.doc.CurrentSelect);
@@ -308,25 +279,18 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04004B18 RID: 19224
 		private XTaskDocument doc;
 
-		// Token: 0x04004B19 RID: 19225
 		private List<int> m_TabListIDs = new List<int>();
 
-		// Token: 0x04004B1A RID: 19226
 		private List<string> m_TabListNames = new List<string>();
 
-		// Token: 0x04004B1B RID: 19227
 		private List<uint> m_TaskListIDs = new List<uint>();
 
-		// Token: 0x04004B1C RID: 19228
 		private List<GameObject> m_TaskGos = new List<GameObject>();
 
-		// Token: 0x04004B1D RID: 19229
 		private int m_SelectedTab = -1;
 
-		// Token: 0x04004B1E RID: 19230
 		private bool m_bFirstOpen = false;
 	}
 }

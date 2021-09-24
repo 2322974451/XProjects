@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001703 RID: 5891
+
 	internal class ActivityHandler : DlgHandlerBase
 	{
-		// Token: 0x17003773 RID: 14195
-		// (get) Token: 0x0600F2EF RID: 62191 RVA: 0x0035F088 File Offset: 0x0035D288
+
 		protected override string FileName
 		{
 			get
@@ -21,7 +20,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F2F0 RID: 62192 RVA: 0x0035F0A0 File Offset: 0x0035D2A0
 		protected override void Init()
 		{
 			this.m_doc = (XSingleton<XGame>.singleton.Doc.GetXComponent(XActivityDocument.uuID) as XActivityDocument);
@@ -44,13 +42,11 @@ namespace XMainClient.UI
 			this.m_dropItemPool.SetupPool(transform.gameObject, transform.FindChild("Item").gameObject, 4U, false);
 		}
 
-		// Token: 0x0600F2F1 RID: 62193 RVA: 0x0019EEB0 File Offset: 0x0019D0B0
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 		}
 
-		// Token: 0x0600F2F2 RID: 62194 RVA: 0x0035F284 File Offset: 0x0035D484
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -62,21 +58,18 @@ namespace XMainClient.UI
 			this.m_doc.SendQueryGetMulActInfo();
 		}
 
-		// Token: 0x0600F2F3 RID: 62195 RVA: 0x0035F2DD File Offset: 0x0035D4DD
 		protected override void OnHide()
 		{
 			base.OnHide();
 			XSingleton<XTutorialHelper>.singleton.ActivityOpen = false;
 		}
 
-		// Token: 0x0600F2F4 RID: 62196 RVA: 0x0035F2F2 File Offset: 0x0035D4F2
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
 			this.RefreshLeftTime();
 		}
 
-		// Token: 0x0600F2F5 RID: 62197 RVA: 0x0035F304 File Offset: 0x0035D504
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
@@ -87,19 +80,16 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F2F6 RID: 62198 RVA: 0x0035F347 File Offset: 0x0035D547
 		public void RefreshDailyActivity()
 		{
 			this.FillDailyActivity();
 		}
 
-		// Token: 0x0600F2F7 RID: 62199 RVA: 0x0035F351 File Offset: 0x0035D551
 		public void RefreshMulActivity()
 		{
 			this.FillMulActivity();
 		}
 
-		// Token: 0x0600F2F8 RID: 62200 RVA: 0x0035F35C File Offset: 0x0035D55C
 		private void FillDailyActivity()
 		{
 			this.m_dailyItemPool.ReturnAll(false);
@@ -120,7 +110,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F2F9 RID: 62201 RVA: 0x0035F3F4 File Offset: 0x0035D5F4
 		private void FillDailyActivityItems()
 		{
 			for (int i = 0; i < this.m_dailyDataList.Count; i++)
@@ -135,7 +124,6 @@ namespace XMainClient.UI
 			this.m_dailyScrollView.gameObject.SetActive(true);
 		}
 
-		// Token: 0x0600F2FA RID: 62202 RVA: 0x0035F4E4 File Offset: 0x0035D6E4
 		private void FillDailyActivityItem(Transform t, int index, ActivityHandler.DailyData daily)
 		{
 			bool flag = daily == null;
@@ -313,7 +301,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F2FB RID: 62203 RVA: 0x0035FB28 File Offset: 0x0035DD28
 		private bool NestNeedTransform()
 		{
 			XLevelSealDocument specificDocument = XDocuments.GetSpecificDocument<XLevelSealDocument>(XLevelSealDocument.uuID);
@@ -361,7 +348,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F2FC RID: 62204 RVA: 0x0035FC58 File Offset: 0x0035DE58
 		private void SetTags(Transform tra, string[] names)
 		{
 			int num = 0;
@@ -395,7 +381,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F2FD RID: 62205 RVA: 0x0035FD20 File Offset: 0x0035DF20
 		private void SetDailyData(int count)
 		{
 			this.m_dailyDataList.Clear();
@@ -424,7 +409,6 @@ namespace XMainClient.UI
 			this.m_dailyDataList.Sort(new Comparison<ActivityHandler.DailyData>(this.DailyDataCompare));
 		}
 
-		// Token: 0x0600F2FE RID: 62206 RVA: 0x0035FE84 File Offset: 0x0035E084
 		private int DailyDataCompare(ActivityHandler.DailyData left, ActivityHandler.DailyData right)
 		{
 			bool flag = left.IsFinished != right.IsFinished;
@@ -472,7 +456,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F2FF RID: 62207 RVA: 0x0035FF28 File Offset: 0x0035E128
 		public void SetScrollView(int sysId)
 		{
 			float position = 0f;
@@ -500,7 +483,6 @@ namespace XMainClient.UI
 			this.m_dailyScrollView.SetPosition(position);
 		}
 
-		// Token: 0x0600F300 RID: 62208 RVA: 0x00360018 File Offset: 0x0035E218
 		private void FillMulActivity()
 		{
 			this.m_mulItemPool.ReturnAll(false);
@@ -520,7 +502,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F301 RID: 62209 RVA: 0x003600A4 File Offset: 0x0035E2A4
 		private void FillMulActivityItems(int count)
 		{
 			for (int i = 0; i < count; i++)
@@ -535,7 +516,6 @@ namespace XMainClient.UI
 			this.m_mulScrollView.gameObject.SetActive(true);
 		}
 
-		// Token: 0x0600F302 RID: 62210 RVA: 0x00360184 File Offset: 0x0035E384
 		private void FillMulActivityItem(Transform t, int index, MulActivityInfo info)
 		{
 			bool flag = info == null;
@@ -665,7 +645,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F303 RID: 62211 RVA: 0x00360710 File Offset: 0x0035E910
 		private string GetMissConditionString(MulActivityInfo info)
 		{
 			XGuildDocument specificDocument = XDocuments.GetSpecificDocument<XGuildDocument>(XGuildDocument.uuID);
@@ -706,7 +685,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F304 RID: 62212 RVA: 0x00360814 File Offset: 0x0035EA14
 		public void RefreshLeftTime()
 		{
 			bool flag = this.m_selectSysId == XSysDefine.XSys_GuildInherit;
@@ -722,7 +700,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F305 RID: 62213 RVA: 0x00360874 File Offset: 0x0035EA74
 		private void FillBottom(bool isDaily, int index)
 		{
 			this.m_bIsDaily = isDaily;
@@ -844,7 +821,6 @@ namespace XMainClient.UI
 			this.m_viewBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnClickView));
 		}
 
-		// Token: 0x0600F306 RID: 62214 RVA: 0x00360C48 File Offset: 0x0035EE48
 		private void SetDropsItems(ActivityListTable.RowData data)
 		{
 			bool flag = data == null;
@@ -908,7 +884,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F307 RID: 62215 RVA: 0x00360DCC File Offset: 0x0035EFCC
 		private void FillBottomItems(List<uint> lst)
 		{
 			this.m_dropItemPool.ReturnAll(false);
@@ -923,7 +898,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F308 RID: 62216 RVA: 0x00360EA8 File Offset: 0x0035F0A8
 		private bool OnClickShop(IXUIButton btn)
 		{
 			XSysDefine xsysDefine = (XSysDefine)btn.ID;
@@ -980,7 +954,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F309 RID: 62217 RVA: 0x00361014 File Offset: 0x0035F214
 		public static XSysDefine GetShopSystem()
 		{
 			SeqList<int> sequenceList = XSingleton<XGlobalConfig>.singleton.GetSequenceList("EndlessabyssLevelInterval", true);
@@ -998,7 +971,6 @@ namespace XMainClient.UI
 			return XSysDefine.XSys_Mall_32A;
 		}
 
-		// Token: 0x0600F30A RID: 62218 RVA: 0x003610D0 File Offset: 0x0035F2D0
 		private bool OnClickView(IXUIButton btn)
 		{
 			bool bIsDaily = this.m_bIsDaily;
@@ -1013,7 +985,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F30B RID: 62219 RVA: 0x00361104 File Offset: 0x0035F304
 		private bool OnClickDailyJoinBtn(IXUIButton btn)
 		{
 			XSysDefine xsysDefine = (XSysDefine)btn.ID;
@@ -1030,7 +1001,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F30C RID: 62220 RVA: 0x00361160 File Offset: 0x0035F360
 		private void OnClickDailyIconSpr(IXUISprite spr)
 		{
 			this.m_selectItemTra.FindChild("SelectIcon").gameObject.SetActive(false);
@@ -1039,7 +1009,6 @@ namespace XMainClient.UI
 			this.FillBottom(true, (int)spr.ID);
 		}
 
-		// Token: 0x0600F30D RID: 62221 RVA: 0x003611C8 File Offset: 0x0035F3C8
 		private bool OnClickMulJoinBtn(IXUIButton btn)
 		{
 			int index = (int)btn.ID;
@@ -1167,7 +1136,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F30E RID: 62222 RVA: 0x00361580 File Offset: 0x0035F780
 		private bool JoinGuild(IXUIButton btn)
 		{
 			bool flag = DlgBase<DailyActivityDlg, TabDlgBehaviour>.singleton.IsVisible();
@@ -1180,7 +1148,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F30F RID: 62223 RVA: 0x003615C8 File Offset: 0x0035F7C8
 		private void OnClickMulIconSpr(IXUISprite spr)
 		{
 			bool flag = this.m_selectItemTra != null;
@@ -1204,77 +1171,56 @@ namespace XMainClient.UI
 			this.FillBottom(false, (int)spr.ID);
 		}
 
-		// Token: 0x0600F310 RID: 62224 RVA: 0x0036165C File Offset: 0x0035F85C
 		private void OnClickItemIcon(IXUISprite spr)
 		{
 			XItem mainItem = XBagDocument.MakeXItem((int)spr.ID, false);
 			XSingleton<UiUtility>.singleton.ShowTooltipDialogWithSearchingCompare(mainItem, spr, false, 0U);
 		}
 
-		// Token: 0x04006821 RID: 26657
 		private XActivityDocument m_doc;
 
-		// Token: 0x04006822 RID: 26658
 		private Transform m_selectItemTra;
 
-		// Token: 0x04006823 RID: 26659
 		private GameObject m_noDailyItemTips;
 
-		// Token: 0x04006824 RID: 26660
 		private GameObject m_noMulItemTips;
 
-		// Token: 0x04006825 RID: 26661
 		private GameObject m_mulItem;
 
-		// Token: 0x04006826 RID: 26662
 		public IXUIScrollView m_dailyScrollView;
 
-		// Token: 0x04006827 RID: 26663
 		private IXUIScrollView m_mulScrollView;
 
-		// Token: 0x04006828 RID: 26664
 		private IXUIButton m_shopBtn;
 
-		// Token: 0x04006829 RID: 26665
 		private IXUIButton m_viewBtn;
 
-		// Token: 0x0400682A RID: 26666
 		private IXUILabel m_describeContentLab;
 
-		// Token: 0x0400682B RID: 26667
 		private XUIPool m_dropItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x0400682C RID: 26668
 		private XUIPool m_mulItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x0400682D RID: 26669
 		private XUIPool m_dailyItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x0400682E RID: 26670
 		private bool m_bIsInit = false;
 
-		// Token: 0x0400682F RID: 26671
 		private bool m_bIsDaily = true;
 
-		// Token: 0x04006830 RID: 26672
 		private string m_describeTxt = "";
 
-		// Token: 0x04006831 RID: 26673
 		private XSysDefine m_selectSysId = XSysDefine.XSys_None;
 
-		// Token: 0x04006832 RID: 26674
 		private List<ActivityHandler.DailyData> m_dailyDataList = new List<ActivityHandler.DailyData>();
 
-		// Token: 0x02001A03 RID: 6659
 		private class DailyData
 		{
-			// Token: 0x060110FB RID: 69883 RVA: 0x004570F5 File Offset: 0x004552F5
+
 			public DailyData(ActivityListTable.RowData row, int serverOpenDay)
 			{
 				this.SetData(row, serverOpenDay);
 			}
 
-			// Token: 0x060110FC RID: 69884 RVA: 0x00457134 File Offset: 0x00455334
 			public void SetCount(int leftCount, int totalCount, int canBuyCount, int leftDay)
 			{
 				this.m_leftCount = leftCount;
@@ -1370,8 +1316,6 @@ namespace XMainClient.UI
 				}
 			}
 
-			// Token: 0x17003B6A RID: 15210
-			// (get) Token: 0x060110FD RID: 69885 RVA: 0x004573B4 File Offset: 0x004555B4
 			public bool IsOpen
 			{
 				get
@@ -1380,8 +1324,6 @@ namespace XMainClient.UI
 				}
 			}
 
-			// Token: 0x17003B6B RID: 15211
-			// (get) Token: 0x060110FE RID: 69886 RVA: 0x004573CC File Offset: 0x004555CC
 			public bool IsFinished
 			{
 				get
@@ -1390,8 +1332,6 @@ namespace XMainClient.UI
 				}
 			}
 
-			// Token: 0x17003B6C RID: 15212
-			// (get) Token: 0x060110FF RID: 69887 RVA: 0x004573EC File Offset: 0x004555EC
 			public string CountStr
 			{
 				get
@@ -1400,8 +1340,6 @@ namespace XMainClient.UI
 				}
 			}
 
-			// Token: 0x17003B6D RID: 15213
-			// (get) Token: 0x06011100 RID: 69888 RVA: 0x00457404 File Offset: 0x00455604
 			public string NotOpenReason
 			{
 				get
@@ -1410,8 +1348,6 @@ namespace XMainClient.UI
 				}
 			}
 
-			// Token: 0x17003B6E RID: 15214
-			// (get) Token: 0x06011101 RID: 69889 RVA: 0x0045741C File Offset: 0x0045561C
 			public ActivityListTable.RowData Row
 			{
 				get
@@ -1420,8 +1356,6 @@ namespace XMainClient.UI
 				}
 			}
 
-			// Token: 0x17003B6F RID: 15215
-			// (get) Token: 0x06011102 RID: 69890 RVA: 0x00457434 File Offset: 0x00455634
 			public int CanBuyCount
 			{
 				get
@@ -1430,8 +1364,6 @@ namespace XMainClient.UI
 				}
 			}
 
-			// Token: 0x17003B70 RID: 15216
-			// (get) Token: 0x06011103 RID: 69891 RVA: 0x0045744C File Offset: 0x0045564C
 			public int LeftDay
 			{
 				get
@@ -1440,7 +1372,6 @@ namespace XMainClient.UI
 				}
 			}
 
-			// Token: 0x06011104 RID: 69892 RVA: 0x00457464 File Offset: 0x00455664
 			private void SetData(ActivityListTable.RowData row, int serverOpenDay)
 			{
 				this.m_row = row;
@@ -1474,31 +1405,22 @@ namespace XMainClient.UI
 				}
 			}
 
-			// Token: 0x040081F5 RID: 33269
 			private bool m_isOpen = false;
 
-			// Token: 0x040081F6 RID: 33270
 			private bool m_isFinished = false;
 
-			// Token: 0x040081F7 RID: 33271
 			private int m_leftCount = 0;
 
-			// Token: 0x040081F8 RID: 33272
 			private int m_totalCount = 0;
 
-			// Token: 0x040081F9 RID: 33273
 			private int m_canBuyCount = 0;
 
-			// Token: 0x040081FA RID: 33274
 			private int m_leftDay = 0;
 
-			// Token: 0x040081FB RID: 33275
 			private string m_countStr;
 
-			// Token: 0x040081FC RID: 33276
 			private string m_notOpenReason;
 
-			// Token: 0x040081FD RID: 33277
 			private ActivityListTable.RowData m_row;
 		}
 	}

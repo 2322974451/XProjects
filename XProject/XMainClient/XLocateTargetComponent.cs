@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000F36 RID: 3894
+
 	internal class XLocateTargetComponent : XComponent
 	{
-		// Token: 0x17003620 RID: 13856
-		// (get) Token: 0x0600CEDB RID: 52955 RVA: 0x002FFEBC File Offset: 0x002FE0BC
+
 		public override uint ID
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003621 RID: 13857
-		// (get) Token: 0x0600CEDC RID: 52956 RVA: 0x002FFED4 File Offset: 0x002FE0D4
 		public XEntity Target
 		{
 			get
@@ -30,12 +27,10 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CEDD RID: 52957 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void EventSubscribe()
 		{
 		}
 
-		// Token: 0x0600CEDE RID: 52958 RVA: 0x002FFF14 File Offset: 0x002FE114
 		public override void Attached()
 		{
 			this._spectator = (XSingleton<XScene>.singleton.bSpectator && this._entity.IsPlayer);
@@ -44,13 +39,11 @@ namespace XMainClient
 			this._scene_specified = XSingleton<XSceneMgr>.singleton.SpecifiedTargetLocatedRange(XSingleton<XScene>.singleton.SceneID);
 		}
 
-		// Token: 0x0600CEDF RID: 52959 RVA: 0x00114ADF File Offset: 0x00112CDF
 		public override void OnDetachFromHost()
 		{
 			base.OnDetachFromHost();
 		}
 
-		// Token: 0x0600CEE0 RID: 52960 RVA: 0x002FFF74 File Offset: 0x002FE174
 		public override void Update(float fDeltaT)
 		{
 			bool flag = this.Target != null;
@@ -99,7 +92,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CEE1 RID: 52961 RVA: 0x00300158 File Offset: 0x002FE358
 		public XEntity Locate(Vector3 forward, Vector3 pos, bool routine = false)
 		{
 			bool flag = false;
@@ -182,7 +174,6 @@ namespace XMainClient
 			return xentity;
 		}
 
-		// Token: 0x0600CEE2 RID: 52962 RVA: 0x003003BC File Offset: 0x002FE5BC
 		private XEntity AssistLocate(Vector3 forward, Vector3 pos)
 		{
 			Vector3 forward2 = XSingleton<XScene>.singleton.GameCamera.CameraTrans.forward;
@@ -203,7 +194,6 @@ namespace XMainClient
 			return XSkillCore.FindTargetAt(pos, forward, (this._scene_specified > 0f) ? this._scene_specified : XSingleton<XOperationData>.singleton.ProfRangeLong, 0f, Mathf.Abs(num2), this._spectator ? (this._entity as XPlayer).WatchTo : this._entity, true);
 		}
 
-		// Token: 0x0600CEE3 RID: 52963 RVA: 0x003004E8 File Offset: 0x002FE6E8
 		private void Highlight(XEntity target, ref XEntity last, Color color)
 		{
 			bool flag = target != null && target != last;
@@ -225,7 +215,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CEE4 RID: 52964 RVA: 0x00300530 File Offset: 0x002FE730
 		public override void PostUpdate(float fDeltaT)
 		{
 			bool flag = !XSingleton<XScene>.singleton.bSpectator && this._entity.IsPlayer;
@@ -246,28 +235,20 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04005C50 RID: 23632
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("XLocateTarget");
 
-		// Token: 0x04005C51 RID: 23633
 		private bool _spectator = false;
 
-		// Token: 0x04005C52 RID: 23634
 		private Vector3 _last_forward = Vector3.zero;
 
-		// Token: 0x04005C53 RID: 23635
 		private XEntity _last_pre_target = null;
 
-		// Token: 0x04005C54 RID: 23636
 		private XEntity _last_target = null;
 
-		// Token: 0x04005C55 RID: 23637
 		private List<float> _elapsed = new List<float>();
 
-		// Token: 0x04005C56 RID: 23638
 		private List<float> _angle = new List<float>();
 
-		// Token: 0x04005C57 RID: 23639
 		private float _scene_specified = 0f;
 	}
 }

@@ -5,16 +5,15 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000B26 RID: 2854
+
 	internal class XSuperRiskMapMgr : XSingleton<XSuperRiskMapMgr>
 	{
-		// Token: 0x0600A761 RID: 42849 RVA: 0x001D94B9 File Offset: 0x001D76B9
+
 		public void Clear()
 		{
 			this.CurrentMap.Clear();
 		}
 
-		// Token: 0x0600A762 RID: 42850 RVA: 0x001D94C8 File Offset: 0x001D76C8
 		public void SetCurrentMap(string MapID)
 		{
 			this.CurrentMap.Clear();
@@ -35,14 +34,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A763 RID: 42851 RVA: 0x001D9546 File Offset: 0x001D7746
 		public void SetPlayerPosDirection(int x, int y, int dir)
 		{
 			this.CurrentMap.PlayerCoord = new Coordinate(x, y);
 			this.CurrentMap.PlayerMoveDirection = (Direction)dir;
 		}
 
-		// Token: 0x0600A764 RID: 42852 RVA: 0x001D9568 File Offset: 0x001D7768
 		protected XSuperRiskMapStaticInfo ReadMapConfig(string MapID)
 		{
 			XSuperRiskMapStaticInfo xsuperRiskMapStaticInfo = new XSuperRiskMapStaticInfo();
@@ -97,10 +94,8 @@ namespace XMainClient
 			return xsuperRiskMapStaticInfo;
 		}
 
-		// Token: 0x04003DDA RID: 15834
 		private Dictionary<string, XSuperRiskMapStaticInfo> AllMapStaticInfo = new Dictionary<string, XSuperRiskMapStaticInfo>();
 
-		// Token: 0x04003DDB RID: 15835
 		public XSuperRiskMap CurrentMap = new XSuperRiskMap();
 	}
 }

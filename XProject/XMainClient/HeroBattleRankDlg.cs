@@ -5,11 +5,10 @@ using XMainClient.UI.UICommon;
 
 namespace XMainClient
 {
-	// Token: 0x02000C2B RID: 3115
+
 	internal class HeroBattleRankDlg : DlgBase<HeroBattleRankDlg, HeroBattleRankBehavior>
 	{
-		// Token: 0x1700311C RID: 12572
-		// (get) Token: 0x0600B06A RID: 45162 RVA: 0x0021AEC8 File Offset: 0x002190C8
+
 		public override string fileName
 		{
 			get
@@ -18,8 +17,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700311D RID: 12573
-		// (get) Token: 0x0600B06B RID: 45163 RVA: 0x0021AEE0 File Offset: 0x002190E0
 		public override bool autoload
 		{
 			get
@@ -28,25 +25,21 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B06C RID: 45164 RVA: 0x0021AEF3 File Offset: 0x002190F3
 		protected override void OnLoad()
 		{
 			base.OnLoad();
 		}
 
-		// Token: 0x0600B06D RID: 45165 RVA: 0x0021AEFD File Offset: 0x002190FD
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 		}
 
-		// Token: 0x0600B06E RID: 45166 RVA: 0x0021AF07 File Offset: 0x00219107
 		protected override void OnUnload()
 		{
 			base.OnUnload();
 		}
 
-		// Token: 0x0600B06F RID: 45167 RVA: 0x0021AF14 File Offset: 0x00219114
 		protected override void Init()
 		{
 			base.Init();
@@ -55,26 +48,22 @@ namespace XMainClient
 			base.uiBehaviour.m_CloseBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseDlg));
 		}
 
-		// Token: 0x0600B070 RID: 45168 RVA: 0x0021AF74 File Offset: 0x00219174
 		private bool OnCloseDlg(IXUIButton button)
 		{
 			this.SetVisible(false, true);
 			return true;
 		}
 
-		// Token: 0x0600B071 RID: 45169 RVA: 0x0021AF90 File Offset: 0x00219190
 		protected override void OnHide()
 		{
 			base.OnHide();
 		}
 
-		// Token: 0x0600B072 RID: 45170 RVA: 0x0021AF9A File Offset: 0x0021919A
 		protected override void OnShow()
 		{
 			base.OnShow();
 		}
 
-		// Token: 0x0600B073 RID: 45171 RVA: 0x0021AFA4 File Offset: 0x002191A4
 		public void SetupRankFrame()
 		{
 			this.SetRankTpl(base.uiBehaviour.m_MyRankTs, 0, true);
@@ -82,7 +71,6 @@ namespace XMainClient
 			base.uiBehaviour.m_RankScrollView.ResetPosition();
 		}
 
-		// Token: 0x0600B074 RID: 45172 RVA: 0x0021AFFC File Offset: 0x002191FC
 		public void WrapListUpdated(Transform t, int index)
 		{
 			bool flag = index < 0 || index >= this._doc.LastWeek_MainRankList.Count;
@@ -92,7 +80,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B075 RID: 45173 RVA: 0x0021B038 File Offset: 0x00219238
 		public void SetRankTpl(Transform t, int index, bool isMy)
 		{
 			HeroBattleRankData heroBattleRankData = isMy ? this._doc.LastWeek_MyRankData : this._doc.LastWeek_MainRankList[index];
@@ -145,7 +132,6 @@ namespace XMainClient
 			ixuilabel2.RegisterLabelClickEventHandler(new LabelClickEventHandler(this.OnPlayerInfoClick));
 		}
 
-		// Token: 0x0600B076 RID: 45174 RVA: 0x0021B23C File Offset: 0x0021943C
 		private void OnPlayerInfoClick(IXUILabel label)
 		{
 			bool flag = label.ID == 0UL;
@@ -155,7 +141,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x040043DA RID: 17370
 		private XHeroBattleDocument _doc = null;
 	}
 }

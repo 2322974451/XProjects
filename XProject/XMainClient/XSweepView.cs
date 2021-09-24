@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000EFA RID: 3834
+
 	internal class XSweepView : DlgBase<XSweepView, XSweepBehaviour>
 	{
-		// Token: 0x1700357A RID: 13690
-		// (get) Token: 0x0600CB70 RID: 52080 RVA: 0x002E6468 File Offset: 0x002E4668
+
 		public override string fileName
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700357B RID: 13691
-		// (get) Token: 0x0600CB71 RID: 52081 RVA: 0x002E6480 File Offset: 0x002E4680
 		public override bool autoload
 		{
 			get
@@ -31,20 +28,17 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CB72 RID: 52082 RVA: 0x002E6493 File Offset: 0x002E4693
 		protected override void Init()
 		{
 			base.Init();
 			this._doc = XDocuments.GetSpecificDocument<XSweepDocument>(XSweepDocument.uuID);
 		}
 
-		// Token: 0x0600CB73 RID: 52083 RVA: 0x002E64AD File Offset: 0x002E46AD
 		public override void RegisterEvent()
 		{
 			base.uiBehaviour.m_Close.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseClicked));
 		}
 
-		// Token: 0x0600CB74 RID: 52084 RVA: 0x002E64D0 File Offset: 0x002E46D0
 		protected override void OnShow()
 		{
 			base.uiBehaviour.m_RewardPool.ReturnAll(false);
@@ -55,7 +49,6 @@ namespace XMainClient
 			base.uiBehaviour.m_SealTip.gameObject.SetActive(this._doc.IsSeal);
 		}
 
-		// Token: 0x0600CB75 RID: 52085 RVA: 0x002E656C File Offset: 0x002E476C
 		protected bool OnCloseClicked(IXUIButton button)
 		{
 			bool flag = this._doc.Count > 0;
@@ -74,14 +67,12 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CB76 RID: 52086 RVA: 0x002E65C0 File Offset: 0x002E47C0
 		public void SetReward()
 		{
 			this.ShowReward(null);
 			this.SetExpBar();
 		}
 
-		// Token: 0x0600CB77 RID: 52087 RVA: 0x002E65D4 File Offset: 0x002E47D4
 		private void ShowReward(object o = null)
 		{
 			bool flag = !base.IsVisible();
@@ -175,7 +166,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CB78 RID: 52088 RVA: 0x002E6AA0 File Offset: 0x002E4CA0
 		public void SetPos(object o = null)
 		{
 			bool flag = !base.IsVisible();
@@ -185,7 +175,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CB79 RID: 52089 RVA: 0x002E6AD0 File Offset: 0x002E4CD0
 		public override void OnUpdate()
 		{
 			bool flag = this._doc.GainExp > 0f;
@@ -195,7 +184,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CB7A RID: 52090 RVA: 0x002E6AFC File Offset: 0x002E4CFC
 		private void SetExpBar()
 		{
 			bool flag = XSingleton<XEntityMgr>.singleton.Player == null;
@@ -229,19 +217,14 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04005A04 RID: 23044
 		private uint _sweepTime;
 
-		// Token: 0x04005A05 RID: 23045
 		private uint _setPosition;
 
-		// Token: 0x04005A06 RID: 23046
 		private XSweepDocument _doc = null;
 
-		// Token: 0x04005A07 RID: 23047
 		private GameObject _preSweepReward = null;
 
-		// Token: 0x04005A08 RID: 23048
 		private readonly int m_showNum = 6;
 	}
 }

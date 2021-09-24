@@ -9,11 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C60 RID: 3168
+
 	internal class XOptionsBattleHandler : DlgHandlerBase
 	{
-		// Token: 0x170031B4 RID: 12724
-		// (get) Token: 0x0600B36E RID: 45934 RVA: 0x0022EA90 File Offset: 0x0022CC90
+
 		protected override string FileName
 		{
 			get
@@ -22,7 +21,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B36F RID: 45935 RVA: 0x0022EAA8 File Offset: 0x0022CCA8
 		protected override void Init()
 		{
 			base.Init();
@@ -43,7 +41,6 @@ namespace XMainClient
 			DlgHandlerBase.EnsureCreate<XOptionsBattleDetailHandler>(ref this.m_DetailHandler, base.transform.Find("Bg/DetailPanel").gameObject, null, true);
 		}
 
-		// Token: 0x0600B370 RID: 45936 RVA: 0x0022EC90 File Offset: 0x0022CE90
 		public override void RegisterEvent()
 		{
 			this.m_Close.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseClicked));
@@ -54,7 +51,6 @@ namespace XMainClient
 			this.m_OtherTab.RegisterOnCheckEventHandler(new CheckBoxOnCheckEventHandler(this.OnOtherCheckBoxClicked));
 		}
 
-		// Token: 0x0600B371 RID: 45937 RVA: 0x0022ED30 File Offset: 0x0022CF30
 		public bool OnCloseClicked(IXUIButton sp)
 		{
 			base.SetVisible(false);
@@ -72,7 +68,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B372 RID: 45938 RVA: 0x0022EDB4 File Offset: 0x0022CFB4
 		public bool OnLeaveClicked(IXUIButton sp)
 		{
 			base.SetVisible(false);
@@ -124,7 +119,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B373 RID: 45939 RVA: 0x0022EF18 File Offset: 0x0022D118
 		public void ShowUI()
 		{
 			bool flag = !base.IsVisible();
@@ -136,7 +130,6 @@ namespace XMainClient
 			DlgBase<XChatMaqueeView, XChatMaqueeBehaviour>.singleton.SetMaqueeSwitch(false);
 		}
 
-		// Token: 0x0600B374 RID: 45940 RVA: 0x0022EF54 File Offset: 0x0022D154
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -162,7 +155,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B375 RID: 45941 RVA: 0x0022F04D File Offset: 0x0022D24D
 		protected override void OnHide()
 		{
 			XSingleton<XShell>.singleton.Pause = false;
@@ -170,14 +162,12 @@ namespace XMainClient
 			base.OnHide();
 		}
 
-		// Token: 0x0600B376 RID: 45942 RVA: 0x0022F06F File Offset: 0x0022D26F
 		public override void OnUnload()
 		{
 			DlgHandlerBase.EnsureUnload<XOptionsBattleDetailHandler>(ref this.m_DetailHandler);
 			base.OnUnload();
 		}
 
-		// Token: 0x0600B377 RID: 45943 RVA: 0x0022F088 File Offset: 0x0022D288
 		private bool OnCameraCheckBoxClicked(IXUICheckBox box)
 		{
 			bool flag = !box.bChecked;
@@ -194,7 +184,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B378 RID: 45944 RVA: 0x0022F0B4 File Offset: 0x0022D2B4
 		private bool OnOperateCheckBoxClicked(IXUICheckBox box)
 		{
 			bool flag = !box.bChecked;
@@ -211,7 +200,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B379 RID: 45945 RVA: 0x0022F0E0 File Offset: 0x0022D2E0
 		private bool OnOtherCheckBoxClicked(IXUICheckBox box)
 		{
 			bool flag = !box.bChecked;
@@ -228,7 +216,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B37A RID: 45946 RVA: 0x0022F10C File Offset: 0x0022D30C
 		public void OnTabChanged(OptionsBattleTab handler)
 		{
 			switch (handler)
@@ -269,49 +256,34 @@ namespace XMainClient
 			this.prefabTab = handler;
 		}
 
-		// Token: 0x0400457C RID: 17788
 		private XOptionsDocument doc = null;
 
-		// Token: 0x0400457D RID: 17789
 		private XOptionsBattleDetailHandler m_DetailHandler;
 
-		// Token: 0x0400457E RID: 17790
 		public OptionsBattleTab prefabTab = OptionsBattleTab.CameraTab;
 
-		// Token: 0x0400457F RID: 17791
 		private IXUIButton m_Close;
 
-		// Token: 0x04004580 RID: 17792
 		private IXUIButton m_Continue;
 
-		// Token: 0x04004581 RID: 17793
 		private IXUIButton m_Leave;
 
-		// Token: 0x04004582 RID: 17794
 		private IXUICheckBox m_CameraTab;
 
-		// Token: 0x04004583 RID: 17795
 		private IXUICheckBox m_OperateTab;
 
-		// Token: 0x04004584 RID: 17796
 		private IXUICheckBox m_OtherTab;
 
-		// Token: 0x04004585 RID: 17797
 		private IXUILabel m_CameraTabLabel;
 
-		// Token: 0x04004586 RID: 17798
 		private IXUILabel m_OperateTabLabel;
 
-		// Token: 0x04004587 RID: 17799
 		private IXUILabel m_OtherTabTabLabel;
 
-		// Token: 0x04004588 RID: 17800
 		private IXUILabel m_CameraSelecteTabLabel;
 
-		// Token: 0x04004589 RID: 17801
 		private IXUILabel m_OperateSelecteTabLabel;
 
-		// Token: 0x0400458A RID: 17802
 		private IXUILabel m_OtherSelecteTabTabLabel;
 	}
 }

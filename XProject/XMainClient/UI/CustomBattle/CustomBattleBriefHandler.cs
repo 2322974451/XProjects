@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI.CustomBattle
 {
-	// Token: 0x02001930 RID: 6448
+
 	internal class CustomBattleBriefHandler : DlgHandlerBase
 	{
-		// Token: 0x17003B25 RID: 15141
-		// (get) Token: 0x06010F1E RID: 69406 RVA: 0x0044D510 File Offset: 0x0044B710
+
 		protected override string FileName
 		{
 			get
@@ -20,7 +19,6 @@ namespace XMainClient.UI.CustomBattle
 			}
 		}
 
-		// Token: 0x06010F1F RID: 69407 RVA: 0x0044D528 File Offset: 0x0044B728
 		protected override void Init()
 		{
 			base.Init();
@@ -41,7 +39,6 @@ namespace XMainClient.UI.CustomBattle
 			this._edit = (base.transform.Find("Bg/Edit").GetComponent("XUIButton") as IXUIButton);
 		}
 
-		// Token: 0x06010F20 RID: 69408 RVA: 0x0044D734 File Offset: 0x0044B934
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -50,20 +47,17 @@ namespace XMainClient.UI.CustomBattle
 			this._edit.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnEditButtonClicked));
 		}
 
-		// Token: 0x06010F21 RID: 69409 RVA: 0x001A6C1F File Offset: 0x001A4E1F
 		private void OnCloseClicked(IXUISprite sp)
 		{
 			base.SetVisible(false);
 		}
 
-		// Token: 0x06010F22 RID: 69410 RVA: 0x001F8A12 File Offset: 0x001F6C12
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.RefreshData();
 		}
 
-		// Token: 0x06010F23 RID: 69411 RVA: 0x0044D794 File Offset: 0x0044B994
 		public override void RefreshData()
 		{
 			base.RefreshData();
@@ -129,70 +123,52 @@ namespace XMainClient.UI.CustomBattle
 			}
 		}
 
-		// Token: 0x06010F24 RID: 69412 RVA: 0x0044DB14 File Offset: 0x0044BD14
 		private bool OnStartButtonClicked(IXUIButton button)
 		{
 			this._doc.SendCustomBattleStartNow(this._doc.CurrentCustomData.gameID);
 			return true;
 		}
 
-		// Token: 0x06010F25 RID: 69413 RVA: 0x0044DB44 File Offset: 0x0044BD44
 		private bool OnEditButtonClicked(IXUIButton button)
 		{
 			DlgBase<CustomBattleView, TabDlgBehaviour>.singleton.ShowPasswordSettingHandler();
 			return true;
 		}
 
-		// Token: 0x06010F26 RID: 69414 RVA: 0x0044DB62 File Offset: 0x0044BD62
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
 			this._lefttime_counter.Update();
 		}
 
-		// Token: 0x04007CA1 RID: 31905
 		private XCustomBattleDocument _doc = null;
 
-		// Token: 0x04007CA2 RID: 31906
 		private IXUISprite _close;
 
-		// Token: 0x04007CA3 RID: 31907
 		private IXUILabel _name;
 
-		// Token: 0x04007CA4 RID: 31908
 		private IXUILabel _type;
 
-		// Token: 0x04007CA5 RID: 31909
 		private IXUILabel _creater;
 
-		// Token: 0x04007CA6 RID: 31910
 		private Transform _slider;
 
-		// Token: 0x04007CA7 RID: 31911
 		private IXUILabel _left_time;
 
-		// Token: 0x04007CA8 RID: 31912
 		private IXUILabel _left_time_tip;
 
-		// Token: 0x04007CA9 RID: 31913
 		private IXUILabel _size;
 
-		// Token: 0x04007CAA RID: 31914
 		private IXUILabel _length;
 
-		// Token: 0x04007CAB RID: 31915
 		private IXUILabel _limit;
 
-		// Token: 0x04007CAC RID: 31916
 		private IXUILabel _id;
 
-		// Token: 0x04007CAD RID: 31917
 		private IXUIButton _start;
 
-		// Token: 0x04007CAE RID: 31918
 		private IXUIButton _edit;
 
-		// Token: 0x04007CAF RID: 31919
 		private XLeftTimeCounter _lefttime_counter;
 	}
 }

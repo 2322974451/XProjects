@@ -4,10 +4,10 @@ using ProtoBuf.Meta;
 
 namespace ProtoBuf.Serializers
 {
-	// Token: 0x0200087D RID: 2173
+
 	internal sealed class TupleSerializer : IProtoTypeSerializer, IProtoSerializer
 	{
-		// Token: 0x0600844C RID: 33868 RVA: 0x00101FB0 File Offset: 0x001001B0
+
 		public TupleSerializer(RuntimeTypeModel model, ConstructorInfo ctor, MemberInfo[] members)
 		{
 			bool flag = ctor == null;
@@ -68,14 +68,11 @@ namespace ProtoBuf.Serializers
 			}
 		}
 
-		// Token: 0x0600844D RID: 33869 RVA: 0x00102124 File Offset: 0x00100324
 		public bool HasCallbacks(TypeModel.CallbackType callbackType)
 		{
 			return false;
 		}
 
-		// Token: 0x170029D2 RID: 10706
-		// (get) Token: 0x0600844E RID: 33870 RVA: 0x00102138 File Offset: 0x00100338
 		public Type ExpectedType
 		{
 			get
@@ -84,18 +81,15 @@ namespace ProtoBuf.Serializers
 			}
 		}
 
-		// Token: 0x0600844F RID: 33871 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		void IProtoTypeSerializer.Callback(object value, TypeModel.CallbackType callbackType, SerializationContext context)
 		{
 		}
 
-		// Token: 0x06008450 RID: 33872 RVA: 0x00101967 File Offset: 0x000FFB67
 		object IProtoTypeSerializer.CreateInstance(ProtoReader source)
 		{
 			throw new NotSupportedException();
 		}
 
-		// Token: 0x06008451 RID: 33873 RVA: 0x00102158 File Offset: 0x00100358
 		private object GetValue(object obj, int index)
 		{
 			PropertyInfo propertyInfo;
@@ -134,7 +128,6 @@ namespace ProtoBuf.Serializers
 			return result;
 		}
 
-		// Token: 0x06008452 RID: 33874 RVA: 0x00102208 File Offset: 0x00100408
 		public object Read(object value, ProtoReader source)
 		{
 			object[] array = new object[this.members.Length];
@@ -166,7 +159,6 @@ namespace ProtoBuf.Serializers
 			return flag ? this.ctor.Invoke(array) : value;
 		}
 
-		// Token: 0x06008453 RID: 33875 RVA: 0x001022DC File Offset: 0x001004DC
 		public void Write(object value, ProtoWriter dest)
 		{
 			for (int i = 0; i < this.tails.Length; i++)
@@ -180,8 +172,6 @@ namespace ProtoBuf.Serializers
 			}
 		}
 
-		// Token: 0x170029D3 RID: 10707
-		// (get) Token: 0x06008454 RID: 33876 RVA: 0x00102324 File Offset: 0x00100524
 		public bool RequiresOldValue
 		{
 			get
@@ -190,8 +180,6 @@ namespace ProtoBuf.Serializers
 			}
 		}
 
-		// Token: 0x170029D4 RID: 10708
-		// (get) Token: 0x06008455 RID: 33877 RVA: 0x00102338 File Offset: 0x00100538
 		public bool ReturnsValue
 		{
 			get
@@ -200,7 +188,6 @@ namespace ProtoBuf.Serializers
 			}
 		}
 
-		// Token: 0x06008456 RID: 33878 RVA: 0x0010234C File Offset: 0x0010054C
 		private Type GetMemberType(int index)
 		{
 			Type memberType = Helpers.GetMemberType(this.members[index]);
@@ -212,19 +199,15 @@ namespace ProtoBuf.Serializers
 			return memberType;
 		}
 
-		// Token: 0x06008457 RID: 33879 RVA: 0x0010237C File Offset: 0x0010057C
 		bool IProtoTypeSerializer.CanCreateInstance()
 		{
 			return false;
 		}
 
-		// Token: 0x0400291E RID: 10526
 		private readonly MemberInfo[] members;
 
-		// Token: 0x0400291F RID: 10527
 		private readonly ConstructorInfo ctor;
 
-		// Token: 0x04002920 RID: 10528
 		private IProtoSerializer[] tails;
 	}
 }

@@ -8,10 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020016FD RID: 5885
+
 	internal class DanceMotionHandler : DlgHandlerBase
 	{
-		// Token: 0x0600F2B4 RID: 62132 RVA: 0x0035D754 File Offset: 0x0035B954
+
 		protected override void Init()
 		{
 			this.m_MotionPanel = base.PanelObject.transform.Find("MotionFrame").gameObject;
@@ -32,7 +32,6 @@ namespace XMainClient.UI
 			base.Init();
 		}
 
-		// Token: 0x0600F2B5 RID: 62133 RVA: 0x0035D905 File Offset: 0x0035BB05
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -40,7 +39,6 @@ namespace XMainClient.UI
 			this.m_ConditionPanelBg.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnConditionPanelClose));
 		}
 
-		// Token: 0x0600F2B6 RID: 62134 RVA: 0x0035D940 File Offset: 0x0035BB40
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -52,7 +50,6 @@ namespace XMainClient.UI
 			this.m_ConditionPanel.transform.position = position;
 		}
 
-		// Token: 0x0600F2B7 RID: 62135 RVA: 0x0035D9C8 File Offset: 0x0035BBC8
 		protected override void OnHide()
 		{
 			base.OnHide();
@@ -64,19 +61,16 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F2B8 RID: 62136 RVA: 0x001A6C1F File Offset: 0x001A4E1F
 		private void OnMotionPanelClicked(IXUISprite btn)
 		{
 			base.SetVisible(false);
 		}
 
-		// Token: 0x0600F2B9 RID: 62137 RVA: 0x0035DA04 File Offset: 0x0035BC04
 		private void OnConditionPanelClose(IXUISprite btn)
 		{
 			this.ShowUnlockPanel(false, 0U, 0U);
 		}
 
-		// Token: 0x0600F2BA RID: 62138 RVA: 0x0035DA14 File Offset: 0x0035BC14
 		public void RefreshMotionPanel(List<DanceMotionData> listMotionData)
 		{
 			bool flag = !base.IsVisible() || !this.m_MotionPanel.activeSelf;
@@ -107,7 +101,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F2BB RID: 62139 RVA: 0x0035DBC4 File Offset: 0x0035BDC4
 		private bool OnDanceMotionBtnClicked(IXUIButton btn)
 		{
 			bool flag = this.m_LastSelect != null;
@@ -137,7 +130,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F2BC RID: 62140 RVA: 0x0035DCBC File Offset: 0x0035BEBC
 		private void ShowUnlockPanel(bool show, uint motionID = 0U, uint valid = 0U)
 		{
 			this.m_ConditionPanel.SetActive(show);
@@ -165,7 +157,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F2BD RID: 62141 RVA: 0x0035DE78 File Offset: 0x0035C078
 		private void OnGoSystemBtnClicked(IXUILabel label)
 		{
 			int sys = (int)label.ID;
@@ -180,34 +171,24 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04006804 RID: 26628
 		private IXUIList m_MotionList;
 
-		// Token: 0x04006805 RID: 26629
 		private XUIPool m_MotionPool;
 
-		// Token: 0x04006806 RID: 26630
 		private IXUISprite m_MotionPanelBg;
 
-		// Token: 0x04006807 RID: 26631
 		private GameObject m_MotionPanel;
 
-		// Token: 0x04006808 RID: 26632
 		private GameObject m_ConditionPanel;
 
-		// Token: 0x04006809 RID: 26633
 		private IXUIList m_ConditionList;
 
-		// Token: 0x0400680A RID: 26634
 		private XUIPool m_ConditionPool;
 
-		// Token: 0x0400680B RID: 26635
 		private IXUISprite m_ConditionPanelBg;
 
-		// Token: 0x0400680C RID: 26636
 		private List<DanceMotionData> m_listMotionData;
 
-		// Token: 0x0400680D RID: 26637
 		private GameObject m_LastSelect;
 	}
 }

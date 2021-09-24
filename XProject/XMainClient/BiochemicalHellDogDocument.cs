@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000CA5 RID: 3237
+
 	internal class BiochemicalHellDogDocument : XDocComponent
 	{
-		// Token: 0x17003231 RID: 12849
-		// (get) Token: 0x0600B64A RID: 46666 RVA: 0x00241F34 File Offset: 0x00240134
+
 		public override uint ID
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003232 RID: 12850
-		// (get) Token: 0x0600B64B RID: 46667 RVA: 0x00241F4C File Offset: 0x0024014C
 		public XThemeActivityDocument ActDoc
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003233 RID: 12851
-		// (get) Token: 0x0600B64C RID: 46668 RVA: 0x00241F78 File Offset: 0x00240178
 		public List<SuperActivityTask.RowData> RewardTableData
 		{
 			get
@@ -51,8 +46,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003234 RID: 12852
-		// (get) Token: 0x0600B64D RID: 46669 RVA: 0x00241FC4 File Offset: 0x002401C4
 		public SuperActivityTime.RowData ActInfo
 		{
 			get
@@ -78,19 +71,16 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B64E RID: 46670 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 		}
 
-		// Token: 0x0600B64F RID: 46671 RVA: 0x00242046 File Offset: 0x00240246
 		protected override void EventSubscribe()
 		{
 			base.EventSubscribe();
 			base.RegisterEvent(XEventDefine.XEvent_ActivityTaskUpdate, new XComponent.XEventHandler(this.OnTaskChange));
 		}
 
-		// Token: 0x0600B650 RID: 46672 RVA: 0x00242068 File Offset: 0x00240268
 		private bool OnTaskChange(XEventArgs e)
 		{
 			XActivityTaskUpdatedArgs xactivityTaskUpdatedArgs = e as XActivityTaskUpdatedArgs;
@@ -111,14 +101,12 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B651 RID: 46673 RVA: 0x00242111 File Offset: 0x00240311
 		public void RecordActivityPastTime(uint time, SeqListRef<uint> timestage)
 		{
 			this.curTime = (int)(time / 3600U);
 			XSingleton<XDebug>.singleton.AddGreenLog("time:" + time, null, null, null, null, null);
 		}
 
-		// Token: 0x0600B652 RID: 46674 RVA: 0x00242144 File Offset: 0x00240344
 		public bool GetRedPoint()
 		{
 			int i = 0;
@@ -135,7 +123,6 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x0600B653 RID: 46675 RVA: 0x002421B0 File Offset: 0x002403B0
 		public BiochemicalHellDogDocument.Stage GetStage(int type)
 		{
 			BiochemicalHellDogDocument.Stage result;
@@ -145,7 +132,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B654 RID: 46676 RVA: 0x002421D4 File Offset: 0x002403D4
 		public void GetTime(int type, out BiochemicalHellDogDocument.Stage timeStage, out int actStartTime, out int actEndTime)
 		{
 			actStartTime = 0;
@@ -183,7 +169,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B655 RID: 46677 RVA: 0x00242274 File Offset: 0x00240474
 		public List<ActivityHelpReward> GetRewardData()
 		{
 			List<ActivityHelpReward> list = new List<ActivityHelpReward>();
@@ -212,8 +197,6 @@ namespace XMainClient
 			return list;
 		}
 
-		// Token: 0x17003235 RID: 12853
-		// (get) Token: 0x0600B656 RID: 46678 RVA: 0x00242380 File Offset: 0x00240580
 		public FirstPassRankList RankList
 		{
 			get
@@ -222,7 +205,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B657 RID: 46679 RVA: 0x00242398 File Offset: 0x00240598
 		public void SendRankList()
 		{
 			RpcC2M_ClientQueryRankListNtf rpcC2M_ClientQueryRankListNtf = new RpcC2M_ClientQueryRankListNtf();
@@ -230,7 +212,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_ClientQueryRankListNtf);
 		}
 
-		// Token: 0x0600B658 RID: 46680 RVA: 0x002423CC File Offset: 0x002405CC
 		public void ReceiveRankList(ClientQueryRankListRes oRes)
 		{
 			bool flag = oRes.ErrorCode > ErrorCode.ERR_SUCCESS;
@@ -249,7 +230,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B659 RID: 46681 RVA: 0x00242428 File Offset: 0x00240628
 		public DesignationTable.RowData GetTittleNameByRank(int rank)
 		{
 			bool flag = this.m_titleRowList == null;
@@ -287,50 +267,39 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x04004759 RID: 18265
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("BiochemicalHellDogDocument");
 
-		// Token: 0x0400475A RID: 18266
 		public int curTime;
 
-		// Token: 0x0400475B RID: 18267
 		public int systemID = XFastEnumIntEqualityComparer<XSysDefine>.ToInt(XSysDefine.XSys_ThemeActivity_HellDog);
 
-		// Token: 0x0400475C RID: 18268
 		public string[] sceneID = XSingleton<XGlobalConfig>.singleton.GetValue("BioHellSceneStage").Split(new char[]
 		{
 			'|'
 		});
 
-		// Token: 0x0400475D RID: 18269
 		public string[] tex = XSingleton<XGlobalConfig>.singleton.GetValue("BioHellTex").Split(new char[]
 		{
 			'|'
 		});
 
-		// Token: 0x0400475E RID: 18270
 		public static readonly uint REWARD_MAX = 3U;
 
-		// Token: 0x0400475F RID: 18271
 		private List<SuperActivityTask.RowData> _RewardTableData;
 
-		// Token: 0x04004760 RID: 18272
 		private SuperActivityTime.RowData _actInfo = null;
 
-		// Token: 0x04004761 RID: 18273
 		private FirstPassRankList _rankList = new FirstPassRankList();
 
-		// Token: 0x04004762 RID: 18274
 		private List<DesignationTable.RowData> m_titleRowList;
 
-		// Token: 0x020019AF RID: 6575
 		public enum Stage
 		{
-			// Token: 0x04007F8B RID: 32651
+
 			Ready,
-			// Token: 0x04007F8C RID: 32652
+
 			Processing,
-			// Token: 0x04007F8D RID: 32653
+
 			End
 		}
 	}

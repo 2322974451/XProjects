@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C8D RID: 3213
+
 	internal class AbyssPartyEntranceView : DlgBase<AbyssPartyEntranceView, AbyssPartyEntranceBehaviour>
 	{
-		// Token: 0x1700321A RID: 12826
-		// (get) Token: 0x0600B572 RID: 46450 RVA: 0x0023CCEC File Offset: 0x0023AEEC
+
 		public override string fileName
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700321B RID: 12827
-		// (get) Token: 0x0600B573 RID: 46451 RVA: 0x0023CD04 File Offset: 0x0023AF04
 		public override int layer
 		{
 			get
@@ -31,8 +28,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700321C RID: 12828
-		// (get) Token: 0x0600B574 RID: 46452 RVA: 0x0023CD18 File Offset: 0x0023AF18
 		public override int group
 		{
 			get
@@ -41,8 +36,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700321D RID: 12829
-		// (get) Token: 0x0600B575 RID: 46453 RVA: 0x0023CD2C File Offset: 0x0023AF2C
 		public override bool autoload
 		{
 			get
@@ -51,8 +44,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700321E RID: 12830
-		// (get) Token: 0x0600B576 RID: 46454 RVA: 0x0023CD40 File Offset: 0x0023AF40
 		public override bool hideMainMenu
 		{
 			get
@@ -61,8 +52,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700321F RID: 12831
-		// (get) Token: 0x0600B577 RID: 46455 RVA: 0x0023CD54 File Offset: 0x0023AF54
 		public override bool fullscreenui
 		{
 			get
@@ -71,8 +60,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003220 RID: 12832
-		// (get) Token: 0x0600B578 RID: 46456 RVA: 0x0023CD68 File Offset: 0x0023AF68
 		public override bool pushstack
 		{
 			get
@@ -81,8 +68,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003221 RID: 12833
-		// (get) Token: 0x0600B579 RID: 46457 RVA: 0x0023CD7C File Offset: 0x0023AF7C
 		public override int sysid
 		{
 			get
@@ -91,14 +76,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B57A RID: 46458 RVA: 0x0023CD98 File Offset: 0x0023AF98
 		protected override void Init()
 		{
 			this.doc = XDocuments.GetSpecificDocument<XAbyssPartyDocument>(XAbyssPartyDocument.uuID);
 			this.doc.View = this;
 		}
 
-		// Token: 0x0600B57B RID: 46459 RVA: 0x0023CDB8 File Offset: 0x0023AFB8
 		public override void RegisterEvent()
 		{
 			base.uiBehaviour.m_Close.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseClicked));
@@ -107,21 +90,18 @@ namespace XMainClient
 			base.uiBehaviour.m_Fall.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnFallClicked));
 		}
 
-		// Token: 0x0600B57C RID: 46460 RVA: 0x0023CE3C File Offset: 0x0023B03C
 		public bool OnCloseClicked(IXUIButton btn)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x0600B57D RID: 46461 RVA: 0x0023CE58 File Offset: 0x0023B058
 		private bool OnHelpClicked(IXUIButton btn)
 		{
 			DlgBase<XCommonHelpTipView, XCommonHelpTipBehaviour>.singleton.ShowHelp(XSysDefine.XSys_AbyssParty);
 			return true;
 		}
 
-		// Token: 0x0600B57E RID: 46462 RVA: 0x0023CE7C File Offset: 0x0023B07C
 		public bool OnJoinClicked(IXUIButton btn)
 		{
 			bool flag = XTeamDocument.GoSingleBattleBeforeNeed(new ButtonClickEventHandler(this.OnJoinClicked), btn);
@@ -180,7 +160,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B57F RID: 46463 RVA: 0x0023CFD4 File Offset: 0x0023B1D4
 		private bool _Enter(IXUIButton btn)
 		{
 			this.doc.AbyssPartyEnter(this.doc.CurSelectedID);
@@ -188,7 +167,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B580 RID: 46464 RVA: 0x0023D00C File Offset: 0x0023B20C
 		private bool OnFallClicked(IXUIButton btn)
 		{
 			AbyssPartyTypeTable.RowData abyssPartyType = this.doc.GetAbyssPartyType();
@@ -209,20 +187,17 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B581 RID: 46465 RVA: 0x0023D079 File Offset: 0x0023B279
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.RefreshPage();
 		}
 
-		// Token: 0x0600B582 RID: 46466 RVA: 0x0023D08A File Offset: 0x0023B28A
 		protected override void OnHide()
 		{
 			base.OnHide();
 		}
 
-		// Token: 0x0600B583 RID: 46467 RVA: 0x0023D094 File Offset: 0x0023B294
 		protected override void OnUnload()
 		{
 			DlgHandlerBase.EnsureUnload<ItemListHandler>(ref this._itemListHandler);
@@ -230,26 +205,22 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x0600B584 RID: 46468 RVA: 0x0023D0B8 File Offset: 0x0023B2B8
 		public override int[] GetTitanBarItems()
 		{
 			return this.GetTitan();
 		}
 
-		// Token: 0x0600B585 RID: 46469 RVA: 0x0023D0D0 File Offset: 0x0023B2D0
 		public override void StackRefresh()
 		{
 			this.RefreshPage();
 		}
 
-		// Token: 0x0600B586 RID: 46470 RVA: 0x0023D0DA File Offset: 0x0023B2DA
 		public void RefreshPage()
 		{
 			this.RefreshTab();
 			this.RefreshLevelFrame();
 		}
 
-		// Token: 0x0600B587 RID: 46471 RVA: 0x0023D0EC File Offset: 0x0023B2EC
 		public void RefreshTab()
 		{
 			base.uiBehaviour.m_TabPool.FakeReturnAll();
@@ -278,7 +249,6 @@ namespace XMainClient
 			this.RefreshDetailFrame();
 		}
 
-		// Token: 0x0600B588 RID: 46472 RVA: 0x0023D2B4 File Offset: 0x0023B4B4
 		public void RefreshDetailFrame()
 		{
 			AbyssPartyListTable.RowData abyssPartyList = this.doc.GetAbyssPartyList();
@@ -297,7 +267,6 @@ namespace XMainClient
 			base.uiBehaviour.m_CurPPT.SetText(XSingleton<XAttributeMgr>.singleton.XPlayerData.GetAttr(XAttributeDefine.XAttr_POWER_POINT_Basic).ToString("0"));
 		}
 
-		// Token: 0x0600B589 RID: 46473 RVA: 0x0023D36C File Offset: 0x0023B56C
 		public int[] GetTitan()
 		{
 			AbyssPartyTypeTable.RowData abyssPartyType = this.doc.GetAbyssPartyType();
@@ -314,13 +283,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B58A RID: 46474 RVA: 0x0023D39D File Offset: 0x0023B59D
 		public void RefreshTitan()
 		{
 			DlgBase<TitanbarView, TitanBarBehaviour>.singleton.SetTitanItems(this.GetTitan());
 		}
 
-		// Token: 0x0600B58B RID: 46475 RVA: 0x0023D3B4 File Offset: 0x0023B5B4
 		public void RefreshLevelFrame()
 		{
 			base.uiBehaviour.m_AbyssPool.FakeReturnAll();
@@ -360,7 +327,6 @@ namespace XMainClient
 			this.RefreshCost();
 		}
 
-		// Token: 0x0600B58C RID: 46476 RVA: 0x0023D5AC File Offset: 0x0023B7AC
 		public void RefreshCost()
 		{
 			AbyssPartyListTable.RowData abyssPartyList = this.doc.GetAbyssPartyList();
@@ -375,12 +341,10 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B58D RID: 46477 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		private void SelectedIndex(int index)
 		{
 		}
 
-		// Token: 0x0600B58E RID: 46478 RVA: 0x0023D66C File Offset: 0x0023B86C
 		private void OnTabClicked(IXUISprite iSp)
 		{
 			AbyssPartyTypeTable.RowData abyssPartyType = XAbyssPartyDocument.GetAbyssPartyType((int)iSp.ID);
@@ -412,7 +376,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B58F RID: 46479 RVA: 0x0023D730 File Offset: 0x0023B930
 		private void OnAbyssClicked(IXUISprite iSp)
 		{
 			AbyssPartyListTable.RowData abyssPartyList = XAbyssPartyDocument.GetAbyssPartyList((int)iSp.ID);
@@ -436,22 +399,17 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B590 RID: 46480 RVA: 0x001EECC3 File Offset: 0x001ECEC3
 		private void _OnItemClick(IXUISprite iSp)
 		{
 			XSingleton<UiUtility>.singleton.ShowTooltipDialog((int)iSp.ID, null);
 		}
 
-		// Token: 0x040046F8 RID: 18168
 		private XAbyssPartyDocument doc = null;
 
-		// Token: 0x040046F9 RID: 18169
 		public static readonly uint ABYSS_MAX = 6U;
 
-		// Token: 0x040046FA RID: 18170
 		private ItemListHandler _itemListHandler;
 
-		// Token: 0x040046FB RID: 18171
 		private int curCostNum = 0;
 	}
 }

@@ -6,10 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C4D RID: 3149
+
 	internal class MapSignalHandler : DlgHandlerBase
 	{
-		// Token: 0x0600B2B2 RID: 45746 RVA: 0x002292CC File Offset: 0x002274CC
+
 		protected override void Init()
 		{
 			base.Init();
@@ -33,21 +33,18 @@ namespace XMainClient
 			this.m_SignalBoard.SetActive(false);
 		}
 
-		// Token: 0x0600B2B3 RID: 45747 RVA: 0x0022947A File Offset: 0x0022767A
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			this.m_SwitchBtn.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnSignalSwitchClick));
 		}
 
-		// Token: 0x0600B2B4 RID: 45748 RVA: 0x0022949C File Offset: 0x0022769C
 		public override void OnUnload()
 		{
 			XSingleton<XTimerMgr>.singleton.KillTimer(this._signalShowToken);
 			base.OnUnload();
 		}
 
-		// Token: 0x0600B2B5 RID: 45749 RVA: 0x002294B8 File Offset: 0x002276B8
 		public void ShowSignal(string heroIcon, string heroIconAtlas, string iconStr, string msg)
 		{
 			XSingleton<XTimerMgr>.singleton.KillTimer(this._signalShowToken);
@@ -72,13 +69,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B2B6 RID: 45750 RVA: 0x0022959A File Offset: 0x0022779A
 		public void OnSignalShowTimeOut(object o = null)
 		{
 			this.m_SignalBoard.SetActive(false);
 		}
 
-		// Token: 0x0600B2B7 RID: 45751 RVA: 0x002295AC File Offset: 0x002277AC
 		public void SetupSignalPool(Transform tpl)
 		{
 			this.m_SignalPool.SetupPool(tpl.parent.gameObject, tpl.gameObject, 10U, false);
@@ -116,7 +111,6 @@ namespace XMainClient
 			ixuisprite2.spriteHeight = 46 + this.m_SignalPool.TplHeight * (num - 1);
 		}
 
-		// Token: 0x0600B2B8 RID: 45752 RVA: 0x00229778 File Offset: 0x00227978
 		public bool CheckSceneType(MobaSignalTable.RowData data)
 		{
 			bool flag = data.SceneType == null;
@@ -140,50 +134,37 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B2B9 RID: 45753 RVA: 0x002297D3 File Offset: 0x002279D3
 		public void OnSignalBtnClick(IXUISprite iSp)
 		{
 			this._doc.SendSignal((uint)iSp.ID);
 			this.m_SignalTextFrame.SetActive(false);
 		}
 
-		// Token: 0x0600B2BA RID: 45754 RVA: 0x002297F6 File Offset: 0x002279F6
 		public void OnSignalSwitchClick(IXUISprite iSp)
 		{
 			this.m_SignalTextFrame.SetActive(!this.m_SignalTextFrame.activeSelf);
 		}
 
-		// Token: 0x040044ED RID: 17645
 		private XMobaBattleDocument _doc = null;
 
-		// Token: 0x040044EE RID: 17646
 		private List<IXUISprite> m_SignalBtns = new List<IXUISprite>();
 
-		// Token: 0x040044EF RID: 17647
 		private IXUISprite m_SwitchBtn;
 
-		// Token: 0x040044F0 RID: 17648
 		private XUIPool m_SignalPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x040044F1 RID: 17649
 		private GameObject m_SignalTextFrame;
 
-		// Token: 0x040044F2 RID: 17650
 		private IXUISprite m_SignalHeroIcon;
 
-		// Token: 0x040044F3 RID: 17651
 		private IXUISprite m_SignalIcon;
 
-		// Token: 0x040044F4 RID: 17652
 		private IXUILabel m_SignalMsg;
 
-		// Token: 0x040044F5 RID: 17653
 		private IXUILabel m_SignalIconMsg;
 
-		// Token: 0x040044F6 RID: 17654
 		private GameObject m_SignalBoard;
 
-		// Token: 0x040044F7 RID: 17655
 		private uint _signalShowToken;
 	}
 }

@@ -6,10 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000DCB RID: 3531
+
 	internal class XSubSysRedPointMgr
 	{
-		// Token: 0x0600C05B RID: 49243 RVA: 0x0028AD1F File Offset: 0x00288F1F
+
 		public void SetupRedPoints(IXUIObject[] btns)
 		{
 			this._btns.Clear();
@@ -17,7 +17,6 @@ namespace XMainClient
 			this.UpdateRedPointUI();
 		}
 
-		// Token: 0x0600C05C RID: 49244 RVA: 0x0028AD40 File Offset: 0x00288F40
 		public void Append(IXUIObject[] btns)
 		{
 			bool flag = btns != null;
@@ -30,7 +29,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C05D RID: 49245 RVA: 0x0028AD78 File Offset: 0x00288F78
 		public void Append(IXUIObject btn)
 		{
 			bool flag = btn != null;
@@ -43,7 +41,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C05E RID: 49246 RVA: 0x0028ADC8 File Offset: 0x00288FC8
 		public void UpdateRedPointUI()
 		{
 			bool flag = this._btns == null;
@@ -63,16 +60,13 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04005060 RID: 20576
 		public List<XSubSysRedPointMgr.RedPointInfo> _btns = new List<XSubSysRedPointMgr.RedPointInfo>();
 
-		// Token: 0x020019C6 RID: 6598
 		public class RedPointInfo
 		{
-			// Token: 0x04007FE3 RID: 32739
+
 			public IXUIObject _btn = null;
 
-			// Token: 0x04007FE4 RID: 32740
 			public Transform redPoint = null;
 		}
 	}

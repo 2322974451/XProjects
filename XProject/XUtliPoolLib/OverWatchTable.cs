@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x02000132 RID: 306
+
 	public class OverWatchTable : CVSReader
 	{
-		// Token: 0x06000739 RID: 1849 RVA: 0x00024300 File Offset: 0x00022500
+
 		public OverWatchTable.RowData GetByHeroID(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -29,7 +29,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x0600073A RID: 1850 RVA: 0x0002436C File Offset: 0x0002256C
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			OverWatchTable.RowData rowData = new OverWatchTable.RowData();
@@ -71,7 +70,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x0600073B RID: 1851 RVA: 0x00024558 File Offset: 0x00022758
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -85,61 +83,43 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x0400037E RID: 894
 		public OverWatchTable.RowData[] Table = null;
 
-		// Token: 0x02000331 RID: 817
 		public class RowData
 		{
-			// Token: 0x04000C6C RID: 3180
+
 			public uint HeroID;
 
-			// Token: 0x04000C6D RID: 3181
 			public uint[] StatisticsID;
 
-			// Token: 0x04000C6E RID: 3182
 			public SeqRef<uint> Price;
 
-			// Token: 0x04000C6F RID: 3183
 			public string Name;
 
-			// Token: 0x04000C70 RID: 3184
 			public string Icon;
 
-			// Token: 0x04000C71 RID: 3185
 			public string Description;
 
-			// Token: 0x04000C72 RID: 3186
 			public string CutSceneAniamtion;
 
-			// Token: 0x04000C73 RID: 3187
 			public string CutSceneIdleAni;
 
-			// Token: 0x04000C74 RID: 3188
 			public int SortID;
 
-			// Token: 0x04000C75 RID: 3189
 			public string Motto;
 
-			// Token: 0x04000C76 RID: 3190
 			public string MiniMapIcon;
 
-			// Token: 0x04000C77 RID: 3191
 			public float[] MobaAttributes;
 
-			// Token: 0x04000C78 RID: 3192
 			public string SelectAnim;
 
-			// Token: 0x04000C79 RID: 3193
 			public string[] SelectFx;
 
-			// Token: 0x04000C7A RID: 3194
 			public string HeroUseTips;
 
-			// Token: 0x04000C7B RID: 3195
 			public string MobaUseTips;
 
-			// Token: 0x04000C7C RID: 3196
 			public string IconAtlas;
 		}
 	}

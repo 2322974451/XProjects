@@ -6,12 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001728 RID: 5928
+
 	internal class XBattleEnemyInfo
 	{
-		// Token: 0x170037B0 RID: 14256
-		// (get) Token: 0x0600F4BB RID: 62651 RVA: 0x003703A4 File Offset: 0x0036E5A4
-		// (set) Token: 0x0600F4BC RID: 62652 RVA: 0x003703BC File Offset: 0x0036E5BC
+
 		public int SequenceNum
 		{
 			get
@@ -24,13 +22,8 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170037B1 RID: 14257
-		// (get) Token: 0x0600F4BD RID: 62653 RVA: 0x003703C6 File Offset: 0x0036E5C6
-		// (set) Token: 0x0600F4BE RID: 62654 RVA: 0x003703CE File Offset: 0x0036E5CE
 		public XEntity Entity { get; set; }
 
-		// Token: 0x170037B2 RID: 14258
-		// (get) Token: 0x0600F4BF RID: 62655 RVA: 0x003703D8 File Offset: 0x0036E5D8
 		public float HitTime
 		{
 			get
@@ -39,7 +32,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F4C0 RID: 62656 RVA: 0x003703F0 File Offset: 0x0036E5F0
 		public void SwapData(XBattleEnemyInfo other)
 		{
 			XEntity entity = this.Entity;
@@ -53,7 +45,6 @@ namespace XMainClient.UI
 			other.m_bIsSuperArmorBroken = bIsSuperArmorBroken;
 		}
 
-		// Token: 0x0600F4C1 RID: 62657 RVA: 0x00370450 File Offset: 0x0036E650
 		public XBattleEnemyInfo(int index, GameObject go, BattleEnemyType type)
 		{
 			this.m_CurSequence = index;
@@ -63,7 +54,6 @@ namespace XMainClient.UI
 			this._InitUI();
 		}
 
-		// Token: 0x0600F4C2 RID: 62658 RVA: 0x003704E0 File Offset: 0x0036E6E0
 		public bool AttachUI(GameObject go)
 		{
 			bool flag = this.m_Go != null;
@@ -81,7 +71,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F4C3 RID: 62659 RVA: 0x00370518 File Offset: 0x0036E718
 		private void _InitUI()
 		{
 			bool flag = this.m_Go == null;
@@ -145,7 +134,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F4C4 RID: 62660 RVA: 0x0037086C File Offset: 0x0036EA6C
 		public void SetSuperArmorState(bool bBroken)
 		{
 			this.m_bIsSuperArmorBroken = bBroken;
@@ -156,7 +144,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F4C5 RID: 62661 RVA: 0x003708A0 File Offset: 0x0036EAA0
 		public void StopSuperArmorFx()
 		{
 			bool flag = this.m_uiSuperArmorFx != null;
@@ -167,7 +154,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F4C6 RID: 62662 RVA: 0x003708DC File Offset: 0x0036EADC
 		private void _UpdateRole()
 		{
 			bool deprecated = this.Entity.Deprecated;
@@ -238,7 +224,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F4C7 RID: 62663 RVA: 0x00370B94 File Offset: 0x0036ED94
 		private void _UpdateBoss()
 		{
 			bool deprecated = this.Entity.Deprecated;
@@ -313,7 +298,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F4C8 RID: 62664 RVA: 0x00370E0C File Offset: 0x0036F00C
 		public void Update()
 		{
 			bool flag = this.Entity == null;
@@ -340,7 +324,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F4C9 RID: 62665 RVA: 0x00370E6C File Offset: 0x0036F06C
 		public void SetVisible(bool bShow)
 		{
 			bool flag = this.m_Go != null;
@@ -350,8 +333,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170037B3 RID: 14259
-		// (get) Token: 0x0600F4CA RID: 62666 RVA: 0x00370E98 File Offset: 0x0036F098
 		public bool bNotBeHitRecently
 		{
 			get
@@ -360,13 +341,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F4CB RID: 62667 RVA: 0x00370EC0 File Offset: 0x0036F0C0
 		public bool IsRecentlyHit(float fMainTargetHitTime)
 		{
 			return this.m_HitTime > fMainTargetHitTime + XBattleEnemyInfo.fNotBeHitTime;
 		}
 
-		// Token: 0x0600F4CC RID: 62668 RVA: 0x00370EE4 File Offset: 0x0036F0E4
 		public void SetPosition(bool bAnim)
 		{
 			bool flag = this.m_CurSequence == this.m_PreSequence;
@@ -417,7 +396,6 @@ namespace XMainClient.UI
 			this.m_PreSequence = this.m_CurSequence;
 		}
 
-		// Token: 0x0600F4CD RID: 62669 RVA: 0x00370FE0 File Offset: 0x0036F1E0
 		private void _OnTweenPositionFinished(IXUITweenTool tween)
 		{
 			bool flag = this.m_uiPanel != null;
@@ -427,7 +405,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F4CE RID: 62670 RVA: 0x00371008 File Offset: 0x0036F208
 		public void OnBeHit(ProjectDamageResult result)
 		{
 			bool flag = result.Value <= 0.0;
@@ -442,7 +419,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F4CF RID: 62671 RVA: 0x0037105C File Offset: 0x0036F25C
 		public void RefreshBuff()
 		{
 			bool flag = this.Entity == null || this.Entity.Deprecated;
@@ -456,85 +432,59 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F4D0 RID: 62672 RVA: 0x003710BF File Offset: 0x0036F2BF
 		public void Unload()
 		{
 			DlgHandlerBase.EnsureUnload<XBuffMonitorHandler>(ref this.m_BuffMonitor);
 		}
 
-		// Token: 0x0400699A RID: 27034
 		public static bool bShow;
 
-		// Token: 0x0400699B RID: 27035
 		public static float fNotBeHitTime = 3f;
 
-		// Token: 0x0400699C RID: 27036
 		private int m_CurSequence;
 
-		// Token: 0x0400699D RID: 27037
 		private int m_PreSequence;
 
-		// Token: 0x0400699E RID: 27038
 		public GameObject m_Go;
 
-		// Token: 0x0400699F RID: 27039
 		private BattleEnemyType m_Type;
 
-		// Token: 0x040069A1 RID: 27041
 		private float m_HitTime = 0f;
 
-		// Token: 0x040069A2 RID: 27042
 		private bool m_bIsSuperArmorBroken = false;
 
-		// Token: 0x040069A3 RID: 27043
 		public GameObject m_uiBg = null;
 
-		// Token: 0x040069A4 RID: 27044
 		public IXUISprite m_uiAvatar = null;
 
-		// Token: 0x040069A5 RID: 27045
 		public IXUILabel m_uiName = null;
 
-		// Token: 0x040069A6 RID: 27046
 		public IXUIProgress m_uiProgressHp = null;
 
-		// Token: 0x040069A7 RID: 27047
 		public IXUISprite m_uiSpriteHp = null;
 
-		// Token: 0x040069A8 RID: 27048
 		public IXUISprite m_uiHpBackDrop = null;
 
-		// Token: 0x040069A9 RID: 27049
 		public IXUIProgress m_uiSuperArmor = null;
 
-		// Token: 0x040069AA RID: 27050
 		public IXUISprite m_uiMp = null;
 
-		// Token: 0x040069AB RID: 27051
 		public IXUITweenTool m_uiSuperArmorFx = null;
 
-		// Token: 0x040069AC RID: 27052
 		public IXUISprite m_uiSuperArmorSpeedFx = null;
 
-		// Token: 0x040069AD RID: 27053
 		public IXUITweenTool m_uiBeHitTween;
 
-		// Token: 0x040069AE RID: 27054
 		public IXUITweenTool m_uiPositionTween;
 
-		// Token: 0x040069AF RID: 27055
 		public IXUIPanel m_uiPanel;
 
-		// Token: 0x040069B0 RID: 27056
 		public IXUILabel m_uiLevel;
 
-		// Token: 0x040069B1 RID: 27057
 		public IXUILabel m_uiHpLabel;
 
-		// Token: 0x040069B2 RID: 27058
 		public IXUILabel m_uiMpLabel;
 
-		// Token: 0x040069B3 RID: 27059
 		public XBuffMonitorHandler m_BuffMonitor;
 	}
 }

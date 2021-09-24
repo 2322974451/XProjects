@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000E41 RID: 3649
+
 	internal class XGuildSkillView : DlgBase<XGuildSkillView, XGuildSkillBehaviour>
 	{
-		// Token: 0x1700344C RID: 13388
-		// (get) Token: 0x0600C3F6 RID: 50166 RVA: 0x002AA8F0 File Offset: 0x002A8AF0
+
 		public override int layer
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700344D RID: 13389
-		// (get) Token: 0x0600C3F7 RID: 50167 RVA: 0x002AA904 File Offset: 0x002A8B04
 		public override bool pushstack
 		{
 			get
@@ -31,8 +28,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700344E RID: 13390
-		// (get) Token: 0x0600C3F8 RID: 50168 RVA: 0x002AA918 File Offset: 0x002A8B18
 		public override string fileName
 		{
 			get
@@ -41,8 +36,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700344F RID: 13391
-		// (get) Token: 0x0600C3F9 RID: 50169 RVA: 0x002AA930 File Offset: 0x002A8B30
 		public override bool hideMainMenu
 		{
 			get
@@ -51,8 +44,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003450 RID: 13392
-		// (get) Token: 0x0600C3FA RID: 50170 RVA: 0x002AA944 File Offset: 0x002A8B44
 		public override bool autoload
 		{
 			get
@@ -61,8 +52,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003451 RID: 13393
-		// (get) Token: 0x0600C3FB RID: 50171 RVA: 0x002AA958 File Offset: 0x002A8B58
 		public override bool fullscreenui
 		{
 			get
@@ -71,7 +60,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C3FC RID: 50172 RVA: 0x002AA96B File Offset: 0x002A8B6B
 		protected override void OnLoad()
 		{
 			base.OnLoad();
@@ -79,14 +67,12 @@ namespace XMainClient
 			this._StudyHandle = DlgHandlerBase.EnsureCreate<XGuildSkillStudyHandle>(ref this._StudyHandle, this.m_studyHandlePanel, false, this);
 		}
 
-		// Token: 0x0600C3FD RID: 50173 RVA: 0x002AA9A9 File Offset: 0x002A8BA9
 		protected override void OnUnload()
 		{
 			DlgHandlerBase.EnsureUnload<XGuildSkillStudyHandle>(ref this._StudyHandle);
 			base.OnUnload();
 		}
 
-		// Token: 0x0600C3FE RID: 50174 RVA: 0x002AA9C0 File Offset: 0x002A8BC0
 		protected override void Init()
 		{
 			base.Init();
@@ -97,7 +83,6 @@ namespace XMainClient
 			this._doc.GuildDoc = XDocuments.GetSpecificDocument<XGuildDocument>(XGuildDocument.uuID);
 		}
 
-		// Token: 0x0600C3FF RID: 50175 RVA: 0x002AAA33 File Offset: 0x002A8C33
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -105,7 +90,6 @@ namespace XMainClient
 			this.SetupSkillList(true, false);
 		}
 
-		// Token: 0x0600C400 RID: 50176 RVA: 0x002AAA54 File Offset: 0x002A8C54
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -114,14 +98,12 @@ namespace XMainClient
 			base.uiBehaviour.m_DetailUpMaxLevel.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnUpMaxLevelClick));
 		}
 
-		// Token: 0x0600C401 RID: 50177 RVA: 0x002AAAC0 File Offset: 0x002A8CC0
 		private bool OnCloseClick(IXUIButton button)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x0600C402 RID: 50178 RVA: 0x002AAADC File Offset: 0x002A8CDC
 		private bool OnUpMaxLevelClick(IXUIButton button)
 		{
 			this._StudyHandle.SetVisible(true);
@@ -129,7 +111,6 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x0600C403 RID: 50179 RVA: 0x002AAB08 File Offset: 0x002A8D08
 		private bool OnLevelUpClick(IXUIButton button)
 		{
 			string empty = string.Empty;
@@ -176,7 +157,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C404 RID: 50180 RVA: 0x002AAC44 File Offset: 0x002A8E44
 		private void OnSkillClick(IXUISprite sp)
 		{
 			bool flag = this._doc.CurrentSkillID == (uint)sp.ID;
@@ -188,7 +168,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C405 RID: 50181 RVA: 0x002AAC90 File Offset: 0x002A8E90
 		public void SetupSkillList(bool refresh = true, bool showEffect = false)
 		{
 			base.uiBehaviour.m_SkillPool.FakeReturnAll();
@@ -215,7 +194,6 @@ namespace XMainClient
 			this.RefreshGuildPoint();
 		}
 
-		// Token: 0x0600C406 RID: 50182 RVA: 0x002AADEC File Offset: 0x002A8FEC
 		private void SetupSkill(GameObject go, uint skillID)
 		{
 			uint level = this._doc.GuildDoc.BasicData.level;
@@ -321,7 +299,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C407 RID: 50183 RVA: 0x002AB220 File Offset: 0x002A9420
 		public void SetupDetailSkill()
 		{
 			uint currentSkillID = this._doc.CurrentSkillID;
@@ -410,7 +387,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C408 RID: 50184 RVA: 0x002AB5CC File Offset: 0x002A97CC
 		private bool TryCheckFullLevel(GuildSkillTable.RowData currData, uint skillLevel, out string strTemp)
 		{
 			strTemp = string.Empty;
@@ -429,7 +405,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C409 RID: 50185 RVA: 0x002AB638 File Offset: 0x002A9838
 		private bool TryCheckLevelUpCost(GuildSkillTable.RowData currData, uint skillLevel, out string strTemp)
 		{
 			strTemp = "";
@@ -438,7 +413,6 @@ namespace XMainClient
 			return (ulong)num > (ulong)((long)((int)XSingleton<XGame>.singleton.Doc.XBagDoc.GetVirtualItemCount(ItemEnum.GUILD_CONTRIBUTE)));
 		}
 
-		// Token: 0x0600C40A RID: 50186 RVA: 0x002AB694 File Offset: 0x002A9894
 		private bool TryCheckRoleLevel(GuildSkillTable.RowData currData, uint skillLevel, out string strTemp)
 		{
 			strTemp = "";
@@ -456,7 +430,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C40B RID: 50187 RVA: 0x002AB6F4 File Offset: 0x002A98F4
 		private bool TryCheckRedGuildLevel(GuildSkillTable.RowData currData, uint skillLevel, out string strTemp)
 		{
 			uint glevel = currData.glevel;
@@ -475,7 +448,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C40C RID: 50188 RVA: 0x002AB750 File Offset: 0x002A9950
 		private void RefreshSkillLight()
 		{
 			List<GameObject> list = ListPool<GameObject>.Get();
@@ -496,28 +468,22 @@ namespace XMainClient
 			ListPool<GameObject>.Release(list);
 		}
 
-		// Token: 0x0600C40D RID: 50189 RVA: 0x002AB812 File Offset: 0x002A9A12
 		private void RefreshGuildPoint()
 		{
 			base.uiBehaviour.m_GuildPoint.SetText(this._doc.BagDoc.VirtualItems[22].ToString());
 		}
 
-		// Token: 0x0600C40E RID: 50190 RVA: 0x002AB844 File Offset: 0x002A9A44
 		private static int SkillSortCompare(uint skill1, uint skill2)
 		{
 			return skill1.CompareTo(skill2);
 		}
 
-		// Token: 0x0400551D RID: 21789
 		public XGuildSkillDocument _doc = null;
 
-		// Token: 0x0400551E RID: 21790
 		public XGuildSkillStudyHandle _StudyHandle = null;
 
-		// Token: 0x0400551F RID: 21791
 		private Transform m_studyHandlePanel = null;
 
-		// Token: 0x04005520 RID: 21792
 		private bool m_showEffect = false;
 	}
 }

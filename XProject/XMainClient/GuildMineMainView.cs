@@ -9,11 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C1D RID: 3101
+
 	internal class GuildMineMainView : DlgBase<GuildMineMainView, GuildMineMainBehaviour>
 	{
-		// Token: 0x17003107 RID: 12551
-		// (get) Token: 0x0600AFEE RID: 45038 RVA: 0x002175E0 File Offset: 0x002157E0
+
 		public override string fileName
 		{
 			get
@@ -22,8 +21,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003108 RID: 12552
-		// (get) Token: 0x0600AFEF RID: 45039 RVA: 0x002175F8 File Offset: 0x002157F8
 		public override int layer
 		{
 			get
@@ -32,8 +29,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003109 RID: 12553
-		// (get) Token: 0x0600AFF0 RID: 45040 RVA: 0x0021760C File Offset: 0x0021580C
 		public override int group
 		{
 			get
@@ -42,8 +37,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700310A RID: 12554
-		// (get) Token: 0x0600AFF1 RID: 45041 RVA: 0x00217620 File Offset: 0x00215820
 		public override bool autoload
 		{
 			get
@@ -52,8 +45,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700310B RID: 12555
-		// (get) Token: 0x0600AFF2 RID: 45042 RVA: 0x00217634 File Offset: 0x00215834
 		public override bool hideMainMenu
 		{
 			get
@@ -62,8 +53,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700310C RID: 12556
-		// (get) Token: 0x0600AFF3 RID: 45043 RVA: 0x00217648 File Offset: 0x00215848
 		public override bool pushstack
 		{
 			get
@@ -72,8 +61,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700310D RID: 12557
-		// (get) Token: 0x0600AFF4 RID: 45044 RVA: 0x0021765C File Offset: 0x0021585C
 		public override bool fullscreenui
 		{
 			get
@@ -82,8 +69,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700310E RID: 12558
-		// (get) Token: 0x0600AFF5 RID: 45045 RVA: 0x00217670 File Offset: 0x00215870
 		public override int sysid
 		{
 			get
@@ -92,9 +77,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700310F RID: 12559
-		// (get) Token: 0x0600AFF6 RID: 45046 RVA: 0x0021768C File Offset: 0x0021588C
-		// (set) Token: 0x0600AFF7 RID: 45047 RVA: 0x002176A4 File Offset: 0x002158A4
 		internal GuildBuffOperationHandler GuildBuffHandler
 		{
 			get
@@ -107,7 +89,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AFF8 RID: 45048 RVA: 0x002176B0 File Offset: 0x002158B0
 		protected override void Init()
 		{
 			this.doc = XDocuments.GetSpecificDocument<XGuildMineMainDocument>(XGuildMineMainDocument.uuID);
@@ -117,7 +98,6 @@ namespace XMainClient
 			DlgHandlerBase.EnsureCreate<XYuyinView>(ref this._yuyinHandler, base.uiBehaviour.transform, true, this);
 		}
 
-		// Token: 0x0600AFF9 RID: 45049 RVA: 0x00217728 File Offset: 0x00215928
 		public override void RegisterEvent()
 		{
 			base.uiBehaviour.m_Close.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseClicked));
@@ -130,21 +110,18 @@ namespace XMainClient
 			base.uiBehaviour.m_BtnRank.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnclickRankBtn));
 		}
 
-		// Token: 0x0600AFFA RID: 45050 RVA: 0x00217820 File Offset: 0x00215A20
 		private bool OnCloseClicked(IXUIButton btn)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x0600AFFB RID: 45051 RVA: 0x0021783C File Offset: 0x00215A3C
 		private bool OnHelpClicked(IXUIButton btn)
 		{
 			DlgBase<XCommonHelpTipView, XCommonHelpTipBehaviour>.singleton.ShowHelp(XSysDefine.XSys_GuildMine);
 			return true;
 		}
 
-		// Token: 0x0600AFFC RID: 45052 RVA: 0x0021785C File Offset: 0x00215A5C
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -155,7 +132,6 @@ namespace XMainClient
 			this._yuyinHandler.Show(true);
 		}
 
-		// Token: 0x0600AFFD RID: 45053 RVA: 0x002178AC File Offset: 0x00215AAC
 		protected override void OnHide()
 		{
 			XGuildResContentionBuffDocument.Doc.StopCDTimer();
@@ -165,7 +141,6 @@ namespace XMainClient
 			base.OnHide();
 		}
 
-		// Token: 0x0600AFFE RID: 45054 RVA: 0x002178E5 File Offset: 0x00215AE5
 		protected override void OnUnload()
 		{
 			this.HideBuffTips();
@@ -176,7 +151,6 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x0600AFFF RID: 45055 RVA: 0x00217928 File Offset: 0x00215B28
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
@@ -198,7 +172,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B000 RID: 45056 RVA: 0x002179C0 File Offset: 0x00215BC0
 		private void InitShow()
 		{
 			base.uiBehaviour.m_BtnExplore.gameObject.SetActive(false);
@@ -208,7 +181,6 @@ namespace XMainClient
 			base.uiBehaviour.m_Exploring.gameObject.SetActive(false);
 		}
 
-		// Token: 0x0600B001 RID: 45057 RVA: 0x00217A44 File Offset: 0x00215C44
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
@@ -226,7 +198,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B002 RID: 45058 RVA: 0x00217A9C File Offset: 0x00215C9C
 		public void RefreshUI()
 		{
 			this.RefreshButton();
@@ -240,7 +211,6 @@ namespace XMainClient
 			this.RefreshMySelfActingBuff();
 		}
 
-		// Token: 0x0600B003 RID: 45059 RVA: 0x00217AEC File Offset: 0x00215CEC
 		private void RefreshRoleDetail()
 		{
 			base.uiBehaviour.m_RoleName.SetText(XSingleton<XAttributeMgr>.singleton.XPlayerData.Name);
@@ -249,7 +219,6 @@ namespace XMainClient
 			base.uiBehaviour.m_RoleProtrait.SetSprite(profHeadIcon);
 		}
 
-		// Token: 0x0600B004 RID: 45060 RVA: 0x00217B50 File Offset: 0x00215D50
 		public void HideChatMini()
 		{
 			ShowSettingArgs showSettingArgs = new ShowSettingArgs();
@@ -261,7 +230,6 @@ namespace XMainClient
 			DlgBase<XChatSmallView, XChatSmallBehaviour>.singleton.ShowChatMiniUI(showSettingArgs);
 		}
 
-		// Token: 0x0600B005 RID: 45061 RVA: 0x00217B94 File Offset: 0x00215D94
 		public void RefreshActivityTime()
 		{
 			base.uiBehaviour.m_ActivityCDCounter.SetLeftTime(this.CurActivityLeftTime, -1);
@@ -284,7 +252,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B006 RID: 45062 RVA: 0x00217C34 File Offset: 0x00215E34
 		public void RefreshExploreTime()
 		{
 			bool flag = this.CurExploreLeftTime > 0f;
@@ -308,7 +275,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B007 RID: 45063 RVA: 0x00217CE4 File Offset: 0x00215EE4
 		public void RefreshMemberTips()
 		{
 			XTeamDocument specificDocument = XDocuments.GetSpecificDocument<XTeamDocument>(XTeamDocument.uuID);
@@ -324,12 +290,10 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B008 RID: 45064 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		private void _OnLeftTimeOver(object o)
 		{
 		}
 
-		// Token: 0x0600B009 RID: 45065 RVA: 0x00217D7C File Offset: 0x00215F7C
 		public void RefreshButton()
 		{
 			bool flag = this.BossMine.Count == 0;
@@ -356,7 +320,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B00A RID: 45066 RVA: 0x00217E88 File Offset: 0x00216088
 		public void RefreshBoss()
 		{
 			base.uiBehaviour.m_BossTween.gameObject.SetActive(this.BossMine.Count != 0);
@@ -440,7 +403,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B00B RID: 45067 RVA: 0x002182FC File Offset: 0x002164FC
 		public void RefreshMySelfActingBuff()
 		{
 			List<GuildUsingBuffInfo> mySelfActingBuffList = XGuildResContentionBuffDocument.Doc.MySelfActingBuffList;
@@ -470,7 +432,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B00C RID: 45068 RVA: 0x00218444 File Offset: 0x00216644
 		public void RefreshBuffsRecord()
 		{
 			base.uiBehaviour.m_GuildBuffRecordPool.ReturnAll(false);
@@ -485,7 +446,6 @@ namespace XMainClient
 			base.uiBehaviour.m_RecordScrollView.SetPosition(1f);
 		}
 
-		// Token: 0x0600B00D RID: 45069 RVA: 0x00218540 File Offset: 0x00216740
 		private void ShowChat()
 		{
 			ShowSettingArgs showSettingArgs = new ShowSettingArgs();
@@ -498,7 +458,6 @@ namespace XMainClient
 			DlgBase<XChatSmallView, XChatSmallBehaviour>.singleton.ShowChatMiniUI(showSettingArgs);
 		}
 
-		// Token: 0x0600B00E RID: 45070 RVA: 0x0021858C File Offset: 0x0021678C
 		public void RefreshOwnedBuffItem(uint itemID, uint cd)
 		{
 			bool flag = this._guildBuffHandler != null && this._guildBuffHandler.IsVisible();
@@ -508,7 +467,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B00F RID: 45071 RVA: 0x002185C4 File Offset: 0x002167C4
 		private bool OnExploreClicked(IXUIButton btn)
 		{
 			bool flag = this.ActivityStatus == GuildMineActivityStatus.Ready;
@@ -535,7 +493,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B010 RID: 45072 RVA: 0x00218660 File Offset: 0x00216860
 		private bool OnChallengeClicked(IXUIButton btn)
 		{
 			bool flag = this.CurSelectMine != 0;
@@ -551,7 +508,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B011 RID: 45073 RVA: 0x002186C0 File Offset: 0x002168C0
 		private bool OnTeamClicked(IXUIButton btn)
 		{
 			XExpeditionDocument specificDocument = XDocuments.GetSpecificDocument<XExpeditionDocument>(XExpeditionDocument.uuID);
@@ -566,7 +522,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B012 RID: 45074 RVA: 0x00218720 File Offset: 0x00216920
 		private void OnBossClicked(IXUITexture tex)
 		{
 			this.CurSelectMine = (int)tex.ID;
@@ -582,7 +537,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B013 RID: 45075 RVA: 0x0021878C File Offset: 0x0021698C
 		private bool OnclickBuffStorage(IXUIButton button)
 		{
 			bool flag = this.GuildBuffHandler != null && !this.GuildBuffHandler.IsVisible();
@@ -593,7 +547,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B014 RID: 45076 RVA: 0x002187CC File Offset: 0x002169CC
 		private bool OnclickRankBtn(IXUIButton button)
 		{
 			bool flag = this._rankHanler != null && !this._rankHanler.IsVisible();
@@ -604,7 +557,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B015 RID: 45077 RVA: 0x0021880C File Offset: 0x00216A0C
 		private bool OnPressGuildBuffs(IXUISprite uiSprite, bool isPressed)
 		{
 			if (isPressed)
@@ -618,7 +570,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B016 RID: 45078 RVA: 0x00218840 File Offset: 0x00216A40
 		public void RefreshTopRightBuffs()
 		{
 			this._guildReviewItemDic.Clear();
@@ -636,7 +587,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B017 RID: 45079 RVA: 0x002188D4 File Offset: 0x00216AD4
 		private void UpdateOneGuildBuff(Transform guildBuff, int i)
 		{
 			List<WarResGuildInfo> allGuildInfos = XGuildResContentionBuffDocument.Doc.GetAllGuildInfos();
@@ -683,7 +633,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B018 RID: 45080 RVA: 0x00218B7C File Offset: 0x00216D7C
 		private void ShowBuffTips(ulong guildID)
 		{
 			this._pressedGuildID = guildID;
@@ -719,7 +668,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B019 RID: 45081 RVA: 0x00218CD4 File Offset: 0x00216ED4
 		private void UpdatePressedTip(GameObject item, GuildUsingBuffInfo info)
 		{
 			GuildBuffTable.RowData guildBuffDataByBuffID = XGuildResContentionBuffDocument.Doc.GetGuildBuffDataByBuffID(info.buffID);
@@ -735,7 +683,6 @@ namespace XMainClient
 			ixuilabel3.SetText(info.time.ToString());
 		}
 
-		// Token: 0x0600B01A RID: 45082 RVA: 0x00218DD1 File Offset: 0x00216FD1
 		private void HideBuffTips()
 		{
 			this._pressedGuildID = 0UL;
@@ -743,12 +690,10 @@ namespace XMainClient
 			base.uiBehaviour.m_BuffTipPool.ReturnAll(false);
 		}
 
-		// Token: 0x0600B01B RID: 45083 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public void PlayNewFindAnim()
 		{
 		}
 
-		// Token: 0x0600B01C RID: 45084 RVA: 0x00218DFC File Offset: 0x00216FFC
 		public void RefreshGuildBuffCD()
 		{
 			List<WarResGuildInfo> allGuildInfos = XGuildResContentionBuffDocument.Doc.GetAllGuildInfos();
@@ -786,61 +731,44 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04004355 RID: 17237
 		private XGuildMineMainDocument doc = null;
 
-		// Token: 0x04004356 RID: 17238
 		private GuildBuffOperationHandler _guildBuffHandler;
 
-		// Token: 0x04004357 RID: 17239
 		private GuildMineRankHandler _rankHanler;
 
-		// Token: 0x04004358 RID: 17240
 		private XYuyinView _yuyinHandler;
 
-		// Token: 0x04004359 RID: 17241
 		private Dictionary<ulong, Transform> _guildReviewItemDic = new Dictionary<ulong, Transform>();
 
-		// Token: 0x0400435A RID: 17242
 		private Dictionary<uint, Transform> _guildBuffChildrenDic = new Dictionary<uint, Transform>();
 
-		// Token: 0x0400435B RID: 17243
 		public string[] BossDifficult = XSingleton<XGlobalConfig>.singleton.GetValue("GuildMineBossDifficult").Split(new char[]
 		{
 			'|'
 		});
 
-		// Token: 0x0400435C RID: 17244
 		public string[] BossColor = XSingleton<XGlobalConfig>.singleton.GetValue("GuildMineBossColor").Split(new char[]
 		{
 			'|'
 		});
 
-		// Token: 0x0400435D RID: 17245
 		public int CurSelectMine;
 
-		// Token: 0x0400435E RID: 17246
 		public bool CanPlayNewFindAnim = true;
 
-		// Token: 0x0400435F RID: 17247
 		public float CurActivityLeftTime;
 
-		// Token: 0x04004360 RID: 17248
 		public GuildMineActivityStatus ActivityStatus;
 
-		// Token: 0x04004361 RID: 17249
 		public float CurExploreLeftTime;
 
-		// Token: 0x04004362 RID: 17250
 		public uint ExploreTimeMax;
 
-		// Token: 0x04004363 RID: 17251
 		public List<uint> BossMine = new List<uint>();
 
-		// Token: 0x04004364 RID: 17252
 		public List<uint> BossMineBuff = new List<uint>();
 
-		// Token: 0x04004365 RID: 17253
 		private ulong _pressedGuildID = 0UL;
 	}
 }

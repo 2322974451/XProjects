@@ -6,10 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C51 RID: 3153
+
 	public class MobaKillBehaviour : DlgBehaviourBase
 	{
-		// Token: 0x0600B2E0 RID: 45792 RVA: 0x0022AEC8 File Offset: 0x002290C8
+
 		private void Awake()
 		{
 			this.m_playGroup = (base.transform.GetComponent("XUIPlayTweenGroup") as IXUIPlayTweenGroup);
@@ -31,31 +31,22 @@ namespace XMainClient
 			this.m_MessageLabel = (base.transform.Find("Kill/Message/bg/p").GetComponent("XUILabel") as IXUILabel);
 		}
 
-		// Token: 0x04004516 RID: 17686
 		public Transform[] m_killTypes;
 
-		// Token: 0x04004517 RID: 17687
 		public Transform m_leftHeader;
 
-		// Token: 0x04004518 RID: 17688
 		public Transform m_rightHeader;
 
-		// Token: 0x04004519 RID: 17689
 		public XUIPool m_helpMembers = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x0400451A RID: 17690
 		public Transform m_helpTransform;
 
-		// Token: 0x0400451B RID: 17691
 		public IXUIPlayTweenGroup m_playGroup;
 
-		// Token: 0x0400451C RID: 17692
 		public Transform KillTransform;
 
-		// Token: 0x0400451D RID: 17693
 		public Transform MessageTransform;
 
-		// Token: 0x0400451E RID: 17694
 		public IXUILabel m_MessageLabel;
 	}
 }

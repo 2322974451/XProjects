@@ -2,10 +2,10 @@
 
 namespace Ionic.Zlib
 {
-	// Token: 0x0200002B RID: 43
+
 	internal static class InternalInflateConstants
 	{
-		// Token: 0x0400012B RID: 299
+
 		internal static readonly int[] InflateMask = new int[]
 		{
 			0,

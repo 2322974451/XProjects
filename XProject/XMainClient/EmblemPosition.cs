@@ -2,44 +2,44 @@
 
 namespace XMainClient
 {
-	// Token: 0x02000DDB RID: 3547
+
 	internal enum EmblemPosition
 	{
-		// Token: 0x040050DB RID: 20699
+
 		EMBLEM_START,
-		// Token: 0x040050DC RID: 20700
+
 		EMBLEMI = 0,
-		// Token: 0x040050DD RID: 20701
+
 		EMBLEMII,
-		// Token: 0x040050DE RID: 20702
+
 		EMBLEMIII,
-		// Token: 0x040050DF RID: 20703
+
 		EMBLEMIV,
-		// Token: 0x040050E0 RID: 20704
+
 		EMBLEMV,
-		// Token: 0x040050E1 RID: 20705
+
 		EMBLEMVI,
-		// Token: 0x040050E2 RID: 20706
+
 		EMBLEMVII,
-		// Token: 0x040050E3 RID: 20707
+
 		EMBLEMVIII,
-		// Token: 0x040050E4 RID: 20708
+
 		EMBLEMIX,
-		// Token: 0x040050E5 RID: 20709
+
 		EMBLEMX,
-		// Token: 0x040050E6 RID: 20710
+
 		EMBLEMXI,
-		// Token: 0x040050E7 RID: 20711
+
 		EMBLEMXII,
-		// Token: 0x040050E8 RID: 20712
+
 		EMBLEMXIII,
-		// Token: 0x040050E9 RID: 20713
+
 		EMBLEMIXV,
-		// Token: 0x040050EA RID: 20714
+
 		EMBLEMXV,
-		// Token: 0x040050EB RID: 20715
+
 		EMBLEMXVI,
-		// Token: 0x040050EC RID: 20716
+
 		EMBLEM_END
 	}
 }

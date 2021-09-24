@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000F18 RID: 3864
+
 	internal class XSyncDebug
 	{
-		// Token: 0x0600CCEE RID: 52462 RVA: 0x002F3B84 File Offset: 0x002F1D84
+
 		public static void OnLeaveScene()
 		{
 			bool flag = XSyncDebug._map != null;
@@ -18,7 +18,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CCEF RID: 52463 RVA: 0x002F3BAC File Offset: 0x002F1DAC
 		public static void DrawDebug(ulong id, Vector3 pos, Quaternion face)
 		{
 			XEntity entity = XSingleton<XEntityMgr>.singleton.GetEntity(id);
@@ -48,7 +47,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04005B1E RID: 23326
 		private static Dictionary<ulong, XFx> _map = null;
 	}
 }

@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200181E RID: 6174
+
 	internal class EmblemTotalAttributeView : DlgHandlerBase
 	{
-		// Token: 0x17003918 RID: 14616
-		// (get) Token: 0x0601006B RID: 65643 RVA: 0x003CF098 File Offset: 0x003CD298
+
 		protected override string FileName
 		{
 			get
@@ -19,7 +18,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601006C RID: 65644 RVA: 0x003CF0B0 File Offset: 0x003CD2B0
 		protected override void Init()
 		{
 			base.Init();
@@ -34,20 +32,17 @@ namespace XMainClient.UI
 			this.m_TittlePool.SetupPool(transform.gameObject, this._HadGo.transform.FindChild("TittleItem").gameObject, 2U, false);
 		}
 
-		// Token: 0x0601006D RID: 65645 RVA: 0x003CF1F7 File Offset: 0x003CD3F7
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.FillContent();
 		}
 
-		// Token: 0x0601006E RID: 65646 RVA: 0x0019EF07 File Offset: 0x0019D107
 		public override void OnUnload()
 		{
 			base.OnUnload();
 		}
 
-		// Token: 0x0601006F RID: 65647 RVA: 0x003CF208 File Offset: 0x003CD408
 		private void FillContent()
 		{
 			this._HadGo.SetActive(false);
@@ -63,7 +58,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010070 RID: 65648 RVA: 0x003CF250 File Offset: 0x003CD450
 		private void FillHadContent()
 		{
 			this._HadGo.SetActive(true);
@@ -123,7 +117,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010071 RID: 65649 RVA: 0x003CF618 File Offset: 0x003CD818
 		private void GetData(ref List<ShowAttriData> lst1, ref List<ShowAttriData> lst2, ref List<ShowAttriData> lst3)
 		{
 			List<ShowAttriData> list = this.m_doc.AttriDataList();
@@ -153,7 +146,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010072 RID: 65650 RVA: 0x003CF6BC File Offset: 0x003CD8BC
 		private void FillNoContent()
 		{
 			this._NoGo.SetActive(true);
@@ -167,31 +159,23 @@ namespace XMainClient.UI
 			ixuilabel.SetText(XStringDefineProxy.GetString("EmblemSkillDes"));
 		}
 
-		// Token: 0x06010073 RID: 65651 RVA: 0x001A6C1F File Offset: 0x001A4E1F
 		private void OnClickClosedBtn(IXUISprite spr)
 		{
 			base.SetVisible(false);
 		}
 
-		// Token: 0x040071EE RID: 29166
 		private XEmblemDocument m_doc;
 
-		// Token: 0x040071EF RID: 29167
 		private GameObject _HadGo;
 
-		// Token: 0x040071F0 RID: 29168
 		private GameObject _NoGo;
 
-		// Token: 0x040071F1 RID: 29169
 		public IXUISprite m_closedBtn;
 
-		// Token: 0x040071F2 RID: 29170
 		public XUIPool m_AttriPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x040071F3 RID: 29171
 		public XUIPool m_SkillPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x040071F4 RID: 29172
 		public XUIPool m_TittlePool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 	}
 }

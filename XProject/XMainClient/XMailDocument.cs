@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x0200099D RID: 2461
+
 	internal class XMailDocument : XDocComponent
 	{
-		// Token: 0x17002CD9 RID: 11481
-		// (get) Token: 0x06009406 RID: 37894 RVA: 0x0015BC50 File Offset: 0x00159E50
+
 		public override uint ID
 		{
 			get
@@ -21,7 +20,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009407 RID: 37895 RVA: 0x0015BC68 File Offset: 0x00159E68
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 			bool flag = DlgBase<MailSystemDlg, TabDlgBehaviour>.singleton.IsVisible();
@@ -31,14 +29,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009408 RID: 37896 RVA: 0x0015BC8D File Offset: 0x00159E8D
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
 			this.mails.Clear();
 		}
 
-		// Token: 0x06009409 RID: 37897 RVA: 0x0015BCA4 File Offset: 0x00159EA4
 		public void ReqMailInfo()
 		{
 			RpcC2M_FetchMail rpcC2M_FetchMail = new RpcC2M_FetchMail();
@@ -47,7 +43,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_FetchMail);
 		}
 
-		// Token: 0x0600940A RID: 37898 RVA: 0x0015BCE4 File Offset: 0x00159EE4
 		public void ResMailInfo(FetchMailRes res)
 		{
 			this.currPage = (int)res.page;
@@ -94,7 +89,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600940B RID: 37899 RVA: 0x0015BEBC File Offset: 0x0015A0BC
 		public void ReqMailOP(MailOP type, ulong uid)
 		{
 			this.ReqMailOP(type, new List<ulong>
@@ -103,7 +97,6 @@ namespace XMainClient
 			});
 		}
 
-		// Token: 0x0600940C RID: 37900 RVA: 0x0015BEE4 File Offset: 0x0015A0E4
 		public void ReqMailOP(MailOP type, List<ulong> uid)
 		{
 			RpcC2M_MailOp rpcC2M_MailOp = new RpcC2M_MailOp();
@@ -117,7 +110,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_MailOp);
 		}
 
-		// Token: 0x0600940D RID: 37901 RVA: 0x0015BF7C File Offset: 0x0015A17C
 		private MailItem Find(ulong id)
 		{
 			for (int i = 0; i < this.mails.Count; i++)
@@ -131,7 +123,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x0600940E RID: 37902 RVA: 0x0015BFD4 File Offset: 0x0015A1D4
 		public void ResMailOP(MailOpArg req, MailOpRes res)
 		{
 			bool flag = DlgBase<MailSystemDlg, TabDlgBehaviour>.singleton.IsVisible();
@@ -184,20 +175,17 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600940F RID: 37903 RVA: 0x0015C0EC File Offset: 0x0015A2EC
 		private DateTime UnixDate(uint sp)
 		{
 			DateTime minValue = DateTime.MinValue;
 			return TimeZone.CurrentTimeZone.ToLocalTime(new DateTime(1970, 1, 1)).AddSeconds(sp);
 		}
 
-		// Token: 0x06009410 RID: 37904 RVA: 0x0015C127 File Offset: 0x0015A327
 		private void Sort()
 		{
 			this.mails.Sort(new Comparison<MailItem>(this.SortMethod));
 		}
 
-		// Token: 0x06009411 RID: 37905 RVA: 0x0015C144 File Offset: 0x0015A344
 		private int SortMethod(ulong _x, ulong _y)
 		{
 			MailItem x = this.Find(_x);
@@ -205,7 +193,6 @@ namespace XMainClient
 			return this.SortMethod(x, y);
 		}
 
-		// Token: 0x06009412 RID: 37906 RVA: 0x0015C170 File Offset: 0x0015A370
 		private int SortMethod(MailItem x, MailItem y)
 		{
 			bool flag = x == null || y == null;
@@ -238,20 +225,17 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009413 RID: 37907 RVA: 0x0015C1DE File Offset: 0x0015A3DE
 		public void SetSelect(ulong id)
 		{
 			this.select_mail = id;
 		}
 
-		// Token: 0x06009414 RID: 37908 RVA: 0x0015C1E8 File Offset: 0x0015A3E8
 		public void RefreshContentNil()
 		{
 			this.select_mail = 0UL;
 			DlgBase<MailSystemDlg, TabDlgBehaviour>.singleton._contMailView.Refresh();
 		}
 
-		// Token: 0x06009415 RID: 37909 RVA: 0x0015C204 File Offset: 0x0015A404
 		public bool CtlPage(bool add)
 		{
 			bool flag = !add;
@@ -287,31 +271,26 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009416 RID: 37910 RVA: 0x0015C27C File Offset: 0x0015A47C
 		public string GetPageFormat()
 		{
 			return string.Format("{0}/{1}", this.currPage + 1, Math.Max(1, this.pagesCnt));
 		}
 
-		// Token: 0x06009417 RID: 37911 RVA: 0x0015C2B8 File Offset: 0x0015A4B8
 		public bool ShowMailContent()
 		{
 			return this.select_mail != 0UL && this.Find(this.select_mail) != null;
 		}
 
-		// Token: 0x06009418 RID: 37912 RVA: 0x0015C2E4 File Offset: 0x0015A4E4
 		public MailItem GetMailItem()
 		{
 			return this.Find(this.select_mail);
 		}
 
-		// Token: 0x06009419 RID: 37913 RVA: 0x0015C304 File Offset: 0x0015A504
 		public MailItem GetMailItem(ulong id)
 		{
 			return this.Find(id);
 		}
 
-		// Token: 0x0600941A RID: 37914 RVA: 0x0015C320 File Offset: 0x0015A520
 		public string FormatStringLength(string str, int displayLength)
 		{
 			string result = string.Empty;
@@ -362,25 +341,18 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x040031DD RID: 12765
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("MailDocument");
 
-		// Token: 0x040031DE RID: 12766
 		public List<MailItem> mails = new List<MailItem>();
 
-		// Token: 0x040031DF RID: 12767
 		private int currPage = 0;
 
-		// Token: 0x040031E0 RID: 12768
 		private int pagesCnt = 1;
 
-		// Token: 0x040031E1 RID: 12769
 		public ulong select_mail = 0UL;
 
-		// Token: 0x040031E2 RID: 12770
 		public const int PERCNT = 7;
 
-		// Token: 0x040031E3 RID: 12771
 		public string valit;
 	}
 }

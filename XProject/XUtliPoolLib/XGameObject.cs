@@ -5,10 +5,10 @@ using XUpdater;
 
 namespace XUtliPoolLib
 {
-	// Token: 0x020001F1 RID: 497
+
 	public class XGameObject : XEngineObject
 	{
-		// Token: 0x06000B5D RID: 2909 RVA: 0x0003B04C File Offset: 0x0003924C
+
 		public XGameObject()
 		{
 			this.loadCb = new LoadCallBack(this.LoadFinish);
@@ -31,9 +31,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x170000D2 RID: 210
-		// (get) Token: 0x06000B5E RID: 2910 RVA: 0x0003B1FC File Offset: 0x000393FC
-		// (set) Token: 0x06000B5F RID: 2911 RVA: 0x0003B214 File Offset: 0x00039414
 		public Vector3 Position
 		{
 			get
@@ -47,9 +44,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x170000D3 RID: 211
-		// (get) Token: 0x06000B60 RID: 2912 RVA: 0x0003B228 File Offset: 0x00039428
-		// (set) Token: 0x06000B61 RID: 2913 RVA: 0x0003B260 File Offset: 0x00039460
 		public Vector3 LocalEulerAngles
 		{
 			get
@@ -76,9 +70,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x170000D4 RID: 212
-		// (get) Token: 0x06000B62 RID: 2914 RVA: 0x0003B290 File Offset: 0x00039490
-		// (set) Token: 0x06000B63 RID: 2915 RVA: 0x0003B2A8 File Offset: 0x000394A8
 		public Quaternion Rotation
 		{
 			get
@@ -92,9 +83,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x170000D5 RID: 213
-		// (get) Token: 0x06000B64 RID: 2916 RVA: 0x0003B2BC File Offset: 0x000394BC
-		// (set) Token: 0x06000B65 RID: 2917 RVA: 0x0003B2D4 File Offset: 0x000394D4
 		public Vector3 LocalScale
 		{
 			get
@@ -108,9 +96,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x170000D6 RID: 214
-		// (get) Token: 0x06000B66 RID: 2918 RVA: 0x0003B2E8 File Offset: 0x000394E8
-		// (set) Token: 0x06000B67 RID: 2919 RVA: 0x0003B300 File Offset: 0x00039500
 		public int Layer
 		{
 			get
@@ -124,9 +109,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x170000D7 RID: 215
-		// (get) Token: 0x06000B68 RID: 2920 RVA: 0x0003B314 File Offset: 0x00039514
-		// (set) Token: 0x06000B69 RID: 2921 RVA: 0x0003B32C File Offset: 0x0003952C
 		public float CCStepOffset
 		{
 			get
@@ -140,9 +122,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x170000D8 RID: 216
-		// (get) Token: 0x06000B6A RID: 2922 RVA: 0x0003B340 File Offset: 0x00039540
-		// (set) Token: 0x06000B6B RID: 2923 RVA: 0x0003B358 File Offset: 0x00039558
 		public bool EnableCC
 		{
 			get
@@ -156,9 +135,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x170000D9 RID: 217
-		// (get) Token: 0x06000B6C RID: 2924 RVA: 0x0003B36C File Offset: 0x0003956C
-		// (set) Token: 0x06000B6D RID: 2925 RVA: 0x0003B384 File Offset: 0x00039584
 		public bool EnableBC
 		{
 			get
@@ -172,8 +148,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x170000DA RID: 218
-		// (set) Token: 0x06000B6E RID: 2926 RVA: 0x0003B395 File Offset: 0x00039595
 		public bool UpdateWhenOffscreen
 		{
 			set
@@ -183,9 +157,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x170000DB RID: 219
-		// (get) Token: 0x06000B6F RID: 2927 RVA: 0x0003B3A8 File Offset: 0x000395A8
-		// (set) Token: 0x06000B70 RID: 2928 RVA: 0x0003B3CA File Offset: 0x000395CA
 		public Vector3 Forward
 		{
 			get
@@ -199,9 +170,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x170000DC RID: 220
-		// (get) Token: 0x06000B71 RID: 2929 RVA: 0x0003B3E0 File Offset: 0x000395E0
-		// (set) Token: 0x06000B72 RID: 2930 RVA: 0x0003B402 File Offset: 0x00039602
 		public Vector3 Up
 		{
 			get
@@ -215,9 +183,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x170000DD RID: 221
-		// (get) Token: 0x06000B73 RID: 2931 RVA: 0x0003B420 File Offset: 0x00039620
-		// (set) Token: 0x06000B74 RID: 2932 RVA: 0x0003B442 File Offset: 0x00039642
 		public Vector3 Right
 		{
 			get
@@ -231,9 +196,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x170000DE RID: 222
-		// (get) Token: 0x06000B75 RID: 2933 RVA: 0x0003B460 File Offset: 0x00039660
-		// (set) Token: 0x06000B76 RID: 2934 RVA: 0x0003B478 File Offset: 0x00039678
 		public string Tag
 		{
 			get
@@ -247,8 +209,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x170000DF RID: 223
-		// (get) Token: 0x06000B77 RID: 2935 RVA: 0x0003B48C File Offset: 0x0003968C
 		private Transform Trans
 		{
 			get
@@ -266,8 +226,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x170000E0 RID: 224
-		// (get) Token: 0x06000B78 RID: 2936 RVA: 0x0003B4E4 File Offset: 0x000396E4
 		public XAnimator Ator
 		{
 			get
@@ -276,9 +234,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x170000E1 RID: 225
-		// (get) Token: 0x06000B79 RID: 2937 RVA: 0x0003B4FC File Offset: 0x000396FC
-		// (set) Token: 0x06000B7A RID: 2938 RVA: 0x0003B514 File Offset: 0x00039714
 		public ulong UID
 		{
 			get
@@ -291,9 +246,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x170000E2 RID: 226
-		// (get) Token: 0x06000B7B RID: 2939 RVA: 0x0003B520 File Offset: 0x00039720
-		// (set) Token: 0x06000B7C RID: 2940 RVA: 0x0003B538 File Offset: 0x00039738
 		public string Name
 		{
 			get
@@ -311,8 +263,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x170000E3 RID: 227
-		// (get) Token: 0x06000B7D RID: 2941 RVA: 0x0003B574 File Offset: 0x00039774
 		public bool IsValid
 		{
 			get
@@ -321,8 +271,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x170000E4 RID: 228
-		// (get) Token: 0x06000B7E RID: 2942 RVA: 0x0003B58C File Offset: 0x0003978C
 		public bool IsVisible
 		{
 			get
@@ -332,8 +280,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x170000E5 RID: 229
-		// (get) Token: 0x06000B7F RID: 2943 RVA: 0x0003B5C0 File Offset: 0x000397C0
 		public bool IsNotEmptyObject
 		{
 			get
@@ -342,8 +288,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x170000E6 RID: 230
-		// (get) Token: 0x06000B80 RID: 2944 RVA: 0x0003B5E0 File Offset: 0x000397E0
 		public bool HasSkin
 		{
 			get
@@ -352,8 +296,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x170000E7 RID: 231
-		// (get) Token: 0x06000B81 RID: 2945 RVA: 0x0003B600 File Offset: 0x00039800
 		public SkinnedMeshRenderer SMR
 		{
 			get
@@ -362,8 +304,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x170000E8 RID: 232
-		// (get) Token: 0x06000B82 RID: 2946 RVA: 0x0003B618 File Offset: 0x00039818
 		public bool IsLoaded
 		{
 			get
@@ -372,7 +312,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000B83 RID: 2947 RVA: 0x0003B634 File Offset: 0x00039834
 		public void Reset()
 		{
 			this.m_Position = XResourceLoaderMgr.Far_Far_Away;
@@ -441,7 +380,6 @@ namespace XUtliPoolLib
 			this.m_Valid = false;
 		}
 
-		// Token: 0x06000B84 RID: 2948 RVA: 0x0003B804 File Offset: 0x00039A04
 		public void LoadAsync(string location, bool usePool)
 		{
 			this.loadTask = XSingleton<XResourceLoaderMgr>.singleton.CreateFromPrefabAsync(location, this.loadCb, null, usePool);
@@ -452,14 +390,12 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000B85 RID: 2949 RVA: 0x0003B840 File Offset: 0x00039A40
 		public void Load(string location, bool usePool)
 		{
 			GameObject obj = XSingleton<XResourceLoaderMgr>.singleton.CreateFromAsset<GameObject>(location, ".prefab", usePool, false);
 			this.LoadFinish(obj, null);
 		}
 
-		// Token: 0x06000B86 RID: 2950 RVA: 0x0003B86C File Offset: 0x00039A6C
 		private void LoadFinish(UnityEngine.Object obj, object cbOjb)
 		{
 			this.m_GameObject = (obj as GameObject);
@@ -514,7 +450,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000B87 RID: 2951 RVA: 0x0003B9F4 File Offset: 0x00039BF4
 		private void SetCbFlag(XGameObject.ECallbackCmd cmd, bool add)
 		{
 			int num = XFastEnumIntEqualityComparer<XGameObject.ECallbackCmd>.ToInt(cmd);
@@ -528,14 +463,12 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000B88 RID: 2952 RVA: 0x0003BA34 File Offset: 0x00039C34
 		private bool IsCbFlag(int index)
 		{
 			int num = 1 << index;
 			return (this.m_LoadFinishCbFlag & num) != 0;
 		}
 
-		// Token: 0x06000B89 RID: 2953 RVA: 0x0003BA58 File Offset: 0x00039C58
 		public static int GetGlobalObjID()
 		{
 			XGameObject.globalObjID++;
@@ -547,7 +480,6 @@ namespace XUtliPoolLib
 			return XGameObject.globalObjID;
 		}
 
-		// Token: 0x06000B8A RID: 2954 RVA: 0x0003BA94 File Offset: 0x00039C94
 		public static XGameObject CreateXGameObject(string location, Vector3 position, Quaternion rotation, bool async = true, bool usePool = true)
 		{
 			XGameObject xgameObject = XGameObject.CreateXGameObject(location, async, usePool);
@@ -556,7 +488,6 @@ namespace XUtliPoolLib
 			return xgameObject;
 		}
 
-		// Token: 0x06000B8B RID: 2955 RVA: 0x0003BAC4 File Offset: 0x00039CC4
 		public static XGameObject CreateXGameObject(string location, bool async = true, bool usePool = true)
 		{
 			XGameObject xgameObject = CommonObjectPool<XGameObject>.Get();
@@ -593,7 +524,6 @@ namespace XUtliPoolLib
 			return xgameObject;
 		}
 
-		// Token: 0x06000B8C RID: 2956 RVA: 0x0003BB78 File Offset: 0x00039D78
 		public static XGameObject CloneXGameObject(XGameObject xgo, bool async = true)
 		{
 			XGameObject xgameObject = CommonObjectPool<XGameObject>.Get();
@@ -621,7 +551,6 @@ namespace XUtliPoolLib
 			return xgameObject;
 		}
 
-		// Token: 0x06000B8D RID: 2957 RVA: 0x0003BC0C File Offset: 0x00039E0C
 		public static void DestroyXGameObject(XGameObject gameObject)
 		{
 			bool debug = XEngineCommand.debug;
@@ -637,7 +566,6 @@ namespace XUtliPoolLib
 			CommonObjectPool<XGameObject>.Release(gameObject);
 		}
 
-		// Token: 0x06000B8E RID: 2958 RVA: 0x0003BC60 File Offset: 0x00039E60
 		private static void SyncPosition(XGameObject gameObject)
 		{
 			Transform trans = gameObject.Trans;
@@ -648,7 +576,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000B8F RID: 2959 RVA: 0x0003BC90 File Offset: 0x00039E90
 		private static void SyncRotation(XGameObject gameObject)
 		{
 			Transform trans = gameObject.Trans;
@@ -659,7 +586,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000B90 RID: 2960 RVA: 0x0003BCC0 File Offset: 0x00039EC0
 		private static void SyncScale(XGameObject gameObject)
 		{
 			Transform trans = gameObject.Trans;
@@ -670,7 +596,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000B91 RID: 2961 RVA: 0x0003BCF0 File Offset: 0x00039EF0
 		private static void SyncLayer(XGameObject gameObject)
 		{
 			bool flag = gameObject.m_GameObject != null;
@@ -680,7 +605,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000B92 RID: 2962 RVA: 0x0003BD24 File Offset: 0x00039F24
 		private static void SyncCCOffset(XGameObject gameObject)
 		{
 			bool flag = gameObject.m_ccCache != null;
@@ -695,7 +619,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000B93 RID: 2963 RVA: 0x0003BD88 File Offset: 0x00039F88
 		private static void SyncCCEnable(XGameObject gameObject)
 		{
 			bool flag = gameObject.m_ccCache != null;
@@ -705,7 +628,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000B94 RID: 2964 RVA: 0x0003BDBC File Offset: 0x00039FBC
 		private static void SyncBCEnable(XGameObject gameObject)
 		{
 			bool flag = gameObject.m_bcCache != null;
@@ -715,7 +637,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000B95 RID: 2965 RVA: 0x0003BDF0 File Offset: 0x00039FF0
 		private static void SyncUpdateWhenOffscreen(XGameObject gameObject)
 		{
 			bool flag = gameObject.m_GameObject != null;
@@ -732,7 +653,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000B96 RID: 2966 RVA: 0x0003BE6C File Offset: 0x0003A06C
 		private static void SyncActive(XGameObject gameObject)
 		{
 			bool flag = gameObject.m_GameObject != null;
@@ -758,7 +678,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000B97 RID: 2967 RVA: 0x0003BF40 File Offset: 0x0003A140
 		private static void SyncTag(XGameObject gameObject)
 		{
 			bool flag = gameObject.m_GameObject != null;
@@ -772,7 +691,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000B98 RID: 2968 RVA: 0x0003BF80 File Offset: 0x0003A180
 		public void SyncSetParent(XGameObject parent)
 		{
 			bool flag = parent != null;
@@ -791,7 +709,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000B99 RID: 2969 RVA: 0x0003BFDC File Offset: 0x0003A1DC
 		private static void SyncSetParentTrans(XGameObject gameObject, object obj, int commandID)
 		{
 			bool flag = gameObject.Trans != null;
@@ -801,7 +718,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000B9A RID: 2970 RVA: 0x0003C010 File Offset: 0x0003A210
 		private static void SyncLocalPRS(XGameObject gameObject, object obj, int commandID)
 		{
 			XLocalPRSAsyncData xlocalPRSAsyncData = obj as XLocalPRSAsyncData;
@@ -827,7 +743,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000B9B RID: 2971 RVA: 0x0003C0B0 File Offset: 0x0003A2B0
 		public XAnimator InitAnim()
 		{
 			bool flag = this.m_Ator == null;
@@ -851,7 +766,6 @@ namespace XUtliPoolLib
 			return ator;
 		}
 
-		// Token: 0x06000B9C RID: 2972 RVA: 0x0003C120 File Offset: 0x0003A320
 		private void AppendPositionCommand()
 		{
 			bool isLoaded = this.IsLoaded;
@@ -865,7 +779,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000B9D RID: 2973 RVA: 0x0003C150 File Offset: 0x0003A350
 		private void AppendRotationCommand()
 		{
 			bool isLoaded = this.IsLoaded;
@@ -879,7 +792,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000B9E RID: 2974 RVA: 0x0003C180 File Offset: 0x0003A380
 		private void AppendScaleCommand()
 		{
 			bool isLoaded = this.IsLoaded;
@@ -893,7 +805,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000B9F RID: 2975 RVA: 0x0003C1B0 File Offset: 0x0003A3B0
 		private void AppendLayerCommand()
 		{
 			bool isLoaded = this.IsLoaded;
@@ -907,7 +818,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000BA0 RID: 2976 RVA: 0x0003C1E0 File Offset: 0x0003A3E0
 		private void AppendCCStepOffsetCommand()
 		{
 			bool isLoaded = this.IsLoaded;
@@ -921,7 +831,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000BA1 RID: 2977 RVA: 0x0003C214 File Offset: 0x0003A414
 		private void AppendEnableCCCommand()
 		{
 			bool isLoaded = this.IsLoaded;
@@ -935,7 +844,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000BA2 RID: 2978 RVA: 0x0003C244 File Offset: 0x0003A444
 		private void AppendEnableBCommand()
 		{
 			bool isLoaded = this.IsLoaded;
@@ -949,7 +857,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000BA3 RID: 2979 RVA: 0x0003C274 File Offset: 0x0003A474
 		private void AppendUpdateWhenOffscreen()
 		{
 			bool isLoaded = this.IsLoaded;
@@ -963,7 +870,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000BA4 RID: 2980 RVA: 0x0003C2A4 File Offset: 0x0003A4A4
 		private void AppendTagCommand()
 		{
 			bool isLoaded = this.IsLoaded;
@@ -977,7 +883,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000BA5 RID: 2981 RVA: 0x0003C2D8 File Offset: 0x0003A4D8
 		public bool TestVisibleWithFrustum(Plane[] planes, bool fully)
 		{
 			bool flag = this.m_SkinMeshRenderCache == null;
@@ -1009,7 +914,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000BA6 RID: 2982 RVA: 0x0003C37C File Offset: 0x0003A57C
 		public void CallCommand(CommandCallback cb, object obj, int commandID = -1, bool executeAfterLoad = false)
 		{
 			bool flag = cb != null;
@@ -1046,7 +950,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000BA7 RID: 2983 RVA: 0x0003C43C File Offset: 0x0003A63C
 		public void SetParent(XGameObject parent)
 		{
 			bool flag = this.IsLoaded && (parent == null || parent.IsLoaded);
@@ -1066,7 +969,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000BA8 RID: 2984 RVA: 0x0003C4C0 File Offset: 0x0003A6C0
 		public void SetParentTrans(Transform parent)
 		{
 			bool isLoaded = this.IsLoaded;
@@ -1086,7 +988,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000BA9 RID: 2985 RVA: 0x0003C534 File Offset: 0x0003A734
 		public Transform Find(string name)
 		{
 			bool flag = this.Trans != null && !string.IsNullOrEmpty(name);
@@ -1102,13 +1003,11 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000BAA RID: 2986 RVA: 0x0003C57C File Offset: 0x0003A77C
 		public GameObject Get()
 		{
 			return this.m_GameObject;
 		}
 
-		// Token: 0x06000BAB RID: 2987 RVA: 0x0003C594 File Offset: 0x0003A794
 		public void Rotate(Vector3 axis, float degree)
 		{
 			bool flag = this.Trans != null;
@@ -1118,7 +1017,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000BAC RID: 2988 RVA: 0x0003C5C4 File Offset: 0x0003A7C4
 		public void SetActive(bool enable, string tagFilter = "")
 		{
 			this.m_EnableRender = enable;
@@ -1135,7 +1033,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000BAD RID: 2989 RVA: 0x0003C614 File Offset: 0x0003A814
 		public void SetLocalPRS(Vector3 pos, bool setPos, Quaternion rot, bool setRot, Vector3 scale, bool setScale)
 		{
 			bool isLoaded = this.IsLoaded;
@@ -1191,7 +1088,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000BAE RID: 2990 RVA: 0x0003C75C File Offset: 0x0003A95C
 		public CollisionFlags Move(Vector3 motion)
 		{
 			bool flag = this.m_EnableCC && this.m_ccCache != null;
@@ -1209,7 +1105,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000BAF RID: 2991 RVA: 0x0003C7A4 File Offset: 0x0003A9A4
 		public void SyncPos()
 		{
 			bool flag = this.Trans != null;
@@ -1219,7 +1114,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000BB0 RID: 2992 RVA: 0x0003C7D8 File Offset: 0x0003A9D8
 		public void GetRender(List<Renderer> render)
 		{
 			bool flag = this.m_GameObject != null;
@@ -1229,7 +1123,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000BB1 RID: 2993 RVA: 0x0003C808 File Offset: 0x0003AA08
 		public void SyncPhysicBox(Vector3 center, Vector3 size)
 		{
 			bool flag = this.m_EnableBC && this.m_bcCache != null;
@@ -1240,7 +1133,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000BB2 RID: 2994 RVA: 0x0003C850 File Offset: 0x0003AA50
 		private static void _SetPhysicTransform(XGameObject gameObject, object obj, int commandID)
 		{
 			XGameObject xgameObject = obj as XGameObject;
@@ -1280,13 +1172,11 @@ namespace XUtliPoolLib
 			xgameObject.m_TransformCache = gameObject.Trans;
 		}
 
-		// Token: 0x06000BB3 RID: 2995 RVA: 0x0003C93F File Offset: 0x0003AB3F
 		public void TransformPhysic(XGameObject src)
 		{
 			src.CallCommand(XGameObject._setPhysicTransformCb, this, -1, false);
 		}
 
-		// Token: 0x06000BB4 RID: 2996 RVA: 0x0003C951 File Offset: 0x0003AB51
 		public void ClearTransformPhysic()
 		{
 			this.m_ccCache = null;
@@ -1294,7 +1184,6 @@ namespace XUtliPoolLib
 			this.m_TransformCache = ((this.m_GameObject == null) ? null : this.m_GameObject.transform);
 		}
 
-		// Token: 0x06000BB5 RID: 2997 RVA: 0x0003C984 File Offset: 0x0003AB84
 		private static void _SetRenderLayer(XGameObject gameObject, object obj, int commandID)
 		{
 			bool flag = gameObject != null && gameObject.m_GameObject != null;
@@ -1312,14 +1201,12 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000BB6 RID: 2998 RVA: 0x0003CA0E File Offset: 0x0003AC0E
 		public void SetRenderLayer(int layer)
 		{
 			this.m_Layer = layer;
 			this.CallCommand(XGameObject._setRenderLayerCb, this, -1, false);
 		}
 
-		// Token: 0x06000BB7 RID: 2999 RVA: 0x0003CA28 File Offset: 0x0003AC28
 		public T AddComponent<T>() where T : Component
 		{
 			bool flag = this.m_GameObject != null;
@@ -1341,7 +1228,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000BB8 RID: 3000 RVA: 0x0003CA84 File Offset: 0x0003AC84
 		public Component AddComponent(EComponentType componentType)
 		{
 			bool flag = this.m_GameObject != null;
@@ -1358,7 +1244,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000BB9 RID: 3001 RVA: 0x0003CAC4 File Offset: 0x0003ACC4
 		public void Update()
 		{
 			this.SyncPos();
@@ -1382,130 +1267,95 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x04000592 RID: 1426
 		private bool m_Valid = false;
 
-		// Token: 0x04000593 RID: 1427
 		private Vector3 m_Position = XResourceLoaderMgr.Far_Far_Away;
 
-		// Token: 0x04000594 RID: 1428
 		private Quaternion m_Rotation = Quaternion.identity;
 
-		// Token: 0x04000595 RID: 1429
 		private Vector3 m_Scale = Vector3.one;
 
-		// Token: 0x04000596 RID: 1430
 		private bool m_EnableCC = false;
 
-		// Token: 0x04000597 RID: 1431
 		private bool m_EnableBC = false;
 
-		// Token: 0x04000598 RID: 1432
 		private float m_CCStepOffset = 0f;
 
-		// Token: 0x04000599 RID: 1433
 		private bool m_UpdateWhenOffscreen = false;
 
-		// Token: 0x0400059A RID: 1434
 		private bool m_EnableRender = true;
 
-		// Token: 0x0400059B RID: 1435
 		private string m_TagFilter = "";
 
-		// Token: 0x0400059C RID: 1436
 		private string m_Tag = "Untagged";
 
-		// Token: 0x0400059D RID: 1437
 		private int m_Layer = 0;
 
-		// Token: 0x0400059E RID: 1438
 		private ulong m_UID = 0UL;
 
-		// Token: 0x0400059F RID: 1439
 		private string m_Name = "";
 
-		// Token: 0x040005A0 RID: 1440
 		private Transform m_TransformCache = null;
 
-		// Token: 0x040005A1 RID: 1441
 		private SkinnedMeshRenderer m_SkinMeshRenderCache = null;
 
-		// Token: 0x040005A2 RID: 1442
 		private CharacterController m_ccCache = null;
 
-		// Token: 0x040005A3 RID: 1443
 		private BoxCollider m_bcCache = null;
 
-		// Token: 0x040005A4 RID: 1444
 		public int objID = -1;
 
-		// Token: 0x040005A5 RID: 1445
 		public static int globalObjID = 0;
 
-		// Token: 0x040005A6 RID: 1446
 		public static string EmptyObject = "";
 
-		// Token: 0x040005A7 RID: 1447
 		private XAnimator m_Ator = null;
 
-		// Token: 0x040005A8 RID: 1448
 		private short m_UpdateFrame = 0;
 
-		// Token: 0x040005A9 RID: 1449
 		private LoadAsyncTask loadTask = null;
 
-		// Token: 0x040005AA RID: 1450
 		private LoadCallBack loadCb = null;
 
-		// Token: 0x040005AB RID: 1451
 		private XEngineCommand afterLoadCommand = null;
 
-		// Token: 0x040005AC RID: 1452
 		private short m_LoadStatus = 0;
 
-		// Token: 0x040005AD RID: 1453
 		private int m_LoadFinishCbFlag = 0;
 
-		// Token: 0x040005AE RID: 1454
 		private static CommandCallback SyncSyncSetParentTransCmd = new CommandCallback(XGameObject.SyncSetParentTrans);
 
-		// Token: 0x040005AF RID: 1455
 		private static CommandCallback SyncLocalPRSCmd = new CommandCallback(XGameObject.SyncLocalPRS);
 
-		// Token: 0x040005B0 RID: 1456
 		private static LoadCallback[] loadCallbacks = null;
 
-		// Token: 0x040005B1 RID: 1457
 		private static CommandCallback _setPhysicTransformCb = new CommandCallback(XGameObject._SetPhysicTransform);
 
-		// Token: 0x040005B2 RID: 1458
 		private static CommandCallback _setRenderLayerCb = new CommandCallback(XGameObject._SetRenderLayer);
 
-		// Token: 0x040005B3 RID: 1459
 		public static int delayFrameCount = 100;
 
-		// Token: 0x020003A5 RID: 933
 		private enum ECallbackCmd
 		{
-			// Token: 0x0400104C RID: 4172
+
 			ESyncPosition = 1,
-			// Token: 0x0400104D RID: 4173
+
 			ESyncRotation,
-			// Token: 0x0400104E RID: 4174
+
 			ESyncScale = 4,
-			// Token: 0x0400104F RID: 4175
+
 			ESyncLayer = 8,
-			// Token: 0x04001050 RID: 4176
+
 			ESyncCCEnable = 16,
-			// Token: 0x04001051 RID: 4177
+
 			ESyncBCEnable = 32,
-			// Token: 0x04001052 RID: 4178
+
 			ESyncUpdateWhenOffscreen = 64,
-			// Token: 0x04001053 RID: 4179
+
 			ESyncActive = 128,
-			// Token: 0x04001054 RID: 4180
+
 			ESyncTag = 256,
-			// Token: 0x04001055 RID: 4181
+
 			ESyncCCStepOffset = 512
 		}
 	}

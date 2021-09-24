@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017CD RID: 6093
+
 	internal class HeroAttrDlg : DlgBase<HeroAttrDlg, HeroAttrBehaviour>
 	{
-		// Token: 0x1700389E RID: 14494
-		// (get) Token: 0x0600FC6D RID: 64621 RVA: 0x003AE098 File Offset: 0x003AC298
+
 		public override bool autoload
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700389F RID: 14495
-		// (get) Token: 0x0600FC6E RID: 64622 RVA: 0x003AE0AC File Offset: 0x003AC2AC
 		public override string fileName
 		{
 			get
@@ -31,14 +28,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FC6F RID: 64623 RVA: 0x003AE0C3 File Offset: 0x003AC2C3
 		protected override void Init()
 		{
 			base.Init();
 			this._doc = XDocuments.GetSpecificDocument<XHeroBattleDocument>(XHeroBattleDocument.uuID);
 		}
 
-		// Token: 0x0600FC70 RID: 64624 RVA: 0x003AE0E0 File Offset: 0x003AC2E0
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -50,13 +45,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FC71 RID: 64625 RVA: 0x003AE158 File Offset: 0x003AC358
 		protected override void OnShow()
 		{
 			base.OnShow();
 		}
 
-		// Token: 0x0600FC72 RID: 64626 RVA: 0x003AE164 File Offset: 0x003AC364
 		public void ShowByType(SceneType type, uint heroID)
 		{
 			bool flag = XSingleton<XAttributeMgr>.singleton.XPlayerData == null;
@@ -75,26 +68,22 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FC73 RID: 64627 RVA: 0x003AE1E3 File Offset: 0x003AC3E3
 		protected override void OnHide()
 		{
 			base.OnHide();
 		}
 
-		// Token: 0x0600FC74 RID: 64628 RVA: 0x003AE1ED File Offset: 0x003AC3ED
 		protected override void OnUnload()
 		{
 			base.OnUnload();
 		}
 
-		// Token: 0x0600FC75 RID: 64629 RVA: 0x003AE1F8 File Offset: 0x003AC3F8
 		private bool OnCloseBtnClick(IXUIButton btn)
 		{
 			this.SetVisible(false, true);
 			return true;
 		}
 
-		// Token: 0x0600FC76 RID: 64630 RVA: 0x003AE214 File Offset: 0x003AC414
 		public uint GetHeroID()
 		{
 			bool flag = XSingleton<XEntityMgr>.singleton.Player == null;
@@ -128,7 +117,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FC77 RID: 64631 RVA: 0x003AE2F0 File Offset: 0x003AC4F0
 		private bool OnTabClick(IXUICheckBox icb)
 		{
 			bool flag = !icb.bChecked;
@@ -147,7 +135,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FC78 RID: 64632 RVA: 0x003AE348 File Offset: 0x003AC548
 		private void SetHeroFrameState(bool state)
 		{
 			bool flag = XSingleton<XAttributeMgr>.singleton.XPlayerData == null;
@@ -186,7 +173,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FC79 RID: 64633 RVA: 0x003AE5B0 File Offset: 0x003AC7B0
 		private void SetSkillFrameState(bool state)
 		{
 			base.uiBehaviour.m_SkillFrame.SetActive(state);
@@ -269,7 +255,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FC7A RID: 64634 RVA: 0x003AE9F8 File Offset: 0x003ACBF8
 		private void SetGamePlayState(bool state)
 		{
 			base.uiBehaviour.m_GamePlayFrame.SetActive(state);
@@ -280,10 +265,8 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04006EFB RID: 28411
 		private XHeroBattleDocument _doc;
 
-		// Token: 0x04006EFC RID: 28412
 		private SceneType _type;
 	}
 }

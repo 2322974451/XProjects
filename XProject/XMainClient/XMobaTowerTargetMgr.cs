@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000B1D RID: 2845
+
 	internal class XMobaTowerTargetMgr
 	{
-		// Token: 0x0600A745 RID: 42821 RVA: 0x001D8E24 File Offset: 0x001D7024
+
 		public void Clear()
 		{
 			for (int i = 0; i < this.m_TowerList.Count; i++)
@@ -18,7 +18,6 @@ namespace XMainClient
 			this.m_TowerList.Clear();
 		}
 
-		// Token: 0x0600A746 RID: 42822 RVA: 0x001D8E6C File Offset: 0x001D706C
 		public void TryAddTower(XEntity newEntity)
 		{
 			bool flag = !XEntity.ValideEntity(newEntity);
@@ -59,7 +58,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A747 RID: 42823 RVA: 0x001D8FE4 File Offset: 0x001D71E4
 		public void OnTargetChange(EntityTargetData data)
 		{
 			bool flag = data == null;
@@ -79,7 +77,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A748 RID: 42824 RVA: 0x001D9050 File Offset: 0x001D7250
 		public void Update()
 		{
 			for (int i = 0; i < this.m_TowerList.Count; i++)
@@ -100,7 +97,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04003DBF RID: 15807
 		private List<TowerInfo> m_TowerList = new List<TowerInfo>();
 	}
 }

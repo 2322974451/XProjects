@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x0200091B RID: 2331
+
 	internal class XHeroBattleSkillDocument : XDocComponent
 	{
-		// Token: 0x17002B83 RID: 11139
-		// (get) Token: 0x06008C94 RID: 35988 RVA: 0x00131180 File Offset: 0x0012F380
+
 		public override uint ID
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002B84 RID: 11140
-		// (get) Token: 0x06008C95 RID: 35989 RVA: 0x00131198 File Offset: 0x0012F398
 		private XHeroBattleDocument _heroDoc
 		{
 			get
@@ -36,8 +33,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002B85 RID: 11141
-		// (get) Token: 0x06008C96 RID: 35990 RVA: 0x001311D0 File Offset: 0x0012F3D0
 		public HashSet<uint> WeekFreeList
 		{
 			get
@@ -46,8 +41,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002B86 RID: 11142
-		// (get) Token: 0x06008C97 RID: 35991 RVA: 0x001311E8 File Offset: 0x0012F3E8
 		public HashSet<uint> AlreadyGetList
 		{
 			get
@@ -56,8 +49,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002B87 RID: 11143
-		// (get) Token: 0x06008C98 RID: 35992 RVA: 0x00131200 File Offset: 0x0012F400
 		public HashSet<uint> ExperienceList
 		{
 			get
@@ -66,8 +57,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002B88 RID: 11144
-		// (get) Token: 0x06008C99 RID: 35993 RVA: 0x00131218 File Offset: 0x0012F418
 		public Dictionary<uint, uint> ExperienceTimeDict
 		{
 			get
@@ -76,9 +65,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002B89 RID: 11145
-		// (get) Token: 0x06008C9A RID: 35994 RVA: 0x00131230 File Offset: 0x0012F430
-		// (set) Token: 0x06008C9B RID: 35995 RVA: 0x00131248 File Offset: 0x0012F448
 		public uint CurrentSelect
 		{
 			get
@@ -92,8 +78,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002B8A RID: 11146
-		// (get) Token: 0x06008C9C RID: 35996 RVA: 0x00131274 File Offset: 0x0012F474
 		public uint[] CurrentEntityStatisticsID
 		{
 			get
@@ -102,12 +86,8 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002B8B RID: 11147
-		// (get) Token: 0x06008C9D RID: 35997 RVA: 0x0013128C File Offset: 0x0012F48C
-		// (set) Token: 0x06008C9E RID: 35998 RVA: 0x00131294 File Offset: 0x0012F494
 		public XDummy Dummy { get; set; }
 
-		// Token: 0x06008C9F RID: 35999 RVA: 0x001312A0 File Offset: 0x0012F4A0
 		protected override void EventSubscribe()
 		{
 			base.EventSubscribe();
@@ -116,14 +96,12 @@ namespace XMainClient
 			base.RegisterEvent(XEventDefine.XEvent_ItemNumChanged, new XComponent.XEventHandler(this.OnItemChange));
 		}
 
-		// Token: 0x06008CA0 RID: 36000 RVA: 0x001312F4 File Offset: 0x0012F4F4
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
 			this.IsPreViewShow = false;
 		}
 
-		// Token: 0x06008CA1 RID: 36001 RVA: 0x00131308 File Offset: 0x0012F508
 		public override void OnEnterSceneFinally()
 		{
 			base.OnEnterSceneFinally();
@@ -165,7 +143,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008CA2 RID: 36002 RVA: 0x00131400 File Offset: 0x0012F600
 		public override void OnLeaveScene()
 		{
 			base.OnLeaveScene();
@@ -177,7 +154,6 @@ namespace XMainClient
 			this.AlSelectHero = false;
 		}
 
-		// Token: 0x06008CA3 RID: 36003 RVA: 0x00131450 File Offset: 0x0012F650
 		public void SetHeroHoldStatus(List<uint> weekList, List<uint> haveList, List<uint> experienceList, List<uint> expTimeList)
 		{
 			this._weekFreeList.Clear();
@@ -199,12 +175,10 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008CA4 RID: 36004 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 		}
 
-		// Token: 0x06008CA5 RID: 36005 RVA: 0x0013152C File Offset: 0x0012F72C
 		public void SetHeroBattleCanUseHero(HeroBattleCanUseHeroData data)
 		{
 			bool flag = DlgBase<BattleMain, BattleMainBehaviour>.singleton.IsLoaded() && DlgBase<BattleMain, BattleMainBehaviour>.singleton.m_HeroBattleSkillHandler != null;
@@ -219,13 +193,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008CA6 RID: 36006 RVA: 0x00131593 File Offset: 0x0012F793
 		public void SetUnSelect()
 		{
 			this._currentSelect = this.UNSELECT;
 		}
 
-		// Token: 0x06008CA7 RID: 36007 RVA: 0x001315A4 File Offset: 0x0012F7A4
 		private void CheckWeekFreeDif(List<uint> freeList, List<uint> haveList, List<uint> experienceList)
 		{
 			bool flag = false;
@@ -278,7 +250,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008CA8 RID: 36008 RVA: 0x00131734 File Offset: 0x0012F934
 		public void CreateSkillBlackHouse()
 		{
 			bool flag = this.BlackHouse == null;
@@ -289,7 +260,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008CA9 RID: 36009 RVA: 0x00131778 File Offset: 0x0012F978
 		public void ReplaceDummy(int HandlerType)
 		{
 			this.DelDummy();
@@ -310,7 +280,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008CAA RID: 36010 RVA: 0x0013183C File Offset: 0x0012FA3C
 		public void DelDummy()
 		{
 			bool flag = this.Dummy != null;
@@ -322,7 +291,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008CAB RID: 36011 RVA: 0x00131884 File Offset: 0x0012FA84
 		public void SetSkillPreviewTexture(RenderTexture rt)
 		{
 			this.skillPreView = rt;
@@ -333,7 +301,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008CAC RID: 36012 RVA: 0x001318B8 File Offset: 0x0012FAB8
 		public bool SkillPlayFinished(XEventArgs args)
 		{
 			bool flag = this.m_HeroBattleSkillHandler == null || !this.m_HeroBattleSkillHandler.IsVisible();
@@ -350,7 +317,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008CAD RID: 36013 RVA: 0x001318FC File Offset: 0x0012FAFC
 		public void QueryBuyHero(uint heroID)
 		{
 			RpcC2G_BuyHeroInHeroBattle rpcC2G_BuyHeroInHeroBattle = new RpcC2G_BuyHeroInHeroBattle();
@@ -358,7 +324,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_BuyHeroInHeroBattle);
 		}
 
-		// Token: 0x06008CAE RID: 36014 RVA: 0x0013192C File Offset: 0x0012FB2C
 		public void OnBuyHeroSuccess(uint heroID)
 		{
 			XSingleton<UiUtility>.singleton.ShowSystemTip(XStringDefineProxy.GetString("HeroBattleBuySuccess"), "fece00");
@@ -385,7 +350,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008CAF RID: 36015 RVA: 0x001319F4 File Offset: 0x0012FBF4
 		public void QuerySelectBattleHero()
 		{
 			RpcC2G_SetHeroInHeroBattle rpcC2G_SetHeroInHeroBattle = new RpcC2G_SetHeroInHeroBattle();
@@ -393,7 +357,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_SetHeroInHeroBattle);
 		}
 
-		// Token: 0x06008CB0 RID: 36016 RVA: 0x00131A28 File Offset: 0x0012FC28
 		public void OnSelectHeroSuccess(uint heroID)
 		{
 			OverWatchTable.RowData byHeroID = this._heroDoc.OverWatchReader.GetByHeroID(heroID);
@@ -402,7 +365,6 @@ namespace XMainClient
 			this.SetAlreadySelectHero();
 		}
 
-		// Token: 0x06008CB1 RID: 36017 RVA: 0x00131A8C File Offset: 0x0012FC8C
 		public void SetAlreadySelectHero()
 		{
 			this.AlSelectHero = true;
@@ -413,7 +375,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008CB2 RID: 36018 RVA: 0x00131ABC File Offset: 0x0012FCBC
 		protected bool OnItemChange(XEventArgs args)
 		{
 			XItemNumChangedEventArgs xitemNumChangedEventArgs = args as XItemNumChangedEventArgs;
@@ -425,7 +386,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x06008CB3 RID: 36019 RVA: 0x00131B14 File Offset: 0x0012FD14
 		protected bool OnRemoveItem(XEventArgs args)
 		{
 			XRemoveItemEventArgs xremoveItemEventArgs = args as XRemoveItemEventArgs;
@@ -440,7 +400,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x06008CB4 RID: 36020 RVA: 0x00131B78 File Offset: 0x0012FD78
 		public void QueryUseExperienceTicket()
 		{
 			for (int i = 0; i < XBagDocument.BagDoc.ItemBag.Count; i++)
@@ -454,7 +413,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008CB5 RID: 36021 RVA: 0x00131BE8 File Offset: 0x0012FDE8
 		public void OnUseTicketSuccess(uint itemID)
 		{
 			HeroBattleExperienceHero.RowData byItemID = this._heroDoc.HeroExperienceReader.GetByItemID(itemID);
@@ -479,64 +437,44 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04002D75 RID: 11637
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("HeroBattleSkillDocument");
 
-		// Token: 0x04002D76 RID: 11638
 		private XHeroBattleDocument _valueDoc;
 
-		// Token: 0x04002D77 RID: 11639
 		public HeroBattleSkillHandler m_HeroBattleSkillHandler;
 
-		// Token: 0x04002D78 RID: 11640
 		public HeroBattleTeamHandler _HeroBattleTeamHandler;
 
-		// Token: 0x04002D79 RID: 11641
 		private HashSet<uint> _weekFreeList = new HashSet<uint>();
 
-		// Token: 0x04002D7A RID: 11642
 		private HashSet<uint> _alreadyGetList = new HashSet<uint>();
 
-		// Token: 0x04002D7B RID: 11643
 		private HashSet<uint> _experienceList = new HashSet<uint>();
 
-		// Token: 0x04002D7C RID: 11644
 		private Dictionary<uint, uint> _experienceTimeDict = new Dictionary<uint, uint>();
 
-		// Token: 0x04002D7D RID: 11645
 		public HashSet<uint> TAS = new HashSet<uint>();
 
-		// Token: 0x04002D7E RID: 11646
 		public bool CSSH = false;
 
-		// Token: 0x04002D7F RID: 11647
 		public bool AlSelectHero = false;
 
-		// Token: 0x04002D80 RID: 11648
 		public readonly uint UNSELECT = 100000U;
 
-		// Token: 0x04002D81 RID: 11649
 		private uint _currentSelect;
 
-		// Token: 0x04002D82 RID: 11650
 		private uint[] _currentEntityStatisticsID;
 
-		// Token: 0x04002D83 RID: 11651
 		public bool IsPreViewShow;
 
-		// Token: 0x04002D84 RID: 11652
 		public uint CurrentSelectExperienceTicketID;
 
-		// Token: 0x04002D86 RID: 11654
 		public Camera BlackHouseCamera;
 
-		// Token: 0x04002D87 RID: 11655
 		public GameObject BlackHouse;
 
-		// Token: 0x04002D88 RID: 11656
 		private RenderTexture skillPreView;
 
-		// Token: 0x04002D89 RID: 11657
 		public static bool IsWeekendNestLoad;
 	}
 }

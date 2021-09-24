@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x02000166 RID: 358
+
 	public class SceneTable : CVSReader
 	{
-		// Token: 0x060007F2 RID: 2034 RVA: 0x00028520 File Offset: 0x00026720
+
 		public SceneTable.RowData GetBySceneID(int key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -21,7 +21,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x060007F3 RID: 2035 RVA: 0x00028558 File Offset: 0x00026758
 		private SceneTable.RowData BinarySearchSceneID(int key)
 		{
 			int num = 0;
@@ -80,7 +79,6 @@ namespace XUtliPoolLib
 			return null;
 		}
 
-		// Token: 0x060007F4 RID: 2036 RVA: 0x00028634 File Offset: 0x00026834
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			SceneTable.RowData rowData = new SceneTable.RowData();
@@ -256,7 +254,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x060007F5 RID: 2037 RVA: 0x00028F30 File Offset: 0x00027130
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -270,262 +267,177 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x040003B2 RID: 946
 		public SceneTable.RowData[] Table = null;
 
-		// Token: 0x02000365 RID: 869
 		public class RowData
 		{
-			// Token: 0x04000D9C RID: 3484
+
 			public int id;
 
-			// Token: 0x04000D9D RID: 3485
 			public byte type;
 
-			// Token: 0x04000D9E RID: 3486
 			public string configFile;
 
-			// Token: 0x04000D9F RID: 3487
 			public SeqListRef<float> StartPos;
 
-			// Token: 0x04000DA0 RID: 3488
 			public float[] StartRot;
 
-			// Token: 0x04000DA1 RID: 3489
 			public string sceneFile;
 
-			// Token: 0x04000DA2 RID: 3490
 			public byte syncMode;
 
-			// Token: 0x04000DA3 RID: 3491
 			public string BlockFilePath;
 
-			// Token: 0x04000DA4 RID: 3492
 			public short[] UIPos;
 
-			// Token: 0x04000DA5 RID: 3493
 			public int Exp;
 
-			// Token: 0x04000DA6 RID: 3494
 			public int Money;
 
-			// Token: 0x04000DA7 RID: 3495
 			public short Chapter;
 
-			// Token: 0x04000DA8 RID: 3496
 			public string Comment;
 
-			// Token: 0x04000DA9 RID: 3497
 			public int RecommendPower;
 
-			// Token: 0x04000DAA RID: 3498
 			public byte RequiredLevel;
 
-			// Token: 0x04000DAB RID: 3499
 			public int[] FirstDownDrop;
 
-			// Token: 0x04000DAC RID: 3500
 			public int[] ViewableDropList;
 
-			// Token: 0x04000DAD RID: 3501
 			public SeqListRef<int> FatigueCost;
 
-			// Token: 0x04000DAE RID: 3502
 			public string EndCutScene;
 
-			// Token: 0x04000DAF RID: 3503
 			public float EndCutSceneTime;
 
-			// Token: 0x04000DB0 RID: 3504
 			public SeqListRef<int> WinCondition;
 
-			// Token: 0x04000DB1 RID: 3505
 			public SeqListRef<int> LoseCondition;
 
-			// Token: 0x04000DB2 RID: 3506
 			public short DayLimit;
 
-			// Token: 0x04000DB3 RID: 3507
 			public bool CanDrawBox;
 
-			// Token: 0x04000DB4 RID: 3508
 			public bool HasFlyOut;
 
-			// Token: 0x04000DB5 RID: 3509
 			public uint DayLimitGroupID;
 
-			// Token: 0x04000DB6 RID: 3510
 			public string DynamicScene;
 
-			// Token: 0x04000DB7 RID: 3511
 			public bool CanPause;
 
-			// Token: 0x04000DB8 RID: 3512
 			public short[] OperationSettings;
 
-			// Token: 0x04000DB9 RID: 3513
 			public string BGM;
 
-			// Token: 0x04000DBA RID: 3514
 			public bool ShowUp;
 
-			// Token: 0x04000DBB RID: 3515
 			public SeqListRef<uint> FirstSSS;
 
-			// Token: 0x04000DBC RID: 3516
 			public int[] PreScene;
 
-			// Token: 0x04000DBD RID: 3517
 			public int SceneChest;
 
-			// Token: 0x04000DBE RID: 3518
 			public short[] BoxUIPos;
 
-			// Token: 0x04000DBF RID: 3519
 			public string[] LoadingTips;
 
-			// Token: 0x04000DC0 RID: 3520
 			public string[] LoadingPic;
 
-			// Token: 0x04000DC1 RID: 3521
 			public bool SceneCanNavi;
 
-			// Token: 0x04000DC2 RID: 3522
 			public float HurtCoef;
 
-			// Token: 0x04000DC3 RID: 3523
 			public string MiniMap;
 
-			// Token: 0x04000DC4 RID: 3524
 			public short[] MiniMapSize;
 
-			// Token: 0x04000DC5 RID: 3525
 			public short MiniMapRotation;
 
-			// Token: 0x04000DC6 RID: 3526
 			public short PreTask;
 
-			// Token: 0x04000DC7 RID: 3527
 			public bool SwitchToSelf;
 
-			// Token: 0x04000DC8 RID: 3528
 			public string SceneAI;
 
-			// Token: 0x04000DC9 RID: 3529
 			public bool ShowAutoFight;
 
-			// Token: 0x04000DCA RID: 3530
 			public float GuildExpBounus;
 
-			// Token: 0x04000DCB RID: 3531
 			public string FailText;
 
-			// Token: 0x04000DCC RID: 3532
 			public string RecommendHint;
 
-			// Token: 0x04000DCD RID: 3533
 			public byte TeamInfoDefaultTab;
 
-			// Token: 0x04000DCE RID: 3534
 			public byte CombatType;
 
-			// Token: 0x04000DCF RID: 3535
 			public int SweepNeedPPT;
 
-			// Token: 0x04000DD0 RID: 3536
 			public short ReviveNumb;
 
-			// Token: 0x04000DD1 RID: 3537
 			public SeqListRef<uint> ReviveCost;
 
-			// Token: 0x04000DD2 RID: 3538
 			public bool CanRevive;
 
-			// Token: 0x04000DD3 RID: 3539
 			public short[] TimeCounter;
 
-			// Token: 0x04000DD4 RID: 3540
 			public bool HasComboBuff;
 
-			// Token: 0x04000DD5 RID: 3541
 			public byte AutoReturn;
 
-			// Token: 0x04000DD6 RID: 3542
 			public uint StoryDriver;
 
-			// Token: 0x04000DD7 RID: 3543
 			public SeqListRef<uint> ReviveMoneyCost;
 
-			// Token: 0x04000DD8 RID: 3544
 			public string LeaveSceneTip;
 
-			// Token: 0x04000DD9 RID: 3545
 			public string ReviveBuffTip;
 
-			// Token: 0x04000DDA RID: 3546
 			public bool ShowSkill;
 
-			// Token: 0x04000DDB RID: 3547
 			public string WinConditionTips;
 
-			// Token: 0x04000DDC RID: 3548
 			public float DelayTransfer;
 
-			// Token: 0x04000DDD RID: 3549
 			public SeqRef<uint> DPS;
 
-			// Token: 0x04000DDE RID: 3550
 			public bool IsCanQuit;
 
-			// Token: 0x04000DDF RID: 3551
 			public byte CanVIPRevive;
 
-			// Token: 0x04000DE0 RID: 3552
 			public bool ShowNormalAttack;
 
-			// Token: 0x04000DE1 RID: 3553
 			public bool HideTeamIndicate;
 
-			// Token: 0x04000DE2 RID: 3554
 			public string BattleExplainTips;
 
-			// Token: 0x04000DE3 RID: 3555
 			public byte[] ShieldSight;
 
-			// Token: 0x04000DE4 RID: 3556
 			public string ScenePath;
 
-			// Token: 0x04000DE5 RID: 3557
 			public SeqListRef<int> EnvSet;
 
-			// Token: 0x04000DE6 RID: 3558
 			public float SpecifiedTargetLocatedRange;
 
-			// Token: 0x04000DE7 RID: 3559
 			public float[] StaticMiniMapCenter;
 
-			// Token: 0x04000DE8 RID: 3560
 			public byte VipReviveLimit;
 
-			// Token: 0x04000DE9 RID: 3561
 			public float[] MiniMapOutSize;
 
-			// Token: 0x04000DEA RID: 3562
 			public bool ShowBattleStatistics;
 
-			// Token: 0x04000DEB RID: 3563
 			public SeqRef<uint> PeerBox;
 
-			// Token: 0x04000DEC RID: 3564
 			public SeqRef<uint> SelectBoxTime;
 
-			// Token: 0x04000DED RID: 3565
 			public uint[] SweepTicket;
 
-			// Token: 0x04000DEE RID: 3566
 			public uint CycleLimitTime;
 
-			// Token: 0x04000DEF RID: 3567
 			public SeqListRef<float> AwardRate;
 		}
 	}

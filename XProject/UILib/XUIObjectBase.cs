@@ -1,8 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: XUIObjectBase
-// Assembly: UILib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 98636226-A9CD-4398-A93A-F8649E3E05B4
-// Assembly location: F:\龙之谷\Client\Assets\Lib\UILib.dll
+﻿
 
 using System.Runtime.CompilerServices;
 using UILib;
@@ -77,6 +73,4 @@ public abstract class XUIObjectBase : MonoBehaviour, IXUIObject
 
     private void Start() => this.OnStart();
 
-    //[SpecialName]
-    //GameObject IXUIObject.get_gameObject() => this.gameObject;
 }

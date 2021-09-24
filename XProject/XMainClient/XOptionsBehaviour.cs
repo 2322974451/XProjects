@@ -5,10 +5,10 @@ using XMainClient.UI.UICommon;
 
 namespace XMainClient
 {
-	// Token: 0x02000EFB RID: 3835
+
 	internal class XOptionsBehaviour : DlgBehaviourBase
 	{
-		// Token: 0x0600CB7C RID: 52092 RVA: 0x002E6C8C File Offset: 0x002E4E8C
+
 		private void Awake()
 		{
 			this.m_close = (base.transform.Find("Bg/Close").GetComponent("XUIButton") as IXUIButton);
@@ -109,268 +109,180 @@ namespace XMainClient
 			this.m_PrerogativeBtn = (this.m_UserInfoPanel.FindChild("BottomButtons/PrerogativeBtn").GetComponent("XUIButton") as IXUIButton);
 		}
 
-		// Token: 0x04005A09 RID: 23049
 		public IXUIButton m_close;
 
-		// Token: 0x04005A0A RID: 23050
 		public IXUILabelSymbol m_Account;
 
-		// Token: 0x04005A0B RID: 23051
 		public IXUILabel m_Server;
 
-		// Token: 0x04005A0C RID: 23052
 		public IXUILabel m_UID;
 
-		// Token: 0x04005A0D RID: 23053
 		public IXUILabel m_ExpNum;
 
-		// Token: 0x04005A0E RID: 23054
 		public IXUILabel m_Level;
 
-		// Token: 0x04005A0F RID: 23055
 		public IXUILabel m_AchievementLabel;
 
-		// Token: 0x04005A10 RID: 23056
 		public IXUILabelSymbol m_Designation;
 
-		// Token: 0x04005A11 RID: 23057
 		public IXUILabel m_Identity;
 
-		// Token: 0x04005A12 RID: 23058
 		public IXUILabel m_GuildName;
 
-		// Token: 0x04005A13 RID: 23059
 		public IXUILabel m_SameScreenNum;
 
-		// Token: 0x04005A14 RID: 23060
 		public IXUILabel m_SameScreenMinT;
 
-		// Token: 0x04005A15 RID: 23061
 		public IXUILabel m_SameScreenMaxT;
 
-		// Token: 0x04005A16 RID: 23062
 		public IXUISprite m_GuildIcon;
 
-		// Token: 0x04005A17 RID: 23063
 		public IXUISprite m_Tq;
 
-		// Token: 0x04005A18 RID: 23064
 		public IXUISprite m_MilitaryIcon;
 
-		// Token: 0x04005A19 RID: 23065
 		public IXUILabel m_MilitaryName;
 
-		// Token: 0x04005A1A RID: 23066
 		public IXUIScrollView m_SettingPanelScrollView;
 
-		// Token: 0x04005A1B RID: 23067
 		public IXUISprite m_Portrait;
 
-		// Token: 0x04005A1C RID: 23068
 		public IXUITexture m_PortraitTex;
 
-		// Token: 0x04005A1D RID: 23069
 		public IXUISprite m_Wechat;
 
-		// Token: 0x04005A1E RID: 23070
 		public IXUISprite m_Guest;
 
-		// Token: 0x04005A1F RID: 23071
 		public IXUILabelSymbol m_Title;
 
-		// Token: 0x04005A20 RID: 23072
 		public IXUIButton m_Changename;
 
-		// Token: 0x04005A21 RID: 23073
 		public IXUIButton m_TitleBtn;
 
-		// Token: 0x04005A22 RID: 23074
 		public IXUIButton m_DesignationBtn;
 
-		// Token: 0x04005A23 RID: 23075
 		public IXUIButton m_AchievementBtn;
 
-		// Token: 0x04005A24 RID: 23076
 		public IXUIButton m_VipBtn;
 
-		// Token: 0x04005A25 RID: 23077
 		public IXUIButton m_PersonalCareerBtn;
 
-		// Token: 0x04005A26 RID: 23078
 		public IXUIButton m_SwitchAccount;
 
-		// Token: 0x04005A27 RID: 23079
 		public IXUIButton m_SwitchChar;
 
-		// Token: 0x04005A28 RID: 23080
 		public IXUIButton m_GameSirBtn;
 
-		// Token: 0x04005A29 RID: 23081
 		public IXUIButton m_CustomerService;
 
-		// Token: 0x04005A2A RID: 23082
 		public IXUIButton m_ServiceTerms;
 
-		// Token: 0x04005A2B RID: 23083
 		public IXUIButton m_ServiceAgreement;
 
-		// Token: 0x04005A2C RID: 23084
 		public IXUIButton m_PrivacyTerms;
 
-		// Token: 0x04005A2D RID: 23085
 		public IXUIProgress m_ExpBar;
 
-		// Token: 0x04005A2E RID: 23086
 		public IXUIProgress m_SameScreenBar;
 
-		// Token: 0x04005A2F RID: 23087
 		public IXUICheckBox m_InfoTab;
 
-		// Token: 0x04005A30 RID: 23088
 		public IXUICheckBox m_OptionTab;
 
-		// Token: 0x04005A31 RID: 23089
 		public IXUICheckBox m_PushTab;
 
-		// Token: 0x04005A32 RID: 23090
 		public IXUICheckBox m_CameraTab;
 
-		// Token: 0x04005A33 RID: 23091
 		public IXUICheckBox m_GameSound;
 
-		// Token: 0x04005A34 RID: 23092
 		public IXUIProgress m_SoundBar;
 
-		// Token: 0x04005A35 RID: 23093
 		public IXUICheckBox m_GameMusic;
 
-		// Token: 0x04005A36 RID: 23094
 		public IXUIProgress m_MusicBar;
 
-		// Token: 0x04005A37 RID: 23095
 		public IXUICheckBox m_GameVoice;
 
-		// Token: 0x04005A38 RID: 23096
 		public IXUIProgress m_VoiceBar;
 
-		// Token: 0x04005A39 RID: 23097
 		public IXUICheckBox m_GameVolume;
 
-		// Token: 0x04005A3A RID: 23098
 		public IXUICheckBox m_RadioWifi;
 
-		// Token: 0x04005A3B RID: 23099
 		public IXUICheckBox m_RadioTeam;
 
-		// Token: 0x04005A3C RID: 23100
 		public IXUICheckBox m_RadioPrivate;
 
-		// Token: 0x04005A3D RID: 23101
 		public IXUICheckBox m_RadioPublic;
 
-		// Token: 0x04005A3E RID: 23102
 		public IXUICheckBox m_RadioWorld;
 
-		// Token: 0x04005A3F RID: 23103
 		public IXUICheckBox m_RadioAutoPlay;
 
-		// Token: 0x04005A40 RID: 23104
 		public Transform m_Quality;
 
-		// Token: 0x04005A41 RID: 23105
 		public IXUICheckBox m_SuperHighPress;
 
-		// Token: 0x04005A42 RID: 23106
 		public IXUICheckBox m_HighPress;
 
-		// Token: 0x04005A43 RID: 23107
 		public IXUICheckBox m_MidPress;
 
-		// Token: 0x04005A44 RID: 23108
 		public IXUICheckBox m_LowPress;
 
-		// Token: 0x04005A45 RID: 23109
 		public Transform m_Quality2;
 
-		// Token: 0x04005A46 RID: 23110
 		public IXUICheckBox m_HighPress2;
 
-		// Token: 0x04005A47 RID: 23111
 		public IXUICheckBox m_MidPress2;
 
-		// Token: 0x04005A48 RID: 23112
 		public IXUICheckBox m_LowPress2;
 
-		// Token: 0x04005A49 RID: 23113
 		public IXUICheckBox m_Flowerrain;
 
-		// Token: 0x04005A4A RID: 23114
 		public IXUICheckBox m_Radio;
 
-		// Token: 0x04005A4B RID: 23115
 		public IXUICheckBox m_3DTouch;
 
-		// Token: 0x04005A4C RID: 23116
 		public Transform m_ResolutionPanel;
 
-		// Token: 0x04005A4D RID: 23117
 		public IXUICheckBox m_Smooth;
 
-		// Token: 0x04005A4E RID: 23118
 		public IXUICheckBox m_ResolutionHigh;
 
-		// Token: 0x04005A4F RID: 23119
 		public IXUICheckBox m_ResolutionNormal;
 
-		// Token: 0x04005A50 RID: 23120
 		public IXUICheckBox m_ResolutionLow;
 
-		// Token: 0x04005A51 RID: 23121
 		public IXUIWrapContent m_PushWrapContent;
 
-		// Token: 0x04005A52 RID: 23122
 		public IXUIWrapContent m_PushWrapContent2;
 
-		// Token: 0x04005A53 RID: 23123
 		public Transform m_UserInfoPanel;
 
-		// Token: 0x04005A54 RID: 23124
 		public Transform m_SettingPanel;
 
-		// Token: 0x04005A55 RID: 23125
 		public Transform m_PushPanel;
 
-		// Token: 0x04005A56 RID: 23126
 		public GameObject m_BattlePanel;
 
-		// Token: 0x04005A57 RID: 23127
 		public Transform m_VoicePanel;
 
-		// Token: 0x04005A58 RID: 23128
 		public Transform m_DisplayPanel;
 
-		// Token: 0x04005A59 RID: 23129
 		public Transform m_SameScreenNumPanel;
 
-		// Token: 0x04005A5A RID: 23130
 		public Transform m_BasePanel;
 
-		// Token: 0x04005A5B RID: 23131
 		public IXUIButton m_QQOpenVipBtn;
 
-		// Token: 0x04005A5C RID: 23132
 		public GameObject m_QQVipIcon;
 
-		// Token: 0x04005A5D RID: 23133
 		public GameObject m_QQSVipIcon;
 
-		// Token: 0x04005A5E RID: 23134
 		public IXUISprite m_WXGameCenter;
 
-		// Token: 0x04005A5F RID: 23135
 		public IXUISprite m_QQGameCenter;
 
-		// Token: 0x04005A60 RID: 23136
 		public IXUIButton m_PrerogativeBtn;
 	}
 }

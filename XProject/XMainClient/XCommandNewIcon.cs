@@ -9,24 +9,22 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000DF9 RID: 3577
+
 	internal class XCommandNewIcon : XBaseCommand
 	{
-		// Token: 0x0600C15F RID: 49503 RVA: 0x0029292C File Offset: 0x00290B2C
+
 		public override bool Execute()
 		{
 			base.publicModule();
 			return this._execute(this._cmd.param1, this._cmd.param2);
 		}
 
-		// Token: 0x0600C160 RID: 49504 RVA: 0x00276609 File Offset: 0x00274809
 		public override void OnFinish()
 		{
 			XSingleton<XTutorialMgr>.singleton.Exculsive = false;
 			base.OnFinish();
 		}
 
-		// Token: 0x0600C161 RID: 49505 RVA: 0x00292964 File Offset: 0x00290B64
 		public bool _execute(string param1, string param2)
 		{
 			this.CachedOpenSystem = uint.Parse(param1);
@@ -99,7 +97,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C162 RID: 49506 RVA: 0x00292BC8 File Offset: 0x00290DC8
 		protected string GetSystemIcon(uint sysID)
 		{
 			bool flag = sysID < 10U;
@@ -119,7 +116,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C163 RID: 49507 RVA: 0x00292C48 File Offset: 0x00290E48
 		protected void OnNewIconTweenFinished(IXUITweenTool tween)
 		{
 			XResourceLoaderMgr.SafeDestroy(ref this._newicon, false);
@@ -131,7 +127,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C164 RID: 49508 RVA: 0x00292CA2 File Offset: 0x00290EA2
 		public override void Stop()
 		{
 			XResourceLoaderMgr.SafeDestroy(ref this._newicon, false);
@@ -139,10 +134,8 @@ namespace XMainClient
 			XSingleton<XTutorialMgr>.singleton.Exculsive = false;
 		}
 
-		// Token: 0x04005182 RID: 20866
 		private GameObject _newicon = null;
 
-		// Token: 0x04005183 RID: 20867
 		private uint CachedOpenSystem;
 	}
 }

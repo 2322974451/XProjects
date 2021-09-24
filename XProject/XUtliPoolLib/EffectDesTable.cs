@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x0200022C RID: 556
+
 	public class EffectDesTable : CVSReader
 	{
-		// Token: 0x06000C5F RID: 3167 RVA: 0x00041158 File Offset: 0x0003F358
+
 		public EffectDesTable.RowData GetByEffectID(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -29,7 +29,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000C60 RID: 3168 RVA: 0x000411C4 File Offset: 0x0003F3C4
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			EffectDesTable.RowData rowData = new EffectDesTable.RowData();
@@ -49,7 +48,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x06000C61 RID: 3169 RVA: 0x0004128C File Offset: 0x0003F48C
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -63,28 +61,21 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x0400077A RID: 1914
 		public EffectDesTable.RowData[] Table = null;
 
-		// Token: 0x020003BB RID: 955
 		public class RowData
 		{
-			// Token: 0x040010CB RID: 4299
+
 			public uint EffectID;
 
-			// Token: 0x040010CC RID: 4300
 			public string EffectDes;
 
-			// Token: 0x040010CD RID: 4301
 			public float[] ParamCoefficient;
 
-			// Token: 0x040010CE RID: 4302
 			public string[] ColorDes;
 
-			// Token: 0x040010CF RID: 4303
 			public byte BaseProf;
 
-			// Token: 0x040010D0 RID: 4304
 			public uint EffectType;
 		}
 	}

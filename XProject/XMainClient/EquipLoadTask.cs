@@ -4,23 +4,21 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000FCE RID: 4046
+
 	internal class EquipLoadTask
 	{
-		// Token: 0x0600D22E RID: 53806 RVA: 0x003101CB File Offset: 0x0030E3CB
+
 		public EquipLoadTask(EPartType p)
 		{
 			this.part = p;
 			this.fpi.Reset();
 		}
 
-		// Token: 0x0600D22F RID: 53807 RVA: 0x00310204 File Offset: 0x0030E404
 		public bool IsSamePart(ref FashionPositionInfo newFpi)
 		{
 			return this.fpi.Equals(newFpi) && this.processStatus >= EProcessStatus.EPreProcess;
 		}
 
-		// Token: 0x0600D230 RID: 53808 RVA: 0x00310244 File Offset: 0x0030E444
 		public bool MakePath(ref FashionPositionInfo newFpi, HashSet<string> loadedPath)
 		{
 			this.fpi = newFpi;
@@ -70,7 +68,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600D231 RID: 53809 RVA: 0x00310384 File Offset: 0x0030E584
 		public virtual void Load(XEntity e, int prefessionID, ref FashionPositionInfo newFpi, bool async, HashSet<string> loadedPath)
 		{
 			bool flag = loadedPath != null;
@@ -88,23 +85,18 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D232 RID: 53810 RVA: 0x003103DC File Offset: 0x0030E5DC
 		public virtual void Reset(XEntity e)
 		{
 			this.processStatus = EProcessStatus.ENotProcess;
 			this.location = "";
 		}
 
-		// Token: 0x04005F6D RID: 24429
 		public EPartType part = EPartType.ENum;
 
-		// Token: 0x04005F6E RID: 24430
 		public FashionPositionInfo fpi;
 
-		// Token: 0x04005F6F RID: 24431
 		public EProcessStatus processStatus = EProcessStatus.ENotProcess;
 
-		// Token: 0x04005F70 RID: 24432
 		protected string location = "";
 	}
 }

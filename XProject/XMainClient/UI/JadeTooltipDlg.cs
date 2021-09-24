@@ -5,11 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200190B RID: 6411
+
 	internal class JadeTooltipDlg : TooltipDlg<JadeTooltipDlg, TooltipDlgBehaviour>
 	{
-		// Token: 0x17003ACE RID: 15054
-		// (get) Token: 0x06010C22 RID: 68642 RVA: 0x00433674 File Offset: 0x00431874
+
 		public override string fileName
 		{
 			get
@@ -18,14 +17,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010C23 RID: 68643 RVA: 0x0043368B File Offset: 0x0043188B
 		public void ShowToolTip(XItem mainItem, XItem compareItem, uint slot, bool bShowButtons = true)
 		{
 			this._slot = slot;
 			this.ShowToolTip(mainItem, compareItem, bShowButtons, 0U);
 		}
 
-		// Token: 0x06010C24 RID: 68644 RVA: 0x004336A4 File Offset: 0x004318A4
 		protected override void Init()
 		{
 			base.Init();
@@ -34,7 +31,6 @@ namespace XMainClient.UI
 			this.m_OperateList[0, 2] = new TooltipButtonOperateSell();
 		}
 
-		// Token: 0x06010C25 RID: 68645 RVA: 0x004336F4 File Offset: 0x004318F4
 		protected override void SetupOtherFrame(GameObject goToolTip, XItem mainItem, XItem compareItem, bool bMain)
 		{
 			Transform transform = goToolTip.transform.FindChild("ScrollPanel");
@@ -49,7 +45,6 @@ namespace XMainClient.UI
 			base.SetupOtherFrame(goToolTip, mainItem, compareItem, bMain);
 		}
 
-		// Token: 0x06010C26 RID: 68646 RVA: 0x00433808 File Offset: 0x00431A08
 		protected override void SetupTopFrame(GameObject goToolTip, ItemList.RowData data, bool bMain, XItem instanceData = null, XItem compareData = null)
 		{
 			base.SetupTopFrame(goToolTip, data, bMain, instanceData, compareData);
@@ -60,7 +55,6 @@ namespace XMainClient.UI
 			base._SetTopFrameLabel(goToolTip, 1, XStringDefineProxy.GetString("ToolTipText_Level"), string.Format(XStringDefineProxy.GetString("JADE_LEVEL_LIMIT"), specificDocument.JadeMosaicLevel[(int)(jadeLevel - 1U)].ToString()));
 		}
 
-		// Token: 0x06010C27 RID: 68647 RVA: 0x00433898 File Offset: 0x00431A98
 		protected override int _GetPPT(XItem item, bool bMain, ref string valueText)
 		{
 			bool flag = item == null;
@@ -78,7 +72,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x06010C28 RID: 68648 RVA: 0x004338E0 File Offset: 0x00431AE0
 		protected override void SetupToolTipButtons(GameObject goToolTip, XItem item, bool bMain)
 		{
 			base.SetupToolTipButtons(goToolTip, item, bMain);
@@ -100,7 +93,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04007ABE RID: 31422
 		private uint _slot = 0U;
 	}
 }

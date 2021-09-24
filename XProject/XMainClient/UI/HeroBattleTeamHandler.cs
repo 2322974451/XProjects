@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001799 RID: 6041
+
 	internal class HeroBattleTeamHandler : DlgHandlerBase
 	{
-		// Token: 0x17003850 RID: 14416
-		// (get) Token: 0x0600F976 RID: 63862 RVA: 0x00395A00 File Offset: 0x00393C00
+
 		protected override string FileName
 		{
 			get
@@ -20,7 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F977 RID: 63863 RVA: 0x00395A18 File Offset: 0x00393C18
 		protected override void Init()
 		{
 			base.Init();
@@ -42,20 +40,17 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F978 RID: 63864 RVA: 0x0019EEB0 File Offset: 0x0019D0B0
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 		}
 
-		// Token: 0x0600F979 RID: 63865 RVA: 0x00395B31 File Offset: 0x00393D31
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.Refresh();
 		}
 
-		// Token: 0x0600F97A RID: 63866 RVA: 0x00395B44 File Offset: 0x00393D44
 		public void Refresh()
 		{
 			bool flag = !base.IsVisible();
@@ -104,7 +99,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F97B RID: 63867 RVA: 0x00395D80 File Offset: 0x00393F80
 		public void SetMemberSelect(GameObject go, uint heroID, string name)
 		{
 			GameObject gameObject = go.transform.Find("Bg/UnSelect").gameObject;
@@ -126,35 +120,27 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F97C RID: 63868 RVA: 0x0019EEFD File Offset: 0x0019D0FD
 		protected override void OnHide()
 		{
 			base.OnHide();
 		}
 
-		// Token: 0x0600F97D RID: 63869 RVA: 0x00395E43 File Offset: 0x00394043
 		public override void OnUnload()
 		{
 			this._skillDoc._HeroBattleTeamHandler = null;
 			base.OnUnload();
 		}
 
-		// Token: 0x04006D0B RID: 27915
 		private XHeroBattleDocument _heroDoc = null;
 
-		// Token: 0x04006D0C RID: 27916
 		private XHeroBattleSkillDocument _skillDoc = null;
 
-		// Token: 0x04006D0D RID: 27917
 		private XMobaBattleDocument _mobaDoc = null;
 
-		// Token: 0x04006D0E RID: 27918
 		private XUIPool m_MemberPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006D0F RID: 27919
 		private List<GameObject> _teamList = new List<GameObject>();
 
-		// Token: 0x04006D10 RID: 27920
 		private int _playerNum;
 	}
 }

@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x020009DB RID: 2523
+
 	internal class XSkillTreeDocument : XDocComponent
 	{
-		// Token: 0x17002DE0 RID: 11744
-		// (get) Token: 0x06009998 RID: 39320 RVA: 0x00180920 File Offset: 0x0017EB20
+
 		public override uint ID
 		{
 			get
@@ -21,13 +20,8 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002DE1 RID: 11745
-		// (get) Token: 0x06009999 RID: 39321 RVA: 0x00180937 File Offset: 0x0017EB37
-		// (set) Token: 0x0600999A RID: 39322 RVA: 0x0018093F File Offset: 0x0017EB3F
 		public XDummy Dummy { get; set; }
 
-		// Token: 0x17002DE2 RID: 11746
-		// (get) Token: 0x0600999B RID: 39323 RVA: 0x00180948 File Offset: 0x0017EB48
 		public static int SkillSlotCount
 		{
 			get
@@ -36,33 +30,16 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002DE3 RID: 11747
-		// (get) Token: 0x0600999C RID: 39324 RVA: 0x0018095C File Offset: 0x0017EB5C
-		// (set) Token: 0x0600999D RID: 39325 RVA: 0x00180964 File Offset: 0x0017EB64
 		public XPlayer Player { get; set; }
 
-		// Token: 0x17002DE4 RID: 11748
-		// (get) Token: 0x0600999E RID: 39326 RVA: 0x0018096D File Offset: 0x0017EB6D
-		// (set) Token: 0x0600999F RID: 39327 RVA: 0x00180975 File Offset: 0x0017EB75
 		public uint CurrentSkillID { get; set; }
 
-		// Token: 0x17002DE5 RID: 11749
-		// (get) Token: 0x060099A0 RID: 39328 RVA: 0x0018097E File Offset: 0x0017EB7E
-		// (set) Token: 0x060099A1 RID: 39329 RVA: 0x00180986 File Offset: 0x0017EB86
 		public int TotalSkillPoint { get; set; }
 
-		// Token: 0x17002DE6 RID: 11750
-		// (get) Token: 0x060099A2 RID: 39330 RVA: 0x0018098F File Offset: 0x0017EB8F
-		// (set) Token: 0x060099A3 RID: 39331 RVA: 0x00180997 File Offset: 0x0017EB97
 		public int TotalAwakeSkillPoint { get; set; }
 
-		// Token: 0x17002DE7 RID: 11751
-		// (get) Token: 0x060099A4 RID: 39332 RVA: 0x001809A0 File Offset: 0x0017EBA0
-		// (set) Token: 0x060099A5 RID: 39333 RVA: 0x001809A8 File Offset: 0x0017EBA8
 		public bool RedPoint { get; set; }
 
-		// Token: 0x17002DE8 RID: 11752
-		// (get) Token: 0x060099A6 RID: 39334 RVA: 0x001809B4 File Offset: 0x0017EBB4
 		public bool IsAwakeSkillSlotOpen
 		{
 			get
@@ -71,8 +48,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002DE9 RID: 11753
-		// (get) Token: 0x060099A7 RID: 39335 RVA: 0x001809D8 File Offset: 0x0017EBD8
 		public bool IsSelfAwaked
 		{
 			get
@@ -81,8 +56,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002DEA RID: 11754
-		// (get) Token: 0x060099A8 RID: 39336 RVA: 0x00180A04 File Offset: 0x0017EC04
 		public static int AwakeSkillSlot
 		{
 			get
@@ -91,7 +64,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060099A9 RID: 39337 RVA: 0x00180A1D File Offset: 0x0017EC1D
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
@@ -100,14 +72,12 @@ namespace XMainClient
 			this.GetSkillInfo();
 		}
 
-		// Token: 0x060099AA RID: 39338 RVA: 0x00180A42 File Offset: 0x0017EC42
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			XSkillTreeDocument.AsyncLoader.AddTask("Table/SkillTreeConfig", XSkillTreeDocument._skillTreeConfig, false);
 			XSkillTreeDocument.AsyncLoader.Execute(callback);
 		}
 
-		// Token: 0x060099AB RID: 39339 RVA: 0x00180A68 File Offset: 0x0017EC68
 		protected override void EventSubscribe()
 		{
 			base.EventSubscribe();
@@ -117,7 +87,6 @@ namespace XMainClient
 			base.RegisterEvent(XEventDefine.XEvent_PlayerLevelChange, new XComponent.XEventHandler(this.OnPlayerLevelChange));
 		}
 
-		// Token: 0x060099AC RID: 39340 RVA: 0x00180AD8 File Offset: 0x0017ECD8
 		public override void OnEnterSceneFinally()
 		{
 			base.OnEnterScene();
@@ -132,7 +101,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060099AD RID: 39341 RVA: 0x00180B38 File Offset: 0x0017ED38
 		private void GetSlotUnLockLevel()
 		{
 			string[] array = XSingleton<XGlobalConfig>.singleton.GetValue("SkillSlotUnlockLevel").Split(XGlobalConfig.ListSeparator);
@@ -142,7 +110,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060099AE RID: 39342 RVA: 0x00180B88 File Offset: 0x0017ED88
 		private void GetSkillInfo()
 		{
 			this.TransferLimit.Add(0U);
@@ -155,7 +122,6 @@ namespace XMainClient
 			this.SkillPageOpenLevel = XSingleton<XGlobalConfig>.singleton.GetInt("SkillPageNewOpen");
 		}
 
-		// Token: 0x060099AF RID: 39343 RVA: 0x00180C20 File Offset: 0x0017EE20
 		public uint GetSkillSlotUnLockLevel(int slotid)
 		{
 			bool flag = slotid >= this._slot_unlock_level.Count;
@@ -171,7 +137,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060099B0 RID: 39344 RVA: 0x00180C58 File Offset: 0x0017EE58
 		public SkillTypeEnum GetSkillSlotType(int slotid)
 		{
 			bool flag = (2 <= slotid && 6 >= slotid) || 10 == slotid;
@@ -203,7 +168,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060099B1 RID: 39345 RVA: 0x00180CB0 File Offset: 0x0017EEB0
 		public void SetNewSkillDic()
 		{
 			int num = XFastEnumIntEqualityComparer<RoleType>.ToInt(XSingleton<XAttributeMgr>.singleton.XPlayerData.Profession);
@@ -296,7 +260,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060099B2 RID: 39346 RVA: 0x00181020 File Offset: 0x0017F220
 		public bool CanSkillLevelUp(uint skillID, uint skillLevel, int addLevel = 0)
 		{
 			SkillList.RowData skillConfig = XSingleton<XSkillEffectMgr>.singleton.GetSkillConfig(skillID, 0U);
@@ -323,7 +286,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060099B3 RID: 39347 RVA: 0x001810B0 File Offset: 0x0017F2B0
 		public bool SkillIsEquip(uint skillID)
 		{
 			uint num = skillID;
@@ -344,7 +306,6 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x060099B4 RID: 39348 RVA: 0x00181174 File Offset: 0x0017F374
 		public void SendResetSkill()
 		{
 			RpcC2G_ResetSkill rpcC2G_ResetSkill = new RpcC2G_ResetSkill();
@@ -352,7 +313,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_ResetSkill);
 		}
 
-		// Token: 0x060099B5 RID: 39349 RVA: 0x001811A4 File Offset: 0x0017F3A4
 		public void SendSkillLevelup()
 		{
 			RpcC2G_SkillLevelup rpcC2G_SkillLevelup = new RpcC2G_SkillLevelup();
@@ -360,7 +320,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_SkillLevelup);
 		}
 
-		// Token: 0x060099B6 RID: 39350 RVA: 0x001811D8 File Offset: 0x0017F3D8
 		public void SendResetProf()
 		{
 			RpcC2G_ResetSkill rpcC2G_ResetSkill = new RpcC2G_ResetSkill();
@@ -368,7 +327,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_ResetSkill);
 		}
 
-		// Token: 0x060099B7 RID: 39351 RVA: 0x00181208 File Offset: 0x0017F408
 		public void SendBindSkill(uint skillID, uint slot)
 		{
 			RpcC2G_BindSkill rpcC2G_BindSkill = new RpcC2G_BindSkill();
@@ -377,7 +335,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_BindSkill);
 		}
 
-		// Token: 0x060099B8 RID: 39352 RVA: 0x00181244 File Offset: 0x0017F444
 		public void QuerySwitchSkillPage()
 		{
 			RpcC2G_ChangeSkillSet rpcC2G_ChangeSkillSet = new RpcC2G_ChangeSkillSet();
@@ -385,7 +342,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_ChangeSkillSet);
 		}
 
-		// Token: 0x060099B9 RID: 39353 RVA: 0x00181284 File Offset: 0x0017F484
 		public void OnSwitchSkillPageSuccess(uint index, SkillRecord data)
 		{
 			XSingleton<UiUtility>.singleton.ShowSystemTip(XStringDefineProxy.GetString("SwitchSkillPageSuccess"), "fece00");
@@ -396,7 +352,6 @@ namespace XMainClient
 			this.SkillRefresh(false, true);
 		}
 
-		// Token: 0x060099BA RID: 39354 RVA: 0x00181320 File Offset: 0x0017F520
 		public bool SkillPlayFinished(XEventArgs args)
 		{
 			bool flag = !DlgBase<XSkillTreeView, XSkillTreeBehaviour>.singleton.IsVisible();
@@ -418,7 +373,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060099BB RID: 39355 RVA: 0x00181388 File Offset: 0x0017F588
 		public bool SkillPointChanged(XEventArgs args)
 		{
 			bool flag = XSingleton<XAttributeMgr>.singleton.XPlayerData == null;
@@ -460,7 +414,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060099BC RID: 39356 RVA: 0x0018143C File Offset: 0x0017F63C
 		public bool IsTurnProTaskFinish(XEventArgs args)
 		{
 			bool flag = XSingleton<XGame>.singleton.CurrentStage.Stage != EXStage.Hall;
@@ -512,7 +465,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060099BD RID: 39357 RVA: 0x0018154C File Offset: 0x0017F74C
 		private void AwakeTaskFinish()
 		{
 			XSingleton<XFxMgr>.singleton.CreateAndPlay("Effects/FX_Particle/Roles/Lzg_Ty/Ty_juexing", XSingleton<XEntityMgr>.singleton.Player.EngineObject, Vector3.zero, Vector3.one, 1f, false, 3f, true);
@@ -544,7 +496,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060099BE RID: 39358 RVA: 0x0018165C File Offset: 0x0017F85C
 		public static bool IsAvengerTaskDone(int prof)
 		{
 			XTaskDocument specificDocument = XDocuments.GetSpecificDocument<XTaskDocument>(XTaskDocument.uuID);
@@ -552,7 +503,6 @@ namespace XMainClient
 			return specificDocument.TaskRecord.IsTaskFinished(avengerTaskID);
 		}
 
-		// Token: 0x060099BF RID: 39359 RVA: 0x0018168C File Offset: 0x0017F88C
 		private static uint GetAvengerTaskID(int prof)
 		{
 			List<int> intList = XSingleton<XGlobalConfig>.singleton.GetIntList("AvengerProTaskIds");
@@ -581,14 +531,12 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060099C0 RID: 39360 RVA: 0x00181704 File Offset: 0x0017F904
 		private bool OnPlayerLevelChange(XEventArgs args)
 		{
 			this.RefreshRedPoint();
 			return true;
 		}
 
-		// Token: 0x060099C1 RID: 39361 RVA: 0x00181720 File Offset: 0x0017F920
 		public void SkillRefresh(bool resetTabs = false, bool resetPosition = true)
 		{
 			this.RefreshRedPoint();
@@ -610,7 +558,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060099C2 RID: 39362 RVA: 0x001817A8 File Offset: 0x0017F9A8
 		public void OnSkillLevelUp(uint skillID)
 		{
 			bool flag = !DlgBase<XSkillTreeView, XSkillTreeBehaviour>.singleton.IsVisible();
@@ -632,7 +579,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060099C3 RID: 39363 RVA: 0x00181854 File Offset: 0x0017FA54
 		public int CheckPreSkillLevel(uint skillID)
 		{
 			uint skillOriginalLevel = XSingleton<XAttributeMgr>.singleton.XPlayerData.SkillLevelInfo.GetSkillOriginalLevel(skillID);
@@ -652,7 +598,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060099C4 RID: 39364 RVA: 0x001818C4 File Offset: 0x0017FAC4
 		public bool CheckFx(uint skillID)
 		{
 			uint skillOriginalLevel = XSingleton<XAttributeMgr>.singleton.XPlayerData.SkillLevelInfo.GetSkillOriginalLevel(skillID);
@@ -700,7 +645,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060099C5 RID: 39365 RVA: 0x001819FC File Offset: 0x0017FBFC
 		public bool CheckNew(uint skillID)
 		{
 			uint skillOriginalLevel = XSingleton<XAttributeMgr>.singleton.XPlayerData.SkillLevelInfo.GetSkillOriginalLevel(skillID);
@@ -747,13 +691,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060099C6 RID: 39366 RVA: 0x00181B0C File Offset: 0x0017FD0C
 		public bool CheckLevelUpButton()
 		{
 			return this.CheckLevelUpButton(this.CurrentSkillID);
 		}
 
-		// Token: 0x060099C7 RID: 39367 RVA: 0x00181B2C File Offset: 0x0017FD2C
 		public bool CheckLevelUpButton(uint skillID)
 		{
 			uint skillOriginalLevel = XSingleton<XAttributeMgr>.singleton.XPlayerData.SkillLevelInfo.GetSkillOriginalLevel(skillID);
@@ -793,7 +735,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060099C8 RID: 39368 RVA: 0x00181C4C File Offset: 0x0017FE4C
 		public bool CheckRedPoint(uint skillID)
 		{
 			SkillTreeConfigTable.RowData byLevel = XSkillTreeDocument._skillTreeConfig.GetByLevel(XSingleton<XAttributeMgr>.singleton.XPlayerData.Level);
@@ -869,7 +810,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060099C9 RID: 39369 RVA: 0x00181E54 File Offset: 0x00180054
 		public void RefreshRedPoint()
 		{
 			int num = XFastEnumIntEqualityComparer<RoleType>.ToInt(XSingleton<XAttributeMgr>.singleton.XPlayerData.Profession);
@@ -945,7 +885,6 @@ namespace XMainClient
 			XSingleton<XGameSysMgr>.singleton.RecalculateRedPointState(XSysDefine.XSys_Skill, true);
 		}
 
-		// Token: 0x060099CA RID: 39370 RVA: 0x0018212C File Offset: 0x0018032C
 		public void CalSkillPointTotalCount()
 		{
 			int num = XFastEnumIntEqualityComparer<RoleType>.ToInt(XSingleton<XAttributeMgr>.singleton.XPlayerData.Profession);
@@ -1029,13 +968,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060099CB RID: 39371 RVA: 0x001824DC File Offset: 0x001806DC
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 			this.SkillRefresh(false, true);
 		}
 
-		// Token: 0x060099CC RID: 39372 RVA: 0x001824E8 File Offset: 0x001806E8
 		public void CreateSkillBlackHouse()
 		{
 			bool flag = this.BlackHouse == null;
@@ -1051,7 +988,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060099CD RID: 39373 RVA: 0x00182550 File Offset: 0x00180750
 		private void CreateDummy()
 		{
 			XOutlookData outlook = XSingleton<XAttributeMgr>.singleton.XPlayerData.Outlook;
@@ -1068,7 +1004,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060099CE RID: 39374 RVA: 0x00182604 File Offset: 0x00180804
 		public void DelDummy()
 		{
 			bool flag = this.Dummy != null;
@@ -1079,7 +1014,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060099CF RID: 39375 RVA: 0x00182644 File Offset: 0x00180844
 		public void SetSkillPreviewTexture(RenderTexture rt)
 		{
 			this.skillPreView = rt;
@@ -1090,7 +1024,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060099D0 RID: 39376 RVA: 0x00182678 File Offset: 0x00180878
 		public void CreateAndPlayFxFxFirework()
 		{
 			bool flag = DlgBase<XSkillTreeView, XSkillTreeBehaviour>.singleton.IsVisible();
@@ -1100,13 +1033,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060099D1 RID: 39377 RVA: 0x001826A0 File Offset: 0x001808A0
 		public bool IsExSkill(SkillList.RowData data)
 		{
 			return XSingleton<XSkillEffectMgr>.singleton.GetPreSkill(XSingleton<XCommon>.singleton.XHash(data.SkillScript), 0U) > 0U;
 		}
 
-		// Token: 0x060099D2 RID: 39378 RVA: 0x001826D0 File Offset: 0x001808D0
 		public bool isTutorialNeed(int promote, int index)
 		{
 			int[] array = new int[]
@@ -1132,7 +1063,6 @@ namespace XMainClient
 			return XSingleton<XAttributeMgr>.singleton.XPlayerData.SkillLevelInfo.GetSkillOriginalLevel(list[index - 1].skillID) == 0U;
 		}
 
-		// Token: 0x060099D3 RID: 39379 RVA: 0x001827C4 File Offset: 0x001809C4
 		private int Compare(SkillTreeSortItem x, SkillTreeSortItem y)
 		{
 			bool flag = x.skillID == y.skillID;
@@ -1156,7 +1086,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060099D4 RID: 39380 RVA: 0x00182820 File Offset: 0x00180A20
 		public static string GetSkillAttrStr(int element)
 		{
 			string @string;
@@ -1184,7 +1113,6 @@ namespace XMainClient
 			return @string;
 		}
 
-		// Token: 0x060099D5 RID: 39381 RVA: 0x0018289C File Offset: 0x00180A9C
 		public bool IsEquipThisSkill(List<string> skillNames)
 		{
 			for (int i = 0; i < skillNames.Count; i++)
@@ -1207,7 +1135,6 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x060099D6 RID: 39382 RVA: 0x00182910 File Offset: 0x00180B10
 		public void ShowEmblemTips(List<int> hashList)
 		{
 			bool flag = hashList.Count == 0;
@@ -1232,7 +1159,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060099D7 RID: 39383 RVA: 0x001829A0 File Offset: 0x00180BA0
 		public void ShowEmblemTips(ulong skillHash, int slot)
 		{
 			bool flag = skillHash == 0UL;
@@ -1282,7 +1208,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060099D8 RID: 39384 RVA: 0x00182A80 File Offset: 0x00180C80
 		public void ShowTips(List<SkillEmblem.RowData> skillRow, bool isUp)
 		{
 			bool flag = skillRow.Count == 0;
@@ -1308,7 +1233,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060099D9 RID: 39385 RVA: 0x00182B58 File Offset: 0x00180D58
 		private bool IsEquipThisSkill(uint skillHash)
 		{
 			bool flag = this.IsPassiveSkill(skillHash);
@@ -1336,53 +1260,38 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060099DA RID: 39386 RVA: 0x00182BFC File Offset: 0x00180DFC
 		public bool IsPassiveSkill(uint skillHash)
 		{
 			SkillList.RowData skillConfig = XSingleton<XSkillEffectMgr>.singleton.GetSkillConfig(skillHash, 0U);
 			return skillConfig != null && skillConfig.SkillType == 5;
 		}
 
-		// Token: 0x040034C4 RID: 13508
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("SkillTreeDocument");
 
-		// Token: 0x040034C5 RID: 13509
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x040034C6 RID: 13510
 		private static SkillTreeConfigTable _skillTreeConfig = new SkillTreeConfigTable();
 
-		// Token: 0x040034C8 RID: 13512
 		public Camera BlackHouseCamera;
 
-		// Token: 0x040034C9 RID: 13513
 		public GameObject BlackHouse;
 
-		// Token: 0x040034CC RID: 13516
 		public readonly uint UNSELECT = 0U;
 
-		// Token: 0x040034D0 RID: 13520
 		public Dictionary<uint, bool> NewSkillDic = new Dictionary<uint, bool>();
 
-		// Token: 0x040034D1 RID: 13521
 		private List<uint> _slot_unlock_level = new List<uint>();
 
-		// Token: 0x040034D2 RID: 13522
 		public List<uint> TransferLimit = new List<uint>();
 
-		// Token: 0x040034D3 RID: 13523
 		public readonly int TRANSFERNUM = 4;
 
-		// Token: 0x040034D4 RID: 13524
 		private RenderTexture skillPreView;
 
-		// Token: 0x040034D5 RID: 13525
 		public List<int> TurnProTaskIDList = new List<int>();
 
-		// Token: 0x040034D6 RID: 13526
 		public List<int> NpcID = new List<int>();
 
-		// Token: 0x040034D7 RID: 13527
 		public int SkillPageOpenLevel;
 	}
 }

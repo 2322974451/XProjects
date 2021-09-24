@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200180E RID: 6158
+
 	internal class SpriteFightFrame : DlgHandlerBase
 	{
-		// Token: 0x170038FC RID: 14588
-		// (get) Token: 0x0600FF71 RID: 65393 RVA: 0x003C5934 File Offset: 0x003C3B34
+
 		protected override string FileName
 		{
 			get
@@ -19,7 +18,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FF72 RID: 65394 RVA: 0x003C594C File Offset: 0x003C3B4C
 		protected override void Init()
 		{
 			base.Init();
@@ -36,7 +34,6 @@ namespace XMainClient.UI
 			DlgHandlerBase.EnsureCreate<SpriteSelectHandler>(ref this._SpriteSelectHandler, base.PanelObject.transform.Find("SelectHandlerParent"), false, this);
 		}
 
-		// Token: 0x0600FF73 RID: 65395 RVA: 0x003C5A34 File Offset: 0x003C3C34
 		public void RefreshPosition()
 		{
 			for (int i = 0; i < 4; i++)
@@ -60,14 +57,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FF74 RID: 65396 RVA: 0x003C5B63 File Offset: 0x003C3D63
 		public override void OnUnload()
 		{
 			DlgHandlerBase.EnsureUnload<SpriteSelectHandler>(ref this._SpriteSelectHandler);
 			base.OnUnload();
 		}
 
-		// Token: 0x0600FF75 RID: 65397 RVA: 0x003C5B79 File Offset: 0x003C3D79
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -76,7 +71,6 @@ namespace XMainClient.UI
 			this.RefreshFightList();
 		}
 
-		// Token: 0x0600FF76 RID: 65398 RVA: 0x003C5B9F File Offset: 0x003C3D9F
 		protected override void OnHide()
 		{
 			this._SpriteSelectHandler.SetVisible(false);
@@ -84,7 +78,6 @@ namespace XMainClient.UI
 			base.OnHide();
 		}
 
-		// Token: 0x0600FF77 RID: 65399 RVA: 0x003C5BC0 File Offset: 0x003C3DC0
 		private void SetSpriteAvatarHandlerVisible(bool visible)
 		{
 			for (int i = 0; i < this._SpriteAvatarHandler.Length; i++)
@@ -97,7 +90,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FF78 RID: 65400 RVA: 0x003C5C08 File Offset: 0x003C3E08
 		public void RefreshFightList()
 		{
 			bool flag = this._doc.FightingList[0] == 0UL;
@@ -156,7 +148,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FF79 RID: 65401 RVA: 0x003C5E54 File Offset: 0x003C4054
 		public void SetAvatar()
 		{
 			bool flag = this._doc.MaxFightNum == 0U;
@@ -175,7 +166,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FF7A RID: 65402 RVA: 0x003C5ECC File Offset: 0x003C40CC
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
@@ -186,13 +176,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FF7B RID: 65403 RVA: 0x003C5EF2 File Offset: 0x003C40F2
 		public void OnRightListClick(IXUISprite iSp)
 		{
 			this._doc.QueryFightOut(this._doc.FightingList[(int)iSp.ID]);
 		}
 
-		// Token: 0x0600FF7C RID: 65404 RVA: 0x003C5F18 File Offset: 0x003C4118
 		public void OnLeftListClick(IXUISprite iSp)
 		{
 			ulong uid = this._doc.SpriteList[(int)iSp.ID].uid;
@@ -207,7 +195,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FF7D RID: 65405 RVA: 0x003C5F70 File Offset: 0x003C4170
 		private void OnSwapTeamLeaderClick(IXUISprite iSp)
 		{
 			int index = (int)iSp.ID;
@@ -218,22 +205,16 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04007116 RID: 28950
 		private XSpriteSystemDocument _doc;
 
-		// Token: 0x04007117 RID: 28951
 		public SpriteSelectHandler _SpriteSelectHandler;
 
-		// Token: 0x04007118 RID: 28952
 		public XSpriteAvatarHandler[] _SpriteAvatarHandler = new XSpriteAvatarHandler[4];
 
-		// Token: 0x04007119 RID: 28953
 		private IXUISprite[] _IXUISpriteList = new IXUISprite[4];
 
-		// Token: 0x0400711A RID: 28954
 		private IXUILabel m_Tips;
 
-		// Token: 0x0400711B RID: 28955
 		private List<IXUISprite> m_SetLeaderBtnList = new List<IXUISprite>();
 	}
 }

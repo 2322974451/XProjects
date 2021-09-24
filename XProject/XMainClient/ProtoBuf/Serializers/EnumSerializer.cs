@@ -3,10 +3,10 @@ using XUtliPoolLib;
 
 namespace ProtoBuf.Serializers
 {
-	// Token: 0x02000864 RID: 2148
+
 	internal sealed class EnumSerializer : IProtoSerializer
 	{
-		// Token: 0x06008393 RID: 33683 RVA: 0x000FF8F0 File Offset: 0x000FDAF0
+
 		public EnumSerializer(Type enumType, EnumSerializer.EnumPair[] map)
 		{
 			bool flag = enumType == null;
@@ -38,7 +38,6 @@ namespace ProtoBuf.Serializers
 			}
 		}
 
-		// Token: 0x06008394 RID: 33684 RVA: 0x000FFA34 File Offset: 0x000FDC34
 		private ProtoTypeCode GetTypeCode()
 		{
 			Type underlyingType = Helpers.GetUnderlyingType(this.enumType);
@@ -50,8 +49,6 @@ namespace ProtoBuf.Serializers
 			return Helpers.GetTypeCode(underlyingType);
 		}
 
-		// Token: 0x17002986 RID: 10630
-		// (get) Token: 0x06008395 RID: 33685 RVA: 0x000FFA68 File Offset: 0x000FDC68
 		public Type ExpectedType
 		{
 			get
@@ -60,8 +57,6 @@ namespace ProtoBuf.Serializers
 			}
 		}
 
-		// Token: 0x17002987 RID: 10631
-		// (get) Token: 0x06008396 RID: 33686 RVA: 0x000FFA80 File Offset: 0x000FDC80
 		bool IProtoSerializer.RequiresOldValue
 		{
 			get
@@ -70,8 +65,6 @@ namespace ProtoBuf.Serializers
 			}
 		}
 
-		// Token: 0x17002988 RID: 10632
-		// (get) Token: 0x06008397 RID: 33687 RVA: 0x000FFA94 File Offset: 0x000FDC94
 		bool IProtoSerializer.ReturnsValue
 		{
 			get
@@ -80,7 +73,6 @@ namespace ProtoBuf.Serializers
 			}
 		}
 
-		// Token: 0x06008398 RID: 33688 RVA: 0x000FFAA8 File Offset: 0x000FDCA8
 		private int EnumToWire(object value)
 		{
 			int result;
@@ -116,7 +108,6 @@ namespace ProtoBuf.Serializers
 			return result;
 		}
 
-		// Token: 0x06008399 RID: 33689 RVA: 0x000FFB3C File Offset: 0x000FDD3C
 		private object WireToEnum(int value)
 		{
 			object result;
@@ -152,7 +143,6 @@ namespace ProtoBuf.Serializers
 			return result;
 		}
 
-		// Token: 0x0600839A RID: 33690 RVA: 0x000FFC04 File Offset: 0x000FDE04
 		public object Read(object value, ProtoReader source)
 		{
 			Helpers.DebugAssert(value == null);
@@ -179,7 +169,6 @@ namespace ProtoBuf.Serializers
 			return result;
 		}
 
-		// Token: 0x0600839B RID: 33691 RVA: 0x000FFCCC File Offset: 0x000FDECC
 		public void Write(object value, ProtoWriter dest)
 		{
 			bool flag = this.map == null;
@@ -203,16 +192,13 @@ namespace ProtoBuf.Serializers
 			}
 		}
 
-		// Token: 0x040028E3 RID: 10467
 		private readonly Type enumType;
 
-		// Token: 0x040028E4 RID: 10468
 		private readonly EnumSerializer.EnumPair[] map;
 
-		// Token: 0x02001941 RID: 6465
 		public struct EnumPair
 		{
-			// Token: 0x06010FAF RID: 69551 RVA: 0x00452333 File Offset: 0x00450533
+
 			public EnumPair(int wireValue, object raw, Type type)
 			{
 				this.WireValue = wireValue;
@@ -220,13 +206,10 @@ namespace ProtoBuf.Serializers
 				this.TypedValue = (Enum)Enum.ToObject(type, raw);
 			}
 
-			// Token: 0x04007D62 RID: 32098
 			public readonly object RawValue;
 
-			// Token: 0x04007D63 RID: 32099
 			public readonly Enum TypedValue;
 
-			// Token: 0x04007D64 RID: 32100
 			public readonly int WireValue;
 		}
 	}

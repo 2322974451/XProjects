@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace XUtliPoolLib
 {
-	// Token: 0x020001B7 RID: 439
+
 	public class XRedpointMgr : XRedpointForbidMgr, IXRedpointMgr, IXRedpointRelationMgr, IXRedpointForbidMgr
 	{
-		// Token: 0x060009DA RID: 2522 RVA: 0x00033870 File Offset: 0x00031A70
+
 		public void AddSysRedpointUI(int sys, GameObject go, SetRedpointUIHandler callback = null)
 		{
 			bool flag = null == go;
@@ -34,7 +34,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x060009DB RID: 2523 RVA: 0x00033900 File Offset: 0x00031B00
 		public void RemoveSysRedpointUI(int sys, GameObject go)
 		{
 			bool flag = null == go;
@@ -49,19 +48,16 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x060009DC RID: 2524 RVA: 0x0003393B File Offset: 0x00031B3B
 		public void RemoveAllSysRedpointsUI(int sys)
 		{
 			this.mSysGameObjectListDic.Remove(sys);
 		}
 
-		// Token: 0x060009DD RID: 2525 RVA: 0x0003394B File Offset: 0x00031B4B
 		public void ClearAllSysRedpointsUI()
 		{
 			this.mSysGameObjectListDic.Clear();
 		}
 
-		// Token: 0x060009DE RID: 2526 RVA: 0x0003395C File Offset: 0x00031B5C
 		public void SetSysRedpointState(int sys, bool redpoint, bool immediately = false)
 		{
 			bool flag = true;
@@ -87,7 +83,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x060009DF RID: 2527 RVA: 0x000339C8 File Offset: 0x00031BC8
 		public override void RefreshAllSysRedpoints()
 		{
 			foreach (int sys in this.mDirtySysList)
@@ -97,7 +92,6 @@ namespace XUtliPoolLib
 			this.mDirtySysList.Clear();
 		}
 
-		// Token: 0x060009E0 RID: 2528 RVA: 0x00033A34 File Offset: 0x00031C34
 		public override void RecalculateRedPointSelfState(int sys, bool bImmUpdateUI = true)
 		{
 			bool flag = false;
@@ -127,7 +121,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x060009E1 RID: 2529 RVA: 0x00033AD0 File Offset: 0x00031CD0
 		protected void _RecalculateRedPointParentStates(int child, bool bImmUpdateUI = true)
 		{
 			bool flag = base._GetSysRedpointState(child);
@@ -148,7 +141,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x060009E2 RID: 2530 RVA: 0x00033B34 File Offset: 0x00031D34
 		protected override void _RefreshSysRedpointUI(int sys, bool redpoint)
 		{
 			bool flag = redpoint;
@@ -182,7 +174,6 @@ namespace XUtliPoolLib
 			this.mDirtySysList.Remove(sys);
 		}
 
-		// Token: 0x060009E3 RID: 2531 RVA: 0x00033BFC File Offset: 0x00031DFC
 		protected bool _InsertObject(ref XRedpointMgr.stRedpointGameObject[] array, GameObject go, SetRedpointUIHandler callback)
 		{
 			for (int i = 0; i < array.Length; i++)
@@ -203,7 +194,6 @@ namespace XUtliPoolLib
 			return true;
 		}
 
-		// Token: 0x060009E4 RID: 2532 RVA: 0x00033CB0 File Offset: 0x00031EB0
 		protected void _DeleteObject(ref XRedpointMgr.stRedpointGameObject[] array, GameObject parent)
 		{
 			for (int i = 0; i < array.Length; i++)
@@ -231,19 +221,15 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x040004AC RID: 1196
 		protected Dictionary<int, XRedpointMgr.stRedpointGameObject[]> mSysGameObjectListDic = new Dictionary<int, XRedpointMgr.stRedpointGameObject[]>();
 
-		// Token: 0x02000396 RID: 918
 		protected struct stRedpointGameObject
 		{
-			// Token: 0x04000FE1 RID: 4065
+
 			public static readonly XRedpointMgr.stRedpointGameObject Empty;
 
-			// Token: 0x04000FE2 RID: 4066
 			public GameObject go;
 
-			// Token: 0x04000FE3 RID: 4067
 			public SetRedpointUIHandler callback;
 		}
 	}

@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x0200011D RID: 285
+
 	public class IBShop : CVSReader
 	{
-		// Token: 0x060006E4 RID: 1764 RVA: 0x00021EDC File Offset: 0x000200DC
+
 		public IBShop.RowData GetByid(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -21,7 +21,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x060006E5 RID: 1765 RVA: 0x00021F14 File Offset: 0x00020114
 		private IBShop.RowData BinarySearchid(uint key)
 		{
 			int num = 0;
@@ -80,7 +79,6 @@ namespace XUtliPoolLib
 			return null;
 		}
 
-		// Token: 0x060006E6 RID: 1766 RVA: 0x00021FF0 File Offset: 0x000201F0
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			IBShop.RowData rowData = new IBShop.RowData();
@@ -120,7 +118,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x060006E7 RID: 1767 RVA: 0x000221C4 File Offset: 0x000203C4
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -134,58 +131,41 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x04000369 RID: 873
 		public IBShop.RowData[] Table = null;
 
-		// Token: 0x0200031C RID: 796
 		public class RowData
 		{
-			// Token: 0x04000BCC RID: 3020
+
 			public uint id;
 
-			// Token: 0x04000BCD RID: 3021
 			public uint type;
 
-			// Token: 0x04000BCE RID: 3022
 			public uint itemid;
 
-			// Token: 0x04000BCF RID: 3023
 			public uint discount;
 
-			// Token: 0x04000BD0 RID: 3024
 			public uint viplevel;
 
-			// Token: 0x04000BD1 RID: 3025
 			public bool bind;
 
-			// Token: 0x04000BD2 RID: 3026
 			public uint levelbuy;
 
-			// Token: 0x04000BD3 RID: 3027
 			public uint buycount;
 
-			// Token: 0x04000BD4 RID: 3028
 			public uint refreshtype;
 
-			// Token: 0x04000BD5 RID: 3029
 			public uint currencytype;
 
-			// Token: 0x04000BD6 RID: 3030
 			public uint currencycount;
 
-			// Token: 0x04000BD7 RID: 3031
 			public uint newproduct;
 
-			// Token: 0x04000BD8 RID: 3032
 			public int sortid;
 
-			// Token: 0x04000BD9 RID: 3033
 			public uint rmb;
 
-			// Token: 0x04000BDA RID: 3034
 			public string goodsid;
 
-			// Token: 0x04000BDB RID: 3035
 			public bool fashion;
 		}
 	}

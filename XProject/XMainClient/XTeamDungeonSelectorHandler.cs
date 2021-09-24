@@ -7,10 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000E67 RID: 3687
+
 	internal class XTeamDungeonSelectorHandler : DlgHandlerBase
 	{
-		// Token: 0x0600C594 RID: 50580 RVA: 0x002BA120 File Offset: 0x002B8320
+
 		protected override void Init()
 		{
 			base.Init();
@@ -26,7 +26,6 @@ namespace XMainClient
 			this._TeamDoc.DungeonSelector = this;
 		}
 
-		// Token: 0x0600C595 RID: 50581 RVA: 0x002BA27D File Offset: 0x002B847D
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -34,7 +33,6 @@ namespace XMainClient
 			this.m_BtnDungeonSelector.RegisterClickEventHandler(new ButtonClickEventHandler(this._OnDungeonSelectorClick));
 		}
 
-		// Token: 0x0600C596 RID: 50582 RVA: 0x002BA2B8 File Offset: 0x002B84B8
 		protected override void _DelayInit()
 		{
 			base._DelayInit();
@@ -44,28 +42,24 @@ namespace XMainClient
 			this.m_CategoryPool.SetupPool(transform.parent.gameObject, transform.gameObject, 2U, false);
 		}
 
-		// Token: 0x0600C597 RID: 50583 RVA: 0x002BA341 File Offset: 0x002B8541
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.SetCurrentDungeon(true);
 		}
 
-		// Token: 0x0600C598 RID: 50584 RVA: 0x002BA353 File Offset: 0x002B8553
 		public override void RefreshData()
 		{
 			base.RefreshData();
 			this.SetCurrentDungeon(false);
 		}
 
-		// Token: 0x0600C599 RID: 50585 RVA: 0x002BA365 File Offset: 0x002B8565
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
 			this.SetCurrentDungeon(false);
 		}
 
-		// Token: 0x0600C59A RID: 50586 RVA: 0x002BA378 File Offset: 0x002B8578
 		public void ToggleSelector(bool bShow)
 		{
 			this.m_SelectorFrame.SetActive(bShow);
@@ -76,27 +70,23 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C59B RID: 50587 RVA: 0x002BA3A8 File Offset: 0x002B85A8
 		public override void OnUnload()
 		{
 			this._TeamDoc.DungeonSelector = null;
 			base.OnUnload();
 		}
 
-		// Token: 0x0600C59C RID: 50588 RVA: 0x002BA3BE File Offset: 0x002B85BE
 		private void _OnCloseClicked(IXUISprite iSp)
 		{
 			this.ToggleSelector(false);
 		}
 
-		// Token: 0x0600C59D RID: 50589 RVA: 0x002BA3CC File Offset: 0x002B85CC
 		private bool _OnDungeonSelectorClick(IXUIButton go)
 		{
 			this.ToggleSelector(true);
 			return true;
 		}
 
-		// Token: 0x0600C59E RID: 50590 RVA: 0x002BA3E8 File Offset: 0x002B85E8
 		public void SetCurrentDungeon(bool bCloseSelection)
 		{
 			bool flag = this._TeamDoc.currentDungeonID == 0U;
@@ -115,7 +105,6 @@ namespace XMainClient
 			this.m_BtnDungeonSelector.SetEnable(!this._TeamDoc.bInTeam || this._TeamDoc.bIsLeader, false);
 		}
 
-		// Token: 0x0600C59F RID: 50591 RVA: 0x002BA488 File Offset: 0x002B8688
 		private void _DefaultSelect()
 		{
 			bool flag = this._TeamDoc.currentDungeonID == 0U;
@@ -139,7 +128,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C5A0 RID: 50592 RVA: 0x002BA528 File Offset: 0x002B8728
 		private void _Setup()
 		{
 			this.m_DungeonPool.ReturnAll(false);
@@ -171,7 +159,6 @@ namespace XMainClient
 			this.m_CategoryScrollView.ResetPosition();
 		}
 
-		// Token: 0x0600C5A1 RID: 50593 RVA: 0x002BA6D0 File Offset: 0x002B88D0
 		private bool _CategoryCheckEventHandler(IXUICheckBox ckb)
 		{
 			bool flag = !ckb.bChecked;
@@ -237,7 +224,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C5A2 RID: 50594 RVA: 0x002BA9F8 File Offset: 0x002B8BF8
 		private bool OnShowTarjaTipHandle(IXUISprite sprite, bool pressed)
 		{
 			IXUILabel ixuilabel = sprite.transform.Find("Info").GetComponent("XUILabel") as IXUILabel;
@@ -264,7 +250,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C5A3 RID: 50595 RVA: 0x002BAA88 File Offset: 0x002B8C88
 		private bool _DungeonClickEventHandler(IXUIButton btn)
 		{
 			IXUICheckBox ixuicheckBox = btn.gameObject.GetComponent("XUICheckBox") as IXUICheckBox;
@@ -276,7 +261,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600C5A4 RID: 50596 RVA: 0x002BAAC4 File Offset: 0x002B8CC4
 		private bool _DungeonCheckEventHandler(IXUICheckBox ckb)
 		{
 			bool flag = !ckb.bChecked;
@@ -293,46 +277,32 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x04005680 RID: 22144
 		private static readonly Color BAD_COLOR = new Color(1f, 0.23921569f, 0.13725491f);
 
-		// Token: 0x04005681 RID: 22145
 		private static readonly Color GOOD_COLOR = new Color(0.39215687f, 0.7176471f, 0.21568628f);
 
-		// Token: 0x04005682 RID: 22146
 		private XTeamDocument _TeamDoc;
 
-		// Token: 0x04005683 RID: 22147
 		private XExpeditionDocument _ExpDoc;
 
-		// Token: 0x04005684 RID: 22148
 		private IXUIScrollView m_DungeonScrollView;
 
-		// Token: 0x04005685 RID: 22149
 		private IXUIScrollView m_CategoryScrollView;
 
-		// Token: 0x04005686 RID: 22150
 		private XUIPool m_DungeonPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04005687 RID: 22151
 		private XUIPool m_CategoryPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04005688 RID: 22152
 		private List<IXUICheckBox> m_CategoryList = new List<IXUICheckBox>();
 
-		// Token: 0x04005689 RID: 22153
 		private IXUISprite m_Close;
 
-		// Token: 0x0400568A RID: 22154
 		public IXUIButton m_BtnDungeonSelector;
 
-		// Token: 0x0400568B RID: 22155
 		public IXUILabel m_CurrentDungeon;
 
-		// Token: 0x0400568C RID: 22156
 		public IXUILabel m_CurrentCategory;
 
-		// Token: 0x0400568D RID: 22157
 		public GameObject m_SelectorFrame;
 	}
 }

@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001820 RID: 6176
+
 	internal class XDesignationView : DlgHandlerBase
 	{
-		// Token: 0x17003919 RID: 14617
-		// (get) Token: 0x0601008E RID: 65678 RVA: 0x003D07D8 File Offset: 0x003CE9D8
+
 		protected override string FileName
 		{
 			get
@@ -19,7 +18,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601008F RID: 65679 RVA: 0x003D07F0 File Offset: 0x003CE9F0
 		protected override void Init()
 		{
 			base.Init();
@@ -44,7 +42,6 @@ namespace XMainClient.UI
 			this.SetDesTab();
 		}
 
-		// Token: 0x06010090 RID: 65680 RVA: 0x003D0A8C File Offset: 0x003CEC8C
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -54,7 +51,6 @@ namespace XMainClient.UI
 			this.m_DesListWrapContent.RegisterItemInitEventHandler(new WrapItemInitEventHandler(this.ItemWrapListInit));
 		}
 
-		// Token: 0x06010091 RID: 65681 RVA: 0x003D0B04 File Offset: 0x003CED04
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -73,13 +69,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010092 RID: 65682 RVA: 0x001E669E File Offset: 0x001E489E
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
 		}
 
-		// Token: 0x06010093 RID: 65683 RVA: 0x003D0B87 File Offset: 0x003CED87
 		protected override void OnHide()
 		{
 			base.OnHide();
@@ -88,7 +82,6 @@ namespace XMainClient.UI
 			XSingleton<XTimerMgr>.singleton.KillTimer(this._reqTimeToken);
 		}
 
-		// Token: 0x06010094 RID: 65684 RVA: 0x003D0BC0 File Offset: 0x003CEDC0
 		public override void OnUnload()
 		{
 			XSingleton<XTimerMgr>.singleton.KillTimer(this._timeToken);
@@ -96,13 +89,11 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x06010095 RID: 65685 RVA: 0x003D0BEC File Offset: 0x003CEDEC
 		private void ItemWrapListInit(Transform t, int i)
 		{
 			this._timeLabel[i] = (t.Find("LeftTime").GetComponent("XUILabel") as IXUILabel);
 		}
 
-		// Token: 0x06010096 RID: 65686 RVA: 0x003D0C14 File Offset: 0x003CEE14
 		public bool OnDesTabClicked(IXUICheckBox checkBox)
 		{
 			bool flag = !checkBox.bChecked;
@@ -125,7 +116,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x06010097 RID: 65687 RVA: 0x003D0C84 File Offset: 0x003CEE84
 		public bool OnCoverBtnClicked(IXUIButton btn)
 		{
 			bool flag = this._currentClickID == this.UNSELECT;
@@ -150,7 +140,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x06010098 RID: 65688 RVA: 0x003D0CEC File Offset: 0x003CEEEC
 		public bool OnAbilityBtnClicked(IXUIButton iSp)
 		{
 			bool flag = this._currentClickID == this.UNSELECT;
@@ -175,7 +164,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x06010099 RID: 65689 RVA: 0x003D0D54 File Offset: 0x003CEF54
 		public void OnItemClick(IXUISprite iSp)
 		{
 			bool flag = this._currentClickID == (int)iSp.ID;
@@ -196,20 +184,17 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601009A RID: 65690 RVA: 0x003D0E40 File Offset: 0x003CF040
 		public void RefreshBtnText()
 		{
 			this.m_AbilityBtnLabel.SetText(XStringDefineProxy.GetString(((long)this._currentClickID == (long)((ulong)this._doc.AbilityDesignationID)) ? "Designation_Btn_Text2" : "Designation_Btn_Text1"));
 			this.m_CoverBtnLabel.SetText(XStringDefineProxy.GetString(((long)this._currentClickID == (long)((ulong)this._doc.CoverDesignationID)) ? "Designation_Btn_Text4" : "Designation_Btn_Text3"));
 		}
 
-		// Token: 0x0601009B RID: 65691 RVA: 0x003D0EB2 File Offset: 0x003CF0B2
 		public void UnCompleteTips(IXUISprite iSp)
 		{
 			XSingleton<UiUtility>.singleton.ShowSystemTip(XStringDefineProxy.GetString("Achi_Or_Des_UnComplete"), "fece00");
 		}
 
-		// Token: 0x0601009C RID: 65692 RVA: 0x003D0ED0 File Offset: 0x003CF0D0
 		public void HideTabRedPoint()
 		{
 			this.m_AbilityBtnRedPoint.SetActive(false);
@@ -221,7 +206,6 @@ namespace XMainClient.UI
 			XSingleton<XGameSysMgr>.singleton.RecalculateRedPointState(XSysDefine.XSys_Item, true);
 		}
 
-		// Token: 0x0601009D RID: 65693 RVA: 0x003D0F2C File Offset: 0x003CF12C
 		public void SetTabRedPoint(List<bool> state)
 		{
 			bool flag = state.Count == 0;
@@ -239,7 +223,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601009E RID: 65694 RVA: 0x003D0FB0 File Offset: 0x003CF1B0
 		public void SetDesTab()
 		{
 			this.m_TabPool.ReturnAll(false);
@@ -266,7 +249,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601009F RID: 65695 RVA: 0x003D1164 File Offset: 0x003CF364
 		public void SetCurrentChooseDes(uint type, uint ID)
 		{
 			this.RefreshBtnText();
@@ -319,7 +301,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060100A0 RID: 65696 RVA: 0x003D12B8 File Offset: 0x003CF4B8
 		private void DesWrapListUpdated(Transform t, int i)
 		{
 			bool flag = this._doc.LastDisPlayTab >= this._doc.DesList.Count;
@@ -427,7 +408,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060100A1 RID: 65697 RVA: 0x003D17DC File Offset: 0x003CF9DC
 		public void SetDesignationList(List<DesignationInfo> list, int type, bool resetScrollPos = true)
 		{
 			bool flag = !base.IsVisible();
@@ -479,14 +459,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060100A2 RID: 65698 RVA: 0x003D1981 File Offset: 0x003CFB81
 		private void ReqInfo(object o = null)
 		{
 			this._doc.SendQueryDesignationInfo();
 			this._doc.SendQueryDesignationList((uint)(this._doc.LastDisPlayTab + 1));
 		}
 
-		// Token: 0x060100A3 RID: 65699 RVA: 0x003D19AC File Offset: 0x003CFBAC
 		private void RefreshLeftTime(object o = null)
 		{
 			for (int i = 0; i < XDesignationView.MAXSHOWITEM; i++)
@@ -507,79 +485,54 @@ namespace XMainClient.UI
 			this._timeToken = XSingleton<XTimerMgr>.singleton.SetTimer(1f, new XTimerMgr.ElapsedEventHandler(this.RefreshLeftTime), null);
 		}
 
-		// Token: 0x04007208 RID: 29192
 		private XDesignationDocument _doc = null;
 
-		// Token: 0x04007209 RID: 29193
 		public GameObject m_TabTpl;
 
-		// Token: 0x0400720A RID: 29194
 		public GameObject[] m_TabRedPoint = new GameObject[6];
 
-		// Token: 0x0400720B RID: 29195
 		public XUIPool m_TabPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x0400720C RID: 29196
 		public IXUIScrollView m_ScrollView;
 
-		// Token: 0x0400720D RID: 29197
 		public IXUIWrapContent m_DesListWrapContent;
 
-		// Token: 0x0400720E RID: 29198
 		public IXUICheckBox m_GeneralDes;
 
-		// Token: 0x0400720F RID: 29199
 		private bool _firstClick = true;
 
-		// Token: 0x04007210 RID: 29200
 		public IXUILabelSymbol m_CoverDesignation;
 
-		// Token: 0x04007211 RID: 29201
 		public IXUILabel m_AbilityLabel;
 
-		// Token: 0x04007212 RID: 29202
 		public IXUILabel m_FightLabel;
 
-		// Token: 0x04007213 RID: 29203
 		public IXUIButton m_CoverBtn;
 
-		// Token: 0x04007214 RID: 29204
 		public IXUIButton m_AbilityBtn;
 
-		// Token: 0x04007215 RID: 29205
 		public IXUILabel m_CoverBtnLabel;
 
-		// Token: 0x04007216 RID: 29206
 		public IXUILabel m_AbilityBtnLabel;
 
-		// Token: 0x04007217 RID: 29207
 		public GameObject m_AbilityBtnRedPoint;
 
-		// Token: 0x04007218 RID: 29208
 		public IXUILabelSymbol m_PlayerName;
 
-		// Token: 0x04007219 RID: 29209
 		private IXUILabel[] _timeLabel = new IXUILabel[8];
 
-		// Token: 0x0400721A RID: 29210
 		private int[] _leftTime = new int[8];
 
-		// Token: 0x0400721B RID: 29211
 		private static readonly int MAXSHOWITEM = 8;
 
-		// Token: 0x0400721C RID: 29212
 		private uint _timeToken;
 
-		// Token: 0x0400721D RID: 29213
 		private uint _reqTimeToken;
 
-		// Token: 0x0400721E RID: 29214
 		public readonly int UNSELECT = 10000;
 
-		// Token: 0x0400721F RID: 29215
 		private int _currentClickID;
 
-		// Token: 0x04007220 RID: 29216
 		public IXUISprite m_CurrentClickSprite;
 	}
 }

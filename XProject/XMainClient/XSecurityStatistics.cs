@@ -3,11 +3,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000B19 RID: 2841
+
 	internal sealed class XSecurityStatistics
 	{
-		// Token: 0x17002FFF RID: 12287
-		// (get) Token: 0x0600A724 RID: 42788 RVA: 0x001D8480 File Offset: 0x001D6680
+
 		public bool bValid
 		{
 			get
@@ -16,8 +15,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003000 RID: 12288
-		// (get) Token: 0x0600A725 RID: 42789 RVA: 0x001D8498 File Offset: 0x001D6698
 		public XSecurityDamageInfo DamageStatistics
 		{
 			get
@@ -26,8 +23,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003001 RID: 12289
-		// (get) Token: 0x0600A726 RID: 42790 RVA: 0x001D84B0 File Offset: 0x001D66B0
 		public XSecurityAttributeInfo AttributeStatistics
 		{
 			get
@@ -36,8 +31,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003002 RID: 12290
-		// (get) Token: 0x0600A727 RID: 42791 RVA: 0x001D84C8 File Offset: 0x001D66C8
 		public XSecurityBuffInfo BuffStatistics
 		{
 			get
@@ -46,8 +39,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003003 RID: 12291
-		// (get) Token: 0x0600A728 RID: 42792 RVA: 0x001D84E0 File Offset: 0x001D66E0
 		public XSecuritySkillInfo SkillStatistics
 		{
 			get
@@ -56,8 +47,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003004 RID: 12292
-		// (get) Token: 0x0600A729 RID: 42793 RVA: 0x001D84F8 File Offset: 0x001D66F8
 		public XSecurityMobInfo MobStatistics
 		{
 			get
@@ -66,8 +55,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003005 RID: 12293
-		// (get) Token: 0x0600A72A RID: 42794 RVA: 0x001D8510 File Offset: 0x001D6710
 		public XSecurityAIInfo AIInfo
 		{
 			get
@@ -76,9 +63,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003006 RID: 12294
-		// (get) Token: 0x0600A72B RID: 42795 RVA: 0x001D8528 File Offset: 0x001D6728
-		// (set) Token: 0x0600A72C RID: 42796 RVA: 0x001D8540 File Offset: 0x001D6740
 		public XEntity Entity
 		{
 			get
@@ -91,7 +75,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A72D RID: 42797 RVA: 0x001D854C File Offset: 0x001D674C
 		public void OnAttach()
 		{
 			bool flag = this.m_Entity != null;
@@ -143,7 +126,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A72F RID: 42799 RVA: 0x001D869C File Offset: 0x001D689C
 		public void Dump()
 		{
 			bool flag = this.Entity == null;
@@ -180,7 +162,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A730 RID: 42800 RVA: 0x001D8798 File Offset: 0x001D6998
 		public void Reset()
 		{
 			this._DamageInfo.Reset();
@@ -217,7 +198,6 @@ namespace XMainClient
 			this._bInited = true;
 		}
 
-		// Token: 0x0600A731 RID: 42801 RVA: 0x001D8870 File Offset: 0x001D6A70
 		public void OnStart()
 		{
 			this.Reset();
@@ -230,7 +210,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A732 RID: 42802 RVA: 0x001D88E0 File Offset: 0x001D6AE0
 		public void OnEnd()
 		{
 			bool flag = !this._bInited;
@@ -260,7 +239,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A733 RID: 42803 RVA: 0x001D89A8 File Offset: 0x001D6BA8
 		public void OnCastDamage(HurtInfo rawInput, ProjectDamageResult result)
 		{
 			bool flag = !result.Accept;
@@ -275,7 +253,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A734 RID: 42804 RVA: 0x001D89F0 File Offset: 0x001D6BF0
 		public void OnReceiveDamage(HurtInfo rawInput, ProjectDamageResult result)
 		{
 			bool flag = !result.Accept;
@@ -285,7 +262,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A735 RID: 42805 RVA: 0x001D8A1C File Offset: 0x001D6C1C
 		public void OnAttributeChange(XAttributeDefine attr, double oldValue, double delta)
 		{
 			bool flag = this._AttributeInfo != null && this._AttributeInfo.IsUsefulAttr(attr);
@@ -295,29 +271,24 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A736 RID: 42806 RVA: 0x001D8A54 File Offset: 0x001D6C54
 		public bool IsUsefulAttr(XAttributeDefine attr)
 		{
 			return this._AttributeInfo != null && this._AttributeInfo.IsUsefulAttr(attr);
 		}
 
-		// Token: 0x0600A737 RID: 42807 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public void OnMobCast()
 		{
 		}
 
-		// Token: 0x0600A738 RID: 42808 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public void OnMobMonster()
 		{
 		}
 
-		// Token: 0x0600A739 RID: 42809 RVA: 0x001D8A7D File Offset: 0x001D6C7D
 		public void OnMove(float distance)
 		{
 			this._Distance += distance;
 		}
 
-		// Token: 0x0600A73A RID: 42810 RVA: 0x001D8A90 File Offset: 0x001D6C90
 		public void OnEntityFinish(XEntity host)
 		{
 			bool flag = host == null || this.Entity == null || this.Entity.Attributes == null;
@@ -336,7 +307,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A73B RID: 42811 RVA: 0x001D8B00 File Offset: 0x001D6D00
 		public static XSecurityStatistics TryGetStatistics(XEntity entity)
 		{
 			bool flag = entity == null || entity.Attributes == null;
@@ -352,43 +322,30 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x04003DA1 RID: 15777
 		public float _Distance;
 
-		// Token: 0x04003DA2 RID: 15778
 		public float _InitHp;
 
-		// Token: 0x04003DA3 RID: 15779
 		public float _InitMp;
 
-		// Token: 0x04003DA4 RID: 15780
 		public float _FinalHp;
 
-		// Token: 0x04003DA5 RID: 15781
 		public float _FinalMp;
 
-		// Token: 0x04003DA6 RID: 15782
 		private bool _bInited = false;
 
-		// Token: 0x04003DA7 RID: 15783
 		private XSecurityDamageInfo _DamageInfo = new XSecurityDamageInfo();
 
-		// Token: 0x04003DA8 RID: 15784
 		private XSecurityAttributeInfo _AttributeInfo;
 
-		// Token: 0x04003DA9 RID: 15785
 		private XSecurityBuffInfo _BuffInfo;
 
-		// Token: 0x04003DAA RID: 15786
 		private XSecuritySkillInfo _SkillInfo;
 
-		// Token: 0x04003DAB RID: 15787
 		private XSecurityMobInfo _MobInfo;
 
-		// Token: 0x04003DAC RID: 15788
 		public XSecurityAIInfo _AIInfo;
 
-		// Token: 0x04003DAD RID: 15789
 		private XEntity m_Entity;
 	}
 }

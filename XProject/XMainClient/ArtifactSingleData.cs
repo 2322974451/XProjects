@@ -3,11 +3,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x020008EF RID: 2287
+
 	internal class ArtifactSingleData : IComparable
 	{
-		// Token: 0x17002B08 RID: 11016
-		// (get) Token: 0x06008A4E RID: 35406 RVA: 0x00124DD4 File Offset: 0x00122FD4
+
 		public int CompareValue
 		{
 			get
@@ -62,7 +61,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008A4F RID: 35407 RVA: 0x00124EF4 File Offset: 0x001230F4
 		public int CompareTo(object _other)
 		{
 			ArtifactSingleData artifactSingleData = _other as ArtifactSingleData;
@@ -88,13 +86,10 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x04002C05 RID: 11269
 		public bool Redpoint = false;
 
-		// Token: 0x04002C06 RID: 11270
 		public ArtifactListTable.RowData ItemData = null;
 
-		// Token: 0x04002C07 RID: 11271
 		public ItemComposeTable.RowData ItemComposeData = null;
 	}
 }

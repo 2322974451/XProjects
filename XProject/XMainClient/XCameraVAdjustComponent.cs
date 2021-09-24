@@ -4,11 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x020008B6 RID: 2230
+
 	internal class XCameraVAdjustComponent : XComponent
 	{
-		// Token: 0x17002A60 RID: 10848
-		// (get) Token: 0x060086F5 RID: 34549 RVA: 0x00113054 File Offset: 0x00111254
+
 		public override uint ID
 		{
 			get
@@ -17,7 +16,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060086F6 RID: 34550 RVA: 0x0011306B File Offset: 0x0011126B
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
@@ -25,14 +23,12 @@ namespace XMainClient
 			base.Enabled = (XOperationData.Is3DMode() && !XCameraEx.OperationV);
 		}
 
-		// Token: 0x060086F7 RID: 34551 RVA: 0x001130A0 File Offset: 0x001112A0
 		public override void OnDetachFromHost()
 		{
 			this._player = null;
 			base.OnDetachFromHost();
 		}
 
-		// Token: 0x060086F8 RID: 34552 RVA: 0x001130B4 File Offset: 0x001112B4
 		public override void Update(float fDeltaT)
 		{
 			bool flag = this._player == null;
@@ -94,16 +90,12 @@ namespace XMainClient
 			this._target = xentity;
 		}
 
-		// Token: 0x04002A6B RID: 10859
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("Camera_Vertical_Adjustment");
 
-		// Token: 0x04002A6C RID: 10860
 		private XCameraEx _camera_host = null;
 
-		// Token: 0x04002A6D RID: 10861
 		private XEntity _target = null;
 
-		// Token: 0x04002A6E RID: 10862
 		private XPlayer _player = null;
 	}
 }

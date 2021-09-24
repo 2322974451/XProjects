@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017DF RID: 6111
+
 	internal class XCampDuelMainHandler : DlgHandlerBase
 	{
-		// Token: 0x170038B3 RID: 14515
-		// (get) Token: 0x0600FD45 RID: 64837 RVA: 0x003B4D84 File Offset: 0x003B2F84
+
 		public string CampName
 		{
 			get
@@ -37,8 +36,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170038B4 RID: 14516
-		// (get) Token: 0x0600FD46 RID: 64838 RVA: 0x003B4DD0 File Offset: 0x003B2FD0
 		protected override string FileName
 		{
 			get
@@ -47,7 +44,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FD47 RID: 64839 RVA: 0x003B4DE8 File Offset: 0x003B2FE8
 		protected override void Init()
 		{
 			base.Init();
@@ -108,7 +104,6 @@ namespace XMainClient.UI
 			this.m_Help = (this.m_MainFrame.FindChild("Title/Help").GetComponent("XUIButton") as IXUIButton);
 		}
 
-		// Token: 0x0600FD48 RID: 64840 RVA: 0x003B5478 File Offset: 0x003B3678
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -131,14 +126,12 @@ namespace XMainClient.UI
 			this.m_Help.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnHelpClicked));
 		}
 
-		// Token: 0x0600FD49 RID: 64841 RVA: 0x003B560F File Offset: 0x003B380F
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.ShowUI();
 		}
 
-		// Token: 0x0600FD4A RID: 64842 RVA: 0x003B5620 File Offset: 0x003B3820
 		protected override void OnHide()
 		{
 			this.m_TexLeft.SetTexturePath("");
@@ -154,13 +147,11 @@ namespace XMainClient.UI
 			base.OnHide();
 		}
 
-		// Token: 0x0600FD4B RID: 64843 RVA: 0x0022CCF0 File Offset: 0x0022AEF0
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
 		}
 
-		// Token: 0x0600FD4C RID: 64844 RVA: 0x003B56C4 File Offset: 0x003B38C4
 		public override void OnUnload()
 		{
 			DlgHandlerBase.EnsureUnload<XCampDuelPointRewardHandler>(ref this._PointRewardHandler);
@@ -168,7 +159,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x0600FD4D RID: 64845 RVA: 0x003B56E8 File Offset: 0x003B38E8
 		public void ShowUI()
 		{
 			bool flag = !base.IsVisible();
@@ -195,7 +185,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FD4E RID: 64846 RVA: 0x003B578C File Offset: 0x003B398C
 		private bool OnSelectClicked(IXUIButton btn)
 		{
 			this.SelectID = (int)btn.ID;
@@ -209,7 +198,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FD4F RID: 64847 RVA: 0x003B5888 File Offset: 0x003B3A88
 		private bool OnJoinClicked(IXUIButton btn)
 		{
 			bool flag = this.SelectID == 0;
@@ -227,7 +215,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FD50 RID: 64848 RVA: 0x003B5914 File Offset: 0x003B3B14
 		private bool _Compose(IXUIButton button)
 		{
 			XCampDuelDocument.Doc.ReqCampDuel(2U, (uint)this.SelectID);
@@ -235,7 +222,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FD51 RID: 64849 RVA: 0x003B5944 File Offset: 0x003B3B44
 		private void OnJoinHelpClicked(IXUISprite btn)
 		{
 			DlgHandlerBase.EnsureCreate<XCampDuelPointRewardHandler>(ref this._PointRewardHandler, this.m_JoinFrame, false, null);
@@ -243,7 +229,6 @@ namespace XMainClient.UI
 			this._PointRewardHandler.SetVisible(true);
 		}
 
-		// Token: 0x0600FD52 RID: 64850 RVA: 0x003B597C File Offset: 0x003B3B7C
 		public void ShowJoin()
 		{
 			this.SelectID = 0;
@@ -262,21 +247,18 @@ namespace XMainClient.UI
 			this.m_Content.gameObject.SetActive(false);
 		}
 
-		// Token: 0x0600FD53 RID: 64851 RVA: 0x003B5A9C File Offset: 0x003B3C9C
 		private bool OnHelpClicked(IXUIButton btn)
 		{
 			DlgBase<XCommonHelpTipView, XCommonHelpTipBehaviour>.singleton.ShowHelp(XSysDefine.XSys_CampDuel);
 			return true;
 		}
 
-		// Token: 0x0600FD54 RID: 64852 RVA: 0x003B5AC0 File Offset: 0x003B3CC0
 		private bool OnConfirmClicked(IXUIButton btn)
 		{
 			XCampDuelDocument.Doc.ReqCampDuel(3U, (uint)btn.ID);
 			return true;
 		}
 
-		// Token: 0x0600FD55 RID: 64853 RVA: 0x003B5AE8 File Offset: 0x003B3CE8
 		private bool OnCourageClicked(IXUIButton btn)
 		{
 			bool flag = XCampDuelDocument.Doc.FreeCourageCount != 0;
@@ -291,7 +273,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FD56 RID: 64854 RVA: 0x003B5B34 File Offset: 0x003B3D34
 		private bool OnRewardClicked(IXUIButton btn)
 		{
 			DlgHandlerBase.EnsureCreate<XCampDuelPointRewardHandler>(ref this._PointRewardHandler, this.m_MainFrame, false, null);
@@ -300,20 +281,17 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FD57 RID: 64855 RVA: 0x003B5B80 File Offset: 0x003B3D80
 		private bool OnRankClicked(IXUIButton btn)
 		{
 			DlgBase<XRankView, XRankBehaviour>.singleton.ShowRank(XSysDefine.XSys_Rank_CampDuel);
 			return true;
 		}
 
-		// Token: 0x0600FD58 RID: 64856 RVA: 0x001AE886 File Offset: 0x001ACA86
 		private void OnItemClicked(IXUISprite btn)
 		{
 			XSingleton<UiUtility>.singleton.ShowItemAccess((int)btn.ID, null);
 		}
 
-		// Token: 0x0600FD59 RID: 64857 RVA: 0x003B5BA4 File Offset: 0x003B3DA4
 		private void OnChestClicked(IXUISprite btn)
 		{
 			CampDuelPointReward.RowData rowData = this.doc.GetPointReward(this.doc.point);
@@ -339,13 +317,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FD5A RID: 64858 RVA: 0x003B5CC0 File Offset: 0x003B3EC0
 		private void OnItemCloseClicked(IXUISprite btn)
 		{
 			this.m_MainRewardItemList.gameObject.SetActive(false);
 		}
 
-		// Token: 0x0600FD5B RID: 64859 RVA: 0x003B5CD8 File Offset: 0x003B3ED8
 		private void OnHelpBtnPress(IXUIButton btn, bool state)
 		{
 			bool flag = this.m_BtnMainHelpTips.gameObject.activeInHierarchy != state;
@@ -355,7 +331,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FD5C RID: 64860 RVA: 0x003B5D14 File Offset: 0x003B3F14
 		public void ShowMain()
 		{
 			this.m_MainTips.SetText(XStringDefineProxy.GetString("CAMPDUEL_MAIN_TIP"));
@@ -376,7 +351,6 @@ namespace XMainClient.UI
 			this.m_MainEndTime.SetText(XTempActivityDocument.Doc.GetEndTime(XCampDuelDocument.Doc.ActInfo, 1).ToString(XStringDefineProxy.GetString("CAMPDUEL_END_TIME")));
 		}
 
-		// Token: 0x0600FD5D RID: 64861 RVA: 0x003B5EF8 File Offset: 0x003B40F8
 		public void RefreshPoint()
 		{
 			this.m_MainPoint.SetText(this.doc.point.ToString());
@@ -411,7 +385,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FD5E RID: 64862 RVA: 0x003B6080 File Offset: 0x003B4280
 		public void RefresheCourage()
 		{
 			this.m_MainFreeCourageCount.SetText(string.Format("{0}/{1}", this.doc.FreeCourageCount, this.doc.FreeCourageMAX));
@@ -436,7 +409,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FD5F RID: 64863 RVA: 0x003B622C File Offset: 0x003B442C
 		private void _AutoRefresh(object param)
 		{
 			bool flag = base.IsVisible();
@@ -447,13 +419,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FD60 RID: 64864 RVA: 0x003B6275 File Offset: 0x003B4475
 		private void _AutoCloseBlah(object param)
 		{
 			this.m_MainBlah.gameObject.SetActive(false);
 		}
 
-		// Token: 0x0600FD61 RID: 64865 RVA: 0x003B628C File Offset: 0x003B448C
 		public void ShowBlah()
 		{
 			int num = Random.Range(0, 5);
@@ -462,14 +432,12 @@ namespace XMainClient.UI
 			this._AutoCloseBlahTimeID = XSingleton<XTimerMgr>.singleton.SetTimer(3f, new XTimerMgr.ElapsedEventHandler(this._AutoCloseBlah), null);
 		}
 
-		// Token: 0x0600FD62 RID: 64866 RVA: 0x003B62FD File Offset: 0x003B44FD
 		public void AddNumPlayTween(int addPoint)
 		{
 			this.m_MainAddPoint.SetText(string.Format("+{0}", addPoint.ToString()));
 			this.m_MainAddPointTween.PlayTween(true, -1f);
 		}
 
-		// Token: 0x0600FD63 RID: 64867 RVA: 0x003B6330 File Offset: 0x003B4530
 		public void PlayBoxUpFx()
 		{
 			bool flag = !base.IsVisible();
@@ -484,7 +452,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FD64 RID: 64868 RVA: 0x003B63BC File Offset: 0x003B45BC
 		public void PlayNPCFx()
 		{
 			bool flag = !base.IsVisible();
@@ -499,7 +466,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FD65 RID: 64869 RVA: 0x003B644C File Offset: 0x003B464C
 		public void UnloadFx(XFx fx)
 		{
 			bool flag = fx != null;
@@ -510,178 +476,120 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04006F86 RID: 28550
 		private XCampDuelDocument doc = null;
 
-		// Token: 0x04006F87 RID: 28551
 		private XCampDuelPointRewardHandler _PointRewardHandler;
 
-		// Token: 0x04006F88 RID: 28552
 		private int SelectID;
 
-		// Token: 0x04006F89 RID: 28553
 		private uint _AutoRefresheTimeID;
 
-		// Token: 0x04006F8A RID: 28554
 		private uint _AutoCloseBlahTimeID;
 
-		// Token: 0x04006F8B RID: 28555
 		private Transform m_JoinFrame;
 
-		// Token: 0x04006F8C RID: 28556
 		private Transform m_MainFrame;
 
-		// Token: 0x04006F8D RID: 28557
 		private IXUITexture m_TexLeft;
 
-		// Token: 0x04006F8E RID: 28558
 		private IXUITexture m_TexRight;
 
-		// Token: 0x04006F8F RID: 28559
 		private IXUISprite m_Icon;
 
-		// Token: 0x04006F90 RID: 28560
 		private IXUIButton m_BtnSelectLeft;
 
-		// Token: 0x04006F91 RID: 28561
 		private IXUIButton m_BtnSelectRight;
 
-		// Token: 0x04006F92 RID: 28562
 		private IXUILabel m_Intro;
 
-		// Token: 0x04006F93 RID: 28563
 		private Transform m_Content;
 
-		// Token: 0x04006F94 RID: 28564
 		private Transform m_Empty;
 
-		// Token: 0x04006F95 RID: 28565
 		private IXUIButton m_BtnJoin;
 
-		// Token: 0x04006F96 RID: 28566
 		private IXUILabel m_SelectReward;
 
-		// Token: 0x04006F97 RID: 28567
 		private IXUILabel m_SelectName;
 
-		// Token: 0x04006F98 RID: 28568
 		private IXUISprite m_BtnJoinHelp;
 
-		// Token: 0x04006F99 RID: 28569
 		private IXUILabel m_LeftName;
 
-		// Token: 0x04006F9A RID: 28570
 		private IXUILabel m_RightName;
 
-		// Token: 0x04006F9B RID: 28571
 		private IXUILabel m_MainBlah;
 
-		// Token: 0x04006F9C RID: 28572
 		private IXUILabel m_MainTips;
 
-		// Token: 0x04006F9D RID: 28573
 		private IXUITexture m_MainCampTex;
 
-		// Token: 0x04006F9E RID: 28574
 		private IXUILabel m_MainName;
 
-		// Token: 0x04006F9F RID: 28575
 		private IXUISprite m_MainCondition;
 
-		// Token: 0x04006FA0 RID: 28576
 		private IXUIButton m_BtnMainHelp;
 
-		// Token: 0x04006FA1 RID: 28577
 		private IXUILabel m_BtnMainHelpTips;
 
-		// Token: 0x04006FA2 RID: 28578
 		private IXUILabel m_MainPoint;
 
-		// Token: 0x04006FA3 RID: 28579
 		private IXUILabel m_MainCurRewardPoint;
 
-		// Token: 0x04006FA4 RID: 28580
 		private Transform m_MainCurRewardText;
 
-		// Token: 0x04006FA5 RID: 28581
 		private Transform m_MainItem;
 
-		// Token: 0x04006FA6 RID: 28582
 		private IXUISprite m_MainItemIcon;
 
-		// Token: 0x04006FA7 RID: 28583
 		private IXUIButton m_MainBtnConfirm;
 
-		// Token: 0x04006FA8 RID: 28584
 		private IXUILabel m_MainConfirmPoint;
 
-		// Token: 0x04006FA9 RID: 28585
 		private IXUILabel m_MainFreeCourageCount;
 
-		// Token: 0x04006FAA RID: 28586
 		private IXUILabel m_MainDragonCoinCourageCount;
 
-		// Token: 0x04006FAB RID: 28587
 		private IXUIButton m_MainBtnCourage;
 
-		// Token: 0x04006FAC RID: 28588
 		private Transform m_MainBtnCourageRedPoint;
 
-		// Token: 0x04006FAD RID: 28589
 		private Transform m_MainFree;
 
-		// Token: 0x04006FAE RID: 28590
 		private IXUILabel m_MainDragonCoin;
 
-		// Token: 0x04006FAF RID: 28591
 		private IXUILabel m_MainCouragePoint;
 
-		// Token: 0x04006FB0 RID: 28592
 		private Transform m_MainRewardItemList;
 
-		// Token: 0x04006FB1 RID: 28593
 		private Transform m_MainCurRewardItemList;
 
-		// Token: 0x04006FB2 RID: 28594
 		private Transform m_MainNextRewardItemList;
 
-		// Token: 0x04006FB3 RID: 28595
 		private Transform m_MainChestFx;
 
-		// Token: 0x04006FB4 RID: 28596
 		private IXUISprite m_MainCurChest;
 
-		// Token: 0x04006FB5 RID: 28597
 		private IXUIButton m_MainBtnReward;
 
-		// Token: 0x04006FB6 RID: 28598
 		private IXUIButton m_MainBtnRank;
 
-		// Token: 0x04006FB7 RID: 28599
 		private IXUILabel m_MainEndTime;
 
-		// Token: 0x04006FB8 RID: 28600
 		private XUIPool m_ItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006FB9 RID: 28601
 		private IXUITweenTool m_MainAddPointTween;
 
-		// Token: 0x04006FBA RID: 28602
 		private IXUILabel m_MainAddPoint;
 
-		// Token: 0x04006FBB RID: 28603
 		private IXUIButton m_Help;
 
-		// Token: 0x04006FBC RID: 28604
 		private List<uint> itemid = new List<uint>();
 
-		// Token: 0x04006FBD RID: 28605
 		private List<uint> itemCount = new List<uint>();
 
-		// Token: 0x04006FBE RID: 28606
 		private XFx _BoxUpFx;
 
-		// Token: 0x04006FBF RID: 28607
 		private XFx _NPCFx;
 	}
 }

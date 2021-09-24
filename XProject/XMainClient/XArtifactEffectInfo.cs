@@ -4,12 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000DDF RID: 3551
+
 	internal struct XArtifactEffectInfo
 	{
-		// Token: 0x170033D6 RID: 13270
-		// (get) Token: 0x0600C0C6 RID: 49350 RVA: 0x0028D45C File Offset: 0x0028B65C
-		// (set) Token: 0x0600C0C7 RID: 49351 RVA: 0x0028D474 File Offset: 0x0028B674
+
 		public uint EffectId
 		{
 			get
@@ -22,8 +20,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170033D7 RID: 13271
-		// (get) Token: 0x0600C0C8 RID: 49352 RVA: 0x0028D480 File Offset: 0x0028B680
 		public uint BaseProf
 		{
 			get
@@ -32,9 +28,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170033D8 RID: 13272
-		// (get) Token: 0x0600C0C9 RID: 49353 RVA: 0x0028D498 File Offset: 0x0028B698
-		// (set) Token: 0x0600C0CA RID: 49354 RVA: 0x0028D4B0 File Offset: 0x0028B6B0
 		public List<XArtifactBuffInfo> BuffInfoList
 		{
 			get
@@ -47,9 +40,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170033D9 RID: 13273
-		// (get) Token: 0x0600C0CB RID: 49355 RVA: 0x0028D4BC File Offset: 0x0028B6BC
-		// (set) Token: 0x0600C0CC RID: 49356 RVA: 0x0028D4D4 File Offset: 0x0028B6D4
 		public bool IsValid
 		{
 			get
@@ -62,7 +52,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C0CD RID: 49357 RVA: 0x0028D4E0 File Offset: 0x0028B6E0
 		public void Init()
 		{
 			this.m_effectId = 0U;
@@ -78,7 +67,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C0CE RID: 49358 RVA: 0x0028D524 File Offset: 0x0028B724
 		public void SetBaseProf(uint effectId)
 		{
 			EffectDesTable.RowData byEffectID = ArtifactDocument.EffectDesTab.GetByEffectID(this.EffectId);
@@ -93,7 +81,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C0CF RID: 49359 RVA: 0x0028D560 File Offset: 0x0028B760
 		public List<string> GetValues()
 		{
 			bool flag = this.m_allVaules == null;
@@ -163,19 +150,14 @@ namespace XMainClient
 			return allVaules;
 		}
 
-		// Token: 0x040050F5 RID: 20725
 		private uint m_effectId;
 
-		// Token: 0x040050F6 RID: 20726
 		private uint m_baseProf;
 
-		// Token: 0x040050F7 RID: 20727
 		private List<XArtifactBuffInfo> m_buffInfoList;
 
-		// Token: 0x040050F8 RID: 20728
 		private List<string> m_allVaules;
 
-		// Token: 0x040050F9 RID: 20729
 		private bool m_isValid;
 	}
 }

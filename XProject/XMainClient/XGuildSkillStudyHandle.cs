@@ -6,10 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000CF4 RID: 3316
+
 	internal class XGuildSkillStudyHandle : DlgHandlerBase
 	{
-		// Token: 0x0600B976 RID: 47478 RVA: 0x0025A9E4 File Offset: 0x00258BE4
+
 		protected override void Init()
 		{
 			base.Init();
@@ -28,7 +28,6 @@ namespace XMainClient
 			this.m_costProgress = (base.PanelObject.transform.FindChild("CostRed/CostProgress").GetComponent("XUISlider") as IXUISlider);
 		}
 
-		// Token: 0x0600B977 RID: 47479 RVA: 0x0025AC01 File Offset: 0x00258E01
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -36,8 +35,6 @@ namespace XMainClient
 			this.m_StudyButton.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnStudyClick));
 		}
 
-		// Token: 0x1700329C RID: 12956
-		// (get) Token: 0x0600B978 RID: 47480 RVA: 0x0025AC3C File Offset: 0x00258E3C
 		protected override string FileName
 		{
 			get
@@ -46,14 +43,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B979 RID: 47481 RVA: 0x0025AC54 File Offset: 0x00258E54
 		public void ShowEffectDetailInfo()
 		{
 			XSingleton<XFxMgr>.singleton.CreateAndPlay("Effects/FX_Particle/UIfx/UI_qianghua_03", this.m_SkillIcon.gameObject.transform, Vector3.zero, Vector3.one, 1f, true, 1f, true);
 			this.SetDetailInfo();
 		}
 
-		// Token: 0x0600B97A RID: 47482 RVA: 0x0025ACA0 File Offset: 0x00258EA0
 		public void SetDetailInfo()
 		{
 			uint currentSkillID = this._Doc.CurrentSkillID;
@@ -96,7 +91,6 @@ namespace XMainClient
 			this.m_onSend = true;
 		}
 
-		// Token: 0x0600B97B RID: 47483 RVA: 0x0025AEA0 File Offset: 0x002590A0
 		private void SetGuildExp(uint totalExp, int curExp)
 		{
 			this.m_CurrentGuildExp.SetText(string.Format("{0}/{1}", curExp, totalExp));
@@ -104,13 +98,11 @@ namespace XMainClient
 			this.m_costProgress.Value = value;
 		}
 
-		// Token: 0x0600B97C RID: 47484 RVA: 0x001A6C1F File Offset: 0x001A4E1F
 		private void OnCloseClick(IXUISprite sprite)
 		{
 			base.SetVisible(false);
 		}
 
-		// Token: 0x0600B97D RID: 47485 RVA: 0x0025AEF0 File Offset: 0x002590F0
 		private bool OnStudyClick(IXUIButton btn)
 		{
 			bool flag = !this.m_onSend;
@@ -158,46 +150,32 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x04004A12 RID: 18962
 		private IXUISprite m_SkillIcon;
 
-		// Token: 0x04004A13 RID: 18963
 		private IXUILabel m_SkillName;
 
-		// Token: 0x04004A14 RID: 18964
 		private IXUILabel m_CurrentSkillLevel;
 
-		// Token: 0x04004A15 RID: 18965
 		private IXUILabel m_NextSkillLevel;
 
-		// Token: 0x04004A16 RID: 18966
 		private IXUILabel m_CurrentSkillAttr;
 
-		// Token: 0x04004A17 RID: 18967
 		private IXUILabel m_NextSkillAttr;
 
-		// Token: 0x04004A18 RID: 18968
 		private IXUILabel m_MaxSlillLevel;
 
-		// Token: 0x04004A19 RID: 18969
 		private IXUILabel m_UseGuildExp;
 
-		// Token: 0x04004A1A RID: 18970
 		private IXUILabel m_CurrentGuildExp;
 
-		// Token: 0x04004A1B RID: 18971
 		private IXUIButton m_StudyButton;
 
-		// Token: 0x04004A1C RID: 18972
 		private IXUISprite m_maskSprite;
 
-		// Token: 0x04004A1D RID: 18973
 		private IXUISlider m_costProgress;
 
-		// Token: 0x04004A1E RID: 18974
 		private XGuildSkillDocument _Doc = null;
 
-		// Token: 0x04004A1F RID: 18975
 		private bool m_onSend = false;
 	}
 }

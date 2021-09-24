@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000FE4 RID: 4068
+
 	internal class XCharacterShowChatComponent : XComponent
 	{
-		// Token: 0x170036E8 RID: 14056
-		// (get) Token: 0x0600D37D RID: 54141 RVA: 0x0031AE78 File Offset: 0x00319078
+
 		public override uint ID
 		{
 			get
@@ -20,20 +19,17 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D37E RID: 54142 RVA: 0x0031AE8F File Offset: 0x0031908F
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
 			this._inited = false;
 		}
 
-		// Token: 0x0600D37F RID: 54143 RVA: 0x0031AEA1 File Offset: 0x003190A1
 		public override void Attached()
 		{
 			base.Attached();
 		}
 
-		// Token: 0x0600D380 RID: 54144 RVA: 0x0031AEAC File Offset: 0x003190AC
 		private void Init()
 		{
 			this._gardenFeastObj = XSingleton<XResourceLoaderMgr>.singleton.CreateFromPrefab(XCharacterShowChatComponent.FEAST_TEMPLATE, this._entity.EngineObject.Position, this._entity.EngineObject.Rotation, true, false);
@@ -49,13 +45,11 @@ namespace XMainClient
 			this._inited = true;
 		}
 
-		// Token: 0x0600D381 RID: 54145 RVA: 0x0031B019 File Offset: 0x00319219
 		protected override void EventSubscribe()
 		{
 			base.RegisterEvent(XEventDefine.XEvent_HomeFeasting, new XComponent.XEventHandler(this.OnFeastTimeChange));
 		}
 
-		// Token: 0x0600D382 RID: 54146 RVA: 0x0031B034 File Offset: 0x00319234
 		public override void PostUpdate(float fDeltaT)
 		{
 			bool flag = !this._inited;
@@ -90,7 +84,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D383 RID: 54147 RVA: 0x0031B144 File Offset: 0x00319344
 		private bool OnFeastTimeChange(XEventArgs e)
 		{
 			bool flag = !this._inited;
@@ -138,7 +131,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600D384 RID: 54148 RVA: 0x0031B254 File Offset: 0x00319454
 		public void AttachChatBubble()
 		{
 			bool flag = !this._inited;
@@ -163,13 +155,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D385 RID: 54149 RVA: 0x0031B2E8 File Offset: 0x003194E8
 		private void OnChatPlayFinish(IXUITweenTool tween)
 		{
 			this.UnAttachChatBubble();
 		}
 
-		// Token: 0x0600D386 RID: 54150 RVA: 0x0031B2F4 File Offset: 0x003194F4
 		public void UnAttachChatBubble()
 		{
 			bool flag = !this._inited;
@@ -188,7 +178,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D387 RID: 54151 RVA: 0x0031B34C File Offset: 0x0031954C
 		public void DealWithChat(string content)
 		{
 			bool flag = !this._inited;
@@ -254,7 +243,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D388 RID: 54152 RVA: 0x0031B53C File Offset: 0x0031973C
 		public void AttachFeastCdTime()
 		{
 			bool flag = !this._inited;
@@ -275,7 +263,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D389 RID: 54153 RVA: 0x0031B5B0 File Offset: 0x003197B0
 		public void UnAttachFeastCdTime()
 		{
 			bool flag = !this._inited;
@@ -294,7 +281,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D38A RID: 54154 RVA: 0x0031B605 File Offset: 0x00319805
 		public override void OnDetachFromHost()
 		{
 			this.UnAttachChatBubble();
@@ -303,14 +289,12 @@ namespace XMainClient
 			base.OnDetachFromHost();
 		}
 
-		// Token: 0x0600D38B RID: 54155 RVA: 0x0031B624 File Offset: 0x00319824
 		private void DestroyGameObjects()
 		{
 			XResourceLoaderMgr.SafeDestroy(ref this._chatBubbleObj, true);
 			XResourceLoaderMgr.SafeDestroy(ref this._gardenFeastObj, true);
 		}
 
-		// Token: 0x0600D38C RID: 54156 RVA: 0x0031B644 File Offset: 0x00319844
 		private void SetBoardDepth(bool isMy, float dis = 0f)
 		{
 			int num = isMy ? 10 : (-(int)(dis * 100f));
@@ -323,40 +307,28 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0400601C RID: 24604
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("CharacterShowChatComponent");
 
-		// Token: 0x0400601D RID: 24605
 		public static string FEAST_TEMPLATE = "UI/Billboard/FeastingBill";
 
-		// Token: 0x0400601E RID: 24606
 		public static string CHAT_TEMPLATE = "UI/Billboard/ChatbubbleBill";
 
-		// Token: 0x0400601F RID: 24607
 		private bool _inited = false;
 
-		// Token: 0x04006020 RID: 24608
 		private IXUILabel _homeRemainTimeLabel;
 
-		// Token: 0x04006021 RID: 24609
 		private GameObject _gardenFeastObj;
 
-		// Token: 0x04006022 RID: 24610
 		private GameObject _chatBubbleObj;
 
-		// Token: 0x04006023 RID: 24611
 		private IXUITweenTool _chatTween;
 
-		// Token: 0x04006024 RID: 24612
 		private IXUISprite _chatBg;
 
-		// Token: 0x04006025 RID: 24613
 		private IXUILabelSymbol _chatLabelSymbol;
 
-		// Token: 0x04006026 RID: 24614
 		private IXUILabel _chatLabel;
 
-		// Token: 0x04006027 RID: 24615
 		private XBillboardComponent bbComp;
 	}
 }

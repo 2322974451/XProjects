@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000FE3 RID: 4067
+
 	internal class XSkillComponent : XComponent
 	{
-		// Token: 0x170036E0 RID: 14048
-		// (get) Token: 0x0600D358 RID: 54104 RVA: 0x003188D0 File Offset: 0x00316AD0
+
 		public override uint ID
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170036E1 RID: 14049
-		// (get) Token: 0x0600D359 RID: 54105 RVA: 0x003188E8 File Offset: 0x00316AE8
 		public bool IsSkillReplaced
 		{
 			get
@@ -31,8 +28,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170036E2 RID: 14050
-		// (get) Token: 0x0600D35A RID: 54106 RVA: 0x00318904 File Offset: 0x00316B04
 		public uint ReplacedByTypeID
 		{
 			get
@@ -41,8 +36,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170036E3 RID: 14051
-		// (get) Token: 0x0600D35B RID: 54107 RVA: 0x0031891C File Offset: 0x00316B1C
 		public XSkillMgr SkillMgr
 		{
 			get
@@ -51,8 +44,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170036E4 RID: 14052
-		// (get) Token: 0x0600D35C RID: 54108 RVA: 0x00318934 File Offset: 0x00316B34
 		public uint[] ReplacedSlot
 		{
 			get
@@ -61,8 +52,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170036E5 RID: 14053
-		// (get) Token: 0x0600D35D RID: 54109 RVA: 0x0031894C File Offset: 0x00316B4C
 		public List<XEntity> SkillMobs
 		{
 			get
@@ -71,8 +60,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170036E6 RID: 14054
-		// (get) Token: 0x0600D35E RID: 54110 RVA: 0x00318964 File Offset: 0x00316B64
 		public bool HasSkillReplaced
 		{
 			get
@@ -81,7 +68,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D35F RID: 54111 RVA: 0x00318990 File Offset: 0x00316B90
 		public XSkillCore TryGetSkillReplace(uint skillID, XSkillCore soul)
 		{
 			bool flag = this._skills_replace_dic == null;
@@ -108,7 +94,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600D360 RID: 54112 RVA: 0x003189EC File Offset: 0x00316BEC
 		public void SetSkillReplace(uint from, uint to)
 		{
 			bool flag = to == 0U;
@@ -131,7 +116,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D361 RID: 54113 RVA: 0x00318A4C File Offset: 0x00316C4C
 		public bool AddSkillMob(XEntity e)
 		{
 			bool result = false;
@@ -196,7 +180,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600D362 RID: 54114 RVA: 0x00318BE0 File Offset: 0x00316DE0
 		public void RemoveSkillMob(XEntity e)
 		{
 			bool flag = this._skill_mobs != null;
@@ -206,7 +189,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D363 RID: 54115 RVA: 0x00318C08 File Offset: 0x00316E08
 		public override void Update(float fDeltaT)
 		{
 			bool flag = this._skill == null;
@@ -220,7 +202,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D364 RID: 54116 RVA: 0x00318C44 File Offset: 0x00316E44
 		public override void PostUpdate(float fDeltaT)
 		{
 			bool flag = this._trigger != null;
@@ -253,14 +234,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D365 RID: 54117 RVA: 0x00318CFB File Offset: 0x00316EFB
 		public void TagTrigger()
 		{
 			this._trigger = XSkillComponent.TriggerTag;
 		}
 
-		// Token: 0x170036E7 RID: 14055
-		// (get) Token: 0x0600D366 RID: 54118 RVA: 0x00318D0C File Offset: 0x00316F0C
 		public XSkill CurrentSkill
 		{
 			get
@@ -269,14 +247,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D367 RID: 54119 RVA: 0x00318D24 File Offset: 0x00316F24
 		public bool CanPerformAction(XStateDefine state, XActionArgs e)
 		{
 			bool flag = this.CurrentSkill == null;
 			return flag || this.CurrentSkill.CanPerformAction(state, e.Token);
 		}
 
-		// Token: 0x0600D368 RID: 54120 RVA: 0x00318D5C File Offset: 0x00316F5C
 		protected override void EventSubscribe()
 		{
 			base.RegisterEvent(XEventDefine.XEvent_Attack, new XComponent.XEventHandler(this.OnAttack));
@@ -285,14 +261,12 @@ namespace XMainClient
 			base.RegisterEvent(XEventDefine.XEvent_Move_Mob, new XComponent.XEventHandler(this.OnMoveMob));
 		}
 
-		// Token: 0x0600D369 RID: 54121 RVA: 0x00318DC5 File Offset: 0x00316FC5
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
 			this._skill_mgr = XSingleton<XSkillFactory>.singleton.CreateSkillMgr(this._entity);
 		}
 
-		// Token: 0x0600D36A RID: 54122 RVA: 0x00318DE8 File Offset: 0x00316FE8
 		public override void Attached()
 		{
 			bool flag = XSingleton<XGame>.singleton.CurrentStage.Stage != EXStage.Hall;
@@ -313,7 +287,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D36B RID: 54123 RVA: 0x00318EEC File Offset: 0x003170EC
 		public override void OnDetachFromHost()
 		{
 			this.EndSkill(true, true);
@@ -344,13 +317,11 @@ namespace XMainClient
 			base.OnDetachFromHost();
 		}
 
-		// Token: 0x0600D36C RID: 54124 RVA: 0x00318FAC File Offset: 0x003171AC
 		public bool IsCasting()
 		{
 			return this._skill != null && this._skill.Casting;
 		}
 
-		// Token: 0x0600D36D RID: 54125 RVA: 0x00318FD4 File Offset: 0x003171D4
 		public bool IsOverResults()
 		{
 			bool flag = this.IsCasting();
@@ -367,7 +338,6 @@ namespace XMainClient
 			return result2;
 		}
 
-		// Token: 0x0600D36E RID: 54126 RVA: 0x0031903C File Offset: 0x0031723C
 		protected bool OnPresevedStrengthStop(XEventArgs e)
 		{
 			bool flag = this.IsCasting() && this.CurrentSkill.MainCore.PreservedStrength > 0 && this.CurrentSkill.TimeElapsed < this.CurrentSkill.MainCore.Soul.Logical.PreservedEndAt;
@@ -382,7 +352,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600D36F RID: 54127 RVA: 0x003190D4 File Offset: 0x003172D4
 		protected virtual bool OnAttack(XEventArgs e)
 		{
 			XAttackEventArgs xattackEventArgs = e as XAttackEventArgs;
@@ -442,14 +411,12 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600D370 RID: 54128 RVA: 0x003192A8 File Offset: 0x003174A8
 		protected virtual bool OnRealDead(XEventArgs e)
 		{
 			this.EndSkill(false, true);
 			return true;
 		}
 
-		// Token: 0x0600D371 RID: 54129 RVA: 0x003192C4 File Offset: 0x003174C4
 		protected virtual bool FireSkill(XSkill newOne, XEntity target, XSkillCore core, XAttackEventArgs args)
 		{
 			bool flag = this._skill != null;
@@ -508,7 +475,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600D372 RID: 54130 RVA: 0x00319634 File Offset: 0x00317834
 		private bool OnMoveMob(XEventArgs e)
 		{
 			bool flag = this._skill_mobs != null && this._host.EngineObject != null;
@@ -533,7 +499,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600D373 RID: 54131 RVA: 0x003197A4 File Offset: 0x003179A4
 		public void ReAttachSkill(XEntityPresentation.RowData template, uint typeid)
 		{
 			XSingleton<XBulletMgr>.singleton.ClearBullets(this._entity.ID);
@@ -725,7 +690,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D374 RID: 54132 RVA: 0x00319EC0 File Offset: 0x003180C0
 		public void AttachSkill()
 		{
 			this._skill_replaced_by_typeid = 0U;
@@ -856,7 +820,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D375 RID: 54133 RVA: 0x0031A620 File Offset: 0x00318820
 		public void EndSkill(bool cleanUp = false, bool force = false)
 		{
 			bool syncMode = XSingleton<XGame>.singleton.SyncMode;
@@ -876,7 +839,6 @@ namespace XMainClient
 			this.InnerEnd(cleanUp);
 		}
 
-		// Token: 0x0600D376 RID: 54134 RVA: 0x0031A68C File Offset: 0x0031888C
 		private void InnerEnd(bool cleanUp)
 		{
 			bool flag = this._skill != null;
@@ -888,7 +850,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D377 RID: 54135 RVA: 0x0031A6C8 File Offset: 0x003188C8
 		private XEntity SelectedTarget(XAttackEventArgs args, XSkillCore soul)
 		{
 			bool syncMode = XSingleton<XGame>.singleton.SyncMode;
@@ -912,7 +873,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600D378 RID: 54136 RVA: 0x0031A744 File Offset: 0x00318944
 		private XSkillCore PhysicalAttackAdaptor(XSkillCore soul)
 		{
 			bool flag = this._entity.IsPlayer && soul.Soul.Logical.Association;
@@ -939,7 +899,6 @@ namespace XMainClient
 			return soul;
 		}
 
-		// Token: 0x0600D379 RID: 54137 RVA: 0x0031A820 File Offset: 0x00318A20
 		private void AttachFilter(SkillList.RowData data, uint id)
 		{
 			XSkillCore core = XSingleton<XSkillFactory>.singleton.Build(this._entity.Present.SkillPrefix, data.SkillScript, this._entity);
@@ -1036,7 +995,6 @@ namespace XMainClient
 			XSkillData.PreLoad = false;
 		}
 
-		// Token: 0x0600D37A RID: 54138 RVA: 0x0031ABD0 File Offset: 0x00318DD0
 		private void OtherAttachFilter(SkillList.RowData data, uint id)
 		{
 			bool flag = XSingleton<XCommon>.singleton.XHash(this._entity.Present.PresentLib.A) == id;
@@ -1087,40 +1045,28 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04006010 RID: 24592
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("Skill");
 
-		// Token: 0x04006011 RID: 24593
 		public static readonly string TriggerTag = "";
 
-		// Token: 0x04006012 RID: 24594
 		private XSkill _skill = null;
 
-		// Token: 0x04006013 RID: 24595
 		private XSkillMgr _skill_mgr = null;
 
-		// Token: 0x04006014 RID: 24596
 		private uint _timer_token = 0U;
 
-		// Token: 0x04006015 RID: 24597
 		private uint _skill_replaced_by_typeid = 0U;
 
-		// Token: 0x04006016 RID: 24598
 		private XLocateTargetComponent _locate = null;
 
-		// Token: 0x04006017 RID: 24599
 		private XQuickTimeEventComponent _qte = null;
 
-		// Token: 0x04006018 RID: 24600
 		private string _trigger = null;
 
-		// Token: 0x04006019 RID: 24601
 		private uint[] _replaced_skill_slot = null;
 
-		// Token: 0x0400601A RID: 24602
 		private List<XEntity> _skill_mobs = null;
 
-		// Token: 0x0400601B RID: 24603
 		private Dictionary<uint, uint> _skills_replace_dic = null;
 	}
 }

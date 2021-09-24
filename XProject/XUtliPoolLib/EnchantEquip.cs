@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x020000E1 RID: 225
+
 	public class EnchantEquip : CVSReader
 	{
-		// Token: 0x06000605 RID: 1541 RVA: 0x0001C8D0 File Offset: 0x0001AAD0
+
 		public EnchantEquip.RowData GetByEnchantID(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -29,7 +29,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000606 RID: 1542 RVA: 0x0001C93C File Offset: 0x0001AB3C
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			EnchantEquip.RowData rowData = new EnchantEquip.RowData();
@@ -51,7 +50,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x06000607 RID: 1543 RVA: 0x0001CA1C File Offset: 0x0001AC1C
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -65,31 +63,23 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x0400032D RID: 813
 		public EnchantEquip.RowData[] Table = null;
 
-		// Token: 0x020002E0 RID: 736
 		public class RowData
 		{
-			// Token: 0x04000A3E RID: 2622
+
 			public uint EnchantID;
 
-			// Token: 0x04000A3F RID: 2623
 			public uint[] Pos;
 
-			// Token: 0x04000A40 RID: 2624
 			public SeqListRef<uint> Attribute;
 
-			// Token: 0x04000A41 RID: 2625
 			public SeqListRef<uint> Cost;
 
-			// Token: 0x04000A42 RID: 2626
 			public uint Num;
 
-			// Token: 0x04000A43 RID: 2627
 			public uint VisiblePos;
 
-			// Token: 0x04000A44 RID: 2628
 			public uint EnchantLevel;
 		}
 	}

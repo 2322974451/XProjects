@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200189D RID: 6301
+
 	internal class XGuildRedPacketView : DlgBase<XGuildRedPacketView, XGuildRedPacketBehaviour>
 	{
-		// Token: 0x170039F6 RID: 14838
-		// (get) Token: 0x0601067E RID: 67198 RVA: 0x0040079C File Offset: 0x003FE99C
+
 		public override string fileName
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170039F7 RID: 14839
-		// (get) Token: 0x0601067F RID: 67199 RVA: 0x004007B4 File Offset: 0x003FE9B4
 		public override int layer
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170039F8 RID: 14840
-		// (get) Token: 0x06010680 RID: 67200 RVA: 0x004007C8 File Offset: 0x003FE9C8
 		public override bool pushstack
 		{
 			get
@@ -40,8 +35,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170039F9 RID: 14841
-		// (get) Token: 0x06010681 RID: 67201 RVA: 0x004007DC File Offset: 0x003FE9DC
 		public override bool hideMainMenu
 		{
 			get
@@ -50,8 +43,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170039FA RID: 14842
-		// (get) Token: 0x06010682 RID: 67202 RVA: 0x004007F0 File Offset: 0x003FE9F0
 		public override bool autoload
 		{
 			get
@@ -60,8 +51,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170039FB RID: 14843
-		// (get) Token: 0x06010683 RID: 67203 RVA: 0x00400804 File Offset: 0x003FEA04
 		public override bool fullscreenui
 		{
 			get
@@ -70,7 +59,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010684 RID: 67204 RVA: 0x00400817 File Offset: 0x003FEA17
 		protected override void Init()
 		{
 			base.Init();
@@ -79,7 +67,6 @@ namespace XMainClient.UI
 			this._MainDoc = XDocuments.GetSpecificDocument<XMainInterfaceDocument>(XMainInterfaceDocument.uuID);
 		}
 
-		// Token: 0x06010685 RID: 67205 RVA: 0x00400850 File Offset: 0x003FEA50
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -90,14 +77,12 @@ namespace XMainClient.UI
 			this.m_ClickedRP = null;
 		}
 
-		// Token: 0x06010686 RID: 67206 RVA: 0x004008A8 File Offset: 0x003FEAA8
 		protected override void OnHide()
 		{
 			base.OnHide();
 			this._MainDoc.SetBlockItemsChange(false);
 		}
 
-		// Token: 0x06010687 RID: 67207 RVA: 0x004008BF File Offset: 0x003FEABF
 		protected override void OnUnload()
 		{
 			this._Doc.GuildRedPacketView = null;
@@ -105,7 +90,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x06010688 RID: 67208 RVA: 0x004008E4 File Offset: 0x003FEAE4
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -114,7 +98,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_WrapContent.RegisterItemUpdateEventHandler(new WrapItemUpdateEventHandler(this._WrapContentItemUpdated));
 		}
 
-		// Token: 0x06010689 RID: 67209 RVA: 0x00400950 File Offset: 0x003FEB50
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
@@ -124,21 +107,18 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601068A RID: 67210 RVA: 0x00400994 File Offset: 0x003FEB94
 		private bool OnCloseClick(IXUIButton button)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x0601068B RID: 67211 RVA: 0x004009B0 File Offset: 0x003FEBB0
 		public bool OnHelpClicked(IXUIButton button)
 		{
 			DlgBase<XCommonHelpTipView, XCommonHelpTipBehaviour>.singleton.ShowHelp(XSysDefine.XSys_GuildRedPacket);
 			return true;
 		}
 
-		// Token: 0x0601068C RID: 67212 RVA: 0x004009D0 File Offset: 0x003FEBD0
 		public void Refresh(bool bResetPosition = true)
 		{
 			List<XGuildRedPacketBrief> packetList = this._Doc.PacketList;
@@ -151,7 +131,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_Empty.SetActive(count == 0);
 		}
 
-		// Token: 0x0601068D RID: 67213 RVA: 0x00400A30 File Offset: 0x003FEC30
 		private void _WrapContentItemUpdated(Transform t, int index)
 		{
 			bool flag = index < 0 || index >= this._Doc.PacketList.Count;
@@ -183,7 +162,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601068E RID: 67214 RVA: 0x00400BE0 File Offset: 0x003FEDE0
 		private void _SetupState(Transform t, XGuildRedPacketBrief data)
 		{
 			IXUILabel ixuilabel = t.FindChild("LeftTime").GetComponent("XUILabel") as IXUILabel;
@@ -221,7 +199,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601068F RID: 67215 RVA: 0x00400D84 File Offset: 0x003FEF84
 		public void ShowResult(XGuildRedPacketBrief brief)
 		{
 			bool flag = brief == null;
@@ -245,14 +222,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010690 RID: 67216 RVA: 0x00400DDC File Offset: 0x003FEFDC
 		private void _OnLeftTimeOver(object o)
 		{
 			base.uiBehaviour.m_WrapContent.RefreshAllVisibleContents();
 			this._Doc.ReqList();
 		}
 
-		// Token: 0x06010691 RID: 67217 RVA: 0x00400DFC File Offset: 0x003FEFFC
 		private void _OnRedPacketClick(IXUISprite iSp)
 		{
 			bool flag = this.m_ClickedRP != null;
@@ -280,33 +255,26 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04007668 RID: 30312
 		private static string[] RedPacketBg = new string[]
 		{
 			"gh_hb_ui1",
 			"gh_hb_ui2"
 		};
 
-		// Token: 0x04007669 RID: 30313
 		private static Color[] OutterLightColor = new Color[]
 		{
 			new Color(0.8f, 0.6f, 0.2f),
 			new Color(0.2f, 0.3f, 0.9f)
 		};
 
-		// Token: 0x0400766A RID: 30314
 		private XGuildRedPacketDocument _Doc;
 
-		// Token: 0x0400766B RID: 30315
 		private XMainInterfaceDocument _MainDoc;
 
-		// Token: 0x0400766C RID: 30316
 		private Dictionary<Transform, XLeftTimeCounter> m_ActivePackets = new Dictionary<Transform, XLeftTimeCounter>();
 
-		// Token: 0x0400766D RID: 30317
 		private List<XLeftTimeCounter> m_LeftTimeList = new List<XLeftTimeCounter>();
 
-		// Token: 0x0400766E RID: 30318
 		private IXUISprite m_ClickedRP = null;
 	}
 }

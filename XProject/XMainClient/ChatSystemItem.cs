@@ -5,10 +5,10 @@ using XMainClient.UI.UICommon;
 
 namespace XMainClient
 {
-	// Token: 0x02000CC6 RID: 3270
+
 	public class ChatSystemItem : MonoBehaviour
 	{
-		// Token: 0x0600B78E RID: 46990 RVA: 0x00249DD0 File Offset: 0x00247FD0
+
 		private void Awake()
 		{
 			this.m_sprRoot = (base.GetComponent("XUISprite") as IXUISprite);
@@ -17,7 +17,6 @@ namespace XMainClient
 			this.m_lblContent = (this.m_symContent.gameObject.GetComponent("XUILabel") as IXUILabel);
 		}
 
-		// Token: 0x0600B78F RID: 46991 RVA: 0x00249E50 File Offset: 0x00248050
 		public void Refresh(ChatInfo info)
 		{
 			this.mChatInfo = info;
@@ -29,19 +28,14 @@ namespace XMainClient
 			this.m_transTitle.localPosition = new Vector3(-180f, num, 0f);
 		}
 
-		// Token: 0x04004834 RID: 18484
 		private IXUILabelSymbol m_symContent;
 
-		// Token: 0x04004835 RID: 18485
 		private ChatInfo mChatInfo;
 
-		// Token: 0x04004836 RID: 18486
 		private IXUISprite m_sprRoot;
 
-		// Token: 0x04004837 RID: 18487
 		private IXUILabel m_lblContent;
 
-		// Token: 0x04004838 RID: 18488
 		private Transform m_transTitle;
 	}
 }

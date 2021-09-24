@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x0200012A RID: 298
+
 	public class MultiActivityList : CVSReader
 	{
-		// Token: 0x06000719 RID: 1817 RVA: 0x00023664 File Offset: 0x00021864
+
 		public MultiActivityList.RowData GetByID(int key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -29,7 +29,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x0600071A RID: 1818 RVA: 0x000236D0 File Offset: 0x000218D0
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			MultiActivityList.RowData rowData = new MultiActivityList.RowData();
@@ -65,7 +64,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x0600071B RID: 1819 RVA: 0x0002386C File Offset: 0x00021A6C
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -79,52 +77,37 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x04000376 RID: 886
 		public MultiActivityList.RowData[] Table = null;
 
-		// Token: 0x02000329 RID: 809
 		public class RowData
 		{
-			// Token: 0x04000C37 RID: 3127
+
 			public int ID;
 
-			// Token: 0x04000C38 RID: 3128
 			public string Name;
 
-			// Token: 0x04000C39 RID: 3129
 			public SeqListRef<uint> OpenDayTime;
 
-			// Token: 0x04000C3A RID: 3130
 			public uint GuildLevel;
 
-			// Token: 0x04000C3B RID: 3131
 			public int DayCountMax;
 
-			// Token: 0x04000C3C RID: 3132
 			public int SystemID;
 
-			// Token: 0x04000C3D RID: 3133
 			public string RewardTips;
 
-			// Token: 0x04000C3E RID: 3134
 			public string OpenDayTips;
 
-			// Token: 0x04000C3F RID: 3135
 			public string Icon;
 
-			// Token: 0x04000C40 RID: 3136
 			public bool NeedOpenAgain;
 
-			// Token: 0x04000C41 RID: 3137
 			public uint OpenServerWeek;
 
-			// Token: 0x04000C42 RID: 3138
 			public SeqListRef<uint> DropItems;
 
-			// Token: 0x04000C43 RID: 3139
 			public bool HadShop;
 
-			// Token: 0x04000C44 RID: 3140
 			public string AtlasPath;
 		}
 	}

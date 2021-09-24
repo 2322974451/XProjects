@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x02000238 RID: 568
+
 	public class HairColorTable : CVSReader
 	{
-		// Token: 0x06000C8B RID: 3211 RVA: 0x0004202C File Offset: 0x0004022C
+
 		public HairColorTable.RowData GetByID(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -29,7 +29,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000C8C RID: 3212 RVA: 0x00042098 File Offset: 0x00040298
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			HairColorTable.RowData rowData = new HairColorTable.RowData();
@@ -45,7 +44,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x06000C8D RID: 3213 RVA: 0x0004212C File Offset: 0x0004032C
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -59,22 +57,17 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x04000786 RID: 1926
 		public HairColorTable.RowData[] Table = null;
 
-		// Token: 0x020003C7 RID: 967
 		public class RowData
 		{
-			// Token: 0x04001108 RID: 4360
+
 			public uint ID;
 
-			// Token: 0x04001109 RID: 4361
 			public float[] Color;
 
-			// Token: 0x0400110A RID: 4362
 			public string Name;
 
-			// Token: 0x0400110B RID: 4363
 			public string Icon;
 		}
 	}

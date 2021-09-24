@@ -7,10 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200178D RID: 6029
+
 	public class XMainSubstanceHandler : DlgHandlerBase
 	{
-		// Token: 0x0600F8BC RID: 63676 RVA: 0x0038EA84 File Offset: 0x0038CC84
+
 		private XMainSubstance GetSubstance()
 		{
 			bool flag = this._stack == null;
@@ -31,7 +31,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F8BD RID: 63677 RVA: 0x0038EADC File Offset: 0x0038CCDC
 		public override void OnUnload()
 		{
 			this._tempPool = null;
@@ -57,7 +56,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x0600F8BE RID: 63678 RVA: 0x0038EBA8 File Offset: 0x0038CDA8
 		private void Release(XMainSubstance substance)
 		{
 			bool flag = substance != null;
@@ -68,7 +66,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F8BF RID: 63679 RVA: 0x0038EBD4 File Offset: 0x0038CDD4
 		private XMainSubstance CreateSubStance()
 		{
 			XMainSubstance xmainSubstance = new XMainSubstance();
@@ -76,7 +73,6 @@ namespace XMainClient.UI
 			return xmainSubstance;
 		}
 
-		// Token: 0x0600F8C0 RID: 63680 RVA: 0x0038EC00 File Offset: 0x0038CE00
 		protected override void Init()
 		{
 			base.Init();
@@ -88,7 +84,6 @@ namespace XMainClient.UI
 			this._ShowSubStance = new Dictionary<XSysDefine, XMainSubstance>();
 		}
 
-		// Token: 0x0600F8C1 RID: 63681 RVA: 0x0038EC8C File Offset: 0x0038CE8C
 		public void RefreshMainSubStance(XSysDefine define, bool refreshList = true)
 		{
 			int index = 0;
@@ -122,7 +117,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F8C2 RID: 63682 RVA: 0x0038ED4C File Offset: 0x0038CF4C
 		public void Sort()
 		{
 			bool flag = this.m_substanceList != null;
@@ -132,7 +126,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F8C3 RID: 63683 RVA: 0x0038ED74 File Offset: 0x0038CF74
 		private bool TryCheckInShow(XSysDefine define, out int index, out int showCount)
 		{
 			showCount = 0;
@@ -523,16 +516,12 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x04006C8E RID: 27790
 		private IXUIList m_substanceList;
 
-		// Token: 0x04006C8F RID: 27791
 		private XUIPool _tempPool;
 
-		// Token: 0x04006C90 RID: 27792
 		private Stack<XMainSubstance> _stack;
 
-		// Token: 0x04006C91 RID: 27793
 		private Dictionary<XSysDefine, XMainSubstance> _ShowSubStance;
 	}
 }

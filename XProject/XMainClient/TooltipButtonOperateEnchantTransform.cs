@@ -5,29 +5,26 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000E88 RID: 3720
+
 	internal class TooltipButtonOperateEnchantTransform : TooltipButtonOperateBase
 	{
-		// Token: 0x0600C6B8 RID: 50872 RVA: 0x002BFF20 File Offset: 0x002BE120
+
 		public override string GetButtonText()
 		{
 			return XStringDefineProxy.GetString("ENCHANT_TRANSFORM");
 		}
 
-		// Token: 0x0600C6B9 RID: 50873 RVA: 0x002BFF3C File Offset: 0x002BE13C
 		public override bool HasRedPoint(XItem item)
 		{
 			return false;
 		}
 
-		// Token: 0x0600C6BA RID: 50874 RVA: 0x002BFF50 File Offset: 0x002BE150
 		public override bool IsButtonVisible(XItem item)
 		{
 			XEquipItem xequipItem = item as XEquipItem;
 			return xequipItem.enchantInfo.bHasEnchant;
 		}
 
-		// Token: 0x0600C6BB RID: 50875 RVA: 0x002BFF74 File Offset: 0x002BE174
 		public override void OnButtonClick(ulong mainUID, ulong compareUID)
 		{
 			base.OnButtonClick(mainUID, compareUID);
@@ -52,7 +49,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C6BC RID: 50876 RVA: 0x002C0020 File Offset: 0x002BE220
 		private bool _EnchantTransform(IXUIButton btn)
 		{
 			XSingleton<UiUtility>.singleton.CloseModalDlg();

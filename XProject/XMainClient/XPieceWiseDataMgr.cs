@@ -4,10 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000893 RID: 2195
+
 	internal class XPieceWiseDataMgr
 	{
-		// Token: 0x060085C2 RID: 34242 RVA: 0x0010BC80 File Offset: 0x00109E80
+
 		public void SetRange(double xmin, double ymin, double xmax, double ymax)
 		{
 			this.m_Min.x = xmin;
@@ -24,7 +24,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060085C3 RID: 34243 RVA: 0x0010BD04 File Offset: 0x00109F04
 		public void Init(ref SeqListRef<float> datas)
 		{
 			bool flag = false;
@@ -72,7 +71,6 @@ namespace XMainClient
 			this.bDataIsSet = true;
 		}
 
-		// Token: 0x060085C4 RID: 34244 RVA: 0x0010BE0C File Offset: 0x0010A00C
 		public double GetData(double x)
 		{
 			for (int i = 1; i < this.m_Datas.Count; i++)
@@ -94,19 +92,14 @@ namespace XMainClient
 			return 0.0;
 		}
 
-		// Token: 0x04002993 RID: 10643
 		private List<XOrderData<double, double>> m_Datas = new List<XOrderData<double, double>>();
 
-		// Token: 0x04002994 RID: 10644
 		private bool bRangeIsSet = false;
 
-		// Token: 0x04002995 RID: 10645
 		private bool bDataIsSet = false;
 
-		// Token: 0x04002996 RID: 10646
 		private XOrderData<double, double> m_Min;
 
-		// Token: 0x04002997 RID: 10647
 		private XOrderData<double, double> m_Max;
 	}
 }

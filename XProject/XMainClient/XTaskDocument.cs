@@ -9,11 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000A8F RID: 2703
+
 	internal class XTaskDocument : XDocComponent
 	{
-		// Token: 0x17002FCA RID: 12234
-		// (get) Token: 0x0600A451 RID: 42065 RVA: 0x001C5C8C File Offset: 0x001C3E8C
+
 		public override uint ID
 		{
 			get
@@ -22,8 +21,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002FCB RID: 12235
-		// (get) Token: 0x0600A452 RID: 42066 RVA: 0x001C5CA4 File Offset: 0x001C3EA4
 		public XTaskRecord TaskRecord
 		{
 			get
@@ -32,13 +29,8 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002FCC RID: 12236
-		// (get) Token: 0x0600A453 RID: 42067 RVA: 0x001C5CBC File Offset: 0x001C3EBC
-		// (set) Token: 0x0600A454 RID: 42068 RVA: 0x001C5CC4 File Offset: 0x001C3EC4
 		public uint CurrentSelect { get; set; }
 
-		// Token: 0x17002FCD RID: 12237
-		// (get) Token: 0x0600A455 RID: 42069 RVA: 0x001C5CD0 File Offset: 0x001C3ED0
 		public Dictionary<uint, uint> TaskMonstersKilled
 		{
 			get
@@ -47,8 +39,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002FCE RID: 12238
-		// (get) Token: 0x0600A456 RID: 42070 RVA: 0x001C5CE8 File Offset: 0x001C3EE8
 		public int NaviTarget
 		{
 			get
@@ -57,8 +47,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002FCF RID: 12239
-		// (get) Token: 0x0600A457 RID: 42071 RVA: 0x001C5D00 File Offset: 0x001C3F00
 		public uint NaviScene
 		{
 			get
@@ -67,8 +55,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002FD0 RID: 12240
-		// (get) Token: 0x0600A458 RID: 42072 RVA: 0x001C5D18 File Offset: 0x001C3F18
 		public uint NaviTask
 		{
 			get
@@ -77,14 +63,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A459 RID: 42073 RVA: 0x001C5D30 File Offset: 0x001C3F30
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			XTaskDocument.AsyncLoader.AddTask("Table/TaskListNew", XTaskDocument._TaskTable, false);
 			XTaskDocument.AsyncLoader.Execute(callback);
 		}
 
-		// Token: 0x0600A45A RID: 42074 RVA: 0x001C5D58 File Offset: 0x001C3F58
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
@@ -128,7 +112,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A45B RID: 42075 RVA: 0x001C5EB4 File Offset: 0x001C40B4
 		protected override void EventSubscribe()
 		{
 			base.EventSubscribe();
@@ -137,20 +120,17 @@ namespace XMainClient
 			base.RegisterEvent(XEventDefine.XEvent_NpcFavorFxChange, new XComponent.XEventHandler(this._NotifyXTaskDocFx));
 		}
 
-		// Token: 0x0600A45C RID: 42076 RVA: 0x001C5F10 File Offset: 0x001C4110
 		public static TaskTableNew.RowData GetTaskData(uint taskID)
 		{
 			return XTaskDocument._TaskTable.GetByTaskID(taskID);
 		}
 
-		// Token: 0x0600A45D RID: 42077 RVA: 0x001C5F2D File Offset: 0x001C412D
 		public void ResetNavi()
 		{
 			this.m_NaviScene = 0U;
 			this.m_NaviTarget = 0;
 		}
 
-		// Token: 0x0600A45E RID: 42078 RVA: 0x001C5F40 File Offset: 0x001C4140
 		public XTaskInfo GetTaskInfo(uint taskID)
 		{
 			for (int i = 0; i < this.TaskRecord.Tasks.Count; i++)
@@ -164,7 +144,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x0600A45F RID: 42079 RVA: 0x001C5FA8 File Offset: 0x001C41A8
 		public TaskStatus GetTaskStatue()
 		{
 			TaskStatus taskStatus = TaskStatus.TaskStatus_Over;
@@ -185,7 +164,6 @@ namespace XMainClient
 			return taskStatus;
 		}
 
-		// Token: 0x0600A460 RID: 42080 RVA: 0x001C6064 File Offset: 0x001C4264
 		private bool _GetNpcData(TaskTableNew.RowData data, XTaskInfo info)
 		{
 			bool flag = data == null;
@@ -218,7 +196,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A461 RID: 42081 RVA: 0x001C60C8 File Offset: 0x001C42C8
 		private bool _GetTempData(TaskTableNew.RowData data, XTaskInfo info)
 		{
 			bool flag = data == null;
@@ -262,7 +239,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A462 RID: 42082 RVA: 0x001C616C File Offset: 0x001C436C
 		public string ParseTaskDesc(TaskTableNew.RowData data, XTaskInfo info, bool bCRLF)
 		{
 			bool flag = !this._GetTempData(data, info);
@@ -351,7 +327,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A463 RID: 42083 RVA: 0x001C6388 File Offset: 0x001C4588
 		private void _FormatCount(StringBuilder sb, TaskConditionInfo cond)
 		{
 			bool flag = cond != null;
@@ -373,7 +348,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A464 RID: 42084 RVA: 0x001C6418 File Offset: 0x001C4618
 		public void OnTaskStatusUpdate(TaskInfo info)
 		{
 			bool flag = false;
@@ -420,7 +394,6 @@ namespace XMainClient
 			XSingleton<XEventMgr>.singleton.FireEvent(@event);
 		}
 
-		// Token: 0x0600A465 RID: 42085 RVA: 0x001C6568 File Offset: 0x001C4768
 		private void _RefreshUI()
 		{
 			bool flag = DlgBase<XTaskView, XTaskBehaviour>.singleton.IsVisible();
@@ -439,14 +412,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A466 RID: 42086 RVA: 0x001C65CC File Offset: 0x001C47CC
 		public void SetHighestPriorityTask(uint taskID)
 		{
 			XTaskDocument._HighestPriorityTask = taskID;
 			this._OnHighestPriorityTaskChanged(true);
 		}
 
-		// Token: 0x0600A467 RID: 42087 RVA: 0x001C65E0 File Offset: 0x001C47E0
 		private void _ResetHighestPriorityTask(bool bUpdateUI)
 		{
 			bool flag = XTaskDocument._HighestPriorityTask > 0U;
@@ -457,7 +428,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A468 RID: 42088 RVA: 0x001C660C File Offset: 0x001C480C
 		private void _OnHighestPriorityTaskChanged(bool bUpdateUI)
 		{
 			this.TaskRecord.Tasks.Sort(new Comparison<XTaskInfo>(XTaskDocument.SortInTaskList));
@@ -468,7 +438,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A469 RID: 42089 RVA: 0x001C664C File Offset: 0x001C484C
 		public void DoTask(uint id)
 		{
 			XTaskInfo taskInfo = this.GetTaskInfo(id);
@@ -533,7 +502,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A46A RID: 42090 RVA: 0x001C67C4 File Offset: 0x001C49C4
 		public void NaviToNpc(uint npcid, uint sceneid)
 		{
 			bool flag = npcid == 0U;
@@ -550,7 +518,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A46B RID: 42091 RVA: 0x001C6818 File Offset: 0x001C4A18
 		private void _NavigateToBattle()
 		{
 			bool flag = XSingleton<XEntityMgr>.singleton.Player == null || XSingleton<XEntityMgr>.singleton.Player.Deprecated;
@@ -566,7 +533,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A46C RID: 42092 RVA: 0x001C68C8 File Offset: 0x001C4AC8
 		public List<uint> GetSceneTaskState(uint sceneid)
 		{
 			this.m_TempTasks.Clear();
@@ -594,7 +560,6 @@ namespace XMainClient
 			return this.m_TempTasks;
 		}
 
-		// Token: 0x0600A46D RID: 42093 RVA: 0x001C6998 File Offset: 0x001C4B98
 		public NpcTaskState GetNpcTaskState(uint npcid, ref XTaskInfo task)
 		{
 			task = null;
@@ -630,7 +595,6 @@ namespace XMainClient
 			return NpcTaskState.Normal;
 		}
 
-		// Token: 0x0600A46E RID: 42094 RVA: 0x001C6A74 File Offset: 0x001C4C74
 		private XTaskInfo FindTaskInfo(uint npcId)
 		{
 			XTaskInfo xtaskInfo = null;
@@ -663,14 +627,12 @@ namespace XMainClient
 			return xtaskInfo;
 		}
 
-		// Token: 0x0600A46F RID: 42095 RVA: 0x001C6B20 File Offset: 0x001C4D20
 		private bool _NotifyXTaskDocFx(XEventArgs e)
 		{
 			this.SetupNpcHeadFx();
 			return true;
 		}
 
-		// Token: 0x0600A470 RID: 42096 RVA: 0x001C6B3C File Offset: 0x001C4D3C
 		protected void SetupNpcHeadFx()
 		{
 			List<uint> npcs = XSingleton<XEntityMgr>.singleton.GetNpcs(XSingleton<XScene>.singleton.SceneID);
@@ -759,7 +721,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A471 RID: 42097 RVA: 0x001C6DB8 File Offset: 0x001C4FB8
 		public void CreateFx(XNpc npc, uint npcId)
 		{
 			XTaskInfo xtaskInfo = this.FindTaskInfo(npcId);
@@ -798,7 +759,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A472 RID: 42098 RVA: 0x001C6E9C File Offset: 0x001C509C
 		protected void ClearFx()
 		{
 			for (int i = 0; i < this.m_Fxes.Count; i++)
@@ -808,13 +768,11 @@ namespace XMainClient
 			this.m_Fxes.Clear();
 		}
 
-		// Token: 0x0600A473 RID: 42099 RVA: 0x001C6EEA File Offset: 0x001C50EA
 		private void _ResetTaskMonsters()
 		{
 			this.m_TaskMonstersKilled.Clear();
 		}
 
-		// Token: 0x0600A474 RID: 42100 RVA: 0x001C6EFC File Offset: 0x001C50FC
 		private void _InitTaskMonsters()
 		{
 			for (int i = 0; i < this.TaskRecord.Tasks.Count; i++)
@@ -832,7 +790,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A475 RID: 42101 RVA: 0x001C6FA8 File Offset: 0x001C51A8
 		private bool _OnEntityDie(XEventArgs arg)
 		{
 			bool syncMode = XSingleton<XGame>.singleton.SyncMode;
@@ -857,7 +814,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A476 RID: 42102 RVA: 0x001C7028 File Offset: 0x001C5228
 		private bool _OnTaskStateChanged(XEventArgs arg)
 		{
 			XTaskStatusChangeArgs xtaskStatusChangeArgs = arg as XTaskStatusChangeArgs;
@@ -885,7 +841,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600A477 RID: 42103 RVA: 0x001C70EC File Offset: 0x001C52EC
 		public static NpcTaskState TaskStatus2TaskState(TaskStatus status)
 		{
 			NpcTaskState result;
@@ -910,25 +865,21 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A478 RID: 42104 RVA: 0x001C712C File Offset: 0x001C532C
 		public static uint GetSceneID(ref SeqListRef<uint> sceneData)
 		{
 			return XSingleton<UiUtility>.singleton.ChooseProfData<uint>(ref sceneData, 0U, 0);
 		}
 
-		// Token: 0x0600A479 RID: 42105 RVA: 0x001C714C File Offset: 0x001C534C
 		public static int SortByType(int type0, int type1)
 		{
 			return XTaskDocument.TypeSortValue[type0].CompareTo(XTaskDocument.TypeSortValue[type1]);
 		}
 
-		// Token: 0x0600A47A RID: 42106 RVA: 0x001C7178 File Offset: 0x001C5378
 		public static int SortByNpcState(NpcTaskState state0, NpcTaskState state1)
 		{
 			return state0.CompareTo(state1);
 		}
 
-		// Token: 0x0600A47B RID: 42107 RVA: 0x001C71A0 File Offset: 0x001C53A0
 		public static int SortInTaskList(XTaskInfo task0, XTaskInfo task1)
 		{
 			bool flag = task0 == null;
@@ -982,7 +933,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A47C RID: 42108 RVA: 0x001C7284 File Offset: 0x001C5484
 		public static int SortInDialog(XTaskInfo task0, XTaskInfo task1)
 		{
 			bool flag = task0 == null;
@@ -1036,7 +986,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A47D RID: 42109 RVA: 0x001C7366 File Offset: 0x001C5566
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 			this.TaskRecord.InitFromServerData(arg.PlayerInfo.task_record);
@@ -1044,7 +993,6 @@ namespace XMainClient
 			this.SetupNpcHeadFx();
 		}
 
-		// Token: 0x0600A47E RID: 42110 RVA: 0x001C7390 File Offset: 0x001C5590
 		public override void OnEnterScene()
 		{
 			base.OnEnterScene();
@@ -1064,7 +1012,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A47F RID: 42111 RVA: 0x001C73E8 File Offset: 0x001C55E8
 		public override void OnLeaveScene()
 		{
 			this.ClearFx();
@@ -1072,7 +1019,6 @@ namespace XMainClient
 			base.OnLeaveScene();
 		}
 
-		// Token: 0x0600A480 RID: 42112 RVA: 0x001C7404 File Offset: 0x001C5604
 		public bool ShouldNpcExist(uint npcID)
 		{
 			XNpcInfo.RowData byNPCID = XSingleton<XEntityMgr>.singleton.NpcInfo.GetByNPCID(npcID);
@@ -1098,64 +1044,44 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x04003BB2 RID: 15282
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("TaskDocument");
 
-		// Token: 0x04003BB3 RID: 15283
 		private string FX_TASK_BEGIN = "Effects/FX_Particle/Scene/Lzg_scene/rwts_01";
 
-		// Token: 0x04003BB4 RID: 15284
 		private string FX_TASK_INPROCESS = "Effects/FX_Particle/Scene/Lzg_scene/rwts_02";
 
-		// Token: 0x04003BB5 RID: 15285
 		private string FX_TASK_END = "Effects/FX_Particle/Scene/Lzg_scene/rwts_03";
 
-		// Token: 0x04003BB6 RID: 15286
 		private List<XFx> m_Fxes = new List<XFx>();
 
-		// Token: 0x04003BB7 RID: 15287
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x04003BB8 RID: 15288
 		private static TaskTableNew _TaskTable = new TaskTableNew();
 
-		// Token: 0x04003BB9 RID: 15289
 		private Dictionary<uint, List<uint>> m_AppearNpcs = new Dictionary<uint, List<uint>>();
 
-		// Token: 0x04003BBA RID: 15290
 		private Dictionary<uint, List<uint>> m_DisappearNpcs = new Dictionary<uint, List<uint>>();
 
-		// Token: 0x04003BBB RID: 15291
 		private XTaskRecord m_TaskRecord = new XTaskRecord();
 
-		// Token: 0x04003BBD RID: 15293
 		private static uint[] TypeSortValue = new uint[20];
 
-		// Token: 0x04003BBE RID: 15294
 		private string m_TempTarget;
 
-		// Token: 0x04003BBF RID: 15295
 		private uint[] m_TempNpcData;
 
-		// Token: 0x04003BC0 RID: 15296
 		private Dictionary<uint, XTaskInfo> m_TempNpcTopTask = new Dictionary<uint, XTaskInfo>();
 
-		// Token: 0x04003BC1 RID: 15297
 		private List<uint> m_TempTasks = new List<uint>();
 
-		// Token: 0x04003BC2 RID: 15298
 		private Dictionary<uint, uint> m_TaskMonstersKilled = new Dictionary<uint, uint>();
 
-		// Token: 0x04003BC3 RID: 15299
 		private int m_NaviTarget;
 
-		// Token: 0x04003BC4 RID: 15300
 		private uint m_NaviScene;
 
-		// Token: 0x04003BC5 RID: 15301
 		private uint m_NaviTask;
 
-		// Token: 0x04003BC6 RID: 15302
 		private static uint _HighestPriorityTask = 0U;
 	}
 }

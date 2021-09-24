@@ -4,10 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000EF6 RID: 3830
+
 	internal class XCharacterAttrView<T> : XAttrCommonHandler<T> where T : XAttrCommonFile, new()
 	{
-		// Token: 0x0600CB44 RID: 52036 RVA: 0x002E4834 File Offset: 0x002E2A34
+
 		public void SetAttributes(XAttributes attributes)
 		{
 			bool flag = this.m_Attributes != attributes;
@@ -22,7 +22,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CB45 RID: 52037 RVA: 0x002E486C File Offset: 0x002E2A6C
 		public override void SetData()
 		{
 			base.SetData();
@@ -56,7 +55,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CB46 RID: 52038 RVA: 0x002E49BC File Offset: 0x002E2BBC
 		private double GetAttrPercent(XAttributeDefine type, double value)
 		{
 			XCharacterAttrView<T>.AttrType type2;
@@ -74,7 +72,6 @@ namespace XMainClient
 			return (num < max) ? num : max;
 		}
 
-		// Token: 0x0600CB47 RID: 52039 RVA: 0x002E4A3C File Offset: 0x002E2C3C
 		private double GetMax(XCharacterAttrView<T>.AttrType type)
 		{
 			double result;
@@ -105,7 +102,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CB48 RID: 52040 RVA: 0x002E4ADC File Offset: 0x002E2CDC
 		private double GetMin(XCharacterAttrView<T>.AttrType type)
 		{
 			double result;
@@ -120,7 +116,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CB49 RID: 52041 RVA: 0x002E4B0C File Offset: 0x002E2D0C
 		private int GetBaseValue(XAttributeDefine type, CombatParamTable.RowData atkData)
 		{
 			bool flag = atkData == null;
@@ -171,16 +166,13 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CB4A RID: 52042 RVA: 0x002E4BC4 File Offset: 0x002E2DC4
 		private double GetCombatValue(int combatParam, double value)
 		{
 			return value / (value + (double)combatParam);
 		}
 
-		// Token: 0x040059E2 RID: 23010
 		private XAttributes m_Attributes;
 
-		// Token: 0x040059E3 RID: 23011
 		private Dictionary<XAttributeDefine, XCharacterAttrView<T>.AttrType> m_showPerAttr = new Dictionary<XAttributeDefine, XCharacterAttrView<T>.AttrType>
 		{
 			{
@@ -233,22 +225,21 @@ namespace XMainClient
 			}
 		};
 
-		// Token: 0x020019EB RID: 6635
 		private enum AttrType
 		{
-			// Token: 0x04008096 RID: 32918
+
 			ElementAtk,
-			// Token: 0x04008097 RID: 32919
+
 			ElementDef,
-			// Token: 0x04008098 RID: 32920
+
 			Critical,
-			// Token: 0x04008099 RID: 32921
+
 			CritDamage,
-			// Token: 0x0400809A RID: 32922
+
 			PhysicalDef,
-			// Token: 0x0400809B RID: 32923
+
 			MagicDef,
-			// Token: 0x0400809C RID: 32924
+
 			None
 		}
 	}

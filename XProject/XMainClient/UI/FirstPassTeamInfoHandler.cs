@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200184C RID: 6220
+
 	internal class FirstPassTeamInfoHandler : DlgHandlerBase
 	{
-		// Token: 0x1700395E RID: 14686
-		// (get) Token: 0x0601028E RID: 66190 RVA: 0x003DFD18 File Offset: 0x003DDF18
+
 		private FirstPassDocument m_doc
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700395F RID: 14687
-		// (get) Token: 0x0601028F RID: 66191 RVA: 0x003DFD30 File Offset: 0x003DDF30
 		protected override string FileName
 		{
 			get
@@ -31,7 +28,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010290 RID: 66192 RVA: 0x003DFD48 File Offset: 0x003DDF48
 		protected override void Init()
 		{
 			base.Init();
@@ -69,7 +65,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010291 RID: 66193 RVA: 0x003E0044 File Offset: 0x003DE244
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -80,7 +75,6 @@ namespace XMainClient.UI
 			this.m_rightSpr.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnRightClicked));
 		}
 
-		// Token: 0x06010292 RID: 66194 RVA: 0x003E00D1 File Offset: 0x003DE2D1
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -88,28 +82,24 @@ namespace XMainClient.UI
 			this.FillContent();
 		}
 
-		// Token: 0x06010293 RID: 66195 RVA: 0x003E00EF File Offset: 0x003DE2EF
 		protected override void OnHide()
 		{
 			base.OnHide();
 			base.Return3DAvatarPool();
 		}
 
-		// Token: 0x06010294 RID: 66196 RVA: 0x003E0100 File Offset: 0x003DE300
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
 			base.Alloc3DAvatarPool("FirstPassTeamInfoHandler", 1);
 		}
 
-		// Token: 0x06010295 RID: 66197 RVA: 0x003E0117 File Offset: 0x003DE317
 		public override void OnUnload()
 		{
 			base.Return3DAvatarPool();
 			base.OnUnload();
 		}
 
-		// Token: 0x06010296 RID: 66198 RVA: 0x003E0128 File Offset: 0x003DE328
 		private void FillContent()
 		{
 			this.SetDefault();
@@ -118,7 +108,6 @@ namespace XMainClient.UI
 			this.m_doc.ReqFirstPassTopRoleInfo(this.m_doc.CurData.Id);
 		}
 
-		// Token: 0x06010297 RID: 66199 RVA: 0x003E0194 File Offset: 0x003DE394
 		public void RefreshUI()
 		{
 			bool flag = this.m_doc.CurData.PassTeamCount == 0;
@@ -144,7 +133,6 @@ namespace XMainClient.UI
 			this.RefreshArrowRedDot();
 		}
 
-		// Token: 0x06010298 RID: 66200 RVA: 0x003E0240 File Offset: 0x003DE440
 		public void FillAvata()
 		{
 			this.RefreshUI();
@@ -211,7 +199,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010299 RID: 66201 RVA: 0x003E05B4 File Offset: 0x003DE7B4
 		private void SetDefault()
 		{
 			this.m_starGo.SetActive(false);
@@ -221,7 +208,6 @@ namespace XMainClient.UI
 			this.m_tipsGo.SetActive(true);
 		}
 
-		// Token: 0x0601029A RID: 66202 RVA: 0x003E0608 File Offset: 0x003DE808
 		private void FillTopLab()
 		{
 			bool flag = this.m_doc.CurData == null;
@@ -249,14 +235,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601029B RID: 66203 RVA: 0x003E06ED File Offset: 0x003DE8ED
 		private void RefreshArrowRedDot()
 		{
 			this.m_leftRedDot.SetActive(this.m_doc.InfoArrowRedDot(ArrowDirection.Left));
 			this.m_rightRedDot.SetActive(this.m_doc.InfoArrowRedDot(ArrowDirection.Right));
 		}
 
-		// Token: 0x0601029C RID: 66204 RVA: 0x003E0720 File Offset: 0x003DE920
 		private void RefreshAvataData()
 		{
 			int num = 0;
@@ -271,7 +255,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601029D RID: 66205 RVA: 0x003E07B0 File Offset: 0x003DE9B0
 		private bool OnReturnClicked(IXUIButton sp)
 		{
 			base.SetVisible(false);
@@ -283,7 +266,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0601029E RID: 66206 RVA: 0x003E07F0 File Offset: 0x003DE9F0
 		private bool OnRankClicked(IXUIButton sp)
 		{
 			bool flag = this.SetButtonCool(this.m_fCoolTime);
@@ -300,7 +282,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0601029F RID: 66207 RVA: 0x003E0824 File Offset: 0x003DEA24
 		private bool OnPriseClicked(IXUIButton sp)
 		{
 			bool flag = this.SetButtonCool(this.m_fCoolTime);
@@ -329,7 +310,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x060102A0 RID: 66208 RVA: 0x003E0894 File Offset: 0x003DEA94
 		private void OnLeftClicked(IXUISprite sp)
 		{
 			bool flag = this.SetButtonCool(this.m_fCoolTime);
@@ -344,7 +324,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060102A1 RID: 66209 RVA: 0x003E08E4 File Offset: 0x003DEAE4
 		private void OnRightClicked(IXUISprite sp)
 		{
 			bool flag = this.SetButtonCool(this.m_fCoolTime);
@@ -359,7 +338,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060102A2 RID: 66210 RVA: 0x003E0934 File Offset: 0x003DEB34
 		private bool SetButtonCool(float time)
 		{
 			float num = Time.realtimeSinceStartup - this.m_fLastClickBtnTime;
@@ -377,7 +355,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x060102A3 RID: 66211 RVA: 0x003E096C File Offset: 0x003DEB6C
 		private void OnClickavata(IXUISprite sp)
 		{
 			bool flag = sp == null;
@@ -388,73 +365,50 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0400738C RID: 29580
 		private IXUIButton m_returnBtn;
 
-		// Token: 0x0400738D RID: 29581
 		private IXUIButton m_rankBtn;
 
-		// Token: 0x0400738E RID: 29582
 		private IXUIButton m_priseBtn;
 
-		// Token: 0x0400738F RID: 29583
 		private IXUISprite m_leftSpr;
 
-		// Token: 0x04007390 RID: 29584
 		private IXUISprite m_rightSpr;
 
-		// Token: 0x04007391 RID: 29585
 		private IXUILabel m_tittleLab2;
 
-		// Token: 0x04007392 RID: 29586
 		private IXUILabel m_priseLab;
 
-		// Token: 0x04007393 RID: 29587
 		private IXUILabel m_starLab;
 
-		// Token: 0x04007394 RID: 29588
 		private GameObject m_starGo;
 
-		// Token: 0x04007395 RID: 29589
 		private GameObject m_leftRedDot;
 
-		// Token: 0x04007396 RID: 29590
 		private GameObject m_rightRedDot;
 
-		// Token: 0x04007397 RID: 29591
 		private GameObject m_fourPos;
 
-		// Token: 0x04007398 RID: 29592
 		private GameObject m_sixPos;
 
-		// Token: 0x04007399 RID: 29593
 		private GameObject m_tipsGo;
 
-		// Token: 0x0400739A RID: 29594
 		private GameObject m_redDotGo;
 
-		// Token: 0x0400739B RID: 29595
 		private GameObject m_priseGo2;
 
-		// Token: 0x0400739C RID: 29596
 		private List<GameObject> m_fourList;
 
-		// Token: 0x0400739D RID: 29597
 		private List<GameObject> m_sixList;
 
-		// Token: 0x0400739E RID: 29598
 		private XUIPool m_ItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x0400739F RID: 29599
 		private float m_fCoolTime = 0.5f;
 
-		// Token: 0x040073A0 RID: 29600
 		private float m_fLastClickBtnTime = 0f;
 
-		// Token: 0x040073A1 RID: 29601
 		private IUIDummy[] m_Snapshots = new IUIDummy[FirstPassDocument.MaxAvata];
 
-		// Token: 0x040073A2 RID: 29602
 		private XDummy[] m_dummys = new XDummy[FirstPassDocument.MaxAvata];
 	}
 }

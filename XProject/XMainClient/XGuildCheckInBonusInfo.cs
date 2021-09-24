@@ -5,17 +5,16 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000A7C RID: 2684
+
 	internal class XGuildCheckInBonusInfo
 	{
-		// Token: 0x0600A376 RID: 41846 RVA: 0x001BF9BC File Offset: 0x001BDBBC
+
 		public XGuildCheckInBonusInfo()
 		{
 			DateTime now = DateTime.Now;
 			this.timeofday = (double)(3600 * now.Hour + 60 * now.Minute + now.Second);
 		}
 
-		// Token: 0x0600A377 RID: 41847 RVA: 0x001BFA0C File Offset: 0x001BDC0C
 		public void SetBonusBrief(List<GuildBonusAppear> appears)
 		{
 			int i = 0;
@@ -68,7 +67,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A378 RID: 41848 RVA: 0x001BFAF0 File Offset: 0x001BDCF0
 		public int GetAddPercent(int onlineNum)
 		{
 			string value = XSingleton<XGlobalConfig>.singleton.GetValue("GuildBonusOnLineNumAddPercent");
@@ -90,8 +88,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x17002F9D RID: 12189
-		// (get) Token: 0x0600A379 RID: 41849 RVA: 0x001BFB6C File Offset: 0x001BDD6C
 		public int ActiveCount
 		{
 			get
@@ -112,7 +108,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A37A RID: 41850 RVA: 0x001BFBC8 File Offset: 0x001BDDC8
 		public bool TryGetFreeBrief(out XGuildCheckInBonusBrief brief)
 		{
 			brief = null;
@@ -131,13 +126,11 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x0600A37B RID: 41851 RVA: 0x001BFC2C File Offset: 0x001BDE2C
 		public bool HasActive()
 		{
 			return this.ActiveCount > 0;
 		}
 
-		// Token: 0x0600A37C RID: 41852 RVA: 0x001BFC48 File Offset: 0x001BDE48
 		public bool AllActived()
 		{
 			int i = 0;
@@ -154,25 +147,18 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x04003B06 RID: 15110
 		public bool isCheckIn;
 
-		// Token: 0x04003B07 RID: 15111
 		public int checkInNumber;
 
-		// Token: 0x04003B08 RID: 15112
 		public int onLineNum;
 
-		// Token: 0x04003B09 RID: 15113
 		public int guildMemberNum;
 
-		// Token: 0x04003B0A RID: 15114
 		public double timeofday;
 
-		// Token: 0x04003B0B RID: 15115
 		public double leftAskBonusTime;
 
-		// Token: 0x04003B0C RID: 15116
 		public XGuildCheckInBonusBrief[] BonusBriefs = new XGuildCheckInBonusBrief[4];
 	}
 }

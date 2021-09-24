@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x0200092A RID: 2346
+
 	internal class XDanceDocument : XDocComponent
 	{
-		// Token: 0x17002BBE RID: 11198
-		// (get) Token: 0x06008DA5 RID: 36261 RVA: 0x00136F98 File Offset: 0x00135198
+
 		public override uint ID
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002BBF RID: 11199
-		// (get) Token: 0x06008DA6 RID: 36262 RVA: 0x00136FB0 File Offset: 0x001351B0
 		private bool _playerDancing
 		{
 			get
@@ -31,8 +28,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002BC0 RID: 11200
-		// (get) Token: 0x06008DA7 RID: 36263 RVA: 0x00136FDC File Offset: 0x001351DC
 		public static Dictionary<uint, List<DanceConfig.RowData>> DanceConfigData
 		{
 			get
@@ -41,8 +36,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002BC1 RID: 11201
-		// (get) Token: 0x06008DA8 RID: 36264 RVA: 0x00136FF4 File Offset: 0x001351F4
 		public List<DanceMotionData> SelfConfigData
 		{
 			get
@@ -51,8 +44,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002BC2 RID: 11202
-		// (get) Token: 0x06008DA9 RID: 36265 RVA: 0x0013700C File Offset: 0x0013520C
 		public static XDanceDocument Doc
 		{
 			get
@@ -61,14 +52,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008DAA RID: 36266 RVA: 0x00137028 File Offset: 0x00135228
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			XDanceDocument.AsyncLoader.AddTask("Table/DanceConfig", XDanceDocument._DanceConfigReader, false);
 			XDanceDocument.AsyncLoader.Execute(callback);
 		}
 
-		// Token: 0x06008DAB RID: 36267 RVA: 0x00137050 File Offset: 0x00135250
 		public static void OnTableLoaded()
 		{
 			XDanceDocument.m_DanceConfigData.Clear();
@@ -86,14 +75,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008DAC RID: 36268 RVA: 0x001370D0 File Offset: 0x001352D0
 		protected override void EventSubscribe()
 		{
 			base.EventSubscribe();
 			base.RegisterEvent(XEventDefine.XEvent_Move, new XComponent.XEventHandler(this.OnStopAnimation));
 		}
 
-		// Token: 0x06008DAD RID: 36269 RVA: 0x001370F0 File Offset: 0x001352F0
 		protected bool OnStopAnimation(XEventArgs args)
 		{
 			bool playerDancing = this._playerDancing;
@@ -104,13 +91,11 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x06008DAE RID: 36270 RVA: 0x00137114 File Offset: 0x00135314
 		public static DanceConfig.RowData GetDanceConfig(uint motionID)
 		{
 			return XDanceDocument._DanceConfigReader.GetByMotionID(motionID);
 		}
 
-		// Token: 0x06008DAF RID: 36271 RVA: 0x00137134 File Offset: 0x00135334
 		public string GetDanceAction(uint presentID, uint serverMotionID)
 		{
 			DanceConfig.RowData danceConfig = XDanceDocument.GetDanceConfig(this.GetSelfActualMotionID(presentID, serverMotionID));
@@ -127,7 +112,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008DB0 RID: 36272 RVA: 0x0013716C File Offset: 0x0013536C
 		private uint GetSelfActualMotionID(uint presentID, uint serverMotionID)
 		{
 			DanceConfig.RowData danceConfig = XDanceDocument.GetDanceConfig(serverMotionID);
@@ -157,14 +141,12 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008DB1 RID: 36273 RVA: 0x001371EF File Offset: 0x001353EF
 		public void GetDanceIDs(uint btnType)
 		{
 			this._currMotionType = btnType;
 			this.GetAllDanceIDs();
 		}
 
-		// Token: 0x06008DB2 RID: 36274 RVA: 0x00137200 File Offset: 0x00135400
 		public void GetAllDanceIDs()
 		{
 			RpcC2M_GetDanceIds rpcC2M_GetDanceIds = new RpcC2M_GetDanceIds();
@@ -181,7 +163,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_GetDanceIds);
 		}
 
-		// Token: 0x06008DB3 RID: 36275 RVA: 0x0013727C File Offset: 0x0013547C
 		public void OnGetDanceIDs(GetDanceIdsRes oRes)
 		{
 			this.m_SelfConfigData.Clear();
@@ -203,13 +184,11 @@ namespace XMainClient
 			DlgBase<XMainInterface, XMainInterfaceBehaviour>.singleton.RefreshMotionPanel(list);
 		}
 
-		// Token: 0x06008DB4 RID: 36276 RVA: 0x00137360 File Offset: 0x00135560
 		public static int SortMotionID(DanceMotionData data1, DanceMotionData data2)
 		{
 			return (int)(data2.valid - data1.valid);
 		}
 
-		// Token: 0x06008DB5 RID: 36277 RVA: 0x00137380 File Offset: 0x00135580
 		public bool IsUnlock(uint valid, SeqListRef<uint> condition)
 		{
 			for (int i = 0; i < condition.Count; i++)
@@ -224,14 +203,12 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x06008DB6 RID: 36278 RVA: 0x001373CC File Offset: 0x001355CC
 		public bool IsUnlock(uint valid, uint type)
 		{
 			uint num = valid & 1U << (int)type;
 			return num > 0U;
 		}
 
-		// Token: 0x06008DB7 RID: 36279 RVA: 0x001373EC File Offset: 0x001355EC
 		public void ReqStartJustDance(uint motionID)
 		{
 			this._currDancingID = motionID;
@@ -246,7 +223,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_JustDance);
 		}
 
-		// Token: 0x06008DB8 RID: 36280 RVA: 0x00137444 File Offset: 0x00135644
 		public void ReqStopJustDance()
 		{
 			bool flag = !this._playerDancing;
@@ -259,7 +235,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008DB9 RID: 36281 RVA: 0x00137498 File Offset: 0x00135698
 		public void OnJustDance(JustDanceArg oArg, JustDanceRes oRes)
 		{
 			bool flag = oRes.errorcode > ErrorCode.ERR_SUCCESS;
@@ -269,7 +244,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008DBA RID: 36282 RVA: 0x001374CC File Offset: 0x001356CC
 		private void StartDance(uint motionID)
 		{
 			bool dancingEffectPlaying = this._dancingEffectPlaying;
@@ -298,13 +272,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008DBB RID: 36283 RVA: 0x001375AC File Offset: 0x001357AC
 		private void OnFishingStateChange(object o = null)
 		{
 			this.ReqStopJustDance();
 		}
 
-		// Token: 0x06008DBC RID: 36284 RVA: 0x001375B8 File Offset: 0x001357B8
 		private void StopDance(uint motionID)
 		{
 			bool flag = !this._dancingEffectPlaying;
@@ -326,13 +298,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008DBD RID: 36285 RVA: 0x001375AC File Offset: 0x001357AC
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 			this.ReqStopJustDance();
 		}
 
-		// Token: 0x06008DBE RID: 36286 RVA: 0x00137638 File Offset: 0x00135838
 		public override void OnLeaveScene()
 		{
 			base.OnLeaveScene();
@@ -346,7 +316,6 @@ namespace XMainClient
 			this._timerToken = 0U;
 		}
 
-		// Token: 0x06008DBF RID: 36287 RVA: 0x0013768C File Offset: 0x0013588C
 		public static void OnDance(bool bDancing, XEntity entity, uint motionID)
 		{
 			motionID = XDanceDocument.Doc.GetSelfActualMotionID(entity.PresentID, motionID);
@@ -394,31 +363,22 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04002DFF RID: 11775
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("DanceDocument");
 
-		// Token: 0x04002E00 RID: 11776
 		private uint _timerToken;
 
-		// Token: 0x04002E01 RID: 11777
 		private bool _dancingEffectPlaying = false;
 
-		// Token: 0x04002E02 RID: 11778
 		private uint _currDancingID;
 
-		// Token: 0x04002E03 RID: 11779
 		private uint _currMotionType = 0U;
 
-		// Token: 0x04002E04 RID: 11780
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x04002E05 RID: 11781
 		private static DanceConfig _DanceConfigReader = new DanceConfig();
 
-		// Token: 0x04002E06 RID: 11782
 		private static Dictionary<uint, List<DanceConfig.RowData>> m_DanceConfigData = new Dictionary<uint, List<DanceConfig.RowData>>();
 
-		// Token: 0x04002E07 RID: 11783
 		private List<DanceMotionData> m_SelfConfigData = new List<DanceMotionData>();
 	}
 }

@@ -6,24 +6,22 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C40 RID: 3136
+
 	internal class GuildRelaxVoiceHandler : GuildRelaxChildHandler
 	{
-		// Token: 0x0600B19E RID: 45470 RVA: 0x0022187C File Offset: 0x0021FA7C
+
 		public override void SetUnLockLevel()
 		{
 			base.SetUnLockLevel();
 			this.SetVoiceInfo(base.transform.gameObject);
 		}
 
-		// Token: 0x0600B19F RID: 45471 RVA: 0x00221898 File Offset: 0x0021FA98
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this._doc.GetGuildVoiceInfo();
 		}
 
-		// Token: 0x0600B1A0 RID: 45472 RVA: 0x002218AE File Offset: 0x0021FAAE
 		protected override void Init()
 		{
 			base.Init();
@@ -31,13 +29,11 @@ namespace XMainClient
 			this._doc = XDocuments.GetSpecificDocument<XGuildRelaxGameDocument>(XGuildRelaxGameDocument.uuID);
 		}
 
-		// Token: 0x0600B1A1 RID: 45473 RVA: 0x0021466C File Offset: 0x0021286C
 		public override void RefreshRedPoint()
 		{
 			this.m_redPoint.SetActive(false);
 		}
 
-		// Token: 0x0600B1A2 RID: 45474 RVA: 0x002218D8 File Offset: 0x0021FAD8
 		private void SetVoiceInfo(GameObject go)
 		{
 			this.m_qa.SetActive(true);
@@ -121,7 +117,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B1A3 RID: 45475 RVA: 0x00221C40 File Offset: 0x0021FE40
 		private void SetVoiceTipFalse(GameObject go)
 		{
 			GameObject gameObject = go.transform.Find("QA/Enter").gameObject;
@@ -137,21 +132,18 @@ namespace XMainClient
 			this.timeLabel = null;
 		}
 
-		// Token: 0x0600B1A4 RID: 45476 RVA: 0x00221CF0 File Offset: 0x0021FEF0
 		private bool OnEnterVoiceQAClick(IXUIButton btn)
 		{
 			this._doc.JoinGuildVoiceInfo();
 			return true;
 		}
 
-		// Token: 0x0600B1A5 RID: 45477 RVA: 0x00221D10 File Offset: 0x0021FF10
 		private bool OnOpenVoiceQAClick(IXUIButton btn)
 		{
 			this._doc.OpenGuildVoiceQuery();
 			return true;
 		}
 
-		// Token: 0x0600B1A6 RID: 45478 RVA: 0x00221D30 File Offset: 0x0021FF30
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
@@ -176,20 +168,16 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B1A7 RID: 45479 RVA: 0x00221DB8 File Offset: 0x0021FFB8
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
 			this._doc.GetGuildVoiceInfo();
 		}
 
-		// Token: 0x04004474 RID: 17524
 		private IXUILabel timeLabel = null;
 
-		// Token: 0x04004475 RID: 17525
 		private float targetTime = 0f;
 
-		// Token: 0x04004476 RID: 17526
 		private XGuildRelaxGameDocument _doc = null;
 	}
 }

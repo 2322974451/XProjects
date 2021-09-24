@@ -9,11 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000A2C RID: 2604
+
 	internal class BattleFieldBattleHandler : DlgHandlerBase
 	{
-		// Token: 0x17002ECF RID: 11983
-		// (get) Token: 0x06009EE9 RID: 40681 RVA: 0x001A3ECC File Offset: 0x001A20CC
+
 		protected override string FileName
 		{
 			get
@@ -22,7 +21,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009EEA RID: 40682 RVA: 0x001A3EE4 File Offset: 0x001A20E4
 		protected override void Init()
 		{
 			base.Init();
@@ -41,14 +39,12 @@ namespace XMainClient
 			this._ReviveCounter.SetTimeFormat(1, 3, 4, false);
 		}
 
-		// Token: 0x06009EEB RID: 40683 RVA: 0x001A403D File Offset: 0x001A223D
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			this.m_RankBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this._OnRankBtnClick));
 		}
 
-		// Token: 0x06009EEC RID: 40684 RVA: 0x001A405F File Offset: 0x001A225F
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -57,7 +53,6 @@ namespace XMainClient
 			this.InitShow();
 		}
 
-		// Token: 0x06009EED RID: 40685 RVA: 0x001A408C File Offset: 0x001A228C
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
@@ -66,13 +61,11 @@ namespace XMainClient
 			this.EndTip((int)leftTime);
 		}
 
-		// Token: 0x06009EEE RID: 40686 RVA: 0x0019EEFD File Offset: 0x0019D0FD
 		protected override void OnHide()
 		{
 			base.OnHide();
 		}
 
-		// Token: 0x06009EEF RID: 40687 RVA: 0x001A40C1 File Offset: 0x001A22C1
 		public override void OnUnload()
 		{
 			XSingleton<XTimerMgr>.singleton.KillTimer(this._RefreshRankTimerID);
@@ -81,7 +74,6 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x06009EF0 RID: 40688 RVA: 0x001A40F0 File Offset: 0x001A22F0
 		private void AutoRefresh(object param)
 		{
 			bool flag = base.IsVisible();
@@ -92,7 +84,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009EF1 RID: 40689 RVA: 0x001A4138 File Offset: 0x001A2338
 		public void InitShow()
 		{
 			this.m_MyRank.SetText(XSingleton<XStringTable>.singleton.GetString("NoRank"));
@@ -119,7 +110,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009EF2 RID: 40690 RVA: 0x001A4254 File Offset: 0x001A2454
 		public void RefreshRank(List<BattleFieldRank> data)
 		{
 			int num = -1;
@@ -159,7 +149,6 @@ namespace XMainClient
 			this.m_RankPool.ActualReturnAll(false);
 		}
 
-		// Token: 0x06009EF3 RID: 40691 RVA: 0x001A4450 File Offset: 0x001A2650
 		private void RefreshPointStage(ulong value)
 		{
 			while (this.PointStage < this.PointRewardList.Count && value >= (ulong)((long)this.PointRewardList[this.PointStage].point))
@@ -177,20 +166,17 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009EF4 RID: 40692 RVA: 0x001A4510 File Offset: 0x001A2710
 		public void SetReviveTime(uint time)
 		{
 			this._ReviveCounter.SetLeftTime(time + 0.5f, -1);
 		}
 
-		// Token: 0x06009EF5 RID: 40693 RVA: 0x001A452C File Offset: 0x001A272C
 		private bool _OnRankBtnClick(IXUIButton btn)
 		{
 			this.m_Tween.PlayTween(true, -1f);
 			return true;
 		}
 
-		// Token: 0x06009EF6 RID: 40694 RVA: 0x001A4554 File Offset: 0x001A2754
 		public void EndTip(int time)
 		{
 			bool flag = time >= 7 || time <= 0;
@@ -214,43 +200,30 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0400389D RID: 14493
 		private uint _RefreshRankTimerID = 0U;
 
-		// Token: 0x0400389E RID: 14494
 		private bool[] isEndTimeTip = new bool[6];
 
-		// Token: 0x0400389F RID: 14495
 		private List<BattleFieldPointReward.RowData> PointRewardList = new List<BattleFieldPointReward.RowData>();
 
-		// Token: 0x040038A0 RID: 14496
 		private int PointStage;
 
-		// Token: 0x040038A1 RID: 14497
 		private XLeftTimeCounter _ReviveCounter;
 
-		// Token: 0x040038A2 RID: 14498
 		private IXUILabel m_MyRank;
 
-		// Token: 0x040038A3 RID: 14499
 		private IXUILabel m_MyName;
 
-		// Token: 0x040038A4 RID: 14500
 		private IXUILabel m_MyValue;
 
-		// Token: 0x040038A5 RID: 14501
 		private IXUIButton m_RankBtn;
 
-		// Token: 0x040038A6 RID: 14502
 		private IXUITweenTool m_Tween;
 
-		// Token: 0x040038A7 RID: 14503
 		private IXUILabel m_ReviveTime;
 
-		// Token: 0x040038A8 RID: 14504
 		private IXUILabel m_PointRewardTips;
 
-		// Token: 0x040038A9 RID: 14505
 		private XUIPool m_RankPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 	}
 }

@@ -8,10 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000DFA RID: 3578
+
 	internal class XCommandNoforceClick : XBaseCommand
 	{
-		// Token: 0x0600C166 RID: 49510 RVA: 0x00292CD8 File Offset: 0x00290ED8
+
 		public override bool Execute()
 		{
 			bool flag = this._cmd.param2 == "_canvas/SkillFrame/Skill0";
@@ -123,13 +123,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C167 RID: 49511 RVA: 0x001E3B34 File Offset: 0x001E1D34
 		public override void OnFinish()
 		{
 			this.Stop();
 		}
 
-		// Token: 0x0600C168 RID: 49512 RVA: 0x0029312C File Offset: 0x0029132C
 		public override void Stop()
 		{
 			bool flag = this._finger != null;
@@ -162,19 +160,14 @@ namespace XMainClient
 			base.Stop();
 		}
 
-		// Token: 0x04005184 RID: 20868
 		private GameObject _finger;
 
-		// Token: 0x04005185 RID: 20869
 		private int orgWidth1;
 
-		// Token: 0x04005186 RID: 20870
 		private int orgHeight1;
 
-		// Token: 0x04005187 RID: 20871
 		private int orgWidth2;
 
-		// Token: 0x04005188 RID: 20872
 		private int orgHeight2;
 	}
 }

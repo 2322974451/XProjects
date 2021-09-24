@@ -9,11 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C05 RID: 3077
+
 	internal class XGuildDailyTaskView : DlgBase<XGuildDailyTaskView, XGuildDailyTaskBehavior>
 	{
-		// Token: 0x170030DA RID: 12506
-		// (get) Token: 0x0600AED9 RID: 44761 RVA: 0x0020F540 File Offset: 0x0020D740
+
 		public override string fileName
 		{
 			get
@@ -22,8 +21,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170030DB RID: 12507
-		// (get) Token: 0x0600AEDA RID: 44762 RVA: 0x0020F558 File Offset: 0x0020D758
 		public override bool autoload
 		{
 			get
@@ -32,8 +29,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170030DC RID: 12508
-		// (get) Token: 0x0600AEDB RID: 44763 RVA: 0x0020F56C File Offset: 0x0020D76C
 		public override bool pushstack
 		{
 			get
@@ -42,8 +37,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170030DD RID: 12509
-		// (get) Token: 0x0600AEDC RID: 44764 RVA: 0x0020F580 File Offset: 0x0020D780
 		public override int sysid
 		{
 			get
@@ -52,38 +45,32 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AEDD RID: 44765 RVA: 0x0020F597 File Offset: 0x0020D797
 		protected override void OnLoad()
 		{
 			base.OnLoad();
 		}
 
-		// Token: 0x0600AEDE RID: 44766 RVA: 0x0020F5A1 File Offset: 0x0020D7A1
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 		}
 
-		// Token: 0x0600AEDF RID: 44767 RVA: 0x0020F5AB File Offset: 0x0020D7AB
 		protected override void OnUnload()
 		{
 			base.OnUnload();
 		}
 
-		// Token: 0x0600AEE0 RID: 44768 RVA: 0x0020F5B5 File Offset: 0x0020D7B5
 		protected override void Init()
 		{
 			base.Init();
 			this.InitProperties();
 		}
 
-		// Token: 0x0600AEE1 RID: 44769 RVA: 0x0020F5C6 File Offset: 0x0020D7C6
 		protected override void OnHide()
 		{
 			base.OnHide();
 		}
 
-		// Token: 0x0600AEE2 RID: 44770 RVA: 0x0020F5D0 File Offset: 0x0020D7D0
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -94,24 +81,20 @@ namespace XMainClient
 			XGuildDailyTaskDocument.Doc.SendToGetRefreshLogInfo();
 		}
 
-		// Token: 0x0600AEE3 RID: 44771 RVA: 0x0020F620 File Offset: 0x0020D820
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
 			XGuildDailyTaskDocument.Doc.SendGetDailyTaskInfo();
 		}
 
-		// Token: 0x0600AEE4 RID: 44772 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public void Refresh()
 		{
 		}
 
-		// Token: 0x0600AEE5 RID: 44773 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public void RefreshGuildDailyContent()
 		{
 		}
 
-		// Token: 0x0600AEE6 RID: 44774 RVA: 0x0020F638 File Offset: 0x0020D838
 		private void InitProperties()
 		{
 			base.uiBehaviour.RefreshRecordRoot.gameObject.SetActive(true);
@@ -127,14 +110,12 @@ namespace XMainClient
 			base.uiBehaviour.TipButton.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnShowInstruction));
 		}
 
-		// Token: 0x0600AEE7 RID: 44775 RVA: 0x0020F76C File Offset: 0x0020D96C
 		private bool OnShowInstruction(IXUIButton button)
 		{
 			DlgBase<XCommonHelpTipView, XCommonHelpTipBehaviour>.singleton.ShowHelp(XSysDefine.XSys_GuildDailyTask);
 			return true;
 		}
 
-		// Token: 0x0600AEE8 RID: 44776 RVA: 0x0020F790 File Offset: 0x0020D990
 		private void OnUpdateRefreshLogItem(Transform itemTransform, int index)
 		{
 			DailyTaskRefreshInfo refreshTaskLogInfo = XGuildDailyTaskDocument.Doc.GetRefreshTaskLogInfo(index);
@@ -162,7 +143,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AEE9 RID: 44777 RVA: 0x0020F98C File Offset: 0x0020DB8C
 		private void OnClickToShowRoleDetail(IXUISprite uiSprite)
 		{
 			bool flag = uiSprite.ID != XSingleton<XAttributeMgr>.singleton.XPlayerData.RoleID;
@@ -172,7 +152,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AEEA RID: 44778 RVA: 0x0020F9C8 File Offset: 0x0020DBC8
 		private bool OnCloseRefreshLogView(IXUIButton button)
 		{
 			XGuildDailyTaskDocument.Doc.DailyTaskBeenRefreshIcon = false;
@@ -181,28 +160,24 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600AEEB RID: 44779 RVA: 0x0020FA10 File Offset: 0x0020DC10
 		private bool OnClickRefreshLogBtn(IXUIButton button)
 		{
 			this.RefreshLogContent();
 			return true;
 		}
 
-		// Token: 0x0600AEEC RID: 44780 RVA: 0x0020FA2C File Offset: 0x0020DC2C
 		private bool OnClickRefreshBtn(IXUIButton button)
 		{
 			DlgBase<XGuildDailyRefreshTaskDlg, XGuildDailyRefreshTaskBehavior>.singleton.SetVisibleWithAnimation(true, null);
 			return true;
 		}
 
-		// Token: 0x0600AEED RID: 44781 RVA: 0x0020FA4C File Offset: 0x0020DC4C
 		private bool Onclose(IXUIButton button)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x0600AEEE RID: 44782 RVA: 0x0020FA68 File Offset: 0x0020DC68
 		private bool OnclickSubmmitBtn(IXUIButton button)
 		{
 			int rewardedTaskCount = XGuildDailyTaskDocument.Doc.GetRewardedTaskCount();
@@ -222,7 +197,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600AEEF RID: 44783 RVA: 0x0020FAF8 File Offset: 0x0020DCF8
 		private bool OnConfirmToSubmit(IXUIButton button)
 		{
 			XGuildDailyTaskDocument.Doc.SendToGetMyTaskReward(2U, 0U);
@@ -230,7 +204,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600AEF0 RID: 44784 RVA: 0x0020FB28 File Offset: 0x0020DD28
 		private bool OnCacelTask(IXUIButton button)
 		{
 			XGuildDailyTaskDocument.Doc.GiveUpTask();
@@ -238,7 +211,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600AEF1 RID: 44785 RVA: 0x0020FB54 File Offset: 0x0020DD54
 		private bool OnclickReqHelpBtn(IXUIButton button)
 		{
 			XGuildDocument specificDocument = XDocuments.GetSpecificDocument<XGuildDocument>(XGuildDocument.uuID);
@@ -254,7 +226,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600AEF2 RID: 44786 RVA: 0x0020FBB4 File Offset: 0x0020DDB4
 		private bool OnclickCompleteBtn(IXUIButton button)
 		{
 			GuildDailyTaskInfo taskInfoByID = XGuildDailyTaskDocument.Doc.GetTaskInfoByID((uint)button.ID);
@@ -287,7 +258,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600AEF3 RID: 44787 RVA: 0x0020FC64 File Offset: 0x0020DE64
 		private void InitTaskItem(Transform itemTransform, int index)
 		{
 			IXUICheckBox ixuicheckBox = itemTransform.Find("Normal").GetComponent("XUICheckBox") as IXUICheckBox;
@@ -302,13 +272,11 @@ namespace XMainClient
 			ixuisprite2.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnclickBossIcon));
 		}
 
-		// Token: 0x0600AEF4 RID: 44788 RVA: 0x0020FD5A File Offset: 0x0020DF5A
 		private void OnclickBossIcon(IXUISprite uiSprite)
 		{
 			this.ItemAccessByID((uint)uiSprite.ID);
 		}
 
-		// Token: 0x0600AEF5 RID: 44789 RVA: 0x0020FD6C File Offset: 0x0020DF6C
 		private void ItemAccessByID(uint taskID)
 		{
 			DailyTask.RowData dailyTaskTableInfoByID = XGuildDailyTaskDocument.Doc.GetDailyTaskTableInfoByID(taskID);
@@ -326,13 +294,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AEF6 RID: 44790 RVA: 0x001AE886 File Offset: 0x001ACA86
 		private void OnclickIcon(IXUISprite uiSprite)
 		{
 			XSingleton<UiUtility>.singleton.ShowItemAccess((int)uiSprite.ID, null);
 		}
 
-		// Token: 0x0600AEF7 RID: 44791 RVA: 0x0020FDFC File Offset: 0x0020DFFC
 		private bool OnSwitchTaskItem(IXUICheckBox iXUICheckBox)
 		{
 			bool bChecked = iXUICheckBox.bChecked;
@@ -343,12 +309,10 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600AEF8 RID: 44792 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		private void UpdateRightPanel(ulong taskID)
 		{
 		}
 
-		// Token: 0x0600AEF9 RID: 44793 RVA: 0x0020FE28 File Offset: 0x0020E028
 		private void UpdateTotalTaskRewards()
 		{
 			XLevelSealDocument specificDocument = XDocuments.GetSpecificDocument<XLevelSealDocument>(XLevelSealDocument.uuID);
@@ -439,7 +403,6 @@ namespace XMainClient
 			base.uiBehaviour.taskNumLabel.SetText(count.ToString());
 		}
 
-		// Token: 0x0600AEFA RID: 44794 RVA: 0x0021031C File Offset: 0x0020E51C
 		private void UpdateTaskItem(Transform itemTransform, int index)
 		{
 			GuildDailyTaskInfo taskInfoByIndex = XGuildDailyTaskDocument.Doc.GetTaskInfoByIndex(index);
@@ -595,7 +558,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AEFB RID: 44795 RVA: 0x00210A04 File Offset: 0x0020EC04
 		public void RefreshLogContent()
 		{
 			base.uiBehaviour.RefreshRecordRoot.gameObject.SetActive(true);
@@ -604,7 +566,6 @@ namespace XMainClient
 			base.uiBehaviour.RefreshLogScrollView.ResetPosition();
 		}
 
-		// Token: 0x0600AEFC RID: 44796 RVA: 0x00210A60 File Offset: 0x0020EC60
 		public void RefreshTaskItemByID(uint id)
 		{
 			this._taskContent.RefreshAllVisibleContents();
@@ -615,7 +576,6 @@ namespace XMainClient
 			this.UpdateTotalTaskRewards();
 		}
 
-		// Token: 0x0600AEFD RID: 44797 RVA: 0x00210B04 File Offset: 0x0020ED04
 		public void RefreshTaskContent()
 		{
 			base.uiBehaviour.TaskLevelSprite.SetSprite(base.uiBehaviour.TaskLevelSprite.spriteName.Substring(0, base.uiBehaviour.TaskLevelSprite.spriteName.Length - 1) + XGuildDailyTaskDocument.Doc.CurScore);
@@ -632,7 +592,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AEFE RID: 44798 RVA: 0x00210C10 File Offset: 0x0020EE10
 		private void InitDefaultSelectedTaskItem()
 		{
 			bool flag = !this.selectedDefault;
@@ -653,13 +612,10 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0400428D RID: 17037
 		private IXUIWrapContent _taskContent = null;
 
-		// Token: 0x0400428E RID: 17038
 		private uint _curTabedTaskID = 0U;
 
-		// Token: 0x0400428F RID: 17039
 		private bool selectedDefault = false;
 	}
 }

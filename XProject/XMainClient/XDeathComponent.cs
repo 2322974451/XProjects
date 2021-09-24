@@ -4,11 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000FC9 RID: 4041
+
 	internal sealed class XDeathComponent : XActionStateComponent<XRealDeadEventArgs>
 	{
-		// Token: 0x170036BA RID: 14010
-		// (get) Token: 0x0600D214 RID: 53780 RVA: 0x0030F72C File Offset: 0x0030D92C
+
 		public override uint ID
 		{
 			get
@@ -17,9 +16,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170036BB RID: 14011
-		// (get) Token: 0x0600D215 RID: 53781 RVA: 0x0030F744 File Offset: 0x0030D944
-		// (set) Token: 0x0600D216 RID: 53782 RVA: 0x0030F75C File Offset: 0x0030D95C
 		public float ClipLen
 		{
 			get
@@ -32,8 +28,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170036BC RID: 14012
-		// (get) Token: 0x0600D217 RID: 53783 RVA: 0x0030F768 File Offset: 0x0030D968
 		public IXCurve CurveH
 		{
 			get
@@ -42,8 +36,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170036BD RID: 14013
-		// (get) Token: 0x0600D218 RID: 53784 RVA: 0x0030F780 File Offset: 0x0030D980
 		public IXCurve CurveV
 		{
 			get
@@ -52,8 +44,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170036BE RID: 14014
-		// (get) Token: 0x0600D219 RID: 53785 RVA: 0x0030F798 File Offset: 0x0030D998
 		public float LandTime
 		{
 			get
@@ -62,8 +52,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170036BF RID: 14015
-		// (get) Token: 0x0600D21A RID: 53786 RVA: 0x0030F7B0 File Offset: 0x0030D9B0
 		public float LandMax
 		{
 			get
@@ -72,7 +60,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D21B RID: 53787 RVA: 0x0030F7C8 File Offset: 0x0030D9C8
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
@@ -102,7 +89,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D21C RID: 53788 RVA: 0x0030F910 File Offset: 0x0030DB10
 		public override void OnDetachFromHost()
 		{
 			base.OnDetachFromHost();
@@ -115,20 +101,16 @@ namespace XMainClient
 			XSingleton<XTimerMgr>.singleton.KillTimer(this._destory_token);
 		}
 
-		// Token: 0x0600D21D RID: 53789 RVA: 0x0030F976 File Offset: 0x0030DB76
 		protected override void EventSubscribe()
 		{
 			base.RegisterEvent(XEventDefine.XEvent_RealDead, new XComponent.XEventHandler(base.OnActionEvent));
 			base.RegisterEvent(XEventDefine.XEvent_OnRevived, new XComponent.XEventHandler(this.OnRevive));
 		}
 
-		// Token: 0x0600D21E RID: 53790 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public override void OnRejected(XStateDefine current)
 		{
 		}
 
-		// Token: 0x170036C0 RID: 14016
-		// (get) Token: 0x0600D21F RID: 53791 RVA: 0x0030F9A4 File Offset: 0x0030DBA4
 		public override bool IsUsingCurve
 		{
 			get
@@ -137,7 +119,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D220 RID: 53792 RVA: 0x0030F9C0 File Offset: 0x0030DBC0
 		protected override void Cancel(XStateDefine next)
 		{
 			bool flag = this._death_fx != null;
@@ -151,7 +132,6 @@ namespace XMainClient
 			XSingleton<XTimerMgr>.singleton.KillTimer(this._destory_token);
 		}
 
-		// Token: 0x0600D221 RID: 53793 RVA: 0x0030FA20 File Offset: 0x0030DC20
 		private bool OnRevive(XEventArgs e)
 		{
 			bool flag = this._entity.Machine.Current == XStateDefine.XState_Death;
@@ -163,7 +143,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600D222 RID: 53794 RVA: 0x0030FA68 File Offset: 0x0030DC68
 		protected override void ActionUpdate(float deltaTime)
 		{
 			bool presented = this._presented;
@@ -193,7 +172,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D223 RID: 53795 RVA: 0x0030FBEC File Offset: 0x0030DDEC
 		public override string TriggerAnim(string pre)
 		{
 			this._presented = true;
@@ -201,8 +179,6 @@ namespace XMainClient
 			return this.PresentName;
 		}
 
-		// Token: 0x170036C1 RID: 14017
-		// (get) Token: 0x0600D224 RID: 53796 RVA: 0x0030FC30 File Offset: 0x0030DE30
 		public override string PresentCommand
 		{
 			get
@@ -211,8 +187,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170036C2 RID: 14018
-		// (get) Token: 0x0600D225 RID: 53797 RVA: 0x0030FC48 File Offset: 0x0030DE48
 		public override string PresentName
 		{
 			get
@@ -221,8 +195,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170036C3 RID: 14019
-		// (get) Token: 0x0600D226 RID: 53798 RVA: 0x0030FC60 File Offset: 0x0030DE60
 		public override bool ShouldBePresent
 		{
 			get
@@ -231,8 +203,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170036C4 RID: 14020
-		// (get) Token: 0x0600D227 RID: 53799 RVA: 0x0030FC7C File Offset: 0x0030DE7C
 		public override int CollisionLayer
 		{
 			get
@@ -241,7 +211,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D228 RID: 53800 RVA: 0x0030FC98 File Offset: 0x0030DE98
 		protected override bool OnGetEvent(XRealDeadEventArgs e, XStateDefine last)
 		{
 			this._killer = e.Killer;
@@ -254,7 +223,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600D229 RID: 53801 RVA: 0x0030FD28 File Offset: 0x0030DF28
 		protected override void Begin()
 		{
 			XEntity xentity = this._entity.IsTransform ? this._entity.Transformer : this._entity;
@@ -315,7 +283,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D22A RID: 53802 RVA: 0x003100A0 File Offset: 0x0030E2A0
 		private void OnFadeOut(object o)
 		{
 			XFadeOutEventArgs @event = XEventPool<XFadeOutEventArgs>.GetEvent();
@@ -324,7 +291,6 @@ namespace XMainClient
 			XSingleton<XEventMgr>.singleton.FireEvent(@event);
 		}
 
-		// Token: 0x0600D22B RID: 53803 RVA: 0x003100D8 File Offset: 0x0030E2D8
 		private void OnDestroy(object o)
 		{
 			bool flag = this._death_fx != null;
@@ -336,52 +302,36 @@ namespace XMainClient
 			this._entity.Died();
 		}
 
-		// Token: 0x04005F4D RID: 24397
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("Death");
 
-		// Token: 0x04005F4E RID: 24398
 		private bool _presented = false;
 
-		// Token: 0x04005F4F RID: 24399
 		private float _elapsed = 0f;
 
-		// Token: 0x04005F50 RID: 24400
 		private float _clip_len = 0f;
 
-		// Token: 0x04005F51 RID: 24401
 		private float _last_offset = 0f;
 
-		// Token: 0x04005F52 RID: 24402
 		private float _last_height = 0f;
 
-		// Token: 0x04005F53 RID: 24403
 		private float _deltaH = 0f;
 
-		// Token: 0x04005F54 RID: 24404
 		private float _land_time = 0f;
 
-		// Token: 0x04005F55 RID: 24405
 		private float _land_max = 0f;
 
-		// Token: 0x04005F56 RID: 24406
 		private Vector3 _step_dir = Vector3.forward;
 
-		// Token: 0x04005F57 RID: 24407
 		private IXCurve _curve_h = null;
 
-		// Token: 0x04005F58 RID: 24408
 		private IXCurve _curve_v = null;
 
-		// Token: 0x04005F59 RID: 24409
 		private XEntity _killer = null;
 
-		// Token: 0x04005F5A RID: 24410
 		private XFx _death_fx = null;
 
-		// Token: 0x04005F5B RID: 24411
 		private uint _fade_out_token = 0U;
 
-		// Token: 0x04005F5C RID: 24412
 		private uint _destory_token = 0U;
 	}
 }

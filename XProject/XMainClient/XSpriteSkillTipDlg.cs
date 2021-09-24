@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000CB9 RID: 3257
+
 	internal class XSpriteSkillTipDlg : DlgBase<XSpriteSkillTipDlg, XSpriteSkillTipBehaviour>
 	{
-		// Token: 0x17003264 RID: 12900
-		// (get) Token: 0x0600B72D RID: 46893 RVA: 0x00246C34 File Offset: 0x00244E34
+
 		public XItemSelector ItemSelector
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003265 RID: 12901
-		// (get) Token: 0x0600B72E RID: 46894 RVA: 0x00246C4C File Offset: 0x00244E4C
 		public override string fileName
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003266 RID: 12902
-		// (get) Token: 0x0600B72F RID: 46895 RVA: 0x00246C64 File Offset: 0x00244E64
 		public override bool autoload
 		{
 			get
@@ -40,14 +35,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B730 RID: 46896 RVA: 0x00246C77 File Offset: 0x00244E77
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			base.uiBehaviour.m_Close.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnCloseClicked));
 		}
 
-		// Token: 0x0600B731 RID: 46897 RVA: 0x00246CA0 File Offset: 0x00244EA0
 		public void ShowSpriteSkill(uint skillID, bool mainSkill, uint level)
 		{
 			bool flag = !base.IsVisible();
@@ -58,7 +51,6 @@ namespace XMainClient
 			this.SetSkillInfo(skillID, mainSkill, level);
 		}
 
-		// Token: 0x0600B732 RID: 46898 RVA: 0x00246CD0 File Offset: 0x00244ED0
 		private void SetSkillInfo(uint skillID, bool mainSkill, uint level)
 		{
 			XSpriteSystemDocument specificDocument = XDocuments.GetSpecificDocument<XSpriteSystemDocument>(XSpriteSystemDocument.uuID);
@@ -105,14 +97,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B733 RID: 46899 RVA: 0x00247129 File Offset: 0x00245329
 		public void OnCloseClicked(IXUISprite sp)
 		{
 			this._ItemSelector.Hide();
 			this.SetVisibleWithAnimation(false, null);
 		}
 
-		// Token: 0x040047E6 RID: 18406
 		private XItemSelector _ItemSelector = new XItemSelector(XSingleton<XGlobalConfig>.singleton.DefaultIconWidth);
 	}
 }

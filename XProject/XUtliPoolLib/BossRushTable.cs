@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x020000B8 RID: 184
+
 	public class BossRushTable : CVSReader
 	{
-		// Token: 0x06000554 RID: 1364 RVA: 0x00017AC8 File Offset: 0x00015CC8
+
 		public BossRushTable.RowData GetByqniqueid(short key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -21,7 +21,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000555 RID: 1365 RVA: 0x00017B00 File Offset: 0x00015D00
 		private BossRushTable.RowData BinarySearchqniqueid(short key)
 		{
 			int num = 0;
@@ -80,7 +79,6 @@ namespace XUtliPoolLib
 			return null;
 		}
 
-		// Token: 0x06000556 RID: 1366 RVA: 0x00017BDC File Offset: 0x00015DDC
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			BossRushTable.RowData rowData = new BossRushTable.RowData();
@@ -98,7 +96,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x06000557 RID: 1367 RVA: 0x00017C8C File Offset: 0x00015E8C
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -112,25 +109,19 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x040002DE RID: 734
 		public BossRushTable.RowData[] Table = null;
 
-		// Token: 0x020002B6 RID: 694
 		public class RowData
 		{
-			// Token: 0x0400091A RID: 2330
+
 			public int bossid;
 
-			// Token: 0x0400091B RID: 2331
 			public byte[] bossdifficult;
 
-			// Token: 0x0400091C RID: 2332
 			public string bosstip;
 
-			// Token: 0x0400091D RID: 2333
 			public short qniqueid;
 
-			// Token: 0x0400091E RID: 2334
 			public SeqListRef<uint> reward;
 		}
 	}

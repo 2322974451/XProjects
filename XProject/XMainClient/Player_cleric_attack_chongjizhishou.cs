@@ -2,10 +2,10 @@
 
 namespace XMainClient
 {
-	// Token: 0x02001361 RID: 4961
+
 	internal class Player_cleric_attack_chongjizhishou
 	{
-		// Token: 0x0600E278 RID: 57976 RVA: 0x003390C0 File Offset: 0x003372C0
+
 		public static bool CallBomber(XSkill skill)
 		{
 			XSkillComponent skill2 = skill.Firer.Skill;

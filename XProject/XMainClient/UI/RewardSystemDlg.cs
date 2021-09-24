@@ -4,11 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200190C RID: 6412
+
 	internal class RewardSystemDlg : TabDlgBase<RewardSystemDlg>
 	{
-		// Token: 0x17003ACF RID: 15055
-		// (get) Token: 0x06010C2A RID: 68650 RVA: 0x00433948 File Offset: 0x00431B48
+
 		public override string fileName
 		{
 			get
@@ -17,8 +16,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003AD0 RID: 15056
-		// (get) Token: 0x06010C2B RID: 68651 RVA: 0x00433960 File Offset: 0x00431B60
 		public override int group
 		{
 			get
@@ -27,8 +24,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003AD1 RID: 15057
-		// (get) Token: 0x06010C2C RID: 68652 RVA: 0x00433974 File Offset: 0x00431B74
 		protected override bool bHorizontal
 		{
 			get
@@ -37,14 +32,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010C2D RID: 68653 RVA: 0x00433987 File Offset: 0x00431B87
 		protected override void Init()
 		{
 			base.Init();
 			base.RegisterSubSysRedPointMgr(XSysDefine.XSys_Reward);
 		}
 
-		// Token: 0x06010C2E RID: 68654 RVA: 0x0043399C File Offset: 0x00431B9C
 		protected override void OnLoad()
 		{
 			base.OnLoad();
@@ -63,7 +56,6 @@ namespace XMainClient.UI
 			this.m_dragonPanel.SetActive(false);
 		}
 
-		// Token: 0x06010C2F RID: 68655 RVA: 0x00433ADC File Offset: 0x00431CDC
 		protected override void OnUnload()
 		{
 			DlgHandlerBase.EnsureUnload<XAchieveView>(ref this._AchieveView);
@@ -75,7 +67,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x06010C30 RID: 68656 RVA: 0x00433B3C File Offset: 0x00431D3C
 		public override void SetupHandlers(XSysDefine sys)
 		{
 			XSysDefine xsysDefine = sys;
@@ -118,43 +109,30 @@ namespace XMainClient.UI
 			XSingleton<XDebug>.singleton.AddErrorLog("System has not finished:", sys.ToString(), null, null, null, null);
 		}
 
-		// Token: 0x04007ABF RID: 31423
 		public XAchieveView _AchieveView;
 
-		// Token: 0x04007AC0 RID: 31424
 		public XTargetRewardView _TargetRewardView;
 
-		// Token: 0x04007AC1 RID: 31425
 		public XRewardLevelView _LevelRewardView;
 
-		// Token: 0x04007AC2 RID: 31426
 		public XServerActivityView _ServerActivityView;
 
-		// Token: 0x04007AC3 RID: 31427
 		public XDragonRwdHandler _DragonView;
 
-		// Token: 0x04007AC4 RID: 31428
 		private Transform _bg;
 
-		// Token: 0x04007AC5 RID: 31429
 		public GameObject m_AchievementPanel;
 
-		// Token: 0x04007AC6 RID: 31430
 		public GameObject m_TargetRewardPanel;
 
-		// Token: 0x04007AC7 RID: 31431
 		public GameObject m_LevelRewardPanel;
 
-		// Token: 0x04007AC8 RID: 31432
 		public GameObject m_ServerActivePanel;
 
-		// Token: 0x04007AC9 RID: 31433
 		public GameObject m_dragonPanel;
 
-		// Token: 0x04007ACA RID: 31434
 		private GameObject _sharePanel;
 
-		// Token: 0x04007ACB RID: 31435
 		private WeekShareRewardHandler _shareHandler;
 	}
 }

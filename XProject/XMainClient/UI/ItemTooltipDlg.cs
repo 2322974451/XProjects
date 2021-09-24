@@ -5,11 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200190D RID: 6413
+
 	internal class ItemTooltipDlg : TooltipDlg<ItemTooltipDlg, ItemTooltipDlgBehaviour>
 	{
-		// Token: 0x17003AD2 RID: 15058
-		// (get) Token: 0x06010C32 RID: 68658 RVA: 0x00433C70 File Offset: 0x00431E70
+
 		public override string fileName
 		{
 			get
@@ -18,7 +17,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010C33 RID: 68659 RVA: 0x00433C88 File Offset: 0x00431E88
 		protected override void Init()
 		{
 			base.Init();
@@ -29,7 +27,6 @@ namespace XMainClient.UI
 			this.m_OperateList[0, 4] = new TooltipButtonOperateCompose();
 		}
 
-		// Token: 0x06010C34 RID: 68660 RVA: 0x00433CFC File Offset: 0x00431EFC
 		public void ShowToolTip(ulong MainUID, ulong CompareUID, bool bShowButtons = true)
 		{
 			XItem itemByUID = XSingleton<XGame>.singleton.Doc.XBagDoc.GetItemByUID(MainUID);
@@ -42,7 +39,6 @@ namespace XMainClient.UI
 			this.ShowToolTip(itemByUID, xitem, bShowButtons, 0U);
 		}
 
-		// Token: 0x06010C35 RID: 68661 RVA: 0x00433D54 File Offset: 0x00431F54
 		protected override void SetupTopFrame(GameObject goToolTip, ItemList.RowData data, bool bMain, XItem instanceData = null, XItem compareData = null)
 		{
 			base.SetupTopFrame(goToolTip, data, bMain, instanceData, compareData);
@@ -70,7 +66,6 @@ namespace XMainClient.UI
 			this.SetTimeLab();
 		}
 
-		// Token: 0x06010C36 RID: 68662 RVA: 0x00433E70 File Offset: 0x00432070
 		private void SetTimeLab()
 		{
 			XItem itemByUID = XBagDocument.BagDoc.GetItemByUID(this.mainItemUID);
@@ -98,25 +93,21 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010C37 RID: 68663 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void SetAllAttrFrames(GameObject goToolTip, XAttrItem item, XAttrItem compareItem, bool bMain)
 		{
 		}
 
-		// Token: 0x06010C38 RID: 68664 RVA: 0x00433F5C File Offset: 0x0043215C
 		protected override void SetupOtherFrame(GameObject goToolTip, XItem item, XItem compareItem, bool bMain)
 		{
 			ItemList.RowData itemConf = XBagDocument.GetItemConf(item.itemID);
 			this._SetupDescription(goToolTip, itemConf);
 		}
 
-		// Token: 0x06010C39 RID: 68665 RVA: 0x00433F7F File Offset: 0x0043217F
 		protected override void SetupOtherFrame(GameObject goToolTip, ItemList.RowData data)
 		{
 			this._SetupDescription(goToolTip, data);
 		}
 
-		// Token: 0x06010C3A RID: 68666 RVA: 0x00433F8C File Offset: 0x0043218C
 		protected void _SetupDescription(GameObject goToolTip, ItemList.RowData data)
 		{
 			Transform transform = goToolTip.transform;
@@ -135,7 +126,6 @@ namespace XMainClient.UI
 			this.totalFrameHeight += (float)ixuisprite.spriteHeight;
 		}
 
-		// Token: 0x06010C3B RID: 68667 RVA: 0x0043404C File Offset: 0x0043224C
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
@@ -147,7 +137,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010C3C RID: 68668 RVA: 0x0043409C File Offset: 0x0043229C
 		protected override void SetupToolTipButtons(GameObject goToolTip, XItem item, bool bMain)
 		{
 			base.SetupToolTipButtons(goToolTip, item, bMain);
@@ -161,16 +150,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04007ACC RID: 31436
 		private bool m_bIsNeedTimeUpdate = false;
 
-		// Token: 0x04007ACD RID: 31437
 		private IXUILabel m_timeLab;
 
-		// Token: 0x04007ACE RID: 31438
 		private string m_tempStr = string.Empty;
 
-		// Token: 0x04007ACF RID: 31439
 		private float m_nextTime = 0f;
 	}
 }

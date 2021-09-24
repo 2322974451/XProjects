@@ -10,11 +10,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000EFF RID: 3839
+
 	internal class XRankView : DlgBase<XRankView, XRankBehaviour>
 	{
-		// Token: 0x17003584 RID: 13700
-		// (get) Token: 0x0600CBC8 RID: 52168 RVA: 0x002EA180 File Offset: 0x002E8380
+
 		public override string fileName
 		{
 			get
@@ -23,8 +22,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003585 RID: 13701
-		// (get) Token: 0x0600CBC9 RID: 52169 RVA: 0x002EA198 File Offset: 0x002E8398
 		public override int layer
 		{
 			get
@@ -33,8 +30,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003586 RID: 13702
-		// (get) Token: 0x0600CBCA RID: 52170 RVA: 0x002EA1AC File Offset: 0x002E83AC
 		public override int group
 		{
 			get
@@ -43,8 +38,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003587 RID: 13703
-		// (get) Token: 0x0600CBCB RID: 52171 RVA: 0x002EA1C0 File Offset: 0x002E83C0
 		public override bool autoload
 		{
 			get
@@ -53,8 +46,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003588 RID: 13704
-		// (get) Token: 0x0600CBCC RID: 52172 RVA: 0x002EA1D4 File Offset: 0x002E83D4
 		public override bool hideMainMenu
 		{
 			get
@@ -63,8 +54,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003589 RID: 13705
-		// (get) Token: 0x0600CBCD RID: 52173 RVA: 0x002EA1E8 File Offset: 0x002E83E8
 		public override bool fullscreenui
 		{
 			get
@@ -73,8 +62,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700358A RID: 13706
-		// (get) Token: 0x0600CBCE RID: 52174 RVA: 0x002EA1FC File Offset: 0x002E83FC
 		public override bool pushstack
 		{
 			get
@@ -83,7 +70,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CBCF RID: 52175 RVA: 0x002EA210 File Offset: 0x002E8410
 		public XRankView()
 		{
 			this.RankUIType.Clear();
@@ -123,7 +109,6 @@ namespace XMainClient
 			this.RankItemHandlers.Add(XRankType.RiftRank, new XRankView.SetRankItemHandler(this._SetRiftRankItem));
 		}
 
-		// Token: 0x0600CBD0 RID: 52176 RVA: 0x002EA5B4 File Offset: 0x002E87B4
 		protected override void Init()
 		{
 			XSingleton<XGameSysMgr>.singleton.RegisterSubSysRedPointMgr(XSysDefine.XSys_Rank, this.redpointMgr);
@@ -143,7 +128,6 @@ namespace XMainClient
 			DlgHandlerBase.EnsureCreate<XFlowerRankHandler>(ref this._FlowerRankHandler, base.uiBehaviour.m_FlowerRankRoot, false, this);
 		}
 
-		// Token: 0x0600CBD1 RID: 52177 RVA: 0x002EA664 File Offset: 0x002E8864
 		public override void RegisterEvent()
 		{
 			base.uiBehaviour.m_close.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseClicked));
@@ -157,14 +141,12 @@ namespace XMainClient
 			base.uiBehaviour.m_DragonGuildHelp.RegisterClickEventHandler(new ButtonClickEventHandler(this._OnDragonGuildHelpBtnClick));
 		}
 
-		// Token: 0x0600CBD2 RID: 52178 RVA: 0x002EA740 File Offset: 0x002E8940
 		private bool _OnDragonGuildHelpBtnClick(IXUIButton button)
 		{
 			DlgBase<XCommonHelpTipView, XCommonHelpTipBehaviour>.singleton.ShowHelp(XSysDefine.XSys_Rank_DragonGuild);
 			return true;
 		}
 
-		// Token: 0x0600CBD3 RID: 52179 RVA: 0x002EA764 File Offset: 0x002E8964
 		private bool _OnCharacterDrag(Vector2 delta)
 		{
 			bool flag = this._PlayerDummy != null && !this._PlayerDummy.Deprecated;
@@ -175,7 +157,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600CBD4 RID: 52180 RVA: 0x002EA7B4 File Offset: 0x002E89B4
 		private bool _OnPetDrag(Vector2 delta)
 		{
 			bool flag = this._PetDummy != null && !this._PetDummy.Deprecated;
@@ -186,7 +167,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600CBD5 RID: 52181 RVA: 0x002EA804 File Offset: 0x002E8A04
 		private bool OnPopularTipsShow(IXUISprite sprite, bool isPressed)
 		{
 			if (isPressed)
@@ -209,14 +189,12 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x0600CBD6 RID: 52182 RVA: 0x002EA896 File Offset: 0x002E8A96
 		protected override void OnShow()
 		{
 			base.OnShow();
 			base.Alloc3DAvatarPool("XRankView");
 		}
 
-		// Token: 0x0600CBD7 RID: 52183 RVA: 0x002EA8AC File Offset: 0x002E8AAC
 		protected override void OnHide()
 		{
 			base.OnHide();
@@ -247,7 +225,6 @@ namespace XMainClient
 			this.redpointMgr.SetupRedPoints(null);
 		}
 
-		// Token: 0x0600CBD8 RID: 52184 RVA: 0x002EA978 File Offset: 0x002E8B78
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
@@ -257,7 +234,6 @@ namespace XMainClient
 			XSingleton<X3DAvatarMgr>.singleton.EnableCommonDummy(this._SpriteDummy, this.m_uiBehaviour.m_SpriteSnapshot, true);
 		}
 
-		// Token: 0x0600CBD9 RID: 52185 RVA: 0x002EA9F0 File Offset: 0x002E8BF0
 		protected override void OnUnload()
 		{
 			bool flag = this.m_uiBehaviour.m_PlayerSnapshot != null;
@@ -285,14 +261,12 @@ namespace XMainClient
 			DlgHandlerBase.EnsureUnload<XCampDuelRankRewardHandler>(ref this._RankRewardHandler);
 		}
 
-		// Token: 0x0600CBDA RID: 52186 RVA: 0x002EAAB8 File Offset: 0x002E8CB8
 		public bool OnCloseClicked(IXUIButton sp)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x0600CBDB RID: 52187 RVA: 0x002EAAD4 File Offset: 0x002E8CD4
 		private bool _GetUIAndHandler(XRankType rankType, out uint uiType, out XRankView.SetRankItemHandler handler)
 		{
 			uiType = 0U;
@@ -320,7 +294,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CBDC RID: 52188 RVA: 0x002EAB64 File Offset: 0x002E8D64
 		public void ShowRank(XSysDefine sys)
 		{
 			bool flag = !base.IsVisible();
@@ -333,7 +306,6 @@ namespace XMainClient
 			xsubSysRedPointMgr.SetupRedPoints(btns);
 		}
 
-		// Token: 0x0600CBDD RID: 52189 RVA: 0x002EABBC File Offset: 0x002E8DBC
 		public void ShowFlowerRank(XSysDefine sys)
 		{
 			bool flag = !XSingleton<XGameSysMgr>.singleton.IsSystemOpened(XSysDefine.XSys_FlowerRank);
@@ -365,7 +337,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CBDE RID: 52190 RVA: 0x002EAC90 File Offset: 0x002E8E90
 		public void OnTabSelectionChanged(ulong id)
 		{
 			XSingleton<X3DAvatarMgr>.singleton.ClearDummy(this.m_dummPool);
@@ -449,7 +420,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CBDF RID: 52191 RVA: 0x002EAEFC File Offset: 0x002E90FC
 		private void _SetFramesActive(uint uiType)
 		{
 			bool flag = !base.uiBehaviour.m_OriginalRank.activeSelf;
@@ -464,7 +434,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CBE0 RID: 52192 RVA: 0x002EAF84 File Offset: 0x002E9184
 		public void RefreshContent()
 		{
 			bool flag = !base.uiBehaviour.m_OriginalRank.activeSelf;
@@ -482,7 +451,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CBE1 RID: 52193 RVA: 0x002EAFE8 File Offset: 0x002E91E8
 		public void RefreshRankWindow()
 		{
 			bool flag = !base.uiBehaviour.m_OriginalRank.activeSelf;
@@ -642,7 +610,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CBE2 RID: 52194 RVA: 0x002EB578 File Offset: 0x002E9778
 		private void _OnWrapContentItemUpdated(Transform t, int index)
 		{
 			bool flag = !base.uiBehaviour.m_OriginalRank.activeSelf;
@@ -716,7 +683,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CBE3 RID: 52195 RVA: 0x002EB7B0 File Offset: 0x002E99B0
 		private void _FillCharacterInfoFrame(UnitAppearance data)
 		{
 			bool flag = !base.uiBehaviour.m_OriginalRank.activeSelf;
@@ -761,7 +727,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CBE4 RID: 52196 RVA: 0x002EB930 File Offset: 0x002E9B30
 		private void _FillPetInfoFrame(uint petID)
 		{
 			bool flag = !base.uiBehaviour.m_OriginalRank.activeSelf;
@@ -782,7 +747,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CBE5 RID: 52197 RVA: 0x002EB9CC File Offset: 0x002E9BCC
 		public void UpdateGuildInfo(XBaseRankInfo info)
 		{
 			bool flag = !base.uiBehaviour.m_OriginalRank.activeSelf;
@@ -801,19 +765,16 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CBE6 RID: 52198 RVA: 0x002EBA60 File Offset: 0x002E9C60
 		public void UpdatePetInfo(uint petID)
 		{
 			this._FillPetInfoFrame(petID);
 		}
 
-		// Token: 0x0600CBE7 RID: 52199 RVA: 0x002EBA6B File Offset: 0x002E9C6B
 		public void UpdateCharacterInfo(GetUnitAppearanceRes oRes)
 		{
 			this._FillCharacterInfoFrame(oRes.UnitAppearance);
 		}
 
-		// Token: 0x0600CBE8 RID: 52200 RVA: 0x002EBA7C File Offset: 0x002E9C7C
 		private void _ToggleSelection(GameObject go, bool bSelect)
 		{
 			Transform transform = go.transform.Find("Select");
@@ -825,7 +786,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CBE9 RID: 52201 RVA: 0x002EBAB8 File Offset: 0x002E9CB8
 		private void _SetBaseRankItem(GameObject go, XBaseRankInfo info, int index)
 		{
 			IXUILabelSymbol ixuilabelSymbol = go.transform.FindChild("Name").GetComponent("XUILabelSymbol") as IXUILabelSymbol;
@@ -877,7 +837,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CBEA RID: 52202 RVA: 0x002EBCD4 File Offset: 0x002E9ED4
 		private void _SetWorldBossRankItem(GameObject go, XBaseRankInfo info, int index)
 		{
 			IXUILabel ixuilabel = go.transform.FindChild("Name").GetComponent("XUILabel") as IXUILabel;
@@ -907,7 +866,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CBEB RID: 52203 RVA: 0x002EBE10 File Offset: 0x002EA010
 		private void _SetPetRankItem(GameObject go, XBaseRankInfo info, int index)
 		{
 			IXUILabel ixuilabel = go.transform.FindChild("Name").GetComponent("XUILabel") as IXUILabel;
@@ -944,7 +902,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CBEC RID: 52204 RVA: 0x002EBF9C File Offset: 0x002EA19C
 		private void _SetBigMeleeRankItem(GameObject go, XBaseRankInfo info, int index)
 		{
 			IXUILabel ixuilabel = go.transform.FindChild("Name").GetComponent("XUILabel") as IXUILabel;
@@ -971,7 +928,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CBED RID: 52205 RVA: 0x002EC0E0 File Offset: 0x002EA2E0
 		private void _SetCampDuelRankLeftItem(GameObject go, XBaseRankInfo info, int index)
 		{
 			IXUILabel ixuilabel = go.transform.FindChild("Name").GetComponent("XUILabel") as IXUILabel;
@@ -1002,7 +958,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CBEE RID: 52206 RVA: 0x002EC204 File Offset: 0x002EA404
 		private void _SetCampDuelRankRightItem(GameObject go, XBaseRankInfo info, int index)
 		{
 			IXUILabel ixuilabel = go.transform.FindChild("Name").GetComponent("XUILabel") as IXUILabel;
@@ -1033,7 +988,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CBEF RID: 52207 RVA: 0x002EC328 File Offset: 0x002EA528
 		private void _SetCampDuelRankClear(Transform t)
 		{
 			bool flag = t == null;
@@ -1047,7 +1001,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CBF0 RID: 52208 RVA: 0x002EC3A4 File Offset: 0x002EA5A4
 		private void _SetSkyArenaRankItem(GameObject go, XBaseRankInfo info, int index)
 		{
 			IXUILabel ixuilabel = go.transform.FindChild("Name").GetComponent("XUILabel") as IXUILabel;
@@ -1074,7 +1027,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CBF1 RID: 52209 RVA: 0x002EC4F0 File Offset: 0x002EA6F0
 		private void _SetGuildBossRankItem(GameObject go, XBaseRankInfo info, int index)
 		{
 			IXUILabelSymbol ixuilabelSymbol = go.transform.FindChild("Name").GetComponent("XUILabelSymbol") as IXUILabelSymbol;
@@ -1122,7 +1074,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CBF2 RID: 52210 RVA: 0x002EC728 File Offset: 0x002EA928
 		private void _SetTowerRankItem(GameObject go, XBaseRankInfo info, int index)
 		{
 			IXUILabelSymbol ixuilabelSymbol = go.transform.FindChild("Name").GetComponent("XUILabelSymbol") as IXUILabelSymbol;
@@ -1188,7 +1139,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CBF3 RID: 52211 RVA: 0x002ECA88 File Offset: 0x002EAC88
 		private void _SetQualifyingRankItem(GameObject go, XBaseRankInfo info, int index)
 		{
 			IXUILabel ixuilabel = go.transform.FindChild("Name").GetComponent("XUILabel") as IXUILabel;
@@ -1215,7 +1165,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CBF4 RID: 52212 RVA: 0x002ECBB8 File Offset: 0x002EADB8
 		private void _SetDragonGuildRankItem(GameObject go, XBaseRankInfo info, int index)
 		{
 			IXUILabelSymbol ixuilabelSymbol = go.transform.FindChild("Name").GetComponent("XUILabelSymbol") as IXUILabelSymbol;
@@ -1239,7 +1188,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CBF5 RID: 52213 RVA: 0x002ECCA8 File Offset: 0x002EAEA8
 		private void _SetGuildRankItem(GameObject go, XBaseRankInfo info, int index)
 		{
 			IXUILabelSymbol ixuilabelSymbol = go.transform.FindChild("Name").GetComponent("XUILabelSymbol") as IXUILabelSymbol;
@@ -1267,7 +1215,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CBF6 RID: 52214 RVA: 0x002ECDF0 File Offset: 0x002EAFF0
 		private void _SetRiftRankItem(GameObject go, XBaseRankInfo info, int index)
 		{
 			XRiftRankInfo xriftRankInfo = info as XRiftRankInfo;
@@ -1291,14 +1238,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CBF7 RID: 52215 RVA: 0x002ECEF8 File Offset: 0x002EB0F8
 		private string _FormatTime(uint time)
 		{
 			uint num = time % 60U;
 			return (time / 60U).ToString("d2") + ":" + num.ToString("d2");
 		}
 
-		// Token: 0x0600CBF8 RID: 52216 RVA: 0x002ECF38 File Offset: 0x002EB138
 		private void _SetRank(GameObject go, uint rankIndex)
 		{
 			IXUILabel ixuilabel = go.transform.FindChild("Rank").GetComponent("XUILabel") as IXUILabel;
@@ -1327,7 +1272,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CBF9 RID: 52217 RVA: 0x002ED008 File Offset: 0x002EB208
 		private void _SetMyRankFrame(GameObject go, XBaseRankInfo info, uint maxRank, XRankView.SetRankItemHandler setHandler)
 		{
 			GameObject gameObject = go.transform.FindChild("Tpl").gameObject;
@@ -1365,7 +1309,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CBFA RID: 52218 RVA: 0x002ED108 File Offset: 0x002EB308
 		private void _SetTitle(GameObject title)
 		{
 			XRankType currentSelectRankList = this._doc.currentSelectRankList;
@@ -1386,13 +1329,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CBFB RID: 52219 RVA: 0x002ED1E7 File Offset: 0x002EB3E7
 		private void _OnRankItemClickedSp(IXUISprite sp)
 		{
 			this._SelectItem((uint)sp.ID);
 		}
 
-		// Token: 0x0600CBFC RID: 52220 RVA: 0x002ED1F8 File Offset: 0x002EB3F8
 		private void _OnRankItemClicked(IXUILabelSymbol iSp)
 		{
 			this._SelectItem((uint)iSp.ID);
@@ -1412,7 +1353,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CBFD RID: 52221 RVA: 0x002ED298 File Offset: 0x002EB498
 		private void _OnRankItemClicked(IXUILabel iSp)
 		{
 			this._SelectItem((uint)iSp.ID);
@@ -1422,7 +1362,6 @@ namespace XMainClient
 			XCharacterCommonMenuDocument.ReqCharacterMenuInfo(xbaseRankInfo.id, false);
 		}
 
-		// Token: 0x0600CBFE RID: 52222 RVA: 0x002ED2F0 File Offset: 0x002EB4F0
 		private void _OnPetRankItemClicked(IXUILabel iSp)
 		{
 			this._SelectItem((uint)iSp.ID);
@@ -1438,7 +1377,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CBFF RID: 52223 RVA: 0x002ED3A0 File Offset: 0x002EB5A0
 		private void _OnClickGuild(IXUILabelSymbol iSp)
 		{
 			this._SelectItem((uint)iSp.ID);
@@ -1450,7 +1388,6 @@ namespace XMainClient
 			DlgBase<XOtherPlayerInfoView, XOtherPlayerInfoBehaviour>.singleton.InitGuildMenu(id, name);
 		}
 
-		// Token: 0x0600CC00 RID: 52224 RVA: 0x002ED408 File Offset: 0x002EB608
 		private void _OnTwoNameClicked(IXUILabelSymbol label)
 		{
 			int index = (int)(label.ID >> 1);
@@ -1474,12 +1411,10 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC01 RID: 52225 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		private void _OnGuildBossClicked(IXUILabelSymbol label)
 		{
 		}
 
-		// Token: 0x0600CC02 RID: 52226 RVA: 0x002ED498 File Offset: 0x002EB698
 		public bool OnShowGuildInfo(IXUIButton sp)
 		{
 			XGuildViewDocument specificDocument = XDocuments.GetSpecificDocument<XGuildViewDocument>(XGuildViewDocument.uuID);
@@ -1488,13 +1423,11 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600CC03 RID: 52227 RVA: 0x002ED4D0 File Offset: 0x002EB6D0
 		private void _SelectItem(uint index)
 		{
 			this._doc.SelectItem(index);
 		}
 
-		// Token: 0x0600CC04 RID: 52228 RVA: 0x002ED4E0 File Offset: 0x002EB6E0
 		public bool OnCampDuelReward(IXUIButton btn)
 		{
 			DlgHandlerBase.EnsureCreate<XCampDuelRankRewardHandler>(ref this._RankRewardHandler, base.uiBehaviour.m_OriginalRank.transform, false, null);
@@ -1502,43 +1435,30 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x04005A8C RID: 23180
 		private XRankDocument _doc = null;
 
-		// Token: 0x04005A8D RID: 23181
 		private ulong _viewGuildId = 0UL;
 
-		// Token: 0x04005A8E RID: 23182
 		private XDummy _PlayerDummy = null;
 
-		// Token: 0x04005A8F RID: 23183
 		private XDummy _PetDummy = null;
 
-		// Token: 0x04005A90 RID: 23184
 		private XDummy _SpriteDummy = null;
 
-		// Token: 0x04005A91 RID: 23185
 		private uint m_PreUIType = 9999999U;
 
-		// Token: 0x04005A92 RID: 23186
 		private UnitAppearance emptyUA = null;
 
-		// Token: 0x04005A93 RID: 23187
 		private XFlowerRankHandler _FlowerRankHandler = null;
 
-		// Token: 0x04005A94 RID: 23188
 		private XCampDuelRankRewardHandler _RankRewardHandler = null;
 
-		// Token: 0x04005A95 RID: 23189
 		protected XSubSysRedPointMgr redpointMgr = new XSubSysRedPointMgr();
 
-		// Token: 0x04005A96 RID: 23190
 		public Dictionary<XRankType, uint> RankUIType = new Dictionary<XRankType, uint>(default(XFastEnumIntEqualityComparer<XRankType>));
 
-		// Token: 0x04005A97 RID: 23191
 		public Dictionary<XRankType, XRankView.SetRankItemHandler> RankItemHandlers = new Dictionary<XRankType, XRankView.SetRankItemHandler>(default(XFastEnumIntEqualityComparer<XRankType>));
 
-		// Token: 0x04005A98 RID: 23192
 		private XRankType[] m_RankTypeList = new XRankType[]
 		{
 			XRankType.PPTRank,
@@ -1558,8 +1478,6 @@ namespace XMainClient
 			XRankType.BigMeleeRank
 		};
 
-		// Token: 0x020019EC RID: 6636
-		// (Invoke) Token: 0x060110DB RID: 69851
 		public delegate void SetRankItemHandler(GameObject itemGo, XBaseRankInfo info, int index);
 	}
 }

@@ -7,10 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000DC5 RID: 3525
+
 	internal class XRole : XEntity
 	{
-		// Token: 0x0600BFE6 RID: 49126 RVA: 0x002843F0 File Offset: 0x002825F0
+
 		public override bool Initilize(int flag)
 		{
 			this._eEntity_Type |= XEntity.EnitityType.Entity_Role;
@@ -82,7 +82,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600BFE7 RID: 49127 RVA: 0x002846D0 File Offset: 0x002828D0
 		public override void OnCreated()
 		{
 			XRoleAttributes xroleAttributes = this._attr as XRoleAttributes;
@@ -112,12 +111,10 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BFE8 RID: 49128 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public override void Died()
 		{
 		}
 
-		// Token: 0x0600BFE9 RID: 49129 RVA: 0x002847B0 File Offset: 0x002829B0
 		public virtual void Revive()
 		{
 			this.Attributes.IsDead = false;
@@ -131,7 +128,6 @@ namespace XMainClient
 			XSingleton<XEventMgr>.singleton.FireEvent(event2);
 		}
 
-		// Token: 0x0600BFEA RID: 49130 RVA: 0x00284816 File Offset: 0x00282A16
 		public override void PlaySpecifiedAnimation(string anim)
 		{
 			XSingleton<XEntityMgr>.singleton.Idled(this);
@@ -139,7 +135,6 @@ namespace XMainClient
 			base.Ator.CrossFade("Stand", 0.05f, 0, 0f);
 		}
 
-		// Token: 0x0600BFEB RID: 49131 RVA: 0x00284854 File Offset: 0x00282A54
 		public float PlaySpecifiedAnimationGetLength(string anim)
 		{
 			XSingleton<XEntityMgr>.singleton.Idled(this);
@@ -148,7 +143,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600BFEC RID: 49132 RVA: 0x002848A0 File Offset: 0x00282AA0
 		public void PlayStateBack()
 		{
 			XSingleton<XEntityMgr>.singleton.Idled(this);
@@ -168,7 +162,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BFED RID: 49133 RVA: 0x00284940 File Offset: 0x00282B40
 		private void AddMoveComponents()
 		{
 			bool flag = XSingleton<XGame>.singleton.CurrentStage.Stage == EXStage.Hall;
@@ -192,8 +185,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170033C7 RID: 13255
-		// (get) Token: 0x0600BFEE RID: 49134 RVA: 0x002849F4 File Offset: 0x00282BF4
 		public uint BasicTypeID
 		{
 			get
@@ -202,8 +193,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170033C8 RID: 13256
-		// (get) Token: 0x0600BFEF RID: 49135 RVA: 0x00284A14 File Offset: 0x00282C14
 		public override uint SkillCasterTypeID
 		{
 			get
@@ -212,19 +201,15 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BFF0 RID: 49136 RVA: 0x00284A60 File Offset: 0x00282C60
 		public override bool CastFakeShadow()
 		{
 			return XQualitySetting.GetQuality(EFun.ERoleShadow);
 		}
 
-		// Token: 0x04004E6A RID: 20074
 		private Vector3 _capsule1 = Vector3.zero;
 
-		// Token: 0x04004E6B RID: 20075
 		private Vector3 _capsule2 = Vector3.zero;
 
-		// Token: 0x04004E6C RID: 20076
 		public static int RoleLayer = LayerMask.NameToLayer("Role");
 	}
 }

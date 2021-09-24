@@ -9,10 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000CE3 RID: 3299
+
 	internal class GameDescMallHander : DlgHandlerBase
 	{
-		// Token: 0x0600B8B8 RID: 47288 RVA: 0x00254648 File Offset: 0x00252848
+
 		protected override void Init()
 		{
 			base.Init();
@@ -34,7 +34,6 @@ namespace XMainClient
 			DlgHandlerBase.EnsureCreate<FashionAttrTotalHandler>(ref this._attrHandler, this.m_TotalAttrPanel, null, false);
 		}
 
-		// Token: 0x0600B8B9 RID: 47289 RVA: 0x0025485C File Offset: 0x00252A5C
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -44,7 +43,6 @@ namespace XMainClient
 			this.m_lblTq.RegisterLabelClickEventHandler(new LabelClickEventHandler(this.OnMemberPrivilegeClicked));
 		}
 
-		// Token: 0x0600B8BA RID: 47290 RVA: 0x002548D1 File Offset: 0x00252AD1
 		public override void OnUnload()
 		{
 			DlgHandlerBase.EnsureUnload<FashionAttrTotalHandler>(ref this._attrHandler);
@@ -52,13 +50,11 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x0600B8BB RID: 47291 RVA: 0x002548EE File Offset: 0x00252AEE
 		private void OnMemberPrivilegeClicked(IXUILabel btn)
 		{
 			DlgBase<XWelfareView, XWelfareBehaviour>.singleton.CheckActiveMemberPrivilege(MemberPrivilege.KingdomPrivilege_Commerce);
 		}
 
-		// Token: 0x0600B8BC RID: 47292 RVA: 0x00254900 File Offset: 0x00252B00
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -71,21 +67,18 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B8BD RID: 47293 RVA: 0x0025494C File Offset: 0x00252B4C
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
 			base.Alloc3DAvatarPool("GameDescMallHander", 1);
 		}
 
-		// Token: 0x0600B8BE RID: 47294 RVA: 0x00254963 File Offset: 0x00252B63
 		public override void LeaveStackTop()
 		{
 			base.LeaveStackTop();
 			XSingleton<X3DAvatarMgr>.singleton.EnableCommonDummy(this.m_Dummy, null, false);
 		}
 
-		// Token: 0x0600B8BF RID: 47295 RVA: 0x00254980 File Offset: 0x00252B80
 		protected override void OnHide()
 		{
 			base.Return3DAvatarPool();
@@ -93,8 +86,6 @@ namespace XMainClient
 			base.OnHide();
 		}
 
-		// Token: 0x17003285 RID: 12933
-		// (get) Token: 0x0600B8C0 RID: 47296 RVA: 0x00254998 File Offset: 0x00252B98
 		private OutLook outlook
 		{
 			get
@@ -113,7 +104,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B8C1 RID: 47297 RVA: 0x002549F0 File Offset: 0x00252BF0
 		private bool OnResetClick(IXUIButton btn)
 		{
 			bool flag = DlgBase<GameMallDlg, TabDlgBehaviour>.singleton.mallType == MallType.FASHION;
@@ -129,7 +119,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B8C2 RID: 47298 RVA: 0x00254A8C File Offset: 0x00252C8C
 		private bool OnAttrViewClick(IXUIButton btn)
 		{
 			int currItemID = this.doc.currItemID;
@@ -152,7 +141,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B8C3 RID: 47299 RVA: 0x00254B04 File Offset: 0x00252D04
 		public void Refresh()
 		{
 			this.m_objNil.SetActive(this.doc.currItemID == 0);
@@ -251,7 +239,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B8C4 RID: 47300 RVA: 0x00254F60 File Offset: 0x00253160
 		private void RefreshDefault(int itemid, CIBShop cShop)
 		{
 			this.ShowAvatar(false);
@@ -305,7 +292,6 @@ namespace XMainClient
 			this.m_lblTq.SetEnabled(flag6);
 		}
 
-		// Token: 0x0600B8C5 RID: 47301 RVA: 0x002551B8 File Offset: 0x002533B8
 		private void GetFasionItems(int itemid, List<uint> fashions)
 		{
 			ItemList.RowData itemConf = XBagDocument.GetItemConf(itemid);
@@ -345,7 +331,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B8C6 RID: 47302 RVA: 0x00255290 File Offset: 0x00253490
 		private void ShowAvatar(bool show)
 		{
 			this.m_Snapshot.transform.gameObject.SetActive(show);
@@ -359,7 +344,6 @@ namespace XMainClient
 			this.m_tranBp.gameObject.SetActive(show);
 		}
 
-		// Token: 0x0600B8C7 RID: 47303 RVA: 0x00255350 File Offset: 0x00253550
 		private void ShowUI(bool show)
 		{
 			this.m_Snapshot.transform.gameObject.SetActive(show);
@@ -371,7 +355,6 @@ namespace XMainClient
 			this.m_tranBp.gameObject.SetActive(show);
 		}
 
-		// Token: 0x0600B8C8 RID: 47304 RVA: 0x002553C8 File Offset: 0x002535C8
 		protected bool OnAvatarDrag(Vector2 delta)
 		{
 			bool flag = this.m_Dummy != null;
@@ -387,14 +370,12 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B8C9 RID: 47305 RVA: 0x00255440 File Offset: 0x00253640
 		private uint TransItemToPresentID(uint itemid)
 		{
 			uint petID = XPetDocument.GetPetID(itemid);
 			return XPetDocument.GetPresentID(petID);
 		}
 
-		// Token: 0x0600B8CA RID: 47306 RVA: 0x00255460 File Offset: 0x00253660
 		private string GetRideAnim(uint itemid)
 		{
 			uint petID = XPetDocument.GetPetID(itemid);
@@ -429,68 +410,48 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B8CB RID: 47307 RVA: 0x00255508 File Offset: 0x00253708
 		private DateTime UnixDate(uint sp)
 		{
 			DateTime minValue = DateTime.MinValue;
 			return TimeZone.CurrentTimeZone.ToLocalTime(new DateTime(1970, 1, 1)).AddSeconds(sp);
 		}
 
-		// Token: 0x0400494B RID: 18763
 		private XDummy m_Dummy;
 
-		// Token: 0x0400494C RID: 18764
 		public IXUILabel m_lblEnd;
 
-		// Token: 0x0400494D RID: 18765
 		public IXUILabel m_lblRefresh;
 
-		// Token: 0x0400494E RID: 18766
 		public IXUILabel m_lblDesc;
 
-		// Token: 0x0400494F RID: 18767
 		public IXUIButton m_btnReset;
 
-		// Token: 0x04004950 RID: 18768
 		public IXUIButton m_btnAttr;
 
-		// Token: 0x04004951 RID: 18769
 		public IXUISprite m_sprRBg;
 
-		// Token: 0x04004952 RID: 18770
 		public GameObject m_objTpl;
 
-		// Token: 0x04004953 RID: 18771
 		public IXUILabel m_lblBuyCnt;
 
-		// Token: 0x04004954 RID: 18772
 		public IXUISprite m_sprTq;
 
-		// Token: 0x04004955 RID: 18773
 		public IXUILabel m_lblTq;
 
-		// Token: 0x04004956 RID: 18774
 		public GameObject m_objNil;
 
-		// Token: 0x04004957 RID: 18775
 		private IUIDummy m_Snapshot;
 
-		// Token: 0x04004958 RID: 18776
 		public Transform m_tranBp;
 
-		// Token: 0x04004959 RID: 18777
 		public GameObject m_TotalAttrPanel;
 
-		// Token: 0x0400495A RID: 18778
 		private FashionAttrTotalHandler _attrHandler;
 
-		// Token: 0x0400495B RID: 18779
 		private OutLook m_outLook;
 
-		// Token: 0x0400495C RID: 18780
 		private XGameMallDocument doc;
 
-		// Token: 0x0400495D RID: 18781
 		private Vector3 m_dummyAngle = new Vector3(0f, 180f, 0f);
 	}
 }

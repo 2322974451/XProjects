@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x020008F3 RID: 2291
+
 	internal class XBattleFieldBattleDocument : XDocComponent
 	{
-		// Token: 0x17002B1F RID: 11039
-		// (get) Token: 0x06008A9E RID: 35486 RVA: 0x00126C60 File Offset: 0x00124E60
+
 		public override uint ID
 		{
 			get
@@ -19,8 +18,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002B20 RID: 11040
-		// (get) Token: 0x06008A9F RID: 35487 RVA: 0x00126C78 File Offset: 0x00124E78
 		public static XBattleFieldBattleDocument Doc
 		{
 			get
@@ -29,7 +26,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008AA0 RID: 35488 RVA: 0x00126CA4 File Offset: 0x00124EA4
 		public override void OnEnterSceneFinally()
 		{
 			bool flag = XSingleton<XScene>.singleton.SceneType == SceneType.SCENE_BATTLEFIELD_FIGHT;
@@ -39,12 +35,10 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008AA1 RID: 35489 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 		}
 
-		// Token: 0x06008AA2 RID: 35490 RVA: 0x00126CD0 File Offset: 0x00124ED0
 		public void ReceiveBattleKillInfo(PvpBattleKill battleKillInfo)
 		{
 			GVGBattleSkill gvgbattleSkill = new GVGBattleSkill();
@@ -78,14 +72,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008AA3 RID: 35491 RVA: 0x00126E18 File Offset: 0x00125018
 		public void ReqRankData()
 		{
 			RpcC2G_BattleFieldRankReq rpc = new RpcC2G_BattleFieldRankReq();
 			XSingleton<XClientNetwork>.singleton.Send(rpc);
 		}
 
-		// Token: 0x06008AA4 RID: 35492 RVA: 0x00126E38 File Offset: 0x00125038
 		public void SetRankData(BattleFieldRankArg oArg, BattleFieldRankRes oRes)
 		{
 			bool flag = this.battleHandler != null && this.battleHandler.PanelObject != null && this.battleHandler.IsVisible();
@@ -95,7 +87,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008AA5 RID: 35493 RVA: 0x00126E88 File Offset: 0x00125088
 		public void SetReviveTime(PtcG2C_BattleFieldReliveNtf roPtc)
 		{
 			bool flag = this.battleHandler == null;
@@ -105,14 +96,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008AA6 RID: 35494 RVA: 0x00126EBC File Offset: 0x001250BC
 		public void ReqBattleInfo()
 		{
 			RpcC2G_BattleFieldRoleAgainstReq rpc = new RpcC2G_BattleFieldRoleAgainstReq();
 			XSingleton<XClientNetwork>.singleton.Send(rpc);
 		}
 
-		// Token: 0x06008AA7 RID: 35495 RVA: 0x00126EDC File Offset: 0x001250DC
 		public void SetBattleInfo(BattleFieldRoleAgainst oRes)
 		{
 			this.userIdToRole.Clear();
@@ -122,7 +111,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008AA8 RID: 35496 RVA: 0x00126F40 File Offset: 0x00125140
 		public void SetTime(PtcG2C_BFFightTimeNtf roPtc)
 		{
 			bool flag = DlgBase<BattleMain, BattleMainBehaviour>.singleton.IsLoaded() && roPtc.Data.time > 0U;
@@ -132,16 +120,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04002C2B RID: 11307
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("XBattleFieldBattleDocument");
 
-		// Token: 0x04002C2C RID: 11308
 		public XBetterDictionary<ulong, string> userIdToRole = new XBetterDictionary<ulong, string>(0);
 
-		// Token: 0x04002C2D RID: 11309
 		public BattleFieldBattleHandler battleHandler = null;
 
-		// Token: 0x04002C2E RID: 11310
 		public static readonly int BATTLE_SHOW_RANK = 5;
 	}
 }

@@ -6,10 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C4C RID: 3148
+
 	internal class MilitaryRankBehaviour : DlgBehaviourBase
 	{
-		// Token: 0x0600B2B0 RID: 45744 RVA: 0x00228E90 File Offset: 0x00227090
+
 		private void Awake()
 		{
 			this.m_Close = (base.transform.Find("Bg/Close").GetComponent("XUIButton") as IXUIButton);
@@ -45,85 +45,58 @@ namespace XMainClient
 			this.m_EmptyRank = base.transform.Find("Bg/Bg/EmptyRank").gameObject;
 		}
 
-		// Token: 0x040044D2 RID: 17618
 		public IXUIButton m_Close;
 
-		// Token: 0x040044D3 RID: 17619
 		public IUIDummy m_snapshotTransfrom;
 
-		// Token: 0x040044D4 RID: 17620
 		public IXUILabel m_MilitaryValue;
 
-		// Token: 0x040044D5 RID: 17621
 		public IXUILabel m_MilitaryRange;
 
-		// Token: 0x040044D6 RID: 17622
 		public IXUILabel m_NextMilitary;
 
-		// Token: 0x040044D7 RID: 17623
 		public IXUISprite m_NextMilitaryIcon;
 
-		// Token: 0x040044D8 RID: 17624
 		public IXUILabel m_MilitaryName;
 
-		// Token: 0x040044D9 RID: 17625
 		public IXUISprite m_MilitaryIcon;
 
-		// Token: 0x040044DA RID: 17626
 		public IXUISprite m_RewardBtn;
 
-		// Token: 0x040044DB RID: 17627
 		public IXUISprite m_RecordBtn;
 
-		// Token: 0x040044DC RID: 17628
 		public IXUILabel m_DateTime;
 
-		// Token: 0x040044DD RID: 17629
 		public GameObject m_RewardFrame;
 
-		// Token: 0x040044DE RID: 17630
 		public IXUISprite m_RewardCloseBtn;
 
-		// Token: 0x040044DF RID: 17631
 		public IXUICheckBox m_RewardSeasonIcb;
 
-		// Token: 0x040044E0 RID: 17632
 		public IXUICheckBox m_RewardResultIcb;
 
-		// Token: 0x040044E1 RID: 17633
 		public GameObject m_RewardSeasonFrame;
 
-		// Token: 0x040044E2 RID: 17634
 		public GameObject m_RewardResultFrame;
 
-		// Token: 0x040044E3 RID: 17635
 		public XUIPool m_RewardSeasonPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x040044E4 RID: 17636
 		public XUIPool m_RewardResultPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x040044E5 RID: 17637
 		public XUIPool m_RewardItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x040044E6 RID: 17638
 		public GameObject m_BattleRecordFrame;
 
-		// Token: 0x040044E7 RID: 17639
 		public IXUICheckBox m_RecordHBtab;
 
-		// Token: 0x040044E8 RID: 17640
 		public IXUICheckBox m_RecordCPtab;
 
-		// Token: 0x040044E9 RID: 17641
 		public IXUIWrapContent m_WrapContent;
 
-		// Token: 0x040044EA RID: 17642
 		public IXUIScrollView m_ScrollView;
 
-		// Token: 0x040044EB RID: 17643
 		public Transform m_MyRank;
 
-		// Token: 0x040044EC RID: 17644
 		public GameObject m_EmptyRank;
 	}
 }

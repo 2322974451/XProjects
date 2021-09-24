@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000938 RID: 2360
+
 	internal class XGuildSalaryDocument : XDocComponent
 	{
-		// Token: 0x17002BF2 RID: 11250
-		// (get) Token: 0x06008E84 RID: 36484 RVA: 0x0013BAD4 File Offset: 0x00139CD4
+
 		public override uint ID
 		{
 			get
@@ -20,7 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008E85 RID: 36485 RVA: 0x0013BAEB File Offset: 0x00139CEB
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			XGuildSalaryDocument.AsyncLoader.AddTask("Table/GuildSalaryDesc", XGuildSalaryDocument.m_guildSalaryDesc, false);
@@ -28,7 +26,6 @@ namespace XMainClient
 			XGuildSalaryDocument.AsyncLoader.Execute(callback);
 		}
 
-		// Token: 0x06008E86 RID: 36486 RVA: 0x0013BB28 File Offset: 0x00139D28
 		public static void OnTableLoaded()
 		{
 			XGuildSalaryDocument.TabIndexs.Clear();
@@ -56,7 +53,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008E87 RID: 36487 RVA: 0x0013BC4C File Offset: 0x00139E4C
 		public static string GetGrade(int grade)
 		{
 			int num = grade - 1;
@@ -74,7 +70,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008E88 RID: 36488 RVA: 0x0013BC98 File Offset: 0x00139E98
 		public static string GetGradeName(int grade)
 		{
 			int num = grade - 1;
@@ -92,8 +87,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x17002BF3 RID: 11251
-		// (get) Token: 0x06008E89 RID: 36489 RVA: 0x0013BCE4 File Offset: 0x00139EE4
 		public List<GuildActivityRole> TopPlayers
 		{
 			get
@@ -102,9 +95,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002BF4 RID: 11252
-		// (get) Token: 0x06008E8B RID: 36491 RVA: 0x0013BD18 File Offset: 0x00139F18
-		// (set) Token: 0x06008E8A RID: 36490 RVA: 0x0013BCFC File Offset: 0x00139EFC
 		public bool HasRedPoint
 		{
 			get
@@ -118,8 +108,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002BF5 RID: 11253
-		// (get) Token: 0x06008E8C RID: 36492 RVA: 0x0013BD30 File Offset: 0x00139F30
 		public bool NotHasLastSalaryInfo
 		{
 			get
@@ -128,8 +116,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002BF6 RID: 11254
-		// (get) Token: 0x06008E8D RID: 36493 RVA: 0x0013BD4C File Offset: 0x00139F4C
 		public uint CurScore
 		{
 			get
@@ -138,8 +124,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002BF7 RID: 11255
-		// (get) Token: 0x06008E8E RID: 36494 RVA: 0x0013BD64 File Offset: 0x00139F64
 		public XGuildSalaryInfo Activity
 		{
 			get
@@ -148,8 +132,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002BF8 RID: 11256
-		// (get) Token: 0x06008E8F RID: 36495 RVA: 0x0013BD7C File Offset: 0x00139F7C
 		public XGuildSalaryInfo RoleNum
 		{
 			get
@@ -158,8 +140,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002BF9 RID: 11257
-		// (get) Token: 0x06008E90 RID: 36496 RVA: 0x0013BD94 File Offset: 0x00139F94
 		public XGuildSalaryInfo Prestige
 		{
 			get
@@ -168,8 +148,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002BFA RID: 11258
-		// (get) Token: 0x06008E91 RID: 36497 RVA: 0x0013BDAC File Offset: 0x00139FAC
 		public XGuildSalaryInfo Exp
 		{
 			get
@@ -178,8 +156,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002BFB RID: 11259
-		// (get) Token: 0x06008E92 RID: 36498 RVA: 0x0013BDC4 File Offset: 0x00139FC4
 		public uint CurGrade
 		{
 			get
@@ -188,8 +164,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002BFC RID: 11260
-		// (get) Token: 0x06008E93 RID: 36499 RVA: 0x0013BDDC File Offset: 0x00139FDC
 		public uint LastScore
 		{
 			get
@@ -198,8 +172,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002BFD RID: 11261
-		// (get) Token: 0x06008E94 RID: 36500 RVA: 0x0013BDF4 File Offset: 0x00139FF4
 		public uint MulMaxScore
 		{
 			get
@@ -208,8 +180,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002BFE RID: 11262
-		// (get) Token: 0x06008E95 RID: 36501 RVA: 0x0013BE0C File Offset: 0x0013A00C
 		public WageRewardState RewardState
 		{
 			get
@@ -218,8 +188,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002BFF RID: 11263
-		// (get) Token: 0x06008E96 RID: 36502 RVA: 0x0013BE24 File Offset: 0x0013A024
 		public uint LastGrade
 		{
 			get
@@ -228,8 +196,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002C00 RID: 11264
-		// (get) Token: 0x06008E97 RID: 36503 RVA: 0x0013BE3C File Offset: 0x0013A03C
 		public GuildPosition LastPosition
 		{
 			get
@@ -238,8 +204,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002C01 RID: 11265
-		// (get) Token: 0x06008E98 RID: 36504 RVA: 0x0013BE54 File Offset: 0x0013A054
 		public uint LastLevel
 		{
 			get
@@ -248,7 +212,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008E99 RID: 36505 RVA: 0x0013BE6C File Offset: 0x0013A06C
 		public XGuildSalaryInfo GetValue(int type)
 		{
 			XGuildSalaryInfo result = null;
@@ -270,14 +233,12 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008E9A RID: 36506 RVA: 0x0013BEC0 File Offset: 0x0013A0C0
 		public bool TryGetGuildSalary(uint guildLevel, out GuildSalaryTable.RowData rowData)
 		{
 			rowData = XGuildSalaryDocument.m_guildSalaryTable.GetByGuildLevel(guildLevel);
 			return rowData != null;
 		}
 
-		// Token: 0x06008E9B RID: 36507 RVA: 0x0013BEE4 File Offset: 0x0013A0E4
 		public void SendGuildWageReward()
 		{
 			bool flag = this.m_rewardState == WageRewardState.notreward;
@@ -288,7 +249,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008E9C RID: 36508 RVA: 0x0013BF14 File Offset: 0x0013A114
 		public void ReceiveGuildWageReward(GetGuildWageReward res)
 		{
 			bool flag = res.errorcode > ErrorCode.ERR_SUCCESS;
@@ -309,14 +269,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008E9D RID: 36509 RVA: 0x0013BF88 File Offset: 0x0013A188
 		public void SendAskGuildWageInfo()
 		{
 			RpcC2M_AskGuildWageInfo rpc = new RpcC2M_AskGuildWageInfo();
 			XSingleton<XClientNetwork>.singleton.Send(rpc);
 		}
 
-		// Token: 0x06008E9E RID: 36510 RVA: 0x0013BFA8 File Offset: 0x0013A1A8
 		public void ReceiveAskGuildWageInfo(AskGuildWageInfoRes res)
 		{
 			bool flag = res.errorcode > ErrorCode.ERR_SUCCESS;
@@ -354,7 +312,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008E9F RID: 36511 RVA: 0x0013C16C File Offset: 0x0013A36C
 		public uint GetNextGradeScore(uint GuildLevel, int Grade)
 		{
 			GuildSalaryTable.RowData byGuildLevel = XGuildSalaryDocument.m_guildSalaryTable.GetByGuildLevel(GuildLevel);
@@ -380,7 +337,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008EA0 RID: 36512 RVA: 0x0013C1BC File Offset: 0x0013A3BC
 		public SeqListRef<uint> GetGuildSalayList(uint guildLevel, GuildPosition pos, uint grade)
 		{
 			GuildSalaryTable.RowData byGuildLevel = XGuildSalaryDocument.m_guildSalaryTable.GetByGuildLevel(guildLevel);
@@ -538,7 +494,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008EA1 RID: 36513 RVA: 0x0013C458 File Offset: 0x0013A658
 		private uint CalculateGrade(uint[] scores, uint cur)
 		{
 			uint num = 1U;
@@ -558,7 +513,6 @@ namespace XMainClient
 			return num;
 		}
 
-		// Token: 0x06008EA2 RID: 36514 RVA: 0x0013C4AC File Offset: 0x0013A6AC
 		private uint CalculateGradeMaxScore(uint[] scores, uint cur)
 		{
 			bool flag = scores != null && scores.Length != 0;
@@ -584,12 +538,8 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x17002C02 RID: 11266
-		// (get) Token: 0x06008EA4 RID: 36516 RVA: 0x0013C514 File Offset: 0x0013A714
-		// (set) Token: 0x06008EA3 RID: 36515 RVA: 0x0013C50B File Offset: 0x0013A70B
 		public int SelectTabs { get; set; }
 
-		// Token: 0x06008EA5 RID: 36517 RVA: 0x0013C51C File Offset: 0x0013A71C
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 			bool flag = DlgBase<GuildSalayDlg, GuildSalayBehavior>.singleton.IsVisible();
@@ -599,70 +549,48 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04002E7C RID: 11900
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("XGuildSalaryDocument");
 
-		// Token: 0x04002E7D RID: 11901
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x04002E7E RID: 11902
 		public static GuildSalaryDesc m_guildSalaryDesc = new GuildSalaryDesc();
 
-		// Token: 0x04002E7F RID: 11903
 		public static GuildSalaryTable m_guildSalaryTable = new GuildSalaryTable();
 
-		// Token: 0x04002E80 RID: 11904
 		public static List<int> TabIndexs = new List<int>();
 
-		// Token: 0x04002E81 RID: 11905
 		public static List<string> TabNames = new List<string>();
 
-		// Token: 0x04002E82 RID: 11906
 		public static Dictionary<int, List<GuildSalaryDesc.RowData>> GuildSalaryDescDic = new Dictionary<int, List<GuildSalaryDesc.RowData>>();
 
-		// Token: 0x04002E83 RID: 11907
 		private XGuildSalaryInfo m_activity = new XGuildSalaryInfo();
 
-		// Token: 0x04002E84 RID: 11908
 		private XGuildSalaryInfo m_exp = new XGuildSalaryInfo();
 
-		// Token: 0x04002E85 RID: 11909
 		private XGuildSalaryInfo m_roleNum = new XGuildSalaryInfo();
 
-		// Token: 0x04002E86 RID: 11910
 		private XGuildSalaryInfo m_prestige = new XGuildSalaryInfo();
 
-		// Token: 0x04002E87 RID: 11911
 		private List<GuildActivityRole> m_topPlayers;
 
-		// Token: 0x04002E88 RID: 11912
 		private uint m_curGrade;
 
-		// Token: 0x04002E89 RID: 11913
 		private uint m_curScore;
 
-		// Token: 0x04002E8A RID: 11914
 		private WageRewardState m_rewardState;
 
-		// Token: 0x04002E8B RID: 11915
 		private uint m_lastLevel;
 
-		// Token: 0x04002E8C RID: 11916
 		private uint m_lastGrade;
 
-		// Token: 0x04002E8D RID: 11917
 		private uint m_lastScore;
 
-		// Token: 0x04002E8E RID: 11918
 		private GuildPosition m_lastPosition;
 
-		// Token: 0x04002E8F RID: 11919
 		private uint m_mulMaxScore;
 
-		// Token: 0x04002E90 RID: 11920
 		private bool m_hasRedPoint = false;
 
-		// Token: 0x04002E91 RID: 11921
 		public uint CurMulScore;
 	}
 }

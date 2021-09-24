@@ -6,10 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C13 RID: 3091
+
 	internal class GuildPassBoard : MonoBehaviour
 	{
-		// Token: 0x0600AF95 RID: 44949 RVA: 0x00214E80 File Offset: 0x00213080
+
 		private void Awake()
 		{
 			this._billboard = XSingleton<XResourceLoaderMgr>.singleton.CreateFromPrefab(GuildPassBoard.BUBBLE_TEMPLATE, Vector3.zero, base.transform.rotation, true, false);
@@ -21,13 +21,11 @@ namespace XMainClient
 			this.m_sprMember = (this._billboard.transform.FindChild("PlayerNum/p").GetComponent("XUISprite") as IXUISprite);
 		}
 
-		// Token: 0x0600AF96 RID: 44950 RVA: 0x00214FB1 File Offset: 0x002131B1
 		private void OnDestroy()
 		{
 			this.DestroyGameObjects();
 		}
 
-		// Token: 0x0600AF97 RID: 44951 RVA: 0x00214FBC File Offset: 0x002131BC
 		private void LateUpdate()
 		{
 			bool flag = this._billboard != null && XSingleton<XScene>.singleton.GameCamera.CameraTrans != null;
@@ -43,7 +41,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AF98 RID: 44952 RVA: 0x0021507C File Offset: 0x0021327C
 		public void Init(uint ix, uint scid, GameObject parent)
 		{
 			this.index = ix;
@@ -64,13 +61,11 @@ namespace XMainClient
 			this.UpdateMember(0U, 8U);
 		}
 
-		// Token: 0x0600AF99 RID: 44953 RVA: 0x00215157 File Offset: 0x00213357
 		public void DestroyGameObjects()
 		{
 			XResourceLoaderMgr.SafeDestroy(ref this._billboard, true);
 		}
 
-		// Token: 0x0600AF9A RID: 44954 RVA: 0x00215167 File Offset: 0x00213367
 		public void UpdateBoard(GCFZhanChBriefInfo info)
 		{
 			this.UpdatePoint(info.multipoint);
@@ -78,7 +73,6 @@ namespace XMainClient
 			this.UpdateOpenState(info.isopen);
 		}
 
-		// Token: 0x0600AF9B RID: 44955 RVA: 0x00215198 File Offset: 0x00213398
 		public void UpdateOpenState(bool open)
 		{
 			bool flag = this.mOpen != open;
@@ -90,7 +84,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AF9C RID: 44956 RVA: 0x002151DC File Offset: 0x002133DC
 		public void ResetOpenState()
 		{
 			bool flag = this._transfer != null;
@@ -105,7 +98,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AF9D RID: 44957 RVA: 0x00215224 File Offset: 0x00213424
 		private void UpdateMember(uint curr, uint cnt)
 		{
 			bool flag = this.m_lblMember != null;
@@ -115,7 +107,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AF9E RID: 44958 RVA: 0x0021526C File Offset: 0x0021346C
 		private void UpdatePoint(uint state)
 		{
 			bool flag = this.m_lblPoint != null;
@@ -126,7 +117,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AF9F RID: 44959 RVA: 0x002152C4 File Offset: 0x002134C4
 		private void SetBillBoardDepth(float dis = 0f)
 		{
 			int num = -(int)(dis * 100f);
@@ -150,46 +140,32 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x040042F1 RID: 17137
 		private GameObject _billboard = null;
 
-		// Token: 0x040042F2 RID: 17138
 		private GameObject _transfer = null;
 
-		// Token: 0x040042F3 RID: 17139
 		private GameObject _donghua = null;
 
-		// Token: 0x040042F4 RID: 17140
 		public uint index = 0U;
 
-		// Token: 0x040042F5 RID: 17141
 		public uint sceneid = 0U;
 
-		// Token: 0x040042F6 RID: 17142
 		private IXUILabel m_lblName;
 
-		// Token: 0x040042F7 RID: 17143
 		private IXUISprite m_sprName;
 
-		// Token: 0x040042F8 RID: 17144
 		private IXUILabel m_lblPoint;
 
-		// Token: 0x040042F9 RID: 17145
 		private IXUISprite m_sprPoint;
 
-		// Token: 0x040042FA RID: 17146
 		private IXUILabel m_lblMember;
 
-		// Token: 0x040042FB RID: 17147
 		private IXUISprite m_sprMember;
 
-		// Token: 0x040042FC RID: 17148
 		private bool mOpen = false;
 
-		// Token: 0x040042FD RID: 17149
 		private GameObject mGoParent;
 
-		// Token: 0x040042FE RID: 17150
 		public static string BUBBLE_TEMPLATE = "UI/Guild/GuildTerritory/GuildTerritoryBillboard";
 	}
 }

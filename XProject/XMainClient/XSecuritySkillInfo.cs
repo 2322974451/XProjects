@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000B13 RID: 2835
+
 	internal class XSecuritySkillInfo
 	{
-		// Token: 0x0600A6D8 RID: 42712 RVA: 0x001D65D4 File Offset: 0x001D47D4
+
 		private XSecuritySkillInfo.SkillInfo _TryGetSkillInfo(uint skillID)
 		{
 			XSecuritySkillInfo.SkillInfo data;
@@ -23,7 +23,6 @@ namespace XMainClient
 			return data;
 		}
 
-		// Token: 0x0600A6D9 RID: 42713 RVA: 0x001D6628 File Offset: 0x001D4828
 		public void OnCastDamage(uint skillID, double value)
 		{
 			bool flag = value >= 0.0;
@@ -38,7 +37,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A6DA RID: 42714 RVA: 0x001D6668 File Offset: 0x001D4868
 		public void OnCastDamage(HurtInfo rawInput, ProjectDamageResult result)
 		{
 			bool flag = result.Value >= 0.0;
@@ -53,20 +51,17 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A6DB RID: 42715 RVA: 0x001D66B5 File Offset: 0x001D48B5
 		public void OnCast(uint skillID)
 		{
 			this.OnCast(skillID, 1);
 		}
 
-		// Token: 0x0600A6DC RID: 42716 RVA: 0x001D66C4 File Offset: 0x001D48C4
 		public void OnCast(uint skillID, int count)
 		{
 			XSecuritySkillInfo.SkillInfo skillInfo = this._TryGetSkillInfo(skillID);
 			skillInfo.OnCast(count);
 		}
 
-		// Token: 0x0600A6DD RID: 42717 RVA: 0x001D66E4 File Offset: 0x001D48E4
 		public void Reset()
 		{
 			for (int i = 0; i < this._SkillInfoList.Count; i++)
@@ -83,7 +78,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A6DE RID: 42718 RVA: 0x001D675C File Offset: 0x001D495C
 		public void Merge(XSecuritySkillInfo other)
 		{
 			this._NormalAttackInfo.Merge(other._NormalAttackInfo);
@@ -99,7 +93,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A6DF RID: 42719 RVA: 0x001D67E4 File Offset: 0x001D49E4
 		public void OnAttach(XEntity entity)
 		{
 			bool flag = entity == null;
@@ -118,13 +111,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A6E0 RID: 42720 RVA: 0x001D682E File Offset: 0x001D4A2E
 		public void OnEnd(XEntity entity)
 		{
 			this.EndTo(entity, this, true);
 		}
 
-		// Token: 0x0600A6E1 RID: 42721 RVA: 0x001D683C File Offset: 0x001D4A3C
 		public void EndTo(XEntity entity, XSecuritySkillInfo other, bool bProcessQTE)
 		{
 			bool flag = entity != null && entity.SkillMgr != null;
@@ -155,8 +146,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002FF9 RID: 12281
-		// (get) Token: 0x0600A6E2 RID: 42722 RVA: 0x001D692C File Offset: 0x001D4B2C
 		public List<XSecuritySkillInfo.SkillInfo> SkillInfoList
 		{
 			get
@@ -165,7 +154,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A6E3 RID: 42723 RVA: 0x001D6944 File Offset: 0x001D4B44
 		public XSecuritySkillInfo.SkillInfo GetSkillInfoByID(uint skillID)
 		{
 			XSecuritySkillInfo.SkillInfo result;
@@ -173,8 +161,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x17002FFA RID: 12282
-		// (get) Token: 0x0600A6E4 RID: 42724 RVA: 0x001D6968 File Offset: 0x001D4B68
 		public XSecuritySkillInfo.SkillInfo NormalAttackInfo
 		{
 			get
@@ -183,7 +169,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A6E5 RID: 42725 RVA: 0x001D6980 File Offset: 0x001D4B80
 		public static XSecuritySkillInfo TryGetStatistics(XEntity entity)
 		{
 			XSecurityStatistics xsecurityStatistics = XSecurityStatistics.TryGetStatistics(entity);
@@ -200,7 +185,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A6E6 RID: 42726 RVA: 0x001D69AC File Offset: 0x001D4BAC
 		public static void SendPlayerData(XEntity entity, XSecuritySkillInfo skillInfos)
 		{
 			bool flag = skillInfos._NormalAttackInfo != null;
@@ -263,7 +247,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A6E7 RID: 42727 RVA: 0x001D6C20 File Offset: 0x001D4E20
 		private static void _SendPlayerData(XSecuritySkillInfo.SkillInfo skillInfo, string keywords)
 		{
 			XStaticSecurityStatistics.Append(string.Format("PlayerSkillMax{0}", keywords), (skillInfo == null) ? 0f : skillInfo._AttackMax);
@@ -277,22 +260,17 @@ namespace XMainClient
 			XStaticSecurityStatistics.Append(string.Format("PlayerSkillTag{0}", keywords), (skillInfo == null) ? 0U : skillInfo._SingleAttackMaxCount);
 		}
 
-		// Token: 0x04003D62 RID: 15714
 		private List<XSecuritySkillInfo.SkillInfo> _SkillInfoList = new List<XSecuritySkillInfo.SkillInfo>();
 
-		// Token: 0x04003D63 RID: 15715
 		private Dictionary<uint, XSecuritySkillInfo.SkillInfo> _SkillInfos = new Dictionary<uint, XSecuritySkillInfo.SkillInfo>();
 
-		// Token: 0x04003D64 RID: 15716
 		private XSecuritySkillInfo.SkillInfo _NormalAttackInfo = new XSecuritySkillInfo.SkillInfo();
 
-		// Token: 0x04003D65 RID: 15717
 		private XSecuritySkillInfo.SkillInfo _QTEAttackInfo = null;
 
-		// Token: 0x02001999 RID: 6553
 		public class SkillInfo : XDataBase
 		{
-			// Token: 0x0601102D RID: 69677 RVA: 0x00453A80 File Offset: 0x00451C80
+
 			public void OnCast(int count)
 			{
 				this._CastCount += count;
@@ -312,13 +290,11 @@ namespace XMainClient
 				}
 			}
 
-			// Token: 0x0601102E RID: 69678 RVA: 0x00453AE9 File Offset: 0x00451CE9
 			public void OnCast()
 			{
 				this.OnCast(1);
 			}
 
-			// Token: 0x0601102F RID: 69679 RVA: 0x00453AF4 File Offset: 0x00451CF4
 			public void OnCastDamage(double value)
 			{
 				this._AttackCount++;
@@ -331,7 +307,6 @@ namespace XMainClient
 				}
 			}
 
-			// Token: 0x06011030 RID: 69680 RVA: 0x00453B58 File Offset: 0x00451D58
 			public void OnCastDamage(HurtInfo rawInput, ProjectDamageResult result)
 			{
 				this._AttackCount++;
@@ -369,7 +344,6 @@ namespace XMainClient
 				}
 			}
 
-			// Token: 0x06011031 RID: 69681 RVA: 0x00453C84 File Offset: 0x00451E84
 			public void Reset()
 			{
 				this._SkillID = 0U;
@@ -387,7 +361,6 @@ namespace XMainClient
 				this._last_single_attack_count = 0U;
 			}
 
-			// Token: 0x06011032 RID: 69682 RVA: 0x00453D04 File Offset: 0x00451F04
 			public void Merge(XSecuritySkillInfo.SkillInfo other)
 			{
 				bool flag = other == null;
@@ -405,57 +378,42 @@ namespace XMainClient
 				}
 			}
 
-			// Token: 0x06011033 RID: 69683 RVA: 0x00453DE2 File Offset: 0x00451FE2
 			public override void Init()
 			{
 				base.Init();
 				this.Reset();
 			}
 
-			// Token: 0x06011034 RID: 69684 RVA: 0x00453DF3 File Offset: 0x00451FF3
 			public override void Recycle()
 			{
 				base.Recycle();
 				XDataPool<XSecuritySkillInfo.SkillInfo>.Recycle(this);
 			}
 
-			// Token: 0x04007F26 RID: 32550
 			public uint _SkillID;
 
-			// Token: 0x04007F27 RID: 32551
 			public uint _IntervalMin;
 
-			// Token: 0x04007F28 RID: 32552
 			public int _CastCount;
 
-			// Token: 0x04007F29 RID: 32553
 			public int _AttackCount;
 
-			// Token: 0x04007F2A RID: 32554
 			public float _AttackTotal;
 
-			// Token: 0x04007F2B RID: 32555
 			public float _AttackMax;
 
-			// Token: 0x04007F2C RID: 32556
 			public float _AttackMin = float.MaxValue;
 
-			// Token: 0x04007F2D RID: 32557
 			public float _CriticalAttackMax;
 
-			// Token: 0x04007F2E RID: 32558
 			public float _CriticalAttackMin = float.MaxValue;
 
-			// Token: 0x04007F2F RID: 32559
 			public uint _SingleAttackMaxCount;
 
-			// Token: 0x04007F30 RID: 32560
 			private uint _last_cast;
 
-			// Token: 0x04007F31 RID: 32561
 			private long _last_token;
 
-			// Token: 0x04007F32 RID: 32562
 			private uint _last_single_attack_count;
 		}
 	}

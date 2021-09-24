@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000A46 RID: 2630
+
 	internal class CompeteNestRankHandler : DlgHandlerBase
 	{
-		// Token: 0x17002EE1 RID: 12001
-		// (get) Token: 0x06009FB8 RID: 40888 RVA: 0x001A7CEC File Offset: 0x001A5EEC
+
 		private XCompeteDocument m_doc
 		{
 			get
@@ -19,8 +18,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002EE2 RID: 12002
-		// (get) Token: 0x06009FB9 RID: 40889 RVA: 0x001A7D04 File Offset: 0x001A5F04
 		protected override string FileName
 		{
 			get
@@ -29,7 +26,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009FBA RID: 40890 RVA: 0x001A7D1C File Offset: 0x001A5F1C
 		protected override void Init()
 		{
 			base.Init();
@@ -40,7 +36,6 @@ namespace XMainClient
 			this.m_wrapContent.RegisterItemUpdateEventHandler(new WrapItemUpdateEventHandler(this.WrapContentItemUpdated));
 		}
 
-		// Token: 0x06009FBB RID: 40891 RVA: 0x001A7DC9 File Offset: 0x001A5FC9
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -48,21 +43,18 @@ namespace XMainClient
 			this.m_doc.ReqRankList();
 		}
 
-		// Token: 0x06009FBC RID: 40892 RVA: 0x001A7DE6 File Offset: 0x001A5FE6
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			this.m_closeBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnClosedClicked));
 		}
 
-		// Token: 0x06009FBD RID: 40893 RVA: 0x001A7E08 File Offset: 0x001A6008
 		private void FillDefault()
 		{
 			this.m_tipsGo.SetActive(true);
 			this.m_wrapContent.gameObject.SetActive(false);
 		}
 
-		// Token: 0x06009FBE RID: 40894 RVA: 0x001A7E2C File Offset: 0x001A602C
 		public void FillContent()
 		{
 			bool flag = this.m_doc.RankList == null;
@@ -88,7 +80,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009FBF RID: 40895 RVA: 0x001A7F0C File Offset: 0x001A610C
 		private void WrapContentItemUpdated(Transform t, int index)
 		{
 			XCompeteDocument specificDocument = XDocuments.GetSpecificDocument<XCompeteDocument>(XCompeteDocument.uuID);
@@ -151,7 +142,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009FC0 RID: 40896 RVA: 0x001A81B8 File Offset: 0x001A63B8
 		private void SetRank(Transform tra, int rankIndex)
 		{
 			IXUILabel ixuilabel = tra.FindChild("Rank").GetComponent("XUILabel") as IXUILabel;
@@ -180,14 +170,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009FC1 RID: 40897 RVA: 0x001A8280 File Offset: 0x001A6480
 		private bool OnClosedClicked(IXUIButton sp)
 		{
 			base.SetVisible(false);
 			return true;
 		}
 
-		// Token: 0x06009FC2 RID: 40898 RVA: 0x001A829C File Offset: 0x001A649C
 		private void OnClickName(IXUILabelSymbol iSp)
 		{
 			bool flag = this.m_doc.RankList.InfoList == null;
@@ -209,13 +197,10 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04003908 RID: 14600
 		private IXUIButton m_closeBtn;
 
-		// Token: 0x04003909 RID: 14601
 		private IXUIWrapContent m_wrapContent;
 
-		// Token: 0x0400390A RID: 14602
 		private GameObject m_tipsGo;
 	}
 }

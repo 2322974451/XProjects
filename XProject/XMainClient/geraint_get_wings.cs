@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000EDC RID: 3804
+
 	internal class geraint_get_wings
 	{
-		// Token: 0x0600C97E RID: 51582 RVA: 0x002D3710 File Offset: 0x002D1910
+
 		private static void _ActiveWing(XGameObject gameObject, object o, int commandID)
 		{
 			Transform transform = gameObject.Find("Object001_wing");
@@ -23,7 +23,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C97F RID: 51583 RVA: 0x002D3758 File Offset: 0x002D1958
 		public static bool Do(List<XActor> actors)
 		{
 			bool flag = actors == null;
@@ -68,10 +67,8 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0400590F RID: 22799
 		private static bool _once = false;
 
-		// Token: 0x04005910 RID: 22800
 		private static CommandCallback _activeWingCb = new CommandCallback(geraint_get_wings._ActiveWing);
 	}
 }

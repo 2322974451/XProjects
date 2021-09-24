@@ -1,10 +1,9 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000005 RID: 5
 internal class XGausBlur : XImageEffectBase
 {
-	// Token: 0x06000015 RID: 21 RVA: 0x000028BC File Offset: 0x00000ABC
+
 	private void OnRenderImage(RenderTexture source, RenderTexture destination)
 	{
 		int num = source.width / 4;
@@ -22,7 +21,6 @@ internal class XGausBlur : XImageEffectBase
 		RenderTexture.ReleaseTemporary(renderTexture);
 	}
 
-	// Token: 0x06000016 RID: 22 RVA: 0x00002938 File Offset: 0x00000B38
 	public void FourTapCone(RenderTexture source, RenderTexture dest, int iteration)
 	{
 		float num = 0.5f + (float)iteration * this.blurSpread;
@@ -35,7 +33,6 @@ internal class XGausBlur : XImageEffectBase
 		});
 	}
 
-	// Token: 0x06000017 RID: 23 RVA: 0x000029A8 File Offset: 0x00000BA8
 	private void DownSample4x(RenderTexture source, RenderTexture dest)
 	{
 		float num = 1f;
@@ -48,9 +45,7 @@ internal class XGausBlur : XImageEffectBase
 		});
 	}
 
-	// Token: 0x04000010 RID: 16
 	public int iterations = 3;
 
-	// Token: 0x04000011 RID: 17
 	public float blurSpread = 0.6f;
 }

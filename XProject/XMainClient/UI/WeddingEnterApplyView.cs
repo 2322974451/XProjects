@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020018DB RID: 6363
+
 	internal class WeddingEnterApplyView : DlgBase<WeddingEnterApplyView, WeddingEnterApplyBehaviour>
 	{
-		// Token: 0x17003A6C RID: 14956
-		// (get) Token: 0x0601094A RID: 67914 RVA: 0x00415E98 File Offset: 0x00414098
+
 		public override string fileName
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003A6D RID: 14957
-		// (get) Token: 0x0601094B RID: 67915 RVA: 0x00415EB0 File Offset: 0x004140B0
 		public override int layer
 		{
 			get
@@ -31,8 +28,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003A6E RID: 14958
-		// (get) Token: 0x0601094C RID: 67916 RVA: 0x00415EC4 File Offset: 0x004140C4
 		public override int group
 		{
 			get
@@ -41,8 +36,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003A6F RID: 14959
-		// (get) Token: 0x0601094D RID: 67917 RVA: 0x00415ED8 File Offset: 0x004140D8
 		public override bool autoload
 		{
 			get
@@ -51,13 +44,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601094E RID: 67918 RVA: 0x00415EEB File Offset: 0x004140EB
 		protected override void Init()
 		{
 			base.uiBehaviour.m_EmptyList.SetText(XSingleton<XStringTable>.singleton.GetString("WeddingEnterEmpty"));
 		}
 
-		// Token: 0x0601094F RID: 67919 RVA: 0x00415F10 File Offset: 0x00414110
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -68,7 +59,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_GoApplyTab.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnGoApplyTabClicked));
 		}
 
-		// Token: 0x06010950 RID: 67920 RVA: 0x00415FB8 File Offset: 0x004141B8
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -77,21 +67,18 @@ namespace XMainClient.UI
 			specificDocument.GetAllWeddingInfo();
 		}
 
-		// Token: 0x06010951 RID: 67921 RVA: 0x00415FF1 File Offset: 0x004141F1
 		protected override void OnHide()
 		{
 			base.OnHide();
 			XSingleton<XTimerMgr>.singleton.KillTimer(this._CDToken);
 		}
 
-		// Token: 0x06010952 RID: 67922 RVA: 0x0041600C File Offset: 0x0041420C
 		public override void StackRefresh()
 		{
 			XWeddingDocument specificDocument = XDocuments.GetSpecificDocument<XWeddingDocument>(XWeddingDocument.uuID);
 			specificDocument.GetAllWeddingInfo();
 		}
 
-		// Token: 0x06010953 RID: 67923 RVA: 0x0041602C File Offset: 0x0041422C
 		public void RefreshInfo()
 		{
 			bool flag = this.m_SelectedTab < 0;
@@ -107,7 +94,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010954 RID: 67924 RVA: 0x004160EC File Offset: 0x004142EC
 		private List<WeddingBriefInfo> GetCurrWeddingList()
 		{
 			XWeddingDocument specificDocument = XDocuments.GetSpecificDocument<XWeddingDocument>(XWeddingDocument.uuID);
@@ -124,7 +110,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x06010955 RID: 67925 RVA: 0x00416128 File Offset: 0x00414328
 		private void _WrapContentItemUpdated(Transform t, int index)
 		{
 			bool flag = this.m_SelectedTab < 0;
@@ -184,7 +169,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010956 RID: 67926 RVA: 0x00416398 File Offset: 0x00414598
 		public void StartTimer()
 		{
 			bool flag = !base.IsVisible();
@@ -203,7 +187,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010957 RID: 67927 RVA: 0x0041645C File Offset: 0x0041465C
 		private void LeftTimeUpdate(object o)
 		{
 			List<WeddingBriefInfo> currWeddingList = this.GetCurrWeddingList();
@@ -241,7 +224,6 @@ namespace XMainClient.UI
 			this._CDToken = XSingleton<XTimerMgr>.singleton.SetTimer(1f, new XTimerMgr.ElapsedEventHandler(this.LeftTimeUpdate), null);
 		}
 
-		// Token: 0x06010958 RID: 67928 RVA: 0x004165DC File Offset: 0x004147DC
 		private bool OnWeddingBtnClicked(IXUIButton btn)
 		{
 			ulong id = btn.ID;
@@ -259,7 +241,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x06010959 RID: 67929 RVA: 0x0041663C File Offset: 0x0041483C
 		public void UpdateApplyBtnState(IXUIButton btn)
 		{
 			GameObject gameObject = btn.gameObject.transform.parent.parent.FindChild("Bg2").gameObject;
@@ -267,21 +248,18 @@ namespace XMainClient.UI
 			btn.gameObject.transform.parent.gameObject.SetActive(false);
 		}
 
-		// Token: 0x0601095A RID: 67930 RVA: 0x00416694 File Offset: 0x00414894
 		private bool OnGoApplyTabClicked(IXUIButton btn)
 		{
 			base.uiBehaviour.m_ToggleApply.bChecked = true;
 			return true;
 		}
 
-		// Token: 0x0601095B RID: 67931 RVA: 0x004166BC File Offset: 0x004148BC
 		private bool _OnCloseClicked(IXUIButton iSp)
 		{
 			this.SetVisible(false, true);
 			return true;
 		}
 
-		// Token: 0x0601095C RID: 67932 RVA: 0x004166D8 File Offset: 0x004148D8
 		private bool _OnToggleChanged(IXUICheckBox go)
 		{
 			bool flag = !go.bChecked;
@@ -301,19 +279,14 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0400785E RID: 30814
 		private int m_SelectedTab = -1;
 
-		// Token: 0x0400785F RID: 30815
 		private uint _CDToken = 0U;
 
-		// Token: 0x04007860 RID: 30816
 		private List<IXUILabel> m_TimeLabelList = new List<IXUILabel>();
 
-		// Token: 0x04007861 RID: 30817
 		private List<ulong> m_TimeInvID = new List<ulong>();
 
-		// Token: 0x04007862 RID: 30818
 		private Dictionary<ulong, uint> m_TimeDic = new Dictionary<ulong, uint>();
 	}
 }

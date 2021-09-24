@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017F3 RID: 6131
+
 	internal class PartnerMainHandler : DlgHandlerBase
 	{
-		// Token: 0x170038D8 RID: 14552
-		// (get) Token: 0x0600FE2F RID: 65071 RVA: 0x003BB514 File Offset: 0x003B9714
+
 		protected override string FileName
 		{
 			get
@@ -21,7 +20,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FE30 RID: 65072 RVA: 0x003BB52C File Offset: 0x003B972C
 		protected override void Init()
 		{
 			base.Init();
@@ -46,7 +44,6 @@ namespace XMainClient.UI
 			this.m_FriendBonusHandler.bConsiderTeam = false;
 		}
 
-		// Token: 0x0600FE31 RID: 65073 RVA: 0x003BB7CC File Offset: 0x003B99CC
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -58,7 +55,6 @@ namespace XMainClient.UI
 			this.m_cancleBreakUpBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnClickCancleBreakupBtn));
 		}
 
-		// Token: 0x0600FE32 RID: 65074 RVA: 0x003BB871 File Offset: 0x003B9A71
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -66,7 +62,6 @@ namespace XMainClient.UI
 			this.FillContent();
 		}
 
-		// Token: 0x0600FE33 RID: 65075 RVA: 0x003BB88F File Offset: 0x003B9A8F
 		protected override void OnHide()
 		{
 			base.Return3DAvatarPool();
@@ -74,14 +69,12 @@ namespace XMainClient.UI
 			XSingleton<XTimerMgr>.singleton.KillTimer(this.m_token);
 		}
 
-		// Token: 0x0600FE34 RID: 65076 RVA: 0x003BB8B1 File Offset: 0x003B9AB1
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
 			base.Alloc3DAvatarPool("PartnerMainHandler", 1);
 		}
 
-		// Token: 0x0600FE35 RID: 65077 RVA: 0x003BB8C8 File Offset: 0x003B9AC8
 		public override void OnUnload()
 		{
 			base.Return3DAvatarPool();
@@ -89,7 +82,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x0600FE36 RID: 65078 RVA: 0x003BB8E8 File Offset: 0x003B9AE8
 		private void FillContent()
 		{
 			this.m_emptyGo.SetActive(false);
@@ -106,7 +98,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FE37 RID: 65079 RVA: 0x003BB94C File Offset: 0x003B9B4C
 		public void RefreshUi()
 		{
 			this.m_emptyGo.SetActive(false);
@@ -123,7 +114,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FE38 RID: 65080 RVA: 0x003BB9AC File Offset: 0x003B9BAC
 		private void FillNoPartner()
 		{
 			this.m_emptyGo.SetActive(true);
@@ -145,7 +135,6 @@ namespace XMainClient.UI
 			this.m_noPartnerTips.SetText(XSingleton<XStringTable>.singleton.GetString("NoPartnerTips"));
 		}
 
-		// Token: 0x0600FE39 RID: 65081 RVA: 0x003BBACC File Offset: 0x003B9CCC
 		private void FillHadPartner()
 		{
 			this.m_obtainedGo.SetActive(true);
@@ -200,7 +189,6 @@ namespace XMainClient.UI
 			this.RefreshAvataData();
 		}
 
-		// Token: 0x0600FE3A RID: 65082 RVA: 0x003BBDD4 File Offset: 0x003B9FD4
 		private void FillAvataItem(GameObject go, Partner partner, int count)
 		{
 			bool flag = partner == null || go == null || partner.Detail == null;
@@ -230,7 +218,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FE3B RID: 65083 RVA: 0x003BBF9C File Offset: 0x003BA19C
 		private void RefreshAvataData()
 		{
 			int num = 0;
@@ -250,7 +237,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FE3C RID: 65084 RVA: 0x003BC078 File Offset: 0x003BA278
 		private string GetTimeString(ulong ti, string str)
 		{
 			bool flag = ti < 60UL;
@@ -314,14 +300,12 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FE3D RID: 65085 RVA: 0x003BC1DC File Offset: 0x003BA3DC
 		public void RefreshUIRedPoint()
 		{
 			this.m_shopBtn.gameObject.transform.FindChild("RedPoint").gameObject.SetActive(this.m_doc.IsHadShopRedPoint);
 			this.m_livenessBtn.gameObject.transform.FindChild("RedPoint").gameObject.SetActive(this.m_doc.IsHadLivenessRedPoint);
 		}
 
-		// Token: 0x0600FE3E RID: 65086 RVA: 0x003BC24C File Offset: 0x003BA44C
 		public void SetTime(object o = null)
 		{
 			uint num = (uint)o;
@@ -335,7 +319,6 @@ namespace XMainClient.UI
 			this.m_token = XSingleton<XTimerMgr>.singleton.SetTimer(1f, new XTimerMgr.ElapsedEventHandler(this.SetTime), num);
 		}
 
-		// Token: 0x0600FE3F RID: 65087 RVA: 0x003BC2C8 File Offset: 0x003BA4C8
 		private bool OnClickShopBtn(IXUIButton btn)
 		{
 			bool flag = this.SetButtonCool(this.m_fCoolTime);
@@ -353,7 +336,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FE40 RID: 65088 RVA: 0x003BC310 File Offset: 0x003BA510
 		private bool OnClickGoToBtn(IXUIButton btn)
 		{
 			bool flag = this.SetButtonCool(this.m_fCoolTime);
@@ -391,7 +373,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FE41 RID: 65089 RVA: 0x003BC3D8 File Offset: 0x003BA5D8
 		private bool OnClickGoToTeamBtn(IXUIButton btn)
 		{
 			bool flag = this.SetButtonCool(this.m_fCoolTime);
@@ -415,7 +396,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FE42 RID: 65090 RVA: 0x003BC44C File Offset: 0x003BA64C
 		private bool OnClickLivenessBtn(IXUIButton btn)
 		{
 			bool flag = this.SetButtonCool(this.m_fCoolTime);
@@ -432,7 +412,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FE43 RID: 65091 RVA: 0x003BC480 File Offset: 0x003BA680
 		private bool OnClickbreakupBtn(IXUIButton btn)
 		{
 			bool flag = this.SetButtonCool(this.m_fCoolTime);
@@ -467,7 +446,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FE44 RID: 65092 RVA: 0x003BC528 File Offset: 0x003BA728
 		private bool BreakUp(IXUIButton btn)
 		{
 			this.m_doc.ReqLeavePartner();
@@ -475,7 +453,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FE45 RID: 65093 RVA: 0x003BC554 File Offset: 0x003BA754
 		private bool OnClickCancleBreakupBtn(IXUIButton btn)
 		{
 			bool flag = this.SetButtonCool(this.m_fCoolTime);
@@ -509,7 +486,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FE46 RID: 65094 RVA: 0x003BC5B8 File Offset: 0x003BA7B8
 		private void OnClickavata(IXUISprite sp)
 		{
 			bool flag = sp == null;
@@ -520,7 +496,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FE47 RID: 65095 RVA: 0x003BC5E0 File Offset: 0x003BA7E0
 		private bool SetButtonCool(float time)
 		{
 			float num = Time.realtimeSinceStartup - this.m_fLastClickBtnTime;
@@ -538,64 +513,44 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x04007040 RID: 28736
 		private XPartnerDocument m_doc = XPartnerDocument.Doc;
 
-		// Token: 0x04007041 RID: 28737
 		private IUIDummy[] m_Snapshots = new IUIDummy[XPartnerDocument.MaxAvata];
 
-		// Token: 0x04007042 RID: 28738
 		private float m_fCoolTime = 0.5f;
 
-		// Token: 0x04007043 RID: 28739
 		private float m_fLastClickBtnTime = 0f;
 
-		// Token: 0x04007044 RID: 28740
 		private uint m_token;
 
-		// Token: 0x04007045 RID: 28741
 		private GameObject m_emptyGo;
 
-		// Token: 0x04007046 RID: 28742
 		private GameObject m_obtainedGo;
 
-		// Token: 0x04007047 RID: 28743
 		private IXUIButton m_shopBtn;
 
-		// Token: 0x04007048 RID: 28744
 		private IXUIButton m_gotoTeamBtn;
 
-		// Token: 0x04007049 RID: 28745
 		private IXUIButton m_gotoBtn;
 
-		// Token: 0x0400704A RID: 28746
 		private IXUILabel m_noPartnerTips;
 
-		// Token: 0x0400704B RID: 28747
 		private IXUILabel m_ruleLab;
 
-		// Token: 0x0400704C RID: 28748
 		private XUIPool m_emptyItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x0400704D RID: 28749
 		private Transform m_livenessTra;
 
-		// Token: 0x0400704E RID: 28750
 		private IXUIButton m_livenessBtn;
 
-		// Token: 0x0400704F RID: 28751
 		private IXUIButton m_breakupBtn;
 
-		// Token: 0x04007050 RID: 28752
 		private IXUIButton m_cancleBreakUpBtn;
 
-		// Token: 0x04007051 RID: 28753
 		private IXUILabel m_breakUpCutDownLab;
 
-		// Token: 0x04007052 RID: 28754
 		private XUIPool m_itemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04007053 RID: 28755
 		private XTeamPartnerBonusHandler m_FriendBonusHandler = null;
 	}
 }

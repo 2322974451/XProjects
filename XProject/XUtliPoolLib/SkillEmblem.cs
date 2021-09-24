@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x0200016B RID: 363
+
 	public class SkillEmblem : CVSReader
 	{
-		// Token: 0x06000808 RID: 2056 RVA: 0x00029758 File Offset: 0x00027958
+
 		public SkillEmblem.RowData GetByEmblemID(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -21,7 +21,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000809 RID: 2057 RVA: 0x00029790 File Offset: 0x00027990
 		private SkillEmblem.RowData BinarySearchEmblemID(uint key)
 		{
 			int num = 0;
@@ -80,7 +79,6 @@ namespace XUtliPoolLib
 			return null;
 		}
 
-		// Token: 0x0600080A RID: 2058 RVA: 0x0002986C File Offset: 0x00027A6C
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			SkillEmblem.RowData rowData = new SkillEmblem.RowData();
@@ -104,7 +102,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x0600080B RID: 2059 RVA: 0x00029968 File Offset: 0x00027B68
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -118,34 +115,25 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x040003B7 RID: 951
 		public SkillEmblem.RowData[] Table = null;
 
-		// Token: 0x0200036A RID: 874
 		public class RowData
 		{
-			// Token: 0x04000E16 RID: 3606
+
 			public uint EmblemID;
 
-			// Token: 0x04000E17 RID: 3607
 			public string SkillScript;
 
-			// Token: 0x04000E18 RID: 3608
 			public byte SkillType;
 
-			// Token: 0x04000E19 RID: 3609
 			public byte SkillPercent;
 
-			// Token: 0x04000E1A RID: 3610
 			public string SkillName;
 
-			// Token: 0x04000E1B RID: 3611
 			public uint SkillPPT;
 
-			// Token: 0x04000E1C RID: 3612
 			public string ExSkillScript;
 
-			// Token: 0x04000E1D RID: 3613
 			public string[] OtherSkillScripts;
 		}
 	}

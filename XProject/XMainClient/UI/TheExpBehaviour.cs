@@ -8,10 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001713 RID: 5907
+
 	internal class TheExpBehaviour : DlgBehaviourBase
 	{
-		// Token: 0x0600F3F7 RID: 62455 RVA: 0x0036937C File Offset: 0x0036757C
+
 		private void Awake()
 		{
 			this.m_parent = base.transform;
@@ -62,97 +62,66 @@ namespace XMainClient.UI
 			this.m_NormalDropGo = base.transform.Find("Bg/DetailFrame/ItemList/NormalDrop").gameObject;
 		}
 
-		// Token: 0x040068C7 RID: 26823
 		public IXUIButton m_Close;
 
-		// Token: 0x040068C8 RID: 26824
 		public IXUIButton m_Help;
 
-		// Token: 0x040068C9 RID: 26825
 		public IXUILabel m_MyPPT;
 
-		// Token: 0x040068CA RID: 26826
 		public IXUILabel m_LeftCount;
 
-		// Token: 0x040068CB RID: 26827
 		public IXUIButton m_AddCount;
 
-		// Token: 0x040068CC RID: 26828
 		public GameObject m_Free;
 
-		// Token: 0x040068CD RID: 26829
 		public Transform m_parent;
 
-		// Token: 0x040068CE RID: 26830
 		public IXUITexture m_NestBg;
 
-		// Token: 0x040068CF RID: 26831
 		public IXUILabel m_NestName;
 
-		// Token: 0x040068D0 RID: 26832
 		public IXUILabel m_NestEquipText;
 
-		// Token: 0x040068D1 RID: 26833
 		public IXUILabel m_NestPPT;
 
-		// Token: 0x040068D2 RID: 26834
 		public IXUILabel m_NestLevel;
 
-		// Token: 0x040068D3 RID: 26835
 		public IXUILabel m_NestMember;
 
-		// Token: 0x040068D4 RID: 26836
 		public IXUIButton m_GoBattle;
 
-		// Token: 0x040068D5 RID: 26837
 		public IXUIButton m_SweepButton;
 
-		// Token: 0x040068D6 RID: 26838
 		public GameObject m_SweepCostItem;
 
-		// Token: 0x040068D7 RID: 26839
 		public IXUILabel m_SweepCostItemNum;
 
-		// Token: 0x040068D8 RID: 26840
 		public IXUILabel m_starLab;
 
-		// Token: 0x040068D9 RID: 26841
 		public IXUIButton m_rewardBtn;
 
-		// Token: 0x040068DA RID: 26842
 		public IXUIButton m_rankBtn;
 
-		// Token: 0x040068DB RID: 26843
 		public GameObject m_starImageGo;
 
-		// Token: 0x040068DC RID: 26844
 		public IXUISprite m_quanMinSpr;
 
-		// Token: 0x040068DD RID: 26845
 		public XUIPool m_RewardPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x040068DE RID: 26846
 		public XUITabControl m_tabcontrol = new XUITabControl();
 
-		// Token: 0x040068DF RID: 26847
 		public XUIPool m_ExpPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x040068E0 RID: 26848
 		public List<GameObject> m_DiffList = new List<GameObject>();
 
-		// Token: 0x040068E1 RID: 26849
 		public List<GameObject> m_DiffSelectList = new List<GameObject>();
 
-		// Token: 0x040068E2 RID: 26850
 		public IXUILabel m_Fatigue;
 
-		// Token: 0x040068E3 RID: 26851
 		public GameObject m_LeftCountGo;
 
-		// Token: 0x040068E4 RID: 26852
 		public GameObject m_FirstPassDropGo;
 
-		// Token: 0x040068E5 RID: 26853
 		public GameObject m_NormalDropGo;
 	}
 }

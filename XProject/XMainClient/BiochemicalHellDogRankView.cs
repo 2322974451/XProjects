@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C75 RID: 3189
+
 	internal class BiochemicalHellDogRankView : DlgBase<BiochemicalHellDogRankView, BiochemicalHellDogRankBehaviour>
 	{
-		// Token: 0x170031EA RID: 12778
-		// (get) Token: 0x0600B449 RID: 46153 RVA: 0x00233038 File Offset: 0x00231238
+
 		public override string fileName
 		{
 			get
@@ -20,7 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B44A RID: 46154 RVA: 0x00233050 File Offset: 0x00231250
 		protected override void Init()
 		{
 			base.Init();
@@ -29,28 +27,24 @@ namespace XMainClient
 			base.uiBehaviour._Close.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseClick));
 		}
 
-		// Token: 0x0600B44B RID: 46155 RVA: 0x002330AF File Offset: 0x002312AF
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this._doc.SendRankList();
 		}
 
-		// Token: 0x0600B44C RID: 46156 RVA: 0x002330C8 File Offset: 0x002312C8
 		private bool OnCloseClick(IXUIButton btn)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x0600B44D RID: 46157 RVA: 0x002330E4 File Offset: 0x002312E4
 		private void FillDefault()
 		{
 			base.uiBehaviour._tipsGo.SetActive(true);
 			base.uiBehaviour._RankWrapContent.gameObject.SetActive(false);
 		}
 
-		// Token: 0x0600B44E RID: 46158 RVA: 0x00233110 File Offset: 0x00231310
 		public void FillContent()
 		{
 			bool flag = this._doc.RankList == null;
@@ -76,7 +70,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B44F RID: 46159 RVA: 0x002331F8 File Offset: 0x002313F8
 		private void WrapContentItemUpdated(Transform t, int index)
 		{
 			bool flag = this._doc.RankList.InfoList == null;
@@ -147,7 +140,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B450 RID: 46160 RVA: 0x002334A4 File Offset: 0x002316A4
 		private void SetRank(Transform tra, int rankIndex)
 		{
 			IXUILabel ixuilabel = tra.FindChild("Rank").GetComponent("XUILabel") as IXUILabel;
@@ -176,7 +168,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B451 RID: 46161 RVA: 0x0023356C File Offset: 0x0023176C
 		private void OnClickName(IXUILabelSymbol iSp)
 		{
 			bool flag = this._doc.RankList.InfoList == null;
@@ -198,7 +189,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x040045F0 RID: 17904
 		private BiochemicalHellDogDocument _doc;
 	}
 }

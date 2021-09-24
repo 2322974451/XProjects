@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000A1B RID: 2587
+
 	internal class XBackFlowLevelUpHandler : DlgHandlerBase
 	{
-		// Token: 0x17002EBA RID: 11962
-		// (get) Token: 0x06009E39 RID: 40505 RVA: 0x0019ED78 File Offset: 0x0019CF78
+
 		protected override string FileName
 		{
 			get
@@ -19,7 +18,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009E3A RID: 40506 RVA: 0x0019ED90 File Offset: 0x0019CF90
 		protected override void Init()
 		{
 			base.Init();
@@ -28,7 +26,6 @@ namespace XMainClient
 			this._levelUpLabel = (base.transform.Find("Label").GetComponent("XUILabel") as IXUILabel);
 		}
 
-		// Token: 0x06009E3B RID: 40507 RVA: 0x0019EE08 File Offset: 0x0019D008
 		private bool OnGotoLevelUp(IXUIButton button)
 		{
 			XTaskDocument specificDocument = XDocuments.GetSpecificDocument<XTaskDocument>(XTaskDocument.uuID);
@@ -48,13 +45,11 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x06009E3C RID: 40508 RVA: 0x0019EEB0 File Offset: 0x0019D0B0
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 		}
 
-		// Token: 0x06009E3D RID: 40509 RVA: 0x0019EEBC File Offset: 0x0019D0BC
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -62,22 +57,18 @@ namespace XMainClient
 			this._levelUpLabel.SetText(string.Format(@string, XBackFlowDocument.Doc.GetLevelUpDegree()));
 		}
 
-		// Token: 0x06009E3E RID: 40510 RVA: 0x0019EEFD File Offset: 0x0019D0FD
 		protected override void OnHide()
 		{
 			base.OnHide();
 		}
 
-		// Token: 0x06009E3F RID: 40511 RVA: 0x0019EF07 File Offset: 0x0019D107
 		public override void OnUnload()
 		{
 			base.OnUnload();
 		}
 
-		// Token: 0x04003814 RID: 14356
 		private IXUIButton _gotoBtn = null;
 
-		// Token: 0x04003815 RID: 14357
 		private IXUILabel _levelUpLabel = null;
 	}
 }

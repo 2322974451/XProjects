@@ -7,10 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C6C RID: 3180
+
 	public class PreSettingNodeHandler : DlgHandlerBase
 	{
-		// Token: 0x0600B3F9 RID: 46073 RVA: 0x0023137C File Offset: 0x0022F57C
+
 		protected override void Init()
 		{
 			base.Init();
@@ -37,27 +37,23 @@ namespace XMainClient
 			this._preDetailName = (base.transform.Find("PreDetail/TLabel").GetComponent("XUILabel") as IXUILabel);
 		}
 
-		// Token: 0x0600B3FA RID: 46074 RVA: 0x001F8A12 File Offset: 0x001F6C12
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.RefreshData();
 		}
 
-		// Token: 0x0600B3FB RID: 46075 RVA: 0x0019EEFD File Offset: 0x0019D0FD
 		protected override void OnHide()
 		{
 			base.OnHide();
 		}
 
-		// Token: 0x0600B3FC RID: 46076 RVA: 0x002314F7 File Offset: 0x0022F6F7
 		public override void RefreshData()
 		{
 			this.SetupActivePreList();
 			this.SetupPreDetailList();
 		}
 
-		// Token: 0x0600B3FD RID: 46077 RVA: 0x00231508 File Offset: 0x0022F708
 		private void SetupPreDetailList()
 		{
 			this._activePreID = this._doc.GetPreContentID(this._selectType);
@@ -68,7 +64,6 @@ namespace XMainClient
 			uint defaultPreID = XPrerogativeDocument.GetDefaultPreID(this._selectType);
 		}
 
-		// Token: 0x0600B3FE RID: 46078 RVA: 0x002315A0 File Offset: 0x0022F7A0
 		private void _OnPreWrapContentUpdate(Transform t, int index)
 		{
 			bool flag = index >= this._types.Count;
@@ -90,7 +85,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B3FF RID: 46079 RVA: 0x002316A4 File Offset: 0x0022F8A4
 		private void _OnPreDetailContentUpdate(Transform t, int index)
 		{
 			Transform transform = t.Find("Normal");
@@ -164,7 +158,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B400 RID: 46080 RVA: 0x002319F0 File Offset: 0x0022FBF0
 		private void _OnBorderClick(IXUISprite sprite)
 		{
 			uint num = (uint)sprite.ID;
@@ -176,7 +169,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B401 RID: 46081 RVA: 0x00231A28 File Offset: 0x0022FC28
 		private void _OnSelectClick(IXUISprite sprite)
 		{
 			uint num = (uint)sprite.ID;
@@ -192,7 +184,6 @@ namespace XMainClient
 			XSingleton<XDebug>.singleton.AddGreenLog("_OnSelectClick" + num.ToString(), null, null, null, null, null);
 		}
 
-		// Token: 0x0600B402 RID: 46082 RVA: 0x00231A94 File Offset: 0x0022FC94
 		private void _OnActiveClick(IXUISprite sprite)
 		{
 			int num = (int)sprite.ID;
@@ -217,7 +208,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B403 RID: 46083 RVA: 0x00231B70 File Offset: 0x0022FD70
 		private void SetupActivePreList()
 		{
 			bool flag = this._selectType == 0U && this._types.Count > 0;
@@ -228,7 +218,6 @@ namespace XMainClient
 			this._preWrapContent.SetContentCount(this._types.Count, false);
 		}
 
-		// Token: 0x0600B404 RID: 46084 RVA: 0x00231BC8 File Offset: 0x0022FDC8
 		public static void SetupPrerogativeTpl(Transform tf, PrerogativeContent.RowData content = null)
 		{
 			IXUISprite ts = tf.Find("Icon").GetComponent("XUISprite") as IXUISprite;
@@ -251,13 +240,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B405 RID: 46085 RVA: 0x00231C2E File Offset: 0x0022FE2E
 		private static void DrawEmptyItem(IXUISprite ts)
 		{
 			ts.SetSprite("", "", false);
 		}
 
-		// Token: 0x0600B406 RID: 46086 RVA: 0x00231C44 File Offset: 0x0022FE44
 		private static void DrawSpriteItem(IXUISprite ts, string content)
 		{
 			ts.SetColor(Color.white);
@@ -281,7 +268,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B407 RID: 46087 RVA: 0x00231CB4 File Offset: 0x0022FEB4
 		private static void DrawColorItem(IXUISprite ts, string content)
 		{
 			ts.SetSprite("VIP_Color", "GameSystem/SysCommon1", false);
@@ -297,34 +283,24 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x040045C3 RID: 17859
 		private XPrerogativeDocument _doc;
 
-		// Token: 0x040045C4 RID: 17860
 		private IXUIScrollView _preList;
 
-		// Token: 0x040045C5 RID: 17861
 		private IXUIWrapContent _preWrapContent;
 
-		// Token: 0x040045C6 RID: 17862
 		private IXUIScrollView _preDetailList;
 
-		// Token: 0x040045C7 RID: 17863
 		private IXUIWrapContent _preDetailWrapContent;
 
-		// Token: 0x040045C8 RID: 17864
 		private IXUILabel _preDetailName;
 
-		// Token: 0x040045C9 RID: 17865
 		private List<uint> _types = new List<uint>();
 
-		// Token: 0x040045CA RID: 17866
 		private uint _selectType = 0U;
 
-		// Token: 0x040045CB RID: 17867
 		private uint _activePreID = 0U;
 
-		// Token: 0x040045CC RID: 17868
 		private List<PrerogativeContent.RowData> _tempList;
 	}
 }

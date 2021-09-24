@@ -4,11 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x020009CD RID: 2509
+
 	internal class XEquipDocument : XDocComponent
 	{
-		// Token: 0x17002DA8 RID: 11688
-		// (get) Token: 0x0600981A RID: 38938 RVA: 0x00175B5C File Offset: 0x00173D5C
+
 		public override uint ID
 		{
 			get
@@ -17,7 +16,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600981B RID: 38939 RVA: 0x00175B73 File Offset: 0x00173D73
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			XEquipDocument.AsyncLoader.AddTask("Table/DefaultEquip", XEquipDocument.m_defaultEquip, false);
@@ -25,7 +23,6 @@ namespace XMainClient
 			XEquipDocument.AsyncLoader.Execute(callback);
 		}
 
-		// Token: 0x0600981C RID: 38940 RVA: 0x00175BB0 File Offset: 0x00173DB0
 		public static void OnTableLoaded()
 		{
 			EnhanceFxTable.RowData rowData = null;
@@ -63,7 +60,6 @@ namespace XMainClient
 			XOutlookData.InitSharedFasionList();
 		}
 
-		// Token: 0x0600981D RID: 38941 RVA: 0x00175CC4 File Offset: 0x00173EC4
 		public static bool TryGetEnhanceFxData(uint prof, uint enhanceLevel, out string[] strFx)
 		{
 			prof %= 10U;
@@ -108,7 +104,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600981E RID: 38942 RVA: 0x00175DA8 File Offset: 0x00173FA8
 		public static string GetTips(uint prof, uint enhanceLevel)
 		{
 			int num = -1;
@@ -175,7 +170,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600981F RID: 38943 RVA: 0x00175F28 File Offset: 0x00174128
 		private static Material GetMaterial(Shader shader)
 		{
 			bool flag = shader == ShaderManager._skin_cutout;
@@ -207,7 +201,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009820 RID: 38944 RVA: 0x00175FBC File Offset: 0x001741BC
 		public static void ReturnMaterial(Material mat)
 		{
 			bool flag = mat != null;
@@ -251,7 +244,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009821 RID: 38945 RVA: 0x001760F0 File Offset: 0x001742F0
 		public static Material GetRoleMat(bool isOnepart, bool hasAlpha, int roleType = 0)
 		{
 			Material result;
@@ -281,13 +273,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009822 RID: 38946 RVA: 0x0017615C File Offset: 0x0017435C
 		public static DefaultEquip.RowData GetDefaultEquip(short id)
 		{
 			return XEquipDocument.m_defaultEquip.GetByProfID((int)id);
 		}
 
-		// Token: 0x06009823 RID: 38947 RVA: 0x0017617C File Offset: 0x0017437C
 		public static string GetDefaultEquipName(int partIndex, string path, int professionIndex, out string dir)
 		{
 			bool flag = partIndex >= 0 && partIndex < XEquipDocument._MeshPartList.partSuffix.Length && professionIndex >= 0 && professionIndex < XEquipDocument._MeshPartList.proPrefix.Length;
@@ -334,7 +324,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009824 RID: 38948 RVA: 0x00176268 File Offset: 0x00174468
 		public static int GetEquiplistByFashionTemplate(short fashionTemplate, ref FashionPositionInfo[] fashionlist)
 		{
 			bool flag = fashionTemplate == 0;
@@ -430,7 +419,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009825 RID: 38949 RVA: 0x00176690 File Offset: 0x00174890
 		public static void RefreshFashionList(ref FashionPositionInfo[] fashionlist, uint typeID)
 		{
 			int i = 0;
@@ -505,7 +493,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009826 RID: 38950 RVA: 0x00176888 File Offset: 0x00174A88
 		private static string GetDefaultEquipModel(DefaultEquip.RowData de, FashionPosition part)
 		{
 			string result;
@@ -554,7 +541,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009827 RID: 38951 RVA: 0x00176948 File Offset: 0x00174B48
 		public static string GetDefaultEquipModel(uint typeID, FashionPosition part, out string dir)
 		{
 			DefaultEquip.RowData defaultEquip = XEquipDocument.GetDefaultEquip((short)typeID);
@@ -574,7 +560,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009828 RID: 38952 RVA: 0x0017699C File Offset: 0x00174B9C
 		public static string GetEquipPrefabModel(FashionList.RowData data, uint typeID, out string dir)
 		{
 			bool flag = data != null;
@@ -650,12 +635,10 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009829 RID: 38953 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 		}
 
-		// Token: 0x0600982A RID: 38954 RVA: 0x00176B8C File Offset: 0x00174D8C
 		public static SkinnedMeshRenderer GetSmr(GameObject keyGo)
 		{
 			Transform transform = keyGo.transform.FindChild("CombinedMesh");
@@ -679,7 +662,6 @@ namespace XMainClient
 			return skinnedMeshRenderer;
 		}
 
-		// Token: 0x0600982B RID: 38955 RVA: 0x00176C04 File Offset: 0x00174E04
 		public static Transform GetMountPoint(Transform keyTran, string point)
 		{
 			Transform transform = keyTran.FindChild(point);
@@ -696,37 +678,26 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x04003420 RID: 13344
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("XEquipDocument");
 
-		// Token: 0x04003421 RID: 13345
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x04003422 RID: 13346
 		private static DefaultEquip m_defaultEquip = new DefaultEquip();
 
-		// Token: 0x04003423 RID: 13347
 		private static EnhanceFxTable m_EnhanceFxTable = new EnhanceFxTable();
 
-		// Token: 0x04003424 RID: 13348
 		public static string present_prefix = "_presentid:";
 
-		// Token: 0x04003425 RID: 13349
 		public static CombineMeshUtility _CombineMeshUtility = null;
 
-		// Token: 0x04003426 RID: 13350
 		public static XMeshPartList _MeshPartList = null;
 
-		// Token: 0x04003427 RID: 13351
 		private static uint maxProf = 0U;
 
-		// Token: 0x04003428 RID: 13352
 		private static uint maxEnhanceLevel = 0U;
 
-		// Token: 0x04003429 RID: 13353
 		private static bool enhanceIndexed = true;
 
-		// Token: 0x0400342A RID: 13354
 		public static int CurrentVisibleRole = 0;
 	}
 }

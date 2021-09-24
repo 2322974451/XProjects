@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020018C1 RID: 6337
+
 	internal class XTeamView : TabDlgBase<XTeamView>
 	{
-		// Token: 0x17003A48 RID: 14920
-		// (get) Token: 0x06010863 RID: 67683 RVA: 0x0040DE8C File Offset: 0x0040C08C
+
 		public override string fileName
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003A49 RID: 14921
-		// (get) Token: 0x06010864 RID: 67684 RVA: 0x0040DEA4 File Offset: 0x0040C0A4
 		public override int layer
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003A4A RID: 14922
-		// (get) Token: 0x06010865 RID: 67685 RVA: 0x0040DEB8 File Offset: 0x0040C0B8
 		public override int group
 		{
 			get
@@ -40,7 +35,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010866 RID: 67686 RVA: 0x0040DECC File Offset: 0x0040C0CC
 		protected override void OnLoad()
 		{
 			base.OnLoad();
@@ -53,7 +47,6 @@ namespace XMainClient.UI
 			this._doc = XDocuments.GetSpecificDocument<XTeamDocument>(XTeamDocument.uuID);
 		}
 
-		// Token: 0x06010867 RID: 67687 RVA: 0x0040DF78 File Offset: 0x0040C178
 		protected override void OnUnload()
 		{
 			DlgHandlerBase.EnsureUnload<XMyTeamHandler>(ref this._MyTeamHandler);
@@ -63,7 +56,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x06010868 RID: 67688 RVA: 0x0040DFB4 File Offset: 0x0040C1B4
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -83,13 +75,11 @@ namespace XMainClient.UI
 			DlgBase<RandomGiftView, RandomGiftBehaviour>.singleton.TryOpenUI();
 		}
 
-		// Token: 0x06010869 RID: 67689 RVA: 0x0040E052 File Offset: 0x0040C252
 		public override void LeaveStackTop()
 		{
 			base.LeaveStackTop();
 		}
 
-		// Token: 0x0601086A RID: 67690 RVA: 0x0040E05C File Offset: 0x0040C25C
 		public void RefreshYuyin(ulong uid)
 		{
 			bool flag = this._yuyinHandler != null;
@@ -99,7 +89,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601086B RID: 67691 RVA: 0x0040E088 File Offset: 0x0040C288
 		public void ShowTeamView()
 		{
 			bool flag = XSingleton<XScene>.singleton.SceneType == SceneType.SCENE_FAMILYGARDEN;
@@ -144,7 +133,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601086C RID: 67692 RVA: 0x0040E170 File Offset: 0x0040C370
 		public void ShowTeamViewWithMsgBox(TeamLevelType _type, XTeamView.ShowTeamViewEventHandler _cbRealShow)
 		{
 			int dayLeftCount = ActivityNestHandler.GetDayLeftCount();
@@ -193,7 +181,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601086D RID: 67693 RVA: 0x0040E2B0 File Offset: 0x0040C4B0
 		private bool _ShowTeamViewBuyTimes(IXUIButton btn)
 		{
 			XExpeditionDocument specificDocument = XDocuments.GetSpecificDocument<XExpeditionDocument>(XExpeditionDocument.uuID);
@@ -202,7 +189,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0601086E RID: 67694 RVA: 0x0040E2E4 File Offset: 0x0040C4E4
 		private bool _ShowTeamViewNotBuyTimes(IXUIButton btn)
 		{
 			XSingleton<UiUtility>.singleton.CloseModalDlg();
@@ -215,7 +201,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0601086F RID: 67695 RVA: 0x0040E324 File Offset: 0x0040C524
 		protected bool _CancelShowTeamView(IXUIButton btn)
 		{
 			XSingleton<UiUtility>.singleton.CloseModalDlg();
@@ -223,7 +208,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x06010870 RID: 67696 RVA: 0x0040E34C File Offset: 0x0040C54C
 		public override void SetupHandlers(XSysDefine sys)
 		{
 			XSysDefine xsysDefine = sys;
@@ -247,7 +231,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010871 RID: 67697 RVA: 0x0040E428 File Offset: 0x0040C628
 		public override void StackRefresh()
 		{
 			bool flag = (this._doc.bInTeam && this.mCurrentSys != XSysDefine.XSys_Team_MyTeam) || (!this._doc.bInTeam && this.mCurrentSys != XSysDefine.XSys_Team_TeamList);
@@ -258,7 +241,6 @@ namespace XMainClient.UI
 			base.StackRefresh();
 		}
 
-		// Token: 0x06010872 RID: 67698 RVA: 0x0040E488 File Offset: 0x0040C688
 		public static void TryJoinTeam(int teamID, bool bHasPwd)
 		{
 			XTeamDocument specificDocument = XDocuments.GetSpecificDocument<XTeamDocument>(XTeamDocument.uuID);
@@ -273,7 +255,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010873 RID: 67699 RVA: 0x0040E4D4 File Offset: 0x0040C6D4
 		public static void SetTeamRelationUI(Transform t, XTeamRelation relation, bool bOnlyOne, XTeamRelation.Relation targetRelation = XTeamRelation.Relation.TR_NONE)
 		{
 			bool flag = t == null;
@@ -334,38 +315,26 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04007798 RID: 30616
 		public XMyTeamHandler _MyTeamHandler;
 
-		// Token: 0x04007799 RID: 30617
 		public XTeamListHandler _TeamListHandler;
 
-		// Token: 0x0400779A RID: 30618
 		public XTeamDungeonSelectorHandler _DungeonSelectorHandler;
 
-		// Token: 0x0400779B RID: 30619
 		public XYuyinView _yuyinHandler;
 
-		// Token: 0x0400779C RID: 30620
 		public GameObject m_MyTeamPanel;
 
-		// Token: 0x0400779D RID: 30621
 		public GameObject m_TeamListPanel;
 
-		// Token: 0x0400779E RID: 30622
 		public GameObject m_DungeonSelectorPanel;
 
-		// Token: 0x0400779F RID: 30623
 		private XTeamDocument _doc;
 
-		// Token: 0x040077A0 RID: 30624
 		private XTeamView.ShowTeamViewEventHandler mShowTeamViewEvent;
 
-		// Token: 0x040077A1 RID: 30625
 		private TeamLevelType mCurTeamLeveltype = TeamLevelType.TeamLevelNest;
 
-		// Token: 0x02001A1B RID: 6683
-		// (Invoke) Token: 0x06011142 RID: 69954
 		public delegate void ShowTeamViewEventHandler();
 	}
 }

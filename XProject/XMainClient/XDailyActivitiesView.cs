@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000F0F RID: 3855
+
 	internal class XDailyActivitiesView : DlgHandlerBase
 	{
-		// Token: 0x17003597 RID: 13719
-		// (get) Token: 0x0600CC8C RID: 52364 RVA: 0x002F17B8 File Offset: 0x002EF9B8
+
 		protected override string FileName
 		{
 			get
@@ -21,7 +20,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC8D RID: 52365 RVA: 0x002F17D0 File Offset: 0x002EF9D0
 		protected override void Init()
 		{
 			base.Init();
@@ -61,7 +59,6 @@ namespace XMainClient
 			this.ChangeChestProgressState(true);
 		}
 
-		// Token: 0x0600CC8E RID: 52366 RVA: 0x002F1B70 File Offset: 0x002EFD70
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -76,7 +73,6 @@ namespace XMainClient
 			this.m_WeekAwardBox2.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnWeekAwardBoxClicked));
 		}
 
-		// Token: 0x0600CC8F RID: 52367 RVA: 0x002F1C4A File Offset: 0x002EFE4A
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -84,7 +80,6 @@ namespace XMainClient
 			this.SetWeedAwardExp();
 		}
 
-		// Token: 0x0600CC90 RID: 52368 RVA: 0x002F1C64 File Offset: 0x002EFE64
 		private void SetWeedAwardExp()
 		{
 			bool flag = this._doc.WeekExps.Count >= 2;
@@ -105,7 +100,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC91 RID: 52369 RVA: 0x002F1E19 File Offset: 0x002F0019
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
@@ -113,7 +107,6 @@ namespace XMainClient
 			this.SetWeedAwardExp();
 		}
 
-		// Token: 0x0600CC92 RID: 52370 RVA: 0x002F1E34 File Offset: 0x002F0034
 		public void InitView(bool RefreshNow)
 		{
 			if (RefreshNow)
@@ -128,7 +121,6 @@ namespace XMainClient
 			this._doc.QueryDailyActivityData();
 		}
 
-		// Token: 0x0600CC93 RID: 52371 RVA: 0x002F1E7A File Offset: 0x002F007A
 		public override void OnUnload()
 		{
 			this.m_Progress.Unload();
@@ -136,14 +128,12 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x0600CC94 RID: 52372 RVA: 0x002F1E9D File Offset: 0x002F009D
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
 			this.m_Progress.Update(Time.deltaTime);
 		}
 
-		// Token: 0x0600CC95 RID: 52373 RVA: 0x002F1EB8 File Offset: 0x002F00B8
 		public void SetCurrentExpAmi()
 		{
 			this.m_Progress.TargetExp = this._doc.CurrentExp;
@@ -151,7 +141,6 @@ namespace XMainClient
 			this.m_WeekExpTween.SetNumberWithTween((ulong)this._doc.WeekExp, "", false, true);
 		}
 
-		// Token: 0x0600CC96 RID: 52374 RVA: 0x002F1F1C File Offset: 0x002F011C
 		public void ChangeChestProgressState(bool init = false)
 		{
 			for (int i = 0; i < this._doc.ChestCount; i++)
@@ -169,7 +158,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC97 RID: 52375 RVA: 0x002F1FA8 File Offset: 0x002F01A8
 		public void RefreshPage()
 		{
 			this.SetWeedAwardExp();
@@ -190,7 +178,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC98 RID: 52376 RVA: 0x002F208C File Offset: 0x002F028C
 		private void _UpdateActivityState(GameObject go, int index)
 		{
 			XDailyActivity xdailyActivity = this._doc.ActivityList[index];
@@ -236,7 +223,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC99 RID: 52377 RVA: 0x002F2380 File Offset: 0x002F0580
 		private void OnChestClicked(IXUISprite iSp)
 		{
 			uint num = (uint)iSp.ID;
@@ -251,7 +237,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC9A RID: 52378 RVA: 0x002F23D4 File Offset: 0x002F05D4
 		private void OnWeekAwardBoxClicked(IXUISprite iSp)
 		{
 			uint num = (uint)iSp.ID;
@@ -271,7 +256,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC9B RID: 52379 RVA: 0x002F2470 File Offset: 0x002F0670
 		public void ShowReward(uint index, IXUISprite iSp)
 		{
 			this._doc.GetChestReward(index);
@@ -286,7 +270,6 @@ namespace XMainClient
 			DlgBase<ItemIconListDlg, ItemIconListDlgBehaviour>.singleton.SetGlobalPosition(iSp.gameObject.transform.position);
 		}
 
-		// Token: 0x0600CC9C RID: 52380 RVA: 0x002F2514 File Offset: 0x002F0714
 		public void OnChestFetched(uint index)
 		{
 			bool flag = (ulong)index < (ulong)((long)this.m_Progress.ChestList.Count);
@@ -308,7 +291,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC9D RID: 52381 RVA: 0x002F25A4 File Offset: 0x002F07A4
 		private bool OnGoBtnClicked(IXUIButton btn)
 		{
 			bool flag = (int)btn.ID >= this._doc.ActivityList.Count;
@@ -349,70 +331,48 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x04005AF0 RID: 23280
 		public XUIPool m_ActivityItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04005AF1 RID: 23281
 		public XUIPool m_ChestPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04005AF2 RID: 23282
 		public static string TEXTUREPATH = "atlas/UI/Battle/minimap/";
 
-		// Token: 0x04005AF3 RID: 23283
 		private XDailyActivitiesDocument _doc = null;
 
-		// Token: 0x04005AF4 RID: 23284
 		private IXUIScrollView _scrollView;
 
-		// Token: 0x04005AF5 RID: 23285
 		private XChestProgress m_Progress;
 
-		// Token: 0x04005AF6 RID: 23286
 		private IXUILabel totalExp;
 
-		// Token: 0x04005AF7 RID: 23287
 		private XNumberTween m_TotalExpTween;
 
-		// Token: 0x04005AF8 RID: 23288
 		private IXUILabel m_WeekExp;
 
-		// Token: 0x04005AF9 RID: 23289
 		private XNumberTween m_WeekExpTween;
 
-		// Token: 0x04005AFA RID: 23290
 		private IXUILabel m_WeekAward1;
 
-		// Token: 0x04005AFB RID: 23291
 		private IXUILabel m_WeekAward2;
 
-		// Token: 0x04005AFC RID: 23292
 		private IXUISprite m_WeekAwardBox1;
 
-		// Token: 0x04005AFD RID: 23293
 		private IXUISprite m_WeekAwardBox2;
 
-		// Token: 0x04005AFE RID: 23294
 		private IXUISprite m_WeekAwardBox1Redpoint;
 
-		// Token: 0x04005AFF RID: 23295
 		private IXUISprite m_WeekAwardBox2Redpoint;
 
-		// Token: 0x04005B00 RID: 23296
 		private GameObject m_WeekAward1Get;
 
-		// Token: 0x04005B01 RID: 23297
 		private GameObject m_WeekAward2Get;
 
-		// Token: 0x04005B02 RID: 23298
 		private GameObject m_WeekAwardFx1;
 
-		// Token: 0x04005B03 RID: 23299
 		private GameObject m_WeekAwardFx2;
 
-		// Token: 0x04005B04 RID: 23300
 		private bool _refreshNow = true;
 
-		// Token: 0x04005B05 RID: 23301
 		private static readonly uint ExpIncreaseSpeed = 80U;
 	}
 }

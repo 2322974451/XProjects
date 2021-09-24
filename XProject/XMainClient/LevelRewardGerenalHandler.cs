@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000B9F RID: 2975
+
 	internal class LevelRewardGerenalHandler : DlgHandlerBase
 	{
-		// Token: 0x17003044 RID: 12356
-		// (get) Token: 0x0600AAAB RID: 43691 RVA: 0x001EA7DC File Offset: 0x001E89DC
+
 		protected override string FileName
 		{
 			get
@@ -21,7 +20,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AAAC RID: 43692 RVA: 0x001EA7F3 File Offset: 0x001E89F3
 		protected override void Init()
 		{
 			base.Init();
@@ -29,7 +27,6 @@ namespace XMainClient
 			this.InitUI();
 		}
 
-		// Token: 0x0600AAAD RID: 43693 RVA: 0x001EA814 File Offset: 0x001E8A14
 		private void InitUI()
 		{
 			this.m_star_frame = base.PanelObject.transform.Find("Bg/Stars");
@@ -67,7 +64,6 @@ namespace XMainClient
 			this.m_snapshot = (base.PanelObject.transform.Find("Bg/Snapshot/Snapshot").GetComponent("UIDummy") as IUIDummy);
 		}
 
-		// Token: 0x0600AAAE RID: 43694 RVA: 0x001EAC9C File Offset: 0x001E8E9C
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -127,7 +123,6 @@ namespace XMainClient
 			this.RefreshPlatformAbilityInfo(this.doc.CurrentStage);
 		}
 
-		// Token: 0x0600AAAF RID: 43695 RVA: 0x001EAD78 File Offset: 0x001E8F78
 		protected override void OnHide()
 		{
 			XSingleton<XTimerMgr>.singleton.KillTimer(this.m_show_time_token);
@@ -135,7 +130,6 @@ namespace XMainClient
 			base.OnHide();
 		}
 
-		// Token: 0x0600AAB0 RID: 43696 RVA: 0x001EADA0 File Offset: 0x001E8FA0
 		public override void OnUnload()
 		{
 			XSingleton<X3DAvatarMgr>.singleton.OnUIUnloadMainDummy(this.m_snapshot);
@@ -146,39 +140,33 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x0600AAB1 RID: 43697 RVA: 0x001EAE00 File Offset: 0x001E9000
 		private void ShowExpTween(object o)
 		{
 			this._show_exp_bar = true;
 		}
 
-		// Token: 0x0600AAB2 RID: 43698 RVA: 0x001EAE0A File Offset: 0x001E900A
 		private void OnShowWithStarReq()
 		{
 			this.ShowGerenalUI();
 			this.ShowStarReq();
 		}
 
-		// Token: 0x0600AAB3 RID: 43699 RVA: 0x001EAE1B File Offset: 0x001E901B
 		private void OnShowWithPoint()
 		{
 			this.ShowGerenalUI();
 			this.ShowScore();
 		}
 
-		// Token: 0x0600AAB4 RID: 43700 RVA: 0x001EAE2C File Offset: 0x001E902C
 		private void OnShowWithNothing()
 		{
 			this.ShowGerenalUI();
 		}
 
-		// Token: 0x0600AAB5 RID: 43701 RVA: 0x001EAE36 File Offset: 0x001E9036
 		private void OnReturnClicked(IXUISprite sp)
 		{
 			this.doc.SendLeaveScene();
 		}
 
-		// Token: 0x0600AAB6 RID: 43702 RVA: 0x001EAE48 File Offset: 0x001E9048
 		private void ShowStarReq()
 		{
 			int num = 0;
@@ -212,7 +200,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AAB7 RID: 43703 RVA: 0x001EAF84 File Offset: 0x001E9184
 		public static string GetReqText(StageRankTable.RowData rowData, int index)
 		{
 			uint num = (index == 1) ? rowData.star2[0] : rowData.star3[0];
@@ -368,7 +355,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600AAB8 RID: 43704 RVA: 0x001EB2AC File Offset: 0x001E94AC
 		private void ShowScore()
 		{
 			this.m_score.SetVisible(true);
@@ -378,7 +364,6 @@ namespace XMainClient
 			}));
 		}
 
-		// Token: 0x0600AAB9 RID: 43705 RVA: 0x001EB2FC File Offset: 0x001E94FC
 		private void ShowGerenalUI()
 		{
 			uint rank = this.doc.GerenalBattleData.Rank;
@@ -539,7 +524,6 @@ namespace XMainClient
 			this.m_show_time_token = XSingleton<XTimerMgr>.singleton.SetTimer(interval, new XTimerMgr.ElapsedEventHandler(this.KillDummyTimer), null);
 		}
 
-		// Token: 0x0600AABA RID: 43706 RVA: 0x001EBC9B File Offset: 0x001E9E9B
 		private void TryToShowShareView(object param)
 		{
 			XSingleton<XTimerMgr>.singleton.KillTimer(this.m_shareTimeToken);
@@ -547,20 +531,17 @@ namespace XMainClient
 			this.doc.ShowFirstPassShareView();
 		}
 
-		// Token: 0x0600AABB RID: 43707 RVA: 0x001EBCC2 File Offset: 0x001E9EC2
 		private void KillDummyTimer(object sender)
 		{
 			XSingleton<XTimerMgr>.singleton.KillTimer(this.m_show_time_token);
 			XSingleton<X3DAvatarMgr>.singleton.SetMainAnimation(XSingleton<XEntityMgr>.singleton.Player.Present.PresentLib.AttackIdle);
 		}
 
-		// Token: 0x0600AABC RID: 43708 RVA: 0x001EBCFA File Offset: 0x001E9EFA
 		private void ShowSelectChestFrame(object o)
 		{
 			this.doc.ShowSelectChestFrame();
 		}
 
-		// Token: 0x0600AABD RID: 43709 RVA: 0x001EBD0C File Offset: 0x001E9F0C
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
@@ -595,14 +576,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AABE RID: 43710 RVA: 0x001EBF17 File Offset: 0x001EA117
 		private void RefreshPlatformAbilityInfo(SceneType type)
 		{
 			this.RefreshQQVipInfo(type);
 			this.RefreshQQWXGameCenterInfo(type);
 		}
 
-		// Token: 0x0600AABF RID: 43711 RVA: 0x001EBF2C File Offset: 0x001EA12C
 		public void RefreshQQVipInfo(SceneType type)
 		{
 			bool flag = type != SceneType.SCENE_BATTLE && type != SceneType.SCENE_ABYSSS;
@@ -644,7 +623,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AAC0 RID: 43712 RVA: 0x001EC0D0 File Offset: 0x001EA2D0
 		private void RefreshQQWXGameCenterInfo(SceneType type)
 		{
 			bool flag = type != SceneType.SCENE_BATTLE;
@@ -699,109 +677,74 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04003F6D RID: 16237
 		private XLevelRewardDocument doc = null;
 
-		// Token: 0x04003F6E RID: 16238
 		private IXUILabel[] m_level_req = new IXUILabel[3];
 
-		// Token: 0x04003F6F RID: 16239
 		private IXUISprite[] m_level_req_done = new IXUISprite[3];
 
-		// Token: 0x04003F70 RID: 16240
 		private IXUILabel m_left_time;
 
-		// Token: 0x04003F71 RID: 16241
 		private Transform m_star_frame;
 
-		// Token: 0x04003F72 RID: 16242
 		private Transform[] m_stars = new Transform[3];
 
-		// Token: 0x04003F73 RID: 16243
 		private IXUITweenTool m_star_tween;
 
-		// Token: 0x04003F74 RID: 16244
 		private Transform[] m_star_fx = new Transform[3];
 
-		// Token: 0x04003F75 RID: 16245
 		private IXUISlider m_exp_bar;
 
-		// Token: 0x04003F76 RID: 16246
 		private IXUILabel m_exp_bar_level;
 
-		// Token: 0x04003F77 RID: 16247
 		private IXUILabel m_exp_bar_percent;
 
-		// Token: 0x04003F78 RID: 16248
 		private IXUILabel m_guild_exp_buff;
 
-		// Token: 0x04003F79 RID: 16249
 		private Transform m_item_list;
 
-		// Token: 0x04003F7A RID: 16250
 		public XUIPool m_item_pool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04003F7B RID: 16251
 		public IXUILabel m_watch;
 
-		// Token: 0x04003F7C RID: 16252
 		public IXUILabel m_like;
 
-		// Token: 0x04003F7D RID: 16253
 		public IXUILabel m_score;
 
-		// Token: 0x04003F7E RID: 16254
 		public IXUISprite m_return;
 
-		// Token: 0x04003F7F RID: 16255
 		public IXUILabel m_return_label;
 
-		// Token: 0x04003F80 RID: 16256
 		private IXUILabel m_guild_exp;
 
-		// Token: 0x04003F81 RID: 16257
 		private GameObject m_goldGroupReward;
 
-		// Token: 0x04003F82 RID: 16258
 		private Transform m_help_tip;
 
-		// Token: 0x04003F83 RID: 16259
 		private Transform m_noneReward_tip;
 
-		// Token: 0x04003F84 RID: 16260
 		private Transform m_seal_tip;
 
-		// Token: 0x04003F85 RID: 16261
 		private float _exp_percent = 0f;
 
-		// Token: 0x04003F86 RID: 16262
 		private bool _show_exp_bar = false;
 
-		// Token: 0x04003F87 RID: 16263
 		private uint _time_token = 0U;
 
-		// Token: 0x04003F88 RID: 16264
 		private IXUILabel m_QQVipTip;
 
-		// Token: 0x04003F89 RID: 16265
 		private GameObject m_QQVipIcon;
 
-		// Token: 0x04003F8A RID: 16266
 		private GameObject m_QQSVipIcon;
 
-		// Token: 0x04003F8B RID: 16267
 		private GameObject m_QQGameCenter;
 
-		// Token: 0x04003F8C RID: 16268
 		private GameObject m_WXGameCenter;
 
-		// Token: 0x04003F8D RID: 16269
 		private IUIDummy m_snapshot;
 
-		// Token: 0x04003F8E RID: 16270
 		private uint m_show_time_token = 0U;
 
-		// Token: 0x04003F8F RID: 16271
 		private uint m_shareTimeToken = 0U;
 	}
 }

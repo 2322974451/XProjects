@@ -7,10 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200190A RID: 6410
+
 	internal class XMainInterfaceBehaviour : DlgBehaviourBase
 	{
-		// Token: 0x06010C1E RID: 68638 RVA: 0x00432504 File Offset: 0x00430704
+
 		private void Awake()
 		{
 			this.m_Canvas = base.transform.FindChild("_canvas");
@@ -220,7 +220,6 @@ namespace XMainClient.UI
 			this.m_DanceMotion = base.transform.Find("_canvas/MainMenuFrame/MainMenu/DanceMotionFrame").gameObject;
 		}
 
-		// Token: 0x06010C1F RID: 68639 RVA: 0x00433378 File Offset: 0x00431578
 		private void CreateV3ListBtns(List<string> btnList, List<XSysDefine> ListSys)
 		{
 			btnList.Add("_canvas/MainMenuFrame/MainMenu/Panel5/SysGridV3/SysEPhoto");
@@ -248,7 +247,6 @@ namespace XMainClient.UI
 			this.m_MotionLover.ID = 2UL;
 		}
 
-		// Token: 0x06010C20 RID: 68640 RVA: 0x004334E4 File Offset: 0x004316E4
 		public IXUIButton GetSysButton(XSysDefine sys)
 		{
 			bool flag = sys < XSysDefine.XSys_Num;
@@ -264,205 +262,138 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x04007A76 RID: 31350
 		public Transform m_Canvas;
 
-		// Token: 0x04007A77 RID: 31351
 		public GameObject m_SecondMenu;
 
-		// Token: 0x04007A78 RID: 31352
 		public GameObject m_MainMenuGo;
 
-		// Token: 0x04007A79 RID: 31353
 		public IXUIList m_SysListH1;
 
-		// Token: 0x04007A7A RID: 31354
 		public IXUIList m_SysListH0;
 
-		// Token: 0x04007A7B RID: 31355
 		public IXUIList m_SysListH2;
 
-		// Token: 0x04007A7C RID: 31356
 		public IXUIList m_SysListH3;
 
-		// Token: 0x04007A7D RID: 31357
 		public IXUISprite m_MenuSwitchBtn;
 
-		// Token: 0x04007A7E RID: 31358
 		public IXUITweenTool m_SysListH1Tween;
 
-		// Token: 0x04007A7F RID: 31359
 		public IXUITweenTool m_SysListH0Tween;
 
-		// Token: 0x04007A80 RID: 31360
 		public IXUITweenTool m_SysListH2Tween;
 
-		// Token: 0x04007A81 RID: 31361
 		public IXUITweenTool m_SysListH3Tween;
 
-		// Token: 0x04007A82 RID: 31362
 		public IXUITweenTool m_MenuSwitchBtnTween;
 
-		// Token: 0x04007A83 RID: 31363
 		public IXUIList m_SysListV1;
 
-		// Token: 0x04007A84 RID: 31364
 		public IXUIList m_SysListV2;
 
-		// Token: 0x04007A85 RID: 31365
 		public IXUIList m_SysListV3;
 
-		// Token: 0x04007A86 RID: 31366
 		public IXUISprite m_V3SwitchBtn;
 
-		// Token: 0x04007A87 RID: 31367
 		public IXUIList m_SysListH2_1;
 
-		// Token: 0x04007A88 RID: 31368
 		public IXUIList m_SysListH2_2;
 
-		// Token: 0x04007A89 RID: 31369
 		public IXUISprite m_H2SwitchBtn;
 
-		// Token: 0x04007A8A RID: 31370
 		public IXUITweenTool m_H2ListTween;
 
-		// Token: 0x04007A8B RID: 31371
 		public IXUITweenTool m_H2SwitchTween;
 
-		// Token: 0x04007A8C RID: 31372
 		public IXUIList m_SysListGuildH1;
 
-		// Token: 0x04007A8D RID: 31373
 		public IXUIList m_SysListGuildV1;
 
-		// Token: 0x04007A8E RID: 31374
 		public IXUIList m_SysListGuildH2;
 
-		// Token: 0x04007A8F RID: 31375
 		public IXUITweenTool m_V3SwitchTween;
 
-		// Token: 0x04007A90 RID: 31376
 		public IXUITweenTool m_V3ListTween;
 
-		// Token: 0x04007A91 RID: 31377
 		public IXUIButton m_MotionDance;
 
-		// Token: 0x04007A92 RID: 31378
 		public IXUIButton m_MotionLover;
 
-		// Token: 0x04007A93 RID: 31379
 		public GameObject m_DanceMotion;
 
-		// Token: 0x04007A94 RID: 31380
 		public GameObject m_SysGrid;
 
-		// Token: 0x04007A95 RID: 31381
 		public IXUIButton m_ExitGuild;
 
-		// Token: 0x04007A96 RID: 31382
 		public IXUITweenTool m_HeadMenuTween;
 
-		// Token: 0x04007A97 RID: 31383
 		public GameObject m_HeadMenuTweenGameObject;
 
-		// Token: 0x04007A98 RID: 31384
 		public IXUISlider m_sliderBattery;
 
-		// Token: 0x04007A99 RID: 31385
 		public IXUILabel m_lblTime;
 
-		// Token: 0x04007A9A RID: 31386
 		public IXUILabel m_lblFree;
 
-		// Token: 0x04007A9B RID: 31387
 		public GameObject m_AvatarFrame;
 
-		// Token: 0x04007A9C RID: 31388
 		public IXUISprite m_PlayerAvatar;
 
-		// Token: 0x04007A9D RID: 31389
 		public IXUISprite m_sprFrame;
 
-		// Token: 0x04007A9E RID: 31390
 		public IXUITexture m_txtAvatar;
 
-		// Token: 0x04007A9F RID: 31391
 		public GameObject m_PlayerPPT;
 
-		// Token: 0x04007AA0 RID: 31392
 		public IXUILabel m_Level;
 
-		// Token: 0x04007AA1 RID: 31393
 		public GameObject m_PING;
 
-		// Token: 0x04007AA2 RID: 31394
 		public IXUILabel m_GuildCollectLeftTime;
 
-		// Token: 0x04007AA3 RID: 31395
 		public IXUILabel m_GuildCollectSummonTime;
 
-		// Token: 0x04007AA4 RID: 31396
 		public XLeftTimeCounter m_TransformLeftTime;
 
-		// Token: 0x04007AA5 RID: 31397
 		public List<XTitanItem> m_MoneyList = new List<XTitanItem>();
 
-		// Token: 0x04007AA6 RID: 31398
 		public GameObject m_TaskNaviFrame;
 
-		// Token: 0x04007AA7 RID: 31399
 		public IXUITweenTool m_FakeShowSelfTween;
 
-		// Token: 0x04007AA8 RID: 31400
 		public IXUISprite m_RecoverTime;
 
-		// Token: 0x04007AA9 RID: 31401
 		public IXUILabel m_CurFatige;
 
-		// Token: 0x04007AAA RID: 31402
 		public IXUILabel m_AllCoverTime;
 
-		// Token: 0x04007AAB RID: 31403
 		public IXUILabel m_CoverOneTime;
 
-		// Token: 0x04007AAC RID: 31404
 		public GameObject m_HomeGo;
 
-		// Token: 0x04007AAD RID: 31405
 		public GameObject m_FxFirework;
 
-		// Token: 0x04007AAE RID: 31406
 		public IXUILabel m_RemoveSealTip;
 
-		// Token: 0x04007AAF RID: 31407
 		public GameObject m_LiveTips;
 
-		// Token: 0x04007AB0 RID: 31408
 		public IXUILabel m_LiveCount;
 
-		// Token: 0x04007AB1 RID: 31409
 		public IXUILabel m_MulActTips;
 
-		// Token: 0x04007AB2 RID: 31410
 		public IXUILabel m_SevenLoginMessage;
 
-		// Token: 0x04007AB3 RID: 31411
 		public IXUISprite m_SevenLoginSprite;
 
-		// Token: 0x04007AB4 RID: 31412
 		public List<IXUITweenTool> m_ExpAnimationMgr = new List<IXUITweenTool>();
 
-		// Token: 0x04007AB5 RID: 31413
 		public List<IXUILabel> m_ExpValueMgr = new List<IXUILabel>();
 
-		// Token: 0x04007AB6 RID: 31414
 		public IXUIButton[] m_SysButtonsMapping = new IXUIButton[1024];
 
-		// Token: 0x04007AB7 RID: 31415
 		public List<XSysDefine> m_ListSys = new List<XSysDefine>();
 
-		// Token: 0x04007AB8 RID: 31416
 		public XSysDefine[] m_SysGuild = new XSysDefine[]
 		{
 			XSysDefine.XSys_GuildHall,
@@ -474,21 +405,18 @@ namespace XMainClient.UI
 			XSysDefine.XSys_GuildTerritory
 		};
 
-		// Token: 0x04007AB9 RID: 31417
 		public HashSet<XSysDefine> m_SysGuildNormal = new HashSet<XSysDefine>(default(XFastEnumIntEqualityComparer<XSysDefine>))
 		{
 			XSysDefine.XSys_GuildCollect,
 			XSysDefine.XSys_GuildCollectSummon
 		};
 
-		// Token: 0x04007ABA RID: 31418
 		public XSysDefine[] m_SysChar = new XSysDefine[]
 		{
 			XSysDefine.XSys_Char,
 			XSysDefine.XSys_Bag
 		};
 
-		// Token: 0x04007ABB RID: 31419
 		public XSysDefine[] m_SysH4 = new XSysDefine[]
 		{
 			XSysDefine.XSys_Chat,
@@ -496,7 +424,6 @@ namespace XMainClient.UI
 			XSysDefine.XSys_Mail
 		};
 
-		// Token: 0x04007ABC RID: 31420
 		public HashSet<XSysDefine> m_SysH1 = new HashSet<XSysDefine>(default(XFastEnumIntEqualityComparer<XSysDefine>))
 		{
 			XSysDefine.XSys_Item,
@@ -506,7 +433,6 @@ namespace XMainClient.UI
 			XSysDefine.XSys_EquipCreate
 		};
 
-		// Token: 0x04007ABD RID: 31421
 		public HashSet<XSysDefine> m_SysV3 = new HashSet<XSysDefine>(default(XFastEnumIntEqualityComparer<XSysDefine>))
 		{
 			XSysDefine.XSys_QuickRide,

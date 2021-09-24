@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000CB7 RID: 3255
+
 	internal class XSpriteShowView : DlgBase<XSpriteShowView, XSpriteShowBehaviour>
 	{
-		// Token: 0x1700325F RID: 12895
-		// (get) Token: 0x0600B71A RID: 46874 RVA: 0x00246400 File Offset: 0x00244600
+
 		public override string fileName
 		{
 			get
@@ -19,8 +18,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003260 RID: 12896
-		// (get) Token: 0x0600B71B RID: 46875 RVA: 0x00246418 File Offset: 0x00244618
 		public override int sysid
 		{
 			get
@@ -29,8 +26,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003261 RID: 12897
-		// (get) Token: 0x0600B71C RID: 46876 RVA: 0x00246434 File Offset: 0x00244634
 		public override bool autoload
 		{
 			get
@@ -39,8 +34,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003262 RID: 12898
-		// (get) Token: 0x0600B71D RID: 46877 RVA: 0x00246448 File Offset: 0x00244648
 		public override bool hideMainMenu
 		{
 			get
@@ -49,8 +42,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003263 RID: 12899
-		// (get) Token: 0x0600B71E RID: 46878 RVA: 0x0024645C File Offset: 0x0024465C
 		public override bool pushstack
 		{
 			get
@@ -59,7 +50,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B71F RID: 46879 RVA: 0x0024646F File Offset: 0x0024466F
 		protected override void Init()
 		{
 			base.Init();
@@ -67,7 +57,6 @@ namespace XMainClient
 			DlgHandlerBase.EnsureCreate<XSpriteAvatarHandler>(ref this.m_AvatarHandler, base.uiBehaviour.m_AvatarRoot, true, this);
 		}
 
-		// Token: 0x0600B720 RID: 46880 RVA: 0x002464A4 File Offset: 0x002446A4
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
@@ -80,14 +69,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B721 RID: 46881 RVA: 0x002464DB File Offset: 0x002446DB
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			base.uiBehaviour.m_Close.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnCloseClicked));
 		}
 
-		// Token: 0x0600B722 RID: 46882 RVA: 0x00246504 File Offset: 0x00244704
 		protected override void OnHide()
 		{
 			XSingleton<XTimerMgr>.singleton.KillTimer(this.token);
@@ -99,7 +86,6 @@ namespace XMainClient
 			this.m_AvatarHandler.SetVisible(false);
 		}
 
-		// Token: 0x0600B723 RID: 46883 RVA: 0x0024655E File Offset: 0x0024475E
 		protected override void OnUnload()
 		{
 			XSingleton<XTimerMgr>.singleton.KillTimer(this.token);
@@ -109,7 +95,6 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x0600B724 RID: 46884 RVA: 0x002465A0 File Offset: 0x002447A0
 		public void ShowDetail(uint spriteID, uint ppt, bool fromLottery = false)
 		{
 			bool flag = !base.IsVisible();
@@ -127,7 +112,6 @@ namespace XMainClient
 			this._spriteID = (int)spriteID;
 		}
 
-		// Token: 0x0600B725 RID: 46885 RVA: 0x00246624 File Offset: 0x00244824
 		private void SetLotteryAnim()
 		{
 			XEntityPresentation.RowData spritePresent = this.m_AvatarHandler.GetSpritePresent();
@@ -136,7 +120,6 @@ namespace XMainClient
 			this.token = XSingleton<XTimerMgr>.singleton.SetTimer(interval, new XTimerMgr.ElapsedEventHandler(this.ResetAvatarAnim), null);
 		}
 
-		// Token: 0x0600B726 RID: 46886 RVA: 0x00246680 File Offset: 0x00244880
 		private void SetupFx(int quality)
 		{
 			this._doc.DestroyFx(this.m_Fx);
@@ -155,7 +138,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B727 RID: 46887 RVA: 0x00246728 File Offset: 0x00244928
 		private void SetupQuality(int quality)
 		{
 			switch (quality)
@@ -173,13 +155,11 @@ namespace XMainClient
 			base.uiBehaviour.m_QualityTween.PlayTween(true, -1f);
 		}
 
-		// Token: 0x0600B728 RID: 46888 RVA: 0x002467AD File Offset: 0x002449AD
 		private void ResetAvatarAnim(object o)
 		{
 			this.m_AvatarHandler.ResetSpriteAnim();
 		}
 
-		// Token: 0x0600B729 RID: 46889 RVA: 0x002467BC File Offset: 0x002449BC
 		public void OnCloseClicked(IXUISprite sp)
 		{
 			ItemList.RowData itemConf = XBagDocument.GetItemConf(this._spriteID);
@@ -205,25 +185,18 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x040047CA RID: 18378
 		private XSpriteSystemDocument _doc = null;
 
-		// Token: 0x040047CB RID: 18379
 		private XSpriteAvatarHandler m_AvatarHandler;
 
-		// Token: 0x040047CC RID: 18380
 		private XFx m_Fx;
 
-		// Token: 0x040047CD RID: 18381
 		private bool _from_lottery = false;
 
-		// Token: 0x040047CE RID: 18382
 		private uint token = 0U;
 
-		// Token: 0x040047CF RID: 18383
 		private int _spriteID = 0;
 
-		// Token: 0x040047D0 RID: 18384
 		private bool _isShowedShare = false;
 	}
 }

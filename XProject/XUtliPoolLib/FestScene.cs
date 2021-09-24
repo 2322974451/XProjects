@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x020000ED RID: 237
+
 	public class FestScene : CVSReader
 	{
-		// Token: 0x06000634 RID: 1588 RVA: 0x0001E080 File Offset: 0x0001C280
+
 		public FestScene.RowData GetByid(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -29,7 +29,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000635 RID: 1589 RVA: 0x0001E0EC File Offset: 0x0001C2EC
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			FestScene.RowData rowData = new FestScene.RowData();
@@ -43,7 +42,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x06000636 RID: 1590 RVA: 0x0001E164 File Offset: 0x0001C364
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -57,19 +55,15 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x04000339 RID: 825
 		public FestScene.RowData[] Table = null;
 
-		// Token: 0x020002EC RID: 748
 		public class RowData
 		{
-			// Token: 0x04000ABD RID: 2749
+
 			public uint id;
 
-			// Token: 0x04000ABE RID: 2750
 			public string PicPath;
 
-			// Token: 0x04000ABF RID: 2751
 			public uint[] RewardList;
 		}
 	}

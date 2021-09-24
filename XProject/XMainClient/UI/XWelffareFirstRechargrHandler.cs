@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020018EC RID: 6380
+
 	internal class XWelffareFirstRechargrHandler : DlgHandlerBase
 	{
-		// Token: 0x17003A83 RID: 14979
-		// (get) Token: 0x060109F2 RID: 68082 RVA: 0x0041BACC File Offset: 0x00419CCC
+
 		protected override string FileName
 		{
 			get
@@ -20,7 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060109F3 RID: 68083 RVA: 0x0041BAE4 File Offset: 0x00419CE4
 		protected override void Init()
 		{
 			base.Init();
@@ -36,14 +34,12 @@ namespace XMainClient.UI
 			this.InitAwardList();
 		}
 
-		// Token: 0x060109F4 RID: 68084 RVA: 0x001F8A12 File Offset: 0x001F6C12
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.RefreshData();
 		}
 
-		// Token: 0x060109F5 RID: 68085 RVA: 0x0041BC0D File Offset: 0x00419E0D
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -51,27 +47,23 @@ namespace XMainClient.UI
 			this.m_getGiftBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.ClickGetGiftHandler));
 		}
 
-		// Token: 0x060109F6 RID: 68086 RVA: 0x0041BC48 File Offset: 0x00419E48
 		private bool ClickRechargeHandler(IXUIButton btn)
 		{
 			DlgBase<GameMallDlg, TabDlgBehaviour>.singleton.ShowPurchase(ItemEnum.DIAMOND);
 			return true;
 		}
 
-		// Token: 0x060109F7 RID: 68087 RVA: 0x0041BC68 File Offset: 0x00419E68
 		private bool ClickGetGiftHandler(IXUIButton btn)
 		{
 			this._Doc.GetPayFirstAward();
 			return true;
 		}
 
-		// Token: 0x060109F8 RID: 68088 RVA: 0x0019EEFD File Offset: 0x0019D0FD
 		protected override void OnHide()
 		{
 			base.OnHide();
 		}
 
-		// Token: 0x060109F9 RID: 68089 RVA: 0x0041BC88 File Offset: 0x00419E88
 		public override void OnUnload()
 		{
 			bool flag = this.m_itemPool != null;
@@ -96,7 +88,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x060109FA RID: 68090 RVA: 0x0041BD1C File Offset: 0x00419F1C
 		private void ClearEffectList()
 		{
 			bool flag = this.m_ItemEffectList != null;
@@ -113,7 +104,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060109FB RID: 68091 RVA: 0x0041BD7C File Offset: 0x00419F7C
 		private void SetItemEffect(GameObject parent, string effectName)
 		{
 			bool flag = string.IsNullOrEmpty(effectName);
@@ -128,14 +118,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060109FC RID: 68092 RVA: 0x0035654D File Offset: 0x0035474D
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
 			this.RefreshData();
 		}
 
-		// Token: 0x060109FD RID: 68093 RVA: 0x0041BDC0 File Offset: 0x00419FC0
 		public override void RefreshData()
 		{
 			bool flag = !base.IsVisible();
@@ -146,7 +134,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060109FE RID: 68094 RVA: 0x0041BE10 File Offset: 0x0041A010
 		private void InitAwardList()
 		{
 			this.ClearEffectList();
@@ -204,25 +191,18 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x040078E7 RID: 30951
 		private IXUILabel m_contentLabel;
 
-		// Token: 0x040078E8 RID: 30952
 		private IXUIButton m_rechargeBtn;
 
-		// Token: 0x040078E9 RID: 30953
 		private IXUIButton m_getGiftBtn;
 
-		// Token: 0x040078EA RID: 30954
 		private XUIPool m_itemPool;
 
-		// Token: 0x040078EB RID: 30955
 		private IXUIList m_itemList;
 
-		// Token: 0x040078EC RID: 30956
 		private List<XFx> m_ItemEffectList;
 
-		// Token: 0x040078ED RID: 30957
 		private XWelfareDocument _Doc;
 	}
 }

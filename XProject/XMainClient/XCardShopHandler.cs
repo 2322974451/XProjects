@@ -8,10 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000BB2 RID: 2994
+
 	internal class XCardShopHandler : DlgHandlerBase
 	{
-		// Token: 0x0600AB89 RID: 43913 RVA: 0x001F54C0 File Offset: 0x001F36C0
+
 		protected override void Init()
 		{
 			base.Init();
@@ -28,14 +28,12 @@ namespace XMainClient
 			this.InitShow();
 		}
 
-		// Token: 0x0600AB8A RID: 43914 RVA: 0x001F560D File Offset: 0x001F380D
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			this.m_Close.RegisterClickEventHandler(new ButtonClickEventHandler(this._OnCloseClicked));
 		}
 
-		// Token: 0x0600AB8B RID: 43915 RVA: 0x001F5630 File Offset: 0x001F3830
 		private bool _OnCloseClicked(IXUIButton go)
 		{
 			base.PanelObject.SetActive(false);
@@ -47,19 +45,16 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600AB8C RID: 43916 RVA: 0x001F5670 File Offset: 0x001F3870
 		public override void OnUnload()
 		{
 			base.OnUnload();
 			this.doc = null;
 		}
 
-		// Token: 0x0600AB8D RID: 43917 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void OnShow()
 		{
 		}
 
-		// Token: 0x0600AB8E RID: 43918 RVA: 0x001F5684 File Offset: 0x001F3884
 		private void _OnBuyClicked(IXUISprite iSp)
 		{
 			int index = (int)iSp.ID;
@@ -77,7 +72,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AB8F RID: 43919 RVA: 0x001F5784 File Offset: 0x001F3984
 		private bool _OnBuyCompose(IXUIButton btn)
 		{
 			XNormalShopDocument specificDocument = XDocuments.GetSpecificDocument<XNormalShopDocument>(XNormalShopDocument.uuID);
@@ -86,7 +80,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600AB90 RID: 43920 RVA: 0x001F57BC File Offset: 0x001F39BC
 		public void SetCardShop(List<XNormalShopGoods> data)
 		{
 			bool flag = this.doc.View == null;
@@ -134,12 +127,10 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AB91 RID: 43921 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		private void InitShow()
 		{
 		}
 
-		// Token: 0x0600AB92 RID: 43922 RVA: 0x001F5AA8 File Offset: 0x001F3CA8
 		public void ShowHandler(int shopId, bool bResetPosition = false)
 		{
 			bool flag = shopId < 1 || shopId > 4;
@@ -157,7 +148,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AB93 RID: 43923 RVA: 0x001F5B0C File Offset: 0x001F3D0C
 		public void RefreshChipNum()
 		{
 			this.money = (int)XBagDocument.BagDoc.GetItemCount(int.Parse(XSingleton<XGlobalConfig>.singleton.GetValue("CardChip")));
@@ -168,40 +158,28 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0400404B RID: 16459
 		private XCardCollectDocument doc;
 
-		// Token: 0x0400404C RID: 16460
 		public List<XNormalShopGoods> goods = new List<XNormalShopGoods>();
 
-		// Token: 0x0400404D RID: 16461
 		private IXUIButton m_Close;
 
-		// Token: 0x0400404E RID: 16462
 		private IXUILabel m_ChipNum;
 
-		// Token: 0x0400404F RID: 16463
 		private IXUISprite m_ChipIcon;
 
-		// Token: 0x04004050 RID: 16464
 		private IXUIScrollView m_GoodsScrollView;
 
-		// Token: 0x04004051 RID: 16465
 		private XUIPool m_GoodsPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04004052 RID: 16466
 		public int money;
 
-		// Token: 0x04004053 RID: 16467
 		private static readonly uint SHOP_LINE_COUNT = 3U;
 
-		// Token: 0x04004054 RID: 16468
 		private int disX;
 
-		// Token: 0x04004055 RID: 16469
 		private int disY;
 
-		// Token: 0x04004056 RID: 16470
 		private XNormalShopGoods m_BuyGoods;
 	}
 }

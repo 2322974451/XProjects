@@ -5,22 +5,20 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000E84 RID: 3716
+
 	internal class TooltipButtonOperateCompose : TooltipButtonOperateBase
 	{
-		// Token: 0x0600C6A2 RID: 50850 RVA: 0x002BF8E4 File Offset: 0x002BDAE4
+
 		public override string GetButtonText()
 		{
 			return XStringDefineProxy.GetString("UPGRADE");
 		}
 
-		// Token: 0x0600C6A3 RID: 50851 RVA: 0x002BF900 File Offset: 0x002BDB00
 		public override bool HasRedPoint(XItem item)
 		{
 			return false;
 		}
 
-		// Token: 0x0600C6A4 RID: 50852 RVA: 0x002BF914 File Offset: 0x002BDB14
 		public override bool IsButtonVisible(XItem item)
 		{
 			bool flag = item == null;
@@ -67,7 +65,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C6A5 RID: 50853 RVA: 0x002BF9DC File Offset: 0x002BDBDC
 		public override void OnButtonClick(ulong mainUID, ulong compareUID)
 		{
 			base.OnButtonClick(mainUID, compareUID);
@@ -112,7 +109,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C6A6 RID: 50854 RVA: 0x002BFB80 File Offset: 0x002BDD80
 		private bool _OnComposeClicked(IXUIButton btn)
 		{
 			XSingleton<UiUtility>.singleton.CloseModalDlg();
@@ -120,16 +116,12 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x04005716 RID: 22294
 		private int m_composeDividend = 1;
 
-		// Token: 0x04005717 RID: 22295
 		private int m_level = 1;
 
-		// Token: 0x04005718 RID: 22296
 		private string m_composeName = "";
 
-		// Token: 0x04005719 RID: 22297
 		private ItemList.RowData itemRowData = null;
 	}
 }

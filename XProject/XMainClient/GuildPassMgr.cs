@@ -8,10 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C14 RID: 3092
+
 	internal class GuildPassMgr : XSingleton<GuildPassMgr>
 	{
-		// Token: 0x0600AFA2 RID: 44962 RVA: 0x002153C0 File Offset: 0x002135C0
+
 		public void InitBoard()
 		{
 			bool flag = this.attachDic == null;
@@ -43,7 +43,6 @@ namespace XMainClient
 			this.m_wait_red = GameObject.Find("DynamicScene/wait_scene/wait_red");
 		}
 
-		// Token: 0x0600AFA3 RID: 44963 RVA: 0x002154EC File Offset: 0x002136EC
 		public void UpdateInfo(List<GCFZhanChBriefInfo> infos)
 		{
 			bool flag = infos != null;
@@ -80,7 +79,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AFA4 RID: 44964 RVA: 0x00215658 File Offset: 0x00213858
 		public void OpenAll()
 		{
 			foreach (KeyValuePair<uint, GuildPassBoard> keyValuePair in this.attachDic)
@@ -89,7 +87,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AFA5 RID: 44965 RVA: 0x002156B8 File Offset: 0x002138B8
 		public void ClearAll()
 		{
 			bool flag = this.attachDic != null;
@@ -105,19 +102,14 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x040042FF RID: 17151
 		public Dictionary<uint, GuildPassBoard> attachDic;
 
-		// Token: 0x04004300 RID: 17152
 		private const int cnt = 6;
 
-		// Token: 0x04004301 RID: 17153
 		public bool isOpen = false;
 
-		// Token: 0x04004302 RID: 17154
 		public GameObject m_wait_blue;
 
-		// Token: 0x04004303 RID: 17155
 		public GameObject m_wait_red;
 	}
 }

@@ -4,10 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000B83 RID: 2947
+
 	internal class ScriptCode : XSingleton<ScriptCode>
 	{
-		// Token: 0x0600A96D RID: 43373 RVA: 0x001E2724 File Offset: 0x001E0924
+
 		public override bool Init()
 		{
 			this.m_CutSceneDoMap["archer_slash_show"] = new CutSceneDo(archer_slash_show.Do);
@@ -48,7 +48,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600A96E RID: 43374 RVA: 0x001E2B30 File Offset: 0x001E0D30
 		public bool ExecuteCutScene(string method, List<XActor> actors)
 		{
 			CutSceneDo cutSceneDo = null;
@@ -64,7 +63,6 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x0600A96F RID: 43375 RVA: 0x001E2B6C File Offset: 0x001E0D6C
 		public void ExecuteSkill(string method, XSkill skill)
 		{
 			SkillDo skillDo = null;
@@ -79,17 +77,14 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A970 RID: 43376 RVA: 0x001E2BA2 File Offset: 0x001E0DA2
 		public void GetSkillDo(string method, out SkillDo sd)
 		{
 			sd = null;
 			this.m_SkillDoMap.TryGetValue(method, out sd);
 		}
 
-		// Token: 0x04003EA3 RID: 16035
 		private Dictionary<string, CutSceneDo> m_CutSceneDoMap = new Dictionary<string, CutSceneDo>();
 
-		// Token: 0x04003EA4 RID: 16036
 		private Dictionary<string, SkillDo> m_SkillDoMap = new Dictionary<string, SkillDo>();
 	}
 }

@@ -3,10 +3,10 @@ using UILib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020018B8 RID: 6328
+
 	internal class QualityFilterHandler : DlgHandlerBase
 	{
-		// Token: 0x060107E2 RID: 67554 RVA: 0x00409FC4 File Offset: 0x004081C4
+
 		protected override void Init()
 		{
 			base.Init();
@@ -29,7 +29,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060107E3 RID: 67555 RVA: 0x0040A174 File Offset: 0x00408374
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -37,7 +36,6 @@ namespace XMainClient.UI
 			this.m_Cancel.RegisterClickEventHandler(new ButtonClickEventHandler(this._OnCancelClick));
 		}
 
-		// Token: 0x060107E4 RID: 67556 RVA: 0x0040A1B0 File Offset: 0x004083B0
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -49,14 +47,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060107E5 RID: 67557 RVA: 0x0040A1F9 File Offset: 0x004083F9
 		public void Set(int mask, QualityFilterCallback callback)
 		{
 			this.m_Mask = mask;
 			this.m_Callback = callback;
 		}
 
-		// Token: 0x060107E6 RID: 67558 RVA: 0x0040A20C File Offset: 0x0040840C
 		protected bool _OnOKClick(IXUIButton go)
 		{
 			int num = 1;
@@ -79,29 +75,22 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x060107E7 RID: 67559 RVA: 0x0040A290 File Offset: 0x00408490
 		protected bool _OnCancelClick(IXUIButton go)
 		{
 			base.SetVisible(false);
 			return true;
 		}
 
-		// Token: 0x04007736 RID: 30518
 		private static readonly int QualityCount = 6;
 
-		// Token: 0x04007737 RID: 30519
 		private IXUICheckBox[] m_Opt = new IXUICheckBox[QualityFilterHandler.QualityCount];
 
-		// Token: 0x04007738 RID: 30520
 		private IXUIButton m_OK;
 
-		// Token: 0x04007739 RID: 30521
 		private IXUIButton m_Cancel;
 
-		// Token: 0x0400773A RID: 30522
 		private QualityFilterCallback m_Callback;
 
-		// Token: 0x0400773B RID: 30523
 		private int m_Mask;
 	}
 }

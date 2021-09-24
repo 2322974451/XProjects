@@ -4,11 +4,10 @@ using UnityEngine;
 
 namespace XMainClient
 {
-	// Token: 0x02000CF2 RID: 3314
+
 	internal class XGuildSignNode
 	{
-		// Token: 0x1700329B RID: 12955
-		// (get) Token: 0x0600B96E RID: 47470 RVA: 0x0025A66C File Offset: 0x0025886C
+
 		public BonusState bonusState
 		{
 			get
@@ -17,7 +16,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B96F RID: 47471 RVA: 0x0025A684 File Offset: 0x00258884
 		public XGuildSignNode(int key, Transform pGo, Transform cGo)
 		{
 			this.m_ProgressGo = pGo;
@@ -33,20 +31,17 @@ namespace XMainClient
 			this.Reset();
 		}
 
-		// Token: 0x0600B970 RID: 47472 RVA: 0x0025A7AB File Offset: 0x002589AB
 		public void SetSignNumber(uint number)
 		{
 			this.m_SignNumber.SetText(number.ToString());
 		}
 
-		// Token: 0x0600B971 RID: 47473 RVA: 0x0025A7C4 File Offset: 0x002589C4
 		public void SetBonusProgress(float p)
 		{
 			float value = (p > 0f) ? (p * 0.9f + 0.1f) : 0f;
 			this.m_slider.Value = value;
 		}
 
-		// Token: 0x0600B972 RID: 47474 RVA: 0x0025A7FC File Offset: 0x002589FC
 		public void SetBonusStatu(BonusState _bonusState)
 		{
 			this.Reset();
@@ -80,7 +75,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B973 RID: 47475 RVA: 0x0025A910 File Offset: 0x00258B10
 		public void Reset()
 		{
 			this.m_slider.Value = 0f;
@@ -90,34 +84,24 @@ namespace XMainClient
 			this.m_redSprite.SetVisible(false);
 		}
 
-		// Token: 0x04004A05 RID: 18949
 		private Transform m_ProgressGo;
 
-		// Token: 0x04004A06 RID: 18950
 		private Transform m_CircleGo;
 
-		// Token: 0x04004A07 RID: 18951
 		private IXUISlider m_slider;
 
-		// Token: 0x04004A08 RID: 18952
 		private IXUISprite m_Filled;
 
-		// Token: 0x04004A09 RID: 18953
 		private IXUISprite m_Packeton;
 
-		// Token: 0x04004A0A RID: 18954
 		private IXUISprite m_Finish;
 
-		// Token: 0x04004A0B RID: 18955
 		private IXUILabel m_SignNumber;
 
-		// Token: 0x04004A0C RID: 18956
 		public IXUISprite m_pressCircle;
 
-		// Token: 0x04004A0D RID: 18957
 		public IXUISprite m_redSprite;
 
-		// Token: 0x04004A0E RID: 18958
 		private BonusState m_bonusState;
 	}
 }

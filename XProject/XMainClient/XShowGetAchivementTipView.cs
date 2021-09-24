@@ -6,12 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000E58 RID: 3672
+
 	internal class XShowGetAchivementTipView : DlgBase<XShowGetAchivementTipView, XShowGetAchivementTipBehaviour>
 	{
-		// Token: 0x17003475 RID: 13429
-		// (get) Token: 0x0600C4C6 RID: 50374 RVA: 0x002B19DC File Offset: 0x002AFBDC
-		// (set) Token: 0x0600C4C7 RID: 50375 RVA: 0x002B19F4 File Offset: 0x002AFBF4
+
 		public XShowGetAchivementTipView.State state
 		{
 			get
@@ -26,8 +24,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003476 RID: 13430
-		// (get) Token: 0x0600C4C8 RID: 50376 RVA: 0x002B1A28 File Offset: 0x002AFC28
 		public override string fileName
 		{
 			get
@@ -36,8 +32,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003477 RID: 13431
-		// (get) Token: 0x0600C4C9 RID: 50377 RVA: 0x002B1A40 File Offset: 0x002AFC40
 		public override bool autoload
 		{
 			get
@@ -46,8 +40,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003478 RID: 13432
-		// (get) Token: 0x0600C4CA RID: 50378 RVA: 0x002B1A54 File Offset: 0x002AFC54
 		public override bool needOnTop
 		{
 			get
@@ -56,25 +48,21 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C4CB RID: 50379 RVA: 0x002B1A67 File Offset: 0x002AFC67
 		protected override void Init()
 		{
 			base.Init();
 			this._doc = XDocuments.GetSpecificDocument<XShowGetAchivementTipDocument>(XShowGetAchivementTipDocument.uuID);
 		}
 
-		// Token: 0x0600C4CC RID: 50380 RVA: 0x002B1A81 File Offset: 0x002AFC81
 		protected override void OnShow()
 		{
 			base.uiBehaviour.m_Bg.SetActive(false);
 		}
 
-		// Token: 0x0600C4CD RID: 50381 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void OnUnload()
 		{
 		}
 
-		// Token: 0x0600C4CE RID: 50382 RVA: 0x002B1A98 File Offset: 0x002AFC98
 		public void ShowUI()
 		{
 			bool flag = this.queue.Count <= 0;
@@ -139,7 +127,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C4CF RID: 50383 RVA: 0x002B1CE4 File Offset: 0x002AFEE4
 		public void Show(AchievementV2Table.RowData data)
 		{
 			bool flag = this.queue.Count > 0;
@@ -164,7 +151,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C4D0 RID: 50384 RVA: 0x002B1D6C File Offset: 0x002AFF6C
 		public void ShowDesignation(DesignationTable.RowData data)
 		{
 			bool flag = this.queue.Count > 0;
@@ -189,7 +175,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C4D1 RID: 50385 RVA: 0x002B1DF4 File Offset: 0x002AFFF4
 		public void ShowTip(AchivementTable.RowData date)
 		{
 			this.state = XShowGetAchivementTipView.State.Silver;
@@ -206,7 +191,6 @@ namespace XMainClient
 			ixuitweenTool.PlayTween(true, -1f);
 		}
 
-		// Token: 0x0600C4D2 RID: 50386 RVA: 0x002B1EB0 File Offset: 0x002B00B0
 		public void OnPlayTweenFinish(IXUITweenTool iPlayTween)
 		{
 			this.queue.Dequeue();
@@ -222,27 +206,22 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C4D3 RID: 50387 RVA: 0x002B1F02 File Offset: 0x002B0102
 		protected override void OnHide()
 		{
 			this.queue.Clear();
 		}
 
-		// Token: 0x040055D5 RID: 21973
 		public Queue<TipNode> queue = new Queue<TipNode>();
 
-		// Token: 0x040055D6 RID: 21974
 		private XShowGetAchivementTipView.State _state = XShowGetAchivementTipView.State.Silver;
 
-		// Token: 0x040055D7 RID: 21975
 		private XShowGetAchivementTipDocument _doc = null;
 
-		// Token: 0x020019CE RID: 6606
 		public enum State
 		{
-			// Token: 0x04007FF5 RID: 32757
+
 			Silver,
-			// Token: 0x04007FF6 RID: 32758
+
 			Gold
 		}
 	}

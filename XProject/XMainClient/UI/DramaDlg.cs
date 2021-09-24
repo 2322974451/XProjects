@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020018FA RID: 6394
+
 	internal class DramaDlg : DlgBase<DramaDlg, DramaDlgBehaviour>
 	{
-		// Token: 0x17003AA0 RID: 15008
-		// (get) Token: 0x06010ADA RID: 68314 RVA: 0x00426C44 File Offset: 0x00424E44
+
 		public override string fileName
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003AA1 RID: 15009
-		// (get) Token: 0x06010ADB RID: 68315 RVA: 0x00426C5C File Offset: 0x00424E5C
 		public override int layer
 		{
 			get
@@ -31,8 +28,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003AA2 RID: 15010
-		// (get) Token: 0x06010ADC RID: 68316 RVA: 0x00426C70 File Offset: 0x00424E70
 		public override bool exclusive
 		{
 			get
@@ -41,8 +36,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003AA3 RID: 15011
-		// (get) Token: 0x06010ADD RID: 68317 RVA: 0x00426C84 File Offset: 0x00424E84
 		public override bool autoload
 		{
 			get
@@ -51,8 +44,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003AA4 RID: 15012
-		// (get) Token: 0x06010ADE RID: 68318 RVA: 0x00426C98 File Offset: 0x00424E98
 		public override bool isHideTutorial
 		{
 			get
@@ -61,7 +52,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010ADF RID: 68319 RVA: 0x00426CAC File Offset: 0x00424EAC
 		protected override void Init()
 		{
 			this._TogglePage(DramaPage.DP_MAX);
@@ -71,7 +61,6 @@ namespace XMainClient.UI
 			DlgHandlerBase.EnsureCreate<XNPCFavorDramaExchange>(ref this.exchangeHandler, base.uiBehaviour.m_FavorFrame, false, this);
 		}
 
-		// Token: 0x06010AE0 RID: 68320 RVA: 0x00426D14 File Offset: 0x00424F14
 		public override void RegisterEvent()
 		{
 			IXUISprite ixuisprite = base.uiBehaviour.m_TaskArea.GetComponent("XUISprite") as IXUISprite;
@@ -86,7 +75,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_BtnReject.RegisterClickEventHandler(new ButtonClickEventHandler(this._OnBtnRejectTaskClicked));
 		}
 
-		// Token: 0x06010AE1 RID: 68321 RVA: 0x00426E20 File Offset: 0x00425020
 		protected void OnNormalFuncClick(IXUISprite sp)
 		{
 			bool flag = !base.IsLoaded();
@@ -112,7 +100,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010AE2 RID: 68322 RVA: 0x00426EE0 File Offset: 0x004250E0
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -126,7 +113,6 @@ namespace XMainClient.UI
 			XSingleton<XAudioMgr>.singleton.StopUISound();
 		}
 
-		// Token: 0x06010AE3 RID: 68323 RVA: 0x00426F5C File Offset: 0x0042515C
 		protected override void OnHide()
 		{
 			this.doc.OnUIClose();
@@ -165,7 +151,6 @@ namespace XMainClient.UI
 			base.OnHide();
 		}
 
-		// Token: 0x06010AE4 RID: 68324 RVA: 0x0042709E File Offset: 0x0042529E
 		protected override void OnUnload()
 		{
 			DlgHandlerBase.EnsureUnload<XNPCFavorDramaSend>(ref this.sendHandler);
@@ -175,7 +160,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x06010AE5 RID: 68325 RVA: 0x004270D4 File Offset: 0x004252D4
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
@@ -189,7 +173,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010AE6 RID: 68326 RVA: 0x00427148 File Offset: 0x00425348
 		private void _TogglePage(DramaPage page)
 		{
 			base.uiBehaviour.m_TaskArea.gameObject.SetActive(page == DramaPage.DP_DIALOG || page == DramaPage.DP_ACCEPT);
@@ -200,7 +183,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_FavorGB.SetActive(page == DramaPage.DP_FAVOR);
 		}
 
-		// Token: 0x06010AE7 RID: 68327 RVA: 0x004271EC File Offset: 0x004253EC
 		public void ShowNpcDialog(XNpc npc)
 		{
 			bool flag = !XEntity.ValideEntity(npc);
@@ -259,7 +241,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010AE8 RID: 68328 RVA: 0x00427378 File Offset: 0x00425578
 		protected void OnRewardClick(IXUISprite sp)
 		{
 			bool flag = !base.IsLoaded();
@@ -280,7 +261,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010AE9 RID: 68329 RVA: 0x00427420 File Offset: 0x00425620
 		protected void _PlayVoice(string voice, bool isNPC)
 		{
 			if (isNPC)
@@ -311,7 +291,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010AEA RID: 68330 RVA: 0x0042750C File Offset: 0x0042570C
 		public void StopVoice()
 		{
 			bool flag = XSingleton<XEntityMgr>.singleton.Player != null && XSingleton<XAudioMgr>.singleton.IsPlayingSound(XSingleton<XEntityMgr>.singleton.Player, AudioChannel.Motion);
@@ -326,7 +305,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010AEB RID: 68331 RVA: 0x0042758C File Offset: 0x0042578C
 		protected void GotoNextTalk(IXUISprite sp)
 		{
 			bool flag = !base.IsLoaded();
@@ -402,13 +380,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010AEC RID: 68332 RVA: 0x004277A0 File Offset: 0x004259A0
 		public bool CanAutoContinue(XTaskInfo taskInfo)
 		{
 			return (taskInfo != null & taskInfo.Conds.Count == 0) && XSingleton<UiUtility>.singleton.ChooseProfData<uint>(taskInfo.TableData.BeginTaskNPCID, 0U) == XSingleton<UiUtility>.singleton.ChooseProfData<uint>(taskInfo.TableData.EndTaskNPCID, 0U);
 		}
 
-		// Token: 0x06010AED RID: 68333 RVA: 0x004277F8 File Offset: 0x004259F8
 		protected void ShowTaskAccept(ref XDialogSentence dialog)
 		{
 			bool flag = this.m_RelativeTask == null || this.m_RelativeTask.TableData == null;
@@ -436,7 +412,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010AEE RID: 68334 RVA: 0x00427968 File Offset: 0x00425B68
 		protected void ShowTaskReward(uint taskID)
 		{
 			TaskTableNew.RowData taskData = XTaskDocument.GetTaskData(taskID);
@@ -490,7 +465,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010AEF RID: 68335 RVA: 0x00427B50 File Offset: 0x00425D50
 		protected void SetupNpcTaskDialog()
 		{
 			bool flag = this.m_DialogQueue.Count > 0;
@@ -500,7 +474,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010AF0 RID: 68336 RVA: 0x00427B7C File Offset: 0x00425D7C
 		protected void SetupNPCAvatar(uint presentID, bool playtween)
 		{
 			base.uiBehaviour.m_rightSnapshot.transform.localPosition = base.uiBehaviour.m_rightDummyPos;
@@ -515,13 +488,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010AF1 RID: 68337 RVA: 0x00427C41 File Offset: 0x00425E41
 		protected void SetupTalkerName(string name)
 		{
 			base.uiBehaviour.m_name.SetText(name);
 		}
 
-		// Token: 0x06010AF2 RID: 68338 RVA: 0x00427C58 File Offset: 0x00425E58
 		protected void SetupNpcNormalDialog(int index, uint npcType)
 		{
 			this._TogglePage(DramaPage.DP_FUNC);
@@ -564,7 +535,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010AF3 RID: 68339 RVA: 0x00427E74 File Offset: 0x00426074
 		protected int PlayNpcVoice()
 		{
 			bool flag = this.m_npcAttr.Voice == null || this.m_npcAttr.Voice.Length == 0;
@@ -590,7 +560,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x06010AF4 RID: 68340 RVA: 0x00427F04 File Offset: 0x00426104
 		protected void SetupNpcText(XNpc npc, string text)
 		{
 			base.uiBehaviour.m_NpcText.gameObject.SetActive(true);
@@ -600,7 +569,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_NpcText.SetText(text);
 		}
 
-		// Token: 0x06010AF5 RID: 68341 RVA: 0x00427F8C File Offset: 0x0042618C
 		protected void SetupPlayerText(string text)
 		{
 			base.uiBehaviour.m_NpcText.gameObject.SetActive(false);
@@ -619,7 +587,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010AF6 RID: 68342 RVA: 0x004280B0 File Offset: 0x004262B0
 		private bool _OnBtnAcceptTaskClicked(IXUIButton btn)
 		{
 			bool flag = !base.IsLoaded();
@@ -649,7 +616,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x06010AF7 RID: 68343 RVA: 0x0042814C File Offset: 0x0042634C
 		private bool _OnBtnRejectTaskClicked(IXUIButton btn)
 		{
 			bool flag = !base.IsLoaded();
@@ -666,7 +632,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x06010AF8 RID: 68344 RVA: 0x0042817C File Offset: 0x0042637C
 		private void _OnCloseClicked(IXUISprite iSp)
 		{
 			bool flag = !base.IsLoaded();
@@ -680,7 +645,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010AF9 RID: 68345 RVA: 0x004281B4 File Offset: 0x004263B4
 		public void SetupOperate(XDramaOperateParam param)
 		{
 			bool flag = !base.IsLoaded();
@@ -755,7 +719,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010AFA RID: 68346 RVA: 0x004284A0 File Offset: 0x004266A0
 		private void _OnOperateListClicked(IXUISprite iSp)
 		{
 			bool flag = !base.IsLoaded();
@@ -765,13 +728,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010AFB RID: 68347 RVA: 0x004284CB File Offset: 0x004266CB
 		private void _ToggleOperateListSelection(int index, bool bSelect)
 		{
 			base.uiBehaviour.m_OperateLists[index].SetSelect(bSelect);
 		}
 
-		// Token: 0x06010AFC RID: 68348 RVA: 0x004284E4 File Offset: 0x004266E4
 		private void _SelectOperateList(int index)
 		{
 			for (int i = 0; i < base.uiBehaviour.MAX_OPERATE_LIST_COUNT; i++)
@@ -780,7 +741,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010AFD RID: 68349 RVA: 0x0042851C File Offset: 0x0042671C
 		public void SetUpFavorParam(XFavorParam param)
 		{
 			bool flag = !base.IsLoaded();
@@ -810,7 +770,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010AFE RID: 68350 RVA: 0x0042865C File Offset: 0x0042685C
 		public void NtfSendDramaRefresh()
 		{
 			bool flag = this.sendHandler.IsVisible();
@@ -820,7 +779,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010AFF RID: 68351 RVA: 0x00428688 File Offset: 0x00426888
 		public void NtfExchangeDramaRefresh()
 		{
 			bool flag = this.exchangeHandler.IsVisible();
@@ -830,7 +788,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010B00 RID: 68352 RVA: 0x004286B4 File Offset: 0x004268B4
 		public void NtfExchangeDlgClose()
 		{
 			bool flag = this.exchangeHandler.IsVisible();
@@ -840,7 +797,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010B01 RID: 68353 RVA: 0x004286E0 File Offset: 0x004268E0
 		public void ShowNPCFavorSend()
 		{
 			bool flag = this.exchangeHandler.IsVisible();
@@ -851,7 +807,6 @@ namespace XMainClient.UI
 			this.sendHandler.SetVisible(true);
 		}
 
-		// Token: 0x06010B02 RID: 68354 RVA: 0x00428718 File Offset: 0x00426918
 		public void ShowNPCFavorExchnage()
 		{
 			bool flag = this.sendHandler.IsVisible();
@@ -862,46 +817,34 @@ namespace XMainClient.UI
 			this.exchangeHandler.SetVisible(true);
 		}
 
-		// Token: 0x06010B03 RID: 68355 RVA: 0x00428750 File Offset: 0x00426950
 		public bool IsSendDilogVisible()
 		{
 			return this.sendHandler != null && this.sendHandler.IsVisible();
 		}
 
-		// Token: 0x06010B04 RID: 68356 RVA: 0x00428778 File Offset: 0x00426978
 		public bool IsChangeDialogVisible()
 		{
 			return this.exchangeHandler != null && this.exchangeHandler.IsVisible();
 		}
 
-		// Token: 0x040079E2 RID: 31202
 		public XNpc m_npc;
 
-		// Token: 0x040079E3 RID: 31203
 		protected XNpcAttributes m_npcAttr;
 
-		// Token: 0x040079E4 RID: 31204
 		public Queue<XDialogSentence> m_DialogQueue = new Queue<XDialogSentence>();
 
-		// Token: 0x040079E5 RID: 31205
 		private XDummy m_npcDummy;
 
-		// Token: 0x040079E6 RID: 31206
 		private XTaskDocument taskDoc;
 
-		// Token: 0x040079E7 RID: 31207
 		private XTaskInfo m_RelativeTask;
 
-		// Token: 0x040079E8 RID: 31208
 		private uint m_RelativeTaskID;
 
-		// Token: 0x040079E9 RID: 31209
 		private XDramaDocument doc;
 
-		// Token: 0x040079EA RID: 31210
 		private XNPCFavorDramaSend sendHandler = null;
 
-		// Token: 0x040079EB RID: 31211
 		private XNPCFavorDramaExchange exchangeHandler = null;
 	}
 }

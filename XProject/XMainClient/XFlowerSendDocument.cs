@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000990 RID: 2448
+
 	internal class XFlowerSendDocument : XDocComponent
 	{
-		// Token: 0x17002CB9 RID: 11449
-		// (get) Token: 0x06009338 RID: 37688 RVA: 0x00157E1C File Offset: 0x0015601C
+
 		public override uint ID
 		{
 			get
@@ -19,7 +18,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009339 RID: 37689 RVA: 0x00157E34 File Offset: 0x00156034
 		public void SendFlower(ulong roleID, uint count, uint sendItemID)
 		{
 			RpcC2G_SendFlower rpcC2G_SendFlower = new RpcC2G_SendFlower();
@@ -29,7 +27,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_SendFlower);
 		}
 
-		// Token: 0x0600933A RID: 37690 RVA: 0x00157E7C File Offset: 0x0015607C
 		public void SendFlower(ulong roleID, uint count, uint sendItemID, uint needCostID, uint needCostCount)
 		{
 			RpcC2G_SendFlower rpcC2G_SendFlower = new RpcC2G_SendFlower();
@@ -41,7 +38,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_SendFlower);
 		}
 
-		// Token: 0x0600933B RID: 37691 RVA: 0x00157EE0 File Offset: 0x001560E0
 		public void OnSendFlower(SendFlowerArg oArg, SendFlowerRes oRes)
 		{
 			bool flag = oRes.errorcode == ErrorCode.ERR_SUCCESS;
@@ -88,12 +84,10 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600933C RID: 37692 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 		}
 
-		// Token: 0x0400317C RID: 12668
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("FlowerSendDocument");
 	}
 }

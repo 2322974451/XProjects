@@ -9,10 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C79 RID: 3193
+
 	internal class CareerTrophyHandler : DlgHandlerBase
 	{
-		// Token: 0x0600B479 RID: 46201 RVA: 0x00234680 File Offset: 0x00232880
+
 		protected override void Init()
 		{
 			base.Init();
@@ -46,8 +46,6 @@ namespace XMainClient
 			this.InitShow();
 		}
 
-		// Token: 0x170031F3 RID: 12787
-		// (get) Token: 0x0600B47A RID: 46202 RVA: 0x0023498C File Offset: 0x00232B8C
 		protected override string FileName
 		{
 			get
@@ -56,7 +54,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B47B RID: 46203 RVA: 0x002349A4 File Offset: 0x00232BA4
 		public override void RegisterEvent()
 		{
 			this.m_Push.RegisterClickEventHandler(new ButtonClickEventHandler(this._PushBtnClick));
@@ -67,26 +64,22 @@ namespace XMainClient
 			this.m_HonorRewardClose.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnHonorRewardCloseClicked));
 		}
 
-		// Token: 0x0600B47C RID: 46204 RVA: 0x0019F00C File Offset: 0x0019D20C
 		protected override void OnShow()
 		{
 			base.OnShow();
 		}
 
-		// Token: 0x0600B47D RID: 46205 RVA: 0x00234A42 File Offset: 0x00232C42
 		protected override void OnHide()
 		{
 			this.ClearPreTabTextures();
 			base.OnHide();
 		}
 
-		// Token: 0x0600B47E RID: 46206 RVA: 0x0019EF07 File Offset: 0x0019D107
 		public override void OnUnload()
 		{
 			base.OnUnload();
 		}
 
-		// Token: 0x0600B47F RID: 46207 RVA: 0x00234A54 File Offset: 0x00232C54
 		public void ClearPreTabTextures()
 		{
 			foreach (KeyValuePair<Transform, IXUITexture> keyValuePair in this._WrapTextureList)
@@ -97,7 +90,6 @@ namespace XMainClient
 			this._WrapTextureList.Clear();
 		}
 
-		// Token: 0x0600B480 RID: 46208 RVA: 0x00234AC8 File Offset: 0x00232CC8
 		private void InitShow()
 		{
 			this.m_GloryLevel.SetText("");
@@ -108,7 +100,6 @@ namespace XMainClient
 			this.m_HonorRewardFrame.gameObject.SetActive(false);
 		}
 
-		// Token: 0x0600B481 RID: 46209 RVA: 0x00234B40 File Offset: 0x00232D40
 		public void SetData(StageTrophy data)
 		{
 			bool flag = data != null;
@@ -154,7 +145,6 @@ namespace XMainClient
 			this.RefreshList(true);
 		}
 
-		// Token: 0x0600B482 RID: 46210 RVA: 0x00234DFC File Offset: 0x00232FFC
 		public void RefreshList(bool bResetPosition = true)
 		{
 			int count = this.m_TrophyData.Count;
@@ -169,7 +159,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B483 RID: 46211 RVA: 0x00234E44 File Offset: 0x00233044
 		private void _OnListItemUpdated(Transform t, int index)
 		{
 			bool flag = index < 0;
@@ -228,7 +217,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B484 RID: 46212 RVA: 0x00235068 File Offset: 0x00233268
 		private int _Compare(CareerTrophyHandler.TrophyData left, CareerTrophyHandler.TrophyData right)
 		{
 			int num = (left.trophyDetail == null) ? 1 : 0;
@@ -246,7 +234,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B485 RID: 46213 RVA: 0x002350B8 File Offset: 0x002332B8
 		private CareerTrophyHandler.TrophyData GetTrophyData(uint ID)
 		{
 			for (int i = 0; i < this.m_TrophyData.Count; i++)
@@ -261,7 +248,6 @@ namespace XMainClient
 			return new CareerTrophyHandler.TrophyData();
 		}
 
-		// Token: 0x0600B486 RID: 46214 RVA: 0x00235138 File Offset: 0x00233338
 		private string GetTrophyTex(int data)
 		{
 			bool flag = data == 1;
@@ -293,14 +279,12 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B487 RID: 46215 RVA: 0x00235180 File Offset: 0x00233380
 		public bool OnTrophyCloseClicked(IXUIButton btn)
 		{
 			this.m_TrophyDetailFrame.gameObject.SetActive(false);
 			return true;
 		}
 
-		// Token: 0x0600B488 RID: 46216 RVA: 0x002351A8 File Offset: 0x002333A8
 		private void RefreshTrophyDetail(uint ID)
 		{
 			TrophyInfo.RowData trophyTableData = XPersonalCareerDocument.GetTrophyTableData(ID);
@@ -387,14 +371,12 @@ namespace XMainClient
 			this.m_TrophyPool.ActualReturnAll(false);
 		}
 
-		// Token: 0x0600B489 RID: 46217 RVA: 0x00235534 File Offset: 0x00233734
 		public bool OnHonorRewardCloseClicked(IXUIButton btn)
 		{
 			this.m_HonorRewardFrame.gameObject.SetActive(false);
 			return true;
 		}
 
-		// Token: 0x0600B48A RID: 46218 RVA: 0x0023555C File Offset: 0x0023375C
 		private void RefreshHonorReward(bool resetPos = true)
 		{
 			this.m_HonorCurrentLevel.SetText(this.curLevel.ToString());
@@ -434,21 +416,18 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B48B RID: 46219 RVA: 0x0023580C File Offset: 0x00233A0C
 		private bool _PushBtnClick(IXUIButton btn)
 		{
 			DlgBase<PersonalCareerView, PersonalCareerBehaviour>.singleton.PushClick(0UL);
 			return true;
 		}
 
-		// Token: 0x0600B48C RID: 46220 RVA: 0x0023582C File Offset: 0x00233A2C
 		private bool _ShareBtnClick(IXUIButton btn)
 		{
 			DlgBase<PersonalCareerView, PersonalCareerBehaviour>.singleton.ShareClick();
 			return true;
 		}
 
-		// Token: 0x0600B48D RID: 46221 RVA: 0x0023584C File Offset: 0x00233A4C
 		private bool OnHonorRewardOpenClick(IXUIButton btn)
 		{
 			this.m_HonorRewardFrame.gameObject.SetActive(true);
@@ -456,7 +435,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B48E RID: 46222 RVA: 0x0023587C File Offset: 0x00233A7C
 		private void _OpenTrophyClick(IXUISprite sp)
 		{
 			XSingleton<XDebug>.singleton.AddGreenLog("TrophyID:" + sp.ID, null, null, null, null, null);
@@ -464,79 +442,55 @@ namespace XMainClient
 			this.RefreshTrophyDetail((uint)sp.ID);
 		}
 
-		// Token: 0x0400460A RID: 17930
 		private XPersonalCareerDocument doc = null;
 
-		// Token: 0x0400460B RID: 17931
 		private uint curLevel;
 
-		// Token: 0x0400460C RID: 17932
 		private List<CareerTrophyHandler.TrophyData> m_TrophyData = new List<CareerTrophyHandler.TrophyData>();
 
-		// Token: 0x0400460D RID: 17933
 		public Dictionary<Transform, IXUITexture> _WrapTextureList = new Dictionary<Transform, IXUITexture>();
 
-		// Token: 0x0400460E RID: 17934
 		private IXUILabel m_GloryExp;
 
-		// Token: 0x0400460F RID: 17935
 		private IXUILabel m_GloryLevel;
 
-		// Token: 0x04004610 RID: 17936
 		private IXUILabel m_NextRewardLevel;
 
-		// Token: 0x04004611 RID: 17937
 		private IXUIButton m_HonorRewardOpen;
 
-		// Token: 0x04004612 RID: 17938
 		private IXUIButton m_Push;
 
-		// Token: 0x04004613 RID: 17939
 		private IXUIButton m_Share;
 
-		// Token: 0x04004614 RID: 17940
 		private Transform m_RewardItem;
 
-		// Token: 0x04004615 RID: 17941
 		private IXUIWrapContent m_WrapContent;
 
-		// Token: 0x04004616 RID: 17942
 		private IXUIScrollView m_ListScrollView;
 
-		// Token: 0x04004617 RID: 17943
 		private Transform m_TrophyDetailFrame;
 
-		// Token: 0x04004618 RID: 17944
 		private IXUIButton m_TrophyClose;
 
-		// Token: 0x04004619 RID: 17945
 		private IXUILabel m_TrophyTitle;
 
-		// Token: 0x0400461A RID: 17946
 		private XUIPool m_TrophyPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x0400461B RID: 17947
 		private Transform m_HonorRewardFrame;
 
-		// Token: 0x0400461C RID: 17948
 		private IXUIButton m_HonorRewardClose;
 
-		// Token: 0x0400461D RID: 17949
 		private IXUILabel m_HonorCurrentLevel;
 
-		// Token: 0x0400461E RID: 17950
 		private IXUIScrollView m_HonorScrollView;
 
-		// Token: 0x0400461F RID: 17951
 		private XUIPool m_HonorRewardPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04004620 RID: 17952
 		private XUIPool m_HonorItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x020019AA RID: 6570
 		private class TrophyData
 		{
-			// Token: 0x0601104A RID: 69706 RVA: 0x004543DE File Offset: 0x004525DE
+
 			public void Clear()
 			{
 				this.SceneID = 0U;
@@ -549,7 +503,6 @@ namespace XMainClient
 				this.trophyDetail = null;
 			}
 
-			// Token: 0x0601104B RID: 69707 RVA: 0x0045441C File Offset: 0x0045261C
 			public void SetData(StageTrophyData data, uint tID)
 			{
 				this.ID = tID;
@@ -570,7 +523,6 @@ namespace XMainClient
 				}
 			}
 
-			// Token: 0x0601104C RID: 69708 RVA: 0x004544D0 File Offset: 0x004526D0
 			public TrophyDetail GetBestTrophy()
 			{
 				bool flag = this.trophyDetail == null;
@@ -595,7 +547,6 @@ namespace XMainClient
 				return result;
 			}
 
-			// Token: 0x0601104D RID: 69709 RVA: 0x00454548 File Offset: 0x00452748
 			public TrophyDetail GetTrophyDetail(int index)
 			{
 				bool flag = this.trophyDetail == null;
@@ -619,7 +570,6 @@ namespace XMainClient
 				return result;
 			}
 
-			// Token: 0x0601104E RID: 69710 RVA: 0x004545B4 File Offset: 0x004527B4
 			public string GetProgress(uint type)
 			{
 				bool flag = type == 1U;
@@ -675,7 +625,6 @@ namespace XMainClient
 				return result;
 			}
 
-			// Token: 0x0601104F RID: 69711 RVA: 0x0045467C File Offset: 0x0045287C
 			public string GetProgress(uint type, uint param)
 			{
 				bool flag = type == 1U;
@@ -731,34 +680,24 @@ namespace XMainClient
 				return result;
 			}
 
-			// Token: 0x04007F69 RID: 32617
 			public uint ID;
 
-			// Token: 0x04007F6A RID: 32618
 			public uint SceneID;
 
-			// Token: 0x04007F6B RID: 32619
 			public int SortID;
 
-			// Token: 0x04007F6C RID: 32620
 			public uint pass_count;
 
-			// Token: 0x04007F6D RID: 32621
 			public uint quickly_pass_time;
 
-			// Token: 0x04007F6E RID: 32622
 			public ulong hight_damage;
 
-			// Token: 0x04007F6F RID: 32623
 			public ulong hight_treat;
 
-			// Token: 0x04007F70 RID: 32624
 			public uint help_count;
 
-			// Token: 0x04007F71 RID: 32625
 			public uint no_deathpass_count;
 
-			// Token: 0x04007F72 RID: 32626
 			public List<TrophyDetail> trophyDetail;
 		}
 	}

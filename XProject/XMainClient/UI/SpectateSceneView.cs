@@ -9,11 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001857 RID: 6231
+
 	internal class SpectateSceneView : DlgBase<SpectateSceneView, SpectateSceneBehaviour>
 	{
-		// Token: 0x17003975 RID: 14709
-		// (get) Token: 0x06010332 RID: 66354 RVA: 0x003E55EC File Offset: 0x003E37EC
+
 		public XSpectateTeamMonitorHandler SpectateTeamMonitor
 		{
 			get
@@ -22,8 +21,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003976 RID: 14710
-		// (get) Token: 0x06010333 RID: 66355 RVA: 0x003E561C File Offset: 0x003E381C
 		public BattleIndicateHandler IndicateHandler
 		{
 			get
@@ -32,8 +29,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003977 RID: 14711
-		// (get) Token: 0x06010334 RID: 66356 RVA: 0x003E564C File Offset: 0x003E384C
 		public XBattleEnemyInfoHandler EnemyInfoHandler
 		{
 			get
@@ -42,8 +37,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003978 RID: 14712
-		// (get) Token: 0x06010335 RID: 66357 RVA: 0x003E567C File Offset: 0x003E387C
 		public BattleTargetHandler BattleTargetHandler
 		{
 			get
@@ -52,8 +45,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003979 RID: 14713
-		// (get) Token: 0x06010336 RID: 66358 RVA: 0x003E56AC File Offset: 0x003E38AC
 		public SpectateHandler SpectateHandler
 		{
 			get
@@ -62,8 +53,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700397A RID: 14714
-		// (get) Token: 0x06010337 RID: 66359 RVA: 0x003E56DC File Offset: 0x003E38DC
 		public IXUILabel LeftTime
 		{
 			get
@@ -72,8 +61,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700397B RID: 14715
-		// (get) Token: 0x06010338 RID: 66360 RVA: 0x003E570C File Offset: 0x003E390C
 		private float _strength_preseved_precent
 		{
 			get
@@ -87,8 +74,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700397C RID: 14716
-		// (get) Token: 0x06010339 RID: 66361 RVA: 0x003E574C File Offset: 0x003E394C
 		public override string fileName
 		{
 			get
@@ -97,8 +82,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700397D RID: 14717
-		// (get) Token: 0x0601033A RID: 66362 RVA: 0x003E5764 File Offset: 0x003E3964
 		public override int layer
 		{
 			get
@@ -107,8 +90,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700397E RID: 14718
-		// (get) Token: 0x0601033B RID: 66363 RVA: 0x003E5778 File Offset: 0x003E3978
 		public override bool isMainUI
 		{
 			get
@@ -117,7 +98,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601033C RID: 66364 RVA: 0x003E578C File Offset: 0x003E398C
 		public SpectateSceneView()
 		{
 			this._showSingleNoticeCb = new XTimerMgr.ElapsedEventHandler(this.ShowSingleNotice);
@@ -128,7 +108,6 @@ namespace XMainClient.UI
 			this._fRed = float.Parse(XSingleton<XGlobalConfig>.singleton.GetValue("HP_Red"));
 		}
 
-		// Token: 0x0601033D RID: 66365 RVA: 0x003E5978 File Offset: 0x003E3B78
 		protected override void Init()
 		{
 			this._platform = XSingleton<XUpdater.XUpdater>.singleton.XPlatform;
@@ -162,7 +141,6 @@ namespace XMainClient.UI
 			this.SetupHandler();
 		}
 
-		// Token: 0x0601033E RID: 66366 RVA: 0x003E5B00 File Offset: 0x003E3D00
 		private void SetupHandler()
 		{
 			SceneType sceneType = XSingleton<XScene>.singleton.SceneType;
@@ -179,7 +157,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601033F RID: 66367 RVA: 0x003E5B60 File Offset: 0x003E3D60
 		public override void RegisterEvent()
 		{
 			base.uiBehaviour.m_pause.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnPauseClick));
@@ -192,14 +169,12 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_btnShare.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnShareClick));
 		}
 
-		// Token: 0x06010340 RID: 66368 RVA: 0x003E5C5D File Offset: 0x003E3E5D
 		protected override void OnLoad()
 		{
 			base.OnLoad();
 			DlgHandlerBase.EnsureCreate<XYuyinView>(ref this._yuyinHandler, base.uiBehaviour.transform, true, this);
 		}
 
-		// Token: 0x06010341 RID: 66369 RVA: 0x003E5C80 File Offset: 0x003E3E80
 		protected override void OnShow()
 		{
 			this.lastPingTime = -60f;
@@ -264,7 +239,6 @@ namespace XMainClient.UI
 			this.ShowBarrge();
 		}
 
-		// Token: 0x06010342 RID: 66370 RVA: 0x003E5EC8 File Offset: 0x003E40C8
 		private void ShowBarrge()
 		{
 			bool openBarrage = DlgBase<BarrageDlg, BarrageBehaviour>.singleton.openBarrage;
@@ -273,13 +247,11 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_barrageOpen.SetVisible(!openBarrage);
 		}
 
-		// Token: 0x06010343 RID: 66371 RVA: 0x003E5F15 File Offset: 0x003E4115
 		private void InitView()
 		{
 			this.SetView(XSingleton<XOperationData>.singleton.OperationMode);
 		}
 
-		// Token: 0x06010344 RID: 66372 RVA: 0x003E5F2C File Offset: 0x003E412C
 		public void SetView(XOperationMode mode)
 		{
 			switch (mode)
@@ -302,7 +274,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_SightSelect.gameObject.SetActive(false);
 		}
 
-		// Token: 0x06010345 RID: 66373 RVA: 0x003E6020 File Offset: 0x003E4220
 		public bool OnSightClick(IXUIButton sp)
 		{
 			bool activeSelf = base.uiBehaviour.m_SightSelect.gameObject.activeSelf;
@@ -317,7 +288,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x06010346 RID: 66374 RVA: 0x003E6080 File Offset: 0x003E4280
 		protected override void OnHide()
 		{
 			DlgBase<BroadMiniDlg, BroadcastMiniBehaviour>.singleton.Show(false);
@@ -325,7 +295,6 @@ namespace XMainClient.UI
 			DlgBase<XChatSmallView, XChatSmallBehaviour>.singleton.SetVisible(false, true);
 		}
 
-		// Token: 0x06010347 RID: 66375 RVA: 0x003E60A8 File Offset: 0x003E42A8
 		protected override void OnUnload()
 		{
 			DlgHandlerBase.EnsureUnload<XOptionsBattleHandler>(ref this.m_XOptionBattleHandler);
@@ -340,7 +309,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x06010348 RID: 66376 RVA: 0x003E6140 File Offset: 0x003E4340
 		private void LoadYuyin()
 		{
 			YuyinIconType type = YuyinIconType.SPECTATE;
@@ -351,12 +319,10 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010349 RID: 66377 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		private void SetEnemyRoleInfo(string name, uint level)
 		{
 		}
 
-		// Token: 0x0601034A RID: 66378 RVA: 0x003E616C File Offset: 0x003E436C
 		public void RefreshYuyin(ulong uid)
 		{
 			bool flag = this._yuyinHandler != null;
@@ -366,7 +332,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601034B RID: 66379 RVA: 0x003E6198 File Offset: 0x003E4398
 		private bool OnPauseClick(IXUIButton go)
 		{
 			bool flag = !base.IsLoaded();
@@ -407,7 +372,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0601034C RID: 66380 RVA: 0x003E6274 File Offset: 0x003E4474
 		public override void OnUpdate()
 		{
 			bool flag = !XSingleton<XTimerMgr>.singleton.NeedFixedUpdate;
@@ -451,19 +415,16 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601034D RID: 66381 RVA: 0x003E63C3 File Offset: 0x003E45C3
 		private void UpdateWifi()
 		{
 			XSingleton<UiUtility>.singleton.UpdateWifi(null, this.m_uiBehaviour.m_sprwifi);
 		}
 
-		// Token: 0x0601034E RID: 66382 RVA: 0x003E63DD File Offset: 0x003E45DD
 		private void RefreshPing()
 		{
 			XSingleton<UiUtility>.singleton.RefreshPing(base.uiBehaviour.m_lblTime, base.uiBehaviour.m_sliderBattery, base.uiBehaviour.m_lblFree);
 		}
 
-		// Token: 0x0601034F RID: 66383 RVA: 0x003E640C File Offset: 0x003E460C
 		public void UpdateFPS()
 		{
 			bool flag = !this._platform.IsPublish();
@@ -496,7 +457,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010350 RID: 66384 RVA: 0x003E6520 File Offset: 0x003E4720
 		public void ShowNotice(string text, float duration, float pertime = 1f)
 		{
 			this._notice_collection.Clear();
@@ -524,7 +484,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010351 RID: 66385 RVA: 0x003E65D0 File Offset: 0x003E47D0
 		protected void ShowSingleNotice(object o)
 		{
 			int num = (int)o;
@@ -545,7 +504,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010352 RID: 66386 RVA: 0x003E6698 File Offset: 0x003E4898
 		public void StopNotice()
 		{
 			bool flag = this.time_token > 0U;
@@ -557,7 +515,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_NoticeFrame.transform.localPosition = XGameUI.Far_Far_Away;
 		}
 
-		// Token: 0x06010353 RID: 66387 RVA: 0x003E66E8 File Offset: 0x003E48E8
 		public void ShowBigNotice(string text)
 		{
 			this._big_notice = (XSingleton<XResourceLoaderMgr>.singleton.CreateFromPrefab("UI/Common/TutorialButtomText", true, false) as GameObject);
@@ -571,7 +528,6 @@ namespace XMainClient.UI
 			XSingleton<XTimerMgr>.singleton.SetTimer(5f, this._endBigNoticeCb, null);
 		}
 
-		// Token: 0x06010354 RID: 66388 RVA: 0x003E67C0 File Offset: 0x003E49C0
 		protected void EndBigNotice(object o)
 		{
 			bool flag = this._big_notice != null;
@@ -582,7 +538,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010355 RID: 66389 RVA: 0x003E67F8 File Offset: 0x003E49F8
 		public void SetLeftTime(uint seconds)
 		{
 			base.uiBehaviour.m_LeftTime.SetVisible(true);
@@ -590,7 +545,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_WarTime.SetVisible(false);
 		}
 
-		// Token: 0x06010356 RID: 66390 RVA: 0x003E682F File Offset: 0x003E4A2F
 		public void SetTimeRecord()
 		{
 			base.uiBehaviour.m_WarTime.SetVisible(true);
@@ -598,7 +552,6 @@ namespace XMainClient.UI
 			this.timeConnter.SetLeftTime(0.01f, -1);
 		}
 
-		// Token: 0x06010357 RID: 66391 RVA: 0x003E6864 File Offset: 0x003E4A64
 		public void ResetLeftTime(int seconds)
 		{
 			SceneTable.RowData sceneData = XSingleton<XSceneMgr>.singleton.GetSceneData(XSingleton<XScene>.singleton.SceneID);
@@ -617,19 +570,16 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010358 RID: 66392 RVA: 0x003E68DD File Offset: 0x003E4ADD
 		private void UpdateLeftTime()
 		{
 			this.leftTimeCounter.Update();
 		}
 
-		// Token: 0x06010359 RID: 66393 RVA: 0x003E68EC File Offset: 0x003E4AEC
 		private void UpdateTime()
 		{
 			this.timeConnter.Update();
 		}
 
-		// Token: 0x0601035A RID: 66394 RVA: 0x003E68FC File Offset: 0x003E4AFC
 		public bool OnShowChatDlg(IXUIButton sp)
 		{
 			DlgBase<XChatView, XChatBehaviour>.singleton.SetVisibleWithAnimation(true, null);
@@ -637,13 +587,11 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0601035B RID: 66395 RVA: 0x003E6933 File Offset: 0x003E4B33
 		public void OnSwitchToTeamChat(object obj)
 		{
 			DlgBase<XChatView, XChatBehaviour>.singleton.SelectChatTeam();
 		}
 
-		// Token: 0x0601035C RID: 66396 RVA: 0x003E6944 File Offset: 0x003E4B44
 		public void OnVoiceButtonDrag(IXUIButton sp, Vector2 delta)
 		{
 			this.m_DragDistance += delta;
@@ -658,7 +606,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601035D RID: 66397 RVA: 0x003E6990 File Offset: 0x003E4B90
 		public void OnVoiceButton(IXUIButton sp, bool state)
 		{
 			if (state)
@@ -693,7 +640,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601035E RID: 66398 RVA: 0x003E6A4C File Offset: 0x003E4C4C
 		public void OnStopVoiceRecord()
 		{
 			bool isRecording = this.m_IsRecording;
@@ -713,13 +659,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601035F RID: 66399 RVA: 0x003E6AA8 File Offset: 0x003E4CA8
 		public bool OnCommandBtnClick(IXUIButton btn)
 		{
 			return true;
 		}
 
-		// Token: 0x06010360 RID: 66400 RVA: 0x003E6ABC File Offset: 0x003E4CBC
 		private void OnAutoPlayTip(IXUISprite go)
 		{
 			bool flag = XSingleton<XScene>.singleton.SceneType == SceneType.SCENE_ARENA;
@@ -733,7 +677,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010361 RID: 66401 RVA: 0x003E6B1C File Offset: 0x003E4D1C
 		public void ShowBattleVoice(ChatVoiceInfo info)
 		{
 			bool flag = !base.IsVisible();
@@ -743,13 +686,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010362 RID: 66402 RVA: 0x003E6B5D File Offset: 0x003E4D5D
 		public void HideBattleChatUI(object info)
 		{
 			this.m_ChatLabelCd = 0U;
 		}
 
-		// Token: 0x06010363 RID: 66403 RVA: 0x003E6B68 File Offset: 0x003E4D68
 		public void ShowCountDownFrame(bool status)
 		{
 			bool flag = !base.IsVisible();
@@ -763,7 +704,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010364 RID: 66404 RVA: 0x003E6C2C File Offset: 0x003E4E2C
 		public void OnPlaySuperarmorFx(XEntity enemy, bool bBroken)
 		{
 			for (int i = 0; i < this.EnemyInfoHandler.EnemyList.Count; i++)
@@ -777,7 +717,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010365 RID: 66405 RVA: 0x003E6C94 File Offset: 0x003E4E94
 		public void OnStopSuperarmorFx(XEntity enemy)
 		{
 			for (int i = 0; i < this.EnemyInfoHandler.EnemyList.Count; i++)
@@ -791,7 +730,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010366 RID: 66406 RVA: 0x003E6CFC File Offset: 0x003E4EFC
 		public void OnProjectDamage(ProjectDamageResult damage, XEntity entity)
 		{
 			for (int i = 0; i < this.EnemyInfoHandler.EnemyList.Count; i++)
@@ -809,7 +747,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010367 RID: 66407 RVA: 0x003E6DA8 File Offset: 0x003E4FA8
 		public void SetupSpeedFx(XEntity enemy, bool enable, Color c)
 		{
 			for (int i = 0; i < this.EnemyInfoHandler.EnemyList.Count; i++)
@@ -825,7 +762,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010368 RID: 66408 RVA: 0x003E6E24 File Offset: 0x003E5024
 		public void ShowStrengthPresevedBar(XEntity entity)
 		{
 			base.uiBehaviour.m_StrengthPresevedBar.SetVisible(true);
@@ -835,7 +771,6 @@ namespace XMainClient.UI
 			this.RefreshStrengthPresevedBar();
 		}
 
-		// Token: 0x06010369 RID: 66409 RVA: 0x003E6E77 File Offset: 0x003E5077
 		public void HideStrengthPresevedBar()
 		{
 			base.uiBehaviour.m_StrengthPresevedBar.SetVisible(false);
@@ -844,21 +779,18 @@ namespace XMainClient.UI
 			this._current_strength_preseved = 0f;
 		}
 
-		// Token: 0x0601036A RID: 66410 RVA: 0x003E6EA9 File Offset: 0x003E50A9
 		public void RefreshStrengthPresevedBar()
 		{
 			this._current_strength_preseved = (float)this._strength_preseved_entity.Attributes.GetAttr(XAttributeDefine.XAttr_CurrentXULI_Basic);
 			base.uiBehaviour.m_StrengthPresevedBar.value = this._strength_preseved_precent;
 		}
 
-		// Token: 0x0601036B RID: 66411 RVA: 0x003E6EDC File Offset: 0x003E50DC
 		public bool OnViewClick(IXUIButton sp)
 		{
 			this.SetView((XOperationMode)sp.ID);
 			return true;
 		}
 
-		// Token: 0x0601036C RID: 66412 RVA: 0x003E6F00 File Offset: 0x003E5100
 		public bool OnBarrageClick(IXUIButton btn)
 		{
 			int num = (int)btn.ID;
@@ -875,7 +807,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0601036D RID: 66413 RVA: 0x003E6F74 File Offset: 0x003E5174
 		public bool OnShareClick(IXUIButton btn)
 		{
 			XSpectateDocument specificDocument = XDocuments.GetSpecificDocument<XSpectateDocument>(XSpectateDocument.uuID);
@@ -1059,7 +990,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0601036E RID: 66414 RVA: 0x003E756C File Offset: 0x003E576C
 		private void OnChatSend()
 		{
 			XSpectateDocument specificDocument = XDocuments.GetSpecificDocument<XSpectateDocument>(XSpectateDocument.uuID);
@@ -1241,7 +1171,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601036F RID: 66415 RVA: 0x003E7A90 File Offset: 0x003E5C90
 		public void ShowBackToMainCityTips()
 		{
 			string @string = XStringDefineProxy.GetString("ERR_WATCH_LIVEISOVER");
@@ -1250,7 +1179,6 @@ namespace XMainClient.UI
 			XSingleton<UiUtility>.singleton.ShowModalDialog(@string, string2, string3, new ButtonClickEventHandler(this.OnGoOnBtnClick), new ButtonClickEventHandler(this.OnBackToMainCityBtnClick), false, XTempTipDefine.OD_START, 251);
 		}
 
-		// Token: 0x06010370 RID: 66416 RVA: 0x003E7AEC File Offset: 0x003E5CEC
 		private bool OnBackToMainCityBtnClick(IXUIButton btn)
 		{
 			DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.SetVisible(false, true);
@@ -1258,7 +1186,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x06010371 RID: 66417 RVA: 0x003E7B18 File Offset: 0x003E5D18
 		private bool OnGoOnBtnClick(IXUIButton btn)
 		{
 			DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.SetVisible(false, true);
@@ -1266,127 +1193,87 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x06010372 RID: 66418 RVA: 0x003E7B48 File Offset: 0x003E5D48
 		public float GetLeftTime()
 		{
 			return this.leftTimeCounter.GetFloatLeftTime();
 		}
 
-		// Token: 0x0400742F RID: 29743
 		public static uint _pool_size = 5U;
 
-		// Token: 0x04007430 RID: 29744
 		private XPlayerAttributes _attrComp = null;
 
-		// Token: 0x04007431 RID: 29745
 		private float NoticeTime = 0f;
 
-		// Token: 0x04007432 RID: 29746
 		private Color32 _hp_green = new Color32(46, 203, 0, byte.MaxValue);
 
-		// Token: 0x04007433 RID: 29747
 		private Color32 _hp_yellow = new Color32(byte.MaxValue, 249, 32, byte.MaxValue);
 
-		// Token: 0x04007434 RID: 29748
 		private Color32 _hp_red = new Color32(byte.MaxValue, 39, 39, byte.MaxValue);
 
-		// Token: 0x04007435 RID: 29749
 		private Vector2 m_DragDistance = Vector2.zero;
 
-		// Token: 0x04007436 RID: 29750
 		private bool m_CancelRecord = false;
 
-		// Token: 0x04007437 RID: 29751
 		private bool m_IsRecording = false;
 
-		// Token: 0x04007438 RID: 29752
 		private uint m_ChatLabelCd = 0U;
 
-		// Token: 0x04007439 RID: 29753
 		public XOptionsBattleHandler m_XOptionBattleHandler = null;
 
-		// Token: 0x0400743A RID: 29754
 		private BattleCaptainPVPHandler m_BattleCaptainPVPHandler = null;
 
-		// Token: 0x0400743B RID: 29755
 		public HeroBattleHandler _HeroBattleHandler = null;
 
-		// Token: 0x0400743C RID: 29756
 		private SceneType sceneType;
 
-		// Token: 0x0400743D RID: 29757
 		private XLeftTimeCounter leftTimeCounter;
 
-		// Token: 0x0400743E RID: 29758
 		private XLeftTimeCounter timeConnter;
 
-		// Token: 0x0400743F RID: 29759
 		private float _last_check_time = 0f;
 
-		// Token: 0x04007440 RID: 29760
 		private IPlatform _platform = null;
 
-		// Token: 0x04007441 RID: 29761
 		private List<string> _notice_collection = new List<string>();
 
-		// Token: 0x04007442 RID: 29762
 		private float _notice_duration = 0f;
 
-		// Token: 0x04007443 RID: 29763
 		private float _notice_pertime = 1f;
 
-		// Token: 0x04007444 RID: 29764
 		private List<ComboBuff> _combo_buff_list = new List<ComboBuff>();
 
-		// Token: 0x04007445 RID: 29765
 		private Vector2 _yuyin_init_pos = Vector2.zero;
 
-		// Token: 0x04007446 RID: 29766
 		private Vector2 _yuyin_offset = new Vector2(65f, 0f);
 
-		// Token: 0x04007447 RID: 29767
 		private XSpectateSceneDocument _doc;
 
-		// Token: 0x04007448 RID: 29768
 		private uint time_token = 0U;
 
-		// Token: 0x04007449 RID: 29769
 		private XEntity _strength_preseved_entity = null;
 
-		// Token: 0x0400744A RID: 29770
 		private float _total_strength_preseved = 1f;
 
-		// Token: 0x0400744B RID: 29771
 		private float _current_strength_preseved = 0f;
 
-		// Token: 0x0400744C RID: 29772
 		private XTimerMgr.ElapsedEventHandler _showSingleNoticeCb = null;
 
-		// Token: 0x0400744D RID: 29773
 		private XTimerMgr.ElapsedEventHandler _endBigNoticeCb = null;
 
-		// Token: 0x0400744E RID: 29774
 		private XTimerMgr.ElapsedEventHandler _onSwitchToTeamChatCb = null;
 
-		// Token: 0x0400744F RID: 29775
 		private XTimerMgr.ElapsedEventHandler _hideBattleChatUICb = null;
 
-		// Token: 0x04007450 RID: 29776
 		private float _fYellow = 0f;
 
-		// Token: 0x04007451 RID: 29777
 		private float _fRed = 0f;
 
-		// Token: 0x04007452 RID: 29778
 		private XSwitchSight m_SwitchSight;
 
-		// Token: 0x04007453 RID: 29779
 		public XYuyinView _yuyinHandler;
 
-		// Token: 0x04007454 RID: 29780
 		private float lastPingTime = -60f;
 
-		// Token: 0x04007455 RID: 29781
 		private GameObject _big_notice = null;
 	}
 }

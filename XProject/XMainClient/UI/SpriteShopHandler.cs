@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017FA RID: 6138
+
 	internal class SpriteShopHandler : DlgHandlerBase
 	{
-		// Token: 0x170038E8 RID: 14568
-		// (get) Token: 0x0600FE9E RID: 65182 RVA: 0x003BE26C File Offset: 0x003BC46C
+
 		protected override string FileName
 		{
 			get
@@ -20,7 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FE9F RID: 65183 RVA: 0x003BE283 File Offset: 0x003BC483
 		protected override void Init()
 		{
 			base.Init();
@@ -29,7 +27,6 @@ namespace XMainClient.UI
 			this.InitUI();
 		}
 
-		// Token: 0x0600FEA0 RID: 65184 RVA: 0x003BE2BC File Offset: 0x003BC4BC
 		private void InitUI()
 		{
 			this.m_NormalLotteryOnce = (base.PanelObject.transform.Find("Bg/NormalLottery/Button/Once").GetComponent("XUIButton") as IXUIButton);
@@ -78,7 +75,6 @@ namespace XMainClient.UI
 			this.m_ResultPool.SetupPool(transform.parent.gameObject, transform.gameObject, 1U, false);
 		}
 
-		// Token: 0x0600FEA1 RID: 65185 RVA: 0x003BE764 File Offset: 0x003BC964
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -91,7 +87,6 @@ namespace XMainClient.UI
 			this.m_ResultTween.RegisterOnFinishEventHandler(new OnTweenFinishEventHandler(this.OnShowFinished));
 		}
 
-		// Token: 0x0600FEA2 RID: 65186 RVA: 0x003BE821 File Offset: 0x003BCA21
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -99,20 +94,17 @@ namespace XMainClient.UI
 			this.RefreshLotteryFrame();
 		}
 
-		// Token: 0x0600FEA3 RID: 65187 RVA: 0x003BE840 File Offset: 0x003BCA40
 		private bool OnLotteryClicked(IXUIButton button)
 		{
 			this._doc.SendBuySpriteEggRpc((uint)button.ID);
 			return true;
 		}
 
-		// Token: 0x0600FEA4 RID: 65188 RVA: 0x003BE866 File Offset: 0x003BCA66
 		private void OnShowFinished(IXUITweenTool tween)
 		{
 			this.m_ResultFrame.gameObject.SetActive(false);
 		}
 
-		// Token: 0x0600FEA5 RID: 65189 RVA: 0x003BE87B File Offset: 0x003BCA7B
 		public void ShowResultFrame(List<ItemBrief> item)
 		{
 			this.m_ResultFrame.gameObject.SetActive(true);
@@ -121,14 +113,12 @@ namespace XMainClient.UI
 			this.RefreshResultFrame(item);
 		}
 
-		// Token: 0x0600FEA6 RID: 65190 RVA: 0x003BE8B7 File Offset: 0x003BCAB7
 		public void RefreshLotteryFrame()
 		{
 			this.ShowNormalButton(this._doc.NormalCoolDown == 0U);
 			this.ShowSpecialButton(this._doc.SpecialCoolDown == 0U);
 		}
 
-		// Token: 0x0600FEA7 RID: 65191 RVA: 0x003BE8E4 File Offset: 0x003BCAE4
 		private void RefreshResultFrame(List<ItemBrief> gift)
 		{
 			this.m_ResultPool.ReturnAll(false);
@@ -149,7 +139,6 @@ namespace XMainClient.UI
 			this.m_ResultList.Refresh();
 		}
 
-		// Token: 0x0600FEA8 RID: 65192 RVA: 0x003BE9EC File Offset: 0x003BCBEC
 		private void ShowNormalButton(bool free)
 		{
 			this.m_NormalLotteryFree.SetVisible(free);
@@ -167,7 +156,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FEA9 RID: 65193 RVA: 0x003BEAFC File Offset: 0x003BCCFC
 		private void ShowSpecialButton(bool free)
 		{
 			this.m_SpecialLotteryFree.SetVisible(free);
@@ -177,7 +165,6 @@ namespace XMainClient.UI
 			this._specialCD.SetFormatString(XStringDefineProxy.GetString("SpriteLotteryNextFreeTime"));
 		}
 
-		// Token: 0x0600FEAA RID: 65194 RVA: 0x003BEB67 File Offset: 0x003BCD67
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
@@ -185,70 +172,48 @@ namespace XMainClient.UI
 			this._specialCD.Update();
 		}
 
-		// Token: 0x0400706F RID: 28783
 		private XSpriteSystemDocument _doc = null;
 
-		// Token: 0x04007070 RID: 28784
 		private IXUIButton m_NormalLotteryOnce;
 
-		// Token: 0x04007071 RID: 28785
 		private IXUIButton m_NormalLotteryTen;
 
-		// Token: 0x04007072 RID: 28786
 		private IXUIButton m_NormalLotteryFree;
 
-		// Token: 0x04007073 RID: 28787
 		private IXUILabelSymbol m_NormalLotteryOncePrice;
 
-		// Token: 0x04007074 RID: 28788
 		private IXUILabelSymbol m_NormalLotteryTenPrice;
 
-		// Token: 0x04007075 RID: 28789
 		private IXUILabel m_NormalLotteryTip;
 
-		// Token: 0x04007076 RID: 28790
 		private IXUIButton m_SpecialLotteryOnce;
 
-		// Token: 0x04007077 RID: 28791
 		private IXUIButton m_SpecialLotteryTen;
 
-		// Token: 0x04007078 RID: 28792
 		private IXUIButton m_SpecialLotteryFree;
 
-		// Token: 0x04007079 RID: 28793
 		private IXUILabelSymbol m_SpecialLotteryOncePrice;
 
-		// Token: 0x0400707A RID: 28794
 		private IXUILabelSymbol m_SpecialLotteryTenPrice;
 
-		// Token: 0x0400707B RID: 28795
 		private IXUILabel m_SpecialLotteryTip;
 
-		// Token: 0x0400707C RID: 28796
 		private Transform m_NormalLottery;
 
-		// Token: 0x0400707D RID: 28797
 		private Transform m_SpecialLottery;
 
-		// Token: 0x0400707E RID: 28798
 		private Transform m_ResultFrame;
 
-		// Token: 0x0400707F RID: 28799
 		private IXUITweenTool m_ResultTween;
 
-		// Token: 0x04007080 RID: 28800
 		private XUIPool m_ResultPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04007081 RID: 28801
 		private IXUIList m_ResultList;
 
-		// Token: 0x04007082 RID: 28802
 		private int _maxColdDrawCount;
 
-		// Token: 0x04007083 RID: 28803
 		private XLeftTimeCounter _normalCD;
 
-		// Token: 0x04007084 RID: 28804
 		private XLeftTimeCounter _specialCD;
 	}
 }

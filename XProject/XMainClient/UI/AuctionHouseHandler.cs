@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200171B RID: 5915
+
 	internal class AuctionHouseHandler : DlgHandlerBase
 	{
-		// Token: 0x170037A2 RID: 14242
-		// (get) Token: 0x0600F44C RID: 62540 RVA: 0x0036CA08 File Offset: 0x0036AC08
+
 		protected override string FileName
 		{
 			get
@@ -21,7 +20,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F44D RID: 62541 RVA: 0x0036CA20 File Offset: 0x0036AC20
 		protected override void Init()
 		{
 			base.Init();
@@ -52,7 +50,6 @@ namespace XMainClient.UI
 			this.SetupLevelOneTypeList();
 		}
 
-		// Token: 0x0600F44E RID: 62542 RVA: 0x0036CD6C File Offset: 0x0036AF6C
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -63,7 +60,6 @@ namespace XMainClient.UI
 			this.m_ResultWrapContent.RegisterItemUpdateEventHandler(new WrapItemUpdateEventHandler(this.ResultWrapListUpdated));
 		}
 
-		// Token: 0x0600F44F RID: 62543 RVA: 0x0036CDFC File Offset: 0x0036AFFC
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -77,7 +73,6 @@ namespace XMainClient.UI
 			DlgBase<AuctionView, AuctionBehaviour>.singleton.SetGuildAuctionRedPointState(false);
 		}
 
-		// Token: 0x0600F450 RID: 62544 RVA: 0x0036CE7F File Offset: 0x0036B07F
 		protected override void OnHide()
 		{
 			XSingleton<XTimerMgr>.singleton.KillTimer(this._timeToken);
@@ -85,7 +80,6 @@ namespace XMainClient.UI
 			base.OnHide();
 		}
 
-		// Token: 0x0600F451 RID: 62545 RVA: 0x0036CEAB File Offset: 0x0036B0AB
 		public override void OnUnload()
 		{
 			XSingleton<XTimerMgr>.singleton.KillTimer(this._timeToken);
@@ -93,7 +87,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x0600F452 RID: 62546 RVA: 0x0036CED8 File Offset: 0x0036B0D8
 		public override void RefreshData()
 		{
 			switch (this._doc.DataState)
@@ -167,14 +160,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F453 RID: 62547 RVA: 0x0036D104 File Offset: 0x0036B304
 		private bool OnResultCloseBtnClick(IXUIButton btn)
 		{
 			this.m_ResultWindow.SetActive(false);
 			return true;
 		}
 
-		// Token: 0x0600F454 RID: 62548 RVA: 0x0036D124 File Offset: 0x0036B324
 		private bool OnResultBtnClick(IXUIButton btn)
 		{
 			this.m_ResultWrapContent.SetContentCount(0, false);
@@ -183,7 +174,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F455 RID: 62549 RVA: 0x0036D170 File Offset: 0x0036B370
 		private void SetupLevelOneTypeList()
 		{
 			this.m_LevelOnePool.ReturnAll(false);
@@ -212,7 +202,6 @@ namespace XMainClient.UI
 			this.SetupLevelTwoTypeList();
 		}
 
-		// Token: 0x0600F456 RID: 62550 RVA: 0x0036D2D0 File Offset: 0x0036B4D0
 		private void SetupLevelTwoTypeList()
 		{
 			for (int i = 0; i < this.m_parentTypeTs.Count; i++)
@@ -260,7 +249,6 @@ namespace XMainClient.UI
 			this.m_Table.Reposition();
 		}
 
-		// Token: 0x0600F457 RID: 62551 RVA: 0x0036D658 File Offset: 0x0036B858
 		private void OnTypeCheckBoxClick(IXUISprite isp)
 		{
 			bool flag = isp.ID == 0UL;
@@ -289,7 +277,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F458 RID: 62552 RVA: 0x0036D74C File Offset: 0x0036B94C
 		private void RefreshItemList(bool resetScrollPos = true)
 		{
 			this._doc.ResetScrollView = false;
@@ -307,13 +294,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F459 RID: 62553 RVA: 0x0036D80A File Offset: 0x0036BA0A
 		private void ItemWrapListInit(Transform t, int i)
 		{
 			this._timeLabel[i] = (t.Find("Time").GetComponent("XUILabel") as IXUILabel);
 		}
 
-		// Token: 0x0600F45A RID: 62554 RVA: 0x0036D830 File Offset: 0x0036BA30
 		private void ItemWrapListUpdated(Transform t, int i)
 		{
 			bool flag = i < 0 || i >= this._doc.ItemList.Count;
@@ -392,7 +377,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F45B RID: 62555 RVA: 0x0036DC7C File Offset: 0x0036BE7C
 		private bool OnAuctionBtnClick(IXUIButton btn)
 		{
 			int index = (int)btn.ID;
@@ -408,7 +392,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F45C RID: 62556 RVA: 0x0036DD9C File Offset: 0x0036BF9C
 		private bool OnBuyBtnClick(IXUIButton btn)
 		{
 			int index = (int)btn.ID;
@@ -424,7 +407,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F45D RID: 62557 RVA: 0x0036DEAC File Offset: 0x0036C0AC
 		private bool OnAuctionSure(IXUIButton btn)
 		{
 			DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.SetVisible(false, true);
@@ -439,7 +421,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F45E RID: 62558 RVA: 0x0036DF30 File Offset: 0x0036C130
 		private bool OnBuySure(IXUIButton btn)
 		{
 			DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.SetVisible(false, true);
@@ -454,7 +435,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F45F RID: 62559 RVA: 0x0036DF9C File Offset: 0x0036C19C
 		private void RefreshHistoryList()
 		{
 			bool flag = !base.IsVisible();
@@ -469,7 +449,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F460 RID: 62560 RVA: 0x0036DFFC File Offset: 0x0036C1FC
 		private void ResultWrapListUpdated(Transform t, int i)
 		{
 			IXUILabel ixuilabel = t.Find("ActName").GetComponent("XUILabel") as IXUILabel;
@@ -495,13 +474,11 @@ namespace XMainClient.UI
 			gameObject.SetActive(i % 2 == 0);
 		}
 
-		// Token: 0x0600F461 RID: 62561 RVA: 0x0036E1C6 File Offset: 0x0036C3C6
 		private void ForceQueryLastClick(object o = null)
 		{
 			this._doc.QueryRefreshUI();
 		}
 
-		// Token: 0x0600F462 RID: 62562 RVA: 0x0036E1D8 File Offset: 0x0036C3D8
 		private void RefreshLeftTime(object o = null)
 		{
 			for (int i = 0; i < AuctionHouseHandler.MAXSHOWITEM; i++)
@@ -546,121 +523,83 @@ namespace XMainClient.UI
 			this._timeToken = XSingleton<XTimerMgr>.singleton.SetTimer(1f, new XTimerMgr.ElapsedEventHandler(this.RefreshLeftTime), null);
 		}
 
-		// Token: 0x0600F463 RID: 62563 RVA: 0x0036E314 File Offset: 0x0036C514
 		private double GetNowTime()
 		{
 			return (double)(DateTime.Now.Ticks / 10000000L);
 		}
 
-		// Token: 0x0400692D RID: 26925
 		private AuctionHouseDocument _doc;
 
-		// Token: 0x0400692E RID: 26926
 		private GameObject m_ResultWindow;
 
-		// Token: 0x0400692F RID: 26927
 		private IXUILabel m_ResultTitle;
 
-		// Token: 0x04006930 RID: 26928
 		private IXUIButton m_ResultCloseBtn;
 
-		// Token: 0x04006931 RID: 26929
 		private IXUIScrollView m_ResultScrollView;
 
-		// Token: 0x04006932 RID: 26930
 		private IXUIWrapContent m_ResultWrapContent;
 
-		// Token: 0x04006933 RID: 26931
 		private XUIPool m_ResultPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006934 RID: 26932
 		private IXUIButton m_ResultBtn;
 
-		// Token: 0x04006935 RID: 26933
 		private IXUILabel m_ResultLabel;
 
-		// Token: 0x04006936 RID: 26934
 		private XUIPool m_LevelOnePool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006937 RID: 26935
 		private XUIPool m_LevelTwoPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006938 RID: 26936
 		private IXUIScrollView m_ItemScrollView;
 
-		// Token: 0x04006939 RID: 26937
 		private IXUIWrapContent m_ItemListWrapContent;
 
-		// Token: 0x0400693A RID: 26938
 		private GameObject m_NoneItem;
 
-		// Token: 0x0400693B RID: 26939
 		private IXUITable m_Table;
 
-		// Token: 0x0400693C RID: 26940
 		private IXUILabel m_MySpoil;
 
-		// Token: 0x0400693D RID: 26941
 		private IXUILabel m_NoSpoil;
 
-		// Token: 0x0400693E RID: 26942
 		private List<Transform> m_parentTypeTs = new List<Transform>();
 
-		// Token: 0x0400693F RID: 26943
 		private uint _timeToken;
 
-		// Token: 0x04006940 RID: 26944
 		private uint _reqToken;
 
-		// Token: 0x04006941 RID: 26945
 		private IXUILabel[] _timeLabel = new IXUILabel[8];
 
-		// Token: 0x04006942 RID: 26946
 		private int[] _leftTime = new int[8];
 
-		// Token: 0x04006943 RID: 26947
 		private bool[] _gsq = new bool[8];
 
-		// Token: 0x04006944 RID: 26948
 		private IXUISprite _lastClickTabSprite;
 
-		// Token: 0x04006945 RID: 26949
 		private double _signTime;
 
-		// Token: 0x04006946 RID: 26950
 		private ulong _signUid;
 
-		// Token: 0x04006947 RID: 26951
 		private uint _signPrice;
 
-		// Token: 0x04006948 RID: 26952
 		private uint _signMaxPrice;
 
-		// Token: 0x04006949 RID: 26953
 		private int _signActType;
 
-		// Token: 0x0400694A RID: 26954
 		private static readonly int MAXSHOWITEM = 8;
 
-		// Token: 0x0400694B RID: 26955
 		private int TYPEMAX;
 
-		// Token: 0x0400694C RID: 26956
 		private float PERADDPRICE;
 
-		// Token: 0x0400694D RID: 26957
 		private bool RefreshGuildTabs = false;
 
-		// Token: 0x0400694E RID: 26958
 		private IXUISprite m_GeneraliSp;
 
-		// Token: 0x0400694F RID: 26959
 		private IXUITweenTool m_SwitchTween;
 
-		// Token: 0x04006950 RID: 26960
 		private bool m_TweenToggle = false;
 
-		// Token: 0x04006951 RID: 26961
 		private string WaitStartString;
 	}
 }

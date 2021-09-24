@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200185D RID: 6237
+
 	internal class SpriteSystemDlg : TabDlgBase<SpriteSystemDlg>
 	{
-		// Token: 0x1700398A RID: 14730
-		// (get) Token: 0x060103D2 RID: 66514 RVA: 0x003EC6D4 File Offset: 0x003EA8D4
+
 		public override string fileName
 		{
 			get
@@ -19,8 +18,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700398B RID: 14731
-		// (get) Token: 0x060103D3 RID: 66515 RVA: 0x003EC6EC File Offset: 0x003EA8EC
 		public override int group
 		{
 			get
@@ -29,8 +26,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700398C RID: 14732
-		// (get) Token: 0x060103D4 RID: 66516 RVA: 0x003EC700 File Offset: 0x003EA900
 		protected override bool bHorizontal
 		{
 			get
@@ -39,8 +34,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700398D RID: 14733
-		// (get) Token: 0x060103D5 RID: 66517 RVA: 0x003EC714 File Offset: 0x003EA914
 		public override int sysid
 		{
 			get
@@ -49,7 +42,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060103D6 RID: 66518 RVA: 0x003EC730 File Offset: 0x003EA930
 		protected override void Init()
 		{
 			this._doc = XDocuments.GetSpecificDocument<XSpriteSystemDocument>(XSpriteSystemDocument.uuID);
@@ -59,7 +51,6 @@ namespace XMainClient.UI
 			base.Init();
 		}
 
-		// Token: 0x060103D7 RID: 66519 RVA: 0x003EC798 File Offset: 0x003EA998
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -69,13 +60,11 @@ namespace XMainClient.UI
 			ixuibutton.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnHelpBtnClicked));
 		}
 
-		// Token: 0x060103D8 RID: 66520 RVA: 0x003EC827 File Offset: 0x003EAA27
 		protected override void OnLoad()
 		{
 			base.OnLoad();
 		}
 
-		// Token: 0x060103D9 RID: 66521 RVA: 0x003EC834 File Offset: 0x003EAA34
 		protected override void OnUnload()
 		{
 			DlgHandlerBase.EnsureUnload<SpriteMainFrame>(ref this._SpriteMainFrame);
@@ -89,7 +78,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x060103DA RID: 66522 RVA: 0x003EC8AC File Offset: 0x003EAAAC
 		public override void SetupHandlers(XSysDefine sys)
 		{
 			this._CurrSys = sys;
@@ -120,7 +108,6 @@ namespace XMainClient.UI
 			XSingleton<XDebug>.singleton.AddErrorLog("System has not finished:", sys.ToString(), null, null, null, null);
 		}
 
-		// Token: 0x060103DB RID: 66523 RVA: 0x003EC9F4 File Offset: 0x003EABF4
 		public void RefreshTopUI()
 		{
 			bool flag = !base.IsVisible();
@@ -131,7 +118,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060103DC RID: 66524 RVA: 0x003ECA24 File Offset: 0x003EAC24
 		public override int[] GetTitanBarItems()
 		{
 			OpenSystemTable.RowData sysData = XSingleton<XGameSysMgr>.singleton.GetSysData(XFastEnumIntEqualityComparer<XSysDefine>.ToInt(this._CurrSys));
@@ -148,7 +134,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x060103DD RID: 66525 RVA: 0x003ECA60 File Offset: 0x003EAC60
 		public void OpenWindows(SpriteWindow type)
 		{
 			switch (type)
@@ -165,7 +150,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060103DE RID: 66526 RVA: 0x003ECADC File Offset: 0x003EACDC
 		private bool OnIllustrationClicked(IXUIButton btn)
 		{
 			this.OpenWindows(SpriteWindow.Illustration);
@@ -173,14 +157,12 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x060103DF RID: 66527 RVA: 0x003ECB04 File Offset: 0x003EAD04
 		private bool OnHelpBtnClicked(IXUIButton btn)
 		{
 			DlgBase<XCommonHelpTipView, XCommonHelpTipBehaviour>.singleton.ShowHelp(XSysDefine.XSys_SpriteSystem);
 			return true;
 		}
 
-		// Token: 0x060103E0 RID: 66528 RVA: 0x003ECB27 File Offset: 0x003EAD27
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -188,7 +170,6 @@ namespace XMainClient.UI
 			this.CheckSpriteSummonRedpoint();
 		}
 
-		// Token: 0x060103E1 RID: 66529 RVA: 0x003ECB54 File Offset: 0x003EAD54
 		public void CheckSpriteSummonRedpoint()
 		{
 			string[] array = XSingleton<XGlobalConfig>.singleton.GetValue("SpriteDrawCost").Split(XGlobalConfig.SequenceSeparator);
@@ -203,43 +184,30 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x040074A5 RID: 29861
 		private IXUIButton m_illustration;
 
-		// Token: 0x040074A6 RID: 29862
 		private Transform parent;
 
-		// Token: 0x040074A7 RID: 29863
 		public SpriteMainFrame _SpriteMainFrame;
 
-		// Token: 0x040074A8 RID: 29864
 		public SpriteLotteryHandler _SpriteLotteryHandler;
 
-		// Token: 0x040074A9 RID: 29865
 		public SpriteFightFrame _SpriteFightFrame;
 
-		// Token: 0x040074AA RID: 29866
 		public SpriteResolveFrame _SpriteResolveFrame;
 
-		// Token: 0x040074AB RID: 29867
 		public SpriteShopHandler _SpriteShopHandler;
 
-		// Token: 0x040074AC RID: 29868
 		private Transform windowParent;
 
-		// Token: 0x040074AD RID: 29869
 		public SpriteStarUpWindow _StarUpWindow;
 
-		// Token: 0x040074AE RID: 29870
 		public XSpriteIllustrationHandler _IllustrationHandler;
 
-		// Token: 0x040074AF RID: 29871
 		public XSpriteAwakeHandler _AwakeWindow;
 
-		// Token: 0x040074B0 RID: 29872
 		private XSpriteSystemDocument _doc;
 
-		// Token: 0x040074B1 RID: 29873
 		private XSysDefine _CurrSys;
 	}
 }

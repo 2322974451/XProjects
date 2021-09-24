@@ -3,10 +3,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x020010C2 RID: 4290
+
 	internal class Player_warrior_dash_start
 	{
-		// Token: 0x0600D7C1 RID: 55233 RVA: 0x00328960 File Offset: 0x00326B60
+
 		public static bool canfirecharge(XSkill skill)
 		{
 			bool syncMode = XSingleton<XGame>.singleton.SyncMode;
@@ -33,7 +33,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600D7C2 RID: 55234 RVA: 0x00328A0C File Offset: 0x00326C0C
 		private static bool NoFire(XEntity entity, XSkillCore core)
 		{
 			bool isTransform = entity.IsTransform;

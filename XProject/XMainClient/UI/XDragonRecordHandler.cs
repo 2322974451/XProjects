@@ -8,10 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020016DF RID: 5855
+
 	internal class XDragonRecordHandler : DlgHandlerBase
 	{
-		// Token: 0x0600F184 RID: 61828 RVA: 0x00355604 File Offset: 0x00353804
+
 		protected override void Init()
 		{
 			base.Init();
@@ -25,7 +25,6 @@ namespace XMainClient.UI
 			this._EmptyDetail = base.PanelObject.transform.Find("detail/EmptyDetail");
 		}
 
-		// Token: 0x0600F185 RID: 61829 RVA: 0x0035570C File Offset: 0x0035390C
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -33,13 +32,11 @@ namespace XMainClient.UI
 			this._doc.ReqDragonGroupRoleInfo();
 		}
 
-		// Token: 0x0600F186 RID: 61830 RVA: 0x00355729 File Offset: 0x00353929
 		public override void RefreshData()
 		{
 			this.SetupPartnerInfo();
 		}
 
-		// Token: 0x0600F187 RID: 61831 RVA: 0x00355734 File Offset: 0x00353934
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -48,14 +45,12 @@ namespace XMainClient.UI
 			this.m_WrapContent.RegisterItemUpdateEventHandler(new WrapItemUpdateEventHandler(this.PartnerWrapListUpdate));
 		}
 
-		// Token: 0x0600F188 RID: 61832 RVA: 0x00355791 File Offset: 0x00353991
 		public override void OnUnload()
 		{
 			this.m_dragonGroupRoleInfoList = null;
 			base.OnUnload();
 		}
 
-		// Token: 0x0600F189 RID: 61833 RVA: 0x003557A4 File Offset: 0x003539A4
 		private void PartnerWrapListUpdate(Transform item, int index)
 		{
 			bool flag = this.m_dragonGroupRoleInfoList == null || index >= this.m_dragonGroupRoleInfoList.Count;
@@ -147,7 +142,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F18A RID: 61834 RVA: 0x002A7985 File Offset: 0x002A5B85
 		private void OnClickDegreeHeart(IXUISprite spr)
 		{
 			XSingleton<UiUtility>.singleton.ShowSystemTip(XStringDefineProxy.GetString("FRIENDS_DEGREE_HINT_TEXT_FMT", new object[]
@@ -156,35 +150,30 @@ namespace XMainClient.UI
 			}), "fece00");
 		}
 
-		// Token: 0x0600F18B RID: 61835 RVA: 0x00355C8C File Offset: 0x00353E8C
 		private void OnClickItem(IXUISprite sp)
 		{
 			ulong id = sp.ID;
 			XCharacterCommonMenuDocument.ReqCharacterMenuInfo(id, false);
 		}
 
-		// Token: 0x0600F18C RID: 61836 RVA: 0x00355CAC File Offset: 0x00353EAC
 		private bool OnClickAddFriend(IXUIButton btn)
 		{
 			DlgBase<XFriendsView, XFriendsBehaviour>.singleton.AddFriendById(btn.ID);
 			return true;
 		}
 
-		// Token: 0x0600F18D RID: 61837 RVA: 0x00355CD0 File Offset: 0x00353ED0
 		private bool OnClickBtnDragonNest(IXUIButton btn)
 		{
 			DlgBase<XDragonNestView, XDragonNestBehaviour>.singleton.SetVisibleWithAnimation(true, null);
 			return true;
 		}
 
-		// Token: 0x0600F18E RID: 61838 RVA: 0x00355CF0 File Offset: 0x00353EF0
 		private bool OnClickBtnRecruit(IXUIButton btn)
 		{
 			XSingleton<XGameSysMgr>.singleton.OpenSystem(XSysDefine.XSys_GroupRecruit, 0UL);
 			return true;
 		}
 
-		// Token: 0x0600F18F RID: 61839 RVA: 0x00355D18 File Offset: 0x00353F18
 		private bool OnClickChatBtn(IXUIButton btn)
 		{
 			int num = (int)btn.ID;
@@ -227,7 +216,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F190 RID: 61840 RVA: 0x00355E6C File Offset: 0x0035406C
 		private void SetupPartnerInfo()
 		{
 			List<DragonGroupRoleInfo> dragonGroupRoleInfoLsit = this._doc.DragonGroupRoleInfoLsit;
@@ -259,13 +247,11 @@ namespace XMainClient.UI
 			this.m_ScrollView.ResetPosition();
 		}
 
-		// Token: 0x0600F191 RID: 61841 RVA: 0x00355F52 File Offset: 0x00354152
 		private void SortRoleInfoList()
 		{
 			this.m_dragonGroupRoleInfoList.Sort(new Comparison<DragonGroupRoleInfo>(this.ComparePartner));
 		}
 
-		// Token: 0x0600F192 RID: 61842 RVA: 0x00355F70 File Offset: 0x00354170
 		private int ComparePartner(DragonGroupRoleInfo a, DragonGroupRoleInfo b)
 		{
 			bool flag = a.stageTime != b.stageTime;
@@ -281,31 +267,22 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x04006739 RID: 26425
 		private XDragonPartnerDocument _doc = null;
 
-		// Token: 0x0400673A RID: 26426
 		private XExpeditionDocument _expDoc = null;
 
-		// Token: 0x0400673B RID: 26427
 		private XDragonNestDocument _dnDoc = null;
 
-		// Token: 0x0400673C RID: 26428
 		private List<DragonGroupRoleInfo> m_dragonGroupRoleInfoList;
 
-		// Token: 0x0400673D RID: 26429
 		private IXUIButton m_BtnDragonNest;
 
-		// Token: 0x0400673E RID: 26430
 		private IXUIButton m_BtnRecruit;
 
-		// Token: 0x0400673F RID: 26431
 		private IXUIScrollView m_ScrollView;
 
-		// Token: 0x04006740 RID: 26432
 		private IXUIWrapContent m_WrapContent;
 
-		// Token: 0x04006741 RID: 26433
 		private Transform _EmptyDetail;
 	}
 }

@@ -5,29 +5,26 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000E87 RID: 3719
+
 	internal class TooltipButtonOperateEnhanceTransform : TooltipButtonOperateBase
 	{
-		// Token: 0x0600C6B2 RID: 50866 RVA: 0x002BFD68 File Offset: 0x002BDF68
+
 		public override string GetButtonText()
 		{
 			return XStringDefineProxy.GetString("ENHANCE_TRANSFORM");
 		}
 
-		// Token: 0x0600C6B3 RID: 50867 RVA: 0x002BFD84 File Offset: 0x002BDF84
 		public override bool HasRedPoint(XItem item)
 		{
 			return false;
 		}
 
-		// Token: 0x0600C6B4 RID: 50868 RVA: 0x002BFD98 File Offset: 0x002BDF98
 		public override bool IsButtonVisible(XItem item)
 		{
 			XEquipItem xequipItem = item as XEquipItem;
 			return xequipItem.enhanceInfo.EnhanceLevel > 0U;
 		}
 
-		// Token: 0x0600C6B5 RID: 50869 RVA: 0x002BFDC0 File Offset: 0x002BDFC0
 		public override void OnButtonClick(ulong mainUID, ulong compareUID)
 		{
 			base.OnButtonClick(mainUID, compareUID);
@@ -62,7 +59,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C6B6 RID: 50870 RVA: 0x002BFEE8 File Offset: 0x002BE0E8
 		private bool EnhanceTransform(IXUIButton btn)
 		{
 			XEquipCreateDocument.Doc.ReqEnhanceTransform(this.mainItemUID, this.compareItemUID);

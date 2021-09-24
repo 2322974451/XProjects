@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000BDE RID: 3038
+
 	internal class RadioBattleDlg : DlgBase<RadioBattleDlg, RadioBattleBahaviour>
 	{
-		// Token: 0x17003092 RID: 12434
-		// (get) Token: 0x0600AD33 RID: 44339 RVA: 0x00201414 File Offset: 0x001FF614
+
 		private XRadioDocument radioDocument
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003093 RID: 12435
-		// (get) Token: 0x0600AD34 RID: 44340 RVA: 0x00201430 File Offset: 0x001FF630
 		public override string fileName
 		{
 			get
@@ -31,8 +28,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003094 RID: 12436
-		// (get) Token: 0x0600AD35 RID: 44341 RVA: 0x00201448 File Offset: 0x001FF648
 		public override bool autoload
 		{
 			get
@@ -41,8 +36,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003095 RID: 12437
-		// (get) Token: 0x0600AD36 RID: 44342 RVA: 0x0020145C File Offset: 0x001FF65C
 		public override bool isMainUI
 		{
 			get
@@ -51,8 +44,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003096 RID: 12438
-		// (get) Token: 0x0600AD37 RID: 44343 RVA: 0x00201470 File Offset: 0x001FF670
 		public override bool isHideChat
 		{
 			get
@@ -61,13 +52,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AD38 RID: 44344 RVA: 0x00201483 File Offset: 0x001FF683
 		protected override void Init()
 		{
 			base.Init();
 		}
 
-		// Token: 0x0600AD39 RID: 44345 RVA: 0x00201490 File Offset: 0x001FF690
 		public void Show(bool show)
 		{
 			if (show)
@@ -91,7 +80,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AD3A RID: 44346 RVA: 0x0020153C File Offset: 0x001FF73C
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -110,7 +98,6 @@ namespace XMainClient
 			base.uiBehaviour.m_btnRadio.gameObject.transform.transform.localPosition = new Vector3((float)(yuyinRaw.radioX + num), (float)yuyinRaw.radioY, 0f);
 		}
 
-		// Token: 0x0600AD3B RID: 44347 RVA: 0x00201644 File Offset: 0x001FF844
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -119,7 +106,6 @@ namespace XMainClient
 			base.uiBehaviour.m_btnClose.RegisterClickEventHandler(new ButtonClickEventHandler(this.CloseRadio));
 		}
 
-		// Token: 0x0600AD3C RID: 44348 RVA: 0x002016B0 File Offset: 0x001FF8B0
 		private bool Toggle(IXUIButton btn)
 		{
 			bool flag = base.IsVisible();
@@ -138,7 +124,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600AD3D RID: 44349 RVA: 0x00201710 File Offset: 0x001FF910
 		private bool CloseRadio(IXUIButton btn)
 		{
 			bool flag = base.IsVisible();
@@ -150,7 +135,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600AD3E RID: 44350 RVA: 0x0020174C File Offset: 0x001FF94C
 		private bool OpenRadio(IXUIButton btn)
 		{
 			bool flag = base.IsVisible();
@@ -162,7 +146,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600AD3F RID: 44351 RVA: 0x00201788 File Offset: 0x001FF988
 		private void Refresh(bool open)
 		{
 			if (open)
@@ -192,7 +175,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0400413F RID: 16703
 		private int open_level = 2;
 	}
 }

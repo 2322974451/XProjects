@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x020000FF RID: 255
+
 	public class GardenBanquetCfg : CVSReader
 	{
-		// Token: 0x06000672 RID: 1650 RVA: 0x0001F4DC File Offset: 0x0001D6DC
+
 		public GardenBanquetCfg.RowData GetByBanquetID(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -29,7 +29,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000673 RID: 1651 RVA: 0x0001F548 File Offset: 0x0001D748
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			GardenBanquetCfg.RowData rowData = new GardenBanquetCfg.RowData();
@@ -63,7 +62,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x06000674 RID: 1652 RVA: 0x0001F6C8 File Offset: 0x0001D8C8
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -77,49 +75,35 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x0400034B RID: 843
 		public GardenBanquetCfg.RowData[] Table = null;
 
-		// Token: 0x020002FE RID: 766
 		public class RowData
 		{
-			// Token: 0x04000B18 RID: 2840
+
 			public uint BanquetID;
 
-			// Token: 0x04000B19 RID: 2841
 			public SeqListRef<uint> Stuffs;
 
-			// Token: 0x04000B1A RID: 2842
 			public SeqListRef<uint> BanquetAwards;
 
-			// Token: 0x04000B1B RID: 2843
 			public string BanquetName;
 
-			// Token: 0x04000B1C RID: 2844
 			public uint VoiceOver1Duration;
 
-			// Token: 0x04000B1D RID: 2845
 			public uint VoiceOver2Duration;
 
-			// Token: 0x04000B1E RID: 2846
 			public uint VoiceOver3Duration;
 
-			// Token: 0x04000B1F RID: 2847
 			public uint VoiceOver4Duration;
 
-			// Token: 0x04000B20 RID: 2848
 			public string VoiceOver1;
 
-			// Token: 0x04000B21 RID: 2849
 			public string VoiceOver2;
 
-			// Token: 0x04000B22 RID: 2850
 			public string VoiceOver3;
 
-			// Token: 0x04000B23 RID: 2851
 			public string VoiceOver4;
 
-			// Token: 0x04000B24 RID: 2852
 			public string Desc;
 		}
 	}

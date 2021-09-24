@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x0200015F RID: 351
+
 	public class RandomName : CVSReader
 	{
-		// Token: 0x060007D8 RID: 2008 RVA: 0x00027C48 File Offset: 0x00025E48
+
 		public RandomName.RowData GetByID(int key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -21,7 +21,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x060007D9 RID: 2009 RVA: 0x00027C80 File Offset: 0x00025E80
 		private RandomName.RowData BinarySearchID(int key)
 		{
 			int num = 0;
@@ -80,7 +79,6 @@ namespace XUtliPoolLib
 			return null;
 		}
 
-		// Token: 0x060007DA RID: 2010 RVA: 0x00027D5C File Offset: 0x00025F5C
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			RandomName.RowData rowData = new RandomName.RowData();
@@ -94,7 +92,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x060007DB RID: 2011 RVA: 0x00027DD4 File Offset: 0x00025FD4
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -108,19 +105,15 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x040003AB RID: 939
 		public RandomName.RowData[] Table = null;
 
-		// Token: 0x0200035E RID: 862
 		public class RowData
 		{
-			// Token: 0x04000D79 RID: 3449
+
 			public int ID;
 
-			// Token: 0x04000D7A RID: 3450
 			public string FirstName;
 
-			// Token: 0x04000D7B RID: 3451
 			public string LastName;
 		}
 	}

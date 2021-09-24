@@ -7,10 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000FEC RID: 4076
+
 	public class XGlobalConfig : XSingleton<XGlobalConfig>
 	{
-		// Token: 0x0600D40A RID: 54282 RVA: 0x0031E330 File Offset: 0x0031C530
+
 		public override bool Init()
 		{
 			bool flag = this._async_loader == null;
@@ -266,13 +266,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600D40B RID: 54283 RVA: 0x0031EED4 File Offset: 0x0031D0D4
 		public override void Uninit()
 		{
 			this._async_loader = null;
 		}
 
-		// Token: 0x0600D40C RID: 54284 RVA: 0x0031EEE0 File Offset: 0x0031D0E0
 		public string GetValue(string key)
 		{
 			string text = "";
@@ -290,20 +288,17 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600D40D RID: 54285 RVA: 0x0031EF24 File Offset: 0x0031D124
 		public bool GetValue(string key, out string value)
 		{
 			uint key2 = XSingleton<XCommon>.singleton.XHash(key);
 			return this._table.Table.TryGetValue(key2, out value);
 		}
 
-		// Token: 0x0600D40E RID: 54286 RVA: 0x0031EF60 File Offset: 0x0031D160
 		public string[] GetAndSeparateValue(string key, char[] separator)
 		{
 			return this.GetValue(key).Split(separator);
 		}
 
-		// Token: 0x0600D40F RID: 54287 RVA: 0x0031EF80 File Offset: 0x0031D180
 		public int GetInt(string key)
 		{
 			string s = "";
@@ -320,7 +315,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600D410 RID: 54288 RVA: 0x0031EFB0 File Offset: 0x0031D1B0
 		private SeqList<int> GetSequenceList(string key, short dim, bool tmp = true)
 		{
 			string[] array = this.GetValue(key).Split(XGlobalConfig.AllSeparators);
@@ -355,25 +349,21 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600D411 RID: 54289 RVA: 0x0031F088 File Offset: 0x0031D288
 		public SeqList<int> GetSequenceList(string key, bool tmp)
 		{
 			return this.GetSequenceList(key, 2, tmp);
 		}
 
-		// Token: 0x0600D412 RID: 54290 RVA: 0x0031F0A4 File Offset: 0x0031D2A4
 		public SeqList<int> GetSequence3List(string key, bool tmp)
 		{
 			return this.GetSequenceList(key, 3, tmp);
 		}
 
-		// Token: 0x0600D413 RID: 54291 RVA: 0x0031F0C0 File Offset: 0x0031D2C0
 		public SeqList<int> GetSequence4List(string key, bool tmp)
 		{
 			return this.GetSequenceList(key, 4, tmp);
 		}
 
-		// Token: 0x0600D414 RID: 54292 RVA: 0x0031F0DC File Offset: 0x0031D2DC
 		public List<int> GetIntList(string key)
 		{
 			List<int> list = new List<int>();
@@ -385,7 +375,6 @@ namespace XMainClient
 			return list;
 		}
 
-		// Token: 0x0600D415 RID: 54293 RVA: 0x0031F12C File Offset: 0x0031D32C
 		public void GetIntList(string key, List<int> list)
 		{
 			string value = this.GetValue(key);
@@ -400,7 +389,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D416 RID: 54294 RVA: 0x0031F184 File Offset: 0x0031D384
 		public List<uint> GetUIntList(string key)
 		{
 			List<uint> list = new List<uint>();
@@ -412,7 +400,6 @@ namespace XMainClient
 			return list;
 		}
 
-		// Token: 0x0600D417 RID: 54295 RVA: 0x0031F1D4 File Offset: 0x0031D3D4
 		public List<string> GetStringList(string key)
 		{
 			List<string> list = new List<string>();
@@ -424,7 +411,6 @@ namespace XMainClient
 			return list;
 		}
 
-		// Token: 0x0600D418 RID: 54296 RVA: 0x0031F220 File Offset: 0x0031D420
 		public SeqList<string> GetStringSeqList(string key)
 		{
 			string[] array = this.GetValue(key).Split(XGlobalConfig.AllSeparators);
@@ -450,7 +436,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600D419 RID: 54297 RVA: 0x0031F2C8 File Offset: 0x0031D4C8
 		public void GetFloatList(string key, ref float[] floatList)
 		{
 			string[] array = this.GetValue(key).Split(XGlobalConfig.ListSeparator);
@@ -465,7 +450,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D41A RID: 54298 RVA: 0x0031F320 File Offset: 0x0031D520
 		public List<float> GetFloatList(string key)
 		{
 			List<float> list = new List<float>();
@@ -477,14 +461,12 @@ namespace XMainClient
 			return list;
 		}
 
-		// Token: 0x0600D41B RID: 54299 RVA: 0x0031F370 File Offset: 0x0031D570
 		public bool GetSettingEnum(ESettingConfig sc)
 		{
 			uint settingEnum = XSingleton<XGlobalConfig>.singleton.SettingEnum;
 			return ((ulong)settingEnum & (ulong)((long)XFastEnumIntEqualityComparer<ESettingConfig>.ToInt(sc))) > 0UL;
 		}
 
-		// Token: 0x0600D41C RID: 54300 RVA: 0x0031F39C File Offset: 0x0031D59C
 		public string PreFilterPrefab(string location)
 		{
 			bool flag = this.EmptyPrefab == null;
@@ -508,231 +490,161 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0400607A RID: 24698
 		public static readonly char[] SequenceSeparator = new char[]
 		{
 			'='
 		};
 
-		// Token: 0x0400607B RID: 24699
 		public static readonly char[] ListSeparator = new char[]
 		{
 			'|'
 		};
 
-		// Token: 0x0400607C RID: 24700
 		public static readonly char[] AllSeparators = new char[]
 		{
 			'|',
 			'='
 		};
 
-		// Token: 0x0400607D RID: 24701
 		public static readonly char[] SpaceSeparator = new char[]
 		{
 			' '
 		};
 
-		// Token: 0x0400607E RID: 24702
 		public static readonly char[] TabSeparator = new char[]
 		{
 			' ',
 			'\t'
 		};
 
-		// Token: 0x0400607F RID: 24703
 		private XTableAsyncLoader _async_loader = null;
 
-		// Token: 0x04006080 RID: 24704
 		private GlobalTable _table = new GlobalTable();
 
-		// Token: 0x04006081 RID: 24705
 		public double CriticalLimit;
 
-		// Token: 0x04006082 RID: 24706
 		public double CritResistLimit;
 
-		// Token: 0x04006083 RID: 24707
 		public double ParalyzeLimit;
 
-		// Token: 0x04006084 RID: 24708
 		public double ParaResistLimit;
 
-		// Token: 0x04006085 RID: 24709
 		public double StunLimit;
 
-		// Token: 0x04006086 RID: 24710
 		public double StunResistLimit;
 
-		// Token: 0x04006087 RID: 24711
 		public double FinalDamageLimit;
 
-		// Token: 0x04006088 RID: 24712
 		public double CritDamageBase;
 
-		// Token: 0x04006089 RID: 24713
 		public double ElemAtkLimit;
 
-		// Token: 0x0400608A RID: 24714
 		public double ElemDefLimit;
 
-		// Token: 0x0400608B RID: 24715
 		public double GeneralCombatParam;
 
-		// Token: 0x0400608C RID: 24716
 		public double AttrChangeDamageLimit;
 
-		// Token: 0x0400608D RID: 24717
 		public float CDChangeUpperBound;
 
-		// Token: 0x0400608E RID: 24718
 		public float CDChangeLowerBound;
 
-		// Token: 0x0400608F RID: 24719
 		public double AttackSpeedUpperBound;
 
-		// Token: 0x04006090 RID: 24720
 		public double AttackSpeedLowerBound;
 
-		// Token: 0x04006091 RID: 24721
 		public double CritDamageUpperBound;
 
-		// Token: 0x04006092 RID: 24722
 		public double CritDamageLowerBound;
 
-		// Token: 0x04006093 RID: 24723
 		public float DamageRandomUpperBound;
 
-		// Token: 0x04006094 RID: 24724
 		public float DamageRandomLowerBound;
 
-		// Token: 0x04006095 RID: 24725
 		public float StunTime;
 
-		// Token: 0x04006096 RID: 24726
 		public float[] AccelerationUp;
 
-		// Token: 0x04006097 RID: 24727
 		public float[] AccelerationDown;
 
-		// Token: 0x04006098 RID: 24728
 		public float Hit_PresentStraight;
 
-		// Token: 0x04006099 RID: 24729
 		public float Hit_HardStraight;
 
-		// Token: 0x0400609A RID: 24730
 		public float Hit_Offset;
 
-		// Token: 0x0400609B RID: 24731
 		public float Hit_Height;
 
-		// Token: 0x0400609C RID: 24732
 		public float ProShowTurnInterval = 4f;
 
-		// Token: 0x0400609D RID: 24733
 		public float CloseUpCameraSpeed = 3f;
 
-		// Token: 0x0400609E RID: 24734
 		public float ScreenSaveLimit = 30f;
 
-		// Token: 0x0400609F RID: 24735
 		public int ScreenSavePercentage = 20;
 
-		// Token: 0x040060A0 RID: 24736
 		public uint[] NewbieLevelRoleID;
 
-		// Token: 0x040060A1 RID: 24737
 		public int[] EntitySummonGroupLimit;
 
-		// Token: 0x040060A2 RID: 24738
 		public ulong[] NumberSeparators;
 
-		// Token: 0x040060A3 RID: 24739
 		public ulong MinSeparateNum;
 
-		// Token: 0x040060A4 RID: 24740
 		public int PINGInterval = 3;
 
-		// Token: 0x040060A5 RID: 24741
 		public List<uint> CameraAdjustScopeExceptSkills = new List<uint>();
 
-		// Token: 0x040060A6 RID: 24742
 		public int MaxGetGuildCheckInBonusNum;
 
-		// Token: 0x040060A7 RID: 24743
 		public float BuffMinAuraInterval;
 
-		// Token: 0x040060A8 RID: 24744
 		public float BuffMinRegenerateInterval;
 
-		// Token: 0x040060A9 RID: 24745
 		public uint BuffMaxDisplayCountPlayer = 5U;
 
-		// Token: 0x040060AA RID: 24746
 		public uint BuffMaxDisplayCountTeam = 5U;
 
-		// Token: 0x040060AB RID: 24747
 		public uint BuffMaxDisplayCountBoss = 5U;
 
-		// Token: 0x040060AC RID: 24748
 		public float BuffMaxDisplayTime = 600f;
 
-		// Token: 0x040060AD RID: 24749
 		public int StudentMinLevel = 20;
 
-		// Token: 0x040060AE RID: 24750
 		public int TeacherMinLevel = 30;
 
-		// Token: 0x040060AF RID: 24751
 		public List<int> ViewGridScene = new List<int>();
 
-		// Token: 0x040060B0 RID: 24752
 		public Vector3 SpriteOffset = Vector3.zero;
 
-		// Token: 0x040060B1 RID: 24753
 		public uint DefaultIconWidth;
 
-		// Token: 0x040060B2 RID: 24754
 		public float GyroScale = 0.2f;
 
-		// Token: 0x040060B3 RID: 24755
 		public float GyroDeadZone = 0.01f;
 
-		// Token: 0x040060B4 RID: 24756
 		public float GyroFrequency = 30f;
 
-		// Token: 0x040060B5 RID: 24757
 		public int MaxEquipPosType;
 
-		// Token: 0x040060B6 RID: 24758
 		public int[] EquipPosType = new int[XBagDocument.EquipMax];
 
-		// Token: 0x040060B7 RID: 24759
 		public float LoginBlockTime;
 
-		// Token: 0x040060B8 RID: 24760
 		public uint SettingEnum = 0U;
 
-		// Token: 0x040060B9 RID: 24761
 		private string[] EmptyPrefab = null;
 
-		// Token: 0x040060BA RID: 24762
 		public float MobaTowerFxOffset = 2f;
 
-		// Token: 0x040060BB RID: 24763
 		public Vector3[] SelectPos = null;
 
-		// Token: 0x040060BC RID: 24764
 		public Vector3[] MobMovePos = null;
 
-		// Token: 0x040060BD RID: 24765
 		public HashSet<uint> BlockFashionProfs = new HashSet<uint>();
 
-		// Token: 0x040060BE RID: 24766
 		private SeqList<int> emptySeqList = new SeqList<int>(2, 1);
 
-		// Token: 0x040060BF RID: 24767
 		private SeqList<int> tmpSeqList = new SeqList<int>(2, 1);
 	}
 }

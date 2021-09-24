@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200176B RID: 5995
+
 	internal class GuildQualifierDlg : DlgBase<GuildQualifierDlg, GuildQualifierBehavior>
 	{
-		// Token: 0x17003810 RID: 14352
-		// (get) Token: 0x0600F774 RID: 63348 RVA: 0x003855F4 File Offset: 0x003837F4
+
 		public override string fileName
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003811 RID: 14353
-		// (get) Token: 0x0600F775 RID: 63349 RVA: 0x0038560C File Offset: 0x0038380C
 		public override int layer
 		{
 			get
@@ -31,8 +28,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003812 RID: 14354
-		// (get) Token: 0x0600F776 RID: 63350 RVA: 0x00385620 File Offset: 0x00383820
 		public override int group
 		{
 			get
@@ -41,8 +36,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003813 RID: 14355
-		// (get) Token: 0x0600F777 RID: 63351 RVA: 0x00385634 File Offset: 0x00383834
 		public override bool pushstack
 		{
 			get
@@ -51,8 +44,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003814 RID: 14356
-		// (get) Token: 0x0600F778 RID: 63352 RVA: 0x00385648 File Offset: 0x00383848
 		public override bool hideMainMenu
 		{
 			get
@@ -61,8 +52,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003815 RID: 14357
-		// (get) Token: 0x0600F779 RID: 63353 RVA: 0x0038565C File Offset: 0x0038385C
 		public override bool autoload
 		{
 			get
@@ -71,14 +60,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F77A RID: 63354 RVA: 0x0038566F File Offset: 0x0038386F
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
 			this.RespositionActive();
 		}
 
-		// Token: 0x0600F77B RID: 63355 RVA: 0x00385680 File Offset: 0x00383880
 		protected override void Init()
 		{
 			base.Init();
@@ -88,7 +75,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_RankWrapContent.RegisterItemUpdateEventHandler(new WrapItemUpdateEventHandler(this.OnRankWrapUpdate));
 		}
 
-		// Token: 0x0600F77C RID: 63356 RVA: 0x003856EC File Offset: 0x003838EC
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -98,7 +84,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_SelectSelf.RegisterOnCheckEventHandler(new CheckBoxOnCheckEventHandler(this.OnSelectSelfChecked));
 		}
 
-		// Token: 0x0600F77D RID: 63357 RVA: 0x00385778 File Offset: 0x00383978
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -109,14 +94,12 @@ namespace XMainClient.UI
 			this.RefreshData();
 		}
 
-		// Token: 0x0600F77E RID: 63358 RVA: 0x003857C6 File Offset: 0x003839C6
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
 			this._Doc.SendSelectQualifierList();
 		}
 
-		// Token: 0x0600F77F RID: 63359 RVA: 0x003857DC File Offset: 0x003839DC
 		public void RefreshData()
 		{
 			this.m_uiBehaviour.m_Frame.gameObject.SetActive(this._Doc.ServerActive);
@@ -132,7 +115,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F780 RID: 63360 RVA: 0x00385880 File Offset: 0x00383A80
 		private void RespositionActive()
 		{
 			bool flag = this._Doc.ActiveTime > 0.0;
@@ -149,7 +131,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F781 RID: 63361 RVA: 0x00385934 File Offset: 0x00383B34
 		private void RepositionLastRewardCount()
 		{
 			uint lastRewardCount = this._Doc.GetLastRewardCount();
@@ -160,7 +141,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_Rule.SetText(XStringDefineProxy.GetString("GUILD_QUALIFIER_RULE"));
 		}
 
-		// Token: 0x0600F782 RID: 63362 RVA: 0x00385994 File Offset: 0x00383B94
 		private void RepositionRank()
 		{
 			List<GuildLadderRoleRank> guildRoleRankList = this._Doc.GuildRoleRankList;
@@ -202,7 +182,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F783 RID: 63363 RVA: 0x00385AEC File Offset: 0x00383CEC
 		private void RepositionFrame()
 		{
 			List<GuildLadderRank> guildRankList = this._Doc.GuildRankList;
@@ -218,7 +197,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_RankScrollView.ResetPosition();
 		}
 
-		// Token: 0x0600F784 RID: 63364 RVA: 0x00385B5C File Offset: 0x00383D5C
 		private void OnRankWrapUpdate(Transform t, int index)
 		{
 			bool flag = t == null;
@@ -255,7 +233,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F785 RID: 63365 RVA: 0x00385CE0 File Offset: 0x00383EE0
 		private void OnFrameWrapUpdate(Transform t, int index)
 		{
 			bool flag = t == null;
@@ -314,7 +291,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F786 RID: 63366 RVA: 0x00385F90 File Offset: 0x00384190
 		private void InitAwardList()
 		{
 			SeqList<int> sequenceList = XSingleton<XGlobalConfig>.singleton.GetSequenceList("GuildLadderReward", true);
@@ -335,7 +311,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F787 RID: 63367 RVA: 0x003860A8 File Offset: 0x003842A8
 		private bool OnSelectSelfChecked(IXUICheckBox checkBox)
 		{
 			bool flag = !checkBox.bChecked;
@@ -353,7 +328,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F788 RID: 63368 RVA: 0x003860E0 File Offset: 0x003842E0
 		private bool OnSelectAllChecked(IXUICheckBox checkBox)
 		{
 			bool flag = !checkBox.bChecked;
@@ -371,24 +345,20 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F789 RID: 63369 RVA: 0x00386118 File Offset: 0x00384318
 		private bool OnClickClose(IXUIButton btn)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x0600F78A RID: 63370 RVA: 0x00386134 File Offset: 0x00384334
 		private bool OnGoHandler(IXUIButton btn)
 		{
 			XSingleton<XGameSysMgr>.singleton.OpenSystem(XSysDefine.XSys_Qualifying, 0UL);
 			return false;
 		}
 
-		// Token: 0x04006BCC RID: 27596
 		private XGuildQualifierDocument _Doc;
 
-		// Token: 0x04006BCD RID: 27597
 		private Vector3 m_ItemScale = new Vector3(0.5f, 0.5f, 0.5f);
 	}
 }

@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C7E RID: 3198
+
 	internal class XQualifyingRecordsHandler : DlgHandlerBase
 	{
-		// Token: 0x170031FC RID: 12796
-		// (get) Token: 0x0600B4AD RID: 46253 RVA: 0x0023618C File Offset: 0x0023438C
+
 		public uint MatchTotalCount
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170031FD RID: 12797
-		// (get) Token: 0x0600B4AE RID: 46254 RVA: 0x002361B4 File Offset: 0x002343B4
 		public uint MatchTotalPercent
 		{
 			get
@@ -48,7 +45,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B4AF RID: 46255 RVA: 0x00236200 File Offset: 0x00234400
 		protected override void Init()
 		{
 			this.m_Close = (base.transform.Find("Bg/Close").GetComponent("XUIButton") as IXUIButton);
@@ -67,8 +63,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170031FE RID: 12798
-		// (get) Token: 0x0600B4B0 RID: 46256 RVA: 0x002363A8 File Offset: 0x002345A8
 		protected override string FileName
 		{
 			get
@@ -77,31 +71,26 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B4B1 RID: 46257 RVA: 0x002363BF File Offset: 0x002345BF
 		public override void RegisterEvent()
 		{
 			this.m_Close.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseClicked));
 		}
 
-		// Token: 0x0600B4B2 RID: 46258 RVA: 0x0019F00C File Offset: 0x0019D20C
 		protected override void OnShow()
 		{
 			base.OnShow();
 		}
 
-		// Token: 0x0600B4B3 RID: 46259 RVA: 0x0019EEFD File Offset: 0x0019D0FD
 		protected override void OnHide()
 		{
 			base.OnHide();
 		}
 
-		// Token: 0x0600B4B4 RID: 46260 RVA: 0x0019EF07 File Offset: 0x0019D107
 		public override void OnUnload()
 		{
 			base.OnUnload();
 		}
 
-		// Token: 0x0600B4B5 RID: 46261 RVA: 0x002363DC File Offset: 0x002345DC
 		public void Refresh()
 		{
 			bool flag = !base.PanelObject.activeSelf;
@@ -162,59 +151,42 @@ namespace XMainClient
 			this.m_ScrollView.ResetPosition();
 		}
 
-		// Token: 0x0600B4B6 RID: 46262 RVA: 0x00236758 File Offset: 0x00234958
 		private bool OnCloseClicked(IXUIButton button)
 		{
 			base.SetVisible(false);
 			return true;
 		}
 
-		// Token: 0x0400462C RID: 17964
 		public uint WinCount;
 
-		// Token: 0x0400462D RID: 17965
 		public uint DrawCount;
 
-		// Token: 0x0400462E RID: 17966
 		public uint LoseCount;
 
-		// Token: 0x0400462F RID: 17967
 		public uint ContinueWin;
 
-		// Token: 0x04004630 RID: 17968
 		public uint ContinueLose;
 
-		// Token: 0x04004631 RID: 17969
 		public List<uint> ProfessionWin = new List<uint>();
 
-		// Token: 0x04004632 RID: 17970
 		public List<PkOneRecord> GameRecords = new List<PkOneRecord>();
 
-		// Token: 0x04004633 RID: 17971
 		public XUIPool m_RecordPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04004634 RID: 17972
 		public IXUIButton m_Close;
 
-		// Token: 0x04004635 RID: 17973
 		public IXUIScrollView m_ScrollView;
 
-		// Token: 0x04004636 RID: 17974
 		public IXUILabel MatchTotalWin;
 
-		// Token: 0x04004637 RID: 17975
 		public IXUILabel MatchTotalLose;
 
-		// Token: 0x04004638 RID: 17976
 		public IXUILabel RateOfTotalWin;
 
-		// Token: 0x04004639 RID: 17977
 		public IXUILabel MaxConsecutiveWin;
 
-		// Token: 0x0400463A RID: 17978
 		public IXUILabel MaxConsecutiveLose;
 
-		// Token: 0x0400463B RID: 17979
 		public List<IXUILabel> RateOfWinProf = new List<IXUILabel>();
 	}
 }

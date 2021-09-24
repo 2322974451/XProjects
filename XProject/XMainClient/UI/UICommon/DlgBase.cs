@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI.UICommon
 {
-	// Token: 0x0200192A RID: 6442
+
 	public abstract class DlgBase<TDlgClass, TUIBehaviour> : IXUIDlg, IDlgHandlerMgr where TDlgClass : IXUIDlg, new() where TUIBehaviour : DlgBehaviourBase
 	{
-		// Token: 0x17003B06 RID: 15110
-		// (get) Token: 0x06010E89 RID: 69257 RVA: 0x00449C24 File Offset: 0x00447E24
+
 		public static TDlgClass singleton
 		{
 			get
@@ -32,8 +31,6 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x17003B07 RID: 15111
-		// (get) Token: 0x06010E8A RID: 69258 RVA: 0x00449C94 File Offset: 0x00447E94
 		public IXUIBehaviour uiBehaviourInterface
 		{
 			get
@@ -42,8 +39,6 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x17003B08 RID: 15112
-		// (get) Token: 0x06010E8B RID: 69259 RVA: 0x00449CB4 File Offset: 0x00447EB4
 		public TUIBehaviour uiBehaviour
 		{
 			get
@@ -52,8 +47,6 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x17003B09 RID: 15113
-		// (get) Token: 0x06010E8C RID: 69260 RVA: 0x00449CCC File Offset: 0x00447ECC
 		public virtual string fileName
 		{
 			get
@@ -62,8 +55,6 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x17003B0A RID: 15114
-		// (get) Token: 0x06010E8D RID: 69261 RVA: 0x00449CE4 File Offset: 0x00447EE4
 		public string luaFileName
 		{
 			get
@@ -82,8 +73,6 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x17003B0B RID: 15115
-		// (get) Token: 0x06010E8E RID: 69262 RVA: 0x00449D40 File Offset: 0x00447F40
 		public virtual int layer
 		{
 			get
@@ -92,8 +81,6 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x17003B0C RID: 15116
-		// (get) Token: 0x06010E8F RID: 69263 RVA: 0x00449D54 File Offset: 0x00447F54
 		public virtual int group
 		{
 			get
@@ -102,8 +89,6 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x17003B0D RID: 15117
-		// (get) Token: 0x06010E90 RID: 69264 RVA: 0x00449D68 File Offset: 0x00447F68
 		public virtual bool exclusive
 		{
 			get
@@ -112,8 +97,6 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x17003B0E RID: 15118
-		// (get) Token: 0x06010E91 RID: 69265 RVA: 0x00449D7C File Offset: 0x00447F7C
 		public virtual bool autoload
 		{
 			get
@@ -122,8 +105,6 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x17003B0F RID: 15119
-		// (get) Token: 0x06010E92 RID: 69266 RVA: 0x00449D90 File Offset: 0x00447F90
 		public virtual bool isHideChat
 		{
 			get
@@ -132,8 +113,6 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x17003B10 RID: 15120
-		// (get) Token: 0x06010E93 RID: 69267 RVA: 0x00449DA4 File Offset: 0x00447FA4
 		public virtual bool hideMainMenu
 		{
 			get
@@ -142,8 +121,6 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x17003B11 RID: 15121
-		// (get) Token: 0x06010E94 RID: 69268 RVA: 0x00449DB8 File Offset: 0x00447FB8
 		public virtual bool pushstack
 		{
 			get
@@ -152,8 +129,6 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x17003B12 RID: 15122
-		// (get) Token: 0x06010E95 RID: 69269 RVA: 0x00449DCC File Offset: 0x00447FCC
 		public virtual bool isMainUI
 		{
 			get
@@ -162,8 +137,6 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x17003B13 RID: 15123
-		// (get) Token: 0x06010E96 RID: 69270 RVA: 0x00449DE0 File Offset: 0x00447FE0
 		public virtual bool isHideTutorial
 		{
 			get
@@ -172,8 +145,6 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x17003B14 RID: 15124
-		// (get) Token: 0x06010E97 RID: 69271 RVA: 0x00449DF4 File Offset: 0x00447FF4
 		public virtual int sysid
 		{
 			get
@@ -182,8 +153,6 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x17003B15 RID: 15125
-		// (get) Token: 0x06010E98 RID: 69272 RVA: 0x00449E08 File Offset: 0x00448008
 		public virtual bool fullscreenui
 		{
 			get
@@ -192,8 +161,6 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x17003B16 RID: 15126
-		// (get) Token: 0x06010E99 RID: 69273 RVA: 0x00449E1C File Offset: 0x0044801C
 		public bool Prepared
 		{
 			get
@@ -202,8 +169,6 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x17003B17 RID: 15127
-		// (get) Token: 0x06010E9A RID: 69274 RVA: 0x00449E40 File Offset: 0x00448040
 		public virtual bool isPopup
 		{
 			get
@@ -212,8 +177,6 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x17003B18 RID: 15128
-		// (get) Token: 0x06010E9B RID: 69275 RVA: 0x00449E54 File Offset: 0x00448054
 		public virtual bool needOnTop
 		{
 			get
@@ -222,24 +185,20 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x06010E9C RID: 69276 RVA: 0x00449E68 File Offset: 0x00448068
 		public DlgBase()
 		{
 			this._loadUICb = new LoadUIFinishedEventHandler(this.OnLoadUIFinishedEventHandler);
 		}
 
-		// Token: 0x06010E9D RID: 69277 RVA: 0x00449EE9 File Offset: 0x004480E9
 		public virtual void OnUpdate()
 		{
 			this.HandlerMgr.OnUpdate();
 		}
 
-		// Token: 0x06010E9E RID: 69278 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public virtual void OnPostUpdate()
 		{
 		}
 
-		// Token: 0x06010E9F RID: 69279 RVA: 0x00449EF8 File Offset: 0x004480F8
 		public void SetVisiblePure(bool bVisible)
 		{
 			bool flag = !this.m_bLoaded && this.autoload;
@@ -265,7 +224,6 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x06010EA0 RID: 69280 RVA: 0x00449F84 File Offset: 0x00448184
 		public virtual void SetVisible(bool bIsVisible, bool bEnableAuto = true)
 		{
 			bool bLoaded = this.m_bLoaded;
@@ -327,7 +285,6 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x06010EA1 RID: 69281 RVA: 0x0044A1A8 File Offset: 0x004483A8
 		public virtual void SetVisibleWithAnimation(bool bVisible, DlgBase<TDlgClass, TUIBehaviour>.OnAnimationOver AnimationOverDelegate)
 		{
 			bool flag = !this.m_bLoaded;
@@ -363,7 +320,6 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x06010EA2 RID: 69282 RVA: 0x0044A264 File Offset: 0x00448464
 		protected void OnShowAnimationFinish(IXUITweenTool tween)
 		{
 			bool fullscreenui = this.fullscreenui;
@@ -373,7 +329,6 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x06010EA3 RID: 69283 RVA: 0x0044A294 File Offset: 0x00448494
 		protected void OnCloseAnimationFinish(IXUITweenTool tween)
 		{
 			this.SetVisible(false, true);
@@ -384,35 +339,29 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x06010EA4 RID: 69284 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected virtual void OnShow()
 		{
 		}
 
-		// Token: 0x06010EA5 RID: 69285 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected virtual void OnHide()
 		{
 		}
 
-		// Token: 0x06010EA6 RID: 69286 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected virtual void OnLoad()
 		{
 		}
 
-		// Token: 0x06010EA7 RID: 69287 RVA: 0x0044A2C6 File Offset: 0x004484C6
 		protected virtual void OnUnload()
 		{
 			this.UnRegisterEvent();
 		}
 
-		// Token: 0x06010EA8 RID: 69288 RVA: 0x0044A2D0 File Offset: 0x004484D0
 		public bool IsVisible()
 		{
 			bool bLoaded = this.m_bLoaded;
 			return bLoaded && this.uiBehaviour.IsVisible();
 		}
 
-		// Token: 0x06010EA9 RID: 69289 RVA: 0x0044A304 File Offset: 0x00448504
 		public void SetDepthZ(int nDepthZ)
 		{
 			this.m_fDepthZ = (float)(nDepthZ * 10);
@@ -425,12 +374,10 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x06010EAA RID: 69290 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public virtual void Reset()
 		{
 		}
 
-		// Token: 0x06010EAB RID: 69291 RVA: 0x0044A364 File Offset: 0x00448564
 		public virtual void StackRefresh()
 		{
 			bool flag = this.HandlerMgr != null;
@@ -440,7 +387,6 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x06010EAC RID: 69292 RVA: 0x0044A390 File Offset: 0x00448590
 		public virtual void LeaveStackTop()
 		{
 			bool flag = this.HandlerMgr != null;
@@ -450,17 +396,14 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x06010EAD RID: 69293 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected virtual void OnSetVisiblePure(bool bShow)
 		{
 		}
 
-		// Token: 0x06010EAE RID: 69294 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected virtual void Init()
 		{
 		}
 
-		// Token: 0x06010EAF RID: 69295 RVA: 0x0044A3BC File Offset: 0x004485BC
 		private void InnerInit()
 		{
 			this.m_uiBehaviour.Init();
@@ -470,7 +413,6 @@ namespace XMainClient.UI.UICommon
 			this.m_DlgController = this.uiBehaviour.transform.FindChild("DlgController");
 		}
 
-		// Token: 0x06010EB0 RID: 69296 RVA: 0x0044A438 File Offset: 0x00448638
 		public void Load()
 		{
 			bool flag = !this.m_bLoaded;
@@ -483,13 +425,11 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x06010EB1 RID: 69297 RVA: 0x0044A490 File Offset: 0x00448690
 		public bool IsLoaded()
 		{
 			return this.m_bLoaded;
 		}
 
-		// Token: 0x06010EB2 RID: 69298 RVA: 0x0044A4A8 File Offset: 0x004486A8
 		public void UnLoad(bool bTransfer = false)
 		{
 			bool bLoaded = this.m_bLoaded;
@@ -528,7 +468,6 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x06010EB3 RID: 69299 RVA: 0x0044A5C4 File Offset: 0x004487C4
 		public void SetAlpha(float a)
 		{
 			IXUIPanel ixuipanel = this.uiBehaviour.gameObject.GetComponent("XUIPanel") as IXUIPanel;
@@ -539,7 +478,6 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x06010EB4 RID: 69300 RVA: 0x0044A604 File Offset: 0x00448804
 		public float GetAlpha()
 		{
 			IXUIPanel ixuipanel = this.uiBehaviour.gameObject.GetComponent("XUIPanel") as IXUIPanel;
@@ -556,7 +494,6 @@ namespace XMainClient.UI.UICommon
 			return result;
 		}
 
-		// Token: 0x06010EB5 RID: 69301 RVA: 0x0044A64C File Offset: 0x0044884C
 		public void RegCallBack()
 		{
 			this.panelCB = (this.uiBehaviour.gameObject.GetComponent("NGUIAssetCallBack") as IXNGUICallback);
@@ -567,13 +504,11 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x06010EB6 RID: 69302 RVA: 0x0044A6A5 File Offset: 0x004488A5
 		public virtual void OnXNGUIClick(GameObject obj, string path)
 		{
 			XSingleton<XDebug>.singleton.AddLog(obj.name, " ", path, null, null, null, XDebugColor.XDebug_None);
 		}
 
-		// Token: 0x06010EB7 RID: 69303 RVA: 0x0044A6C4 File Offset: 0x004488C4
 		protected GameObject SetXUILable(string name, string content)
 		{
 			bool flag = this.uiBehaviour.transform == null;
@@ -605,7 +540,6 @@ namespace XMainClient.UI.UICommon
 			return result;
 		}
 
-		// Token: 0x06010EB8 RID: 69304 RVA: 0x0044A764 File Offset: 0x00448964
 		private void OnLoadUIFinishedEventHandler(string location)
 		{
 			GameObject gameObject = XSingleton<XResourceLoaderMgr>.singleton.CreateFromPrefab("UI/" + location, true, false) as GameObject;
@@ -630,7 +564,6 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x06010EB9 RID: 69305 RVA: 0x0044A85C File Offset: 0x00448A5C
 		public bool BindReverse(IXUIBehaviour iXUIBehaviour)
 		{
 			TUIBehaviour tuibehaviour = iXUIBehaviour as TUIBehaviour;
@@ -654,33 +587,27 @@ namespace XMainClient.UI.UICommon
 			return result;
 		}
 
-		// Token: 0x06010EBA RID: 69306 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public virtual void RegisterEvent()
 		{
 		}
 
-		// Token: 0x06010EBB RID: 69307 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected virtual void UnRegisterEvent()
 		{
 		}
 
-		// Token: 0x06010EBC RID: 69308 RVA: 0x0044A8CC File Offset: 0x00448ACC
 		public virtual void SetRelatedDlg(IXUIDlg dlg)
 		{
 			this.m_RelatedDlg = dlg;
 		}
 
-		// Token: 0x06010EBD RID: 69309 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected virtual void OnRelatedShow()
 		{
 		}
 
-		// Token: 0x06010EBE RID: 69310 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected virtual void OnRelatedHide()
 		{
 		}
 
-		// Token: 0x06010EBF RID: 69311 RVA: 0x0044A8D8 File Offset: 0x00448AD8
 		public void SetRelatedVisible(bool bVisible)
 		{
 			bool bLoaded = this.m_bLoaded;
@@ -698,7 +625,6 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x06010EC0 RID: 69312 RVA: 0x0044A910 File Offset: 0x00448B10
 		private bool _CanShow()
 		{
 			bool flag = this.isPopup && XSingleton<XTutorialMgr>.singleton.InTutorial;
@@ -715,19 +641,15 @@ namespace XMainClient.UI.UICommon
 			return result;
 		}
 
-		// Token: 0x06010EC1 RID: 69313 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected virtual void OnPopupBlocked()
 		{
 		}
 
-		// Token: 0x06010EC2 RID: 69314 RVA: 0x0044A948 File Offset: 0x00448B48
 		public virtual int[] GetTitanBarItems()
 		{
 			return null;
 		}
 
-		// Token: 0x17003B19 RID: 15129
-		// (get) Token: 0x06010EC3 RID: 69315 RVA: 0x0044A95C File Offset: 0x00448B5C
 		public DlgHandlerMgr HandlerMgr
 		{
 			get
@@ -736,7 +658,6 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x06010EC4 RID: 69316 RVA: 0x0044A974 File Offset: 0x00448B74
 		protected void Alloc3DAvatarPool(string user)
 		{
 			bool flag = this.m_dummPool < 0;
@@ -746,14 +667,12 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x06010EC5 RID: 69317 RVA: 0x0044A9A3 File Offset: 0x00448BA3
 		protected void Return3DAvatarPool()
 		{
 			XSingleton<X3DAvatarMgr>.singleton.ReturnDummyPool(this.m_dummPool);
 			this.m_dummPool = -1;
 		}
 
-		// Token: 0x06010EC6 RID: 69318 RVA: 0x0044A9C0 File Offset: 0x00448BC0
 		public static Transform FindChildRecursively(string childName)
 		{
 			TDlgClass singleton = DlgBase<TDlgClass, TUIBehaviour>.singleton;
@@ -772,7 +691,6 @@ namespace XMainClient.UI.UICommon
 			return result;
 		}
 
-		// Token: 0x06010EC7 RID: 69319 RVA: 0x0044AA24 File Offset: 0x00448C24
 		public static Vector3 GetChildWorldPos(string childName)
 		{
 			TDlgClass singleton = DlgBase<TDlgClass, TUIBehaviour>.singleton;
@@ -799,53 +717,36 @@ namespace XMainClient.UI.UICommon
 			return result;
 		}
 
-		// Token: 0x04007C62 RID: 31842
 		private LoadUIFinishedEventHandler _loadUICb = null;
 
-		// Token: 0x04007C63 RID: 31843
 		protected int m_dummPool = -1;
 
-		// Token: 0x04007C64 RID: 31844
 		private IXNGUICallback panelCB = null;
 
-		// Token: 0x04007C65 RID: 31845
 		protected TUIBehaviour m_uiBehaviour = default(TUIBehaviour);
 
-		// Token: 0x04007C66 RID: 31846
 		private static TDlgClass s_instance = default(TDlgClass);
 
-		// Token: 0x04007C67 RID: 31847
 		private static object s_objLock = new object();
 
-		// Token: 0x04007C68 RID: 31848
 		private bool m_bVisible = false;
 
-		// Token: 0x04007C69 RID: 31849
 		protected bool m_bLoaded = false;
 
-		// Token: 0x04007C6A RID: 31850
 		private float m_fDepthZ = 0f;
 
-		// Token: 0x04007C6B RID: 31851
 		private bool m_bBindedReverse = false;
 
-		// Token: 0x04007C6C RID: 31852
 		private Transform m_DlgController = null;
 
-		// Token: 0x04007C6D RID: 31853
 		private bool m_bCacheVisible = false;
 
-		// Token: 0x04007C6E RID: 31854
 		private DlgBase<TDlgClass, TUIBehaviour>.OnAnimationOver m_animationOver;
 
-		// Token: 0x04007C6F RID: 31855
 		private IXUIDlg m_RelatedDlg;
 
-		// Token: 0x04007C70 RID: 31856
 		private DlgHandlerMgr m_DlgHandlerMgr = new DlgHandlerMgr();
 
-		// Token: 0x02001A23 RID: 6691
-		// (Invoke) Token: 0x0601115B RID: 69979
 		public delegate void OnAnimationOver();
 	}
 }

@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001719 RID: 5913
+
 	internal class AuctionBillView : DlgBase<AuctionBillView, AuctionBillBehaviour>
 	{
-		// Token: 0x1700379F RID: 14239
-		// (get) Token: 0x0600F423 RID: 62499 RVA: 0x0036B05C File Offset: 0x0036925C
+
 		public override string fileName
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170037A0 RID: 14240
-		// (get) Token: 0x0600F424 RID: 62500 RVA: 0x0036B074 File Offset: 0x00369274
 		public override bool autoload
 		{
 			get
@@ -30,7 +27,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F425 RID: 62501 RVA: 0x0036B088 File Offset: 0x00369288
 		public void Set(XItem item, AuctionBillStyle style = AuctionBillStyle.PutAway, ulong uid = 0UL)
 		{
 			this.m_aucuid = uid;
@@ -43,7 +39,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F426 RID: 62502 RVA: 0x0036B0C4 File Offset: 0x003692C4
 		protected override void Init()
 		{
 			base.Init();
@@ -59,7 +54,6 @@ namespace XMainClient.UI
 			this.m_billStyles[AuctionBillStyle.OutTime][1] = XStringDefineProxy.GetString("AUCTION_PUTDOWN");
 		}
 
-		// Token: 0x0600F427 RID: 62503 RVA: 0x0036B1A8 File Offset: 0x003693A8
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -70,14 +64,12 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_CloseButton.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnClickCloseHandler));
 		}
 
-		// Token: 0x0600F428 RID: 62504 RVA: 0x0036B24E File Offset: 0x0036944E
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.SetDetailInfo();
 		}
 
-		// Token: 0x0600F429 RID: 62505 RVA: 0x0036B260 File Offset: 0x00369460
 		private void SetDetailInfo()
 		{
 			base.uiBehaviour.m_billTitleTxt.SetText(XStringDefineProxy.GetString((this.m_curBillStyle == AuctionBillStyle.OutTime) ? "AUCTION_TITLE_OUTTIME" : "AUCTION_TITLE_PUTAWAY"));
@@ -116,13 +108,11 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_sellOper.Reposition();
 		}
 
-		// Token: 0x0600F42A RID: 62506 RVA: 0x0036B506 File Offset: 0x00369706
 		private void OnItemClick(IXUISprite sprite)
 		{
 			XSingleton<UiUtility>.singleton.ShowTooltipDialog(this.m_curItem, null, sprite, false, 0U);
 		}
 
-		// Token: 0x0600F42B RID: 62507 RVA: 0x0036B520 File Offset: 0x00369720
 		private void OnTotalPriceOperateChange()
 		{
 			int num = base.uiBehaviour.m_SinglePriceOperate.Cur * base.uiBehaviour.m_CountOperate.Cur;
@@ -138,7 +128,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_RecommondTxt.SetText(string.Format((base.uiBehaviour.m_SinglePriceOperate.Cur < this.m_referPrice) ? "-{0}%" : "+{0}%", num4));
 		}
 
-		// Token: 0x0600F42C RID: 62508 RVA: 0x0036B5F4 File Offset: 0x003697F4
 		private bool OnClickLeftHandler(IXUIButton btn)
 		{
 			AuctionDocument specificDocument = XDocuments.GetSpecificDocument<AuctionDocument>(AuctionDocument.uuID);
@@ -158,7 +147,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F42D RID: 62509 RVA: 0x0036B64C File Offset: 0x0036984C
 		private bool OnClickRightHandler(IXUIButton btn)
 		{
 			AuctionDocument specificDocument = XDocuments.GetSpecificDocument<AuctionDocument>(AuctionDocument.uuID);
@@ -178,26 +166,20 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F42E RID: 62510 RVA: 0x0036B6F0 File Offset: 0x003698F0
 		private bool OnClickCloseHandler(IXUIButton sprite)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x04006913 RID: 26899
 		private Dictionary<AuctionBillStyle, string[]> m_billStyles;
 
-		// Token: 0x04006914 RID: 26900
 		private AuctionBillStyle m_curBillStyle = AuctionBillStyle.PutAway;
 
-		// Token: 0x04006915 RID: 26901
 		private int m_referPrice = 0;
 
-		// Token: 0x04006916 RID: 26902
 		private ulong m_aucuid = 0UL;
 
-		// Token: 0x04006917 RID: 26903
 		private XItem m_curItem;
 	}
 }

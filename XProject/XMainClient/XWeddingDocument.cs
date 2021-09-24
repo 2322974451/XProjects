@@ -9,11 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000A0A RID: 2570
+
 	internal class XWeddingDocument : XDocComponent
 	{
-		// Token: 0x17002E92 RID: 11922
-		// (get) Token: 0x06009D5B RID: 40283 RVA: 0x00199C4C File Offset: 0x00197E4C
+
 		public override uint ID
 		{
 			get
@@ -22,8 +21,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002E93 RID: 11923
-		// (get) Token: 0x06009D5C RID: 40284 RVA: 0x00199C64 File Offset: 0x00197E64
 		public static XWeddingDocument Doc
 		{
 			get
@@ -32,8 +29,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002E94 RID: 11924
-		// (get) Token: 0x06009D5D RID: 40285 RVA: 0x00199C90 File Offset: 0x00197E90
 		public static WeddingLoverLiveness LoverLivenessTable
 		{
 			get
@@ -42,8 +37,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002E95 RID: 11925
-		// (get) Token: 0x06009D5E RID: 40286 RVA: 0x00199CA8 File Offset: 0x00197EA8
 		public List<LoverLivenessRecord> RecordList
 		{
 			get
@@ -52,8 +45,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002E96 RID: 11926
-		// (get) Token: 0x06009D5F RID: 40287 RVA: 0x00199CC0 File Offset: 0x00197EC0
 		public List<RoleOutLookBrief> PartnerList
 		{
 			get
@@ -62,8 +53,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002E97 RID: 11927
-		// (get) Token: 0x06009D60 RID: 40288 RVA: 0x00199CD8 File Offset: 0x00197ED8
 		public MarriageLevelInfo MarriageLevel
 		{
 			get
@@ -72,8 +61,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002E98 RID: 11928
-		// (get) Token: 0x06009D61 RID: 40289 RVA: 0x00199CF0 File Offset: 0x00197EF0
 		public int MarriageLevelUp
 		{
 			get
@@ -82,9 +69,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002E99 RID: 11929
-		// (get) Token: 0x06009D62 RID: 40290 RVA: 0x00199D08 File Offset: 0x00197F08
-		// (set) Token: 0x06009D63 RID: 40291 RVA: 0x00199D20 File Offset: 0x00197F20
 		public bool IsHadLivenessRedPoint
 		{
 			get
@@ -113,9 +97,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002E9A RID: 11930
-		// (get) Token: 0x06009D64 RID: 40292 RVA: 0x00199DA8 File Offset: 0x00197FA8
-		// (set) Token: 0x06009D65 RID: 40293 RVA: 0x00199DC0 File Offset: 0x00197FC0
 		public bool IsHadPrivilegeLevelUpRedPoint
 		{
 			get
@@ -144,8 +125,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002E9B RID: 11931
-		// (get) Token: 0x06009D66 RID: 40294 RVA: 0x00199E48 File Offset: 0x00198048
 		public bool IsHadRedDot
 		{
 			get
@@ -155,14 +134,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009D67 RID: 40295 RVA: 0x00199E88 File Offset: 0x00198088
 		public void ReqPartnerDetailInfo()
 		{
 			RpcC2M_GetMarriageRelation rpc = new RpcC2M_GetMarriageRelation();
 			XSingleton<XClientNetwork>.singleton.Send(rpc);
 		}
 
-		// Token: 0x06009D68 RID: 40296 RVA: 0x00199EA8 File Offset: 0x001980A8
 		public void OnGetPartDetailInfoBack(GetMarriageRelationRes oRes)
 		{
 			bool flag = oRes.error > ErrorCode.ERR_SUCCESS;
@@ -182,7 +159,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009D69 RID: 40297 RVA: 0x00199F1C File Offset: 0x0019811C
 		public RoleOutLookBrief GetTeamLoverRole()
 		{
 			for (int i = 0; i < this.m_PartnerList.Count; i++)
@@ -196,14 +172,12 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x06009D6A RID: 40298 RVA: 0x00199F84 File Offset: 0x00198184
 		public void ReqPartnerLivenessInfo()
 		{
 			RpcC2M_GetMarriageLiveness rpc = new RpcC2M_GetMarriageLiveness();
 			XSingleton<XClientNetwork>.singleton.Send(rpc);
 		}
 
-		// Token: 0x06009D6B RID: 40299 RVA: 0x00199FA4 File Offset: 0x001981A4
 		public void OnGetPartnerLivenessInfo(GetMarriageLivenessRes oRes)
 		{
 			bool flag = oRes.result > ErrorCode.ERR_SUCCESS;
@@ -229,7 +203,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009D6C RID: 40300 RVA: 0x0019A060 File Offset: 0x00198260
 		public void ReqTakePartnerChest(uint index)
 		{
 			RpcC2M_TakeMarriageChest rpcC2M_TakeMarriageChest = new RpcC2M_TakeMarriageChest();
@@ -237,7 +210,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_TakeMarriageChest);
 		}
 
-		// Token: 0x06009D6D RID: 40301 RVA: 0x0019A090 File Offset: 0x00198290
 		public void OnTakePartnerChestBack(int index, TakeMarriageChestRes oRes)
 		{
 			bool flag = oRes.result > ErrorCode.ERR_SUCCESS;
@@ -257,7 +229,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009D6E RID: 40302 RVA: 0x0019A0FC File Offset: 0x001982FC
 		public int FindNeedShowReward()
 		{
 			bool flag = this.CurrExp >= XWeddingDocument.MaxExp;
@@ -281,7 +252,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009D6F RID: 40303 RVA: 0x0019A15C File Offset: 0x0019835C
 		public bool IsHadRedPoint()
 		{
 			for (int i = 0; i < XWeddingDocument.m_partnerLivenessTab.Table.Length; i++)
@@ -295,14 +265,12 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x06009D70 RID: 40304 RVA: 0x0019A1C0 File Offset: 0x001983C0
 		public bool IsChestOpened(int index)
 		{
 			uint num = 1U << index;
 			return (this.m_takeChest & num) > 0U;
 		}
 
-		// Token: 0x06009D71 RID: 40305 RVA: 0x0019A1E4 File Offset: 0x001983E4
 		public void OnMarriageNewPrivilegeNtf(int marriageLevelUp)
 		{
 			this.m_MarriageLevelUp = marriageLevelUp;
@@ -323,14 +291,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009D72 RID: 40306 RVA: 0x0019A260 File Offset: 0x00198460
 		public void GetMarriagePrivilege()
 		{
 			RpcC2M_GetMarriagePrivilege rpc = new RpcC2M_GetMarriagePrivilege();
 			XSingleton<XClientNetwork>.singleton.Send(rpc);
 		}
 
-		// Token: 0x06009D73 RID: 40307 RVA: 0x0019A280 File Offset: 0x00198480
 		public void OnGetMarriagePrivilege(ErrorCode error)
 		{
 			bool flag = error > ErrorCode.ERR_SUCCESS;
@@ -345,7 +311,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009D74 RID: 40308 RVA: 0x0019A2BC File Offset: 0x001984BC
 		public void OnMarriageLevelValueChangeNtf(MarriageLevelValueNtfData data)
 		{
 			this.m_MarriageLevel = data.info;
@@ -356,8 +321,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002E9C RID: 11932
-		// (get) Token: 0x06009D75 RID: 40309 RVA: 0x0019A2FC File Offset: 0x001984FC
 		public uint AllAttendPlayerCount
 		{
 			get
@@ -366,8 +329,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002E9D RID: 11933
-		// (get) Token: 0x06009D76 RID: 40310 RVA: 0x0019A314 File Offset: 0x00198514
 		public WeddingBrief CurrWeddingInfo
 		{
 			get
@@ -376,8 +337,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002E9E RID: 11934
-		// (get) Token: 0x06009D77 RID: 40311 RVA: 0x0019A32C File Offset: 0x0019852C
 		public List<WeddingBriefInfo> CanEnterWedding
 		{
 			get
@@ -386,8 +345,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002E9F RID: 11935
-		// (get) Token: 0x06009D78 RID: 40312 RVA: 0x0019A344 File Offset: 0x00198544
 		public List<WeddingBriefInfo> CanApplyWedding
 		{
 			get
@@ -396,9 +353,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002EA0 RID: 11936
-		// (get) Token: 0x06009D79 RID: 40313 RVA: 0x0019A35C File Offset: 0x0019855C
-		// (set) Token: 0x06009D7A RID: 40314 RVA: 0x0019A37B File Offset: 0x0019857B
 		public int LeftDivorceTime
 		{
 			get
@@ -411,8 +365,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002EA1 RID: 11937
-		// (get) Token: 0x06009D7B RID: 40315 RVA: 0x0019A38C File Offset: 0x0019858C
 		public ulong DivorceApplyID
 		{
 			get
@@ -421,8 +373,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002EA2 RID: 11938
-		// (get) Token: 0x06009D7C RID: 40316 RVA: 0x0019A3A4 File Offset: 0x001985A4
 		public bool PermitStranger
 		{
 			get
@@ -431,8 +381,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002EA3 RID: 11939
-		// (get) Token: 0x06009D7D RID: 40317 RVA: 0x0019A3BC File Offset: 0x001985BC
 		public int CoupleOfflineTime
 		{
 			get
@@ -441,9 +389,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002EA4 RID: 11940
-		// (get) Token: 0x06009D7E RID: 40318 RVA: 0x0019A3D4 File Offset: 0x001985D4
-		// (set) Token: 0x06009D7F RID: 40319 RVA: 0x0019A3EC File Offset: 0x001985EC
 		public ulong MyWeddingID
 		{
 			get
@@ -456,9 +401,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002EA5 RID: 11941
-		// (get) Token: 0x06009D80 RID: 40320 RVA: 0x0019A3F8 File Offset: 0x001985F8
-		// (set) Token: 0x06009D81 RID: 40321 RVA: 0x0019A410 File Offset: 0x00198610
 		public bool HasApplyCandidate
 		{
 			get
@@ -476,7 +418,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009D82 RID: 40322 RVA: 0x0019A457 File Offset: 0x00198657
 		protected override void EventSubscribe()
 		{
 			base.EventSubscribe();
@@ -484,7 +425,6 @@ namespace XMainClient
 			base.RegisterEvent(XEventDefine.XEvent_OnEntityDeleted, new XComponent.XEventHandler(this.OnEntityDelete));
 		}
 
-		// Token: 0x06009D83 RID: 40323 RVA: 0x0019A48C File Offset: 0x0019868C
 		private bool OnEntityCreate(XEventArgs args)
 		{
 			XOnEntityCreatedArgs xonEntityCreatedArgs = args as XOnEntityCreatedArgs;
@@ -500,7 +440,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x06009D84 RID: 40324 RVA: 0x0019A50C File Offset: 0x0019870C
 		private bool OnEntityDelete(XEventArgs args)
 		{
 			bool flag = XSingleton<XScene>.singleton.SceneType == SceneType.SCENE_WEDDING;
@@ -512,7 +451,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x06009D85 RID: 40325 RVA: 0x0019A548 File Offset: 0x00198748
 		private void CreateLoverSceneFx(XEntity entity)
 		{
 			XFx xfx;
@@ -528,7 +466,6 @@ namespace XMainClient
 			this.m_WeddingSceneLoverFx[entity.Attributes.RoleID] = xfx;
 		}
 
-		// Token: 0x06009D86 RID: 40326 RVA: 0x0019A5FC File Offset: 0x001987FC
 		private void DeleteLoverSceneFx(ulong roleID)
 		{
 			XFx xfx;
@@ -540,26 +477,22 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009D87 RID: 40327 RVA: 0x0019A644 File Offset: 0x00198844
 		private bool IsWeddingLover(ulong roleID)
 		{
 			bool flag = XWeddingDocument.Doc.CurrWeddingInfo != null && XWeddingDocument.Doc.CurrWeddingInfo.role1 != null && XWeddingDocument.Doc.CurrWeddingInfo.role2 != null;
 			return flag && (roleID == XWeddingDocument.Doc.CurrWeddingInfo.role1.roleid || roleID == XWeddingDocument.Doc.CurrWeddingInfo.role2.roleid);
 		}
 
-		// Token: 0x06009D88 RID: 40328 RVA: 0x0019A6C4 File Offset: 0x001988C4
 		public MarriageStatus GetMyMarriageRelation()
 		{
 			return this.m_MyMarriageStatus;
 		}
 
-		// Token: 0x06009D89 RID: 40329 RVA: 0x0019A6DC File Offset: 0x001988DC
 		public WeddingType GetMyWeddingType()
 		{
 			return this.m_WeddingType;
 		}
 
-		// Token: 0x06009D8A RID: 40330 RVA: 0x0019A6F4 File Offset: 0x001988F4
 		public List<WeddingRoleInfo> GetInviteRoleInfoList(WeddingInviteTab tab)
 		{
 			List<WeddingRoleInfo> result;
@@ -584,7 +517,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009D8B RID: 40331 RVA: 0x0019A748 File Offset: 0x00198948
 		public RoleOutLookBrief GetPartnerInfo()
 		{
 			bool flag = this.m_Marriagelist != null && this.m_Marriagelist.Count == 2;
@@ -600,14 +532,12 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009D8C RID: 40332 RVA: 0x0019A788 File Offset: 0x00198988
 		public void ReqHoldWedding()
 		{
 			RpcC2M_HoldWedding rpc = new RpcC2M_HoldWedding();
 			XSingleton<XClientNetwork>.singleton.Send(rpc);
 		}
 
-		// Token: 0x06009D8D RID: 40333 RVA: 0x0019A7A8 File Offset: 0x001989A8
 		public void OnHoldWedding(HoldWeddingRes oRes)
 		{
 			bool flag = oRes.result > ErrorCode.ERR_SUCCESS;
@@ -617,7 +547,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009D8E RID: 40334 RVA: 0x0019A7DC File Offset: 0x001989DC
 		public void EnterWedding(ulong weddingID)
 		{
 			bool flag = DlgBase<DramaDlg, DramaDlgBehaviour>.singleton.IsVisible();
@@ -630,7 +559,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_EnterWeddingScene);
 		}
 
-		// Token: 0x06009D8F RID: 40335 RVA: 0x0019A824 File Offset: 0x00198A24
 		public void OnEnterWedding(EnterWeddingSceneRes oRes)
 		{
 			bool flag = oRes.result > ErrorCode.ERR_SUCCESS;
@@ -640,7 +568,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009D90 RID: 40336 RVA: 0x0019A858 File Offset: 0x00198A58
 		public void OnWeddingLoadingInfoNtf(PtcG2C_WeddingLoadInfoNtf roPtc)
 		{
 			bool flag = roPtc.Data.info == null;
@@ -650,7 +577,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009D91 RID: 40337 RVA: 0x0019A88C File Offset: 0x00198A8C
 		public void WeddingSceneOperator(WeddingOperType type)
 		{
 			RpcC2G_WeddingOperator rpcC2G_WeddingOperator = new RpcC2G_WeddingOperator();
@@ -658,7 +584,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_WeddingOperator);
 		}
 
-		// Token: 0x06009D92 RID: 40338 RVA: 0x0019A8BC File Offset: 0x00198ABC
 		public void OnWeddingSceneOperator(WeddingOperatorArg oArg, WeddingOperatorRes oRes)
 		{
 			bool flag = oRes.result > ErrorCode.ERR_SUCCESS;
@@ -687,7 +612,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009D93 RID: 40339 RVA: 0x0019A968 File Offset: 0x00198B68
 		public void WeddingSceneEventNtf(PtcG2C_WeddingEventNtf roPtc)
 		{
 			bool flag = !DlgBase<XMainInterface, XMainInterfaceBehaviour>.singleton.IsVisible() || DlgBase<XMainInterface, XMainInterfaceBehaviour>.singleton._WeddingHandler == null || !DlgBase<XMainInterface, XMainInterfaceBehaviour>.singleton._WeddingHandler.IsVisible();
@@ -735,13 +659,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009D94 RID: 40340 RVA: 0x0019AB6C File Offset: 0x00198D6C
 		public void PlayCutscene(string path)
 		{
 			XSingleton<XCutScene>.singleton.Start(path, true, true);
 		}
 
-		// Token: 0x06009D95 RID: 40341 RVA: 0x0019AB80 File Offset: 0x00198D80
 		public void WeddingStateNtf(PtcG2C_WeddingStateNtf roPtc)
 		{
 			bool flag = DlgBase<XMainInterface, XMainInterfaceBehaviour>.singleton.IsVisible() && DlgBase<XMainInterface, XMainInterfaceBehaviour>.singleton._WeddingHandler != null && DlgBase<XMainInterface, XMainInterfaceBehaviour>.singleton._WeddingHandler.IsVisible();
@@ -752,7 +674,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009D96 RID: 40342 RVA: 0x0019AC0C File Offset: 0x00198E0C
 		public void WeddingInviteOperate(WeddingInviteOperType type, ulong roleID = 0UL, ulong weddingID = 0UL)
 		{
 			RpcC2M_WeddingInviteOperator rpcC2M_WeddingInviteOperator = new RpcC2M_WeddingInviteOperator();
@@ -762,7 +683,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_WeddingInviteOperator);
 		}
 
-		// Token: 0x06009D97 RID: 40343 RVA: 0x0019AC54 File Offset: 0x00198E54
 		public void OnWeddingInviteOperate(WeddingInviteOperatorArg oArg, WeddingInviteOperatorRes oRes)
 		{
 			bool flag = oRes.result > ErrorCode.ERR_SUCCESS;
@@ -890,7 +810,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009D98 RID: 40344 RVA: 0x0019B01C File Offset: 0x0019921C
 		public void WeddingInviteNtf(PtcM2C_WeddingInviteNtf roPtc)
 		{
 			bool flag = XSingleton<XGame>.singleton.CurrentStage.Stage == EXStage.Hall;
@@ -955,7 +874,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009D99 RID: 40345 RVA: 0x0019B2DC File Offset: 0x001994DC
 		private bool ToSendToEnterScene(IXUIButton button)
 		{
 			bool flag = this.m_NotifedWeddingID > 0UL;
@@ -968,14 +886,12 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x06009D9A RID: 40346 RVA: 0x0019B320 File Offset: 0x00199520
 		public void GetAllWeddingInfo()
 		{
 			RpcC2M_GetAllWeddingInfo rpc = new RpcC2M_GetAllWeddingInfo();
 			XSingleton<XClientNetwork>.singleton.Send(rpc);
 		}
 
-		// Token: 0x06009D9B RID: 40347 RVA: 0x0019B340 File Offset: 0x00199540
 		public void OnGetAllWeddingInfo(GetAllWeddingInfoRes oRes)
 		{
 			bool flag = oRes.result > ErrorCode.ERR_SUCCESS;
@@ -1011,7 +927,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009D9C RID: 40348 RVA: 0x0019B484 File Offset: 0x00199684
 		private static int SortWeddingInfo(WeddingBriefInfo info1, WeddingBriefInfo info2)
 		{
 			bool flag = info1.brief.type != info2.brief.type;
@@ -1027,7 +942,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009D9D RID: 40349 RVA: 0x0019B4E8 File Offset: 0x001996E8
 		private void UpdateApplyWeddingState(ulong weddingid, bool isApply)
 		{
 			for (int i = 0; i < this.m_CanApplyWedding.Count; i++)
@@ -1040,14 +954,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009D9E RID: 40350 RVA: 0x0019B544 File Offset: 0x00199744
 		public void GetWeddingInviteInfo()
 		{
 			RpcC2M_GetWeddingInviteInfo rpc = new RpcC2M_GetWeddingInviteInfo();
 			XSingleton<XClientNetwork>.singleton.Send(rpc);
 		}
 
-		// Token: 0x06009D9F RID: 40351 RVA: 0x0019B564 File Offset: 0x00199764
 		public void OnGetWeddingInviteInfo(GetWeddingInviteInfoRes oRes)
 		{
 			bool flag = oRes.result > ErrorCode.ERR_SUCCESS;
@@ -1125,14 +1037,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009DA0 RID: 40352 RVA: 0x0019B864 File Offset: 0x00199A64
 		public void SendMarriageRelationInfo()
 		{
 			RpcC2M_GetMarriageRelation rpc = new RpcC2M_GetMarriageRelation();
 			XSingleton<XClientNetwork>.singleton.Send(rpc);
 		}
 
-		// Token: 0x06009DA1 RID: 40353 RVA: 0x0019B884 File Offset: 0x00199A84
 		public void OnGetMarriageRelationInfo(GetMarriageRelationRes oRes)
 		{
 			bool flag = oRes.error == ErrorCode.ERR_SUCCESS;
@@ -1153,7 +1063,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009DA2 RID: 40354 RVA: 0x0019B900 File Offset: 0x00199B00
 		private XWeddingDramaOperate IsNpcDialogVisible()
 		{
 			bool flag = DlgBase<DramaDlg, DramaDlgBehaviour>.singleton.IsVisible();
@@ -1175,7 +1084,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x06009DA3 RID: 40355 RVA: 0x0019B960 File Offset: 0x00199B60
 		public void SendMarriageOp(MarriageOpType op, WeddingType type = WeddingType.WeddingType_Normal, ulong roleID = 0UL)
 		{
 			RpcC2M_MarriageRelationOp rpcC2M_MarriageRelationOp = new RpcC2M_MarriageRelationOp();
@@ -1185,7 +1093,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_MarriageRelationOp);
 		}
 
-		// Token: 0x06009DA4 RID: 40356 RVA: 0x0019B9A8 File Offset: 0x00199BA8
 		public void OnGetMarriageRelationOp(MarriageRelationOpArg oarg, MarriageRelationOpRes oRes)
 		{
 			bool flag = oRes.error == ErrorCode.ERR_SUCCESS && oarg.opType == MarriageOpType.MarriageOpType_MarryAgree;
@@ -1207,7 +1114,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009DA5 RID: 40357 RVA: 0x0019BA54 File Offset: 0x00199C54
 		public void OnGetMarriageApplyNotify(PtcM2C_NotifyMarriageApply roPtc)
 		{
 			MarriageApplyInfo applyInfo = roPtc.Data.applyInfo;
@@ -1253,7 +1159,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009DA6 RID: 40358 RVA: 0x0019BC00 File Offset: 0x00199E00
 		public bool GoToNpc(IXUIButton button)
 		{
 			DlgBase<DramaDlg, DramaDlgBehaviour>.singleton.SetVisible(false, true);
@@ -1262,7 +1167,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x06009DA7 RID: 40359 RVA: 0x0019BC50 File Offset: 0x00199E50
 		public void OnGetMarriageDivorceNotify(PtcM2C_NotifyMarriageDivorceApply roPtc)
 		{
 			bool isApplyCancel = roPtc.Data.isApplyCancel;
@@ -1291,14 +1195,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009DA8 RID: 40360 RVA: 0x0019BD34 File Offset: 0x00199F34
 		public void SendWeddingCar()
 		{
 			RpcC2M_StartWeddingCar rpc = new RpcC2M_StartWeddingCar();
 			XSingleton<XClientNetwork>.singleton.Send(rpc);
 		}
 
-		// Token: 0x06009DA9 RID: 40361 RVA: 0x0019BD54 File Offset: 0x00199F54
 		public void OnGetWeddingCarNtf(PtcG2C_WeddingCarNtf roPtc)
 		{
 			bool flag = XSingleton<XGame>.singleton.CurrentStage.Stage == EXStage.Hall;
@@ -1344,7 +1246,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009DAA RID: 40362 RVA: 0x0019BFF0 File Offset: 0x0019A1F0
 		private void StopWeddingCar(object param)
 		{
 			bool flag = this._weddingCarTimer > 0U;
@@ -1356,7 +1257,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009DAB RID: 40363 RVA: 0x0019C02C File Offset: 0x0019A22C
 		private bool ToRefuseMarriage(IXUIButton button)
 		{
 			bool flag = this.m_ApplyMarriageRoleID > 0UL;
@@ -1369,7 +1269,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x06009DAC RID: 40364 RVA: 0x0019C070 File Offset: 0x0019A270
 		private bool ToAgreeMarriage(IXUIButton button)
 		{
 			bool flag = this.m_ApplyMarriageRoleID > 0UL;
@@ -1382,7 +1281,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x06009DAD RID: 40365 RVA: 0x0019C0B3 File Offset: 0x0019A2B3
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			XWeddingDocument.AsyncLoader.AddTask("Table/WeddingLoverLiveness", XWeddingDocument.m_partnerLivenessTab, false);
@@ -1390,7 +1288,6 @@ namespace XMainClient
 			XWeddingDocument.AsyncLoader.Execute(callback);
 		}
 
-		// Token: 0x06009DAE RID: 40366 RVA: 0x0019C0F0 File Offset: 0x0019A2F0
 		public static void OnTableLoaded()
 		{
 			bool flag = XWeddingDocument.m_partnerLivenessTab.Table.Length != 0;
@@ -1405,12 +1302,10 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009DAF RID: 40367 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 		}
 
-		// Token: 0x06009DB0 RID: 40368 RVA: 0x0019C16C File Offset: 0x0019A36C
 		public override void OnEnterScene()
 		{
 			base.OnEnterScene();
@@ -1440,13 +1335,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009DB1 RID: 40369 RVA: 0x0019C27A File Offset: 0x0019A47A
 		public override void OnLeaveScene()
 		{
 			this.StopWeddingCar(null);
 		}
 
-		// Token: 0x06009DB2 RID: 40370 RVA: 0x0019C288 File Offset: 0x0019A488
 		private void DestroyFakeRoles()
 		{
 			XPetDocument.TryMount(false, this._player1, (uint)XSingleton<XGlobalConfig>.singleton.GetInt("WeddingCarID"), true);
@@ -1458,7 +1351,6 @@ namespace XMainClient
 			this._mount = null;
 		}
 
-		// Token: 0x06009DB3 RID: 40371 RVA: 0x0019C2FC File Offset: 0x0019A4FC
 		public override void Update(float fDeltaT)
 		{
 			base.Update(fDeltaT);
@@ -1474,7 +1366,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009DB4 RID: 40372 RVA: 0x0019C34C File Offset: 0x0019A54C
 		public override void PostUpdate(float fDeltaT)
 		{
 			base.PostUpdate(fDeltaT);
@@ -1490,130 +1381,88 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0400377A RID: 14202
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("WeddingDocument");
 
-		// Token: 0x0400377B RID: 14203
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x0400377C RID: 14204
 		public static MarriageLevel MarriageLevelTable = new MarriageLevel();
 
-		// Token: 0x0400377D RID: 14205
 		private static WeddingLoverLiveness m_partnerLivenessTab = new WeddingLoverLiveness();
 
-		// Token: 0x0400377E RID: 14206
 		private List<LoverLivenessRecord> m_recordList = new List<LoverLivenessRecord>();
 
-		// Token: 0x0400377F RID: 14207
 		public static readonly int MaxAvata = 2;
 
-		// Token: 0x04003780 RID: 14208
 		public FriendsWeddingHandler View;
 
-		// Token: 0x04003781 RID: 14209
 		private List<RoleOutLookBrief> m_PartnerList = new List<RoleOutLookBrief>();
 
-		// Token: 0x04003782 RID: 14210
 		private MarriageLevelInfo m_MarriageLevel;
 
-		// Token: 0x04003783 RID: 14211
 		private int m_MarriageLevelUp = 0;
 
-		// Token: 0x04003784 RID: 14212
 		public static int MaxMarriageLevel;
 
-		// Token: 0x04003785 RID: 14213
 		public uint CurrExp = 0U;
 
-		// Token: 0x04003786 RID: 14214
 		private uint m_takeChest = 0U;
 
-		// Token: 0x04003787 RID: 14215
 		public static uint MaxExp = 0U;
 
-		// Token: 0x04003788 RID: 14216
 		private bool m_bIsHadLivenessRedPoint = false;
 
-		// Token: 0x04003789 RID: 14217
 		private bool m_bLevelUpRedPoint = false;
 
-		// Token: 0x0400378A RID: 14218
 		private List<WeddingBriefInfo> m_CanEnterWedding = new List<WeddingBriefInfo>();
 
-		// Token: 0x0400378B RID: 14219
 		private List<WeddingBriefInfo> m_CanApplyWedding = new List<WeddingBriefInfo>();
 
-		// Token: 0x0400378C RID: 14220
 		private MarriageStatus m_MyMarriageStatus = MarriageStatus.MarriageStatus_Null;
 
-		// Token: 0x0400378D RID: 14221
 		private ulong m_NotifedWeddingID = 0UL;
 
-		// Token: 0x0400378E RID: 14222
 		private ulong m_ApplyMarriageRoleID = 0UL;
 
-		// Token: 0x0400378F RID: 14223
 		private int m_LeftDivorceTime = 0;
 
-		// Token: 0x04003790 RID: 14224
 		private ulong m_DivorceApplyID = 0UL;
 
-		// Token: 0x04003791 RID: 14225
 		private bool m_PermitStranger = false;
 
-		// Token: 0x04003792 RID: 14226
 		private ulong m_MyWeddingID;
 
-		// Token: 0x04003793 RID: 14227
 		private int m_CoupleOfflineTime = 0;
 
-		// Token: 0x04003794 RID: 14228
 		private WeddingType m_WeddingType = WeddingType.WeddingType_Normal;
 
-		// Token: 0x04003795 RID: 14229
 		private List<WeddingRoleInfo> m_FriendsWeddingRoleInfoList = new List<WeddingRoleInfo>();
 
-		// Token: 0x04003796 RID: 14230
 		private List<WeddingRoleInfo> m_GuildWeddingRoleInfoList = new List<WeddingRoleInfo>();
 
-		// Token: 0x04003797 RID: 14231
 		private List<WeddingRoleInfo> m_InvitedWeddingRoleInfoList = new List<WeddingRoleInfo>();
 
-		// Token: 0x04003798 RID: 14232
 		private List<WeddingRoleInfo> m_ApplyWeddingRoleInfoList = new List<WeddingRoleInfo>();
 
-		// Token: 0x04003799 RID: 14233
 		private List<RoleOutLookBrief> m_Marriagelist = new List<RoleOutLookBrief>();
 
-		// Token: 0x0400379A RID: 14234
 		private WeddingBrief m_CurrWeddingInfo = null;
 
-		// Token: 0x0400379B RID: 14235
 		private NotifyType m_CacheNotify = NotifyType.None;
 
-		// Token: 0x0400379C RID: 14236
 		private object m_CachedData = null;
 
-		// Token: 0x0400379D RID: 14237
 		private uint m_AllAttendPlayerCount = 0U;
 
-		// Token: 0x0400379E RID: 14238
 		private XRole _player1;
 
-		// Token: 0x0400379F RID: 14239
 		private XRole _player2;
 
-		// Token: 0x040037A0 RID: 14240
 		private XMount _mount;
 
-		// Token: 0x040037A1 RID: 14241
 		private uint _weddingCarTimer = 0U;
 
-		// Token: 0x040037A2 RID: 14242
 		private bool _hasApplyCandidate = false;
 
-		// Token: 0x040037A3 RID: 14243
 		private Dictionary<ulong, XFx> m_WeddingSceneLoverFx = new Dictionary<ulong, XFx>();
 	}
 }

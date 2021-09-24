@@ -3,18 +3,16 @@ using System.Collections.Generic;
 
 namespace XUtliPoolLib
 {
-	// Token: 0x020001BB RID: 443
+
 	internal class XHeap<T> where T : IComparable<T>, IHere
 	{
-		// Token: 0x060009F0 RID: 2544 RVA: 0x0003410E File Offset: 0x0003230E
+
 		public XHeap()
 		{
 			this._heap = new List<T>();
 			this._heapSize = 0;
 		}
 
-		// Token: 0x170000C1 RID: 193
-		// (get) Token: 0x060009F1 RID: 2545 RVA: 0x00034138 File Offset: 0x00032338
 		public int HeapSize
 		{
 			get
@@ -23,7 +21,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x060009F2 RID: 2546 RVA: 0x00034150 File Offset: 0x00032350
 		public void PushHeap(T item)
 		{
 			int count = this._heap.Count;
@@ -41,7 +38,6 @@ namespace XUtliPoolLib
 			this._heapSize++;
 		}
 
-		// Token: 0x060009F3 RID: 2547 RVA: 0x000341D4 File Offset: 0x000323D4
 		public T PopHeap()
 		{
 			T result = default(T);
@@ -58,7 +54,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x060009F4 RID: 2548 RVA: 0x00034270 File Offset: 0x00032470
 		public void PopHeapAt(int Idx)
 		{
 			bool flag = this._heapSize > 0 && Idx >= 0 && Idx < this._heapSize;
@@ -87,7 +82,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x060009F5 RID: 2549 RVA: 0x00034384 File Offset: 0x00032584
 		public void Adjust(T item, bool downwords)
 		{
 			bool flag = this._heapSize > 1;
@@ -104,7 +98,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x060009F6 RID: 2550 RVA: 0x000343E4 File Offset: 0x000325E4
 		public static void MakeHeap(List<T> list)
 		{
 			for (int i = list.Count / 2 - 1; i >= 0; i--)
@@ -113,7 +106,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x060009F7 RID: 2551 RVA: 0x00034420 File Offset: 0x00032620
 		public static void HeapSort(List<T> list)
 		{
 			bool flag = list.Count < 2;
@@ -128,7 +120,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x060009F8 RID: 2552 RVA: 0x00034470 File Offset: 0x00032670
 		public T Peek()
 		{
 			bool flag = this._heapSize > 0;
@@ -144,14 +135,12 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x060009F9 RID: 2553 RVA: 0x000344A8 File Offset: 0x000326A8
 		public void Clear()
 		{
 			this._heap.Clear();
 			this._heapSize = 0;
 		}
 
-		// Token: 0x060009FA RID: 2554 RVA: 0x000344C0 File Offset: 0x000326C0
 		private static void HeapifyDown(List<T> heap, int curIdx, int heapSize)
 		{
 			while (curIdx < heapSize)
@@ -202,7 +191,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x060009FB RID: 2555 RVA: 0x00034580 File Offset: 0x00032780
 		private static void HeapifyUp(List<T> heap, int curIdx)
 		{
 			while (curIdx > 0)
@@ -235,7 +223,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x060009FC RID: 2556 RVA: 0x000345F4 File Offset: 0x000327F4
 		private static void Swap(List<T> heap, int x, int y)
 		{
 			T value = heap[x];
@@ -247,10 +234,8 @@ namespace XUtliPoolLib
 			t.Here = y;
 		}
 
-		// Token: 0x040004B7 RID: 1207
 		private List<T> _heap = null;
 
-		// Token: 0x040004B8 RID: 1208
 		private int _heapSize = 0;
 	}
 }

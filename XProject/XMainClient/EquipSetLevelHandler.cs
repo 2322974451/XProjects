@@ -6,10 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000CD9 RID: 3289
+
 	internal class EquipSetLevelHandler : DlgHandlerBase
 	{
-		// Token: 0x0600B86D RID: 47213 RVA: 0x00251FDC File Offset: 0x002501DC
+
 		protected override void Init()
 		{
 			base.Init();
@@ -59,7 +59,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B86E RID: 47214 RVA: 0x00252240 File Offset: 0x00250440
 		public override void RegisterEvent()
 		{
 			base.Init();
@@ -67,7 +66,6 @@ namespace XMainClient
 			ixuisprite.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnClickBlockCollider));
 		}
 
-		// Token: 0x0600B86F RID: 47215 RVA: 0x00252290 File Offset: 0x00250490
 		private string _GetLevelText(int _level)
 		{
 			bool flag = _level > 0;
@@ -83,7 +81,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B870 RID: 47216 RVA: 0x002522C8 File Offset: 0x002504C8
 		private GameObject _CreateLevelMenuItem(int _level)
 		{
 			GameObject gameObject = this.mLevelListPool.FetchGameObject(false);
@@ -96,13 +93,11 @@ namespace XMainClient
 			return gameObject;
 		}
 
-		// Token: 0x0600B871 RID: 47217 RVA: 0x001A6C1F File Offset: 0x001A4E1F
 		private void OnClickBlockCollider(IXUISprite _spr)
 		{
 			base.SetVisible(false);
 		}
 
-		// Token: 0x0600B872 RID: 47218 RVA: 0x00252354 File Offset: 0x00250554
 		private void OnClickLevelMenuItem(IXUISprite _cb)
 		{
 			base.SetVisible(false);
@@ -115,7 +110,6 @@ namespace XMainClient
 			this.mDoc.RefreshEquipSuitListUIByLevel(num, true);
 		}
 
-		// Token: 0x0600B873 RID: 47219 RVA: 0x002523D0 File Offset: 0x002505D0
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -138,7 +132,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B874 RID: 47220 RVA: 0x002524C2 File Offset: 0x002506C2
 		public override void OnUnload()
 		{
 			this.mDoc = null;
@@ -147,34 +140,25 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x040048FB RID: 18683
 		private XUIPool mLevelListPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x040048FC RID: 18684
 		private IXUILabel mLbCurLevel;
 
-		// Token: 0x040048FD RID: 18685
 		private IXUIList mGrid;
 
-		// Token: 0x040048FE RID: 18686
 		private string mLevelFmt;
 
-		// Token: 0x040048FF RID: 18687
 		private XEquipCreateDocument mDoc;
 
-		// Token: 0x04004900 RID: 18688
 		private EquipSetLevelHandler._LevelGameObjectItem[] mLevelGoArr;
 
-		// Token: 0x020019B1 RID: 6577
 		private class _LevelGameObjectItem
 		{
-			// Token: 0x04007F90 RID: 32656
+
 			public GameObject go;
 
-			// Token: 0x04007F91 RID: 32657
 			public int level;
 
-			// Token: 0x04007F92 RID: 32658
 			public GameObject select;
 		}
 	}

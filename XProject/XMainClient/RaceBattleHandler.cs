@@ -9,10 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C89 RID: 3209
+
 	internal class RaceBattleHandler : DlgHandlerBase
 	{
-		// Token: 0x0600B53B RID: 46395 RVA: 0x0023B728 File Offset: 0x00239928
+
 		protected override void Init()
 		{
 			base.Init();
@@ -52,8 +52,6 @@ namespace XMainClient
 			this.m_ItemPool.ActualReturnAll(false);
 		}
 
-		// Token: 0x17003211 RID: 12817
-		// (get) Token: 0x0600B53C RID: 46396 RVA: 0x0023BA44 File Offset: 0x00239C44
 		protected override string FileName
 		{
 			get
@@ -62,7 +60,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B53D RID: 46397 RVA: 0x0023BA5C File Offset: 0x00239C5C
 		public override void RegisterEvent()
 		{
 			int num = 0;
@@ -74,7 +71,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B53E RID: 46398 RVA: 0x0023BAAC File Offset: 0x00239CAC
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -82,7 +78,6 @@ namespace XMainClient
 			this.RefreshInfo();
 		}
 
-		// Token: 0x0600B53F RID: 46399 RVA: 0x0023BACE File Offset: 0x00239CCE
 		protected override void OnHide()
 		{
 			XSingleton<XTimerMgr>.singleton.KillTimer(this.m_ShowRankTimerID);
@@ -90,7 +85,6 @@ namespace XMainClient
 			base.OnHide();
 		}
 
-		// Token: 0x0600B540 RID: 46400 RVA: 0x0023BAF0 File Offset: 0x00239CF0
 		public override void OnUnload()
 		{
 			this.doc.RaceHandler = null;
@@ -99,7 +93,6 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x0600B541 RID: 46401 RVA: 0x0023BB20 File Offset: 0x00239D20
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
@@ -122,7 +115,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B542 RID: 46402 RVA: 0x0023BBB4 File Offset: 0x00239DB4
 		private void RefreshInfo()
 		{
 			this.m_Rank.SetText("0");
@@ -135,19 +127,16 @@ namespace XMainClient
 			this.m_EndRank.gameObject.SetActive(false);
 		}
 
-		// Token: 0x0600B543 RID: 46403 RVA: 0x0023BC55 File Offset: 0x00239E55
 		public void RefreshRank(uint rank)
 		{
 			this.m_Rank.SetText(rank.ToString());
 		}
 
-		// Token: 0x0600B544 RID: 46404 RVA: 0x0023BC6B File Offset: 0x00239E6B
 		public void RefreshLap(uint lap)
 		{
 			this.m_NowLap.SetText(lap.ToString());
 		}
 
-		// Token: 0x0600B545 RID: 46405 RVA: 0x0023BC84 File Offset: 0x00239E84
 		public void RefreshTime(float time)
 		{
 			bool flag = time == 0f;
@@ -159,39 +148,33 @@ namespace XMainClient
 			this.isRaceLeftTime = true;
 		}
 
-		// Token: 0x0600B546 RID: 46406 RVA: 0x0023BCBA File Offset: 0x00239EBA
 		private void UpdateWifi()
 		{
 			XSingleton<UiUtility>.singleton.UpdateWifi(null, this.m_sprwifi);
 		}
 
-		// Token: 0x0600B547 RID: 46407 RVA: 0x0023BCCF File Offset: 0x00239ECF
 		private void RefreshPing()
 		{
 			XSingleton<UiUtility>.singleton.RefreshPing(this.m_lblTime, this.m_sliderBattery, null);
 		}
 
-		// Token: 0x0600B548 RID: 46408 RVA: 0x0023BCEA File Offset: 0x00239EEA
 		public void RaceStart()
 		{
 			this.RefreshTime(0.01f);
 			this.isRaceLeftTime = true;
 		}
 
-		// Token: 0x0600B549 RID: 46409 RVA: 0x0023BD00 File Offset: 0x00239F00
 		public void RaceEnd()
 		{
 			this.isRaceEnd = true;
 		}
 
-		// Token: 0x0600B54A RID: 46410 RVA: 0x0023BD0A File Offset: 0x00239F0A
 		public void HideInfo()
 		{
 			this.CloseEndLeftTime();
 			this.CloseRank(null);
 		}
 
-		// Token: 0x0600B54B RID: 46411 RVA: 0x0023BD1C File Offset: 0x00239F1C
 		public void ShowRank(uint rank)
 		{
 			this.m_EndRank.gameObject.SetActive(true);
@@ -199,13 +182,11 @@ namespace XMainClient
 			this.m_ShowRankTimerID = XSingleton<XTimerMgr>.singleton.SetTimer((float)int.Parse(XSingleton<XGlobalConfig>.singleton.GetValue("HorseShowRankTime")), new XTimerMgr.ElapsedEventHandler(this.CloseRank), null);
 		}
 
-		// Token: 0x0600B54C RID: 46412 RVA: 0x0023BD81 File Offset: 0x00239F81
 		private void CloseRank(object param)
 		{
 			this.m_EndRank.gameObject.SetActive(false);
 		}
 
-		// Token: 0x0600B54D RID: 46413 RVA: 0x0023BD96 File Offset: 0x00239F96
 		public void ShowEndLeftTime(float time)
 		{
 			this.m_End.gameObject.SetActive(true);
@@ -213,14 +194,12 @@ namespace XMainClient
 			this._EndCounter.SetLeftTime(time, -1);
 		}
 
-		// Token: 0x0600B54E RID: 46414 RVA: 0x0023BDC0 File Offset: 0x00239FC0
 		private void CloseEndLeftTime()
 		{
 			this.m_End.gameObject.SetActive(false);
 			this.isEndLeftTime = false;
 		}
 
-		// Token: 0x0600B54F RID: 46415 RVA: 0x0023BDDC File Offset: 0x00239FDC
 		public void RefreshDoodad(DoodadItemAllSkill data)
 		{
 			bool flag = data == null;
@@ -282,13 +261,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B550 RID: 46416 RVA: 0x0023BF95 File Offset: 0x0023A195
 		public void UseDoodad(uint index)
 		{
 			this.ItemDoodad[(int)index].gameObject.SetActive(false);
 		}
 
-		// Token: 0x0600B551 RID: 46417 RVA: 0x0023BFAC File Offset: 0x0023A1AC
 		private void _OnItemClick(IXUISprite iSp)
 		{
 			bool activeSelf = this.ItemDoodad[(int)(checked((IntPtr)iSp.ID))].gameObject.activeSelf;
@@ -301,76 +278,52 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x040046CA RID: 18122
 		private XRaceDocument doc = null;
 
-		// Token: 0x040046CB RID: 18123
 		private XLeftTimeCounter _RaceCounter;
 
-		// Token: 0x040046CC RID: 18124
 		private XLeftTimeCounter _EndCounter;
 
-		// Token: 0x040046CD RID: 18125
 		private uint m_ShowRankTimerID = 0U;
 
-		// Token: 0x040046CE RID: 18126
 		private bool isRaceLeftTime = false;
 
-		// Token: 0x040046CF RID: 18127
 		private bool isEndLeftTime = false;
 
-		// Token: 0x040046D0 RID: 18128
 		private bool isRaceEnd = false;
 
-		// Token: 0x040046D1 RID: 18129
 		public static readonly uint ITEM_DOODAD_COUNT_MAX = 2U;
 
-		// Token: 0x040046D2 RID: 18130
 		private IXUILabel m_lblTime;
 
-		// Token: 0x040046D3 RID: 18131
 		private IXUISlider m_sliderBattery;
 
-		// Token: 0x040046D4 RID: 18132
 		private IXUISprite m_sprwifi;
 
-		// Token: 0x040046D5 RID: 18133
 		private IXUILabel m_lblFree;
 
-		// Token: 0x040046D6 RID: 18134
 		private IXUILabel m_Rank;
 
-		// Token: 0x040046D7 RID: 18135
 		private IXUILabel m_NowLap;
 
-		// Token: 0x040046D8 RID: 18136
 		private IXUILabel m_MAXLap;
 
-		// Token: 0x040046D9 RID: 18137
 		private IXUILabel m_RaceTime;
 
-		// Token: 0x040046DA RID: 18138
 		private Transform m_End;
 
-		// Token: 0x040046DB RID: 18139
 		private IXUILabel m_EndTime;
 
-		// Token: 0x040046DC RID: 18140
 		private IXUILabel m_EndRank;
 
-		// Token: 0x040046DD RID: 18141
 		public XUIPool m_ItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x040046DE RID: 18142
 		private Transform[] ItemDoodad = new Transform[2];
 
-		// Token: 0x040046DF RID: 18143
 		private IXUISprite[] DoodadIcon = new IXUISprite[2];
 
-		// Token: 0x040046E0 RID: 18144
 		private IXUILabel[] DoodadName = new IXUILabel[2];
 
-		// Token: 0x040046E1 RID: 18145
 		private float lastPingTime = -60f;
 	}
 }

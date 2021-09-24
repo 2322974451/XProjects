@@ -7,10 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200181B RID: 6171
+
 	public class XBossRefreshAnimHander : XSingleton<XBossRefreshAnimHander>
 	{
-		// Token: 0x06010030 RID: 65584 RVA: 0x003CC9F4 File Offset: 0x003CABF4
+
 		public void Init(GameObject _go)
 		{
 			this._doc = (XSingleton<XGame>.singleton.Doc.GetXComponent(XBossBushDocument.uuID) as XBossBushDocument);
@@ -39,7 +39,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010031 RID: 65585 RVA: 0x003CCC30 File Offset: 0x003CAE30
 		public void Show()
 		{
 			this._doc = XDocuments.GetSpecificDocument<XBossBushDocument>(XBossBushDocument.uuID);
@@ -56,7 +55,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010032 RID: 65586 RVA: 0x003CCC94 File Offset: 0x003CAE94
 		public void OnUpdate()
 		{
 			bool flag = this.state == XBossRefreshAnimHander.State.BEGIN;
@@ -137,7 +135,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010033 RID: 65587 RVA: 0x003CCEE0 File Offset: 0x003CB0E0
 		private int GetFrame(uint index)
 		{
 			bool flag = this.frames.Count <= 0;
@@ -161,7 +158,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x06010034 RID: 65588 RVA: 0x003CCF50 File Offset: 0x003CB150
 		public void OnUnload()
 		{
 			bool flag = this.m_timertoken > 0U;
@@ -171,7 +167,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010035 RID: 65589 RVA: 0x003CCF80 File Offset: 0x003CB180
 		private void PlayFxEff()
 		{
 			this.m_objFx.SetActive(true);
@@ -183,13 +178,11 @@ namespace XMainClient.UI
 			this.m_tween3.ResetTween(true);
 		}
 
-		// Token: 0x06010036 RID: 65590 RVA: 0x003CCFEE File Offset: 0x003CB1EE
 		private void PlayEndTimer(object o)
 		{
 			this.state = XBossRefreshAnimHander.State.FADE;
 		}
 
-		// Token: 0x06010037 RID: 65591 RVA: 0x003CCFF8 File Offset: 0x003CB1F8
 		private void RefreshRandBoss()
 		{
 			int num = XBossBushDocument.bossRushTable.Table.Length - 2;
@@ -197,7 +190,6 @@ namespace XMainClient.UI
 			this.RefreshBoss(uid, true);
 		}
 
-		// Token: 0x06010038 RID: 65592 RVA: 0x003CD028 File Offset: 0x003CB228
 		private void RefreshBoss(int uid, bool rand)
 		{
 			BossRushTable.RowData bossRushRow = this._doc.GetBossRushRow(uid);
@@ -239,94 +231,70 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010039 RID: 65593 RVA: 0x003CD33C File Offset: 0x003CB53C
 		private string MakeBossName(string name, int diff)
 		{
 			return DlgBase<BossRushDlg, BossRushBehavior>.singleton.colors[diff - 1] + name;
 		}
 
-		// Token: 0x0601003A RID: 65594 RVA: 0x003CD364 File Offset: 0x003CB564
 		private void UpdateSlider()
 		{
 			float value = this.m_playCnt / this.m_allCnt;
 			this.m_slider.value = value;
 		}
 
-		// Token: 0x040071A8 RID: 29096
 		private GameObject PanelObject;
 
-		// Token: 0x040071A9 RID: 29097
 		private IXUILabel m_lblTitle;
 
-		// Token: 0x040071AA RID: 29098
 		private IXUISprite m_sprIcon;
 
-		// Token: 0x040071AB RID: 29099
 		private IXUILabel m_lblDiff;
 
-		// Token: 0x040071AC RID: 29100
 		private IXUIProgress m_slider;
 
-		// Token: 0x040071AD RID: 29101
 		private IXUISprite m_sprBuff1;
 
-		// Token: 0x040071AE RID: 29102
 		private IXUILabel m_lblBuff1;
 
-		// Token: 0x040071AF RID: 29103
 		private IXUISprite m_sprBuff2;
 
-		// Token: 0x040071B0 RID: 29104
 		private IXUILabel m_lblBuff2;
 
-		// Token: 0x040071B1 RID: 29105
 		public GameObject m_objFx;
 
-		// Token: 0x040071B2 RID: 29106
 		public IXUITweenTool m_tween1;
 
-		// Token: 0x040071B3 RID: 29107
 		public IXUITweenTool m_tween2;
 
-		// Token: 0x040071B4 RID: 29108
 		public IXUITweenTool m_tween3;
 
-		// Token: 0x040071B5 RID: 29109
 		private uint m_timertoken = 0U;
 
-		// Token: 0x040071B6 RID: 29110
 		public XBossRefreshAnimHander.State state = XBossRefreshAnimHander.State.None;
 
-		// Token: 0x040071B7 RID: 29111
 		public List<int> frames = new List<int>();
 
-		// Token: 0x040071B8 RID: 29112
 		private XBossBushDocument _doc = null;
 
-		// Token: 0x040071B9 RID: 29113
 		private XElapseTimer timePass = new XElapseTimer();
 
-		// Token: 0x040071BA RID: 29114
 		private uint m_accTime = 0U;
 
-		// Token: 0x040071BB RID: 29115
 		private uint m_allCnt = 35U;
 
-		// Token: 0x040071BC RID: 29116
 		private uint m_playCnt = 0U;
 
-		// Token: 0x02001A12 RID: 6674
 		public enum State
 		{
-			// Token: 0x04008234 RID: 33332
+
 			BEGIN,
-			// Token: 0x04008235 RID: 33333
+
 			PLAY,
-			// Token: 0x04008236 RID: 33334
+
 			Idle,
-			// Token: 0x04008237 RID: 33335
+
 			FADE,
-			// Token: 0x04008238 RID: 33336
+
 			None
 		}
 	}

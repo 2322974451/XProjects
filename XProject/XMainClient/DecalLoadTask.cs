@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000FD2 RID: 4050
+
 	internal class DecalLoadTask : EquipLoadTask
 	{
-		// Token: 0x0600D252 RID: 53842 RVA: 0x003113B8 File Offset: 0x0030F5B8
+
 		public DecalLoadTask(EPartType p, PartLoadCallback partLoadCb, PartLoadTask face) : base(p)
 		{
 			this.loadCb = new LoadCallBack(this.LoadFinish);
@@ -16,7 +16,6 @@ namespace XMainClient
 			this.m_PartLoadCb = partLoadCb;
 		}
 
-		// Token: 0x0600D253 RID: 53843 RVA: 0x00311414 File Offset: 0x0030F614
 		public override void Load(XEntity e, int prefessionID, ref FashionPositionInfo newFpi, bool async, HashSet<string> loadedPath)
 		{
 			bool flag = base.IsSamePart(ref newFpi);
@@ -55,7 +54,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D254 RID: 53844 RVA: 0x003114DC File Offset: 0x0030F6DC
 		private void LoadFinish(UnityEngine.Object obj, object cbOjb)
 		{
 			bool flag = this.processStatus == EProcessStatus.EProcessing;
@@ -71,7 +69,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D255 RID: 53845 RVA: 0x0031152C File Offset: 0x0030F72C
 		public override void Reset(XEntity e)
 		{
 			base.Reset(e);
@@ -89,7 +86,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D256 RID: 53846 RVA: 0x003115A0 File Offset: 0x0030F7A0
 		public void PostLoad(CombineMeshTask combineMeshTask)
 		{
 			bool flag = this.decalTex != null;
@@ -118,19 +114,14 @@ namespace XMainClient
 			this.processStatus = EProcessStatus.EProcessed;
 		}
 
-		// Token: 0x04005F86 RID: 24454
 		public Texture2D decalTex = null;
 
-		// Token: 0x04005F87 RID: 24455
 		protected LoadAsyncTask loadTask = null;
 
-		// Token: 0x04005F88 RID: 24456
 		protected LoadCallBack loadCb = null;
 
-		// Token: 0x04005F89 RID: 24457
 		private PartLoadTask faceTask = null;
 
-		// Token: 0x04005F8A RID: 24458
 		private PartLoadCallback m_PartLoadCb = null;
 	}
 }

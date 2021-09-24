@@ -4,11 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000DE0 RID: 3552
+
 	internal struct XArtifactBuffInfo
 	{
-		// Token: 0x170033DA RID: 13274
-		// (get) Token: 0x0600C0D0 RID: 49360 RVA: 0x0028D79C File Offset: 0x0028B99C
+
 		public uint Type
 		{
 			get
@@ -17,8 +16,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170033DB RID: 13275
-		// (get) Token: 0x0600C0D1 RID: 49361 RVA: 0x0028D7B4 File Offset: 0x0028B9B4
 		public uint Id
 		{
 			get
@@ -27,8 +24,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170033DC RID: 13276
-		// (get) Token: 0x0600C0D2 RID: 49362 RVA: 0x0028D7CC File Offset: 0x0028B9CC
 		public List<int> Values
 		{
 			get
@@ -37,8 +32,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170033DD RID: 13277
-		// (get) Token: 0x0600C0D3 RID: 49363 RVA: 0x0028D7E4 File Offset: 0x0028B9E4
 		public uint SortId
 		{
 			get
@@ -47,7 +40,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C0D4 RID: 49364 RVA: 0x0028D7FC File Offset: 0x0028B9FC
 		public void Init()
 		{
 			this.m_type = 1U;
@@ -64,7 +56,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C0D5 RID: 49365 RVA: 0x0028D848 File Offset: 0x0028BA48
 		public void SetData(uint effectId, uint type, uint id, List<int> values)
 		{
 			this.m_type = type;
@@ -96,16 +87,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x040050FA RID: 20730
 		private uint m_type;
 
-		// Token: 0x040050FB RID: 20731
 		private uint m_id;
 
-		// Token: 0x040050FC RID: 20732
 		private uint m_sortId;
 
-		// Token: 0x040050FD RID: 20733
 		private List<int> m_values;
 	}
 }

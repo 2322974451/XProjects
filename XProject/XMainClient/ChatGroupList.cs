@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000BD2 RID: 3026
+
 	internal class ChatGroupList : DlgBase<ChatGroupList, ChatGroupBehaviour>
 	{
-		// Token: 0x17003089 RID: 12425
-		// (get) Token: 0x0600ACEA RID: 44266 RVA: 0x00200124 File Offset: 0x001FE324
+
 		public override string fileName
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700308A RID: 12426
-		// (get) Token: 0x0600ACEB RID: 44267 RVA: 0x0020013C File Offset: 0x001FE33C
 		public override bool autoload
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700308B RID: 12427
-		// (get) Token: 0x0600ACEC RID: 44268 RVA: 0x00200150 File Offset: 0x001FE350
 		public override bool isHideChat
 		{
 			get
@@ -40,13 +35,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600ACED RID: 44269 RVA: 0x00200163 File Offset: 0x001FE363
 		protected override void Init()
 		{
 			base.Init();
 		}
 
-		// Token: 0x0600ACEE RID: 44270 RVA: 0x00200170 File Offset: 0x001FE370
 		public override void RegisterEvent()
 		{
 			base.uiBehaviour.m_wrap.RegisterItemUpdateEventHandler(new WrapItemUpdateEventHandler(this.WrapContentItemUpdated));
@@ -57,7 +50,6 @@ namespace XMainClient
 			base.uiBehaviour.m_rm.RegisterOnCheckEventHandler(new CheckBoxOnCheckEventHandler(this.OnTabSelectionChanged));
 		}
 
-		// Token: 0x0600ACEF RID: 44271 RVA: 0x00200218 File Offset: 0x001FE418
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -65,14 +57,12 @@ namespace XMainClient
 			specificDocument.ReqGetGroupInfo(DlgBase<XChatView, XChatBehaviour>.singleton.ChatGroupId);
 		}
 
-		// Token: 0x0600ACF0 RID: 44272 RVA: 0x00200249 File Offset: 0x001FE449
 		protected override void OnHide()
 		{
 			DlgBase<XChatView, XChatBehaviour>.singleton.OnFocus();
 			base.OnHide();
 		}
 
-		// Token: 0x0600ACF1 RID: 44273 RVA: 0x0020025E File Offset: 0x001FE45E
 		public void SetCB()
 		{
 			this.state = ChatGroupList.State.Add;
@@ -80,7 +70,6 @@ namespace XMainClient
 			this.Refresh();
 		}
 
-		// Token: 0x0600ACF2 RID: 44274 RVA: 0x00200284 File Offset: 0x001FE484
 		public void Refresh()
 		{
 			GroupChatDocument specificDocument = XDocuments.GetSpecificDocument<GroupChatDocument>(GroupChatDocument.uuID);
@@ -94,7 +83,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600ACF3 RID: 44275 RVA: 0x002002F0 File Offset: 0x001FE4F0
 		private bool OnTabSelectionChanged(IXUICheckBox ckb)
 		{
 			bool bChecked = ckb.bChecked;
@@ -115,7 +103,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600ACF4 RID: 44276 RVA: 0x00200338 File Offset: 0x001FE538
 		private void SelectByState(CGroupPlayerInfo[] pp)
 		{
 			bool flag = this.players == null;
@@ -161,19 +148,16 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600ACF5 RID: 44277 RVA: 0x0020042C File Offset: 0x001FE62C
 		private int Sort(CGroupPlayerInfo x, CGroupPlayerInfo y)
 		{
 			return y.degree - x.degree;
 		}
 
-		// Token: 0x0600ACF6 RID: 44278 RVA: 0x0020044B File Offset: 0x001FE64B
 		private void OnCloseClick(IXUISprite spr)
 		{
 			this.SetVisible(false, true);
 		}
 
-		// Token: 0x0600ACF7 RID: 44279 RVA: 0x00200458 File Offset: 0x001FE658
 		private void WrapContentItemUpdated(Transform t, int index)
 		{
 			bool flag = this.players == null || this.players[index] == null;
@@ -209,7 +193,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600ACF8 RID: 44280 RVA: 0x002006BC File Offset: 0x001FE8BC
 		private void OpItemClick(IXUISprite spr)
 		{
 			GroupChatDocument specificDocument = XDocuments.GetSpecificDocument<GroupChatDocument>(GroupChatDocument.uuID);
@@ -258,18 +241,15 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0400410E RID: 16654
 		public ChatGroupList.State state = ChatGroupList.State.Add;
 
-		// Token: 0x0400410F RID: 16655
 		private List<CGroupPlayerInfo> players;
 
-		// Token: 0x020019A1 RID: 6561
 		public enum State
 		{
-			// Token: 0x04007F50 RID: 32592
+
 			Add,
-			// Token: 0x04007F51 RID: 32593
+
 			Rm
 		}
 	}

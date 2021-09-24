@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x0200098C RID: 2444
+
 	internal class XEquipCreateDocument : XDocComponent
 	{
-		// Token: 0x17002CA6 RID: 11430
-		// (get) Token: 0x060092B1 RID: 37553 RVA: 0x00153CEC File Offset: 0x00151EEC
+
 		public override uint ID
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002CA7 RID: 11431
-		// (get) Token: 0x060092B2 RID: 37554 RVA: 0x00153D04 File Offset: 0x00151F04
 		public static XEquipCreateDocument Doc
 		{
 			get
@@ -30,14 +27,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060092B3 RID: 37555 RVA: 0x00153D30 File Offset: 0x00151F30
 		public XEquipCreateDocument()
 		{
 			this._onTimeCb = new XTimerMgr.AccurateElapsedEventHandler(this.OnTimer);
 		}
 
-		// Token: 0x17002CA8 RID: 11432
-		// (get) Token: 0x060092B4 RID: 37556 RVA: 0x00153D8C File Offset: 0x00151F8C
 		public static ItemComposeTable ItemComposeReader
 		{
 			get
@@ -46,8 +40,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002CA9 RID: 11433
-		// (get) Token: 0x060092B5 RID: 37557 RVA: 0x00153DA4 File Offset: 0x00151FA4
 		public string DefaultEmblemAttrString
 		{
 			get
@@ -56,8 +48,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002CAA RID: 11434
-		// (get) Token: 0x060092B6 RID: 37558 RVA: 0x00153DBC File Offset: 0x00151FBC
 		public string EmblemAttrEndString
 		{
 			get
@@ -66,9 +56,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002CAB RID: 11435
-		// (get) Token: 0x060092B7 RID: 37559 RVA: 0x00153DD4 File Offset: 0x00151FD4
-		// (set) Token: 0x060092B8 RID: 37560 RVA: 0x00153DFC File Offset: 0x00151FFC
 		public bool RedPointEquip
 		{
 			get
@@ -82,9 +69,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002CAC RID: 11436
-		// (get) Token: 0x060092B9 RID: 37561 RVA: 0x00153E18 File Offset: 0x00152018
-		// (set) Token: 0x060092BA RID: 37562 RVA: 0x00153E40 File Offset: 0x00152040
 		public bool RedPointEmblem
 		{
 			get
@@ -98,8 +82,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002CAD RID: 11437
-		// (get) Token: 0x060092BB RID: 37563 RVA: 0x00153E5C File Offset: 0x0015205C
 		public bool IsForbidGetItemUI
 		{
 			get
@@ -127,8 +109,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002CAE RID: 11438
-		// (get) Token: 0x060092BC RID: 37564 RVA: 0x00153ECC File Offset: 0x001520CC
 		public int CurRoleProf
 		{
 			get
@@ -142,8 +122,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002CAF RID: 11439
-		// (get) Token: 0x060092BD RID: 37565 RVA: 0x00153F00 File Offset: 0x00152100
 		public int NextShowLevel
 		{
 			get
@@ -170,8 +148,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002CB0 RID: 11440
-		// (get) Token: 0x060092BE RID: 37566 RVA: 0x00153F8C File Offset: 0x0015218C
 		public int LastShowLevel
 		{
 			get
@@ -203,7 +179,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060092BF RID: 37567 RVA: 0x0015403C File Offset: 0x0015223C
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			XEquipCreateDocument.AsyncLoader.AddTask("Table/ItemCompose", XEquipCreateDocument.sItemComposeReader, false);
@@ -212,7 +187,6 @@ namespace XMainClient
 			XEquipCreateDocument.AsyncLoader.Execute(callback);
 		}
 
-		// Token: 0x060092C0 RID: 37568 RVA: 0x00154098 File Offset: 0x00152298
 		protected override void EventSubscribe()
 		{
 			base.EventSubscribe();
@@ -221,7 +195,6 @@ namespace XMainClient
 			base.RegisterEvent(XEventDefine.XEvent_PlayerLevelChange, new XComponent.XEventHandler(this.OnPlayerLevelChange));
 		}
 
-		// Token: 0x060092C1 RID: 37569 RVA: 0x001540F0 File Offset: 0x001522F0
 		public static void OnTableLoaded()
 		{
 			XEquipCreateDocument.sEmblemAttrEndString = XStringDefineProxy.GetString("EQUIPCREATE_EMBLEMSET_ATTR_END_FMT").Replace("{n}", "\n");
@@ -271,7 +244,6 @@ namespace XMainClient
 			XEquipCreateDocument.InitQuanlityLevelDic();
 		}
 
-		// Token: 0x060092C2 RID: 37570 RVA: 0x001542D8 File Offset: 0x001524D8
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
@@ -290,7 +262,6 @@ namespace XMainClient
 			XSingleton<XEquipCreateStaticData>.singleton.Init();
 		}
 
-		// Token: 0x060092C3 RID: 37571 RVA: 0x00154357 File Offset: 0x00152557
 		public override void OnDetachFromHost()
 		{
 			this.mDataUIList = null;
@@ -298,7 +269,6 @@ namespace XMainClient
 			base.OnDetachFromHost();
 		}
 
-		// Token: 0x060092C4 RID: 37572 RVA: 0x00154370 File Offset: 0x00152570
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 			this.CheckLevelUp(arg.PlayerInfo.Brief.level);
@@ -314,7 +284,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060092C5 RID: 37573 RVA: 0x001543EC File Offset: 0x001525EC
 		private static void InitQuanlityLevelDic()
 		{
 			XEquipCreateDocument.m_quanlityLevelDic.Clear();
@@ -375,7 +344,6 @@ namespace XMainClient
 			XEquipCreateDocument.sEquipSuitLevelList.Reverse();
 		}
 
-		// Token: 0x060092C6 RID: 37574 RVA: 0x001545F8 File Offset: 0x001527F8
 		private static void InitItemQuanlityTypeDic()
 		{
 			XEquipCreateDocument.m_itemQuanlityTypeDic.Clear();
@@ -402,7 +370,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060092C7 RID: 37575 RVA: 0x001546A4 File Offset: 0x001528A4
 		public static bool InEquipSuit(int suitID, bool prof = true)
 		{
 			EquipSuitTable.RowData suitBySuitId = XCharacterEquipDocument.SuitManager.GetSuitBySuitId(suitID);
@@ -410,7 +377,6 @@ namespace XMainClient
 			return !flag && (!prof || (long)suitBySuitId.ProfID == (long)((ulong)XSingleton<XAttributeMgr>.singleton.XPlayerData.BasicTypeID));
 		}
 
-		// Token: 0x060092C8 RID: 37576 RVA: 0x001546F0 File Offset: 0x001528F0
 		public int CurShowLevel(uint curLevel, int quanlity = -1)
 		{
 			List<int> list = null;
@@ -451,7 +417,6 @@ namespace XMainClient
 			return num;
 		}
 
-		// Token: 0x060092C9 RID: 37577 RVA: 0x001547F4 File Offset: 0x001529F4
 		private bool IsMaterialEnough(ItemComposeTable.RowData composeData)
 		{
 			bool flag = composeData != null;
@@ -496,7 +461,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060092CA RID: 37578 RVA: 0x00154950 File Offset: 0x00152B50
 		public override void OnEnterSceneFinally()
 		{
 			bool flag = SceneType.SCENE_HALL != XSingleton<XSceneMgr>.singleton.GetSceneType(XSingleton<XScene>.singleton.SceneID);
@@ -514,7 +478,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060092CB RID: 37579 RVA: 0x001549C4 File Offset: 0x00152BC4
 		public void CheckLevelUp(uint curLevel)
 		{
 			bool flag = SceneType.SCENE_HALL != XSingleton<XSceneMgr>.singleton.GetSceneType(XSingleton<XScene>.singleton.SceneID);
@@ -525,7 +488,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060092CC RID: 37580 RVA: 0x00154A04 File Offset: 0x00152C04
 		private bool OnFinishItemChange(XEventArgs e)
 		{
 			bool flag = SceneType.SCENE_HALL != XSingleton<XSceneMgr>.singleton.GetSceneType(XSingleton<XScene>.singleton.SceneID);
@@ -549,7 +511,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060092CD RID: 37581 RVA: 0x00154A78 File Offset: 0x00152C78
 		public ItemComposeTable.RowData GetItemCoomposeRow(int itemId)
 		{
 			for (int i = 0; i < XEquipCreateDocument.sItemComposeReader.Table.Length; i++)
@@ -564,7 +525,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x060092CE RID: 37582 RVA: 0x00154ADC File Offset: 0x00152CDC
 		private void _CheckRedPointByLevel(uint curLevel)
 		{
 			bool flag = SceneType.SCENE_HALL != XSingleton<XSceneMgr>.singleton.GetSceneType(XSingleton<XScene>.singleton.SceneID);
@@ -685,7 +645,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060092CF RID: 37583 RVA: 0x00154F20 File Offset: 0x00153120
 		private void SetRedDotOnlyByLevel(uint checkLevel)
 		{
 			this.RedPointEquip = false;
@@ -741,7 +700,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060092D0 RID: 37584 RVA: 0x001550EC File Offset: 0x001532EC
 		private bool IsOwn(XItem _xItem, EquipList.RowData equipListData2, int quanlity, int suitLevel)
 		{
 			bool result = false;
@@ -774,7 +732,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060092D1 RID: 37585 RVA: 0x001551A0 File Offset: 0x001533A0
 		private void RefreshRedPointEquipUI()
 		{
 			bool flag = DlgBase<EquipCreateDlg, TabDlgBehaviour>.singleton.equipSetHandler != null && DlgBase<EquipCreateDlg, TabDlgBehaviour>.singleton.equipSetHandler.IsVisible();
@@ -784,13 +741,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060092D2 RID: 37586 RVA: 0x001551E4 File Offset: 0x001533E4
 		private int _GetCurrentPlayerProf()
 		{
 			return (int)XSingleton<XAttributeMgr>.singleton.XPlayerData.BasicTypeID;
 		}
 
-		// Token: 0x060092D3 RID: 37587 RVA: 0x00155208 File Offset: 0x00153408
 		public List<EquipSuitMenuData> GetUpdateItemTypeList(bool forceGet)
 		{
 			bool flag = this._CheckUpdateItemTypeList();
@@ -810,7 +765,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060092D4 RID: 37588 RVA: 0x00155240 File Offset: 0x00153440
 		private bool _CheckUpdateItemTypeList()
 		{
 			int level = (int)XSingleton<XAttributeMgr>.singleton.XPlayerData.Level;
@@ -903,7 +857,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060092D5 RID: 37589 RVA: 0x001554F8 File Offset: 0x001536F8
 		private void _CheckUpdateEmblemList()
 		{
 			this.mEmblemBagItems.Clear();
@@ -920,7 +873,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060092D6 RID: 37590 RVA: 0x00155574 File Offset: 0x00153774
 		private bool OnVirtualItemChanged(XEventArgs args)
 		{
 			XVirtualItemChangedEventArgs xvirtualItemChangedEventArgs = args as XVirtualItemChangedEventArgs;
@@ -932,7 +884,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x060092D7 RID: 37591 RVA: 0x001555A4 File Offset: 0x001537A4
 		public bool IsHadRedDot(int itemId)
 		{
 			bool result = false;
@@ -940,7 +891,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060092D8 RID: 37592 RVA: 0x001555C8 File Offset: 0x001537C8
 		private void UpdatePlateMetalsRedDot()
 		{
 			this.EmblemRedDotDic.Clear();
@@ -1030,7 +980,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060092D9 RID: 37593 RVA: 0x0015589C File Offset: 0x00153A9C
 		private bool IsHadPlateMetalsRedDot(XItem metelItem, uint ppt)
 		{
 			bool flag = metelItem.Prof != 0U && (ulong)metelItem.Prof != (ulong)((long)XEquipCreateDocument.Doc.CurRoleProf);
@@ -1125,7 +1074,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060092DA RID: 37594 RVA: 0x00155A2C File Offset: 0x00153C2C
 		public XEmblemItem CheckEquipedEmblemsAttrs(ItemComposeTable.RowData composeData)
 		{
 			bool flag = composeData == null;
@@ -1213,7 +1161,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060092DB RID: 37595 RVA: 0x00155C38 File Offset: 0x00153E38
 		private bool IsHadEmptyPos(bool isSkillEmblem)
 		{
 			int num;
@@ -1242,7 +1189,6 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x060092DC RID: 37596 RVA: 0x00155CD8 File Offset: 0x00153ED8
 		private bool BagIsHadBetterEmblem(uint ppt, uint type)
 		{
 			ulong typeFilter = 1UL << XFastEnumIntEqualityComparer<ItemType>.ToInt(ItemType.EMBLEM);
@@ -1265,7 +1211,6 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x060092DD RID: 37597 RVA: 0x00155D8C File Offset: 0x00153F8C
 		private uint GetUnGetEmblemPPT(int emblemItemId, bool isSkillEmblem)
 		{
 			uint result;
@@ -1296,7 +1241,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060092DE RID: 37598 RVA: 0x00155E08 File Offset: 0x00154008
 		private uint GetEmblemPPT(XEmblemItem item, bool isSkillEmblem)
 		{
 			uint result;
@@ -1312,13 +1256,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060092DF RID: 37599 RVA: 0x00155E40 File Offset: 0x00154040
 		public List<int> GetUpdateItemLevelList()
 		{
 			return XEquipCreateDocument.sEquipSuitLevelList;
 		}
 
-		// Token: 0x060092E0 RID: 37600 RVA: 0x00155E58 File Offset: 0x00154058
 		public ProfSkillTable.RowData GetMainProfByID(int id)
 		{
 			for (int i = 0; i < this.mMainProfDataList.Count; i++)
@@ -1332,13 +1274,11 @@ namespace XMainClient
 			return this.mMainProfDataList[0];
 		}
 
-		// Token: 0x060092E1 RID: 37601 RVA: 0x00155EBC File Offset: 0x001540BC
 		public List<ProfSkillTable.RowData> GetMainProfList()
 		{
 			return this.mMainProfDataList;
 		}
 
-		// Token: 0x060092E2 RID: 37602 RVA: 0x00155ED4 File Offset: 0x001540D4
 		public List<XItem> GetEmblemList()
 		{
 			this.mEmblemBagItems.Clear();
@@ -1347,7 +1287,6 @@ namespace XMainClient
 			return this.mEmblemBagItems;
 		}
 
-		// Token: 0x060092E3 RID: 37603 RVA: 0x00155F24 File Offset: 0x00154124
 		public ItemComposeTable.RowData GetEmblemComposeDataByMetalID(int id)
 		{
 			for (int i = 0; i < XEquipCreateDocument.sItemComposeReader.Table.Length; i++)
@@ -1362,7 +1301,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x060092E4 RID: 37604 RVA: 0x00155F88 File Offset: 0x00154188
 		public int GetEmblemComposeAttrByEmblemID(int id, out string name)
 		{
 			name = XEquipCreateDocument.sDefaultEmblemAttrString;
@@ -1438,7 +1376,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060092E5 RID: 37605 RVA: 0x0015618C File Offset: 0x0015438C
 		public void StartCreateEquip(int ID)
 		{
 			this.mCurComposeID = ID;
@@ -1454,7 +1391,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060092E6 RID: 37606 RVA: 0x00156203 File Offset: 0x00154403
 		public void CancelCreateEquip()
 		{
 			this.mCurComposeID = 0;
@@ -1462,7 +1398,6 @@ namespace XMainClient
 			this._CloseTimer();
 		}
 
-		// Token: 0x060092E7 RID: 37607 RVA: 0x0015621C File Offset: 0x0015441C
 		public void ReqCreateEquipSet(int ID, ulong uid = 0UL)
 		{
 			RpcC2G_UseItem rpcC2G_UseItem = new RpcC2G_UseItem();
@@ -1473,7 +1408,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_UseItem);
 		}
 
-		// Token: 0x060092E8 RID: 37608 RVA: 0x0015627C File Offset: 0x0015447C
 		public void OnReqCreateEquipSet(UseItemArg oArg, UseItemRes oRes)
 		{
 			this.IsCreating = false;
@@ -1531,7 +1465,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060092E9 RID: 37609 RVA: 0x00156400 File Offset: 0x00154600
 		public void ReqEnhanceTransform(ulong src, ulong dst)
 		{
 			RpcC2G_EnhanceTranster rpcC2G_EnhanceTranster = new RpcC2G_EnhanceTranster();
@@ -1540,7 +1473,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_EnhanceTranster);
 		}
 
-		// Token: 0x060092EA RID: 37610 RVA: 0x0015643C File Offset: 0x0015463C
 		public void OnReplyEnhanceTransform(EnhanceTransterArg oArg, EnhanceTransterRes oRes)
 		{
 			bool flag = oRes.errorcode > ErrorCode.ERR_SUCCESS;
@@ -1550,7 +1482,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060092EB RID: 37611 RVA: 0x00156470 File Offset: 0x00154670
 		public void RefreshEquipSuitListUIByProf(int prof, bool refreshUI)
 		{
 			bool flag = prof != this.mCurSelectProf;
@@ -1565,7 +1496,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060092EC RID: 37612 RVA: 0x001564AC File Offset: 0x001546AC
 		public void RefreshEquipSuitListUIByLevel(int level, bool refreshUI)
 		{
 			bool flag = level != this.mCurSelectLevel;
@@ -1580,7 +1510,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060092ED RID: 37613 RVA: 0x001564E8 File Offset: 0x001546E8
 		public void RefreshEquipSuitListByProf(int prof)
 		{
 			bool flag = prof != this.mCurSelectProf;
@@ -1591,7 +1520,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060092EE RID: 37614 RVA: 0x00156518 File Offset: 0x00154718
 		public static ItemComposeTable.RowData GetItemConposeDataByID(int id)
 		{
 			bool flag = XEquipCreateDocument.sItemComposeReader != null;
@@ -1607,25 +1535,21 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060092EF RID: 37615 RVA: 0x00156548 File Offset: 0x00154748
 		private static int EmblemAttrDataCompare(AttributeEmblem.RowData rowData, uint emblemID)
 		{
 			return emblemID.CompareTo(rowData.EmblemID);
 		}
 
-		// Token: 0x060092F0 RID: 37616 RVA: 0x00156567 File Offset: 0x00154767
 		public static void GetEmblemAttrDataByID(uint emblemID, out int startIndex, out int endIndex)
 		{
 			CVSReader.GetRowDataListByField<AttributeEmblem.RowData, uint>(XEquipCreateDocument.sAttributeEmblemTable.Table, emblemID, out startIndex, out endIndex, XEquipCreateDocument.comp);
 		}
 
-		// Token: 0x060092F1 RID: 37617 RVA: 0x00156584 File Offset: 0x00154784
 		public static AttributeEmblem.RowData GetAttributeEmblem(int index)
 		{
 			return XEquipCreateDocument.sAttributeEmblemTable.Table[index];
 		}
 
-		// Token: 0x060092F2 RID: 37618 RVA: 0x001565A4 File Offset: 0x001547A4
 		public static void GetRandomPPT(int starIndex, int endIndex, out uint minRandomPPT, out uint maxRandomPPT)
 		{
 			minRandomPPT = 0U;
@@ -1658,7 +1582,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060092F3 RID: 37619 RVA: 0x0015668C File Offset: 0x0015488C
 		public static void GetPPT(int starIndex, int endIndex, bool bIncludeMinRandom, bool bIncludeMaxRandom, out uint minPPT, out uint maxPPT)
 		{
 			minPPT = 0U;
@@ -1710,7 +1633,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060092F4 RID: 37620 RVA: 0x00156820 File Offset: 0x00154A20
 		public static AttributeEmblem.RowData FindAttr(int starIndex, int endIndex, int slotIndex, uint attrid)
 		{
 			bool flag = starIndex >= 0 && starIndex <= endIndex && endIndex < XEquipCreateDocument.sAttributeEmblemTable.Table.Length;
@@ -1729,8 +1651,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x17002CB1 RID: 11441
-		// (get) Token: 0x060092F5 RID: 37621 RVA: 0x0015689C File Offset: 0x00154A9C
 		private static List<int> MarkList
 		{
 			get
@@ -1744,14 +1664,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060092F6 RID: 37622 RVA: 0x001568D8 File Offset: 0x00154AD8
 		public static string GetPrefixColor(int starIndex, int endIndex, int slotIndex, uint attrid, uint attrValue)
 		{
 			AttributeEmblem.RowData data = XEquipCreateDocument.FindAttr(starIndex, endIndex, slotIndex, attrid);
 			return XEquipCreateDocument.GetPrefixColor(data, attrValue);
 		}
 
-		// Token: 0x060092F7 RID: 37623 RVA: 0x001568FC File Offset: 0x00154AFC
 		public static string GetPrefixColor(AttributeEmblem.RowData data, uint attrValue)
 		{
 			bool flag = data == null;
@@ -1793,7 +1711,6 @@ namespace XMainClient
 			return itemQualityRGB;
 		}
 
-		// Token: 0x060092F8 RID: 37624 RVA: 0x001569F0 File Offset: 0x00154BF0
 		public List<EquipSuitItemData> GetUpdateRefreshEquipSuitList(int suitID)
 		{
 			EquipSuitMenuDataItem equipSuitMenuDataItem = null;
@@ -1811,7 +1728,6 @@ namespace XMainClient
 			return this.mDataUIList;
 		}
 
-		// Token: 0x060092F9 RID: 37625 RVA: 0x00156A4C File Offset: 0x00154C4C
 		public EquipSuitItemData GetEquipSuitListItem(int index)
 		{
 			bool flag = this.mDataUIList != null && this.mDataUIList.Count > index && index >= 0;
@@ -1827,7 +1743,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060092FA RID: 37626 RVA: 0x00156A94 File Offset: 0x00154C94
 		private static void _GetEquipSuitList(int suitID, ref List<EquipSuitItemData> _list)
 		{
 			EquipSuitTable.RowData bySuitID = XEquipCreateDocument.sEquipSuitTable.GetBySuitID(suitID);
@@ -1860,28 +1775,24 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060092FB RID: 37627 RVA: 0x00156B57 File Offset: 0x00154D57
 		private void _RefreshEquipSuitListUI()
 		{
 			this.mItemTypeListDirty = true;
 			DlgBase<EquipCreateDlg, TabDlgBehaviour>.singleton.equipSetHandler.RefreshItemType();
 		}
 
-		// Token: 0x060092FC RID: 37628 RVA: 0x00156B71 File Offset: 0x00154D71
 		private void _OpenTimer()
 		{
 			this._CloseTimer();
 			this.mTimerID = XSingleton<XTimerMgr>.singleton.SetTimerAccurate(1f / (float)XSingleton<XEquipCreateStaticData>.singleton.TimerPerSecondCount, this._onTimeCb, null);
 		}
 
-		// Token: 0x060092FD RID: 37629 RVA: 0x00156BA3 File Offset: 0x00154DA3
 		private void _CloseTimer()
 		{
 			XSingleton<XTimerMgr>.singleton.KillTimer(this.mTimerID);
 			this.mTimerID = 0U;
 		}
 
-		// Token: 0x060092FE RID: 37630 RVA: 0x00156BC0 File Offset: 0x00154DC0
 		protected void OnTimer(object param, float delay)
 		{
 			this.mTimerCount++;
@@ -1910,7 +1821,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060092FF RID: 37631 RVA: 0x00156C90 File Offset: 0x00154E90
 		private bool OnPlayerLevelChange(XEventArgs arg)
 		{
 			XPlayerLevelChangedEventArgs xplayerLevelChangedEventArgs = arg as XPlayerLevelChangedEventArgs;
@@ -1918,120 +1828,83 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0400313A RID: 12602
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("EquipCreateDocument");
 
-		// Token: 0x0400313B RID: 12603
 		private static EquipSuitTable sEquipSuitTable = new EquipSuitTable();
 
-		// Token: 0x0400313C RID: 12604
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x0400313D RID: 12605
 		private static ItemComposeTable sItemComposeReader = new ItemComposeTable();
 
-		// Token: 0x0400313E RID: 12606
 		private static AttributeEmblem sAttributeEmblemTable = new AttributeEmblem();
 
-		// Token: 0x0400313F RID: 12607
 		private static List<EquipSuitMenuData> sEquipSuitQualityGroupList = new List<EquipSuitMenuData>();
 
-		// Token: 0x04003140 RID: 12608
 		private static Dictionary<int, EquipSuitMenuDataItem> sEquipSuitIDMenuDataDic = new Dictionary<int, EquipSuitMenuDataItem>();
 
-		// Token: 0x04003141 RID: 12609
 		private static List<int> sEquipSuitLevelList = new List<int>();
 
-		// Token: 0x04003142 RID: 12610
 		private static Dictionary<int, int> m_itemQuanlityTypeDic = new Dictionary<int, int>();
 
-		// Token: 0x04003143 RID: 12611
 		private static Dictionary<int, List<int>> m_quanlityLevelDic = new Dictionary<int, List<int>>();
 
-		// Token: 0x04003144 RID: 12612
 		private List<EquipSuitItemData> mDataUIList;
 
-		// Token: 0x04003145 RID: 12613
 		private List<ProfSkillTable.RowData> mMainProfDataList;
 
-		// Token: 0x04003146 RID: 12614
 		private List<XItem> mEmblemBagItems = new List<XItem>();
 
-		// Token: 0x04003147 RID: 12615
 		private static string sDefaultEmblemAttrString;
 
-		// Token: 0x04003148 RID: 12616
 		private static string sEmblemAttrEndString;
 
-		// Token: 0x04003149 RID: 12617
 		private bool mRedPointEquip;
 
-		// Token: 0x0400314A RID: 12618
 		private bool mRedPointEmblem;
 
-		// Token: 0x0400314B RID: 12619
 		private int mLastItemTypeListLevel;
 
-		// Token: 0x0400314C RID: 12620
 		private int mCurSelectLevel;
 
-		// Token: 0x0400314D RID: 12621
 		private int mCurSelectProf;
 
-		// Token: 0x0400314E RID: 12622
 		private int mCurRoleProf;
 
-		// Token: 0x0400314F RID: 12623
 		private bool mItemTypeListDirty;
 
-		// Token: 0x04003150 RID: 12624
 		private uint mTimerID;
 
-		// Token: 0x04003151 RID: 12625
 		private int mTimerCount;
 
-		// Token: 0x04003152 RID: 12626
 		private float mTimerPassSecond;
 
-		// Token: 0x04003153 RID: 12627
 		private int mCurComposeID;
 
-		// Token: 0x04003154 RID: 12628
 		public static int CoinId = 1;
 
-		// Token: 0x04003155 RID: 12629
 		private XTimerMgr.AccurateElapsedEventHandler _onTimeCb = null;
 
-		// Token: 0x04003156 RID: 12630
 		public bool IsBind = false;
 
-		// Token: 0x04003157 RID: 12631
 		public ulong CurUid = 0UL;
 
-		// Token: 0x04003158 RID: 12632
 		private Dictionary<int, bool> EmblemRedDotDic = new Dictionary<int, bool>();
 
-		// Token: 0x04003159 RID: 12633
 		private static CVSReader.RowDataCompare<AttributeEmblem.RowData, uint> comp = new CVSReader.RowDataCompare<AttributeEmblem.RowData, uint>(XEquipCreateDocument.EmblemAttrDataCompare);
 
-		// Token: 0x0400315A RID: 12634
 		private static List<int> m_markList;
 
-		// Token: 0x0400315B RID: 12635
 		public bool IsCreating = false;
 
-		// Token: 0x02001968 RID: 6504
 		private class MaterialPointClass
 		{
-			// Token: 0x06010FF0 RID: 69616 RVA: 0x00452E17 File Offset: 0x00451017
+
 			public MaterialPointClass(XItem item, uint ppt)
 			{
 				this.item = item;
 				this.ppt = ppt;
 			}
 
-			// Token: 0x17003B42 RID: 15170
-			// (get) Token: 0x06010FF1 RID: 69617 RVA: 0x00452E30 File Offset: 0x00451030
 			public XItem Item
 			{
 				get
@@ -2040,8 +1913,6 @@ namespace XMainClient
 				}
 			}
 
-			// Token: 0x17003B43 RID: 15171
-			// (get) Token: 0x06010FF2 RID: 69618 RVA: 0x00452E48 File Offset: 0x00451048
 			public uint Ppt
 			{
 				get
@@ -2050,10 +1921,8 @@ namespace XMainClient
 				}
 			}
 
-			// Token: 0x04007E1A RID: 32282
 			private XItem item;
 
-			// Token: 0x04007E1B RID: 32283
 			private uint ppt;
 		}
 	}

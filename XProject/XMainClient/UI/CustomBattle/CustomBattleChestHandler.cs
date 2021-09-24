@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI.CustomBattle
 {
-	// Token: 0x02001931 RID: 6449
+
 	internal class CustomBattleChestHandler : DlgHandlerBase
 	{
-		// Token: 0x17003B26 RID: 15142
-		// (get) Token: 0x06010F28 RID: 69416 RVA: 0x0044DB88 File Offset: 0x0044BD88
+
 		protected override string FileName
 		{
 			get
@@ -19,7 +18,6 @@ namespace XMainClient.UI.CustomBattle
 			}
 		}
 
-		// Token: 0x06010F29 RID: 69417 RVA: 0x0044DBA0 File Offset: 0x0044BDA0
 		protected override void Init()
 		{
 			base.Init();
@@ -36,7 +34,6 @@ namespace XMainClient.UI.CustomBattle
 			this._fx_point = base.transform.Find("Title/Box/Fx");
 		}
 
-		// Token: 0x06010F2A RID: 69418 RVA: 0x0044DCEC File Offset: 0x0044BEEC
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -45,7 +42,6 @@ namespace XMainClient.UI.CustomBattle
 			this._open_now.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnOpenNowButtonClicked));
 		}
 
-		// Token: 0x06010F2B RID: 69419 RVA: 0x0044DD49 File Offset: 0x0044BF49
 		protected override void OnHide()
 		{
 			this._doc.DestoryFx(this._fx);
@@ -53,7 +49,6 @@ namespace XMainClient.UI.CustomBattle
 			base.OnHide();
 		}
 
-		// Token: 0x06010F2C RID: 69420 RVA: 0x0044DD6C File Offset: 0x0044BF6C
 		public override void OnUnload()
 		{
 			this._doc.DestoryFx(this._fx);
@@ -61,13 +56,11 @@ namespace XMainClient.UI.CustomBattle
 			base.OnUnload();
 		}
 
-		// Token: 0x06010F2D RID: 69421 RVA: 0x001A6C1F File Offset: 0x001A4E1F
 		private void OnCloseClicked(IXUISprite sp)
 		{
 			base.SetVisible(false);
 		}
 
-		// Token: 0x06010F2E RID: 69422 RVA: 0x0044DD90 File Offset: 0x0044BF90
 		private bool OnFetchButtonClicked(IXUIButton button)
 		{
 			bool flag = DlgBase<CustomBattleView, TabDlgBehaviour>.singleton._BountyModeDetailHandler != null && DlgBase<CustomBattleView, TabDlgBehaviour>.singleton._BountyModeDetailHandler.IsVisible();
@@ -83,7 +76,6 @@ namespace XMainClient.UI.CustomBattle
 			return true;
 		}
 
-		// Token: 0x06010F2F RID: 69423 RVA: 0x0044DE24 File Offset: 0x0044C024
 		private bool OnOpenNowButtonClicked(IXUIButton button)
 		{
 			bool flag = DlgBase<CustomBattleView, TabDlgBehaviour>.singleton._BountyModeDetailHandler != null && DlgBase<CustomBattleView, TabDlgBehaviour>.singleton._BountyModeDetailHandler.IsVisible();
@@ -99,14 +91,12 @@ namespace XMainClient.UI.CustomBattle
 			return true;
 		}
 
-		// Token: 0x06010F30 RID: 69424 RVA: 0x001F8A12 File Offset: 0x001F6C12
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.RefreshData();
 		}
 
-		// Token: 0x06010F31 RID: 69425 RVA: 0x0044DEB8 File Offset: 0x0044C0B8
 		public override void RefreshData()
 		{
 			base.RefreshData();
@@ -122,7 +112,6 @@ namespace XMainClient.UI.CustomBattle
 			}
 		}
 
-		// Token: 0x06010F32 RID: 69426 RVA: 0x0044DF24 File Offset: 0x0044C124
 		private void RefreshBountyData()
 		{
 			bool flag = this._doc.CurrentBountyData == null;
@@ -157,7 +146,6 @@ namespace XMainClient.UI.CustomBattle
 			}
 		}
 
-		// Token: 0x06010F33 RID: 69427 RVA: 0x0044E140 File Offset: 0x0044C340
 		private void RefreshCustomData()
 		{
 			bool flag = this._doc.CurrentCustomData == null;
@@ -192,7 +180,6 @@ namespace XMainClient.UI.CustomBattle
 			}
 		}
 
-		// Token: 0x06010F34 RID: 69428 RVA: 0x0044E35C File Offset: 0x0044C55C
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
@@ -203,37 +190,26 @@ namespace XMainClient.UI.CustomBattle
 			}
 		}
 
-		// Token: 0x04007CB0 RID: 31920
 		private XCustomBattleDocument _doc = null;
 
-		// Token: 0x04007CB1 RID: 31921
 		private IXUISprite _close;
 
-		// Token: 0x04007CB2 RID: 31922
 		private XUIPool _item_pool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04007CB3 RID: 31923
 		private IXUIButton _fetch_btn;
 
-		// Token: 0x04007CB4 RID: 31924
 		private Transform _wait_open_frame;
 
-		// Token: 0x04007CB5 RID: 31925
 		private IXUIButton _open_now;
 
-		// Token: 0x04007CB6 RID: 31926
 		private IXUILabel _left_time;
 
-		// Token: 0x04007CB7 RID: 31927
 		private IXUILabelSymbol _cost;
 
-		// Token: 0x04007CB8 RID: 31928
 		private XLeftTimeCounter _boxCD;
 
-		// Token: 0x04007CB9 RID: 31929
 		private Transform _fx_point;
 
-		// Token: 0x04007CBA RID: 31930
 		private XFx _fx = null;
 	}
 }

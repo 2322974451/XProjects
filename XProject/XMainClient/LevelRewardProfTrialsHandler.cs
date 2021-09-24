@@ -5,11 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000BA2 RID: 2978
+
 	internal class LevelRewardProfTrialsHandler : DlgHandlerBase
 	{
-		// Token: 0x17003047 RID: 12359
-		// (get) Token: 0x0600AAE4 RID: 43748 RVA: 0x001EEA5C File Offset: 0x001ECC5C
+
 		protected override string FileName
 		{
 			get
@@ -18,7 +17,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AAE5 RID: 43749 RVA: 0x001EEA74 File Offset: 0x001ECC74
 		protected override void Init()
 		{
 			base.Init();
@@ -33,7 +31,6 @@ namespace XMainClient
 			gameObject2.SetActive(flag);
 		}
 
-		// Token: 0x0600AAE6 RID: 43750 RVA: 0x001EEB54 File Offset: 0x001ECD54
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -41,14 +38,12 @@ namespace XMainClient
 			this.m_ContinueBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnContinueBtnClick));
 		}
 
-		// Token: 0x0600AAE7 RID: 43751 RVA: 0x001EEB90 File Offset: 0x001ECD90
 		private bool OnContinueBtnClick(IXUIButton btn)
 		{
 			XSingleton<XScene>.singleton.ReqLeaveScene();
 			return true;
 		}
 
-		// Token: 0x0600AAE8 RID: 43752 RVA: 0x001EEBB0 File Offset: 0x001ECDB0
 		private bool OnAgainBtnClick(IXUIButton btn)
 		{
 			PtcC2G_EnterSceneReq ptcC2G_EnterSceneReq = new PtcC2G_EnterSceneReq();
@@ -57,13 +52,10 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x04003FBA RID: 16314
 		private XLevelRewardDocument _doc = null;
 
-		// Token: 0x04003FBB RID: 16315
 		public IXUIButton m_ContinueBtn;
 
-		// Token: 0x04003FBC RID: 16316
 		public IXUIButton m_AgainBtn;
 	}
 }

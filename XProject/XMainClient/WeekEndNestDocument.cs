@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000E8C RID: 3724
+
 	internal class WeekEndNestDocument : XDocComponent
 	{
-		// Token: 0x170034A5 RID: 13477
-		// (get) Token: 0x0600C6D7 RID: 50903 RVA: 0x002C0A00 File Offset: 0x002BEC00
+
 		public override uint ID
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170034A6 RID: 13478
-		// (get) Token: 0x0600C6D8 RID: 50904 RVA: 0x002C0A18 File Offset: 0x002BEC18
 		public static WeekEndNestDocument Doc
 		{
 			get
@@ -30,45 +27,37 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C6D9 RID: 50905 RVA: 0x002C0A43 File Offset: 0x002BEC43
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			WeekEndNestDocument.AsyncLoader.AddTask("Table/WeekEndNestActivity", WeekEndNestDocument.m_WeekEndNestTable, false);
 			WeekEndNestDocument.AsyncLoader.Execute(callback);
 		}
 
-		// Token: 0x0600C6DA RID: 50906 RVA: 0x00114ACA File Offset: 0x00112CCA
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
 		}
 
-		// Token: 0x0600C6DB RID: 50907 RVA: 0x00114AD5 File Offset: 0x00112CD5
 		protected override void EventSubscribe()
 		{
 			base.EventSubscribe();
 		}
 
-		// Token: 0x0600C6DC RID: 50908 RVA: 0x002C0A68 File Offset: 0x002BEC68
 		public override void OnDetachFromHost()
 		{
 			base.OnDetachFromHost();
 			this.Clear();
 		}
 
-		// Token: 0x0600C6DD RID: 50909 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 		}
 
-		// Token: 0x0600C6DE RID: 50910 RVA: 0x00114AE9 File Offset: 0x00112CE9
 		public override void OnEnterSceneFinally()
 		{
 			base.OnEnterSceneFinally();
 		}
 
-		// Token: 0x170034A7 RID: 13479
-		// (get) Token: 0x0600C6DF RID: 50911 RVA: 0x002C0A7C File Offset: 0x002BEC7C
 		public uint LeftCount
 		{
 			get
@@ -77,8 +66,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170034A8 RID: 13480
-		// (get) Token: 0x0600C6E0 RID: 50912 RVA: 0x002C0A94 File Offset: 0x002BEC94
 		public uint CanGetCount
 		{
 			get
@@ -87,8 +74,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170034A9 RID: 13481
-		// (get) Token: 0x0600C6E1 RID: 50913 RVA: 0x002C0AAC File Offset: 0x002BECAC
 		public uint GetStatus
 		{
 			get
@@ -97,8 +82,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170034AA RID: 13482
-		// (get) Token: 0x0600C6E2 RID: 50914 RVA: 0x002C0AC4 File Offset: 0x002BECC4
 		public uint JoindTimes
 		{
 			get
@@ -107,9 +90,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170034AB RID: 13483
-		// (get) Token: 0x0600C6E3 RID: 50915 RVA: 0x002C0AF8 File Offset: 0x002BECF8
-		// (set) Token: 0x0600C6E4 RID: 50916 RVA: 0x002C0B10 File Offset: 0x002BED10
 		public bool NeedLoginShow
 		{
 			get
@@ -122,7 +102,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C6E5 RID: 50917 RVA: 0x002C0B1C File Offset: 0x002BED1C
 		private void OnlineOpenSetTaskId()
 		{
 			bool flag = this.m_parentTaskId > 0U;
@@ -154,7 +133,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C6E6 RID: 50918 RVA: 0x002C0BFC File Offset: 0x002BEDFC
 		public void OfflineOpenSetTaskId()
 		{
 			SpActivityOne activity = XTempActivityDocument.Doc.GetActivity(this.m_actId);
@@ -194,8 +172,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170034AC RID: 13484
-		// (get) Token: 0x0600C6E7 RID: 50919 RVA: 0x002C0D64 File Offset: 0x002BEF64
 		public List<SuperActivityTask.RowData> TaskList
 		{
 			get
@@ -209,7 +185,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C6E8 RID: 50920 RVA: 0x002C0DA1 File Offset: 0x002BEFA1
 		private void Clear()
 		{
 			this.m_parentTaskId = 0U;
@@ -217,7 +192,6 @@ namespace XMainClient
 			this.m_getStatue = 0U;
 		}
 
-		// Token: 0x0600C6E9 RID: 50921 RVA: 0x002C0DBC File Offset: 0x002BEFBC
 		private SuperActivityTask.RowData GetData(uint taskId)
 		{
 			for (int i = 0; i < this.TaskList.Count; i++)
@@ -231,7 +205,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x0600C6EA RID: 50922 RVA: 0x002C0E14 File Offset: 0x002BF014
 		private SuperActivityTask.RowData GetSonTask(uint parentTaskId)
 		{
 			SuperActivityTask.RowData data = this.GetData(parentTaskId);
@@ -249,7 +222,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C6EB RID: 50923 RVA: 0x002C0E58 File Offset: 0x002BF058
 		public int GetDnId()
 		{
 			SuperActivityTask.RowData sonTask = this.GetSonTask(this.m_parentTaskId);
@@ -266,7 +238,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C6EC RID: 50924 RVA: 0x002C0E98 File Offset: 0x002BF098
 		public string GetLevelName()
 		{
 			int dnId = this.GetDnId();
@@ -285,7 +256,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C6ED RID: 50925 RVA: 0x002C0EEC File Offset: 0x002BF0EC
 		public string GetTexName()
 		{
 			WeekEndNestActivity.RowData byParentTaskId = WeekEndNestDocument.m_WeekEndNestTable.GetByParentTaskId(this.m_parentTaskId);
@@ -302,7 +272,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C6EE RID: 50926 RVA: 0x002C0F34 File Offset: 0x002BF134
 		public uint MaxCount()
 		{
 			SuperActivityTask.RowData data = this.GetData(this.m_parentTaskId);
@@ -319,7 +288,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C6EF RID: 50927 RVA: 0x002C0F68 File Offset: 0x002BF168
 		public SeqListRef<uint> GetReward()
 		{
 			SuperActivityTask.RowData data = this.GetData(this.m_parentTaskId);
@@ -336,13 +304,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C6F0 RID: 50928 RVA: 0x002C0FA4 File Offset: 0x002BF1A4
 		public string GetRules()
 		{
 			return XSingleton<UiUtility>.singleton.ReplaceReturn(XSingleton<XStringTable>.singleton.GetString("WeekEndNestRule"));
 		}
 
-		// Token: 0x0600C6F1 RID: 50929 RVA: 0x002C0FD0 File Offset: 0x002BF1D0
 		public void ReqGetReward()
 		{
 			RpcC2G_GetSpActivityReward rpcC2G_GetSpActivityReward = new RpcC2G_GetSpActivityReward();
@@ -351,13 +317,11 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_GetSpActivityReward);
 		}
 
-		// Token: 0x0600C6F2 RID: 50930 RVA: 0x002C1014 File Offset: 0x002BF214
 		public void OnGetReward(GetSpActivityRewardRes oRes)
 		{
 			XSingleton<UiUtility>.singleton.ShowSystemTip(XSingleton<XStringTable>.singleton.GetString("CarnivalSuccess"), "fece00");
 		}
 
-		// Token: 0x0600C6F3 RID: 50931 RVA: 0x002C1038 File Offset: 0x002BF238
 		public void TaskChangePtc(uint actId, uint taskId)
 		{
 			bool flag = this.m_actId != actId;
@@ -401,7 +365,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C6F4 RID: 50932 RVA: 0x002C11A0 File Offset: 0x002BF3A0
 		public void OnSystemChanged(List<uint> openIds, List<uint> closedIds)
 		{
 			for (int i = 0; i < openIds.Count; i++)
@@ -430,34 +393,24 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0400573E RID: 22334
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("WeekEndNestDocument");
 
-		// Token: 0x0400573F RID: 22335
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x04005740 RID: 22336
 		private static WeekEndNestActivity m_WeekEndNestTable = new WeekEndNestActivity();
 
-		// Token: 0x04005741 RID: 22337
 		public readonly uint m_actId = 15U;
 
-		// Token: 0x04005742 RID: 22338
 		private bool m_bNeedLoginShow = false;
 
-		// Token: 0x04005743 RID: 22339
 		private uint m_parentTaskId = 0U;
 
-		// Token: 0x04005744 RID: 22340
 		private uint m_leftCount = 0U;
 
-		// Token: 0x04005745 RID: 22341
 		private uint m_canGetCount = 1U;
 
-		// Token: 0x04005746 RID: 22342
 		private uint m_getStatue = 0U;
 
-		// Token: 0x04005747 RID: 22343
 		private List<SuperActivityTask.RowData> m_taskList;
 	}
 }

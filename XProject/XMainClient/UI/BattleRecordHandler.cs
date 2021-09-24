@@ -7,10 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001796 RID: 6038
+
 	internal class BattleRecordHandler : DlgHandlerBase
 	{
-		// Token: 0x0600F950 RID: 63824 RVA: 0x003937B4 File Offset: 0x003919B4
+
 		protected override void Init()
 		{
 			base.Init();
@@ -24,20 +24,17 @@ namespace XMainClient.UI
 			this.m_ScrollView = (base.PanelObject.transform.Find("Message").GetComponent("XUIScrollView") as IXUIScrollView);
 		}
 
-		// Token: 0x0600F951 RID: 63825 RVA: 0x003938C3 File Offset: 0x00391AC3
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			this.m_RecordCloseBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnBattleRecordCloseBtnClick));
 		}
 
-		// Token: 0x0600F952 RID: 63826 RVA: 0x0019F00C File Offset: 0x0019D20C
 		protected override void OnShow()
 		{
 			base.OnShow();
 		}
 
-		// Token: 0x0600F953 RID: 63827 RVA: 0x003938E8 File Offset: 0x00391AE8
 		public void SetupRecord(List<BattleRecordGameInfo> RecordList)
 		{
 			base.SetVisible(true);
@@ -104,7 +101,6 @@ namespace XMainClient.UI
 			this.m_ScrollView.ResetPosition();
 		}
 
-		// Token: 0x0600F954 RID: 63828 RVA: 0x00393BD8 File Offset: 0x00391DD8
 		private void SetupRecordTeam(List<BattleRecordPlayerInfo> list, Transform parent)
 		{
 			for (int i = 0; i < list.Count; i++)
@@ -130,7 +126,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F955 RID: 63829 RVA: 0x00393D24 File Offset: 0x00391F24
 		public string CutString(string str)
 		{
 			int num = 4;
@@ -150,7 +145,6 @@ namespace XMainClient.UI
 			return text;
 		}
 
-		// Token: 0x0600F956 RID: 63830 RVA: 0x00393D90 File Offset: 0x00391F90
 		private void OnHeadClicked(IXUISprite iSp)
 		{
 			bool flag = iSp.ID > 0UL;
@@ -164,29 +158,22 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F957 RID: 63831 RVA: 0x00393DE0 File Offset: 0x00391FE0
 		private bool OnBattleRecordCloseBtnClick(IXUIButton btn)
 		{
 			base.SetVisible(false);
 			return true;
 		}
 
-		// Token: 0x04006CE2 RID: 27874
 		public IXUIButton m_RecordCloseBtn;
 
-		// Token: 0x04006CE3 RID: 27875
 		public XUIPool m_RecordMemberPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006CE4 RID: 27876
 		public XUIPool m_RecordMessagePool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006CE5 RID: 27877
 		public GameObject m_RecordEmpty;
 
-		// Token: 0x04006CE6 RID: 27878
 		public Transform m_BattleRecordJustShowTips;
 
-		// Token: 0x04006CE7 RID: 27879
 		public IXUIScrollView m_ScrollView;
 	}
 }

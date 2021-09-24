@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000890 RID: 2192
+
 	internal class XBuffAuraCheck : BuffEffect
 	{
-		// Token: 0x060085B3 RID: 34227 RVA: 0x0010B370 File Offset: 0x00109570
+
 		public static bool TryCreate(BuffTable.RowData rowData, XBuff buff)
 		{
 			bool flag = rowData.AuraAddBuffID.Count == 0;
@@ -25,7 +25,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060085B4 RID: 34228 RVA: 0x0010B3A8 File Offset: 0x001095A8
 		public XBuffAuraCheck(XBuff buff)
 		{
 			this._buff = buff;
@@ -66,7 +65,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060085B5 RID: 34229 RVA: 0x0010B528 File Offset: 0x00109728
 		public override void OnAdd(XEntity entity, CombatEffectHelper pEffectHelper)
 		{
 			this._entity = entity;
@@ -135,13 +133,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060085B6 RID: 34230 RVA: 0x0010B6DA File Offset: 0x001098DA
 		public override void OnRemove(XEntity entity, bool IsReplaced)
 		{
 			XSingleton<XTimerMgr>.singleton.KillTimer(this._TimeToken);
 		}
 
-		// Token: 0x060085B7 RID: 34231 RVA: 0x0010B6F0 File Offset: 0x001098F0
 		public void OnTimer(object o)
 		{
 			bool isDummy = this._entity.IsDummy;
@@ -233,7 +229,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060085B8 RID: 34232 RVA: 0x0010B9C4 File Offset: 0x00109BC4
 		private void _AddBuffs(XEntity entity)
 		{
 			for (int i = 0; i < this._buff.BuffInfo.AuraAddBuffID.Count; i++)
@@ -248,7 +243,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060085B9 RID: 34233 RVA: 0x0010BA88 File Offset: 0x00109C88
 		private bool _CanAttack(uint fightGroup)
 		{
 			bool effectexcept = this.m_effectexcept;
@@ -264,7 +258,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060085BA RID: 34234 RVA: 0x0010BADC File Offset: 0x00109CDC
 		private float _GetParam(int index)
 		{
 			bool flag = this._buff.BuffInfo.AuraParams == null || this._buff.BuffInfo.AuraParams.Length <= index;
@@ -280,60 +273,43 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0400297E RID: 10622
 		private XBuff _buff = null;
 
-		// Token: 0x0400297F RID: 10623
 		private XEntity _entity = null;
 
-		// Token: 0x04002980 RID: 10624
 		private XBuffAuraCheck.ShapeType _type = XBuffAuraCheck.ShapeType.BACT_CIRCLE;
 
-		// Token: 0x04002981 RID: 10625
 		private bool m_effectexcept = false;
 
-		// Token: 0x04002982 RID: 10626
 		private bool m_effectexceptself = false;
 
-		// Token: 0x04002983 RID: 10627
 		private float _sqrRadius = 0f;
 
-		// Token: 0x04002984 RID: 10628
 		private float _sqrExclusiveRadius = 0f;
 
-		// Token: 0x04002985 RID: 10629
 		private float _halfWidth = 0f;
 
-		// Token: 0x04002986 RID: 10630
 		private float _halfHeight = 0f;
 
-		// Token: 0x04002987 RID: 10631
 		private float _halfExclusiveWidth = 0f;
 
-		// Token: 0x04002988 RID: 10632
 		private float _halfExclusiveHeight = 0f;
 
-		// Token: 0x04002989 RID: 10633
 		private float _startTime = 0f;
 
-		// Token: 0x0400298A RID: 10634
 		private float _interval = 0f;
 
-		// Token: 0x0400298B RID: 10635
 		private uint _TimeToken = 0U;
 
-		// Token: 0x0400298C RID: 10636
 		private HashSet<uint> _EffectGroups = null;
 
-		// Token: 0x0400298D RID: 10637
 		private XTimerMgr.ElapsedEventHandler _timeCb = null;
 
-		// Token: 0x02001950 RID: 6480
 		private enum ShapeType
 		{
-			// Token: 0x04007D89 RID: 32137
+
 			BACT_CIRCLE,
-			// Token: 0x04007D8A RID: 32138
+
 			BACT_RECTANGLE
 		}
 	}

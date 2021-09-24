@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000D3E RID: 3390
+
 	internal class XNormalShopDocument : XDocComponent
 	{
-		// Token: 0x1700330B RID: 13067
-		// (get) Token: 0x0600BBB8 RID: 48056 RVA: 0x002699A8 File Offset: 0x00267BA8
+
 		public override uint ID
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700330C RID: 13068
-		// (get) Token: 0x0600BBB9 RID: 48057 RVA: 0x002699C0 File Offset: 0x00267BC0
 		public static XNormalShopDocument ShopDoc
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700330D RID: 13069
-		// (get) Token: 0x0600BBBA RID: 48058 RVA: 0x002699DC File Offset: 0x00267BDC
 		public List<XNormalShopGoods> GoodsList
 		{
 			get
@@ -40,8 +35,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700330E RID: 13070
-		// (get) Token: 0x0600BBBB RID: 48059 RVA: 0x002699F4 File Offset: 0x00267BF4
 		public XNormalShopView View
 		{
 			get
@@ -50,9 +43,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700330F RID: 13071
-		// (get) Token: 0x0600BBBC RID: 48060 RVA: 0x00269A2C File Offset: 0x00267C2C
-		// (set) Token: 0x0600BBBD RID: 48061 RVA: 0x00269A44 File Offset: 0x00267C44
 		public XShopPurchaseView PurchaseView
 		{
 			get
@@ -65,8 +55,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003310 RID: 13072
-		// (get) Token: 0x0600BBBE RID: 48062 RVA: 0x00269A50 File Offset: 0x00267C50
 		public uint RereshCount
 		{
 			get
@@ -75,7 +63,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BBC0 RID: 48064 RVA: 0x00269ABE File Offset: 0x00267CBE
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			XNormalShopDocument.AsyncLoader.AddTask("Table/ShopType", XNormalShopDocument._shoptable, false);
@@ -83,19 +70,16 @@ namespace XMainClient
 			XNormalShopDocument.AsyncLoader.Execute(null);
 		}
 
-		// Token: 0x0600BBC1 RID: 48065 RVA: 0x00114AD5 File Offset: 0x00112CD5
 		protected override void EventSubscribe()
 		{
 			base.EventSubscribe();
 		}
 
-		// Token: 0x0600BBC2 RID: 48066 RVA: 0x00269AF9 File Offset: 0x00267CF9
 		public override void OnDetachFromHost()
 		{
 			this.isRedPointSend = false;
 		}
 
-		// Token: 0x0600BBC3 RID: 48067 RVA: 0x00269B04 File Offset: 0x00267D04
 		public override void OnEnterSceneFinally()
 		{
 			base.OnEnterSceneFinally();
@@ -107,7 +91,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BBC4 RID: 48068 RVA: 0x00269B50 File Offset: 0x00267D50
 		public List<int> GetTabListOfShop(XSysDefine sys)
 		{
 			List<int> list = new List<int>();
@@ -123,7 +106,6 @@ namespace XMainClient
 			return list;
 		}
 
-		// Token: 0x0600BBC5 RID: 48069 RVA: 0x00269BE4 File Offset: 0x00267DE4
 		public static uint GetLimitNumByShopId(uint shopid)
 		{
 			for (int i = 0; i < XNormalShopDocument._shop.Table.Length; i++)
@@ -137,7 +119,6 @@ namespace XMainClient
 			return 0U;
 		}
 
-		// Token: 0x0600BBC6 RID: 48070 RVA: 0x00269C44 File Offset: 0x00267E44
 		public static ShopTable.RowData GetDataByShopId(uint shopid)
 		{
 			for (int i = 0; i < XNormalShopDocument._shop.Table.Length; i++)
@@ -151,7 +132,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x0600BBC7 RID: 48071 RVA: 0x00269C9C File Offset: 0x00267E9C
 		public static ShopTable.RowData GetDataById(uint id)
 		{
 			for (int i = 0; i < XNormalShopDocument._shop.Table.Length; i++)
@@ -165,7 +145,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x0600BBC8 RID: 48072 RVA: 0x00269CF4 File Offset: 0x00267EF4
 		public static ShopTable.RowData GetDataByItemId(uint id)
 		{
 			for (int i = 0; i < XNormalShopDocument._shop.Table.Length; i++)
@@ -179,7 +158,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x0600BBC9 RID: 48073 RVA: 0x00269D4C File Offset: 0x00267F4C
 		public uint GetShopId(XSysDefine shop)
 		{
 			ShopTypeTable.RowData shopTypeData = this.GetShopTypeData(shop);
@@ -197,7 +175,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600BBCA RID: 48074 RVA: 0x00269D9C File Offset: 0x00267F9C
 		public int GetShopViewDefaultTab()
 		{
 			int result = 0;
@@ -214,7 +191,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600BBCB RID: 48075 RVA: 0x00269DE4 File Offset: 0x00267FE4
 		public bool CanBuyPreciousShopItem()
 		{
 			for (int i = 0; i < this.m_goodsList.Count; i++)
@@ -285,7 +261,6 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x0600BBCC RID: 48076 RVA: 0x00269F24 File Offset: 0x00268124
 		public List<List<uint>> GetShopItemByPlayLevelAndShopType(XSysDefine shop)
 		{
 			List<uint> item = new List<uint>();
@@ -318,13 +293,11 @@ namespace XMainClient
 			return list;
 		}
 
-		// Token: 0x0600BBCD RID: 48077 RVA: 0x0026A064 File Offset: 0x00268264
 		public ShopTypeTable.RowData GetShopTypeData(XSysDefine shop)
 		{
 			return XNormalShopDocument._shoptable.GetBySystemId((uint)XFastEnumIntEqualityComparer<XSysDefine>.ToInt(shop));
 		}
 
-		// Token: 0x0600BBCE RID: 48078 RVA: 0x0026A088 File Offset: 0x00268288
 		public void ReqGoodsList(XSysDefine sys)
 		{
 			this.m_curSysType = sys;
@@ -365,7 +338,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BBCF RID: 48079 RVA: 0x0026A16C File Offset: 0x0026836C
 		public void OnGetGoodsList(QueryShopItemArg oArg, QueryShopItemRes oRes)
 		{
 			this._refresh_count = oRes.refreshcount;
@@ -385,7 +357,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BBD0 RID: 48080 RVA: 0x0026A24C File Offset: 0x0026844C
 		public bool IsTabShop(XSysDefine sys)
 		{
 			bool result = false;
@@ -398,13 +369,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600BBD1 RID: 48081 RVA: 0x0026A280 File Offset: 0x00268480
 		public bool IsShop(XSysDefine sys)
 		{
 			return this.GetShopTypeData(sys) != null;
 		}
 
-		// Token: 0x0600BBD2 RID: 48082 RVA: 0x0026A29C File Offset: 0x0026849C
 		public void OnGetGoodsList(GetPartnerShopArg oArg, GetPartnerShopRes oRes)
 		{
 			bool flag = oRes == null;
@@ -419,7 +388,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BBD3 RID: 48083 RVA: 0x0026A2DC File Offset: 0x002684DC
 		public void OnGetGoodsList(GetDragonGuildShopArg oArg, GetDragonGuildShopRes oRes)
 		{
 			bool flag = oRes == null;
@@ -434,7 +402,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BBD4 RID: 48084 RVA: 0x0026A31C File Offset: 0x0026851C
 		public void ReqBuy(int index)
 		{
 			bool flag = index >= this.m_goodsList.Count;
@@ -451,7 +418,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BBD5 RID: 48085 RVA: 0x0026A394 File Offset: 0x00268594
 		public void DoBuyItem(XNormalShopGoods goods, uint itemnum)
 		{
 			bool flag = this.m_curSysType != XSysDefine.XSys_Mall_Partner && this.m_curSysType != XSysDefine.XSys_DragonGuildShop;
@@ -486,14 +452,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BBD6 RID: 48086 RVA: 0x0026A4A0 File Offset: 0x002686A0
 		public void ReqBuyPanel(int index)
 		{
 			XNormalShopGoods goods = this.m_goodsList[index];
 			DlgBase<MallSystemDlg, MallSystemBehaviour>.singleton.PurchaseView.OnBuyItem(goods);
 		}
 
-		// Token: 0x0600BBD7 RID: 48087 RVA: 0x0026A4CC File Offset: 0x002686CC
 		public void OnGetBuy(BuyShopItemArg oArg, BuyShopItemRes oRes)
 		{
 			bool flag = oRes.ErrorCode > ErrorCode.ERR_SUCCESS;
@@ -546,7 +510,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BBD8 RID: 48088 RVA: 0x0026A6A0 File Offset: 0x002688A0
 		public void OnGetBuy(BuyPartnerShopItemArg oArg, BuyPartnerShopItemRes oRes)
 		{
 			bool flag = oRes == null;
@@ -589,7 +552,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BBD9 RID: 48089 RVA: 0x0026A798 File Offset: 0x00268998
 		public void OnGetBuy(BuyDragonGuildShopItemArg oArg, BuyDragonGuildShopItemRes oRes)
 		{
 			bool flag = oRes == null;
@@ -632,7 +594,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BBDA RID: 48090 RVA: 0x0026A890 File Offset: 0x00268A90
 		private void RefreshShopData(ulong uid, uint count)
 		{
 			for (int i = 0; i < this.m_goodsList.Count; i++)
@@ -654,7 +615,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BBDB RID: 48091 RVA: 0x0026A96C File Offset: 0x00268B6C
 		private void SetGoodsList(List<ShopItem> goodsList, uint type = 0U, uint cooklevel = 0U)
 		{
 			this.m_goodsList.Clear();
@@ -709,7 +669,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BBDC RID: 48092 RVA: 0x0026AB60 File Offset: 0x00268D60
 		private void RefreshYyMallView()
 		{
 			bool flag = DlgBase<XWelfareView, XWelfareBehaviour>.singleton.IsVisible();
@@ -725,7 +684,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BBDD RID: 48093 RVA: 0x0026ABAC File Offset: 0x00268DAC
 		private void SetGoodsList(List<PartnerShopItemClient> goodsList)
 		{
 			this.m_goodsList.Clear();
@@ -744,7 +702,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BBDE RID: 48094 RVA: 0x0026AC48 File Offset: 0x00268E48
 		private void SetGoodsList(List<DragonGuildShopItemClient> goodsList)
 		{
 			this.m_goodsList.Clear();
@@ -763,7 +720,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BBDF RID: 48095 RVA: 0x0026ACE4 File Offset: 0x00268EE4
 		private void SelectDefaultShopItem()
 		{
 			bool flag = this.ToSelectShopItemID > 0UL && this.m_goodsList.Count > 0;
@@ -792,7 +748,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BBE0 RID: 48096 RVA: 0x0026ADC4 File Offset: 0x00268FC4
 		protected bool OnVirtualItemChanged(XEventArgs args)
 		{
 			XVirtualItemChangedEventArgs xvirtualItemChangedEventArgs = args as XVirtualItemChangedEventArgs;
@@ -804,7 +759,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600BBE1 RID: 48097 RVA: 0x0026AE14 File Offset: 0x00269014
 		protected bool OnItemNumChanged(XEventArgs args)
 		{
 			XItemNumChangedEventArgs xitemNumChangedEventArgs = args as XItemNumChangedEventArgs;
@@ -816,7 +770,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600BBE2 RID: 48098 RVA: 0x0026AE70 File Offset: 0x00269070
 		protected bool OnAddItem(XEventArgs args)
 		{
 			XAddItemEventArgs xaddItemEventArgs = args as XAddItemEventArgs;
@@ -831,7 +784,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600BBE3 RID: 48099 RVA: 0x0026AEF4 File Offset: 0x002690F4
 		protected bool OnRemoveItem(XEventArgs args)
 		{
 			XRemoveItemEventArgs xremoveItemEventArgs = args as XRemoveItemEventArgs;
@@ -846,12 +798,10 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600BBE4 RID: 48100 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 		}
 
-		// Token: 0x0600BBE5 RID: 48101 RVA: 0x0026AF64 File Offset: 0x00269164
 		public bool IsShopAvailable(XSysDefine sys)
 		{
 			bool flag = !XSingleton<XGameSysMgr>.singleton.IsSystemOpened(sys);
@@ -884,13 +834,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600BBE6 RID: 48102 RVA: 0x0026B02C File Offset: 0x0026922C
 		public bool IsExchangeMoney(int itemid)
 		{
 			return itemid == 1 || itemid == 7 || itemid == 88;
 		}
 
-		// Token: 0x0600BBE7 RID: 48103 RVA: 0x0026B050 File Offset: 0x00269250
 		public bool IsMoneyOrItemEnough(int itemid, int reqnum)
 		{
 			ulong itemCount = XSingleton<XGame>.singleton.Doc.XBagDoc.GetItemCount(itemid);
@@ -898,7 +846,6 @@ namespace XMainClient
 			return !flag;
 		}
 
-		// Token: 0x0600BBE8 RID: 48104 RVA: 0x0026B088 File Offset: 0x00269288
 		public void ProcessItemOrMoneyNotEnough(int itemid)
 		{
 			ItemList.RowData itemConf = XBagDocument.GetItemConf(itemid);
@@ -927,40 +874,28 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04004C2A RID: 19498
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("NormalShopDocument");
 
-		// Token: 0x04004C2B RID: 19499
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x04004C2C RID: 19500
 		private List<XNormalShopGoods> m_goodsList = new List<XNormalShopGoods>();
 
-		// Token: 0x04004C2D RID: 19501
 		private XShopPurchaseView _purchase = null;
 
-		// Token: 0x04004C2E RID: 19502
 		private static ShopTypeTable _shoptable = new ShopTypeTable();
 
-		// Token: 0x04004C2F RID: 19503
 		private static ShopTable _shop = new ShopTable();
 
-		// Token: 0x04004C30 RID: 19504
 		private uint _refresh_count = 0U;
 
-		// Token: 0x04004C31 RID: 19505
 		private bool isRedPointSend = false;
 
-		// Token: 0x04004C32 RID: 19506
 		private static ulong HONER_BOX_ID = 301UL;
 
-		// Token: 0x04004C33 RID: 19507
 		private static ulong HONER_POINT_SHOW_REDPOINT = 150UL;
 
-		// Token: 0x04004C34 RID: 19508
 		public ulong ToSelectShopItemID = 0UL;
 
-		// Token: 0x04004C35 RID: 19509
 		private XSysDefine m_curSysType = XSysDefine.XSys_None;
 	}
 }

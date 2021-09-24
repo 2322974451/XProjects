@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000BA8 RID: 2984
+
 	internal class LevelRewardPVPHandler : DlgHandlerBase
 	{
-		// Token: 0x1700304C RID: 12364
-		// (get) Token: 0x0600AB13 RID: 43795 RVA: 0x001F0268 File Offset: 0x001EE468
+
 		protected override string FileName
 		{
 			get
@@ -20,7 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AB14 RID: 43796 RVA: 0x001F027F File Offset: 0x001EE47F
 		protected override void Init()
 		{
 			base.Init();
@@ -29,7 +27,6 @@ namespace XMainClient
 			this.InitDetailUI();
 		}
 
-		// Token: 0x0600AB15 RID: 43797 RVA: 0x001F02A8 File Offset: 0x001EE4A8
 		private void InitUI()
 		{
 			Transform transform = base.PanelObject.transform.Find("ItemList/ItemTpl");
@@ -45,7 +42,6 @@ namespace XMainClient
 			this.m_team2_pool.SetupPool(transform.parent.gameObject, transform.gameObject, 4U, true);
 		}
 
-		// Token: 0x0600AB16 RID: 43798 RVA: 0x001F03FC File Offset: 0x001EE5FC
 		private void InitDetailUI()
 		{
 			this.m_pvp_data_frame = base.PanelObject.transform.Find("PVPDataFrame");
@@ -56,7 +52,6 @@ namespace XMainClient
 			this.m_like = (this.m_pvp_data_frame.transform.Find("Like").GetComponent("XUILabel") as IXUILabel);
 		}
 
-		// Token: 0x0600AB17 RID: 43799 RVA: 0x001F04D0 File Offset: 0x001EE6D0
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -65,40 +60,34 @@ namespace XMainClient
 			this.m_battle_data_close_button.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnDetailCloseButtonClicked));
 		}
 
-		// Token: 0x0600AB18 RID: 43800 RVA: 0x001F0530 File Offset: 0x001EE730
 		private bool OnBattleDataButtonClicked(IXUIButton button)
 		{
 			this.m_pvp_data_frame.gameObject.SetActive(true);
 			return true;
 		}
 
-		// Token: 0x0600AB19 RID: 43801 RVA: 0x001F0558 File Offset: 0x001EE758
 		private bool OnReturnButtonClicked(IXUIButton button)
 		{
 			this.doc.SendLeaveScene();
 			return true;
 		}
 
-		// Token: 0x0600AB1A RID: 43802 RVA: 0x001F0578 File Offset: 0x001EE778
 		private bool OnDetailCloseButtonClicked(IXUIButton button)
 		{
 			this.m_pvp_data_frame.gameObject.SetActive(false);
 			return true;
 		}
 
-		// Token: 0x0600AB1B RID: 43803 RVA: 0x001EA11D File Offset: 0x001E831D
 		private void OnAddFriendClick(IXUISprite sp)
 		{
 			DlgBase<XFriendsView, XFriendsBehaviour>.singleton.AddFriendById(sp.ID);
 		}
 
-		// Token: 0x0600AB1C RID: 43804 RVA: 0x001EA131 File Offset: 0x001E8331
 		private void OnAddOtherServerFriendClick(IXUISprite sp)
 		{
 			XSingleton<UiUtility>.singleton.ShowSystemTip(XSingleton<XStringTable>.singleton.GetString("ADD_OTHER_SERVER_FRIEND"), "fece00");
 		}
 
-		// Token: 0x0600AB1D RID: 43805 RVA: 0x001F059D File Offset: 0x001EE79D
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -106,7 +95,6 @@ namespace XMainClient
 			this.SetupBattleDataUI();
 		}
 
-		// Token: 0x0600AB1E RID: 43806 RVA: 0x001F05B8 File Offset: 0x001EE7B8
 		private void OnShowUI()
 		{
 			this.m_pvp_data_frame.gameObject.SetActive(false);
@@ -150,7 +138,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AB1F RID: 43807 RVA: 0x001F09B0 File Offset: 0x001EEBB0
 		private void SetupDetailUI(GameObject go, XLevelRewardDocument.PVPRoleInfo data)
 		{
 			IXUISprite ixuisprite = go.transform.Find("Avatar").GetComponent("XUISprite") as IXUISprite;
@@ -186,7 +173,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AB20 RID: 43808 RVA: 0x001F0BC0 File Offset: 0x001EEDC0
 		private void SetupBattleDataUI()
 		{
 			bool flag = XSpectateSceneDocument.WhetherWathchNumShow((int)this.doc.WatchCount, (int)this.doc.LikeCount, (int)this.doc.CurrentStage);
@@ -220,7 +206,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AB21 RID: 43809 RVA: 0x001F0D98 File Offset: 0x001EEF98
 		private void SetupBattleDataDetailUI(GameObject go, XLevelRewardDocument.PVPRoleInfo data, bool isteam1)
 		{
 			IXUISprite ixuisprite = go.transform.Find("Detail/Avatar").GetComponent("XUISprite") as IXUISprite;
@@ -243,46 +228,32 @@ namespace XMainClient
 			ixuilabel6.SetText(XSingleton<UiUtility>.singleton.NumberFormat(data.Heal));
 		}
 
-		// Token: 0x04003FDD RID: 16349
 		private XLevelRewardDocument doc = null;
 
-		// Token: 0x04003FDE RID: 16350
 		private XUIPool m_item_pool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04003FDF RID: 16351
 		private Transform m_win;
 
-		// Token: 0x04003FE0 RID: 16352
 		private Transform m_lose;
 
-		// Token: 0x04003FE1 RID: 16353
 		private Transform m_draw;
 
-		// Token: 0x04003FE2 RID: 16354
 		private IXUIButton m_battle_data_button;
 
-		// Token: 0x04003FE3 RID: 16355
 		private IXUIButton m_return_button;
 
-		// Token: 0x04003FE4 RID: 16356
 		private IXUILabel m_watch;
 
-		// Token: 0x04003FE5 RID: 16357
 		private IXUILabel m_like;
 
-		// Token: 0x04003FE6 RID: 16358
 		private XUIPool m_team1_pool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04003FE7 RID: 16359
 		private XUIPool m_team2_pool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04003FE8 RID: 16360
 		private Transform m_pvp_data_frame;
 
-		// Token: 0x04003FE9 RID: 16361
 		private XUIPool m_battle_data_pool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04003FEA RID: 16362
 		private IXUIButton m_battle_data_close_button;
 	}
 }

@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000F35 RID: 3893
+
 	internal class XAIComponent : XComponent
 	{
-		// Token: 0x17003600 RID: 13824
-		// (get) Token: 0x0600CE78 RID: 52856 RVA: 0x002FD8C8 File Offset: 0x002FBAC8
+
 		public override uint ID
 		{
 			get
@@ -19,9 +18,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003601 RID: 13825
-		// (get) Token: 0x0600CE79 RID: 52857 RVA: 0x002FD8E0 File Offset: 0x002FBAE0
-		// (set) Token: 0x0600CE7A RID: 52858 RVA: 0x002FD8F8 File Offset: 0x002FBAF8
 		public bool IsFighting
 		{
 			get
@@ -34,9 +30,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003602 RID: 13826
-		// (get) Token: 0x0600CE7B RID: 52859 RVA: 0x002FD904 File Offset: 0x002FBB04
-		// (set) Token: 0x0600CE7C RID: 52860 RVA: 0x002FD91C File Offset: 0x002FBB1C
 		public XRole Opponent
 		{
 			get
@@ -49,8 +42,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003603 RID: 13827
-		// (get) Token: 0x0600CE7D RID: 52861 RVA: 0x002FD928 File Offset: 0x002FBB28
 		public float MoveSpeed
 		{
 			get
@@ -59,8 +50,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003604 RID: 13828
-		// (get) Token: 0x0600CE7E RID: 52862 RVA: 0x002FD94C File Offset: 0x002FBB4C
 		public Vector3 BornPos
 		{
 			get
@@ -69,8 +58,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003605 RID: 13829
-		// (get) Token: 0x0600CE7F RID: 52863 RVA: 0x002FD964 File Offset: 0x002FBB64
 		public float AttackRange
 		{
 			get
@@ -79,8 +66,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003606 RID: 13830
-		// (get) Token: 0x0600CE80 RID: 52864 RVA: 0x002FD97C File Offset: 0x002FBB7C
 		public float MinKeepRange
 		{
 			get
@@ -89,9 +74,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003607 RID: 13831
-		// (get) Token: 0x0600CE81 RID: 52865 RVA: 0x002FD994 File Offset: 0x002FBB94
-		// (set) Token: 0x0600CE82 RID: 52866 RVA: 0x002FD9AC File Offset: 0x002FBBAC
 		public int HuanraoIndex
 		{
 			get
@@ -104,8 +86,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003608 RID: 13832
-		// (get) Token: 0x0600CE83 RID: 52867 RVA: 0x002FD9B8 File Offset: 0x002FBBB8
 		public float AttackProb
 		{
 			get
@@ -114,8 +94,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003609 RID: 13833
-		// (get) Token: 0x0600CE84 RID: 52868 RVA: 0x002FD9D0 File Offset: 0x002FBBD0
 		public float EnterFightRange
 		{
 			get
@@ -124,8 +102,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700360A RID: 13834
-		// (get) Token: 0x0600CE85 RID: 52869 RVA: 0x002FD9E8 File Offset: 0x002FBBE8
 		public float FightTogetherDis
 		{
 			get
@@ -134,8 +110,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700360B RID: 13835
-		// (get) Token: 0x0600CE86 RID: 52870 RVA: 0x002FDA00 File Offset: 0x002FBC00
 		public bool IsCastingSkill
 		{
 			get
@@ -144,8 +118,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700360C RID: 13836
-		// (get) Token: 0x0600CE87 RID: 52871 RVA: 0x002FDA18 File Offset: 0x002FBC18
 		public bool IsOppoCastingSkill
 		{
 			get
@@ -154,8 +126,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700360D RID: 13837
-		// (get) Token: 0x0600CE88 RID: 52872 RVA: 0x002FDA30 File Offset: 0x002FBC30
 		public bool IsFixedInCd
 		{
 			get
@@ -164,8 +134,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700360E RID: 13838
-		// (get) Token: 0x0600CE89 RID: 52873 RVA: 0x002FDA48 File Offset: 0x002FBC48
 		public bool IsWander
 		{
 			get
@@ -174,9 +142,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700360F RID: 13839
-		// (get) Token: 0x0600CE8A RID: 52874 RVA: 0x002FDA60 File Offset: 0x002FBC60
-		// (set) Token: 0x0600CE8B RID: 52875 RVA: 0x002FDA78 File Offset: 0x002FBC78
 		public bool IsHurtOppo
 		{
 			get
@@ -189,9 +154,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003610 RID: 13840
-		// (get) Token: 0x0600CE8C RID: 52876 RVA: 0x002FDA84 File Offset: 0x002FBC84
-		// (set) Token: 0x0600CE8D RID: 52877 RVA: 0x002FDA9C File Offset: 0x002FBC9C
 		public uint CastingSkillId
 		{
 			get
@@ -204,8 +166,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003611 RID: 13841
-		// (get) Token: 0x0600CE8E RID: 52878 RVA: 0x002FDAA8 File Offset: 0x002FBCA8
 		public XEnmityList EnmityList
 		{
 			get
@@ -214,9 +174,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003612 RID: 13842
-		// (get) Token: 0x0600CE8F RID: 52879 RVA: 0x002FDAC0 File Offset: 0x002FBCC0
-		// (set) Token: 0x0600CE90 RID: 52880 RVA: 0x002FDAD8 File Offset: 0x002FBCD8
 		public XAIEventArgs AIEvent
 		{
 			get
@@ -229,8 +186,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003613 RID: 13843
-		// (get) Token: 0x0600CE91 RID: 52881 RVA: 0x002FDAE4 File Offset: 0x002FBCE4
 		public XPatrol Patrol
 		{
 			get
@@ -239,8 +194,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003614 RID: 13844
-		// (get) Token: 0x0600CE92 RID: 52882 RVA: 0x002FDAFC File Offset: 0x002FBCFC
 		private List<XSkillCore> CanCastSkill
 		{
 			get
@@ -254,8 +207,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003615 RID: 13845
-		// (get) Token: 0x0600CE93 RID: 52883 RVA: 0x002FDB30 File Offset: 0x002FBD30
 		public int CanCastSkillCount
 		{
 			get
@@ -264,14 +215,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CE94 RID: 52884 RVA: 0x002FDB58 File Offset: 0x002FBD58
 		public void Copy2CanCastSkill(List<XSkillCore> lst)
 		{
 			this.CanCastSkill.Clear();
 			this.CanCastSkill.AddRange(lst);
 		}
 
-		// Token: 0x0600CE95 RID: 52885 RVA: 0x002FDB74 File Offset: 0x002FBD74
 		public void ClearCanCastSkill()
 		{
 			bool flag = this._can_cast_skill != null;
@@ -281,19 +230,16 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CE96 RID: 52886 RVA: 0x002FDB9B File Offset: 0x002FBD9B
 		public void AddCanCastSkill(XSkillCore skill)
 		{
 			this.CanCastSkill.Add(skill);
 		}
 
-		// Token: 0x0600CE97 RID: 52887 RVA: 0x002FDBAC File Offset: 0x002FBDAC
 		public XSkillCore GetCanCastSkill(int index)
 		{
 			return this.CanCastSkill[index];
 		}
 
-		// Token: 0x0600CE98 RID: 52888 RVA: 0x002FDBCC File Offset: 0x002FBDCC
 		public void RemoveCanCastSkillAt(int index)
 		{
 			bool flag = this._can_cast_skill != null;
@@ -303,7 +249,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CE99 RID: 52889 RVA: 0x002FDBF4 File Offset: 0x002FBDF4
 		public void RemoveCanCastSkillRange(int index, int count)
 		{
 			bool flag = this._can_cast_skill != null;
@@ -313,8 +258,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003616 RID: 13846
-		// (get) Token: 0x0600CE9A RID: 52890 RVA: 0x002FDC20 File Offset: 0x002FBE20
 		public int RangeSkillCount
 		{
 			get
@@ -323,8 +266,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003617 RID: 13847
-		// (get) Token: 0x0600CE9B RID: 52891 RVA: 0x002FDC48 File Offset: 0x002FBE48
 		private List<XSkillCore> RangeSkill
 		{
 			get
@@ -338,13 +279,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CE9C RID: 52892 RVA: 0x002FDC7A File Offset: 0x002FBE7A
 		public void AddRangeSkill(XSkillCore skill)
 		{
 			this.RangeSkill.Add(skill);
 		}
 
-		// Token: 0x0600CE9D RID: 52893 RVA: 0x002FDC8C File Offset: 0x002FBE8C
 		public void CopyRange2CanCast()
 		{
 			this.CanCastSkill.Clear();
@@ -355,8 +294,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003618 RID: 13848
-		// (get) Token: 0x0600CE9E RID: 52894 RVA: 0x002FDCC8 File Offset: 0x002FBEC8
 		private List<XEntity> targets
 		{
 			get
@@ -370,8 +307,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003619 RID: 13849
-		// (get) Token: 0x0600CE9F RID: 52895 RVA: 0x002FDCFC File Offset: 0x002FBEFC
 		public int TargetsCount
 		{
 			get
@@ -380,7 +315,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CEA0 RID: 52896 RVA: 0x002FDD24 File Offset: 0x002FBF24
 		public void ClearTargets()
 		{
 			bool flag = this._targets != null;
@@ -390,13 +324,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CEA1 RID: 52897 RVA: 0x002FDD4B File Offset: 0x002FBF4B
 		public void AddTarget(XEntity target)
 		{
 			this.targets.Add(target);
 		}
 
-		// Token: 0x0600CEA2 RID: 52898 RVA: 0x002FDD5C File Offset: 0x002FBF5C
 		public void SortTarget(Comparison<XEntity> comparison)
 		{
 			bool flag = this._targets != null;
@@ -406,22 +338,17 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CEA3 RID: 52899 RVA: 0x002FDD84 File Offset: 0x002FBF84
 		public XEntity GetTarget(int index)
 		{
 			return this.targets[index];
 		}
 
-		// Token: 0x0600CEA4 RID: 52900 RVA: 0x002FDDA2 File Offset: 0x002FBFA2
 		public void Copy2Target(List<XEntity> lst)
 		{
 			this.targets.Clear();
 			this.targets.AddRange(lst);
 		}
 
-		// Token: 0x1700361A RID: 13850
-		// (get) Token: 0x0600CEA5 RID: 52901 RVA: 0x002FDDC0 File Offset: 0x002FBFC0
-		// (set) Token: 0x0600CEA6 RID: 52902 RVA: 0x002FDDD8 File Offset: 0x002FBFD8
 		public string ComboSkill
 		{
 			get
@@ -434,8 +361,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700361B RID: 13851
-		// (get) Token: 0x0600CEA7 RID: 52903 RVA: 0x002FDDE4 File Offset: 0x002FBFE4
 		public SharedData AIData
 		{
 			get
@@ -444,8 +369,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700361C RID: 13852
-		// (get) Token: 0x0600CEA8 RID: 52904 RVA: 0x002FDE08 File Offset: 0x002FC008
 		public List<uint> TimerToken
 		{
 			get
@@ -459,13 +382,8 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700361D RID: 13853
-		// (get) Token: 0x0600CEA9 RID: 52905 RVA: 0x002FDE38 File Offset: 0x002FC038
-		// (set) Token: 0x0600CEAA RID: 52906 RVA: 0x002FDE40 File Offset: 0x002FC040
 		public bool IgnoreSkillCD { get; set; }
 
-		// Token: 0x1700361E RID: 13854
-		// (get) Token: 0x0600CEAB RID: 52907 RVA: 0x002FDE4C File Offset: 0x002FC04C
 		public XEntity Target
 		{
 			get
@@ -474,12 +392,8 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700361F RID: 13855
-		// (get) Token: 0x0600CEAC RID: 52908 RVA: 0x002FDE64 File Offset: 0x002FC064
-		// (set) Token: 0x0600CEAD RID: 52909 RVA: 0x002FDE6C File Offset: 0x002FC06C
 		public float LastCallMonsterTime { get; set; }
 
-		// Token: 0x0600CEAE RID: 52910 RVA: 0x002FDE78 File Offset: 0x002FC078
 		protected override void EventSubscribe()
 		{
 			base.RegisterEvent(XEventDefine.XEvent_AIAutoFight, new XComponent.XEventHandler(this.OnTickAI));
@@ -496,7 +410,6 @@ namespace XMainClient
 			base.RegisterEvent(XEventDefine.XEvent_EnableAI, new XComponent.XEventHandler(this.OnEnableAI));
 		}
 
-		// Token: 0x0600CEAF RID: 52911 RVA: 0x002FDF94 File Offset: 0x002FC194
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
@@ -530,7 +443,6 @@ namespace XMainClient
 			this._enable_runtime_tree = XAIComponent.UseRunTime;
 		}
 
-		// Token: 0x0600CEB0 RID: 52912 RVA: 0x002FE070 File Offset: 0x002FC270
 		public override void Attached()
 		{
 			this.InitNavPath();
@@ -544,7 +456,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CEB1 RID: 52913 RVA: 0x002FE0B4 File Offset: 0x002FC2B4
 		public bool Active()
 		{
 			bool isPlayer = this._entity.IsPlayer;
@@ -578,7 +489,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600CEB2 RID: 52914 RVA: 0x002FE184 File Offset: 0x002FC384
 		public void EnableBehaviorTree(bool isRunTime)
 		{
 			if (isRunTime)
@@ -651,7 +561,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CEB3 RID: 52915 RVA: 0x002FE334 File Offset: 0x002FC534
 		private void InitSubBehaviorTree(bool isRunTime, string treename)
 		{
 			string[] array = treename.Split(new char[]
@@ -686,7 +595,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CEB4 RID: 52916 RVA: 0x002FE420 File Offset: 0x002FC620
 		public void SetBehaviorTree(string tree)
 		{
 			bool flag = !string.IsNullOrEmpty(tree);
@@ -718,7 +626,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CEB5 RID: 52917 RVA: 0x002FE4F4 File Offset: 0x002FC6F4
 		public override void OnDetachFromHost()
 		{
 			XSingleton<XTimerMgr>.singleton.KillTimer(this._timer_token);
@@ -763,7 +670,6 @@ namespace XMainClient
 			this.ClearAllTimer();
 		}
 
-		// Token: 0x0600CEB6 RID: 52918 RVA: 0x002FE600 File Offset: 0x002FC800
 		public void ClearAllTimer()
 		{
 			bool flag = this._timer_token_list != null;
@@ -777,7 +683,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CEB7 RID: 52919 RVA: 0x002FE65C File Offset: 0x002FC85C
 		protected virtual bool OnTickAI(XEventArgs e)
 		{
 			bool flag = !this._is_inited;
@@ -822,7 +727,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CEB8 RID: 52920 RVA: 0x002FE760 File Offset: 0x002FC960
 		public void OnTickSubTree(string treeName)
 		{
 			IXBehaviorTree ixbehaviorTree = null;
@@ -834,7 +738,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CEB9 RID: 52921 RVA: 0x002FE7A8 File Offset: 0x002FC9A8
 		public bool OnAIEnterFight(XEventArgs e)
 		{
 			bool is_fighting = this._is_fighting;
@@ -875,13 +778,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CEBA RID: 52922 RVA: 0x002FE910 File Offset: 0x002FCB10
 		private bool CheckManualInput()
 		{
 			return XSingleton<XVirtualTab>.singleton.Feeding && this._entity.IsPlayer;
 		}
 
-		// Token: 0x0600CEBB RID: 52923 RVA: 0x002FE93C File Offset: 0x002FCB3C
 		private void UpdateVariable()
 		{
 			bool flag = this._target != null && XEntity.ValideEntity(this._target);
@@ -927,7 +828,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CEBC RID: 52924 RVA: 0x002FEB80 File Offset: 0x002FCD80
 		private void SetTreeVariable(IXBehaviorTree tree)
 		{
 			tree.SetXGameObjectByName("target", (this._target == null) ? null : this._target.EngineObject);
@@ -959,13 +859,11 @@ namespace XMainClient
 			tree.SetVector3ByName("bornpos", this._born_pos);
 		}
 
-		// Token: 0x0600CEBD RID: 52925 RVA: 0x002FED9C File Offset: 0x002FCF9C
 		public bool IsAtWoozyState()
 		{
 			return this._entity.Attributes.HasWoozyStatus && this._is_woozy_state;
 		}
 
-		// Token: 0x0600CEBE RID: 52926 RVA: 0x002FEDD4 File Offset: 0x002FCFD4
 		public void SetTarget(XEntity entity)
 		{
 			bool flag = entity == null;
@@ -986,28 +884,24 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CEBF RID: 52927 RVA: 0x002FEE88 File Offset: 0x002FD088
 		private void InitNavPath()
 		{
 			XEntityStatistics.RowData byID = XSingleton<XEntityMgr>.singleton.EntityStatistics.GetByID(this._entity.TypeID);
 			this._Patrol.InitNavPath(byID);
 		}
 
-		// Token: 0x0600CEC0 RID: 52928 RVA: 0x002FEEBE File Offset: 0x002FD0BE
 		public void SetNavTarget(int index)
 		{
 			this._navtarget = this._Patrol.GetFromNavPath(index);
 			this._behavior_tree.SetTransformByName("navtarget", this._navtarget);
 		}
 
-		// Token: 0x0600CEC1 RID: 52929 RVA: 0x002FEEEC File Offset: 0x002FD0EC
 		public bool RefreshNavTarget()
 		{
 			this.SetNavTarget(this._Patrol.PathIndex);
 			return this._navtarget != null;
 		}
 
-		// Token: 0x0600CEC2 RID: 52930 RVA: 0x002FEF1C File Offset: 0x002FD11C
 		private void InitLinkSkill()
 		{
 			bool flag = this._link_skill_info == null;
@@ -1031,13 +925,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CEC3 RID: 52931 RVA: 0x002FEFE8 File Offset: 0x002FD1E8
 		public bool IsLinkSkillCannotCast(uint skillid)
 		{
 			return this._link_skill_info != null && this._link_skill_info.ContainsKey(skillid);
 		}
 
-		// Token: 0x0600CEC4 RID: 52932 RVA: 0x002FF014 File Offset: 0x002FD214
 		public void InitVariables()
 		{
 			bool flag = this._entity.Attributes == null;
@@ -1108,7 +1000,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CEC5 RID: 52933 RVA: 0x002FF268 File Offset: 0x002FD468
 		public void SetFixVariables()
 		{
 			bool flag = this._behavior_tree == null;
@@ -1128,7 +1019,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CEC6 RID: 52934 RVA: 0x002FF33C File Offset: 0x002FD53C
 		public void NotifyAllyIntoFight(XEntity target)
 		{
 			List<XEntity> ally = XSingleton<XEntityMgr>.singleton.GetAlly(this._entity);
@@ -1149,7 +1039,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CEC7 RID: 52935 RVA: 0x002FF400 File Offset: 0x002FD600
 		protected void AIFire(float time)
 		{
 			bool flag = this._timer_token > 0U;
@@ -1163,7 +1052,6 @@ namespace XMainClient
 			this._timer_token = XSingleton<XEventMgr>.singleton.FireEvent(@event, time);
 		}
 
-		// Token: 0x0600CEC8 RID: 52936 RVA: 0x002FF45C File Offset: 0x002FD65C
 		public bool OnWoozyArmorRecover(XEventArgs e)
 		{
 			this.AIFire(this._action_gap * this._action_gap_factor);
@@ -1171,7 +1059,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600CEC9 RID: 52937 RVA: 0x002FF48C File Offset: 0x002FD68C
 		public bool OnArmorBroken(XEventArgs e)
 		{
 			bool hasWoozyStatus = this._entity.Attributes.HasWoozyStatus;
@@ -1185,7 +1072,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600CECA RID: 52938 RVA: 0x002FF4F0 File Offset: 0x002FD6F0
 		private bool OnProcessEvent(XEventArgs e)
 		{
 			XAIEventArgs ai_event = e as XAIEventArgs;
@@ -1203,7 +1089,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600CECB RID: 52939 RVA: 0x002FF55C File Offset: 0x002FD75C
 		private bool OnEnableAI(XEventArgs e)
 		{
 			XAIEnableAI xaienableAI = e as XAIEnableAI;
@@ -1239,7 +1124,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600CECC RID: 52940 RVA: 0x002FF630 File Offset: 0x002FD830
 		private bool OnDeathEvent(XEventArgs e)
 		{
 			XSecurityAIInfo xsecurityAIInfo = XSecurityAIInfo.TryGetStatistics(this._entity);
@@ -1260,7 +1144,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600CECD RID: 52941 RVA: 0x002FF6CC File Offset: 0x002FD8CC
 		private XSkillCore GetDashSkill()
 		{
 			XEntity xentity = this._host as XEntity;
@@ -1295,7 +1178,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CECE RID: 52942 RVA: 0x002FF734 File Offset: 0x002FD934
 		private bool OnStartSkill(XEventArgs e)
 		{
 			XAIStartSkillEventArgs xaistartSkillEventArgs = e as XAIStartSkillEventArgs;
@@ -1322,7 +1204,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600CECF RID: 52943 RVA: 0x002FF7D4 File Offset: 0x002FD9D4
 		private bool OnEndSkill(XEventArgs e)
 		{
 			XAIEndSkillEventArgs xaiendSkillEventArgs = e as XAIEndSkillEventArgs;
@@ -1344,7 +1225,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600CED0 RID: 52944 RVA: 0x002FF848 File Offset: 0x002FDA48
 		private bool OnSkillHurt(XEventArgs e)
 		{
 			XAISkillHurtEventArgs xaiskillHurtEventArgs = e as XAISkillHurtEventArgs;
@@ -1356,7 +1236,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600CED1 RID: 52945 RVA: 0x002FF874 File Offset: 0x002FDA74
 		private bool OnEnmity(XEventArgs e)
 		{
 			XEnmityEventArgs xenmityEventArgs = e as XEnmityEventArgs;
@@ -1410,7 +1289,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600CED3 RID: 52947 RVA: 0x002FF9FC File Offset: 0x002FDBFC
 		private void SetEnable(bool enable, bool puppet = true)
 		{
 			this.SendAutoFightMsg(enable);
@@ -1453,7 +1331,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CED4 RID: 52948 RVA: 0x002FFB20 File Offset: 0x002FDD20
 		private void ResetAIData()
 		{
 			this._target = null;
@@ -1467,7 +1344,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CED5 RID: 52949 RVA: 0x002FFB98 File Offset: 0x002FDD98
 		private void SendEnterFightEvent()
 		{
 			XAIEventArgs @event = XEventPool<XAIEventArgs>.GetEvent();
@@ -1485,7 +1361,6 @@ namespace XMainClient
 			XSingleton<XEventMgr>.singleton.FireEvent(@event, delay);
 		}
 
-		// Token: 0x0600CED6 RID: 52950 RVA: 0x002FFC10 File Offset: 0x002FDE10
 		private void InitOpponetEnmity()
 		{
 			List<XEntity> opponent = XSingleton<XEntityMgr>.singleton.GetOpponent(this._entity);
@@ -1500,7 +1375,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CED7 RID: 52951 RVA: 0x002FFC98 File Offset: 0x002FDE98
 		private void SendAutoFightMsg(bool enable)
 		{
 			bool flag = !this._entity.IsPlayer;
@@ -1512,158 +1386,108 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CED8 RID: 52952 RVA: 0x002FFCD9 File Offset: 0x002FDED9
 		public override void OnReconnect(UnitAppearance data)
 		{
 			base.OnReconnect(data);
 			this.SetEnable(XSingleton<XReconnection>.singleton.IsAutoFight, true);
 		}
 
-		// Token: 0x04005C1D RID: 23581
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("XAIComponent");
 
-		// Token: 0x04005C1E RID: 23582
 		public static bool UseRunTime = true;
 
-		// Token: 0x04005C1F RID: 23583
 		private XRole _opponent = null;
 
-		// Token: 0x04005C20 RID: 23584
 		private uint _timer_token = 0U;
 
-		// Token: 0x04005C21 RID: 23585
 		private float _speed = 0f;
 
-		// Token: 0x04005C22 RID: 23586
 		private uint _cast_skillid = 0U;
 
-		// Token: 0x04005C23 RID: 23587
 		private float _action_gap = 1f;
 
-		// Token: 0x04005C24 RID: 23588
 		private float _action_gap_factor = 0.5f;
 
-		// Token: 0x04005C25 RID: 23589
 		private float _ai_start_time = 0.1f;
 
-		// Token: 0x04005C26 RID: 23590
 		private Vector3 _born_pos = Vector3.zero;
 
-		// Token: 0x04005C27 RID: 23591
 		private int _huanraoindex = 0;
 
-		// Token: 0x04005C28 RID: 23592
 		private bool _is_woozy_state = false;
 
-		// Token: 0x04005C29 RID: 23593
 		private XAIEventArgs _ai_event = null;
 
-		// Token: 0x04005C2A RID: 23594
 		private bool _is_inited = false;
 
-		// Token: 0x04005C2B RID: 23595
 		private int _disable_count = 0;
 
-		// Token: 0x04005C2C RID: 23596
 		private List<XSkillCore> _range_skill = null;
 
-		// Token: 0x04005C2D RID: 23597
 		private XEnmityList _enmity_list = new XEnmityList();
 
-		// Token: 0x04005C2E RID: 23598
 		private string _combo_skill_name;
 
-		// Token: 0x04005C2F RID: 23599
 		private List<uint> _timer_token_list = null;
 
-		// Token: 0x04005C30 RID: 23600
 		private float _spawn_time = 0f;
 
-		// Token: 0x04005C31 RID: 23601
 		private List<XSkillCore> _can_cast_skill = null;
 
-		// Token: 0x04005C32 RID: 23602
 		private List<XEntity> _targets = null;
 
-		// Token: 0x04005C33 RID: 23603
 		private Dictionary<uint, IXBehaviorTree> _child_trees = null;
 
-		// Token: 0x04005C34 RID: 23604
 		private XEntity _target = null;
 
-		// Token: 0x04005C35 RID: 23605
 		private Transform _navtarget = null;
 
-		// Token: 0x04005C36 RID: 23606
 		private bool _is_oppo_casting_skill = false;
 
-		// Token: 0x04005C37 RID: 23607
 		private bool _is_hurt_oppo = false;
 
-		// Token: 0x04005C38 RID: 23608
 		private float _target_distance = 0f;
 
-		// Token: 0x04005C39 RID: 23609
 		private float _master_distance = 9999f;
 
-		// Token: 0x04005C3A RID: 23610
 		private bool _is_fixed_in_cd = false;
 
-		// Token: 0x04005C3B RID: 23611
 		private float _normal_attack_prob = 0.5f;
 
-		// Token: 0x04005C3C RID: 23612
 		private float _enter_fight_range = 10f;
 
-		// Token: 0x04005C3D RID: 23613
 		private float _fight_together_dis = 10f;
 
-		// Token: 0x04005C3E RID: 23614
 		private bool _is_wander = false;
 
-		// Token: 0x04005C3F RID: 23615
 		private float _max_hp = 1000f;
 
-		// Token: 0x04005C40 RID: 23616
 		private float _current_hp = 0f;
 
-		// Token: 0x04005C41 RID: 23617
 		private float _max_super_armor = 100f;
 
-		// Token: 0x04005C42 RID: 23618
 		private float _current_super_armor = 50f;
 
-		// Token: 0x04005C43 RID: 23619
 		private int _type = 1;
 
-		// Token: 0x04005C44 RID: 23620
 		private float _target_rotation = 0f;
 
-		// Token: 0x04005C45 RID: 23621
 		private float _attack_range = 1f;
 
-		// Token: 0x04005C46 RID: 23622
 		private float _min_keep_range = 1f;
 
-		// Token: 0x04005C47 RID: 23623
 		private bool _is_casting_skill = false;
 
-		// Token: 0x04005C48 RID: 23624
 		private bool _is_fighting = false;
 
-		// Token: 0x04005C49 RID: 23625
 		private bool _is_qte_state = false;
 
-		// Token: 0x04005C4A RID: 23626
 		private Dictionary<uint, bool> _link_skill_info = null;
 
-		// Token: 0x04005C4B RID: 23627
 		private XPatrol _Patrol = new XPatrol();
 
-		// Token: 0x04005C4C RID: 23628
 		private IXBehaviorTree _behavior_tree = null;
 
-		// Token: 0x04005C4D RID: 23629
 		private bool _enable_runtime_tree = true;
 	}
 }

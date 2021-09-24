@@ -4,11 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x020008C3 RID: 2243
+
 	internal class ArtifactDocument : XDocComponent
 	{
-		// Token: 0x17002A7B RID: 10875
-		// (get) Token: 0x060087B3 RID: 34739 RVA: 0x00117404 File Offset: 0x00115604
+
 		public override uint ID
 		{
 			get
@@ -17,8 +16,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002A7C RID: 10876
-		// (get) Token: 0x060087B4 RID: 34740 RVA: 0x0011741C File Offset: 0x0011561C
 		public static ArtifactDocument Doc
 		{
 			get
@@ -27,8 +24,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002A7D RID: 10877
-		// (get) Token: 0x060087B5 RID: 34741 RVA: 0x00117448 File Offset: 0x00115648
 		public static ArtifactSuitMgr SuitMgr
 		{
 			get
@@ -37,8 +32,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002A7E RID: 10878
-		// (get) Token: 0x060087B6 RID: 34742 RVA: 0x00117460 File Offset: 0x00115660
 		public static List<uint> SuitLevelList
 		{
 			get
@@ -47,8 +40,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002A7F RID: 10879
-		// (get) Token: 0x060087B7 RID: 34743 RVA: 0x00117478 File Offset: 0x00115678
 		public static ArtifactListTable ArtifactTab
 		{
 			get
@@ -57,8 +48,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002A80 RID: 10880
-		// (get) Token: 0x060087B8 RID: 34744 RVA: 0x00117490 File Offset: 0x00115690
 		public static EffectDesTable EffectDesTab
 		{
 			get
@@ -67,7 +56,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060087B9 RID: 34745 RVA: 0x001174A8 File Offset: 0x001156A8
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			ArtifactDocument.AsyncLoader.AddTask("Table/ArtifactList", ArtifactDocument.m_artifactTab, false);
@@ -77,7 +65,6 @@ namespace XMainClient
 			ArtifactDocument.AsyncLoader.Execute(callback);
 		}
 
-		// Token: 0x060087BA RID: 34746 RVA: 0x0011751C File Offset: 0x0011571C
 		public static void OnTableLoaded()
 		{
 			ArtifactDocument.m_suitMgr = new ArtifactSuitMgr(ArtifactDocument.m_artifactSuitTab.Table);
@@ -124,36 +111,30 @@ namespace XMainClient
 			HashPool<ulong>.Release(hashSet);
 		}
 
-		// Token: 0x060087BB RID: 34747 RVA: 0x00114ACA File Offset: 0x00112CCA
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
 		}
 
-		// Token: 0x060087BC RID: 34748 RVA: 0x00114AD5 File Offset: 0x00112CD5
 		protected override void EventSubscribe()
 		{
 			base.EventSubscribe();
 		}
 
-		// Token: 0x060087BD RID: 34749 RVA: 0x00114ADF File Offset: 0x00112CDF
 		public override void OnDetachFromHost()
 		{
 			base.OnDetachFromHost();
 		}
 
-		// Token: 0x060087BE RID: 34750 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 		}
 
-		// Token: 0x060087BF RID: 34751 RVA: 0x00114AE9 File Offset: 0x00112CE9
 		public override void OnEnterSceneFinally()
 		{
 			base.OnEnterSceneFinally();
 		}
 
-		// Token: 0x060087C0 RID: 34752 RVA: 0x0011768C File Offset: 0x0011588C
 		public static string GetArtifactEffectDes(uint effectId, List<string> values)
 		{
 			bool flag = ArtifactDocument.m_effectTab == null;
@@ -190,13 +171,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060087C1 RID: 34753 RVA: 0x00117708 File Offset: 0x00115908
 		public static ArtifactListTable.RowData GetArtifactListRowData(uint artifactId)
 		{
 			return ArtifactDocument.m_artifactTab.GetByArtifactID(artifactId);
 		}
 
-		// Token: 0x060087C2 RID: 34754 RVA: 0x00117728 File Offset: 0x00115928
 		public static ArtifactAttrRange GetArtifactAttrRange(uint artifactId, int slot, uint attrId, uint attrValue)
 		{
 			ArtifactAttrRange artifactAttrRange = new ArtifactAttrRange();
@@ -264,7 +243,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060087C3 RID: 34755 RVA: 0x0011787C File Offset: 0x00115A7C
 		public void GetArtifactSkillEffectRowData(uint effectId, List<EffectTable.RowData> outList)
 		{
 			for (int i = 0; i < ArtifactDocument.m_effectTab.Table.Length; i++)
@@ -277,7 +255,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060087C4 RID: 34756 RVA: 0x001178D4 File Offset: 0x00115AD4
 		public EffectTable.RowData GetArtifactSkillEffect(uint effectID, uint id)
 		{
 			ulong num = (ulong)effectID << 32 | (ulong)id;
@@ -303,7 +280,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x060087C5 RID: 34757 RVA: 0x0011796C File Offset: 0x00115B6C
 		public static uint GetArtifactMinPPt(uint artifactId, XAttributes attributes)
 		{
 			uint num = 0U;
@@ -366,7 +342,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060087C6 RID: 34758 RVA: 0x00117B24 File Offset: 0x00115D24
 		public static uint GetArtifactMaxPPt(uint artifactId, XAttributes attributes)
 		{
 			uint num = 0U;
@@ -429,28 +404,20 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x04002ACB RID: 10955
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("ArtifactDocument");
 
-		// Token: 0x04002ACC RID: 10956
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x04002ACD RID: 10957
 		private static ArtifactListTable m_artifactTab = new ArtifactListTable();
 
-		// Token: 0x04002ACE RID: 10958
 		private static ArtifactSuitTable m_artifactSuitTab = new ArtifactSuitTable();
 
-		// Token: 0x04002ACF RID: 10959
 		private static EffectTable m_effectTab = new EffectTable();
 
-		// Token: 0x04002AD0 RID: 10960
 		private static EffectDesTable m_effectDesTab = new EffectDesTable();
 
-		// Token: 0x04002AD1 RID: 10961
 		private static ArtifactSuitMgr m_suitMgr = null;
 
-		// Token: 0x04002AD2 RID: 10962
 		private static List<uint> m_suitLevelList = new List<uint>();
 	}
 }

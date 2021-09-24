@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001868 RID: 6248
+
 	internal class XTeamInviteView : DlgBase<XTeamInviteView, XTeamInviteBehaviour>
 	{
-		// Token: 0x1700399F RID: 14751
-		// (get) Token: 0x06010437 RID: 66615 RVA: 0x003EF084 File Offset: 0x003ED284
+
 		public override string fileName
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170039A0 RID: 14752
-		// (get) Token: 0x06010438 RID: 66616 RVA: 0x003EF09C File Offset: 0x003ED29C
 		public override int layer
 		{
 			get
@@ -31,8 +28,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170039A1 RID: 14753
-		// (get) Token: 0x06010439 RID: 66617 RVA: 0x003EF0B0 File Offset: 0x003ED2B0
 		public override int group
 		{
 			get
@@ -41,8 +36,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170039A2 RID: 14754
-		// (get) Token: 0x0601043A RID: 66618 RVA: 0x003EF0C4 File Offset: 0x003ED2C4
 		public override bool autoload
 		{
 			get
@@ -51,7 +44,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601043B RID: 66619 RVA: 0x003EF0D7 File Offset: 0x003ED2D7
 		protected override void Init()
 		{
 			this._TeamDoc = XDocuments.GetSpecificDocument<XTeamDocument>(XTeamDocument.uuID);
@@ -60,7 +52,6 @@ namespace XMainClient.UI
 			this._InviteDoc.InviteHandler = this;
 		}
 
-		// Token: 0x0601043C RID: 66620 RVA: 0x003EF116 File Offset: 0x003ED316
 		protected override void OnHide()
 		{
 			this.ClearPreTabTextures();
@@ -68,14 +59,12 @@ namespace XMainClient.UI
 			base.OnHide();
 		}
 
-		// Token: 0x0601043D RID: 66621 RVA: 0x003EF12E File Offset: 0x003ED32E
 		protected override void OnUnload()
 		{
 			this._InviteDoc.InviteHandler = null;
 			base.OnUnload();
 		}
 
-		// Token: 0x0601043E RID: 66622 RVA: 0x003EF144 File Offset: 0x003ED344
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -91,20 +80,17 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_ClosedSpr.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this._OnCloseClicked));
 		}
 
-		// Token: 0x0601043F RID: 66623 RVA: 0x003EF27B File Offset: 0x003ED47B
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this._TryRefresh();
 		}
 
-		// Token: 0x06010440 RID: 66624 RVA: 0x003EF28C File Offset: 0x003ED48C
 		public override void StackRefresh()
 		{
 			this._TryRefresh();
 		}
 
-		// Token: 0x06010441 RID: 66625 RVA: 0x003EF298 File Offset: 0x003ED498
 		private void _TryRefresh()
 		{
 			this._InviteDoc.ReqInviteList();
@@ -115,7 +101,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010442 RID: 66626 RVA: 0x003EF2CC File Offset: 0x003ED4CC
 		public void LocalServerRefresh()
 		{
 			bool flag = this.m_SelectedTab != 3;
@@ -125,7 +110,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010443 RID: 66627 RVA: 0x003EF2F4 File Offset: 0x003ED4F4
 		public void Refresh()
 		{
 			bool flag = this._TeamDoc.currentExpInfo.isCrossServerInvite && XSingleton<XGameSysMgr>.singleton.IsSystemOpened(XSysDefine.XSys_Friends_Pk);
@@ -174,14 +158,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010444 RID: 66628 RVA: 0x003EF4E4 File Offset: 0x003ED6E4
 		private void _WrapContentItemInit(Transform t, int index)
 		{
 			IXUIButton ixuibutton = t.FindChild("BtnInvite").GetComponent("XUIButton") as IXUIButton;
 			ixuibutton.RegisterClickEventHandler(new ButtonClickEventHandler(this._OnInviteClick));
 		}
 
-		// Token: 0x06010445 RID: 66629 RVA: 0x003EF520 File Offset: 0x003ED720
 		private void _WrapContentItemUpdated(Transform t, int index)
 		{
 			bool flag = this.m_SelectedTab < 0;
@@ -292,7 +274,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010446 RID: 66630 RVA: 0x003EF9DC File Offset: 0x003EDBDC
 		public void ClearPreTabTextures()
 		{
 			for (int i = 0; i < this._WrapTextureList.Count; i++)
@@ -302,19 +283,16 @@ namespace XMainClient.UI
 			this._WrapTextureList.Clear();
 		}
 
-		// Token: 0x06010447 RID: 66631 RVA: 0x003EFA29 File Offset: 0x003EDC29
 		public override void OnXNGUIClick(GameObject obj, string path)
 		{
 			base.OnXNGUIClick(obj, path);
 		}
 
-		// Token: 0x06010448 RID: 66632 RVA: 0x003EFA35 File Offset: 0x003EDC35
 		private void _OnCloseClicked(IXUISprite iSp)
 		{
 			this.SetVisible(false, true);
 		}
 
-		// Token: 0x06010449 RID: 66633 RVA: 0x003EFA44 File Offset: 0x003EDC44
 		private bool _OnToggleChanged(IXUICheckBox go)
 		{
 			bool flag = !go.bChecked;
@@ -332,7 +310,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0601044A RID: 66634 RVA: 0x003EFA7C File Offset: 0x003EDC7C
 		private bool _OnInviteClick(IXUIButton go)
 		{
 			bool flag = this.m_SelectedTab < 0;
@@ -378,7 +355,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0601044B RID: 66635 RVA: 0x003EFB74 File Offset: 0x003EDD74
 		private bool _OnAddFriendClicked(IXUIButton btn)
 		{
 			this.SetVisibleWithAnimation(false, null);
@@ -386,7 +362,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0601044C RID: 66636 RVA: 0x003EFB9C File Offset: 0x003EDD9C
 		private bool _OnJoinGuildClicked(IXUIButton btn)
 		{
 			bool flag = !XSingleton<XGameSysMgr>.singleton.IsSystemOpened(XSysDefine.XSys_Guild);
@@ -405,22 +380,16 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x040074F2 RID: 29938
 		private int m_SelectedTab = -1;
 
-		// Token: 0x040074F3 RID: 29939
 		private XTeamDocument _TeamDoc;
 
-		// Token: 0x040074F4 RID: 29940
 		private XTeamInviteDocument _InviteDoc;
 
-		// Token: 0x040074F5 RID: 29941
 		private XGuildDocument _GuildDoc;
 
-		// Token: 0x040074F6 RID: 29942
 		public List<IXUITexture> _WrapTextureList = new List<IXUITexture>();
 
-		// Token: 0x040074F7 RID: 29943
 		private bool hasPlatFriends = false;
 	}
 }

@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x0200017E RID: 382
+
 	public class TerritoryBattle : CVSReader
 	{
-		// Token: 0x06000851 RID: 2129 RVA: 0x0002BC2C File Offset: 0x00029E2C
+
 		public TerritoryBattle.RowData GetByID(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -29,7 +29,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000852 RID: 2130 RVA: 0x0002BC98 File Offset: 0x00029E98
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			TerritoryBattle.RowData rowData = new TerritoryBattle.RowData();
@@ -49,7 +48,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x06000853 RID: 2131 RVA: 0x0002BD60 File Offset: 0x00029F60
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -63,28 +61,21 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x040003CA RID: 970
 		public TerritoryBattle.RowData[] Table = null;
 
-		// Token: 0x0200037D RID: 893
 		public class RowData
 		{
-			// Token: 0x04000EE2 RID: 3810
+
 			public uint ID;
 
-			// Token: 0x04000EE3 RID: 3811
 			public string territoryname;
 
-			// Token: 0x04000EE4 RID: 3812
 			public uint territorylevel;
 
-			// Token: 0x04000EE5 RID: 3813
 			public string territorylevelname;
 
-			// Token: 0x04000EE6 RID: 3814
 			public string territoryIcon;
 
-			// Token: 0x04000EE7 RID: 3815
 			public uint[] territoryLeagues;
 		}
 	}

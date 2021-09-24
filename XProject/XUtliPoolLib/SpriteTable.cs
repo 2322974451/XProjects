@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x02000172 RID: 370
+
 	public class SpriteTable : CVSReader
 	{
-		// Token: 0x06000820 RID: 2080 RVA: 0x0002A5D8 File Offset: 0x000287D8
+
 		public SpriteTable.RowData GetBySpriteID(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -29,7 +29,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000821 RID: 2081 RVA: 0x0002A644 File Offset: 0x00028844
 		public SpriteTable.RowData GetByPresentID(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -53,7 +52,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000822 RID: 2082 RVA: 0x0002A6B0 File Offset: 0x000288B0
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			SpriteTable.RowData rowData = new SpriteTable.RowData();
@@ -113,7 +111,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x06000823 RID: 2083 RVA: 0x0002A994 File Offset: 0x00028B94
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -127,88 +124,61 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x040003BE RID: 958
 		public SpriteTable.RowData[] Table = null;
 
-		// Token: 0x02000371 RID: 881
 		public class RowData
 		{
-			// Token: 0x04000E77 RID: 3703
+
 			public uint SpriteID;
 
-			// Token: 0x04000E78 RID: 3704
 			public string SpriteName;
 
-			// Token: 0x04000E79 RID: 3705
 			public uint SpriteQuality;
 
-			// Token: 0x04000E7A RID: 3706
 			public string SpriteIcon;
 
-			// Token: 0x04000E7B RID: 3707
 			public uint SpriteModelID;
 
-			// Token: 0x04000E7C RID: 3708
 			public uint SpriteSkillID;
 
-			// Token: 0x04000E7D RID: 3709
 			public uint AttrID1;
 
-			// Token: 0x04000E7E RID: 3710
 			public uint AttrID2;
 
-			// Token: 0x04000E7F RID: 3711
 			public uint AttrID3;
 
-			// Token: 0x04000E80 RID: 3712
 			public uint AttrID4;
 
-			// Token: 0x04000E81 RID: 3713
 			public uint AttrID5;
 
-			// Token: 0x04000E82 RID: 3714
 			public uint BaseAttr1;
 
-			// Token: 0x04000E83 RID: 3715
 			public uint BaseAttr2;
 
-			// Token: 0x04000E84 RID: 3716
 			public uint BaseAttr3;
 
-			// Token: 0x04000E85 RID: 3717
 			public uint BaseAttr4;
 
-			// Token: 0x04000E86 RID: 3718
 			public uint BaseAttr5;
 
-			// Token: 0x04000E87 RID: 3719
 			public SeqRef<uint> Range1;
 
-			// Token: 0x04000E88 RID: 3720
 			public SeqRef<uint> Range2;
 
-			// Token: 0x04000E89 RID: 3721
 			public SeqRef<uint> Range3;
 
-			// Token: 0x04000E8A RID: 3722
 			public SeqRef<uint> Range4;
 
-			// Token: 0x04000E8B RID: 3723
 			public SeqRef<uint> Range5;
 
-			// Token: 0x04000E8C RID: 3724
 			public uint PresentID;
 
-			// Token: 0x04000E8D RID: 3725
 			public string Color;
 
-			// Token: 0x04000E8E RID: 3726
 			public string DeathAnim;
 
-			// Token: 0x04000E8F RID: 3727
 			public string ReviveAnim;
 
-			// Token: 0x04000E90 RID: 3728
 			public int IllustrationShow;
 		}
 	}

@@ -5,16 +5,15 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000F17 RID: 3863
+
 	internal class XStringDefineProxy
 	{
-		// Token: 0x0600CCE6 RID: 52454 RVA: 0x002F3904 File Offset: 0x002F1B04
+
 		public static string GetString(string key)
 		{
 			return XSingleton<XStringTable>.singleton.GetString(key);
 		}
 
-		// Token: 0x0600CCE7 RID: 52455 RVA: 0x002F3924 File Offset: 0x002F1B24
 		public static string GetString(string key, params object[] args)
 		{
 			string value = "";
@@ -22,7 +21,6 @@ namespace XMainClient
 			return XStringDefineProxy.GetString(key, value, data, args);
 		}
 
-		// Token: 0x0600CCE8 RID: 52456 RVA: 0x002F3954 File Offset: 0x002F1B54
 		public static string GetReplaceString(string key, params object[] args)
 		{
 			string text = "";
@@ -31,7 +29,6 @@ namespace XMainClient
 			return XStringDefineProxy.GetString(key, text, data, args);
 		}
 
-		// Token: 0x0600CCE9 RID: 52457 RVA: 0x002F3990 File Offset: 0x002F1B90
 		private static string GetString(string key, string value, bool find, params object[] args)
 		{
 			for (int i = 0; i < args.Length; i++)
@@ -70,7 +67,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CCEA RID: 52458 RVA: 0x002F3A34 File Offset: 0x002F1C34
 		public static string GetString(XStringDefine strEnum)
 		{
 			string text = strEnum.ToString();
@@ -97,7 +93,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CCEB RID: 52459 RVA: 0x002F3AA4 File Offset: 0x002F1CA4
 		public static string GetString(ErrorCode code)
 		{
 			string text = code.ToString();
@@ -124,7 +119,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CCEC RID: 52460 RVA: 0x002F3B14 File Offset: 0x002F1D14
 		public static string GetString(XAttributeDefine strEnum)
 		{
 			string text = strEnum.ToString();

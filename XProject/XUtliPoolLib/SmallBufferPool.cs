@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x0200018D RID: 397
+
 	public class SmallBufferPool<T>
 	{
-		// Token: 0x06000899 RID: 2201 RVA: 0x0002E528 File Offset: 0x0002C728
+
 		public void Init(BlockInfo[] blockInit, int tSize)
 		{
 			this.blockInitRef = blockInit;
@@ -49,7 +49,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x0600089A RID: 2202 RVA: 0x0002E65C File Offset: 0x0002C85C
 		private bool InnerGetBlock(ref BufferBlock block, int size, int initSize)
 		{
 			int num = 0;
@@ -92,7 +91,6 @@ namespace XUtliPoolLib
 			return false;
 		}
 
-		// Token: 0x0600089B RID: 2203 RVA: 0x0002E780 File Offset: 0x0002C980
 		private void InnerGetBlock(ref SmallBuffer<T> sb, int size, int initSize)
 		{
 			BufferBlock bufferBlock = default(BufferBlock);
@@ -113,7 +111,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x0600089C RID: 2204 RVA: 0x0002E800 File Offset: 0x0002CA00
 		public void GetBlock(ref SmallBuffer<T> sb, int size, int initSize = 0)
 		{
 			bool isInit = sb.IsInit;
@@ -123,13 +120,11 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x0600089D RID: 2205 RVA: 0x0002E824 File Offset: 0x0002CA24
 		public void ExpandBlock(ref SmallBuffer<T> sb, int size)
 		{
 			this.InnerGetBlock(ref sb, size, 0);
 		}
 
-		// Token: 0x0600089E RID: 2206 RVA: 0x0002E834 File Offset: 0x0002CA34
 		public void ReturnBlock(ref SmallBuffer<T> sb)
 		{
 			BufferBlock bufferBlock = sb.bufferBlock;
@@ -149,16 +144,12 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x040003E2 RID: 994
 		public T[] buffer;
 
-		// Token: 0x040003E3 RID: 995
 		public BufferBlock[] blocks;
 
-		// Token: 0x040003E4 RID: 996
 		private BlockInfo[] blockInitRef;
 
-		// Token: 0x040003E5 RID: 997
 		public int allocBlockCount = 0;
 	}
 }

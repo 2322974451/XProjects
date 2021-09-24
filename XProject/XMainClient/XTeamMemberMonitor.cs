@@ -9,11 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000E6B RID: 3691
+
 	internal class XTeamMemberMonitor
 	{
-		// Token: 0x1700348A RID: 13450
-		// (get) Token: 0x0600C5AE RID: 50606 RVA: 0x002BAD00 File Offset: 0x002B8F00
+
 		public XTeamBloodUIData Data
 		{
 			get
@@ -22,8 +21,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700348B RID: 13451
-		// (get) Token: 0x0600C5AF RID: 50607 RVA: 0x002BAD18 File Offset: 0x002B8F18
 		public XEntity Entity
 		{
 			get
@@ -32,8 +29,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700348C RID: 13452
-		// (get) Token: 0x0600C5B0 RID: 50608 RVA: 0x002BAD30 File Offset: 0x002B8F30
 		public ulong ID
 		{
 			get
@@ -42,8 +37,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700348D RID: 13453
-		// (get) Token: 0x0600C5B1 RID: 50609 RVA: 0x002BAD50 File Offset: 0x002B8F50
 		public ulong EntityID
 		{
 			get
@@ -52,13 +45,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C5B2 RID: 50610 RVA: 0x002BAD6D File Offset: 0x002B8F6D
 		public XTeamMemberMonitor(XTeamMonitorStateMgr stateMgr)
 		{
 			this.m_StateMgr = stateMgr;
 		}
 
-		// Token: 0x0600C5B3 RID: 50611 RVA: 0x002BAD88 File Offset: 0x002B8F88
 		public void SetGo(GameObject go)
 		{
 			this.m_Go = go;
@@ -143,14 +134,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C5B4 RID: 50612 RVA: 0x002BB077 File Offset: 0x002B9277
 		public void SetActive(bool bActive)
 		{
 			this.m_bActive = bActive;
 			this.m_Go.SetActive(bActive);
 		}
 
-		// Token: 0x0600C5B5 RID: 50613 RVA: 0x002BB090 File Offset: 0x002B9290
 		public void PlaySound(int state)
 		{
 			bool flag = DlgBase<BattleMain, BattleMainBehaviour>.singleton.IsLoaded();
@@ -161,7 +150,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C5B6 RID: 50614 RVA: 0x002BB0CE File Offset: 0x002B92CE
 		public void SetMemberData(XTeamBloodUIData data)
 		{
 			this.m_MemberData = data;
@@ -171,7 +159,6 @@ namespace XMainClient
 			this.Update();
 		}
 
-		// Token: 0x0600C5B7 RID: 50615 RVA: 0x002BB0F8 File Offset: 0x002B92F8
 		private bool OnSpectateChangeClick(IXUICheckBox checkBox)
 		{
 			bool flag = !checkBox.bChecked;
@@ -193,7 +180,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C5B8 RID: 50616 RVA: 0x002BB154 File Offset: 0x002B9354
 		private void _SetBasicUI()
 		{
 			bool flag = this.m_MemberData != null;
@@ -297,7 +283,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C5B9 RID: 50617 RVA: 0x002BB55C File Offset: 0x002B975C
 		private void _SetState()
 		{
 			XTeamMonitorState state = this.m_StateMgr.GetState(this.m_MemberData.uid);
@@ -313,7 +298,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C5BA RID: 50618 RVA: 0x002BB5DC File Offset: 0x002B97DC
 		public void Update()
 		{
 			bool flag = !this.m_bActive;
@@ -389,7 +373,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C5BB RID: 50619 RVA: 0x002BB810 File Offset: 0x002B9A10
 		public void OnBuffChange(List<UIBuffInfo> buffList)
 		{
 			bool flag = this.m_BuffMonitor != null;
@@ -399,7 +382,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C5BC RID: 50620 RVA: 0x002BB838 File Offset: 0x002B9A38
 		public void CheckToggleState()
 		{
 			bool flag = XSingleton<XEntityMgr>.singleton.Player != null && XSingleton<XEntityMgr>.singleton.Player.WatchTo != null && this.m_MemberData.uid == XSingleton<XEntityMgr>.singleton.Player.WatchTo.ID;
@@ -413,70 +395,49 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C5BD RID: 50621 RVA: 0x002BB8A7 File Offset: 0x002B9AA7
 		public void Unload()
 		{
 			DlgHandlerBase.EnsureUnload<XBuffMonitorHandler>(ref this.m_BuffMonitor);
 		}
 
-		// Token: 0x0400569C RID: 22172
 		private GameObject m_Go;
 
-		// Token: 0x0400569D RID: 22173
 		private bool m_bActive = true;
 
-		// Token: 0x0400569E RID: 22174
 		private XTeamBloodUIData m_MemberData;
 
-		// Token: 0x0400569F RID: 22175
 		private XTeamMonitorStateMgr m_StateMgr;
 
-		// Token: 0x040056A0 RID: 22176
 		private XEntity m_Entity;
 
-		// Token: 0x040056A1 RID: 22177
 		private IXUISprite m_uiAvatar;
 
-		// Token: 0x040056A2 RID: 22178
 		private IXUILabel m_uiName;
 
-		// Token: 0x040056A3 RID: 22179
 		private GameObject m_uiLeader;
 
-		// Token: 0x040056A4 RID: 22180
 		private IXUIProgress m_uiHpBar;
 
-		// Token: 0x040056A5 RID: 22181
 		private IXUIProgress m_uiMpBar;
 
-		// Token: 0x040056A6 RID: 22182
 		private GameObject m_uiDead;
 
-		// Token: 0x040056A7 RID: 22183
 		private IXUISprite m_HeroIcon;
 
-		// Token: 0x040056A8 RID: 22184
 		private IXUISprite m_HeroUnSelect;
 
-		// Token: 0x040056A9 RID: 22185
 		private IXUILabel m_uiLevel;
 
-		// Token: 0x040056AA RID: 22186
 		public IXUISprite m_sprVoice;
 
-		// Token: 0x040056AB RID: 22187
 		public IXUISprite m_sprSpeak;
 
-		// Token: 0x040056AC RID: 22188
 		private GameObject m_uiLeave;
 
-		// Token: 0x040056AD RID: 22189
 		private GameObject m_uiLoading;
 
-		// Token: 0x040056AE RID: 22190
 		private IXUICheckBox m_uiCheckBox;
 
-		// Token: 0x040056AF RID: 22191
 		private XBuffMonitorHandler m_BuffMonitor;
 	}
 }

@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000D70 RID: 3440
+
 	public class XGuildDragonGuildRankInfo : XBaseRankInfo
 	{
-		// Token: 0x0600BC92 RID: 48274 RVA: 0x0026DEE0 File Offset: 0x0026C0E0
+
 		public override void ProcessData(RankData data)
 		{
 			this.name = data.RoleName;
@@ -34,16 +34,13 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BC93 RID: 48275 RVA: 0x0026DFA4 File Offset: 0x0026C1A4
 		public override string GetValue()
 		{
 			return this._value;
 		}
 
-		// Token: 0x04004C7E RID: 19582
 		public uint time;
 
-		// Token: 0x04004C7F RID: 19583
 		private string _value;
 	}
 }

@@ -10,10 +10,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001743 RID: 5955
+
 	internal class XFriendsRankHandler : DlgHandlerBase
 	{
-		// Token: 0x0600F644 RID: 63044 RVA: 0x0037D0D4 File Offset: 0x0037B2D4
+
 		protected override void Init()
 		{
 			base.Init();
@@ -27,7 +27,6 @@ namespace XMainClient.UI
 			this.m_PkHelpLabel.gameObject.SetActive(false);
 		}
 
-		// Token: 0x0600F645 RID: 63045 RVA: 0x0037D1EB File Offset: 0x0037B3EB
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -35,7 +34,6 @@ namespace XMainClient.UI
 			this.m_PkHelpBtn.RegisterPressEventHandler(new ButtonPressEventHandler(this.OnHelpBtnPress));
 		}
 
-		// Token: 0x0600F646 RID: 63046 RVA: 0x0037D228 File Offset: 0x0037B428
 		private void OnHelpBtnPress(IXUIButton btn, bool state)
 		{
 			bool flag = this.m_PkHelpLabel.gameObject.activeInHierarchy != state;
@@ -45,7 +43,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F647 RID: 63047 RVA: 0x0037D264 File Offset: 0x0037B464
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -55,7 +52,6 @@ namespace XMainClient.UI
 			this.m_PkHelpBtn.SetVisible(XSingleton<XGameSysMgr>.singleton.IsSystemOpened(XSysDefine.XSys_Friends_Pk));
 		}
 
-		// Token: 0x0600F648 RID: 63048 RVA: 0x0037D2C7 File Offset: 0x0037B4C7
 		protected override void OnHide()
 		{
 			base.OnHide();
@@ -63,7 +59,6 @@ namespace XMainClient.UI
 			this.ClearPreTabTextures();
 		}
 
-		// Token: 0x0600F649 RID: 63049 RVA: 0x0037D2E4 File Offset: 0x0037B4E4
 		public void ClearPreTabTextures()
 		{
 			foreach (KeyValuePair<Transform, IXUITexture> keyValuePair in this._WrapTextureList)
@@ -75,7 +70,6 @@ namespace XMainClient.UI
 			this._WrapTextureList.Clear();
 		}
 
-		// Token: 0x0600F64A RID: 63050 RVA: 0x0037D35C File Offset: 0x0037B55C
 		public void RefreshRankList()
 		{
 			bool flag = !base.IsVisible();
@@ -101,7 +95,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F64B RID: 63051 RVA: 0x0037D454 File Offset: 0x0037B654
 		private string SimplifyString(string s)
 		{
 			s = this.RemoveEmoji(s);
@@ -122,7 +115,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F64C RID: 63052 RVA: 0x0037D4B8 File Offset: 0x0037B6B8
 		private string RemoveEmoji(string s)
 		{
 			char[] array = s.ToCharArray();
@@ -161,7 +153,6 @@ namespace XMainClient.UI
 			return new string(list.ToArray());
 		}
 
-		// Token: 0x0600F64D RID: 63053 RVA: 0x0037D570 File Offset: 0x0037B770
 		private void SetBaseRankInfo(Transform item, PlatFriendRankInfo2Client rankInfo, int index)
 		{
 			bool flag = rankInfo == null;
@@ -191,7 +182,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F64E RID: 63054 RVA: 0x0037D790 File Offset: 0x0037B990
 		private void SetMyRankInfo(PlatFriendRankInfo2Client rankInfo)
 		{
 			this.SetBaseRankInfo(this.m_MyRank, rankInfo, 99999);
@@ -219,7 +209,6 @@ namespace XMainClient.UI
 			ixuisprite2.SetVisible(XSingleton<XLoginDocument>.singleton.GetLaunchTypeServerInfo() == StartUpType.StartUp_QQ && XSingleton<XLoginDocument>.singleton.Channel == XAuthorizationChannel.XAuthorization_QQ);
 		}
 
-		// Token: 0x0600F64F RID: 63055 RVA: 0x0037D920 File Offset: 0x0037BB20
 		private void _RankWrapListUpdated(Transform item, int index)
 		{
 			XFriendsDocument specificDocument = XDocuments.GetSpecificDocument<XFriendsDocument>(XFriendsDocument.uuID);
@@ -275,19 +264,16 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F650 RID: 63056 RVA: 0x0037DB9D File Offset: 0x0037BD9D
 		private void OnClickWXGameCenterLaunchIcon(IXUISprite btn)
 		{
 			XSingleton<UiUtility>.singleton.ShowSystemTip(XSingleton<XStringTable>.singleton.GetString("FriendRankWXGameCenterTip"), "fece00");
 		}
 
-		// Token: 0x0600F651 RID: 63057 RVA: 0x0037DBBF File Offset: 0x0037BDBF
 		private void OnClickQQGameCenterLaunchIcon(IXUISprite btn)
 		{
 			XSingleton<UiUtility>.singleton.ShowSystemTip(XSingleton<XStringTable>.singleton.GetString("FriendRankQQGameCenterTip"), "fece00");
 		}
 
-		// Token: 0x0600F652 RID: 63058 RVA: 0x0037DBE4 File Offset: 0x0037BDE4
 		private void SetRank(GameObject go, uint rankIndex)
 		{
 			IXUILabel ixuilabel = go.transform.FindChild("Rank").GetComponent("XUILabel") as IXUILabel;
@@ -322,7 +308,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F653 RID: 63059 RVA: 0x0037DCC4 File Offset: 0x0037BEC4
 		private bool OnSendBtnClicked(IXUIButton btn)
 		{
 			int num = (int)btn.ID;
@@ -350,7 +335,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F654 RID: 63060 RVA: 0x0037DD34 File Offset: 0x0037BF34
 		private bool OnSendPkBtnClicked(IXUIButton btn)
 		{
 			int num = (int)btn.ID;
@@ -378,7 +362,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F655 RID: 63061 RVA: 0x0037DDA4 File Offset: 0x0037BFA4
 		private void ShareToQQFriend(string openID)
 		{
 			Dictionary<string, object> dictionary = new Dictionary<string, object>();
@@ -395,7 +378,6 @@ namespace XMainClient.UI
 			XSingleton<XUpdater.XUpdater>.singleton.XPlatform.SendExtDara("share_send_to_friend_qq", text);
 		}
 
-		// Token: 0x0600F656 RID: 63062 RVA: 0x0037DEA8 File Offset: 0x0037C0A8
 		private void ShareToWXFriend(string openID)
 		{
 			Dictionary<string, object> dictionary = new Dictionary<string, object>();
@@ -410,7 +392,6 @@ namespace XMainClient.UI
 			XSingleton<XUpdater.XUpdater>.singleton.XPlatform.SendExtDara("share_send_to_friend_wx", text);
 		}
 
-		// Token: 0x0600F657 RID: 63063 RVA: 0x0037DF6C File Offset: 0x0037C16C
 		public void OnRefreshSendGiftState(PlatFriendRankInfo2Client info)
 		{
 			bool flag = !base.IsVisible();
@@ -429,7 +410,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F658 RID: 63064 RVA: 0x0037E024 File Offset: 0x0037C224
 		public void NoticeFriend(string openID)
 		{
 			bool flag = !base.IsVisible();
@@ -446,7 +426,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F659 RID: 63065 RVA: 0x0037E0A8 File Offset: 0x0037C2A8
 		private bool CheckNoticeFriend(IXUIButton btn)
 		{
 			DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.SetVisible(false, true);
@@ -474,7 +453,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F65A RID: 63066 RVA: 0x0037E164 File Offset: 0x0037C364
 		private bool OnEnsureNoticeFriend(IXUIButton btn)
 		{
 			DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.SetVisible(false, true);
@@ -494,31 +472,22 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x04006ACF RID: 27343
 		public IXUIScrollView m_ScrollView;
 
-		// Token: 0x04006AD0 RID: 27344
 		public IXUIWrapContent m_WrapContent;
 
-		// Token: 0x04006AD1 RID: 27345
 		public Transform m_MyRank;
 
-		// Token: 0x04006AD2 RID: 27346
 		public Transform m_NoFriend;
 
-		// Token: 0x04006AD3 RID: 27347
 		public IXUIButton m_PkHelpBtn;
 
-		// Token: 0x04006AD4 RID: 27348
 		public IXUILabel m_PkHelpLabel;
 
-		// Token: 0x04006AD5 RID: 27349
 		private Dictionary<Transform, string> rankItemDict = new Dictionary<Transform, string>();
 
-		// Token: 0x04006AD6 RID: 27350
 		public Dictionary<Transform, IXUITexture> _WrapTextureList = new Dictionary<Transform, IXUITexture>();
 
-		// Token: 0x04006AD7 RID: 27351
 		private string m_noticeFriendOpenID;
 	}
 }

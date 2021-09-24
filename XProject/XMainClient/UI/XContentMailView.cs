@@ -7,10 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001846 RID: 6214
+
 	internal class XContentMailView : DlgHandlerBase
 	{
-		// Token: 0x06010241 RID: 66113 RVA: 0x003DD3E0 File Offset: 0x003DB5E0
+
 		protected override void Init()
 		{
 			base.Init();
@@ -30,14 +30,12 @@ namespace XMainClient.UI
 			XSystemMailView.doItemSelect = (XSystemMailView.DelSelect)Delegate.Combine(XSystemMailView.doItemSelect, new XSystemMailView.DelSelect(this.Refresh));
 		}
 
-		// Token: 0x06010242 RID: 66114 RVA: 0x003DD5EB File Offset: 0x003DB7EB
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			this.m_btnrcv.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnRcvBtnClick));
 		}
 
-		// Token: 0x06010243 RID: 66115 RVA: 0x003DD60D File Offset: 0x003DB80D
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -45,7 +43,6 @@ namespace XMainClient.UI
 			this.Refresh();
 		}
 
-		// Token: 0x06010244 RID: 66116 RVA: 0x003DD640 File Offset: 0x003DB840
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
@@ -56,14 +53,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010245 RID: 66117 RVA: 0x003DD69A File Offset: 0x003DB89A
 		public override void OnUnload()
 		{
 			XSystemMailView.doItemSelect = (XSystemMailView.DelSelect)Delegate.Remove(XSystemMailView.doItemSelect, new XSystemMailView.DelSelect(this.Refresh));
 			base.OnUnload();
 		}
 
-		// Token: 0x06010246 RID: 66118 RVA: 0x003DD6C4 File Offset: 0x003DB8C4
 		private bool OnRcvBtnClick(IXUIButton btn)
 		{
 			MailItem mailItem = this._doc.GetMailItem();
@@ -79,7 +74,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x06010247 RID: 66119 RVA: 0x003DD720 File Offset: 0x003DB920
 		private void OnRcvClick()
 		{
 			MailItem mailItem = this._doc.GetMailItem();
@@ -94,7 +88,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010248 RID: 66120 RVA: 0x003DD774 File Offset: 0x003DB974
 		public void Refresh()
 		{
 			bool flag = this._doc.ShowMailContent();
@@ -128,7 +121,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010249 RID: 66121 RVA: 0x003DD94C File Offset: 0x003DBB4C
 		private void RefreshValit(MailItem mailItem)
 		{
 			this.leftTime = mailItem.valit;
@@ -159,13 +151,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601024A RID: 66122 RVA: 0x003DDA6E File Offset: 0x003DBC6E
 		public void SetContentNil()
 		{
 			this._doc.RefreshContentNil();
 		}
 
-		// Token: 0x0601024B RID: 66123 RVA: 0x003DDA80 File Offset: 0x003DBC80
 		private void RefreshItems(List<ItemBrief> items, List<Item> xitems)
 		{
 			for (int i = 0; i < items.Count; i++)
@@ -192,7 +182,6 @@ namespace XMainClient.UI
 			this.m_scroll.ResetPosition();
 		}
 
-		// Token: 0x0601024C RID: 66124 RVA: 0x003DDC60 File Offset: 0x003DBE60
 		private void ShowTips(IXUISprite spr)
 		{
 			bool flag = this._doc != null;
@@ -220,46 +209,32 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04007342 RID: 29506
 		private XMailDocument _doc = null;
 
-		// Token: 0x04007343 RID: 29507
 		public IXUILabel m_lbltitle;
 
-		// Token: 0x04007344 RID: 29508
 		public IXUILabel m_lbldate;
 
-		// Token: 0x04007345 RID: 29509
 		public IXUILabel m_lalcont;
 
-		// Token: 0x04007346 RID: 29510
 		public IXUILabel m_lblvalit;
 
-		// Token: 0x04007347 RID: 29511
 		public GameObject m_objSlice;
 
-		// Token: 0x04007348 RID: 29512
 		public GameObject m_objTpl;
 
-		// Token: 0x04007349 RID: 29513
 		public IXUIButton m_btnrcv;
 
-		// Token: 0x0400734A RID: 29514
 		public IXUILabel m_lblrcv;
 
-		// Token: 0x0400734B RID: 29515
 		public IXUISprite m_sprclaim;
 
-		// Token: 0x0400734C RID: 29516
 		public Transform m_tranAttach;
 
-		// Token: 0x0400734D RID: 29517
 		public IXUIScrollView m_scroll;
 
-		// Token: 0x0400734E RID: 29518
 		private XUIPool m_pool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x0400734F RID: 29519
 		private int leftTime = int.MaxValue;
 	}
 }

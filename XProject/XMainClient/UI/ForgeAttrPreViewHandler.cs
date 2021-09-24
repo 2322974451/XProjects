@@ -6,10 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200173B RID: 5947
+
 	internal class ForgeAttrPreViewHandler : DlgHandlerBase
 	{
-		// Token: 0x0600F5BC RID: 62908 RVA: 0x003789F4 File Offset: 0x00376BF4
+
 		protected override void Init()
 		{
 			base.Init();
@@ -22,35 +22,30 @@ namespace XMainClient.UI
 			this.m_WithAttrGo = base.PanelObject.transform.FindChild("Withattr").gameObject;
 		}
 
-		// Token: 0x0600F5BD RID: 62909 RVA: 0x00378AF6 File Offset: 0x00376CF6
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			this.m_closeBtn.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnCloseClicked));
 		}
 
-		// Token: 0x0600F5BE RID: 62910 RVA: 0x00378B18 File Offset: 0x00376D18
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.FillContent();
 		}
 
-		// Token: 0x0600F5BF RID: 62911 RVA: 0x00378B29 File Offset: 0x00376D29
 		protected override void OnHide()
 		{
 			this.m_itemPool.ReturnAll(false);
 			base.OnHide();
 		}
 
-		// Token: 0x0600F5C0 RID: 62912 RVA: 0x00378B40 File Offset: 0x00376D40
 		public override void OnUnload()
 		{
 			this.m_doc.View = null;
 			base.OnUnload();
 		}
 
-		// Token: 0x0600F5C1 RID: 62913 RVA: 0x00378B58 File Offset: 0x00376D58
 		private void FillContent()
 		{
 			this.m_itemPool.ReturnAll(true);
@@ -126,31 +121,23 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F5C2 RID: 62914 RVA: 0x001A6C1F File Offset: 0x001A4E1F
 		private void OnCloseClicked(IXUISprite spr)
 		{
 			base.SetVisible(false);
 		}
 
-		// Token: 0x04006A72 RID: 27250
 		private XForgeDocument m_doc;
 
-		// Token: 0x04006A73 RID: 27251
 		private IXUISprite m_closeBtn;
 
-		// Token: 0x04006A74 RID: 27252
 		private IXUIScrollView m_scrollView;
 
-		// Token: 0x04006A75 RID: 27253
 		private GameObject m_detailGo;
 
-		// Token: 0x04006A76 RID: 27254
 		private GameObject m_WithoutAttrGo;
 
-		// Token: 0x04006A77 RID: 27255
 		private GameObject m_WithAttrGo;
 
-		// Token: 0x04006A78 RID: 27256
 		private XUIPool m_itemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 	}
 }

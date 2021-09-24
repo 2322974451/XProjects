@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017C2 RID: 6082
+
 	internal class JadeComposeFrameHandler : DlgHandlerBase
 	{
-		// Token: 0x1700388B RID: 14475
-		// (get) Token: 0x0600FBD2 RID: 64466 RVA: 0x003A8BBC File Offset: 0x003A6DBC
+
 		protected override string FileName
 		{
 			get
@@ -20,7 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FBD3 RID: 64467 RVA: 0x003A8BD4 File Offset: 0x003A6DD4
 		protected override void Init()
 		{
 			base.Init();
@@ -43,7 +41,6 @@ namespace XMainClient.UI
 			this.m_jadeTplPool2.SetupPool(transform.gameObject, transform.FindChild("Pos2/Panel/JadeTpl2").gameObject, 1U, false);
 		}
 
-		// Token: 0x0600FBD4 RID: 64468 RVA: 0x003A8E1C File Offset: 0x003A701C
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -53,7 +50,6 @@ namespace XMainClient.UI
 			this.m_addBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnClickAddBtn));
 		}
 
-		// Token: 0x0600FBD5 RID: 64469 RVA: 0x003A8E91 File Offset: 0x003A7091
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -62,7 +58,6 @@ namespace XMainClient.UI
 			this.FillContent();
 		}
 
-		// Token: 0x0600FBD6 RID: 64470 RVA: 0x003A8EB0 File Offset: 0x003A70B0
 		protected override void OnHide()
 		{
 			this.m_jadeTplPool1.ReturnAll(true);
@@ -78,7 +73,6 @@ namespace XMainClient.UI
 			base.OnHide();
 		}
 
-		// Token: 0x0600FBD7 RID: 64471 RVA: 0x003A8F20 File Offset: 0x003A7120
 		public override void OnUnload()
 		{
 			base.OnUnload();
@@ -91,19 +85,16 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FBD8 RID: 64472 RVA: 0x00209F22 File Offset: 0x00208122
 		public override void RefreshData()
 		{
 			base.RefreshData();
 		}
 
-		// Token: 0x0600FBD9 RID: 64473 RVA: 0x0022CCF0 File Offset: 0x0022AEF0
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
 		}
 
-		// Token: 0x0600FBDA RID: 64474 RVA: 0x003A8F64 File Offset: 0x003A7164
 		public void ShowUi(int type, uint sourceItemId, uint curJadeLevel, ulong uid = 0UL)
 		{
 			this.m_type = type;
@@ -123,7 +114,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FBDB RID: 64475 RVA: 0x003A8FB8 File Offset: 0x003A71B8
 		private void FillContent()
 		{
 			bool isNeedPlayEffect = this.m_isNeedPlayEffect;
@@ -142,7 +132,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FBDC RID: 64476 RVA: 0x003A9050 File Offset: 0x003A7250
 		private void FillChangedItem()
 		{
 			bool flag = XSingleton<XAttributeMgr>.singleton.XPlayerData == null;
@@ -242,7 +231,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FBDD RID: 64477 RVA: 0x003A95E0 File Offset: 0x003A77E0
 		private void PlayEffect()
 		{
 			this.m_effectIsEnd = false;
@@ -259,7 +247,6 @@ namespace XMainClient.UI
 			this.m_token = XSingleton<XTimerMgr>.singleton.SetTimer(this.m_delayTime, new XTimerMgr.ElapsedEventHandler(this.DelayFill), null);
 		}
 
-		// Token: 0x0600FBDE RID: 64478 RVA: 0x003A9660 File Offset: 0x003A7860
 		private void DelayFill(object o = null)
 		{
 			XSingleton<XItemDrawerMgr>.singleton.jadeItemDrawer.DrawItem(this.m_sourceJade, (int)this.m_itemId, 1, false);
@@ -267,14 +254,12 @@ namespace XMainClient.UI
 			this.m_effectIsEnd = true;
 		}
 
-		// Token: 0x0600FBDF RID: 64479 RVA: 0x003A9690 File Offset: 0x003A7890
 		private bool OnClickClosed(IXUIButton btn)
 		{
 			base.SetVisible(false);
 			return true;
 		}
 
-		// Token: 0x0600FBE0 RID: 64480 RVA: 0x003A96AC File Offset: 0x003A78AC
 		private bool OnClickComposed(IXUIButton btn)
 		{
 			bool flag = !this.m_effectIsEnd;
@@ -346,7 +331,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FBE1 RID: 64481 RVA: 0x003A984C File Offset: 0x003A7A4C
 		private bool DoOK(IXUIButton btn)
 		{
 			XSingleton<UiUtility>.singleton.CloseModalDlg();
@@ -362,7 +346,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FBE2 RID: 64482 RVA: 0x003A98AC File Offset: 0x003A7AAC
 		private bool OnClickReduceBtn(IXUIButton btn)
 		{
 			bool flag = this.m_addLevel <= 1U;
@@ -381,7 +364,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FBE3 RID: 64483 RVA: 0x003A9908 File Offset: 0x003A7B08
 		private bool OnClickAddBtn(IXUIButton btn)
 		{
 			bool flag = XSingleton<XAttributeMgr>.singleton.XPlayerData == null;
@@ -409,7 +391,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FBE4 RID: 64484 RVA: 0x003A99A4 File Offset: 0x003A7BA4
 		private void OnSelectedItemClicked(IXUISprite iSp)
 		{
 			ulong id = iSp.ID;
@@ -422,7 +403,6 @@ namespace XMainClient.UI
 			XSingleton<UiUtility>.singleton.ShowTooltipDialog(xitem, null, iSp, false, 0U);
 		}
 
-		// Token: 0x0600FBE5 RID: 64485 RVA: 0x003A99F4 File Offset: 0x003A7BF4
 		private bool SetButtonCool(float time)
 		{
 			float num = Time.realtimeSinceStartup - this.m_fLastClickBtnTime;
@@ -440,94 +420,64 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x04006E91 RID: 28305
 		private XJadeDocument m_doc = null;
 
-		// Token: 0x04006E92 RID: 28306
 		private IXUIButton m_closedBtn;
 
-		// Token: 0x04006E93 RID: 28307
 		private IXUIButton m_composeBtn;
 
-		// Token: 0x04006E94 RID: 28308
 		private IXUIButton m_reduceBtn;
 
-		// Token: 0x04006E95 RID: 28309
 		private IXUIButton m_addBtn;
 
-		// Token: 0x04006E96 RID: 28310
 		private IXUILabel m_costLab;
 
-		// Token: 0x04006E97 RID: 28311
 		private IXUILabel m_costMallLab;
 
-		// Token: 0x04006E98 RID: 28312
 		private IXUILabel m_lackJadTipsLab;
 
-		// Token: 0x04006E99 RID: 28313
 		private GameObject m_sourceJade;
 
-		// Token: 0x04006E9A RID: 28314
 		private GameObject m_targetJade;
 
-		// Token: 0x04006E9B RID: 28315
 		private GameObject m_hadShopPos;
 
-		// Token: 0x04006E9C RID: 28316
 		private GameObject m_noShopPos;
 
-		// Token: 0x04006E9D RID: 28317
 		private GameObject m_shopPos;
 
-		// Token: 0x04006E9E RID: 28318
 		private Transform m_effectParentTra;
 
-		// Token: 0x04006E9F RID: 28319
 		private XUIPool m_jadeTplPool1 = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006EA0 RID: 28320
 		private XUIPool m_jadeTplPool2 = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006EA1 RID: 28321
 		private XFx m_fx = null;
 
-		// Token: 0x04006EA2 RID: 28322
 		private int m_type = 0;
 
-		// Token: 0x04006EA3 RID: 28323
 		private ulong m_jadeUid = 0UL;
 
-		// Token: 0x04006EA4 RID: 28324
 		private uint m_itemId = 0U;
 
-		// Token: 0x04006EA5 RID: 28325
 		private uint m_curLevel = 0U;
 
-		// Token: 0x04006EA6 RID: 28326
 		private uint m_addLevel = 0U;
 
-		// Token: 0x04006EA7 RID: 28327
 		private ulong m_needGold = 0UL;
 
-		// Token: 0x04006EA8 RID: 28328
 		private uint m_needMall = 0U;
 
-		// Token: 0x04006EA9 RID: 28329
 		private float m_delayTime = 0.3f;
 
-		// Token: 0x04006EAA RID: 28330
 		private uint m_token = 0U;
 
-		// Token: 0x04006EAB RID: 28331
 		private bool m_isNeedPlayEffect = false;
 
-		// Token: 0x04006EAC RID: 28332
 		private bool m_effectIsEnd = true;
 
-		// Token: 0x04006EAD RID: 28333
 		private float m_coolTime = 0.5f;
 
-		// Token: 0x04006EAE RID: 28334
 		private float m_fLastClickBtnTime = 0f;
 	}
 }

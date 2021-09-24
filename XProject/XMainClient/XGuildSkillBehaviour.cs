@@ -6,10 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000E40 RID: 3648
+
 	internal class XGuildSkillBehaviour : DlgBehaviourBase
 	{
-		// Token: 0x0600C3F4 RID: 50164 RVA: 0x002AA608 File Offset: 0x002A8808
+
 		private void Awake()
 		{
 			this.m_Close = (base.transform.FindChild("Bg/Close").GetComponent("XUIButton") as IXUIButton);
@@ -34,61 +34,42 @@ namespace XMainClient
 			this.m_SkillScroll = (base.transform.FindChild("Bg/SkillList").GetComponent("XUIScrollView") as IXUIScrollView);
 		}
 
-		// Token: 0x0400550A RID: 21770
 		public IXUIButton m_Close;
 
-		// Token: 0x0400550B RID: 21771
 		public IXUILabel m_GuildPoint;
 
-		// Token: 0x0400550C RID: 21772
 		public IXUISprite m_DetailSkillIcon;
 
-		// Token: 0x0400550D RID: 21773
 		public IXUILabel m_DetailSkillName;
 
-		// Token: 0x0400550E RID: 21774
 		public IXUILabel m_DetailCurrLevel;
 
-		// Token: 0x0400550F RID: 21775
 		public IXUILabel m_DetailNextLevel;
 
-		// Token: 0x04005510 RID: 21776
 		public IXUILabel m_DetailCurrAttr;
 
-		// Token: 0x04005511 RID: 21777
 		public IXUILabel m_DetailNextAttr;
 
-		// Token: 0x04005512 RID: 21778
 		public IXUILabel m_DetailMaxLevelLabel;
 
-		// Token: 0x04005513 RID: 21779
 		public IXUILabel m_DetailMaxLevel;
 
-		// Token: 0x04005514 RID: 21780
 		public IXUIButton m_DetailUpMaxLevel;
 
-		// Token: 0x04005515 RID: 21781
 		public IXUILabel m_DetailTip;
 
-		// Token: 0x04005516 RID: 21782
 		public IXUILabelSymbol m_DetailCost;
 
-		// Token: 0x04005517 RID: 21783
 		public IXUILabelSymbol m_DetailCostRed;
 
-		// Token: 0x04005518 RID: 21784
 		public IXUIButton m_LevelUp;
 
-		// Token: 0x04005519 RID: 21785
 		public IXUILabel m_LevelUpLabel;
 
-		// Token: 0x0400551A RID: 21786
 		public Transform m_RedPoint;
 
-		// Token: 0x0400551B RID: 21787
 		public XUIPool m_SkillPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x0400551C RID: 21788
 		public IXUIScrollView m_SkillScroll;
 	}
 }

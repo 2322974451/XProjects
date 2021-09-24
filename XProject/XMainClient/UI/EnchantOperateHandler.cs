@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017BB RID: 6075
+
 	internal class EnchantOperateHandler : DlgHandlerBase
 	{
-		// Token: 0x17003885 RID: 14469
-		// (get) Token: 0x0600FB71 RID: 64369 RVA: 0x003A6078 File Offset: 0x003A4278
+
 		protected override string FileName
 		{
 			get
@@ -20,7 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FB72 RID: 64370 RVA: 0x003A6090 File Offset: 0x003A4290
 		protected override void Init()
 		{
 			base.Init();
@@ -49,7 +47,6 @@ namespace XMainClient.UI
 			DlgHandlerBase.EnsureCreate<EnchantResultHandler>(ref this._resultHandler, base.PanelObject.transform, false, this);
 		}
 
-		// Token: 0x0600FB73 RID: 64371 RVA: 0x003A63B0 File Offset: 0x003A45B0
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -66,7 +63,6 @@ namespace XMainClient.UI
 			this._curEnchantPropertiesContent.RegisterItemUpdateEventHandler(new WrapItemUpdateEventHandler(this.EnchantListUpdate));
 		}
 
-		// Token: 0x0600FB74 RID: 64372 RVA: 0x003A64E0 File Offset: 0x003A46E0
 		private void EnchantListUpdate(Transform itemTransform, int index)
 		{
 			bool flag = index < this._curEnchantInfo.AttrList.Count;
@@ -112,7 +108,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FB75 RID: 64373 RVA: 0x003A66D8 File Offset: 0x003A48D8
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -145,7 +140,6 @@ namespace XMainClient.UI
 			this.RefreshData();
 		}
 
-		// Token: 0x0600FB76 RID: 64374 RVA: 0x003A679C File Offset: 0x003A499C
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
@@ -162,7 +156,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FB77 RID: 64375 RVA: 0x003A680C File Offset: 0x003A4A0C
 		protected override void OnHide()
 		{
 			this._doc.ToggleBlock(false);
@@ -178,7 +171,6 @@ namespace XMainClient.UI
 			base.OnHide();
 		}
 
-		// Token: 0x0600FB78 RID: 64376 RVA: 0x003A6884 File Offset: 0x003A4A84
 		public override void OnUnload()
 		{
 			DlgHandlerBase.EnsureUnload<EnchantBagHandler>(ref this._BagHandler);
@@ -190,14 +182,12 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x0600FB79 RID: 64377 RVA: 0x003A68DC File Offset: 0x003A4ADC
 		public override void RefreshData()
 		{
 			base.RefreshData();
 			this._RefreshPage();
 		}
 
-		// Token: 0x0600FB7A RID: 64378 RVA: 0x003A68F0 File Offset: 0x003A4AF0
 		private void _RefreshPage()
 		{
 			XEquipItem xequipItem = XSingleton<XGame>.singleton.Doc.XBagDoc.GetItemByUID(this._doc.SelectedEquipUID) as XEquipItem;
@@ -234,7 +224,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FB7B RID: 64379 RVA: 0x003A6A17 File Offset: 0x003A4C17
 		private void _ShowOperatePage(XEquipItem equipItem, EnchantEquip.RowData enchantData)
 		{
 			this.m_uiOperateFrame.SetActive(true);
@@ -242,7 +231,6 @@ namespace XMainClient.UI
 			this._RefreshItems(enchantData);
 		}
 
-		// Token: 0x0600FB7C RID: 64380 RVA: 0x003A6A3C File Offset: 0x003A4C3C
 		private void _RefreshItems(EnchantEquip.RowData enchantData)
 		{
 			this.m_ItemRequiredCollector.Init();
@@ -250,7 +238,6 @@ namespace XMainClient.UI
 			this._RefreshCost(enchantData);
 		}
 
-		// Token: 0x0600FB7D RID: 64381 RVA: 0x003A6A5C File Offset: 0x003A4C5C
 		private void _RefreshEnchantItem(EnchantEquip.RowData enchantData)
 		{
 			bool flag = this._doc.SelectedItemID == 0 || enchantData == null;
@@ -268,7 +255,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FB7E RID: 64382 RVA: 0x003A6B14 File Offset: 0x003A4D14
 		private void _RefreshNoAttr(XEquipItem equipItem, EnchantEquip.RowData enchantData)
 		{
 			bool flag = equipItem == null;
@@ -298,19 +284,16 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FB7F RID: 64383 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		private void _RefreshOMG(ref XEnchantInfo info)
 		{
 		}
 
-		// Token: 0x0600FB80 RID: 64384 RVA: 0x003A6C34 File Offset: 0x003A4E34
 		public void RefreshItems()
 		{
 			EnchantEquip.RowData enchantEquipData = this._doc.GetEnchantEquipData(this._doc.SelectedItemID);
 			this._RefreshItems(enchantEquipData);
 		}
 
-		// Token: 0x0600FB81 RID: 64385 RVA: 0x003A6C64 File Offset: 0x003A4E64
 		private void _RefreshCost(EnchantEquip.RowData enchantData)
 		{
 			bool flag = enchantData != null;
@@ -330,14 +313,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FB82 RID: 64386 RVA: 0x003A6D28 File Offset: 0x003A4F28
 		private void _ShowSelectPage()
 		{
 			this.m_uiOperateFrame.SetActive(false);
 			this.m_uiSelectFrame.SetActive(true);
 		}
 
-		// Token: 0x0600FB83 RID: 64387 RVA: 0x003A6D48 File Offset: 0x003A4F48
 		public void RefreshRedPoints()
 		{
 			bool flag = DlgBase<ItemSystemDlg, TabDlgBehaviour>.singleton.IsVisible() && DlgBase<ItemSystemDlg, TabDlgBehaviour>.singleton._equipHandler != null;
@@ -356,14 +337,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FB84 RID: 64388 RVA: 0x003A6DD0 File Offset: 0x003A4FD0
 		private bool _OnCloseClicked(IXUIButton btn)
 		{
 			base.SetVisible(false);
 			return true;
 		}
 
-		// Token: 0x0600FB85 RID: 64389 RVA: 0x003A6DEC File Offset: 0x003A4FEC
 		private bool _OnOKClicked(IXUIButton btn)
 		{
 			bool activeInHierarchy = this.m_uiSelectFrame.activeInHierarchy;
@@ -407,7 +386,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FB86 RID: 64390 RVA: 0x003A6EF4 File Offset: 0x003A50F4
 		private bool _DoOK(IXUIButton btn)
 		{
 			this._resultHandler.SetVisible(true);
@@ -421,7 +399,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FB87 RID: 64391 RVA: 0x003A6F58 File Offset: 0x003A5158
 		private bool _DoCancel(IXUIButton btn)
 		{
 			XOptionsDocument specificDocument = XDocuments.GetSpecificDocument<XOptionsDocument>(XOptionsDocument.uuID);
@@ -430,17 +407,14 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FB88 RID: 64392 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public void PlayFx()
 		{
 		}
 
-		// Token: 0x0600FB89 RID: 64393 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		private void _KillTimer()
 		{
 		}
 
-		// Token: 0x0600FB8A RID: 64394 RVA: 0x003A6FA0 File Offset: 0x003A51A0
 		private void _OnEnchantItemClicked(IXUISprite iSp)
 		{
 			this._doc.GetEnchantItems();
@@ -456,7 +430,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FB8B RID: 64395 RVA: 0x003A7010 File Offset: 0x003A5210
 		private void _OnEquipClicked(IXUISprite iSp)
 		{
 			XItem itemByUID = XSingleton<XGame>.singleton.Doc.XBagDoc.GetItemByUID(iSp.ID);
@@ -467,26 +440,22 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FB8C RID: 64396 RVA: 0x003A7054 File Offset: 0x003A5254
 		private bool _OnHelpClicked(IXUIButton btn)
 		{
 			DlgBase<XCommonHelpTipView, XCommonHelpTipBehaviour>.singleton.ShowHelp(XSysDefine.XSys_Item_Enchant);
 			return true;
 		}
 
-		// Token: 0x0600FB8D RID: 64397 RVA: 0x003A7074 File Offset: 0x003A5274
 		private void _OnEquipIconClicked(IXUISprite iSp)
 		{
 			XSingleton<UiUtility>.singleton.ShowTooltipDialog(XSingleton<XGame>.singleton.Doc.XBagDoc.GetItemByUID(this._doc.SelectedEquipUID), null, iSp, false, 0U);
 		}
 
-		// Token: 0x0600FB8E RID: 64398 RVA: 0x003A70A5 File Offset: 0x003A52A5
 		private void _OnEnchantIconClicked(IXUISprite iSp)
 		{
 			XSingleton<UiUtility>.singleton.ShowTooltipDialog(this._doc.SelectedItemID, iSp, 0U);
 		}
 
-		// Token: 0x0600FB8F RID: 64399 RVA: 0x003A70C0 File Offset: 0x003A52C0
 		private void _OnPreviewClicked(IXUISprite iSp)
 		{
 			bool flag = this._doc.SelectedItemID > 0;
@@ -496,93 +465,66 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FB90 RID: 64400 RVA: 0x003A70F7 File Offset: 0x003A52F7
 		private void _OnToActiveEnchantAttribute(IXUISprite uiSprite)
 		{
 			this._activeHandler.SetVisible(true);
 		}
 
-		// Token: 0x0600FB91 RID: 64401 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		private void UpdateShowingItems()
 		{
 		}
 
-		// Token: 0x0600FB92 RID: 64402 RVA: 0x003A7107 File Offset: 0x003A5307
 		public void ResetOKCD()
 		{
 			this.m_BtnOK.ResetCD();
 		}
 
-		// Token: 0x04006E56 RID: 28246
 		private XEnchantDocument _doc = null;
 
-		// Token: 0x04006E57 RID: 28247
 		private EnchantBagHandler _BagHandler = null;
 
-		// Token: 0x04006E58 RID: 28248
 		private EnchantAttrPreviewHandler _PreviewHandler = null;
 
-		// Token: 0x04006E59 RID: 28249
 		private EnchantActiveHandler _activeHandler = null;
 
-		// Token: 0x04006E5A RID: 28250
 		private EnchantResultHandler _resultHandler = null;
 
-		// Token: 0x04006E5B RID: 28251
 		private GameObject m_uiOperateFrame;
 
-		// Token: 0x04006E5C RID: 28252
 		private GameObject m_uiSelectFrame;
 
-		// Token: 0x04006E5D RID: 28253
 		private GameObject m_uiEquipItem;
 
-		// Token: 0x04006E5E RID: 28254
 		private GameObject m_uiEnchantItem;
 
-		// Token: 0x04006E5F RID: 28255
 		private IXUIButton m_BtnOK;
 
-		// Token: 0x04006E60 RID: 28256
 		private IXUIButton m_BtnClose;
 
-		// Token: 0x04006E61 RID: 28257
 		private IXUIButton m_BtnHelp;
 
-		// Token: 0x04006E62 RID: 28258
 		private IXUILabel m_tipsLab;
 
-		// Token: 0x04006E63 RID: 28259
 		private GameObject m_uiNoBeforeAttr;
 
-		// Token: 0x04006E64 RID: 28260
 		private IXUILabel m_uiCostValue;
 
-		// Token: 0x04006E65 RID: 28261
 		private IXUISprite m_uiCostIcon;
 
-		// Token: 0x04006E66 RID: 28262
 		private IXUISprite m_uiSelect;
 
-		// Token: 0x04006E67 RID: 28263
 		private IXUISprite m_uiPreview;
 
-		// Token: 0x04006E68 RID: 28264
 		private IXUISprite m_uiActiveAttribute;
 
-		// Token: 0x04006E69 RID: 28265
 		private IXUIWrapContent _curEnchantPropertiesContent;
 
-		// Token: 0x04006E6A RID: 28266
 		private IXUIScrollView _scrollView;
 
-		// Token: 0x04006E6B RID: 28267
 		private XItemRequiredCollector m_ItemRequiredCollector = new XItemRequiredCollector();
 
-		// Token: 0x04006E6C RID: 28268
 		private List<int> m_RedPointEquipPosList = new List<int>();
 
-		// Token: 0x04006E6D RID: 28269
 		private XEnchantInfo _curEnchantInfo;
 	}
 }

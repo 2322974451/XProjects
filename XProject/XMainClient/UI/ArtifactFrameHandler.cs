@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017AF RID: 6063
+
 	internal class ArtifactFrameHandler : DlgHandlerBase
 	{
-		// Token: 0x17003875 RID: 14453
-		// (get) Token: 0x0600FAC5 RID: 64197 RVA: 0x003A0B5C File Offset: 0x0039ED5C
+
 		public GameObject[] ArtifactGo
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003876 RID: 14454
-		// (get) Token: 0x0600FAC6 RID: 64198 RVA: 0x003A0B74 File Offset: 0x0039ED74
 		protected override string FileName
 		{
 			get
@@ -30,7 +27,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FAC7 RID: 64199 RVA: 0x003A0B8C File Offset: 0x0039ED8C
 		protected override void Init()
 		{
 			base.Init();
@@ -70,7 +66,6 @@ namespace XMainClient.UI
 			DlgHandlerBase.EnsureCreate<XArtifactAttrView<XAttrPlayerFile>>(ref this.m_artifactAttrHandler, this.TotalAttriPanel, false, this);
 		}
 
-		// Token: 0x0600FAC8 RID: 64200 RVA: 0x003A0E08 File Offset: 0x0039F008
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -84,14 +79,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FAC9 RID: 64201 RVA: 0x003A0EA7 File Offset: 0x0039F0A7
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.ShowArtifacts();
 		}
 
-		// Token: 0x0600FACA RID: 64202 RVA: 0x003A0EB8 File Offset: 0x0039F0B8
 		protected override void OnHide()
 		{
 			base.OnHide();
@@ -99,14 +92,12 @@ namespace XMainClient.UI
 			this.RestQuanlityFx();
 		}
 
-		// Token: 0x0600FACB RID: 64203 RVA: 0x003A0ED0 File Offset: 0x0039F0D0
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
 			this.HideEffects();
 		}
 
-		// Token: 0x0600FACC RID: 64204 RVA: 0x003A0EE4 File Offset: 0x0039F0E4
 		public override void OnUnload()
 		{
 			base.OnUnload();
@@ -129,7 +120,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FACD RID: 64205 RVA: 0x003A0F80 File Offset: 0x0039F180
 		private void RestQuanlityFx()
 		{
 			for (int i = 0; i < ArtifactFrameHandler.Artifact_Slot_Count; i++)
@@ -142,7 +132,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FACE RID: 64206 RVA: 0x003A0FC4 File Offset: 0x0039F1C4
 		public void HideEffects()
 		{
 			for (int i = 0; i < ArtifactFrameHandler.Artifact_Slot_Count; i++)
@@ -160,7 +149,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FACF RID: 64207 RVA: 0x003A1024 File Offset: 0x0039F224
 		public void ShowArtifacts()
 		{
 			XBodyBag artifactBag = XSingleton<XGame>.singleton.Doc.XBagDoc.ArtifactBag;
@@ -178,7 +166,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FAD0 RID: 64208 RVA: 0x003A1114 File Offset: 0x0039F314
 		public void SetEquipSlot(int slot, XItem item)
 		{
 			XItemDrawerMgr.Param.bHideBinding = true;
@@ -192,7 +179,6 @@ namespace XMainClient.UI
 			this.m_artifactSlots[slot].ID = ((item != null) ? item.uid : 0UL);
 		}
 
-		// Token: 0x0600FAD1 RID: 64209 RVA: 0x003A11A8 File Offset: 0x0039F3A8
 		public void UpdateEquipSlot(XItem item)
 		{
 			bool flag = item == null;
@@ -218,7 +204,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FAD2 RID: 64210 RVA: 0x003A1278 File Offset: 0x0039F478
 		public void PlaySuitFx(uint suitId)
 		{
 			bool flag = DlgBase<ArtifactDeityStoveDlg, TabDlgBehaviour>.singleton.IsVisible();
@@ -267,7 +252,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FAD3 RID: 64211 RVA: 0x003A13FC File Offset: 0x0039F5FC
 		private void SetEffect(GameObject go, int itemId, int slot)
 		{
 			bool flag = slot >= this.m_quanlityFx.Length;
@@ -312,7 +296,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FAD4 RID: 64212 RVA: 0x003A14E8 File Offset: 0x0039F6E8
 		private void OnSlotBgClick(IXUISprite spr)
 		{
 			uint num = (uint)spr.ID;
@@ -333,7 +316,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FAD5 RID: 64213 RVA: 0x003A157C File Offset: 0x0039F77C
 		public bool OnAttrBtnClicked(IXUIButton button)
 		{
 			this.HideEffects();
@@ -342,7 +324,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FAD6 RID: 64214 RVA: 0x003A15C4 File Offset: 0x0039F7C4
 		public bool OnComposeBtnClicked(IXUIButton button)
 		{
 			this.HideEffects();
@@ -350,7 +331,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FAD7 RID: 64215 RVA: 0x003A15F0 File Offset: 0x0039F7F0
 		public void OnItemClicked(IXUISprite iSp)
 		{
 			XItem itemByUID = XSingleton<XGame>.singleton.Doc.XBagDoc.GetItemByUID(iSp.ID);
@@ -372,46 +352,32 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04006DF7 RID: 28151
 		public static int Artifact_Slot_Count = XBagDocument.ArtifactMax;
 
-		// Token: 0x04006DF8 RID: 28152
 		private XArtifactAttrView<XAttrPlayerFile> m_artifactAttrHandler;
 
-		// Token: 0x04006DF9 RID: 28153
 		private ArtifactBagDocument m_doc;
 
-		// Token: 0x04006DFA RID: 28154
 		public IXUISprite[] m_artifactBg = new IXUISprite[ArtifactFrameHandler.Artifact_Slot_Count];
 
-		// Token: 0x04006DFB RID: 28155
 		public IXUISprite[] m_artifactSlots = new IXUISprite[ArtifactFrameHandler.Artifact_Slot_Count];
 
-		// Token: 0x04006DFC RID: 28156
 		private GameObject[] m_artifactGo = new GameObject[ArtifactFrameHandler.Artifact_Slot_Count];
 
-		// Token: 0x04006DFD RID: 28157
 		private XUIPool m_ItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006DFE RID: 28158
 		private Transform TotalAttriPanel;
 
-		// Token: 0x04006DFF RID: 28159
 		private List<uint> m_templateIds = new List<uint>();
 
-		// Token: 0x04006E00 RID: 28160
 		private IXUIButton m_AttriBtn;
 
-		// Token: 0x04006E01 RID: 28161
 		private IXUIButton m_ComposeBtn;
 
-		// Token: 0x04006E02 RID: 28162
 		private ArtifactQuanlityFx[] m_quanlityFx = new ArtifactQuanlityFx[ArtifactFrameHandler.Artifact_Slot_Count];
 
-		// Token: 0x04006E03 RID: 28163
 		private XFx[] m_suitFxs = new XFx[ArtifactFrameHandler.Artifact_Slot_Count];
 
-		// Token: 0x04006E04 RID: 28164
 		private XFx m_suitUltimateFx;
 	}
 }

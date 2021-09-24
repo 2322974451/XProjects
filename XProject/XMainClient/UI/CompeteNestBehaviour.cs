@@ -6,10 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020016D4 RID: 5844
+
 	internal class CompeteNestBehaviour : DlgBehaviourBase
 	{
-		// Token: 0x0600F10C RID: 61708 RVA: 0x003526C8 File Offset: 0x003508C8
+
 		private void Awake()
 		{
 			this.m_rankTra = base.transform.FindChild("Rank");
@@ -29,40 +29,28 @@ namespace XMainClient.UI
 			this.m_tipsLab = (base.transform.FindChild("Main/t").GetComponent("XUILabel") as IXUILabel);
 		}
 
-		// Token: 0x040066EA RID: 26346
 		public IXUITexture m_bgTexture;
 
-		// Token: 0x040066EB RID: 26347
 		public IXUILabel m_tittleLab;
 
-		// Token: 0x040066EC RID: 26348
 		public IXUILabel m_timesLab;
 
-		// Token: 0x040066ED RID: 26349
 		public IXUILabel m_tipsLab;
 
-		// Token: 0x040066EE RID: 26350
 		public IXUIButton m_rankBtn;
 
-		// Token: 0x040066EF RID: 26351
 		public IXUIButton m_goBattleBtn;
 
-		// Token: 0x040066F0 RID: 26352
 		public IXUIButton m_closedBtn;
 
-		// Token: 0x040066F1 RID: 26353
 		public IXUIButton m_claimBtn;
 
-		// Token: 0x040066F2 RID: 26354
 		public Transform m_claimredpoint;
 
-		// Token: 0x040066F3 RID: 26355
 		public GameObject m_itemsGo;
 
-		// Token: 0x040066F4 RID: 26356
 		public Transform m_rankTra;
 
-		// Token: 0x040066F5 RID: 26357
 		public XUIPool m_ItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 	}
 }

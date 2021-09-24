@@ -8,10 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000CAF RID: 3247
+
 	internal class SkyArenaInfoHandler : DlgHandlerBase
 	{
-		// Token: 0x0600B6BB RID: 46779 RVA: 0x00243E94 File Offset: 0x00242094
+
 		protected override void Init()
 		{
 			base.Init();
@@ -39,7 +39,6 @@ namespace XMainClient
 			this.CloseTween();
 		}
 
-		// Token: 0x0600B6BC RID: 46780 RVA: 0x002440D8 File Offset: 0x002422D8
 		private void InitDetail(XUIPool pool, int team)
 		{
 			pool.FakeReturnAll();
@@ -72,8 +71,6 @@ namespace XMainClient
 			pool.ActualReturnAll(false);
 		}
 
-		// Token: 0x17003250 RID: 12880
-		// (get) Token: 0x0600B6BD RID: 46781 RVA: 0x00244320 File Offset: 0x00242520
 		protected override string FileName
 		{
 			get
@@ -82,26 +79,22 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B6BE RID: 46782 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public override void RegisterEvent()
 		{
 		}
 
-		// Token: 0x0600B6BF RID: 46783 RVA: 0x00244337 File Offset: 0x00242537
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.ClearShow();
 		}
 
-		// Token: 0x0600B6C0 RID: 46784 RVA: 0x00244348 File Offset: 0x00242548
 		private void ClearShow()
 		{
 			XSingleton<XTimerMgr>.singleton.KillTimer(this._AutoCloseTweenTimerID);
 			this._AutoCloseTweenTimerID = 0U;
 		}
 
-		// Token: 0x0600B6C1 RID: 46785 RVA: 0x00244364 File Offset: 0x00242564
 		protected override void OnHide()
 		{
 			this.ClearShow();
@@ -114,7 +107,6 @@ namespace XMainClient
 			base.OnHide();
 		}
 
-		// Token: 0x0600B6C2 RID: 46786 RVA: 0x002443A8 File Offset: 0x002425A8
 		public override void OnUnload()
 		{
 			this.doc.InfoHandler = null;
@@ -128,18 +120,15 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x0600B6C3 RID: 46787 RVA: 0x001E669E File Offset: 0x001E489E
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
 		}
 
-		// Token: 0x0600B6C4 RID: 46788 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		private void RefreshInfo()
 		{
 		}
 
-		// Token: 0x0600B6C5 RID: 46789 RVA: 0x002443F8 File Offset: 0x002425F8
 		public void PlayStartTween()
 		{
 			bool flag = this._fx != null;
@@ -183,7 +172,6 @@ namespace XMainClient
 			this._AutoCloseTweenTimerID = XSingleton<XTimerMgr>.singleton.SetTimer(interval, new XTimerMgr.ElapsedEventHandler(this.CloseTween), null);
 		}
 
-		// Token: 0x0600B6C6 RID: 46790 RVA: 0x002445B8 File Offset: 0x002427B8
 		public void PlayEndTween(SkyCityEstimateInfo data)
 		{
 			bool flag = data == null;
@@ -287,7 +275,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B6C7 RID: 46791 RVA: 0x00244A30 File Offset: 0x00242C30
 		private void SetStartDetail(XSkyArenaBattleDocument.RoleData data, int team, int index)
 		{
 			bool flag = (long)index >= (long)((ulong)SkyArenaInfoHandler.TEAM_MEMBER_NUM);
@@ -314,7 +301,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B6C8 RID: 46792 RVA: 0x00244B80 File Offset: 0x00242D80
 		private void SetEndDetail(XSkyArenaBattleDocument.RoleData data, SkyCityEstimateBaseInfo endData, int team, int index)
 		{
 			bool flag = (long)index > (long)((ulong)SkyArenaInfoHandler.TEAM_MEMBER_NUM);
@@ -342,7 +328,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B6C9 RID: 46793 RVA: 0x00244CFC File Offset: 0x00242EFC
 		private void HideDetail()
 		{
 			for (int i = 0; i < 2; i++)
@@ -356,13 +341,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B6CA RID: 46794 RVA: 0x00244D4D File Offset: 0x00242F4D
 		private void OnEndMoveOver(IXUITweenTool tween)
 		{
 			this.m_Close.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseClicked));
 		}
 
-		// Token: 0x0600B6CB RID: 46795 RVA: 0x00244D68 File Offset: 0x00242F68
 		public bool OnCloseClicked(IXUIButton btn)
 		{
 			this.CloseTween();
@@ -371,13 +354,11 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B6CC RID: 46796 RVA: 0x00244DA8 File Offset: 0x00242FA8
 		private void CloseTween(object param)
 		{
 			this.CloseTween();
 		}
 
-		// Token: 0x0600B6CD RID: 46797 RVA: 0x00244DB4 File Offset: 0x00242FB4
 		public void CloseTween()
 		{
 			bool flag = this._fx != null;
@@ -393,79 +374,54 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04004784 RID: 18308
 		private XSkyArenaBattleDocument doc = null;
 
-		// Token: 0x04004785 RID: 18309
 		private uint _AutoCloseTweenTimerID = 0U;
 
-		// Token: 0x04004786 RID: 18310
 		public static readonly uint TEAM_MEMBER_NUM = 3U;
 
-		// Token: 0x04004787 RID: 18311
 		private IXUITweenTool m_Tween;
 
-		// Token: 0x04004788 RID: 18312
 		private Transform m_End;
 
-		// Token: 0x04004789 RID: 18313
 		private IXUISprite m_Res;
 
-		// Token: 0x0400478A RID: 18314
 		private Transform m_ResFX;
 
-		// Token: 0x0400478B RID: 18315
 		private IXUIButton m_Close;
 
-		// Token: 0x0400478C RID: 18316
 		private IXUILabel m_Info;
 
-		// Token: 0x0400478D RID: 18317
 		private IXUILabel m_InfoEnd;
 
-		// Token: 0x0400478E RID: 18318
 		private XUIPool m_DetailLeftPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x0400478F RID: 18319
 		private XUIPool m_DetailRightPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04004790 RID: 18320
 		private Transform[,] m_Detail = new Transform[2, (int)SkyArenaInfoHandler.TEAM_MEMBER_NUM];
 
-		// Token: 0x04004791 RID: 18321
 		private IXUILabel[,] m_DetailLevel = new IXUILabel[2, (int)SkyArenaInfoHandler.TEAM_MEMBER_NUM];
 
-		// Token: 0x04004792 RID: 18322
 		private IXUISprite[,] m_DetailAvatar = new IXUISprite[2, (int)SkyArenaInfoHandler.TEAM_MEMBER_NUM];
 
-		// Token: 0x04004793 RID: 18323
 		private IXUISprite[,] m_DetailProfession = new IXUISprite[2, (int)SkyArenaInfoHandler.TEAM_MEMBER_NUM];
 
-		// Token: 0x04004794 RID: 18324
 		private IXUILabel[,] m_DetailName = new IXUILabel[2, (int)SkyArenaInfoHandler.TEAM_MEMBER_NUM];
 
-		// Token: 0x04004795 RID: 18325
 		private Transform[,] m_DetailStart = new Transform[2, (int)SkyArenaInfoHandler.TEAM_MEMBER_NUM];
 
-		// Token: 0x04004796 RID: 18326
 		private IXUILabel[,] m_DetailPPT = new IXUILabel[2, (int)SkyArenaInfoHandler.TEAM_MEMBER_NUM];
 
-		// Token: 0x04004797 RID: 18327
 		private Transform[,] m_DetailEnd = new Transform[2, (int)SkyArenaInfoHandler.TEAM_MEMBER_NUM];
 
-		// Token: 0x04004798 RID: 18328
 		private IXUILabel[,] m_DetailDamage = new IXUILabel[2, (int)SkyArenaInfoHandler.TEAM_MEMBER_NUM];
 
-		// Token: 0x04004799 RID: 18329
 		private IXUILabel[,] m_DetailKillNum = new IXUILabel[2, (int)SkyArenaInfoHandler.TEAM_MEMBER_NUM];
 
-		// Token: 0x0400479A RID: 18330
 		private IXUILabel[] m_AllKillNum = new IXUILabel[2];
 
-		// Token: 0x0400479B RID: 18331
 		private IXUILabel[] m_AllDamage = new IXUILabel[2];
 
-		// Token: 0x0400479C RID: 18332
 		private XFx _fx = null;
 	}
 }

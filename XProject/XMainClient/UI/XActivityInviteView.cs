@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017A0 RID: 6048
+
 	internal class XActivityInviteView : DlgBase<XActivityInviteView, XActivityInviteBehavior>
 	{
-		// Token: 0x17003856 RID: 14422
-		// (get) Token: 0x0600F9D4 RID: 63956 RVA: 0x003993C0 File Offset: 0x003975C0
+
 		public override string fileName
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003857 RID: 14423
-		// (get) Token: 0x0600F9D5 RID: 63957 RVA: 0x003993D8 File Offset: 0x003975D8
 		public override int layer
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003858 RID: 14424
-		// (get) Token: 0x0600F9D6 RID: 63958 RVA: 0x003993EC File Offset: 0x003975EC
 		public override int group
 		{
 			get
@@ -40,8 +35,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003859 RID: 14425
-		// (get) Token: 0x0600F9D7 RID: 63959 RVA: 0x00399400 File Offset: 0x00397600
 		public override bool autoload
 		{
 			get
@@ -50,26 +43,22 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F9D8 RID: 63960 RVA: 0x00399413 File Offset: 0x00397613
 		protected override void Init()
 		{
 			this.InitTabs();
 			this.InitProperties();
 		}
 
-		// Token: 0x0600F9D9 RID: 63961 RVA: 0x00399424 File Offset: 0x00397624
 		protected override void OnUnload()
 		{
 			base.OnUnload();
 		}
 
-		// Token: 0x0600F9DA RID: 63962 RVA: 0x0039942E File Offset: 0x0039762E
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 		}
 
-		// Token: 0x0600F9DB RID: 63963 RVA: 0x00399438 File Offset: 0x00397638
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -96,20 +85,17 @@ namespace XMainClient.UI
 			}));
 		}
 
-		// Token: 0x0600F9DC RID: 63964 RVA: 0x003994E5 File Offset: 0x003976E5
 		public override void OnXNGUIClick(GameObject obj, string path)
 		{
 			base.OnXNGUIClick(obj, path);
 		}
 
-		// Token: 0x0600F9DD RID: 63965 RVA: 0x003994F1 File Offset: 0x003976F1
 		private void OnCloseClicked(IXUISprite iSp)
 		{
 			this.SetVisible(false, true);
 			this.ResetSendFlag();
 		}
 
-		// Token: 0x0600F9DE RID: 63966 RVA: 0x00399504 File Offset: 0x00397704
 		private void ResetSendFlag()
 		{
 			foreach (List<InviteMemberInfo> list in XActivityInviteDocument.Doc.MemberInfos.Values)
@@ -121,7 +107,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F9DF RID: 63967 RVA: 0x003995A0 File Offset: 0x003977A0
 		private bool OnAddFriendClicked(IXUIButton btn)
 		{
 			DlgBase<XFriendsView, XFriendsBehaviour>.singleton.RandomFriend();
@@ -129,7 +114,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F9E0 RID: 63968 RVA: 0x003995C8 File Offset: 0x003977C8
 		private void InitTabs()
 		{
 			this._tabs.Clear();
@@ -147,7 +131,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F9E1 RID: 63969 RVA: 0x00399698 File Offset: 0x00397898
 		private void InitProperties()
 		{
 			base.uiBehaviour.AddFriendBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnAddFriendClicked));
@@ -157,14 +140,12 @@ namespace XMainClient.UI
 			base.uiBehaviour.Close.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnCloseClicked));
 		}
 
-		// Token: 0x0600F9E2 RID: 63970 RVA: 0x00399737 File Offset: 0x00397937
 		public void Refresh(ActivityInviteTarget target)
 		{
 			this.RefreshCurTabItem(target);
 			base.uiBehaviour.FriendText.SetVisible(XActivityInviteDocument.Doc.CurOpType == XActivityInviteDocument.OpType.Send);
 		}
 
-		// Token: 0x0600F9E3 RID: 63971 RVA: 0x00399760 File Offset: 0x00397960
 		public void RefreshTabs()
 		{
 			base.uiBehaviour.JoinGuildBtn.gameObject.SetActive(false);
@@ -187,7 +168,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F9E4 RID: 63972 RVA: 0x00399854 File Offset: 0x00397A54
 		public bool RefreshCurTabItem(ActivityInviteTarget target)
 		{
 			for (int i = 0; i < this._tabs.Count; i++)
@@ -216,7 +196,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F9E5 RID: 63973 RVA: 0x00399914 File Offset: 0x00397B14
 		public bool RefreshItems(IXUICheckBox go)
 		{
 			bool flag = !go.bChecked;
@@ -273,14 +252,12 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F9E6 RID: 63974 RVA: 0x00399AA8 File Offset: 0x00397CA8
 		private void WrapContentItemInit(Transform t, int index)
 		{
 			IXUIButton ixuibutton = t.FindChild("BtnInvite").GetComponent("XUIButton") as IXUIButton;
 			ixuibutton.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnInviteClick));
 		}
 
-		// Token: 0x0600F9E7 RID: 63975 RVA: 0x00399AE4 File Offset: 0x00397CE4
 		private bool OnInviteClick(IXUIButton go)
 		{
 			go.SetEnable(false, false);
@@ -313,7 +290,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F9E8 RID: 63976 RVA: 0x00399BE8 File Offset: 0x00397DE8
 		private void PerformInvite(ulong roleID)
 		{
 			XInvitationDocument specificDocument = XDocuments.GetSpecificDocument<XInvitationDocument>(XInvitationDocument.uuID);
@@ -321,7 +297,6 @@ namespace XMainClient.UI
 			specificDocument.SendActivityInvitation(XSysDefine.XSys_Home_Feast, XSingleton<XAttributeMgr>.singleton.XPlayerData.RoleID, true);
 		}
 
-		// Token: 0x0600F9E9 RID: 63977 RVA: 0x00399C2C File Offset: 0x00397E2C
 		private void PreHandlerInviteType(ActivityInviteTarget type, ulong roleID)
 		{
 			if (type != ActivityInviteTarget.Friend)
@@ -357,7 +332,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F9EA RID: 63978 RVA: 0x00399D18 File Offset: 0x00397F18
 		private bool OnJoinGuildClicked(IXUIButton go)
 		{
 			this.SetVisibleWithAnimation(false, null);
@@ -365,7 +339,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F9EB RID: 63979 RVA: 0x00399D44 File Offset: 0x00397F44
 		private void WrapContentItemUpdated(Transform t, int index)
 		{
 			bool flag = !XActivityInviteDocument.Doc.MemberInfos.ContainsKey((ActivityInviteTarget)this._curTab);
@@ -411,7 +384,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F9EC RID: 63980 RVA: 0x00399FB8 File Offset: 0x003981B8
 		private void SetSend(ulong id)
 		{
 			for (int i = 0; i < this.curList.Count; i++)
@@ -424,7 +396,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F9ED RID: 63981 RVA: 0x0039A010 File Offset: 0x00398210
 		private bool GetChecked(InviteMemberInfo info, ulong id)
 		{
 			XActivityInviteDocument.OpType curOpType = XActivityInviteDocument.Doc.CurOpType;
@@ -432,7 +403,6 @@ namespace XMainClient.UI
 			return opType == XActivityInviteDocument.OpType.Invite && info.uid == id;
 		}
 
-		// Token: 0x0600F9EE RID: 63982 RVA: 0x0039A044 File Offset: 0x00398244
 		private void SetOpBtnContent(Transform item, InviteMemberInfo info)
 		{
 			IXUIButton ixuibutton = item.Find("BtnInvite").GetComponent("XUIButton") as IXUIButton;
@@ -460,16 +430,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04006D67 RID: 28007
 		protected List<Transform> _tabs = new List<Transform>();
 
-		// Token: 0x04006D68 RID: 28008
 		protected int _curTab = 2;
 
-		// Token: 0x04006D69 RID: 28009
 		protected List<InviteMemberInfo> curList = new List<InviteMemberInfo>();
 
-		// Token: 0x04006D6A RID: 28010
 		protected List<Vector3> _tabPos = new List<Vector3>();
 	}
 }

@@ -7,10 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000B93 RID: 2963
+
 	internal class BattleShowInfoHandler : DlgHandlerBase
 	{
-		// Token: 0x0600A9CA RID: 43466 RVA: 0x001E4638 File Offset: 0x001E2838
+
 		protected override void Init()
 		{
 			base.Init();
@@ -19,8 +19,6 @@ namespace XMainClient
 			this.m_InfoPool.SetupPool(null, transform.gameObject, BattleShowInfoHandler.GAME_INFO_MAX, false);
 		}
 
-		// Token: 0x17003034 RID: 12340
-		// (get) Token: 0x0600A9CB RID: 43467 RVA: 0x001E469C File Offset: 0x001E289C
 		protected override string FileName
 		{
 			get
@@ -29,7 +27,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A9CC RID: 43468 RVA: 0x001E46B4 File Offset: 0x001E28B4
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -46,7 +43,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A9CD RID: 43469 RVA: 0x001E4713 File Offset: 0x001E2913
 		protected override void OnHide()
 		{
 			XSingleton<XTimerMgr>.singleton.KillTimer(this.m_ShowInfoTimerID);
@@ -54,7 +50,6 @@ namespace XMainClient
 			base.OnHide();
 		}
 
-		// Token: 0x0600A9CE RID: 43470 RVA: 0x001E4735 File Offset: 0x001E2935
 		public override void OnUnload()
 		{
 			XSingleton<XTimerMgr>.singleton.KillTimer(this.m_ShowInfoTimerID);
@@ -62,7 +57,6 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x0600A9CF RID: 43471 RVA: 0x001E4758 File Offset: 0x001E2958
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
@@ -83,7 +77,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A9D0 RID: 43472 RVA: 0x001E47CC File Offset: 0x001E29CC
 		public void AddInfo(string newInfo)
 		{
 			this.lastShowInfoTime = Time.time;
@@ -96,7 +89,6 @@ namespace XMainClient
 			this.RefreshInfo();
 		}
 
-		// Token: 0x0600A9D1 RID: 43473 RVA: 0x001E4820 File Offset: 0x001E2A20
 		private void RefreshInfo()
 		{
 			this.m_InfoPool.FakeReturnAll();
@@ -130,34 +122,24 @@ namespace XMainClient
 			this.m_InfoPool.ActualReturnAll(false);
 		}
 
-		// Token: 0x04003ED8 RID: 16088
 		public static readonly uint GAME_INFO_MAX = 3U;
 
-		// Token: 0x04003ED9 RID: 16089
 		public static readonly uint CLEAR_GAME_INFO_TIME = 10U;
 
-		// Token: 0x04003EDA RID: 16090
 		private uint m_ShowInfoTimerID = 0U;
 
-		// Token: 0x04003EDB RID: 16091
 		private Queue<string> qInfo = new Queue<string>();
 
-		// Token: 0x04003EDC RID: 16092
 		private float lastShowInfoTime;
 
-		// Token: 0x04003EDD RID: 16093
 		private bool isChange = false;
 
-		// Token: 0x04003EDE RID: 16094
 		public static readonly string red = "[ef2717]";
 
-		// Token: 0x04003EDF RID: 16095
 		public static readonly string blue = "[21b2ff]";
 
-		// Token: 0x04003EE0 RID: 16096
 		public IXPositionGroup m_pauseGroup;
 
-		// Token: 0x04003EE1 RID: 16097
 		public XUIPool m_InfoPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 	}
 }

@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017AC RID: 6060
+
 	internal class ArtifactBagHandler : DlgHandlerBase
 	{
-		// Token: 0x17003871 RID: 14449
-		// (get) Token: 0x0600FA8A RID: 64138 RVA: 0x0039F378 File Offset: 0x0039D578
+
 		protected override string FileName
 		{
 			get
@@ -21,7 +20,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FA8B RID: 64139 RVA: 0x0039F390 File Offset: 0x0039D590
 		protected override void Init()
 		{
 			base.Init();
@@ -38,7 +36,6 @@ namespace XMainClient.UI
 			DlgHandlerBase.EnsureCreate<ArtifactAtlasHandler>(ref this.m_atlasHandler, base.PanelObject.transform.parent.parent, false, this);
 		}
 
-		// Token: 0x0600FA8C RID: 64140 RVA: 0x0039F4E4 File Offset: 0x0039D6E4
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -47,7 +44,6 @@ namespace XMainClient.UI
 			this.m_expandBagBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnBagExpandClicked));
 		}
 
-		// Token: 0x0600FA8D RID: 64141 RVA: 0x0039F541 File Offset: 0x0039D741
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -58,14 +54,12 @@ namespace XMainClient.UI
 			this.SetBagNum();
 		}
 
-		// Token: 0x0600FA8E RID: 64142 RVA: 0x0039F57F File Offset: 0x0039D77F
 		protected override void OnHide()
 		{
 			base.OnHide();
 			this.m_doc.NewItems.TryClear();
 		}
 
-		// Token: 0x0600FA8F RID: 64143 RVA: 0x0039F59A File Offset: 0x0039D79A
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
@@ -73,7 +67,6 @@ namespace XMainClient.UI
 			this.m_doc.NewItems.bCanClear = true;
 		}
 
-		// Token: 0x0600FA90 RID: 64144 RVA: 0x0039F5BD File Offset: 0x0039D7BD
 		public override void OnUnload()
 		{
 			DlgHandlerBase.EnsureUnload<ArtifactAtlasHandler>(ref this.m_atlasHandler);
@@ -81,7 +74,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x0600FA91 RID: 64145 RVA: 0x0039F5E0 File Offset: 0x0039D7E0
 		private void RefreshBag()
 		{
 			this.m_bagWindow.ChangeData(new ItemUpdateHandler(this.WrapContentItemUpdated), new GetItemHandler(this.m_doc.GetArtifacts));
@@ -89,14 +81,12 @@ namespace XMainClient.UI
 			this.SetBagNum();
 		}
 
-		// Token: 0x0600FA92 RID: 64146 RVA: 0x0039F61F File Offset: 0x0039D81F
 		public void Refresh()
 		{
 			this.m_bagWindow.RefreshWindow();
 			this.SetBagNum();
 		}
 
-		// Token: 0x0600FA93 RID: 64147 RVA: 0x0039F638 File Offset: 0x0039D838
 		private void WrapContentItemUpdated(Transform t, int index)
 		{
 			bool flag = this.m_bagWindow.m_XItemList == null || index >= this.m_bagWindow.m_XItemList.Count || index < 0;
@@ -135,7 +125,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FA94 RID: 64148 RVA: 0x0039F804 File Offset: 0x0039DA04
 		private void SetBagNum()
 		{
 			int count = this.m_doc.GetArtifacts().Count;
@@ -163,12 +152,10 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FA95 RID: 64149 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public void RefreshRedPoints()
 		{
 		}
 
-		// Token: 0x0600FA96 RID: 64150 RVA: 0x0039F8D4 File Offset: 0x0039DAD4
 		public void LoadEquip(XItem item, int slot)
 		{
 			DlgBase<EquipTooltipDlg, EquipTooltipDlgBehaviour>.singleton.HideToolTip(true);
@@ -180,7 +167,6 @@ namespace XMainClient.UI
 			this.Refresh();
 		}
 
-		// Token: 0x0600FA97 RID: 64151 RVA: 0x0039F92C File Offset: 0x0039DB2C
 		public void UnloadEquip(int slot)
 		{
 			DlgBase<EquipTooltipDlg, EquipTooltipDlgBehaviour>.singleton.HideToolTip(true);
@@ -192,14 +178,12 @@ namespace XMainClient.UI
 			this.Refresh();
 		}
 
-		// Token: 0x0600FA98 RID: 64152 RVA: 0x0039F981 File Offset: 0x0039DB81
 		public void AddItem(List<XItem> items)
 		{
 			this.m_bagWindow.UpdateBag();
 			this.SetBagNum();
 		}
 
-		// Token: 0x0600FA99 RID: 64153 RVA: 0x0039F998 File Offset: 0x0039DB98
 		public void RemoveItem(List<ulong> uids)
 		{
 			this.m_bagWindow.UpdateBag();
@@ -214,7 +198,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FA9A RID: 64154 RVA: 0x0039FA18 File Offset: 0x0039DC18
 		public void SwapItem(XItem item1, XItem item2, int slot)
 		{
 			DlgBase<EquipTooltipDlg, EquipTooltipDlgBehaviour>.singleton.HideToolTip(true);
@@ -226,7 +209,6 @@ namespace XMainClient.UI
 			this.m_bagWindow.ReplaceItem(item1, item2);
 		}
 
-		// Token: 0x0600FA9B RID: 64155 RVA: 0x0039FA74 File Offset: 0x0039DC74
 		public void UpdateItem(XItem item)
 		{
 			this.m_bagWindow.UpdateItem(item);
@@ -243,14 +225,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FA9C RID: 64156 RVA: 0x0039FAE8 File Offset: 0x0039DCE8
 		public void ItemNumChanged(XItem item)
 		{
 			this.m_bagWindow.UpdateItem(item);
 			this.SetBagNum();
 		}
 
-		// Token: 0x0600FA9D RID: 64157 RVA: 0x0039FB00 File Offset: 0x0039DD00
 		public bool OnHelpClicked(IXUIButton button)
 		{
 			bool flag = DlgBase<ItemSystemDlg, TabDlgBehaviour>.singleton.IsVisible() && DlgBase<ItemSystemDlg, TabDlgBehaviour>.singleton._ArtifactFrameHandler != null && DlgBase<ItemSystemDlg, TabDlgBehaviour>.singleton._ArtifactFrameHandler.IsVisible();
@@ -262,7 +242,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FA9E RID: 64158 RVA: 0x0039FB64 File Offset: 0x0039DD64
 		public bool OnAtlasClicked(IXUIButton button)
 		{
 			bool flag = DlgBase<ItemSystemDlg, TabDlgBehaviour>.singleton.IsVisible() && DlgBase<ItemSystemDlg, TabDlgBehaviour>.singleton._ArtifactFrameHandler != null && DlgBase<ItemSystemDlg, TabDlgBehaviour>.singleton._ArtifactFrameHandler.IsVisible();
@@ -278,7 +257,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FA9F RID: 64159 RVA: 0x0039FBD4 File Offset: 0x0039DDD4
 		public bool OnBagExpandClicked(IXUIButton button)
 		{
 			bool flag = DlgBase<ItemSystemDlg, TabDlgBehaviour>.singleton.IsVisible() && DlgBase<ItemSystemDlg, TabDlgBehaviour>.singleton._ArtifactFrameHandler != null && DlgBase<ItemSystemDlg, TabDlgBehaviour>.singleton._ArtifactFrameHandler.IsVisible();
@@ -290,7 +268,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FAA0 RID: 64160 RVA: 0x0039FC34 File Offset: 0x0039DE34
 		private void OnItemClicked(IXUISprite iSp)
 		{
 			XItem itemByUID = XSingleton<XGame>.singleton.Doc.XBagDoc.GetItemByUID(iSp.ID);
@@ -311,28 +288,20 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04006DD7 RID: 28119
 		private ArtifactAtlasHandler m_atlasHandler;
 
-		// Token: 0x04006DD8 RID: 28120
 		private ArtifactBagDocument m_doc;
 
-		// Token: 0x04006DD9 RID: 28121
 		private XBagWindow m_bagWindow;
 
-		// Token: 0x04006DDA RID: 28122
 		private GameObject m_artifactBagPanel;
 
-		// Token: 0x04006DDB RID: 28123
 		private IXUIButton m_Help;
 
-		// Token: 0x04006DDC RID: 28124
 		private IXUIButton m_atlasBtn;
 
-		// Token: 0x04006DDD RID: 28125
 		private IXUILabel m_bagNumLab;
 
-		// Token: 0x04006DDE RID: 28126
 		public IXUIButton m_expandBagBtn;
 	}
 }

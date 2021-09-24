@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x02000178 RID: 376
+
 	public class SuperArmorRecoveryCoffTable : CVSReader
 	{
-		// Token: 0x06000839 RID: 2105 RVA: 0x0002B224 File Offset: 0x00029424
+
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			SuperArmorRecoveryCoffTable.RowData rowData = new SuperArmorRecoveryCoffTable.RowData();
@@ -19,7 +19,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x0600083A RID: 2106 RVA: 0x0002B29C File Offset: 0x0002949C
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -33,19 +32,15 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x040003C4 RID: 964
 		public SuperArmorRecoveryCoffTable.RowData[] Table = null;
 
-		// Token: 0x02000377 RID: 887
 		public class RowData
 		{
-			// Token: 0x04000EB6 RID: 3766
+
 			public int Value;
 
-			// Token: 0x04000EB7 RID: 3767
 			public int monster_type;
 
-			// Token: 0x04000EB8 RID: 3768
 			public double SupRecoveryChange;
 		}
 	}

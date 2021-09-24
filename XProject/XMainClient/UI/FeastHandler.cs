@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200179B RID: 6043
+
 	internal class FeastHandler : DlgHandlerBase
 	{
-		// Token: 0x17003852 RID: 14418
-		// (get) Token: 0x0600F99F RID: 63903 RVA: 0x003973C0 File Offset: 0x003955C0
+
 		protected override string FileName
 		{
 			get
@@ -19,7 +18,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F9A0 RID: 63904 RVA: 0x003973D7 File Offset: 0x003955D7
 		protected override void Init()
 		{
 			base.Init();
@@ -27,52 +25,44 @@ namespace XMainClient.UI
 			this.InitLeftTabs();
 		}
 
-		// Token: 0x0600F9A1 RID: 63905 RVA: 0x0019EEB0 File Offset: 0x0019D0B0
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 		}
 
-		// Token: 0x0600F9A2 RID: 63906 RVA: 0x003973EF File Offset: 0x003955EF
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.RefreshUI();
 		}
 
-		// Token: 0x0600F9A3 RID: 63907 RVA: 0x0019EEFD File Offset: 0x0019D0FD
 		protected override void OnHide()
 		{
 			base.OnHide();
 		}
 
-		// Token: 0x0600F9A4 RID: 63908 RVA: 0x0019EF07 File Offset: 0x0019D107
 		public override void OnUnload()
 		{
 			base.OnUnload();
 		}
 
-		// Token: 0x0600F9A5 RID: 63909 RVA: 0x00397400 File Offset: 0x00395600
 		public void RefreshUI()
 		{
 			this.SetHoldPatryState();
 			this.SetDefaultTab();
 		}
 
-		// Token: 0x0600F9A6 RID: 63910 RVA: 0x00397411 File Offset: 0x00395611
 		public void BeginToFeast()
 		{
 			XSingleton<XDebug>.singleton.AddGreenLog("BeginToFeast", null, null, null, null, null);
 			this.RefreshPartyBtnState(false);
 		}
 
-		// Token: 0x0600F9A7 RID: 63911 RVA: 0x00397431 File Offset: 0x00395631
 		public void RefreshPartyBtnState(bool enable)
 		{
 			this._holdPartyBtn.SetEnable(enable, false);
 		}
 
-		// Token: 0x0600F9A8 RID: 63912 RVA: 0x00397444 File Offset: 0x00395644
 		private void InitLeftTabs()
 		{
 			this._tabList.Clear();
@@ -88,7 +78,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F9A9 RID: 63913 RVA: 0x00397518 File Offset: 0x00395718
 		private void InitProperties()
 		{
 			this._tabs = base.transform.Find("Tabs");
@@ -104,7 +93,6 @@ namespace XMainClient.UI
 			this._inviteBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnClickInviteBtn));
 		}
 
-		// Token: 0x0600F9AA RID: 63914 RVA: 0x00397688 File Offset: 0x00395888
 		private void InitTabItem(Transform item, GardenBanquetCfg.RowData info)
 		{
 			IXUICheckBox ixuicheckBox = item.GetComponent("XUICheckBox") as IXUICheckBox;
@@ -117,7 +105,6 @@ namespace XMainClient.UI
 			ixuilabel2.SetText(info.BanquetName);
 		}
 
-		// Token: 0x0600F9AB RID: 63915 RVA: 0x00397724 File Offset: 0x00395924
 		private void SetDefaultTab()
 		{
 			bool flag = this._tabList.Count > 0;
@@ -129,7 +116,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F9AC RID: 63916 RVA: 0x00397778 File Offset: 0x00395978
 		private void RefreshRightPanel(uint id)
 		{
 			GardenBanquetCfg.RowData gardenBanquetInfoByID = XHomeCookAndPartyDocument.Doc.GetGardenBanquetInfoByID(id);
@@ -167,7 +153,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F9AD RID: 63917 RVA: 0x00397934 File Offset: 0x00395B34
 		private Transform DrawItem(int itemID, int num, Transform parent, int index)
 		{
 			GameObject gameObject = this._itemPool.FetchGameObject(false);
@@ -180,7 +165,6 @@ namespace XMainClient.UI
 			return gameObject.transform;
 		}
 
-		// Token: 0x0600F9AE RID: 63918 RVA: 0x003979E8 File Offset: 0x00395BE8
 		private bool OnPackageChange(IXUICheckBox box)
 		{
 			bool bChecked = box.bChecked;
@@ -199,14 +183,12 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F9AF RID: 63919 RVA: 0x00397A24 File Offset: 0x00395C24
 		private bool OnClickInviteBtn(IXUIButton btn)
 		{
 			XActivityInviteDocument.Doc.ShowActivityInviteView(2, XActivityInviteDocument.OpType.Invite);
 			return true;
 		}
 
-		// Token: 0x0600F9B0 RID: 63920 RVA: 0x00397A44 File Offset: 0x00395C44
 		private bool OnClickHoldParty(IXUIButton btn)
 		{
 			bool flag = !this.IsFoodEnough();
@@ -233,7 +215,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F9B1 RID: 63921 RVA: 0x00397ACC File Offset: 0x00395CCC
 		private bool IsHasEnoughParters()
 		{
 			List<XEntity> all = XSingleton<XEntityMgr>.singleton.GetAll();
@@ -249,7 +230,6 @@ namespace XMainClient.UI
 			return num >= XSingleton<XGlobalConfig>.singleton.GetInt("GardenBanquetGuests");
 		}
 
-		// Token: 0x0600F9B2 RID: 63922 RVA: 0x00397B3C File Offset: 0x00395D3C
 		private void SetHoldPatryState()
 		{
 			bool flag = !HomeMainDocument.Doc.IsInMyOwnHomeGarden() || XHomeCookAndPartyDocument.Doc.CurBanquetState > 0U;
@@ -263,7 +243,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F9B3 RID: 63923 RVA: 0x00397B88 File Offset: 0x00395D88
 		protected bool IsFoodEnough()
 		{
 			GardenBanquetCfg.RowData gardenBanquetInfoByID = XHomeCookAndPartyDocument.Doc.GetGardenBanquetInfoByID(this._banquetID);
@@ -285,37 +264,26 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x04006D31 RID: 27953
 		protected XUIPool _tabPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006D32 RID: 27954
 		protected XUIPool _itemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006D33 RID: 27955
 		private Transform _rewardSnap;
 
-		// Token: 0x04006D34 RID: 27956
 		private IXUILabel _packageName;
 
-		// Token: 0x04006D35 RID: 27957
 		private IXUILabel _partyDesc;
 
-		// Token: 0x04006D36 RID: 27958
 		private Transform _tabs;
 
-		// Token: 0x04006D37 RID: 27959
 		private Transform _items;
 
-		// Token: 0x04006D38 RID: 27960
 		private IXUIButton _inviteBtn;
 
-		// Token: 0x04006D39 RID: 27961
 		private IXUIButton _holdPartyBtn;
 
-		// Token: 0x04006D3A RID: 27962
 		private List<Transform> _tabList = new List<Transform>();
 
-		// Token: 0x04006D3B RID: 27963
 		private uint _banquetID = 0U;
 	}
 }

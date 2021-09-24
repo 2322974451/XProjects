@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000F34 RID: 3892
+
 	internal sealed class XWoozyComponent : XComponent
 	{
-		// Token: 0x170035FC RID: 13820
-		// (get) Token: 0x0600CE63 RID: 52835 RVA: 0x002FCF34 File Offset: 0x002FB134
+
 		public override uint ID
 		{
 			get
@@ -21,7 +20,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CE64 RID: 52836 RVA: 0x002FCF4C File Offset: 0x002FB14C
 		protected override void EventSubscribe()
 		{
 			base.RegisterEvent(XEventDefine.XEvent_ArmorBroken, new XComponent.XEventHandler(this.OnArmorBroken));
@@ -29,21 +27,17 @@ namespace XMainClient
 			base.RegisterEvent(XEventDefine.XEvent_RealDead, new XComponent.XEventHandler(this.OnDeath));
 		}
 
-		// Token: 0x0600CE65 RID: 52837 RVA: 0x002FCF9F File Offset: 0x002FB19F
 		public override void Attached()
 		{
 			this._woozy_enabled = this._entity.Attributes.HasWoozyStatus;
 		}
 
-		// Token: 0x0600CE66 RID: 52838 RVA: 0x002FCFB8 File Offset: 0x002FB1B8
 		public override void OnDetachFromHost()
 		{
 			this.Clear();
 			base.OnDetachFromHost();
 		}
 
-		// Token: 0x170035FD RID: 13821
-		// (get) Token: 0x0600CE67 RID: 52839 RVA: 0x002FCFCC File Offset: 0x002FB1CC
 		public bool OnBroken
 		{
 			get
@@ -52,8 +46,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170035FE RID: 13822
-		// (get) Token: 0x0600CE68 RID: 52840 RVA: 0x002FCFE4 File Offset: 0x002FB1E4
 		public bool OnRecover
 		{
 			get
@@ -62,8 +54,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170035FF RID: 13823
-		// (get) Token: 0x0600CE69 RID: 52841 RVA: 0x002FCFFC File Offset: 0x002FB1FC
 		public bool InTransfer
 		{
 			get
@@ -72,7 +62,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CE6A RID: 52842 RVA: 0x002FD014 File Offset: 0x002FB214
 		public override void Update(float fDeltaT)
 		{
 			bool onRecover = this._OnRecover;
@@ -93,7 +82,6 @@ namespace XMainClient
 			this.UpdateFx();
 		}
 
-		// Token: 0x0600CE6B RID: 52843 RVA: 0x002FD05C File Offset: 0x002FB25C
 		private bool OnArmorBroken(XEventArgs e)
 		{
 			this._OnBroken = true;
@@ -101,7 +89,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600CE6C RID: 52844 RVA: 0x002FD080 File Offset: 0x002FB280
 		private bool OnArmorRecover(XEventArgs e)
 		{
 			this._OnRecover = true;
@@ -109,14 +96,12 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600CE6D RID: 52845 RVA: 0x002FD0A4 File Offset: 0x002FB2A4
 		private bool OnDeath(XEventArgs e)
 		{
 			this.Clear();
 			return true;
 		}
 
-		// Token: 0x0600CE6E RID: 52846 RVA: 0x002FD0C0 File Offset: 0x002FB2C0
 		private void Clear()
 		{
 			bool flag = this._fx != null;
@@ -132,7 +117,6 @@ namespace XMainClient
 			XSingleton<XTimerMgr>.singleton.KillTimer(this._token_off);
 		}
 
-		// Token: 0x0600CE6F RID: 52847 RVA: 0x002FD130 File Offset: 0x002FB330
 		private void BrokenArmor()
 		{
 			bool woozy_enabled = this._woozy_enabled;
@@ -161,7 +145,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CE70 RID: 52848 RVA: 0x002FD28C File Offset: 0x002FB48C
 		private void RecoverArmor()
 		{
 			bool woozy_enabled = this._woozy_enabled;
@@ -206,7 +189,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CE71 RID: 52849 RVA: 0x002FD42C File Offset: 0x002FB62C
 		private void Woozy()
 		{
 			bool recovery = this._recovery;
@@ -230,7 +212,6 @@ namespace XMainClient
 			this._OnWoozy = false;
 		}
 
-		// Token: 0x0600CE72 RID: 52850 RVA: 0x002FD4DC File Offset: 0x002FB6DC
 		private void PlayFx(string fx, bool follow)
 		{
 			bool flag = this._fx != null && this._fx.FxName != fx;
@@ -251,7 +232,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CE73 RID: 52851 RVA: 0x002FD590 File Offset: 0x002FB790
 		private void WoozyOn(object o)
 		{
 			this._recovery = true;
@@ -270,7 +250,6 @@ namespace XMainClient
 			XSingleton<XEventMgr>.singleton.FireEvent(@event);
 		}
 
-		// Token: 0x0600CE74 RID: 52852 RVA: 0x002FD60C File Offset: 0x002FB80C
 		private void WoozyOff(object o)
 		{
 			bool woozy_enabled = this._woozy_enabled;
@@ -288,7 +267,6 @@ namespace XMainClient
 			XSingleton<XEventMgr>.singleton.FireEvent(@event);
 		}
 
-		// Token: 0x0600CE75 RID: 52853 RVA: 0x002FD680 File Offset: 0x002FB880
 		private void UpdateFx()
 		{
 			bool recovery = this._recovery;
@@ -348,34 +326,24 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04005C13 RID: 23571
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("WoozyComponent");
 
-		// Token: 0x04005C14 RID: 23572
 		private bool _OnBroken = false;
 
-		// Token: 0x04005C15 RID: 23573
 		private bool _OnRecover = false;
 
-		// Token: 0x04005C16 RID: 23574
 		private bool _OnWoozy = false;
 
-		// Token: 0x04005C17 RID: 23575
 		private bool _recovery = false;
 
-		// Token: 0x04005C18 RID: 23576
 		private bool _transfer = false;
 
-		// Token: 0x04005C19 RID: 23577
 		private bool _woozy_enabled = false;
 
-		// Token: 0x04005C1A RID: 23578
 		private XFx _fx = null;
 
-		// Token: 0x04005C1B RID: 23579
 		private uint _token_on = 0U;
 
-		// Token: 0x04005C1C RID: 23580
 		private uint _token_off = 0U;
 	}
 }

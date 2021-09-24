@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001715 RID: 5909
+
 	internal class XDragonRwdHandler : DlgHandlerBase
 	{
-		// Token: 0x0600F406 RID: 62470 RVA: 0x00369C04 File Offset: 0x00367E04
+
 		protected override void Init()
 		{
 			base.Init();
@@ -26,14 +26,12 @@ namespace XMainClient.UI
 			this.m_WrapContent.RegisterItemUpdateEventHandler(new WrapItemUpdateEventHandler(this.WrapContentItemUpdated));
 		}
 
-		// Token: 0x0600F407 RID: 62471 RVA: 0x00369D4A File Offset: 0x00367F4A
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			this.m_chbx.RegisterOnCheckEventHandler(new CheckBoxOnCheckEventHandler(this.OnSelectCnbx));
 		}
 
-		// Token: 0x0600F408 RID: 62472 RVA: 0x00369D6C File Offset: 0x00367F6C
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -49,21 +47,18 @@ namespace XMainClient.UI
 			this.doc.FetchList();
 		}
 
-		// Token: 0x0600F409 RID: 62473 RVA: 0x00369DE9 File Offset: 0x00367FE9
 		protected override void OnHide()
 		{
 			this.cbInit = false;
 			base.OnHide();
 		}
 
-		// Token: 0x0600F40A RID: 62474 RVA: 0x00369DFA File Offset: 0x00367FFA
 		public override void OnUnload()
 		{
 			this.doc = null;
 			base.OnUnload();
 		}
 
-		// Token: 0x0600F40B RID: 62475 RVA: 0x00369E0C File Offset: 0x0036800C
 		private bool OnSelectCnbx(IXUICheckBox chbx)
 		{
 			bool flag = this.cbInit;
@@ -83,7 +78,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F40C RID: 62476 RVA: 0x00369E74 File Offset: 0x00368074
 		public void Refresh()
 		{
 			this.cbInit = true;
@@ -93,7 +87,6 @@ namespace XMainClient.UI
 			this.m_PanelScrollView.ResetPosition();
 		}
 
-		// Token: 0x0600F40D RID: 62477 RVA: 0x00369EE8 File Offset: 0x003680E8
 		private void WrapContentItemUpdated(Transform t, int index)
 		{
 			bool flag = this.doc != null;
@@ -108,7 +101,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F40E RID: 62478 RVA: 0x00369F44 File Offset: 0x00368144
 		private void _SetRecord(Transform t, DragonRwdItem info)
 		{
 			IXUILabel ixuilabel = t.Find("TLabel").GetComponent("XUILabel") as IXUILabel;
@@ -169,7 +161,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F40F RID: 62479 RVA: 0x0036A2F8 File Offset: 0x003684F8
 		private bool OnBtnClick(IXUIButton btn)
 		{
 			bool flag = this.doc == null;
@@ -181,28 +172,20 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x040068EC RID: 26860
 		private IXUIWrapContent m_WrapContent;
 
-		// Token: 0x040068ED RID: 26861
 		private IXUIScrollView m_PanelScrollView;
 
-		// Token: 0x040068EE RID: 26862
 		private IXUILabel m_lblWeek;
 
-		// Token: 0x040068EF RID: 26863
 		private IXUILabel m_lblIntro;
 
-		// Token: 0x040068F0 RID: 26864
 		private IXUILabel m_lblTimes;
 
-		// Token: 0x040068F1 RID: 26865
 		private IXUICheckBox m_chbx;
 
-		// Token: 0x040068F2 RID: 26866
 		private bool cbInit;
 
-		// Token: 0x040068F3 RID: 26867
 		private XDragonRewardDocument doc;
 	}
 }

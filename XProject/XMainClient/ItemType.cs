@@ -2,72 +2,72 @@
 
 namespace XMainClient
 {
-	// Token: 0x02000DD7 RID: 3543
+
 	public enum ItemType
 	{
-		// Token: 0x04005096 RID: 20630
+
 		EQUIP = 1,
-		// Token: 0x04005097 RID: 20631
+
 		PECK,
-		// Token: 0x04005098 RID: 20632
+
 		VIRTUAL_ITEM,
-		// Token: 0x04005099 RID: 20633
+
 		MATERAIL,
-		// Token: 0x0400509A RID: 20634
+
 		FASHION,
-		// Token: 0x0400509B RID: 20635
+
 		EMBLEM,
-		// Token: 0x0400509C RID: 20636
+
 		JADE,
-		// Token: 0x0400509D RID: 20637
+
 		FRAGMENT,
-		// Token: 0x0400509E RID: 20638
+
 		LOTTERY_BOX,
-		// Token: 0x0400509F RID: 20639
+
 		SUPPLEMENT,
-		// Token: 0x040050A0 RID: 20640
+
 		FISH,
-		// Token: 0x040050A1 RID: 20641
+
 		TEMPLATE,
-		// Token: 0x040050A2 RID: 20642
+
 		PET_EGG,
-		// Token: 0x040050A3 RID: 20643
+
 		PET_FOOD,
-		// Token: 0x040050A4 RID: 20644
+
 		TICKET,
-		// Token: 0x040050A5 RID: 20645
+
 		EMBLEM_MATERIAL,
-		// Token: 0x040050A6 RID: 20646
+
 		SPRITEFOOD,
-		// Token: 0x040050A7 RID: 20647
+
 		SPRITE,
-		// Token: 0x040050A8 RID: 20648
+
 		CARD,
-		// Token: 0x040050A9 RID: 20649
+
 		SEED,
-		// Token: 0x040050AA RID: 20650
+
 		GUILDSEED,
-		// Token: 0x040050AB RID: 20651
+
 		FOOD_MENU,
-		// Token: 0x040050AC RID: 20652
+
 		Food_Eaten,
-		// Token: 0x040050AD RID: 20653
+
 		PANDORA = 26,
-		// Token: 0x040050AE RID: 20654
+
 		PET_SKILL_BOOK = 28,
-		// Token: 0x040050AF RID: 20655
+
 		ENCHANT,
-		// Token: 0x040050B0 RID: 20656
+
 		Hero_Experience_Ticket,
-		// Token: 0x040050B1 RID: 20657
+
 		ARTIFACT,
-		// Token: 0x040050B2 RID: 20658
+
 		GuildCollectCard = 33,
-		// Token: 0x040050B3 RID: 20659
+
 		BagExpandTicket,
-		// Token: 0x040050B4 RID: 20660
+
 		Tarja,
-		// Token: 0x040050B5 RID: 20661
+
 		Inscription
 	}
 }

@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000E26 RID: 3622
+
 	internal class XChatUIOP : XSingleton<XChatUIOP>
 	{
-		// Token: 0x1700341E RID: 13342
-		// (get) Token: 0x0600C297 RID: 49815 RVA: 0x0029DC6C File Offset: 0x0029BE6C
+
 		private XChatView m_ChatView
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700341F RID: 13343
-		// (get) Token: 0x0600C298 RID: 49816 RVA: 0x0029DC84 File Offset: 0x0029BE84
 		public Comparison<ChatFriendData> CompareNewMsgCb
 		{
 			get
@@ -35,8 +32,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003420 RID: 13344
-		// (get) Token: 0x0600C299 RID: 49817 RVA: 0x0029DCBC File Offset: 0x0029BEBC
 		public XChatDocument _doc
 		{
 			get
@@ -45,8 +40,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003421 RID: 13345
-		// (get) Token: 0x0600C29A RID: 49818 RVA: 0x0029DCD8 File Offset: 0x0029BED8
 		public ChatFriendData CurrChatFriendData
 		{
 			get
@@ -55,7 +48,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C29B RID: 49819 RVA: 0x0029DD00 File Offset: 0x0029BF00
 		private int CompareNewMsg(ChatFriendData a, ChatFriendData b)
 		{
 			int num = b.msgtime.CompareTo(a.msgtime);
@@ -90,7 +82,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C29C RID: 49820 RVA: 0x0029DD90 File Offset: 0x0029BF90
 		public void RefreshFriendChat(XFriendData friendData, bool refreshUI)
 		{
 			ChatFriendData chatFriendData = this._doc.FindFriendData(friendData.roleid);
@@ -119,7 +110,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C29D RID: 49821 RVA: 0x0029DE64 File Offset: 0x0029C064
 		public void RefreshAudioUI(ChatInfo info)
 		{
 			bool flag = !this.m_ChatView.IsVisible();
@@ -139,7 +129,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C29E RID: 49822 RVA: 0x0029DF28 File Offset: 0x0029C128
 		public void RefreshVoiceUI(ChatInfo info)
 		{
 			XRadioDocument specificDocument = XDocuments.GetSpecificDocument<XRadioDocument>(XRadioDocument.uuID);
@@ -148,7 +137,6 @@ namespace XMainClient
 			this.RefreshAudioUI(info);
 		}
 
-		// Token: 0x0600C29F RID: 49823 RVA: 0x0029DF60 File Offset: 0x0029C160
 		public void OnStopSignPlay(object ob)
 		{
 			IXUISpriteAnimation ixuispriteAnimation = (IXUISpriteAnimation)ob;
@@ -160,7 +148,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C2A0 RID: 49824 RVA: 0x0029DF90 File Offset: 0x0029C190
 		public void OnStartPlayAudio(IXUISprite sp)
 		{
 			int id = (int)sp.ID;
@@ -219,7 +206,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C2A1 RID: 49825 RVA: 0x0029E194 File Offset: 0x0029C394
 		public bool OnSendFlowerClicked(IXUIButton btn)
 		{
 			int id = (int)btn.ID;
@@ -239,7 +225,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x04005387 RID: 21383
 		private Comparison<ChatFriendData> m_CompareNewMsg = null;
 	}
 }

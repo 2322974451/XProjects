@@ -8,10 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000DD2 RID: 3538
+
 	internal class XCommandPrefab : XBaseCommand
 	{
-		// Token: 0x0600C0B4 RID: 49332 RVA: 0x0028CF7C File Offset: 0x0028B17C
+
 		public override bool Execute()
 		{
 			bool flag = this._cmd.param2 == "SelectSight";
@@ -44,7 +44,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C0B5 RID: 49333 RVA: 0x0028D034 File Offset: 0x0028B234
 		protected void ShowVT(object o)
 		{
 			base.SetOverlay();
@@ -56,7 +55,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C0B6 RID: 49334 RVA: 0x0028D070 File Offset: 0x0028B270
 		protected void ShowPic()
 		{
 			bool flag = this._Prefab == null;
@@ -86,19 +84,16 @@ namespace XMainClient
 			ixuitweenTool.PlayTween(true, -1f);
 		}
 
-		// Token: 0x0600C0B7 RID: 49335 RVA: 0x0028D18C File Offset: 0x0028B38C
 		protected void TweenFinish(object o)
 		{
 			this.RegisterOnMouseClick();
 		}
 
-		// Token: 0x0600C0B8 RID: 49336 RVA: 0x0028D18C File Offset: 0x0028B38C
 		protected void OnTweenFinish(IXUITweenTool tool)
 		{
 			this.RegisterOnMouseClick();
 		}
 
-		// Token: 0x0600C0B9 RID: 49337 RVA: 0x0028D198 File Offset: 0x0028B398
 		protected void RegisterOnMouseClick()
 		{
 			bool flag = this._Prefab != null;
@@ -113,14 +108,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C0BA RID: 49338 RVA: 0x0028D1FD File Offset: 0x0028B3FD
 		protected override void OnMouseClick(IXUISprite sp)
 		{
 			base.OnMouseClick(sp);
 			XSingleton<XTutorialMgr>.singleton.OnCmdFinished();
 		}
 
-		// Token: 0x0600C0BB RID: 49339 RVA: 0x0028D214 File Offset: 0x0028B414
 		public override void Stop()
 		{
 			bool flag = this._time > 0U;
@@ -142,13 +135,10 @@ namespace XMainClient
 			XSingleton<XTutorialMgr>.singleton.Exculsive = false;
 		}
 
-		// Token: 0x04005076 RID: 20598
 		private GameObject _Prefab;
 
-		// Token: 0x04005077 RID: 20599
 		private uint _time = 0U;
 
-		// Token: 0x04005078 RID: 20600
 		private uint _time2 = 0U;
 	}
 }

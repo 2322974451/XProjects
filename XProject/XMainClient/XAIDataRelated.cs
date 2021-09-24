@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000AFC RID: 2812
+
 	internal class XAIDataRelated : XSingleton<XAIDataRelated>
 	{
-		// Token: 0x0600A5F5 RID: 42485 RVA: 0x001CF46C File Offset: 0x001CD66C
+
 		public int GetProfIndex(GameObject go)
 		{
 			XEntity entity = XSingleton<XEntityMgr>.singleton.GetEntity(ulong.Parse(go.transform.name));
@@ -35,7 +35,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A5F6 RID: 42486 RVA: 0x001CF514 File Offset: 0x001CD714
 		public List<uint> GetAssistSkillList(GameObject go, int profIndex)
 		{
 			List<uint> list = new List<uint>();
@@ -83,7 +82,6 @@ namespace XMainClient
 			return list;
 		}
 
-		// Token: 0x0600A5F7 RID: 42487 RVA: 0x001CF6A8 File Offset: 0x001CD8A8
 		public List<uint> GetStartSkillList(GameObject go, int prof)
 		{
 			List<uint> list = new List<uint>();
@@ -137,7 +135,6 @@ namespace XMainClient
 			return list;
 		}
 
-		// Token: 0x0600A5F8 RID: 42488 RVA: 0x001CF880 File Offset: 0x001CDA80
 		public bool DetectEnimyInSight(XEntity entity)
 		{
 			List<XEntity> opponent = XSingleton<XEntityMgr>.singleton.GetOpponent(entity);

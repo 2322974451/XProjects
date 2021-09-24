@@ -7,10 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000D08 RID: 3336
+
 	internal class SpectateBehaviour : DlgBehaviourBase
 	{
-		// Token: 0x0600BA76 RID: 47734 RVA: 0x00260BE8 File Offset: 0x0025EDE8
+
 		private void Awake()
 		{
 			this.m_Close = (base.transform.Find("Bg/Close").GetComponent("XUIButton") as IXUIButton);
@@ -44,79 +44,54 @@ namespace XMainClient
 			this.m_SettingSureBtn = (base.transform.Find("Bg/Setting/Ok").GetComponent("XUIButton") as IXUIButton);
 		}
 
-		// Token: 0x04004AB2 RID: 19122
 		public IXUIButton m_Close;
 
-		// Token: 0x04004AB3 RID: 19123
 		public IXUIButton m_RefreshBtn;
 
-		// Token: 0x04004AB4 RID: 19124
 		public IXUISprite m_PreviousBtn;
 
-		// Token: 0x04004AB5 RID: 19125
 		public IXUIButton m_BroadcastCamera;
 
-		// Token: 0x04004AB6 RID: 19126
 		public IXUISprite m_NextBtn;
 
-		// Token: 0x04004AB7 RID: 19127
 		public IXUILabel m_PageNum;
 
-		// Token: 0x04004AB8 RID: 19128
 		public GameObject m_EmptyTips;
 
-		// Token: 0x04004AB9 RID: 19129
 		public IXUILabel m_PKTips;
 
-		// Token: 0x04004ABA RID: 19130
 		public GameObject m_MyLiveUpView;
 
-		// Token: 0x04004ABB RID: 19131
 		public GameObject m_MyLiveDownView;
 
-		// Token: 0x04004ABC RID: 19132
 		public XUIPool m_SpectateLivePool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04004ABD RID: 19133
 		public XUIPool m_MyLivePool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04004ABE RID: 19134
 		public XUIPool m_SpectateTabs = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04004ABF RID: 19135
 		public XUITabControl m_tabControl = new XUITabControl();
 
-		// Token: 0x04004AC0 RID: 19136
 		public GameObject m_SpectateFrame;
 
-		// Token: 0x04004AC1 RID: 19137
 		public GameObject m_MyLiveRecordFrame;
 
-		// Token: 0x04004AC2 RID: 19138
 		public GameObject m_VisText;
 
-		// Token: 0x04004AC3 RID: 19139
 		public GameObject m_UnVisText;
 
-		// Token: 0x04004AC4 RID: 19140
 		public GameObject m_SettingFrame;
 
-		// Token: 0x04004AC5 RID: 19141
 		public IXUIButton m_SettingBtn;
 
-		// Token: 0x04004AC6 RID: 19142
 		public IXUIButton m_SettingCloseBtn;
 
-		// Token: 0x04004AC7 RID: 19143
 		public IXUILabel m_SettingDesc;
 
-		// Token: 0x04004AC8 RID: 19144
 		public IXUICheckBox m_SettingAllow;
 
-		// Token: 0x04004AC9 RID: 19145
 		public IXUICheckBox m_SettingDeny;
 
-		// Token: 0x04004ACA RID: 19146
 		public IXUIButton m_SettingSureBtn;
 	}
 }

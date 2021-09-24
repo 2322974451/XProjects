@@ -8,10 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000EF5 RID: 3829
+
 	internal class ActivityWorldBossHandler : DlgHandlerBase
 	{
-		// Token: 0x0600CB37 RID: 52023 RVA: 0x002E4330 File Offset: 0x002E2530
+
 		protected override void Init()
 		{
 			base.Init();
@@ -47,7 +47,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CB38 RID: 52024 RVA: 0x002E452C File Offset: 0x002E272C
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -55,7 +54,6 @@ namespace XMainClient
 			this._DamageRank.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnDamageRankClicked));
 		}
 
-		// Token: 0x0600CB39 RID: 52025 RVA: 0x002E4566 File Offset: 0x002E2766
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -65,7 +63,6 @@ namespace XMainClient
 			this.m_DamageRankPanel.SetActive(false);
 		}
 
-		// Token: 0x0600CB3A RID: 52026 RVA: 0x002E459D File Offset: 0x002E279D
 		public override void OnUnload()
 		{
 			this._doc.ActivityWorldBossView = null;
@@ -75,7 +72,6 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x0600CB3B RID: 52027 RVA: 0x002E45D7 File Offset: 0x002E27D7
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
@@ -83,14 +79,12 @@ namespace XMainClient
 			this._RefreshTime();
 		}
 
-		// Token: 0x0600CB3C RID: 52028 RVA: 0x002E45F4 File Offset: 0x002E27F4
 		private void _RefreshTime()
 		{
 			uint totalSecond = (uint)this._fLeftTime.LeftTime;
 			this._LeftTime.SetText(XSingleton<UiUtility>.singleton.TimeFormatString((int)totalSecond, 3, 3, 4, false, true));
 		}
 
-		// Token: 0x0600CB3D RID: 52029 RVA: 0x002E462C File Offset: 0x002E282C
 		public void ShowDropList()
 		{
 			SceneTable.RowData sceneData = XSingleton<XSceneMgr>.singleton.GetSceneData(this._doc.GetWorldBossSceneID());
@@ -116,7 +110,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CB3E RID: 52030 RVA: 0x002E476F File Offset: 0x002E296F
 		public void SetLeftTime(float time)
 		{
 			this._fLeftTime.LeftTime = time;
@@ -124,7 +117,6 @@ namespace XMainClient
 			this._RefreshTime();
 		}
 
-		// Token: 0x0600CB3F RID: 52031 RVA: 0x002E4794 File Offset: 0x002E2994
 		protected bool OnBattleClicked(IXUIButton go)
 		{
 			bool flag = XTeamDocument.GoSingleBattleBeforeNeed(new ButtonClickEventHandler(this.OnBattleClicked), go);
@@ -141,7 +133,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CB40 RID: 52032 RVA: 0x002E47D0 File Offset: 0x002E29D0
 		protected bool OnDamageRankClicked(IXUIButton go)
 		{
 			this._DamageRankHandler.SetVisible(true);
@@ -149,40 +140,29 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600CB41 RID: 52033 RVA: 0x002E4804 File Offset: 0x002E2A04
 		protected bool OnHeroPalaceClicked(IXUIButton go)
 		{
 			return true;
 		}
 
-		// Token: 0x040059D8 RID: 23000
 		private XWorldBossDocument _doc;
 
-		// Token: 0x040059D9 RID: 23001
 		private IXUIButton _GoBattle;
 
-		// Token: 0x040059DA RID: 23002
 		private IXUIButton _DamageRank;
 
-		// Token: 0x040059DB RID: 23003
 		private GameObject m_DamageRankPanel;
 
-		// Token: 0x040059DC RID: 23004
 		private IXUILabel _LeftTime;
 
-		// Token: 0x040059DD RID: 23005
 		private IXUILabel _StartTime;
 
-		// Token: 0x040059DE RID: 23006
 		public static readonly int REWARD_COUNT = 3;
 
-		// Token: 0x040059DF RID: 23007
 		private XElapseTimer _fLeftTime = new XElapseTimer();
 
-		// Token: 0x040059E0 RID: 23008
 		private XWorldBossDamageRankHandler _DamageRankHandler;
 
-		// Token: 0x040059E1 RID: 23009
 		private IXUITweenTool _DamageRankTween;
 	}
 }

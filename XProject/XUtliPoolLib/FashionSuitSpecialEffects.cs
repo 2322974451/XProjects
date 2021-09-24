@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x02000260 RID: 608
+
 	public class FashionSuitSpecialEffects : CVSReader
 	{
-		// Token: 0x06000D1C RID: 3356 RVA: 0x000451F8 File Offset: 0x000433F8
+
 		public FashionSuitSpecialEffects.RowData GetBysuitid(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -21,7 +21,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000D1D RID: 3357 RVA: 0x00045230 File Offset: 0x00043430
 		private FashionSuitSpecialEffects.RowData BinarySearchsuitid(uint key)
 		{
 			int num = 0;
@@ -80,7 +79,6 @@ namespace XUtliPoolLib
 			return null;
 		}
 
-		// Token: 0x06000D1E RID: 3358 RVA: 0x0004530C File Offset: 0x0004350C
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			FashionSuitSpecialEffects.RowData rowData = new FashionSuitSpecialEffects.RowData();
@@ -114,7 +112,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x06000D1F RID: 3359 RVA: 0x0004548C File Offset: 0x0004368C
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -128,49 +125,35 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x040007AE RID: 1966
 		public FashionSuitSpecialEffects.RowData[] Table = null;
 
-		// Token: 0x020003EF RID: 1007
 		public class RowData
 		{
-			// Token: 0x040011D9 RID: 4569
+
 			public uint suitid;
 
-			// Token: 0x040011DA RID: 4570
 			public uint specialeffectsid;
 
-			// Token: 0x040011DB RID: 4571
 			public string Fx1;
 
-			// Token: 0x040011DC RID: 4572
 			public string Fx2;
 
-			// Token: 0x040011DD RID: 4573
 			public string Fx3;
 
-			// Token: 0x040011DE RID: 4574
 			public string Fx4;
 
-			// Token: 0x040011DF RID: 4575
 			public string Fx5;
 
-			// Token: 0x040011E0 RID: 4576
 			public string Fx6;
 
-			// Token: 0x040011E1 RID: 4577
 			public string Fx7;
 
-			// Token: 0x040011E2 RID: 4578
 			public string Fx8;
 
-			// Token: 0x040011E3 RID: 4579
 			public string Name;
 
-			// Token: 0x040011E4 RID: 4580
 			public string Icon;
 
-			// Token: 0x040011E5 RID: 4581
 			public uint[] FashionList;
 		}
 	}

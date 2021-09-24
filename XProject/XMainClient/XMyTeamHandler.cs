@@ -9,10 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000E64 RID: 3684
+
 	internal class XMyTeamHandler : DlgHandlerBase
 	{
-		// Token: 0x0600C554 RID: 50516 RVA: 0x002B70C0 File Offset: 0x002B52C0
+
 		protected override void Init()
 		{
 			base.Init();
@@ -59,7 +59,6 @@ namespace XMainClient
 			this.m_MilitaryIconTypes.UnionWith(intList);
 		}
 
-		// Token: 0x0600C555 RID: 50517 RVA: 0x002B75A8 File Offset: 0x002B57A8
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -73,7 +72,6 @@ namespace XMainClient
 			this.m_BtnTicket.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this._OnTicketClicked));
 		}
 
-		// Token: 0x0600C556 RID: 50518 RVA: 0x002B767D File Offset: 0x002B587D
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -83,7 +81,6 @@ namespace XMainClient
 			this.m_bDirty = false;
 		}
 
-		// Token: 0x0600C557 RID: 50519 RVA: 0x002B76AC File Offset: 0x002B58AC
 		protected override void OnHide()
 		{
 			XSingleton<X3DAvatarMgr>.singleton.EnableMainDummy(false, null);
@@ -96,7 +93,6 @@ namespace XMainClient
 			base.OnHide();
 		}
 
-		// Token: 0x0600C558 RID: 50520 RVA: 0x002B76FC File Offset: 0x002B58FC
 		private void ShowChat(bool show)
 		{
 			ShowSettingArgs showSettingArgs = new ShowSettingArgs();
@@ -120,7 +116,6 @@ namespace XMainClient
 			DlgBase<XChatSmallView, XChatSmallBehaviour>.singleton.ShowChatMiniUI(showSettingArgs);
 		}
 
-		// Token: 0x0600C559 RID: 50521 RVA: 0x002B7774 File Offset: 0x002B5974
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
@@ -130,7 +125,6 @@ namespace XMainClient
 			DlgBase<XChatSmallView, XChatSmallBehaviour>.singleton.SetForceShow(true);
 		}
 
-		// Token: 0x0600C55A RID: 50522 RVA: 0x002B77A6 File Offset: 0x002B59A6
 		public override void LeaveStackTop()
 		{
 			DlgBase<XChatSmallView, XChatSmallBehaviour>.singleton.SetForceShow(false);
@@ -139,7 +133,6 @@ namespace XMainClient
 			base.LeaveStackTop();
 		}
 
-		// Token: 0x0600C55B RID: 50523 RVA: 0x002B77CC File Offset: 0x002B59CC
 		public override void OnUnload()
 		{
 			DlgHandlerBase.EnsureUnload<XTeamBonusHandler>(ref this.m_BonusHandler);
@@ -154,7 +147,6 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x0600C55C RID: 50524 RVA: 0x002B7844 File Offset: 0x002B5A44
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
@@ -166,7 +158,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C55D RID: 50525 RVA: 0x002B7874 File Offset: 0x002B5A74
 		private void _ClearChatTimer()
 		{
 			foreach (uint token in this.m_ChatTimerToken.Values)
@@ -176,7 +167,6 @@ namespace XMainClient
 			this.m_ChatTimerToken.Clear();
 		}
 
-		// Token: 0x0600C55E RID: 50526 RVA: 0x002B78E4 File Offset: 0x002B5AE4
 		private void _CloseChatTimer(ulong uid)
 		{
 			uint token = 0U;
@@ -188,7 +178,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C55F RID: 50527 RVA: 0x002B7924 File Offset: 0x002B5B24
 		private void _ClearAvatarStates()
 		{
 			for (int i = 0; i < XMyTeamHandler.SMALL_TEAM_CAPACITY; i++)
@@ -201,12 +190,10 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C560 RID: 50528 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		private void _RefreshAvatarStates()
 		{
 		}
 
-		// Token: 0x0600C561 RID: 50529 RVA: 0x002B7964 File Offset: 0x002B5B64
 		private void CheckTicketStates(bool userTicket = false)
 		{
 			XExpeditionDocument specificDocument = XDocuments.GetSpecificDocument<XExpeditionDocument>(XExpeditionDocument.uuID);
@@ -234,7 +221,6 @@ namespace XMainClient
 			this.m_TicketSelected.SetAlpha(0f);
 		}
 
-		// Token: 0x0600C562 RID: 50530 RVA: 0x002B7A38 File Offset: 0x002B5C38
 		public void RefreshPage()
 		{
 			bool flag = !base.IsVisible();
@@ -330,7 +316,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C563 RID: 50531 RVA: 0x002B7EAC File Offset: 0x002B60AC
 		private void _TryCreateFriendDegreeHandler(GameObject go)
 		{
 			XTeamFriendDegreeHandler value;
@@ -342,7 +327,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C564 RID: 50532 RVA: 0x002B7F00 File Offset: 0x002B6100
 		public void HideChatUI(object obj)
 		{
 			IXUISprite ixuisprite = obj as IXUISprite;
@@ -350,7 +334,6 @@ namespace XMainClient
 			ixuisprite.ID = 0UL;
 		}
 
-		// Token: 0x0600C565 RID: 50533 RVA: 0x002B7F28 File Offset: 0x002B6128
 		private void _ClearUIDummy()
 		{
 			for (int i = 0; i < this.m_UIDummys.Length; i++)
@@ -364,7 +347,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C566 RID: 50534 RVA: 0x002B7F78 File Offset: 0x002B6178
 		private void _ClearPreEffect()
 		{
 			bool flag = this.m_preEffects != null;
@@ -385,7 +367,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C567 RID: 50535 RVA: 0x002B7FF0 File Offset: 0x002B61F0
 		private void _ResetUIDummyCallback()
 		{
 			for (int i = 0; i < this.m_UIDummys.Length; i++)
@@ -399,7 +380,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C568 RID: 50536 RVA: 0x002B803C File Offset: 0x002B623C
 		private void _SetMember(GameObject go, XTeamMember data, bool bActive, int index, bool bSmallMember)
 		{
 			GameObject gameObject = go.transform.FindChild("Info").gameObject;
@@ -707,7 +687,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C569 RID: 50537 RVA: 0x002B8D74 File Offset: 0x002B6F74
 		private void _SetRelation(GameObject infoGo, XTeamMember data, bool bIsPlayer)
 		{
 			if (bIsPlayer)
@@ -740,7 +719,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C56A RID: 50538 RVA: 0x002B8E58 File Offset: 0x002B7058
 		private void _SetLeftCount(GameObject infoGo, XTeamMember data, bool bIsPlayer)
 		{
 			IXUILabel ixuilabel = infoGo.transform.FindChild("LeftCount").GetComponent("XUILabel") as IXUILabel;
@@ -778,7 +756,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C56B RID: 50539 RVA: 0x002B8FF0 File Offset: 0x002B71F0
 		private bool OnShowTarjaTipHandle(IXUISprite sprite, bool pressed)
 		{
 			IXUILabel ixuilabel = sprite.transform.Find("Info").GetComponent("XUILabel") as IXUILabel;
@@ -805,7 +782,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C56C RID: 50540 RVA: 0x002B9080 File Offset: 0x002B7280
 		private string _GetSceneDescription(SceneTable.RowData rowData)
 		{
 			SceneType type = (SceneType)rowData.type;
@@ -846,13 +822,11 @@ namespace XMainClient
 			return rowData.Comment;
 		}
 
-		// Token: 0x0600C56D RID: 50541 RVA: 0x002B911B File Offset: 0x002B731B
 		private void _OnDummyLoaded(XEquipComponent equipComp)
 		{
 			this.m_bDirty = true;
 		}
 
-		// Token: 0x0600C56E RID: 50542 RVA: 0x002B9128 File Offset: 0x002B7328
 		private bool _SetMemberAvatar(Transform snapShot, XTeamMember data, int index)
 		{
 			bool result = false;
@@ -887,7 +861,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C56F RID: 50543 RVA: 0x002B9214 File Offset: 0x002B7414
 		public void RefreshButtonStates()
 		{
 			this.m_BtnAddCount.SetVisible(this.expDoc.GetBuyLimit(this.doc.currentDungeonType) > 0);
@@ -946,7 +919,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C570 RID: 50544 RVA: 0x002B94B8 File Offset: 0x002B76B8
 		private bool _OnStartBtnClick(IXUIButton go)
 		{
 			bool flag = !this.doc.bIsLeader;
@@ -1001,7 +973,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C571 RID: 50545 RVA: 0x002B9618 File Offset: 0x002B7818
 		private bool _OnStartConfirmBtnClick(IXUIButton btn)
 		{
 			this._OnStartBtnClick(btn);
@@ -1009,7 +980,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600C572 RID: 50546 RVA: 0x002B9640 File Offset: 0x002B7840
 		private bool _OnBroadcastBtnClick(IXUIButton go)
 		{
 			bool flag = this.doc.MyTeam == null;
@@ -1067,7 +1037,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C573 RID: 50547 RVA: 0x002B97B0 File Offset: 0x002B79B0
 		private bool _CanSendGuildInvite(bool bShowTips)
 		{
 			float time = Time.time;
@@ -1093,7 +1062,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C574 RID: 50548 RVA: 0x002B9840 File Offset: 0x002B7A40
 		private bool _OnMatchMembersBtnClick(IXUIButton go)
 		{
 			TeamLevelType currentDungeonType = this.doc.currentDungeonType;
@@ -1127,27 +1095,23 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600C575 RID: 50549 RVA: 0x002B98F0 File Offset: 0x002B7AF0
 		private bool _OnOpenListBtnClick(IXUIButton go)
 		{
 			DlgBase<XTeamListView, XTeamListBehaviour>.singleton.SetVisibleWithAnimation(true, null);
 			return true;
 		}
 
-		// Token: 0x0600C576 RID: 50550 RVA: 0x002B9910 File Offset: 0x002B7B10
 		private void _OnSettingBtnClicked(IXUISprite go)
 		{
 			this.m_SettingHandler.SetVisible(true);
 		}
 
-		// Token: 0x0600C577 RID: 50551 RVA: 0x002B9920 File Offset: 0x002B7B20
 		private bool _OnChatBtnClick(IXUIButton go)
 		{
 			DlgBase<XChatView, XChatBehaviour>.singleton.ShowChannel(ChatChannelType.Team);
 			return true;
 		}
 
-		// Token: 0x0600C578 RID: 50552 RVA: 0x002B9940 File Offset: 0x002B7B40
 		private bool _OnInviteBtnClick(IXUIButton go)
 		{
 			bool flag = this.doc.currentDungeonType == TeamLevelType.TeamLevelWedding;
@@ -1171,7 +1135,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600C579 RID: 50553 RVA: 0x002B99D0 File Offset: 0x002B7BD0
 		private void _OnMemberLeaveClick(IXUISprite go)
 		{
 			int num = (int)go.ID;
@@ -1194,7 +1157,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C57A RID: 50554 RVA: 0x002B9AC8 File Offset: 0x002B7CC8
 		private bool _DoFireFromTeam(IXUIButton btn)
 		{
 			XSingleton<UiUtility>.singleton.CloseModalDlg();
@@ -1202,7 +1164,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600C57B RID: 50555 RVA: 0x002B9AFC File Offset: 0x002B7CFC
 		private void _OnChangeLeaderClick(IXUISprite go)
 		{
 			int num = (int)go.ID;
@@ -1221,7 +1182,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C57C RID: 50556 RVA: 0x002B9BE4 File Offset: 0x002B7DE4
 		private bool _DoChangeLeader(IXUIButton btn)
 		{
 			XSingleton<UiUtility>.singleton.CloseModalDlg();
@@ -1229,7 +1189,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600C57D RID: 50557 RVA: 0x002B9C1C File Offset: 0x002B7E1C
 		private void _OnMemberClicked(IXUISprite go)
 		{
 			bool flag = !this.doc.bInTeam;
@@ -1253,26 +1212,22 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C57E RID: 50558 RVA: 0x002B9CB8 File Offset: 0x002B7EB8
 		private bool _OnAddCountClicked(IXUIButton btn)
 		{
 			DlgBase<XBuyCountView, XBuyCountBehaviour>.singleton.ActiveShow(this.doc.currentDungeonType);
 			return true;
 		}
 
-		// Token: 0x0600C57F RID: 50559 RVA: 0x002B9CE1 File Offset: 0x002B7EE1
 		private void _OnHelperClicked(IXUISprite sp)
 		{
 			this.doc.ReqTeamOp(TeamOperate.TEAM_MEMBER_TYPE, 0UL, null, this.doc.bIsHelper ? TeamMemberType.TMT_NORMAL : TeamMemberType.TMT_HELPER, null);
 		}
 
-		// Token: 0x0600C580 RID: 50560 RVA: 0x002B9D07 File Offset: 0x002B7F07
 		private void _OnTicketClicked(IXUISprite sp)
 		{
 			this.doc.ReqTeamOp(TeamOperate.TEAM_MEMBER_TYPE, 0UL, null, this.doc.bIsTecket ? TeamMemberType.TMT_NORMAL : TeamMemberType.TMT_USETICKET, null);
 		}
 
-		// Token: 0x0600C581 RID: 50561 RVA: 0x002B9D30 File Offset: 0x002B7F30
 		private bool _OnRewardlessPressed(IXUISprite sp, bool isPress)
 		{
 			Transform transform = sp.transform.Find("Popup");
@@ -1280,136 +1235,92 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0400564E RID: 22094
 		public static readonly int SMALL_TEAM_CAPACITY = 4;
 
-		// Token: 0x0400564F RID: 22095
 		public static readonly int LARGE_TEAM_CAPACITY = 8;
 
-		// Token: 0x04005650 RID: 22096
 		public GameObject m_StartHighlight;
 
-		// Token: 0x04005651 RID: 22097
 		public IXUIButton m_BtnStart;
 
-		// Token: 0x04005652 RID: 22098
 		public IXUIButton m_BtnBroadcast;
 
-		// Token: 0x04005653 RID: 22099
 		public IXUIButton m_BtnMatchMembers;
 
-		// Token: 0x04005654 RID: 22100
 		public IXUISprite m_BtnSetting;
 
-		// Token: 0x04005655 RID: 22101
 		public IXUISprite m_BtnLeave;
 
-		// Token: 0x04005656 RID: 22102
 		private Vector3 m_PosLeave;
 
-		// Token: 0x04005657 RID: 22103
 		private Vector3 m_PosStart;
 
-		// Token: 0x04005658 RID: 22104
 		public IXUILabel m_MatchMembersIdleLabel;
 
-		// Token: 0x04005659 RID: 22105
 		public IXUILabel m_MatchMembersMatchingLabel;
 
-		// Token: 0x0400565A RID: 22106
 		public IXUILabel m_StartLabel;
 
-		// Token: 0x0400565B RID: 22107
 		public XUIPool m_MemberPoolSmall = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x0400565C RID: 22108
 		public XUIPool m_MemberPoolLarge = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x0400565D RID: 22109
 		public IXUIButton m_BtnAddCount;
 
-		// Token: 0x0400565E RID: 22110
 		private IXUISprite m_BtnHelper;
 
-		// Token: 0x0400565F RID: 22111
 		private IXUISprite m_HelperSelected;
 
-		// Token: 0x04005660 RID: 22112
 		private IXUISprite m_BtnTicket;
 
-		// Token: 0x04005661 RID: 22113
 		private IXUISprite m_TicketSelected;
 
-		// Token: 0x04005662 RID: 22114
 		private IXUILabel m_PPTRequirement;
 
-		// Token: 0x04005663 RID: 22115
 		private GameObject m_PPTRequirementTotal;
 
-		// Token: 0x04005664 RID: 22116
 		private GameObject m_GoldGroup;
 
-		// Token: 0x04005665 RID: 22117
 		private GameObject m_GoldGroupDescri;
 
-		// Token: 0x04005666 RID: 22118
 		private XTeamDocument doc;
 
-		// Token: 0x04005667 RID: 22119
 		private XExpeditionDocument expDoc;
 
-		// Token: 0x04005668 RID: 22120
 		private XCaptainPVPDocument capDoc;
 
-		// Token: 0x04005669 RID: 22121
 		private XHeroBattleDocument heroDoc;
 
-		// Token: 0x0400566A RID: 22122
 		private XPrerogativeDocument preDoc;
 
-		// Token: 0x0400566B RID: 22123
 		private XDragonNestDocument dragonDoc;
 
-		// Token: 0x0400566C RID: 22124
 		private XTeamBonusHandler m_BonusHandler = null;
 
-		// Token: 0x0400566D RID: 22125
 		private XTeamPartnerBonusHandler m_FriendBonusHandler = null;
 
-		// Token: 0x0400566E RID: 22126
 		private XTeamSettingHandler m_SettingHandler = null;
 
-		// Token: 0x0400566F RID: 22127
 		private XTeamPasswordHandler m_PasswordHandler = null;
 
-		// Token: 0x04005670 RID: 22128
 		private XDummy[] m_Avatars = new XDummy[XMyTeamHandler.SMALL_TEAM_CAPACITY];
 
-		// Token: 0x04005671 RID: 22129
 		private IUIDummy[] m_UIDummys = new IUIDummy[XMyTeamHandler.SMALL_TEAM_CAPACITY];
 
-		// Token: 0x04005672 RID: 22130
 		private int m_MemberCount = 0;
 
-		// Token: 0x04005673 RID: 22131
 		private Dictionary<GameObject, XTeamFriendDegreeHandler> m_DicFriendDegree = new Dictionary<GameObject, XTeamFriendDegreeHandler>();
 
-		// Token: 0x04005674 RID: 22132
 		private Dictionary<ulong, uint> m_ChatTimerToken = new Dictionary<ulong, uint>();
 
-		// Token: 0x04005675 RID: 22133
 		private List<XFx> m_preEffects = new List<XFx>();
 
-		// Token: 0x04005676 RID: 22134
 		private bool m_bDirty;
 
-		// Token: 0x04005677 RID: 22135
 		private HashSet<int> m_MilitaryIconTypes = new HashSet<int>();
 
-		// Token: 0x04005678 RID: 22136
 		private float guildInviteTime = 0f;
 
-		// Token: 0x04005679 RID: 22137
 		private ulong m_SelectedMemberID;
 	}
 }

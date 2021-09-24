@@ -9,11 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C5F RID: 3167
+
 	internal class XOptionsBattleDetailHandler : DlgHandlerBase
 	{
-		// Token: 0x170031B2 RID: 12722
-		// (get) Token: 0x0600B359 RID: 45913 RVA: 0x0022D724 File Offset: 0x0022B924
+
 		public OptionsBattleTab CurrentTab
 		{
 			get
@@ -22,8 +21,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170031B3 RID: 12723
-		// (get) Token: 0x0600B35A RID: 45914 RVA: 0x0022D73C File Offset: 0x0022B93C
 		protected override string FileName
 		{
 			get
@@ -32,7 +29,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B35B RID: 45915 RVA: 0x0022D754 File Offset: 0x0022B954
 		protected override void Init()
 		{
 			base.Init();
@@ -71,7 +67,6 @@ namespace XMainClient
 			base.SetVisible(false);
 		}
 
-		// Token: 0x0600B35C RID: 45916 RVA: 0x0022D9FC File Offset: 0x0022BBFC
 		public override void RegisterEvent()
 		{
 			bool flag = this.m_25D != null;
@@ -106,7 +101,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B35D RID: 45917 RVA: 0x0022DB30 File Offset: 0x0022BD30
 		private void OnChangeTab(IXUISprite sp)
 		{
 			this.SaveOption();
@@ -152,7 +146,6 @@ namespace XMainClient
 			this.RefreshDynamicOption(XFastEnumIntEqualityComparer<OptionsBattleTab>.ToInt(this.m_CurrentTab), (int)sp.ID);
 		}
 
-		// Token: 0x0600B35E RID: 45918 RVA: 0x0022DD08 File Offset: 0x0022BF08
 		public void OnMainTabChanged(OptionsBattleTab handler)
 		{
 			this.m_CurrentTab = handler;
@@ -173,7 +166,6 @@ namespace XMainClient
 			this.RefreshDynamicOption(XFastEnumIntEqualityComparer<OptionsBattleTab>.ToInt(this.m_CurrentTab), cassifyID);
 		}
 
-		// Token: 0x0600B35F RID: 45919 RVA: 0x0022DD74 File Offset: 0x0022BF74
 		public void ShowUI(OptionsBattleTab tab)
 		{
 			bool flag = !base.IsVisible();
@@ -184,7 +176,6 @@ namespace XMainClient
 			this.OnMainTabChanged(tab);
 		}
 
-		// Token: 0x0600B360 RID: 45920 RVA: 0x0022DDA0 File Offset: 0x0022BFA0
 		public void CloseUI()
 		{
 			bool flag = base.IsVisible();
@@ -194,25 +185,21 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B361 RID: 45921 RVA: 0x0019F00C File Offset: 0x0019D20C
 		protected override void OnShow()
 		{
 			base.OnShow();
 		}
 
-		// Token: 0x0600B362 RID: 45922 RVA: 0x0019EEFD File Offset: 0x0019D0FD
 		protected override void OnHide()
 		{
 			base.OnHide();
 		}
 
-		// Token: 0x0600B363 RID: 45923 RVA: 0x0019EF07 File Offset: 0x0019D107
 		public override void OnUnload()
 		{
 			base.OnUnload();
 		}
 
-		// Token: 0x0600B364 RID: 45924 RVA: 0x0022DDC0 File Offset: 0x0022BFC0
 		public void SaveOption()
 		{
 			bool flag = this.m_uiSingle.Count == 0 && this.m_uiSlider.Count == 0 && this.m_uiCheckBox.Count == 0;
@@ -263,7 +250,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B365 RID: 45925 RVA: 0x0022DFD0 File Offset: 0x0022C1D0
 		private void CloseAllPanel()
 		{
 			bool flag = this.m_CameraPanel != null;
@@ -278,7 +264,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B366 RID: 45926 RVA: 0x0022E024 File Offset: 0x0022C224
 		public int ShowCameraPanel()
 		{
 			this.CloseAllPanel();
@@ -290,7 +275,6 @@ namespace XMainClient
 			return value;
 		}
 
-		// Token: 0x0600B367 RID: 45927 RVA: 0x0022E0A0 File Offset: 0x0022C2A0
 		public int ShowOperatePanel()
 		{
 			this.CloseAllPanel();
@@ -302,14 +286,12 @@ namespace XMainClient
 			return value;
 		}
 
-		// Token: 0x0600B368 RID: 45928 RVA: 0x0022E10C File Offset: 0x0022C30C
 		public int ShowOtherPanel()
 		{
 			this.CloseAllPanel();
 			return 1;
 		}
 
-		// Token: 0x0600B369 RID: 45929 RVA: 0x0022E128 File Offset: 0x0022C328
 		public void RefreshDynamicOption(int tabID, int cassifyID)
 		{
 			this.m_Label.SetText(this.GetDescription(tabID, cassifyID));
@@ -462,7 +444,6 @@ namespace XMainClient
 			this.m_CheckBoxPool.ActualReturnAll(false);
 		}
 
-		// Token: 0x0600B36A RID: 45930 RVA: 0x0022E8E8 File Offset: 0x0022CAE8
 		public string GetDescription(int tabID, int cassifyID)
 		{
 			bool flag = cassifyID == 0;
@@ -509,13 +490,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B36B RID: 45931 RVA: 0x0022E980 File Offset: 0x0022CB80
 		public bool IsNeedFullPanel(int tabID)
 		{
 			return 3 == tabID;
 		}
 
-		// Token: 0x0600B36C RID: 45932 RVA: 0x0022E9A0 File Offset: 0x0022CBA0
 		public bool IsShowOption(XOptionsDefine option)
 		{
 			XOptionsDocument specificDocument = XDocuments.GetSpecificDocument<XOptionsDocument>(XOptionsDocument.uuID);
@@ -523,140 +502,102 @@ namespace XMainClient
 			return !flag || specificDocument.IsShow3DTouch();
 		}
 
-		// Token: 0x04004560 RID: 17760
 		private XOptionsDocument doc = null;
 
-		// Token: 0x04004561 RID: 17761
 		private OptionsBattleTab m_CurrentTab;
 
-		// Token: 0x04004562 RID: 17762
 		public bool bDirty = false;
 
-		// Token: 0x04004563 RID: 17763
 		private Transform m_panel;
 
-		// Token: 0x04004564 RID: 17764
 		private Transform m_fullPanel;
 
-		// Token: 0x04004565 RID: 17765
 		private IXUILabel m_Label;
 
-		// Token: 0x04004566 RID: 17766
 		private Transform m_CameraPanel;
 
-		// Token: 0x04004567 RID: 17767
 		private Transform m_OperatePanel;
 
-		// Token: 0x04004568 RID: 17768
 		private IXUISprite m_25D;
 
-		// Token: 0x04004569 RID: 17769
 		private IXUISprite m_3D;
 
-		// Token: 0x0400456A RID: 17770
 		private IXUISprite m_3DFree;
 
-		// Token: 0x0400456B RID: 17771
 		private IXUISprite m_AutoLock;
 
-		// Token: 0x0400456C RID: 17772
 		private IXUISprite m_FreeLock;
 
-		// Token: 0x0400456D RID: 17773
 		private Transform m_25DSelected;
 
-		// Token: 0x0400456E RID: 17774
 		private Transform m_3DSelected;
 
-		// Token: 0x0400456F RID: 17775
 		private Transform m_3DFreeSelected;
 
-		// Token: 0x04004570 RID: 17776
 		private Transform m_AutoLockSelected;
 
-		// Token: 0x04004571 RID: 17777
 		private Transform m_FreeLockSelected;
 
-		// Token: 0x04004572 RID: 17778
 		private XUIPool m_SelectPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04004573 RID: 17779
 		private XUIPool m_SinglePool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04004574 RID: 17780
 		private XUIPool m_SlidePool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04004575 RID: 17781
 		private XUIPool m_CheckBoxPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04004576 RID: 17782
 		private List<XOptionsBattleDetailHandler.UiSingle> m_uiSingle = new List<XOptionsBattleDetailHandler.UiSingle>();
 
-		// Token: 0x04004577 RID: 17783
 		private List<XOptionsBattleDetailHandler.UiSlider> m_uiSlider = new List<XOptionsBattleDetailHandler.UiSlider>();
 
-		// Token: 0x04004578 RID: 17784
 		private List<XOptionsBattleDetailHandler.UiCheckBox> m_uiCheckBox = new List<XOptionsBattleDetailHandler.UiCheckBox>();
 
-		// Token: 0x04004579 RID: 17785
 		private XOptionsBattleDetailHandler.UiSingle m_single = default(XOptionsBattleDetailHandler.UiSingle);
 
-		// Token: 0x0400457A RID: 17786
 		private XOptionsBattleDetailHandler.UiSlider m_slider = default(XOptionsBattleDetailHandler.UiSlider);
 
-		// Token: 0x0400457B RID: 17787
 		private XOptionsBattleDetailHandler.UiCheckBox m_checkBox = default(XOptionsBattleDetailHandler.UiCheckBox);
 
-		// Token: 0x020019A6 RID: 6566
 		public struct UiSingle
 		{
-			// Token: 0x04007F5D RID: 32605
+
 			public XOptionsDefine option;
 
-			// Token: 0x04007F5E RID: 32606
 			public IXUICheckBox uiCheckBox;
 		}
 
-		// Token: 0x020019A7 RID: 6567
 		public struct UiSlider
 		{
-			// Token: 0x04007F5F RID: 32607
+
 			public XOptionsDefine option;
 
-			// Token: 0x04007F60 RID: 32608
 			public IXUISlider uiSlider;
 
-			// Token: 0x04007F61 RID: 32609
 			public float min;
 
-			// Token: 0x04007F62 RID: 32610
 			public float max;
 		}
 
-		// Token: 0x020019A8 RID: 6568
 		public struct UiCheckBox
 		{
-			// Token: 0x06011049 RID: 69705 RVA: 0x004543D0 File Offset: 0x004525D0
+
 			public void Init()
 			{
 				this.select = new List<IXUICheckBox>();
 			}
 
-			// Token: 0x04007F63 RID: 32611
 			public XOptionsDefine option;
 
-			// Token: 0x04007F64 RID: 32612
 			public List<IXUICheckBox> select;
 		}
 
-		// Token: 0x020019A9 RID: 6569
 		public enum OptionsType
 		{
-			// Token: 0x04007F66 RID: 32614
+
 			Single = 1,
-			// Token: 0x04007F67 RID: 32615
+
 			Slide,
-			// Token: 0x04007F68 RID: 32616
+
 			CheckBox
 		}
 	}

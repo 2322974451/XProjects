@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x0200023A RID: 570
+
 	public class MobaSignalTable : CVSReader
 	{
-		// Token: 0x06000C93 RID: 3219 RVA: 0x000422AC File Offset: 0x000404AC
+
 		public MobaSignalTable.RowData GetByID(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -29,7 +29,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000C94 RID: 3220 RVA: 0x00042318 File Offset: 0x00040518
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			MobaSignalTable.RowData rowData = new MobaSignalTable.RowData();
@@ -49,7 +48,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x06000C95 RID: 3221 RVA: 0x000423E0 File Offset: 0x000405E0
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -63,28 +61,21 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x04000788 RID: 1928
 		public MobaSignalTable.RowData[] Table = null;
 
-		// Token: 0x020003C9 RID: 969
 		public class RowData
 		{
-			// Token: 0x04001110 RID: 4368
+
 			public uint ID;
 
-			// Token: 0x04001111 RID: 4369
 			public string Text;
 
-			// Token: 0x04001112 RID: 4370
 			public string Icon;
 
-			// Token: 0x04001113 RID: 4371
 			public string Effect;
 
-			// Token: 0x04001114 RID: 4372
 			public string Audio;
 
-			// Token: 0x04001115 RID: 4373
 			public int[] SceneType;
 		}
 	}

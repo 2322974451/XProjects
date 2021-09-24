@@ -6,12 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000D33 RID: 3379
+
 	internal struct XGoldGroupData
 	{
-		// Token: 0x170032F3 RID: 13043
-		// (get) Token: 0x0600BB61 RID: 47969 RVA: 0x002679E0 File Offset: 0x00265BE0
-		// (set) Token: 0x0600BB62 RID: 47970 RVA: 0x00267A00 File Offset: 0x00265C00
+
 		public bool bActive
 		{
 			get
@@ -29,7 +27,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BB63 RID: 47971 RVA: 0x00267A28 File Offset: 0x00265C28
 		public static string GetName(ref SeqListRef<uint> data, int index)
 		{
 			bool flag = index < 0 || index >= data.Count;
@@ -65,7 +62,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600BB64 RID: 47972 RVA: 0x00267ADC File Offset: 0x00265CDC
 		public void SetData(TeamExtraInfo extraInfo, ExpeditionTable.RowData rowData)
 		{
 			bool flag = extraInfo == null || rowData == null || !extraInfo.costindexSpecified;
@@ -91,7 +87,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BB65 RID: 47973 RVA: 0x00267B90 File Offset: 0x00265D90
 		public void SetUI(GameObject go, bool bShowFinalRewardIcon = true)
 		{
 			bool flag = !this.bActive;
@@ -150,19 +145,14 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04004BD9 RID: 19417
 		public GoldGroupType type;
 
-		// Token: 0x04004BDA RID: 19418
 		public int index;
 
-		// Token: 0x04004BDB RID: 19419
 		public int itemid;
 
-		// Token: 0x04004BDC RID: 19420
 		public int itemcount;
 
-		// Token: 0x04004BDD RID: 19421
 		public XTeamBriefData teamBrief;
 	}
 }

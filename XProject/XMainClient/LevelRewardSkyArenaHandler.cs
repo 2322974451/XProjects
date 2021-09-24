@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000BA7 RID: 2983
+
 	internal class LevelRewardSkyArenaHandler : DlgHandlerBase
 	{
-		// Token: 0x1700304B RID: 12363
-		// (get) Token: 0x0600AB0A RID: 43786 RVA: 0x001EFC20 File Offset: 0x001EDE20
+
 		protected override string FileName
 		{
 			get
@@ -20,7 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AB0B RID: 43787 RVA: 0x001EFC38 File Offset: 0x001EDE38
 		protected override void Init()
 		{
 			base.Init();
@@ -33,40 +31,34 @@ namespace XMainClient
 			this.m_ItemPool.SetupPool(null, transform2.gameObject, 5U, false);
 		}
 
-		// Token: 0x0600AB0C RID: 43788 RVA: 0x001EFD0B File Offset: 0x001EDF0B
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			this.m_Return.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnReturnButtonClicked));
 		}
 
-		// Token: 0x0600AB0D RID: 43789 RVA: 0x001EFD30 File Offset: 0x001EDF30
 		private bool OnReturnButtonClicked(IXUIButton button)
 		{
 			this.doc.SendLeaveScene();
 			return true;
 		}
 
-		// Token: 0x0600AB0E RID: 43790 RVA: 0x001EA11D File Offset: 0x001E831D
 		private void OnAddFriendClick(IXUISprite sp)
 		{
 			DlgBase<XFriendsView, XFriendsBehaviour>.singleton.AddFriendById(sp.ID);
 		}
 
-		// Token: 0x0600AB0F RID: 43791 RVA: 0x001EECC3 File Offset: 0x001ECEC3
 		private void _OnItemClick(IXUISprite iSp)
 		{
 			XSingleton<UiUtility>.singleton.ShowTooltipDialog((int)iSp.ID, null);
 		}
 
-		// Token: 0x0600AB10 RID: 43792 RVA: 0x001EFD4F File Offset: 0x001EDF4F
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.OnShowUI();
 		}
 
-		// Token: 0x0600AB11 RID: 43793 RVA: 0x001EFD60 File Offset: 0x001EDF60
 		private void OnShowUI()
 		{
 			XLevelRewardDocument.SkyArenaData skyArenaBattleData = this.doc.SkyArenaBattleData;
@@ -144,19 +136,14 @@ namespace XMainClient
 			this.m_ItemPool.ActualReturnAll(false);
 		}
 
-		// Token: 0x04003FD8 RID: 16344
 		private XLevelRewardDocument doc = null;
 
-		// Token: 0x04003FD9 RID: 16345
 		private IXUIButton m_Return;
 
-		// Token: 0x04003FDA RID: 16346
 		private IXUILabel m_Title;
 
-		// Token: 0x04003FDB RID: 16347
 		private XUIPool m_InfoPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04003FDC RID: 16348
 		private XUIPool m_ItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 	}
 }

@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x020000E0 RID: 224
+
 	public class EmblemBasic : CVSReader
 	{
-		// Token: 0x06000600 RID: 1536 RVA: 0x0001C6B4 File Offset: 0x0001A8B4
+
 		public EmblemBasic.RowData GetByEmblemID(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -21,7 +21,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000601 RID: 1537 RVA: 0x0001C6EC File Offset: 0x0001A8EC
 		private EmblemBasic.RowData BinarySearchEmblemID(uint key)
 		{
 			int num = 0;
@@ -80,7 +79,6 @@ namespace XUtliPoolLib
 			return null;
 		}
 
-		// Token: 0x06000602 RID: 1538 RVA: 0x0001C7C8 File Offset: 0x0001A9C8
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			EmblemBasic.RowData rowData = new EmblemBasic.RowData();
@@ -100,7 +98,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x06000603 RID: 1539 RVA: 0x0001C890 File Offset: 0x0001AA90
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -114,28 +111,21 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x0400032C RID: 812
 		public EmblemBasic.RowData[] Table = null;
 
-		// Token: 0x020002DF RID: 735
 		public class RowData
 		{
-			// Token: 0x04000A38 RID: 2616
+
 			public uint EmblemID;
 
-			// Token: 0x04000A39 RID: 2617
 			public short EmblemType;
 
-			// Token: 0x04000A3A RID: 2618
 			public short DragonCoinCost;
 
-			// Token: 0x04000A3B RID: 2619
 			public SeqListRef<uint> SmeltNeedItem;
 
-			// Token: 0x04000A3C RID: 2620
 			public uint SmeltNeedMoney;
 
-			// Token: 0x04000A3D RID: 2621
 			public byte ReturnSmeltStoneRate;
 		}
 	}

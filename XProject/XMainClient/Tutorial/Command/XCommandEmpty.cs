@@ -6,10 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.Tutorial.Command
 {
-	// Token: 0x020016C5 RID: 5829
+
 	internal class XCommandEmpty : XBaseCommand
 	{
-		// Token: 0x0600F072 RID: 61554 RVA: 0x0034D210 File Offset: 0x0034B410
+
 		public override bool Execute()
 		{
 			this._startTime = Time.time;
@@ -23,7 +23,6 @@ namespace XMainClient.Tutorial.Command
 			return true;
 		}
 
-		// Token: 0x0600F073 RID: 61555 RVA: 0x0034D27C File Offset: 0x0034B47C
 		protected void ShowFinger(object o)
 		{
 			base.SetOverlay();
@@ -41,7 +40,6 @@ namespace XMainClient.Tutorial.Command
 			}
 		}
 
-		// Token: 0x0600F074 RID: 61556 RVA: 0x0034D314 File Offset: 0x0034B514
 		protected override void OnMouseClick(IXUISprite sp)
 		{
 			base.OnMouseClick(sp);
@@ -52,7 +50,6 @@ namespace XMainClient.Tutorial.Command
 			}
 		}
 
-		// Token: 0x0600F075 RID: 61557 RVA: 0x0034D34C File Offset: 0x0034B54C
 		public override void Stop()
 		{
 			bool flag = this._time > 0U;
@@ -68,7 +65,6 @@ namespace XMainClient.Tutorial.Command
 			XSingleton<XTutorialMgr>.singleton.NoforceClick = false;
 		}
 
-		// Token: 0x0400667C RID: 26236
 		private uint _time = 0U;
 	}
 }

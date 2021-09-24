@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017EB RID: 6123
+
 	internal class WeekNestDlg : DlgBase<WeekNestDlg, WeeknestBehaviour>
 	{
-		// Token: 0x170038BD RID: 14525
-		// (get) Token: 0x0600FDC2 RID: 64962 RVA: 0x003B8DC8 File Offset: 0x003B6FC8
+
 		public override string fileName
 		{
 			get
@@ -19,8 +18,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170038BE RID: 14526
-		// (get) Token: 0x0600FDC3 RID: 64963 RVA: 0x003B8DE0 File Offset: 0x003B6FE0
 		public override int layer
 		{
 			get
@@ -29,8 +26,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170038BF RID: 14527
-		// (get) Token: 0x0600FDC4 RID: 64964 RVA: 0x003B8DF4 File Offset: 0x003B6FF4
 		public override bool autoload
 		{
 			get
@@ -39,8 +34,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170038C0 RID: 14528
-		// (get) Token: 0x0600FDC5 RID: 64965 RVA: 0x003B8E08 File Offset: 0x003B7008
 		public override bool hideMainMenu
 		{
 			get
@@ -49,8 +42,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170038C1 RID: 14529
-		// (get) Token: 0x0600FDC6 RID: 64966 RVA: 0x003B8E1C File Offset: 0x003B701C
 		public override bool pushstack
 		{
 			get
@@ -59,8 +50,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170038C2 RID: 14530
-		// (get) Token: 0x0600FDC7 RID: 64967 RVA: 0x003B8E30 File Offset: 0x003B7030
 		public override bool fullscreenui
 		{
 			get
@@ -69,7 +58,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FDC8 RID: 64968 RVA: 0x003B8E43 File Offset: 0x003B7043
 		protected override void Init()
 		{
 			base.Init();
@@ -77,7 +65,6 @@ namespace XMainClient.UI
 			this.m_doc.View = this;
 		}
 
-		// Token: 0x0600FDC9 RID: 64969 RVA: 0x003B8E64 File Offset: 0x003B7064
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -86,14 +73,12 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_closedBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnClickClosed));
 		}
 
-		// Token: 0x0600FDCA RID: 64970 RVA: 0x003B8ED0 File Offset: 0x003B70D0
 		public bool OnHelpClicked(IXUIButton button)
 		{
 			DlgBase<XCommonHelpTipView, XCommonHelpTipBehaviour>.singleton.ShowHelp(XSysDefine.XSys_Activity_GoddessTrial);
 			return true;
 		}
 
-		// Token: 0x0600FDCB RID: 64971 RVA: 0x003B8EF4 File Offset: 0x003B70F4
 		protected override void OnShow()
 		{
 			this.m_doc.HadRedDot = false;
@@ -101,19 +86,16 @@ namespace XMainClient.UI
 			this.m_doc.ReqTeamCount();
 		}
 
-		// Token: 0x0600FDCC RID: 64972 RVA: 0x003B8F45 File Offset: 0x003B7145
 		protected override void OnHide()
 		{
 			base.OnHide();
 		}
 
-		// Token: 0x0600FDCD RID: 64973 RVA: 0x003B8F4F File Offset: 0x003B714F
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
 		}
 
-		// Token: 0x0600FDCE RID: 64974 RVA: 0x003B8F59 File Offset: 0x003B7159
 		protected override void OnUnload()
 		{
 			base.uiBehaviour.m_bgTexture.SetTexturePath("");
@@ -121,13 +103,11 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x0600FDCF RID: 64975 RVA: 0x003B8F85 File Offset: 0x003B7185
 		public void Resfresh()
 		{
 			this.FillContent();
 		}
 
-		// Token: 0x0600FDD0 RID: 64976 RVA: 0x003B8F90 File Offset: 0x003B7190
 		private void FillContent()
 		{
 			XExpeditionDocument xexpeditionDocument = XSingleton<XGame>.singleton.Doc.GetXComponent(XExpeditionDocument.uuID) as XExpeditionDocument;
@@ -144,7 +124,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FDD1 RID: 64977 RVA: 0x003B9048 File Offset: 0x003B7248
 		private void FillItem(ExpeditionTable.RowData rowData)
 		{
 			base.uiBehaviour.m_ItemPool.ReturnAll(false);
@@ -166,13 +145,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FDD2 RID: 64978 RVA: 0x003B9184 File Offset: 0x003B7384
 		private void FillBgTexture()
 		{
 			base.uiBehaviour.m_bgTexture.SetTexturePath("atlas/UI/common/Pic/" + this.m_doc.GetPicNameByDNid((uint)this.m_doc.CurDNid));
 		}
 
-		// Token: 0x0600FDD3 RID: 64979 RVA: 0x003B91B8 File Offset: 0x003B73B8
 		private bool OnGoBattleClicked(IXUIButton sp)
 		{
 			bool flag = this.SetButtonCool(this.m_fCoolTime);
@@ -190,7 +167,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FDD4 RID: 64980 RVA: 0x003B91FC File Offset: 0x003B73FC
 		private bool OnRankBtnClicked(IXUIButton sp)
 		{
 			bool flag = this.SetButtonCool(this.m_fCoolTime);
@@ -207,7 +183,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FDD5 RID: 64981 RVA: 0x003B923C File Offset: 0x003B743C
 		private bool OnClickClosed(IXUIButton sp)
 		{
 			bool flag = this.SetButtonCool(this.m_fCoolTime);
@@ -224,7 +199,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FDD6 RID: 64982 RVA: 0x003B926C File Offset: 0x003B746C
 		private bool SetButtonCool(float time)
 		{
 			float num = Time.realtimeSinceStartup - this.m_fLastClickBtnTime;
@@ -242,16 +216,12 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x04007008 RID: 28680
 		private float m_fCoolTime = 0.5f;
 
-		// Token: 0x04007009 RID: 28681
 		private float m_fLastClickBtnTime = 0f;
 
-		// Token: 0x0400700A RID: 28682
 		private XWeekNestDocument m_doc;
 
-		// Token: 0x0400700B RID: 28683
 		public WeekNestRankHandler m_weekNestRankHandler;
 	}
 }

@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x02000150 RID: 336
+
 	public class ProfessionConvertTable : CVSReader
 	{
-		// Token: 0x060007A0 RID: 1952 RVA: 0x00026898 File Offset: 0x00024A98
+
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			ProfessionConvertTable.RowData rowData = new ProfessionConvertTable.RowData();
@@ -35,7 +35,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x060007A1 RID: 1953 RVA: 0x000269E4 File Offset: 0x00024BE4
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -49,43 +48,31 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x0400039C RID: 924
 		public ProfessionConvertTable.RowData[] Table = null;
 
-		// Token: 0x0200034F RID: 847
 		public class RowData
 		{
-			// Token: 0x04000D28 RID: 3368
+
 			public int ProfessionID;
 
-			// Token: 0x04000D29 RID: 3369
 			public int AttributeID;
 
-			// Token: 0x04000D2A RID: 3370
 			public double PhysicalAtk;
 
-			// Token: 0x04000D2B RID: 3371
 			public double PhysicalDef;
 
-			// Token: 0x04000D2C RID: 3372
 			public double MagicAtk;
 
-			// Token: 0x04000D2D RID: 3373
 			public double MagicDef;
 
-			// Token: 0x04000D2E RID: 3374
 			public double Critical;
 
-			// Token: 0x04000D2F RID: 3375
 			public double CritResist;
 
-			// Token: 0x04000D30 RID: 3376
 			public double MaxHP;
 
-			// Token: 0x04000D31 RID: 3377
 			public double MaxMP;
 
-			// Token: 0x04000D32 RID: 3378
 			public double CritDamage;
 		}
 	}

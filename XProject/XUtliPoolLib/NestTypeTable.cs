@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x0200012C RID: 300
+
 	public class NestTypeTable : CVSReader
 	{
-		// Token: 0x06000721 RID: 1825 RVA: 0x000239D0 File Offset: 0x00021BD0
+
 		public NestTypeTable.RowData GetByTypeID(int key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -29,7 +29,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000722 RID: 1826 RVA: 0x00023A3C File Offset: 0x00021C3C
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			NestTypeTable.RowData rowData = new NestTypeTable.RowData();
@@ -47,7 +46,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x06000723 RID: 1827 RVA: 0x00023AE8 File Offset: 0x00021CE8
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -61,25 +59,19 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x04000378 RID: 888
 		public NestTypeTable.RowData[] Table = null;
 
-		// Token: 0x0200032B RID: 811
 		public class RowData
 		{
-			// Token: 0x04000C48 RID: 3144
+
 			public int TypeID;
 
-			// Token: 0x04000C49 RID: 3145
 			public string TypeName;
 
-			// Token: 0x04000C4A RID: 3146
 			public string TypeBg;
 
-			// Token: 0x04000C4B RID: 3147
 			public string TypeIcon;
 
-			// Token: 0x04000C4C RID: 3148
 			public float[] TypeBgTransform;
 		}
 	}

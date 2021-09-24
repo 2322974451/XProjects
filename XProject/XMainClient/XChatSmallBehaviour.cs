@@ -6,10 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000E17 RID: 3607
+
 	internal class XChatSmallBehaviour : DlgBehaviourBase
 	{
-		// Token: 0x0600C22A RID: 49706 RVA: 0x0029B424 File Offset: 0x00299624
+
 		private void Awake()
 		{
 			this.m_BgSprite = (base.transform.FindChild("Alphaboard/Bg/Back").GetComponent("XUISprite") as IXUISprite);
@@ -36,76 +36,52 @@ namespace XMainClient
 			this.m_ExpValue = (this.m_Exp.gameObject.transform.Find("content").GetComponent("XUILabel") as IXUILabel);
 		}
 
-		// Token: 0x040052E2 RID: 21218
 		public static uint m_MaxShowMsg = 10U;
 
-		// Token: 0x040052E3 RID: 21219
 		public IXUISprite m_BgSprite;
 
-		// Token: 0x040052E4 RID: 21220
 		public IXUISprite m_RedPoint;
 
-		// Token: 0x040052E5 RID: 21221
 		public IXUISprite m_BgSpriteMini;
 
-		// Token: 0x040052E6 RID: 21222
 		public IXUISprite m_BgSpriteMain;
 
-		// Token: 0x040052E7 RID: 21223
 		public IXUISprite m_OpenWindow;
 
-		// Token: 0x040052E8 RID: 21224
 		public IXUISprite m_OpenWindowMini;
 
-		// Token: 0x040052E9 RID: 21225
 		public IXUILabelSymbol m_MiniText;
 
-		// Token: 0x040052EA RID: 21226
 		public IXUISprite m_MiniTemplate;
 
-		// Token: 0x040052EB RID: 21227
 		public IXUILabel m_AudioName;
 
-		// Token: 0x040052EC RID: 21228
 		public IXUILabel m_AudioTime;
 
-		// Token: 0x040052ED RID: 21229
 		public IXUILabel m_AudioContent;
 
-		// Token: 0x040052EE RID: 21230
 		public IXUISprite m_MiniAudioTemplate;
 
-		// Token: 0x040052EF RID: 21231
 		public XUIPool m_ChatPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x040052F0 RID: 21232
 		public IXUIScrollView m_ScrollView;
 
-		// Token: 0x040052F1 RID: 21233
 		public List<XSmallChatInfo> ChatUIInfoList = new List<XSmallChatInfo>();
 
-		// Token: 0x040052F2 RID: 21234
 		public IXUITweenTool m_TweenTool;
 
-		// Token: 0x040052F3 RID: 21235
 		public IXUITweenTool m_BgTweenTool;
 
-		// Token: 0x040052F4 RID: 21236
 		public IXUISprite m_MainPanel;
 
-		// Token: 0x040052F5 RID: 21237
 		public IXUIPanel m_panel;
 
-		// Token: 0x040052F6 RID: 21238
 		public IXUIPanel m_contentPanel;
 
-		// Token: 0x040052F7 RID: 21239
 		public IXUISprite m_sprMailRed;
 
-		// Token: 0x040052F8 RID: 21240
 		public IXUIProgress m_Exp;
 
-		// Token: 0x040052F9 RID: 21241
 		public IXUILabel m_ExpValue;
 	}
 }

@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C64 RID: 3172
+
 	internal class ItemListHandler : DlgHandlerBase
 	{
-		// Token: 0x170031BB RID: 12731
-		// (get) Token: 0x0600B38B RID: 45963 RVA: 0x0022F35C File Offset: 0x0022D55C
+
 		protected override string FileName
 		{
 			get
@@ -20,7 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B38C RID: 45964 RVA: 0x0022F374 File Offset: 0x0022D574
 		protected override void Init()
 		{
 			this.m_TypeList.Clear();
@@ -42,20 +40,17 @@ namespace XMainClient
 			this.m_Table = (base.PanelObject.transform.Find("Bg/ScrollView/Table").GetComponent("XUITable") as IXUITable);
 		}
 
-		// Token: 0x0600B38D RID: 45965 RVA: 0x0022F504 File Offset: 0x0022D704
 		private void OnListRefreshFinished()
 		{
 			this.m_Table.Reposition();
 			this.m_ScrollView.ResetPosition();
 		}
 
-		// Token: 0x0600B38E RID: 45966 RVA: 0x0022F51F File Offset: 0x0022D71F
 		public override void RegisterEvent()
 		{
 			this.m_Close.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseClicked));
 		}
 
-		// Token: 0x0600B38F RID: 45967 RVA: 0x0022F53C File Offset: 0x0022D73C
 		private void ClassifySpritesByQuality(List<uint> itemList)
 		{
 			this.m_ItemID.Clear();
@@ -93,7 +88,6 @@ namespace XMainClient
 			this.m_ItemID.Add(list);
 		}
 
-		// Token: 0x0600B390 RID: 45968 RVA: 0x0022F668 File Offset: 0x0022D868
 		public void ShowItemList(List<uint> itemList)
 		{
 			base.SetVisible(true);
@@ -108,7 +102,6 @@ namespace XMainClient
 			this.m_ItemPool.ActualReturnAll(true);
 		}
 
-		// Token: 0x0600B391 RID: 45969 RVA: 0x0022F6D4 File Offset: 0x0022D8D4
 		private void CreateItemIcon(ItemQuality quality)
 		{
 			int index = XFastEnumIntEqualityComparer<ItemQuality>.ToInt(quality) - 1;
@@ -125,7 +118,6 @@ namespace XMainClient
 			ixuilist.Refresh();
 		}
 
-		// Token: 0x0600B392 RID: 45970 RVA: 0x0022F79C File Offset: 0x0022D99C
 		private void SetitemInfo(GameObject obj, uint itemID)
 		{
 			IXUISprite ixuisprite = obj.transform.Find("Icon").GetComponent("XUISprite") as IXUISprite;
@@ -134,38 +126,29 @@ namespace XMainClient
 			ixuisprite.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(XSingleton<UiUtility>.singleton.OnItemClick));
 		}
 
-		// Token: 0x0600B393 RID: 45971 RVA: 0x0022F800 File Offset: 0x0022DA00
 		private string GetQualityFrame(uint quality)
 		{
 			return string.Format("kuang_dj_{0}", quality);
 		}
 
-		// Token: 0x0600B394 RID: 45972 RVA: 0x0022F824 File Offset: 0x0022DA24
 		private bool OnCloseClicked(IXUIButton sp)
 		{
 			base.SetVisible(false);
 			return true;
 		}
 
-		// Token: 0x04004593 RID: 17811
 		private IXUIButton m_Close;
 
-		// Token: 0x04004594 RID: 17812
 		private XUIPool m_ItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04004595 RID: 17813
 		private IXUIScrollView m_ScrollView;
 
-		// Token: 0x04004596 RID: 17814
 		private IXUITable m_Table;
 
-		// Token: 0x04004597 RID: 17815
 		private List<IXUIList> m_TypeList = new List<IXUIList>();
 
-		// Token: 0x04004598 RID: 17816
 		private List<List<uint>> m_ItemID = new List<List<uint>>();
 
-		// Token: 0x04004599 RID: 17817
 		private List<Transform> m_TypeTitle = new List<Transform>();
 	}
 }

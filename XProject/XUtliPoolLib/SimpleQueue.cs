@@ -2,11 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x020001DF RID: 479
+
 	public class SimpleQueue
 	{
-		// Token: 0x170000CE RID: 206
-		// (get) Token: 0x06000AE2 RID: 2786 RVA: 0x0003A1AC File Offset: 0x000383AC
+
 		public bool HasData
 		{
 			get
@@ -15,7 +14,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000AE3 RID: 2787 RVA: 0x0003A1C8 File Offset: 0x000383C8
 		public void Clear()
 		{
 			IQueueObject next;
@@ -28,7 +26,6 @@ namespace XUtliPoolLib
 			this.Last = null;
 		}
 
-		// Token: 0x06000AE4 RID: 2788 RVA: 0x0003A208 File Offset: 0x00038408
 		public void Enqueue(IQueueObject obj)
 		{
 			bool flag = obj != null;
@@ -61,7 +58,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000AE5 RID: 2789 RVA: 0x0003A2A4 File Offset: 0x000384A4
 		public T Dequeue<T>() where T : IQueueObject, new()
 		{
 			IQueueObject queueObject = null;
@@ -79,10 +75,8 @@ namespace XUtliPoolLib
 			return (T)(queueObject);
 		}
 
-		// Token: 0x0400056C RID: 1388
 		private IQueueObject Root = null;
 
-		// Token: 0x0400056D RID: 1389
 		private IQueueObject Last = null;
 	}
 }

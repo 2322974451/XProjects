@@ -8,10 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000CC4 RID: 3268
+
 	public class ChatFriendItem : MonoBehaviour
 	{
-		// Token: 0x0600B77E RID: 46974 RVA: 0x00248B4C File Offset: 0x00246D4C
+
 		private void Awake()
 		{
 			this.m_sprRoot = (base.GetComponent("XUISprite") as IXUISprite);
@@ -27,7 +27,6 @@ namespace XMainClient
 			this.m_sprChat.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnChatClick));
 		}
 
-		// Token: 0x0600B77F RID: 46975 RVA: 0x00248CD8 File Offset: 0x00246ED8
 		public void Refresh(ChatFriendData data)
 		{
 			this.mFriendData = data;
@@ -50,7 +49,6 @@ namespace XMainClient
 			XSingleton<UiUtility>.singleton.ParseHeadIcon(data.setid, this.m_sprFrame);
 		}
 
-		// Token: 0x0600B780 RID: 46976 RVA: 0x00248DFC File Offset: 0x00246FFC
 		private string GetRecentChatInfo(ulong roleid)
 		{
 			XChatDocument specificDocument = XDocuments.GetSpecificDocument<XChatDocument>(XChatDocument.uuID);
@@ -91,7 +89,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B781 RID: 46977 RVA: 0x00248F08 File Offset: 0x00247108
 		private string GetRelation()
 		{
 			bool isfriend = this.mFriendData.isfriend;
@@ -107,7 +104,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B782 RID: 46978 RVA: 0x00248F38 File Offset: 0x00247138
 		private void OnChatClick(IXUISprite spr)
 		{
 			spr.ID = this.mFriendData.roleid;
@@ -122,13 +118,11 @@ namespace XMainClient
 			DlgBase<XChatView, XChatBehaviour>.singleton.JumpToChats(spr);
 		}
 
-		// Token: 0x0600B783 RID: 46979 RVA: 0x00248FA0 File Offset: 0x002471A0
 		private void OnDeleteChat(IXUISprite spr)
 		{
 			DlgBase<XChatView, XChatBehaviour>.singleton.OnSendClearFriend(spr.ID);
 		}
 
-		// Token: 0x0600B784 RID: 46980 RVA: 0x00248FB4 File Offset: 0x002471B4
 		private void OnClickFriendHead(IXUISprite sp)
 		{
 			bool flag = XSingleton<XGame>.singleton.CurrentStage.Stage == EXStage.Hall;
@@ -145,37 +139,26 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04004819 RID: 18457
 		private ChatFriendData mFriendData;
 
-		// Token: 0x0400481A RID: 18458
 		public IXUISprite m_sprRoot;
 
-		// Token: 0x0400481B RID: 18459
 		public IXUILabel m_lblName;
 
-		// Token: 0x0400481C RID: 18460
 		public IXUISprite m_sprHead;
 
-		// Token: 0x0400481D RID: 18461
 		public IXUISprite m_sprFrame;
 
-		// Token: 0x0400481E RID: 18462
 		public IXUILabelSymbol m_lblMsg;
 
-		// Token: 0x0400481F RID: 18463
 		public IXUISprite m_sprRelation;
 
-		// Token: 0x04004820 RID: 18464
 		public IXUISprite m_sprChat;
 
-		// Token: 0x04004821 RID: 18465
 		public IXUISprite m_sprRedpoint;
 
-		// Token: 0x04004822 RID: 18466
 		public IXUISprite m_sprHeadColl;
 
-		// Token: 0x04004823 RID: 18467
 		public IXUISprite m_sprDel;
 	}
 }

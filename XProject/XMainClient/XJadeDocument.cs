@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x020009D2 RID: 2514
+
 	internal class XJadeDocument : XDocComponent
 	{
-		// Token: 0x17002DBB RID: 11707
-		// (get) Token: 0x060098B6 RID: 39094 RVA: 0x0017A8C4 File Offset: 0x00178AC4
+
 		public override uint ID
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002DBC RID: 11708
-		// (get) Token: 0x060098B7 RID: 39095 RVA: 0x0017A8DC File Offset: 0x00178ADC
 		public JadeTable jadeTable
 		{
 			get
@@ -30,9 +27,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002DBD RID: 11709
-		// (get) Token: 0x060098B8 RID: 39096 RVA: 0x0017A8F4 File Offset: 0x00178AF4
-		// (set) Token: 0x060098B9 RID: 39097 RVA: 0x0017A90C File Offset: 0x00178B0C
 		public bool bCanBePowerful
 		{
 			get
@@ -46,8 +40,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002DBE RID: 11710
-		// (get) Token: 0x060098BA RID: 39098 RVA: 0x0017A924 File Offset: 0x00178B24
 		public int[] JadeLevelUpCost
 		{
 			get
@@ -61,8 +53,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002DBF RID: 11711
-		// (get) Token: 0x060098BB RID: 39099 RVA: 0x0017A964 File Offset: 0x00178B64
 		public XNewItemTipsMgr NewItems
 		{
 			get
@@ -71,8 +61,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002DC0 RID: 11712
-		// (get) Token: 0x060098BC RID: 39100 RVA: 0x0017A97C File Offset: 0x00178B7C
 		public List<XItem> SelectedSlotItemList
 		{
 			get
@@ -81,7 +69,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060098BD RID: 39101 RVA: 0x0017A994 File Offset: 0x00178B94
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			XJadeDocument.AsyncLoader.AddTask("Table/Jade", XJadeDocument._JadeTable, false);
@@ -89,7 +76,6 @@ namespace XMainClient
 			XJadeDocument.AsyncLoader.Execute(callback);
 		}
 
-		// Token: 0x060098BE RID: 39102 RVA: 0x0017A9CF File Offset: 0x00178BCF
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
@@ -97,7 +83,6 @@ namespace XMainClient
 			this._NewItems.Filter.AddItemType(ItemType.JADE);
 		}
 
-		// Token: 0x060098BF RID: 39103 RVA: 0x0017A9F8 File Offset: 0x00178BF8
 		protected override void EventSubscribe()
 		{
 			base.EventSubscribe();
@@ -111,13 +96,11 @@ namespace XMainClient
 			base.RegisterEvent(XEventDefine.XEvent_ItemChangeFinished, new XComponent.XEventHandler(this.OnFinishItemChange));
 		}
 
-		// Token: 0x060098C0 RID: 39104 RVA: 0x0017AAB8 File Offset: 0x00178CB8
 		public XJadeItem GetJadeItem(ulong uid)
 		{
 			return XSingleton<XGame>.singleton.Doc.XBagDoc.GetItemByUID(uid) as XJadeItem;
 		}
 
-		// Token: 0x060098C1 RID: 39105 RVA: 0x0017AAE4 File Offset: 0x00178CE4
 		public SeqListRef<uint> GetSlotInfoByPos(byte pos)
 		{
 			JadeSlotTable.RowData byEquipSlot = XJadeDocument._JadeSlotTable.GetByEquipSlot(pos);
@@ -134,7 +117,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060098C2 RID: 39106 RVA: 0x0017AB1C File Offset: 0x00178D1C
 		public uint GetSlot(byte pos, int index)
 		{
 			SeqListRef<uint> slotInfoByPos = this.GetSlotInfoByPos(pos);
@@ -151,7 +133,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060098C3 RID: 39107 RVA: 0x0017AB50 File Offset: 0x00178D50
 		public bool JadeIsOpen(byte pos, uint level)
 		{
 			SeqListRef<uint> slotInfoByPos = this.GetSlotInfoByPos(pos);
@@ -166,7 +147,6 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x060098C4 RID: 39108 RVA: 0x0017AB9C File Offset: 0x00178D9C
 		public int GetSlotOpenLevel(byte pos, int index)
 		{
 			SeqListRef<uint> slotInfoByPos = this.GetSlotInfoByPos(pos);
@@ -183,7 +163,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060098C5 RID: 39109 RVA: 0x0017ABD0 File Offset: 0x00178DD0
 		public bool SlotLevelIsOpen(byte pos, int index)
 		{
 			bool flag = XSingleton<XAttributeMgr>.singleton.XPlayerData == null;
@@ -201,7 +180,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060098C6 RID: 39110 RVA: 0x0017AC24 File Offset: 0x00178E24
 		public List<XItem> GetJades()
 		{
 			ulong typeFilter = 1UL << XFastEnumIntEqualityComparer<ItemType>.ToInt(ItemType.JADE);
@@ -210,7 +188,6 @@ namespace XMainClient
 			return this.m_ItemList;
 		}
 
-		// Token: 0x060098C7 RID: 39111 RVA: 0x0017AC74 File Offset: 0x00178E74
 		public void SelectEquip(ulong uid)
 		{
 			this.selectedEquip = uid;
@@ -233,7 +210,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060098C8 RID: 39112 RVA: 0x0017AD08 File Offset: 0x00178F08
 		public void SelectSlot(int slotIndex)
 		{
 			this.selectedSlotIndex = slotIndex;
@@ -309,7 +285,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060098C9 RID: 39113 RVA: 0x0017AF60 File Offset: 0x00179160
 		private int _SortJade(XItem jade0, XItem jade1)
 		{
 			JadeTable.RowData byJadeID = XJadeDocument._JadeTable.GetByJadeID((uint)jade0.itemID);
@@ -327,7 +302,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060098CA RID: 39114 RVA: 0x0017AFCC File Offset: 0x001791CC
 		public void ReqComposeJade(ulong uid, uint addLevel)
 		{
 			RpcC2G_JadeCompose rpcC2G_JadeCompose = new RpcC2G_JadeCompose();
@@ -337,7 +311,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_JadeCompose);
 		}
 
-		// Token: 0x060098CB RID: 39115 RVA: 0x0017B014 File Offset: 0x00179214
 		public void ReqUpdateJade(uint slot, uint addLevel)
 		{
 			RpcC2G_JadeCompose rpcC2G_JadeCompose = new RpcC2G_JadeCompose();
@@ -348,7 +321,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_JadeCompose);
 		}
 
-		// Token: 0x060098CC RID: 39116 RVA: 0x0017B070 File Offset: 0x00179270
 		public void OnComposeJade(JadeComposeArg oArg, JadeComposeRes oRes)
 		{
 			bool flag = oRes.ErrorCode > ErrorCode.ERR_SUCCESS;
@@ -428,7 +400,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060098CD RID: 39117 RVA: 0x0017B2A8 File Offset: 0x001794A8
 		public void ReqOperateJade0(ulong uid, uint type)
 		{
 			bool flag = this.selectedEquip == 0UL;
@@ -446,7 +417,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060098CE RID: 39118 RVA: 0x0017B320 File Offset: 0x00179520
 		public void ReqPutOnJade(ulong uid)
 		{
 			bool flag = this.selectedEquip == 0UL;
@@ -465,7 +435,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060098CF RID: 39119 RVA: 0x0017B3AC File Offset: 0x001795AC
 		public void ReqTakeOffJade(uint slotIndex)
 		{
 			bool flag = this.selectedEquip == 0UL;
@@ -483,7 +452,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060098D0 RID: 39120 RVA: 0x0017B424 File Offset: 0x00179624
 		public void OnOperateJade(JadeOperationArg oArg, JadeOperationRes oRes)
 		{
 			bool flag = oRes.ErrorCode > ErrorCode.ERR_SUCCESS;
@@ -510,7 +478,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060098D1 RID: 39121 RVA: 0x0017B4FC File Offset: 0x001796FC
 		public void ReqBuySlot()
 		{
 			RpcC2G_BuyJadeSlot rpcC2G_BuyJadeSlot = new RpcC2G_BuyJadeSlot();
@@ -518,13 +485,11 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_BuyJadeSlot);
 		}
 
-		// Token: 0x060098D2 RID: 39122 RVA: 0x0017B52E File Offset: 0x0017972E
 		public void OnBuySlot(BuyJadeSlotRes oRes)
 		{
 			XSingleton<UiUtility>.singleton.ShowSystemTip(oRes.ErrorCode, "fece00");
 		}
 
-		// Token: 0x060098D3 RID: 39123 RVA: 0x0017B548 File Offset: 0x00179748
 		public void TryToCompose(ulong uid)
 		{
 			this.composeSource = uid;
@@ -565,7 +530,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060098D4 RID: 39124 RVA: 0x0017B650 File Offset: 0x00179850
 		private void RefreshUi(ulong uid)
 		{
 			this.composeSource = uid;
@@ -595,7 +559,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060098D5 RID: 39125 RVA: 0x0017B704 File Offset: 0x00179904
 		private void RefreshUi(uint slot)
 		{
 			XEquipItem xequipItem = XSingleton<XGame>.singleton.Doc.XBagDoc.GetItemByUID(this.selectedEquip) as XEquipItem;
@@ -629,7 +592,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060098D6 RID: 39126 RVA: 0x0017B7DC File Offset: 0x001799DC
 		public void TryToCompose(uint slot)
 		{
 			XEquipItem xequipItem = XSingleton<XGame>.singleton.Doc.XBagDoc.GetItemByUID(this.selectedEquip) as XEquipItem;
@@ -691,14 +653,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060098D7 RID: 39127 RVA: 0x0017B98C File Offset: 0x00179B8C
 		public XJadeItem CheckEquipedJadesAttrs(XJadeItem jade)
 		{
 			XEquipItem equip = XSingleton<XGame>.singleton.Doc.XBagDoc.GetItemByUID(this.selectedEquip) as XEquipItem;
 			return this.CheckJadesAttrs(equip, jade);
 		}
 
-		// Token: 0x060098D8 RID: 39128 RVA: 0x0017B9C8 File Offset: 0x00179BC8
 		public XJadeItem CheckJadesAttrs(XEquipItem equip, XJadeItem jade)
 		{
 			bool flag = equip == null || jade == null || jade.changeAttr.Count == 0;
@@ -723,13 +683,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060098D9 RID: 39129 RVA: 0x0017BA3C File Offset: 0x00179C3C
 		public bool IsSameType(XJadeItem jade0, XJadeItem jade1)
 		{
 			return jade0 != null && jade1 != null && jade0.changeAttr.Count > 0 && jade1.changeAttr.Count > 0 && jade0.changeAttr[0].AttrID == jade1.changeAttr[0].AttrID;
 		}
 
-		// Token: 0x060098DA RID: 39130 RVA: 0x0017BA98 File Offset: 0x00179C98
 		public int CheckProperSlot(XJadeItem jade)
 		{
 			bool flag = jade == null;
@@ -746,7 +704,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060098DB RID: 39131 RVA: 0x0017BAE0 File Offset: 0x00179CE0
 		public int CheckProperSlot(XEquipItem equip, XJadeItem jade)
 		{
 			bool flag = equip == null || jade == null;
@@ -781,7 +738,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060098DC RID: 39132 RVA: 0x0017BBA0 File Offset: 0x00179DA0
 		public bool IsSlotMatch(uint slot, XJadeItem jade)
 		{
 			JadeTable.RowData byJadeID = XJadeDocument._JadeTable.GetByJadeID((uint)jade.itemID);
@@ -789,13 +745,11 @@ namespace XMainClient
 			return !flag && this.IsSlotMatch(slot, byJadeID);
 		}
 
-		// Token: 0x060098DD RID: 39133 RVA: 0x0017BBD8 File Offset: 0x00179DD8
 		public bool IsSlotMatch(uint slot, JadeTable.RowData rowData)
 		{
 			return slot == rowData.JadeEquip;
 		}
 
-		// Token: 0x060098DE RID: 39134 RVA: 0x0017BBF4 File Offset: 0x00179DF4
 		public bool CanUpdate(int slotIndex)
 		{
 			bool flag = this.selectedEquip == 0UL;
@@ -812,7 +766,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060098DF RID: 39135 RVA: 0x0017BC40 File Offset: 0x00179E40
 		public bool CanUpdate(XEquipItem equip, int slotIndex)
 		{
 			bool flag = equip == null;
@@ -848,14 +801,12 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060098E0 RID: 39136 RVA: 0x0017BCF8 File Offset: 0x00179EF8
 		public bool CanReplace(XEquipItem equipItem, int slotIndex)
 		{
 			this.GetJades();
 			return this.CanReplace(equipItem, slotIndex, this.m_ItemList);
 		}
 
-		// Token: 0x060098E1 RID: 39137 RVA: 0x0017BD20 File Offset: 0x00179F20
 		public bool CanReplace(XEquipItem equipItem, int slotIndex, List<XItem> jades)
 		{
 			bool flag = equipItem == null;
@@ -880,7 +831,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060098E2 RID: 39138 RVA: 0x0017BD78 File Offset: 0x00179F78
 		public bool CanBeMorePowerful(XEquipItem equipItem, int slotIndex, XJadeItem jadeItem)
 		{
 			bool flag = equipItem == null || jadeItem == null;
@@ -925,8 +875,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x17002DC1 RID: 11713
-		// (get) Token: 0x060098E3 RID: 39139 RVA: 0x0017BE5C File Offset: 0x0017A05C
 		public List<int> MorePowerfulEquips
 		{
 			get
@@ -935,7 +883,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060098E4 RID: 39140 RVA: 0x0017BE74 File Offset: 0x0017A074
 		public List<int> GetAllCanBeMorePowerfulEquips()
 		{
 			List<XItem> jades = this.GetJades();
@@ -1002,7 +949,6 @@ namespace XMainClient
 			return this.m_MorePowerfulEquips;
 		}
 
-		// Token: 0x060098E5 RID: 39141 RVA: 0x0017C030 File Offset: 0x0017A230
 		public bool HasRedPoint(int equip)
 		{
 			for (int i = 0; i < this.MorePowerfulEquips.Count; i++)
@@ -1016,7 +962,6 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x060098E6 RID: 39142 RVA: 0x0017C078 File Offset: 0x0017A278
 		protected bool OnLoadEquip(XEventArgs args)
 		{
 			XLoadEquipEventArgs xloadEquipEventArgs = args as XLoadEquipEventArgs;
@@ -1029,7 +974,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x060098E7 RID: 39143 RVA: 0x0017C0B4 File Offset: 0x0017A2B4
 		protected bool OnUnloadEquip(XEventArgs args)
 		{
 			XUnloadEquipEventArgs xunloadEquipEventArgs = args as XUnloadEquipEventArgs;
@@ -1042,7 +986,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x060098E8 RID: 39144 RVA: 0x0017C0EC File Offset: 0x0017A2EC
 		public bool OnAddItem(XEventArgs args)
 		{
 			XAddItemEventArgs xaddItemEventArgs = args as XAddItemEventArgs;
@@ -1051,7 +994,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x060098E9 RID: 39145 RVA: 0x0017C134 File Offset: 0x0017A334
 		public bool OnRemoveItem(XEventArgs args)
 		{
 			XRemoveItemEventArgs xremoveItemEventArgs = args as XRemoveItemEventArgs;
@@ -1060,7 +1002,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x060098EA RID: 39146 RVA: 0x0017C178 File Offset: 0x0017A378
 		public bool OnItemNumChanged(XEventArgs args)
 		{
 			XItemNumChangedEventArgs xitemNumChangedEventArgs = args as XItemNumChangedEventArgs;
@@ -1073,7 +1014,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x060098EB RID: 39147 RVA: 0x0017C1B4 File Offset: 0x0017A3B4
 		public bool OnUpdateItem(XEventArgs args)
 		{
 			XUpdateItemEventArgs xupdateItemEventArgs = args as XUpdateItemEventArgs;
@@ -1096,7 +1036,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x060098EC RID: 39148 RVA: 0x0017C23C File Offset: 0x0017A43C
 		public bool OnSwapItem(XEventArgs args)
 		{
 			this._bShouldUpdateRedPoints = true;
@@ -1104,7 +1043,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x060098ED RID: 39149 RVA: 0x0017C260 File Offset: 0x0017A460
 		public bool OnFinishItemChange(XEventArgs args)
 		{
 			bool bShouldUpdateRedPoints = this._bShouldUpdateRedPoints;
@@ -1132,13 +1070,11 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x060098EE RID: 39150 RVA: 0x0017C2F0 File Offset: 0x0017A4F0
 		public bool IsJadeMorePowerful(ulong uid)
 		{
 			return this.IsJadeMorePowerful(XSingleton<XGame>.singleton.Doc.XBagDoc.GetItemByUID(uid) as XJadeItem);
 		}
 
-		// Token: 0x060098EF RID: 39151 RVA: 0x0017C324 File Offset: 0x0017A524
 		public bool IsJadeMorePowerful(XJadeItem jade)
 		{
 			bool flag = jade == null;
@@ -1173,7 +1109,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060098F0 RID: 39152 RVA: 0x0017C39C File Offset: 0x0017A59C
 		public List<int> UpdateRedPoints()
 		{
 			List<int> allCanBeMorePowerfulEquips = this.GetAllCanBeMorePowerfulEquips();
@@ -1186,7 +1121,6 @@ namespace XMainClient
 			return allCanBeMorePowerfulEquips;
 		}
 
-		// Token: 0x060098F1 RID: 39153 RVA: 0x0017C3F4 File Offset: 0x0017A5F4
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 			bool flag = this.equipHandler != null && this.equipHandler.IsVisible();
@@ -1196,7 +1130,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060098F2 RID: 39154 RVA: 0x0017C42C File Offset: 0x0017A62C
 		public void ShowTip(int itemId)
 		{
 			ItemList.RowData itemConf = XBagDocument.GetItemConf(itemId);
@@ -1210,7 +1143,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060098F3 RID: 39155 RVA: 0x0017C480 File Offset: 0x0017A680
 		public int JadeLevelToMosaicLevel(uint jadeLevel)
 		{
 			bool flag = (ulong)jadeLevel > (ulong)((long)this.JadeMosaicLevel.Count);
@@ -1227,7 +1159,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060098F4 RID: 39156 RVA: 0x0017C4E0 File Offset: 0x0017A6E0
 		public int EquipLevel2JadeLevel(int equipLevel)
 		{
 			for (int i = this.JadeMosaicLevel.Count - 1; i >= 0; i--)
@@ -1241,7 +1172,6 @@ namespace XMainClient
 			return 0;
 		}
 
-		// Token: 0x060098F5 RID: 39157 RVA: 0x0017C530 File Offset: 0x0017A730
 		public bool IsLeveLOK(XJadeItem jade, uint jadeLevelUp = 0U)
 		{
 			bool flag = jade == null;
@@ -1266,7 +1196,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060098F6 RID: 39158 RVA: 0x0017C58C File Offset: 0x0017A78C
 		public bool IsLeveLOK(XEquipItem equip, XJadeItem jade, uint jadeLevelUp = 0U)
 		{
 			bool flag = equip == null || jade == null;
@@ -1301,7 +1230,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060098F7 RID: 39159 RVA: 0x0017C61C File Offset: 0x0017A81C
 		private JadeTable.RowData GetRowDataByParentItemId(uint itemId)
 		{
 			bool flag = this.jadeTable == null;
@@ -1325,7 +1253,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060098F8 RID: 39160 RVA: 0x0017C690 File Offset: 0x0017A890
 		public uint GetTargetItemId(uint sourceItemId, uint addLevel)
 		{
 			bool flag = addLevel == 0U;
@@ -1379,7 +1306,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060098F9 RID: 39161 RVA: 0x0017C7BC File Offset: 0x0017A9BC
 		public bool GetNeedItems(uint targetId, uint hadItemId, int type, out List<XTuple<uint, uint>> hadJades, out XTuple<uint, uint> needBuyJade, out ulong needGold, out uint needMall)
 		{
 			needGold = 0UL;
@@ -1434,64 +1360,44 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x04003457 RID: 13399
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("JadeDocument");
 
-		// Token: 0x04003458 RID: 13400
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x04003459 RID: 13401
 		private static JadeTable _JadeTable = new JadeTable();
 
-		// Token: 0x0400345A RID: 13402
 		private static JadeSlotTable _JadeSlotTable = new JadeSlotTable();
 
-		// Token: 0x0400345B RID: 13403
 		public List<int> JadeMosaicLevel = XSingleton<XGlobalConfig>.singleton.GetIntList("JadeMosaicLevel");
 
-		// Token: 0x0400345C RID: 13404
 		public JadeEquipHandler equipHandler;
 
-		// Token: 0x0400345D RID: 13405
 		public ulong selectedEquip;
 
-		// Token: 0x0400345E RID: 13406
 		public int selectedSlotIndex;
 
-		// Token: 0x0400345F RID: 13407
 		public ulong composeSource;
 
-		// Token: 0x04003460 RID: 13408
 		public uint TargetItemId = 0U;
 
-		// Token: 0x04003461 RID: 13409
 		private bool _bCanBePowerful = false;
 
-		// Token: 0x04003462 RID: 13410
 		private int[] jadeLevelUpCost;
 
-		// Token: 0x04003463 RID: 13411
 		private bool _bShouldUpdateRedPoints = false;
 
-		// Token: 0x04003464 RID: 13412
 		private bool _bShouldCalcMorePowerfulTip = false;
 
-		// Token: 0x04003465 RID: 13413
 		private XNewItemTipsMgr _NewItems = new XNewItemTipsMgr();
 
-		// Token: 0x04003466 RID: 13414
 		private List<XItem> m_ItemList = new List<XItem>();
 
-		// Token: 0x04003467 RID: 13415
 		private List<XItem> m_SelectedSlotItemList = new List<XItem>();
 
-		// Token: 0x04003468 RID: 13416
 		private List<XItem> m_TempList0 = new List<XItem>();
 
-		// Token: 0x04003469 RID: 13417
 		private List<XItem> m_TempList1 = new List<XItem>();
 
-		// Token: 0x0400346A RID: 13418
 		private List<int> m_MorePowerfulEquips = new List<int>();
 	}
 }

@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000CE2 RID: 3298
+
 	internal class GameBuyCardHander : DlgHandlerBase
 	{
-		// Token: 0x17003283 RID: 12931
-		// (get) Token: 0x0600B89F RID: 47263 RVA: 0x002533CC File Offset: 0x002515CC
+
 		private int canBuyMaxCnt
 		{
 			get
@@ -30,8 +29,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003284 RID: 12932
-		// (get) Token: 0x0600B8A0 RID: 47264 RVA: 0x0025349C File Offset: 0x0025169C
 		private int rstCnt
 		{
 			get
@@ -85,7 +82,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B8A1 RID: 47265 RVA: 0x00253640 File Offset: 0x00251840
 		protected override void Init()
 		{
 			base.Init();
@@ -100,7 +96,6 @@ namespace XMainClient
 			this.m_uiIcon = (base.PanelObject.transform.Find("price/p").GetComponent("XUISprite") as IXUISprite);
 		}
 
-		// Token: 0x0600B8A2 RID: 47266 RVA: 0x002537B8 File Offset: 0x002519B8
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -112,7 +107,6 @@ namespace XMainClient
 			this.m_lblBuyCnt.RegisterLabelClickEventHandler(new LabelClickEventHandler(this.OnCntClick));
 		}
 
-		// Token: 0x0600B8A3 RID: 47267 RVA: 0x00253860 File Offset: 0x00251A60
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -129,7 +123,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B8A4 RID: 47268 RVA: 0x002538C9 File Offset: 0x00251AC9
 		protected override void OnHide()
 		{
 			this.mCurrCnt = 1;
@@ -137,7 +130,6 @@ namespace XMainClient
 			base.OnHide();
 		}
 
-		// Token: 0x0600B8A5 RID: 47269 RVA: 0x002538E4 File Offset: 0x00251AE4
 		public void Refresh()
 		{
 			bool flag = this.doc == null;
@@ -186,13 +178,11 @@ namespace XMainClient
 			this.m_uiIcon.SetSprite(strSprite, strAtlas, false);
 		}
 
-		// Token: 0x0600B8A6 RID: 47270 RVA: 0x00253AF0 File Offset: 0x00251CF0
 		private bool IsEqual(float v1, float v2)
 		{
 			return (double)Mathf.Abs(v1 - v2) < 0.0001;
 		}
 
-		// Token: 0x0600B8A7 RID: 47271 RVA: 0x00253B18 File Offset: 0x00251D18
 		private bool OnBuyClick(IXUIButton btn)
 		{
 			CIBShop currCIBShop = this.doc.currCIBShop;
@@ -269,7 +259,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B8A8 RID: 47272 RVA: 0x00253D94 File Offset: 0x00251F94
 		private bool OnPresentClick(IXUIButton btn)
 		{
 			XActivityInviteDocument specificDocument = XDocuments.GetSpecificDocument<XActivityInviteDocument>(XActivityInviteDocument.uuID);
@@ -277,7 +266,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B8A9 RID: 47273 RVA: 0x00253DBC File Offset: 0x00251FBC
 		private bool OnOverOKClick(IXUIButton btn)
 		{
 			DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.SetVisible(false, true);
@@ -294,7 +282,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B8AA RID: 47274 RVA: 0x00253E69 File Offset: 0x00252069
 		private void GotoBuy(uint goodid, int cnt)
 		{
 			this.doc.SendBuyItem(goodid, (uint)cnt);
@@ -302,14 +289,12 @@ namespace XMainClient
 			this.Refresh();
 		}
 
-		// Token: 0x0600B8AB RID: 47275 RVA: 0x00253E88 File Offset: 0x00252088
 		private void OnCntClick(IXUILabel lbl)
 		{
 			this.ResetInput();
 			DlgBase<CalculatorDlg, CalculatorBehaviour>.singleton.Show(new CalculatorKeyBack(this.RefreshByCalculator), new Vector3(84f, -90f, 0f));
 		}
 
-		// Token: 0x0600B8AC RID: 47276 RVA: 0x00253EC0 File Offset: 0x002520C0
 		private void OnBuyAddClick(IXUISprite spr)
 		{
 			bool flag = this.doc.currCIBShop == null;
@@ -370,7 +355,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B8AD RID: 47277 RVA: 0x00254134 File Offset: 0x00252334
 		private void OnBuyReduceClick(IXUISprite spr)
 		{
 			bool flag = this.mCurrCnt > 1;
@@ -385,7 +369,6 @@ namespace XMainClient
 			this.Refresh();
 		}
 
-		// Token: 0x0600B8AE RID: 47278 RVA: 0x00254180 File Offset: 0x00252380
 		private void RefreshByCalculator(CalculatorKey key)
 		{
 			bool flag = key == CalculatorKey.MAX;
@@ -457,13 +440,11 @@ namespace XMainClient
 			this.Refresh();
 		}
 
-		// Token: 0x0600B8AF RID: 47279 RVA: 0x00254370 File Offset: 0x00252570
 		public void ResetCurrCnt()
 		{
 			this.mCurrCnt = 1;
 		}
 
-		// Token: 0x0600B8B0 RID: 47280 RVA: 0x0025437C File Offset: 0x0025257C
 		private bool CheckVIP()
 		{
 			bool flag = DlgBase<GameMallDlg, TabDlgBehaviour>.singleton.mallType == MallType.VIP;
@@ -492,7 +473,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B8B1 RID: 47281 RVA: 0x00254418 File Offset: 0x00252618
 		private void ResetInput()
 		{
 			for (int i = 0; i < this.inputs.Length; i++)
@@ -501,7 +481,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B8B2 RID: 47282 RVA: 0x00254448 File Offset: 0x00252648
 		private int GetInput()
 		{
 			int num = 3;
@@ -524,7 +503,6 @@ namespace XMainClient
 			return num3;
 		}
 
-		// Token: 0x0600B8B3 RID: 47283 RVA: 0x002544D8 File Offset: 0x002526D8
 		private int DelInput(int val)
 		{
 			val /= 10;
@@ -532,7 +510,6 @@ namespace XMainClient
 			return val;
 		}
 
-		// Token: 0x0600B8B4 RID: 47284 RVA: 0x002544FC File Offset: 0x002526FC
 		private void SaveCurrInput(int val)
 		{
 			bool flag = val < 10;
@@ -559,7 +536,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B8B5 RID: 47285 RVA: 0x0025458C File Offset: 0x0025278C
 		private void SetInput(int inp)
 		{
 			for (int i = 0; i < 3; i++)
@@ -573,43 +549,31 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B8B6 RID: 47286 RVA: 0x002545C8 File Offset: 0x002527C8
 		private void PrintInput(string tag)
 		{
 			XSingleton<XDebug>.singleton.AddLog(tag, " " + this.inputs[0], " " + this.inputs[1], " " + this.inputs[2], null, null, XDebugColor.XDebug_None);
 		}
 
-		// Token: 0x04004940 RID: 18752
 		public IXUILabel m_lblBuyCnt;
 
-		// Token: 0x04004941 RID: 18753
 		public IXUISprite m_sprBuyAdd;
 
-		// Token: 0x04004942 RID: 18754
 		public IXUISprite m_sprBuyReduce;
 
-		// Token: 0x04004943 RID: 18755
 		public IXUILabel m_lblPrice;
 
-		// Token: 0x04004944 RID: 18756
 		public IXUIButton m_btnBuy;
 
-		// Token: 0x04004945 RID: 18757
 		public IXUIButton m_btnSmallBuy;
 
-		// Token: 0x04004946 RID: 18758
 		public IXUIButton m_btnPresent;
 
-		// Token: 0x04004947 RID: 18759
 		public IXUISprite m_uiIcon;
 
-		// Token: 0x04004948 RID: 18760
 		private XGameMallDocument doc;
 
-		// Token: 0x04004949 RID: 18761
 		private int mCurrCnt = 1;
 
-		// Token: 0x0400494A RID: 18762
 		private int[] inputs = new int[3];
 	}
 }

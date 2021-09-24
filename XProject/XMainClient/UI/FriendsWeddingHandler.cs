@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020018D3 RID: 6355
+
 	internal class FriendsWeddingHandler : DlgHandlerBase
 	{
-		// Token: 0x17003A65 RID: 14949
-		// (get) Token: 0x06010902 RID: 67842 RVA: 0x004138A0 File Offset: 0x00411AA0
+
 		protected override string FileName
 		{
 			get
@@ -20,7 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010903 RID: 67843 RVA: 0x004138B8 File Offset: 0x00411AB8
 		protected override void Init()
 		{
 			base.Init();
@@ -55,7 +53,6 @@ namespace XMainClient.UI
 			DlgHandlerBase.EnsureCreate<FriendsWeddingPrivilegeHandler>(ref this.m_PrivilegeHandler, this.m_PrivilegeFrame, null, false);
 		}
 
-		// Token: 0x06010904 RID: 67844 RVA: 0x00413CE0 File Offset: 0x00411EE0
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -70,7 +67,6 @@ namespace XMainClient.UI
 			this.m_LoverPrivilegeClose.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnPrivilegeCloseClicked));
 		}
 
-		// Token: 0x06010905 RID: 67845 RVA: 0x00413DD0 File Offset: 0x00411FD0
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -81,21 +77,18 @@ namespace XMainClient.UI
 			this.CheckMarriageLevelUp();
 		}
 
-		// Token: 0x06010906 RID: 67846 RVA: 0x00413E4A File Offset: 0x0041204A
 		protected override void OnHide()
 		{
 			base.Return3DAvatarPool();
 			base.OnHide();
 		}
 
-		// Token: 0x06010907 RID: 67847 RVA: 0x00413E5B File Offset: 0x0041205B
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
 			base.Alloc3DAvatarPool("FriendsWeddingHandler", 1);
 		}
 
-		// Token: 0x06010908 RID: 67848 RVA: 0x00413E72 File Offset: 0x00412072
 		public override void OnUnload()
 		{
 			base.Return3DAvatarPool();
@@ -105,7 +98,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x06010909 RID: 67849 RVA: 0x00413EA4 File Offset: 0x004120A4
 		private void FillContent()
 		{
 			this.m_emptyGo.SetActive(false);
@@ -121,7 +113,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601090A RID: 67850 RVA: 0x00413EF8 File Offset: 0x004120F8
 		public void RefreshUi()
 		{
 			this.m_emptyGo.SetActive(false);
@@ -137,7 +128,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601090B RID: 67851 RVA: 0x00413F48 File Offset: 0x00412148
 		private void FillNoPartner()
 		{
 			this.m_emptyGo.SetActive(true);
@@ -158,7 +148,6 @@ namespace XMainClient.UI
 			this.m_noPartnerTips.SetText(XSingleton<XStringTable>.singleton.GetString("NoWeddingTips"));
 		}
 
-		// Token: 0x0601090C RID: 67852 RVA: 0x0041405C File Offset: 0x0041225C
 		private void FillHadPartner()
 		{
 			this.m_obtainedGo.SetActive(true);
@@ -218,7 +207,6 @@ namespace XMainClient.UI
 			this.RefreshMarriageLevelValue();
 		}
 
-		// Token: 0x0601090D RID: 67853 RVA: 0x00414264 File Offset: 0x00412464
 		private void FillAvataItem(GameObject go, RoleOutLookBrief partner, int count)
 		{
 			bool flag = partner == null || go == null || partner == null;
@@ -239,7 +227,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601090E RID: 67854 RVA: 0x004143C8 File Offset: 0x004125C8
 		private void RefreshAvataData()
 		{
 			int num = 0;
@@ -259,13 +246,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601090F RID: 67855 RVA: 0x0041448C File Offset: 0x0041268C
 		public void RefreshUIRedPoint()
 		{
 			this.m_livenessBtn.gameObject.transform.FindChild("RedPoint").gameObject.SetActive(this.m_doc.IsHadLivenessRedPoint);
 		}
 
-		// Token: 0x06010910 RID: 67856 RVA: 0x004144C0 File Offset: 0x004126C0
 		public void CheckMarriageLevelUp()
 		{
 			bool flag = this.m_doc.MarriageLevelUp > 0;
@@ -284,7 +269,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010911 RID: 67857 RVA: 0x00414530 File Offset: 0x00412730
 		public void RefreshMarriageLevelValue()
 		{
 			bool flag = this.m_doc.MarriageLevel != null;
@@ -310,7 +294,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010912 RID: 67858 RVA: 0x00414674 File Offset: 0x00412874
 		private bool OnClickGoToBtn(IXUIButton btn)
 		{
 			bool flag = this.SetButtonCool(this.m_fCoolTime);
@@ -348,7 +331,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x06010913 RID: 67859 RVA: 0x0041473C File Offset: 0x0041293C
 		private bool OnWeddingTeamBtn(IXUIButton btn)
 		{
 			XTeamDocument specificDocument = XDocuments.GetSpecificDocument<XTeamDocument>(XTeamDocument.uuID);
@@ -356,7 +338,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x06010914 RID: 67860 RVA: 0x00414770 File Offset: 0x00412970
 		private bool OnClickLivenessBtn(IXUIButton btn)
 		{
 			bool flag = this.SetButtonCool(this.m_fCoolTime);
@@ -373,7 +354,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x06010915 RID: 67861 RVA: 0x004147A4 File Offset: 0x004129A4
 		private bool OnClickLevelBtn(IXUIButton btn)
 		{
 			XTeamDocument specificDocument = XDocuments.GetSpecificDocument<XTeamDocument>(XTeamDocument.uuID);
@@ -381,7 +361,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x06010916 RID: 67862 RVA: 0x004147D8 File Offset: 0x004129D8
 		private void OnClickavata(IXUISprite sp)
 		{
 			bool flag = sp == null;
@@ -392,7 +371,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010917 RID: 67863 RVA: 0x00414800 File Offset: 0x00412A00
 		private bool SetButtonCool(float time)
 		{
 			float num = Time.realtimeSinceStartup - this.m_fLastClickBtnTime;
@@ -410,126 +388,92 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x06010918 RID: 67864 RVA: 0x00414838 File Offset: 0x00412A38
 		private bool OnShopClick(IXUIButton btn)
 		{
 			DlgBase<MallSystemDlg, MallSystemBehaviour>.singleton.ShowShopSystem(XSysDefine.XSys_Mall_WeddingLover, 0UL);
 			return true;
 		}
 
-		// Token: 0x06010919 RID: 67865 RVA: 0x00414860 File Offset: 0x00412A60
 		private bool OnCloseValueHelpBtnClicked(IXUIButton btn)
 		{
 			this.m_CloseValueHelpPanel.SetActive(true);
 			return true;
 		}
 
-		// Token: 0x0601091A RID: 67866 RVA: 0x00414880 File Offset: 0x00412A80
 		private bool OnHelpCloseBtnClicked(IXUIButton btn)
 		{
 			this.m_CloseValueHelpPanel.SetActive(false);
 			return true;
 		}
 
-		// Token: 0x0601091B RID: 67867 RVA: 0x004148A0 File Offset: 0x00412AA0
 		private bool OnPrivilegeCloseClicked(IXUIButton btn)
 		{
 			this.m_PrivilegeHandler.SetVisible(false);
 			return false;
 		}
 
-		// Token: 0x0601091C RID: 67868 RVA: 0x004148C0 File Offset: 0x00412AC0
 		private bool OnPrivilegeBtnClicked(IXUIButton btn)
 		{
 			this.m_PrivilegeHandler.SetVisible(true);
 			return true;
 		}
 
-		// Token: 0x04007812 RID: 30738
 		private XWeddingDocument m_doc = XWeddingDocument.Doc;
 
-		// Token: 0x04007813 RID: 30739
 		private IUIDummy[] m_Snapshots = new IUIDummy[XWeddingDocument.MaxAvata];
 
-		// Token: 0x04007814 RID: 30740
 		private float m_fCoolTime = 0.5f;
 
-		// Token: 0x04007815 RID: 30741
 		private float m_fLastClickBtnTime = 0f;
 
-		// Token: 0x04007816 RID: 30742
 		private GameObject m_emptyGo;
 
-		// Token: 0x04007817 RID: 30743
 		private GameObject m_obtainedGo;
 
-		// Token: 0x04007818 RID: 30744
 		private IXUIButton m_gotoBtn;
 
-		// Token: 0x04007819 RID: 30745
 		private IXUILabel m_noPartnerTips;
 
-		// Token: 0x0400781A RID: 30746
 		private IXUILabel m_ruleLab;
 
-		// Token: 0x0400781B RID: 30747
 		private XUIPool m_emptyItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x0400781C RID: 30748
 		private IXUIButton m_ShopBtn;
 
-		// Token: 0x0400781D RID: 30749
 		private IXUIButton m_livenessBtn;
 
-		// Token: 0x0400781E RID: 30750
 		private IXUIButton m_levelBtn;
 
-		// Token: 0x0400781F RID: 30751
 		private IXUILabel m_levelText;
 
-		// Token: 0x04007820 RID: 30752
 		private IXUIButton m_weddingTeamBtn;
 
-		// Token: 0x04007821 RID: 30753
 		private IXUILabel m_buffName;
 
-		// Token: 0x04007822 RID: 30754
 		private XUIPool m_itemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04007823 RID: 30755
 		private IXUILabel m_CloseValue;
 
-		// Token: 0x04007824 RID: 30756
 		private GameObject m_CloseValueMax;
 
-		// Token: 0x04007825 RID: 30757
 		private IXUIButton m_CloseValueHelp;
 
-		// Token: 0x04007826 RID: 30758
 		private IXUIProgress m_CloseValueProgress;
 
-		// Token: 0x04007827 RID: 30759
 		private GameObject m_CloseValueHelpPanel;
 
-		// Token: 0x04007828 RID: 30760
 		private IXUIButton m_HelpClose;
 
-		// Token: 0x04007829 RID: 30761
 		private IXUILabel m_HelpContent;
 
-		// Token: 0x0400782A RID: 30762
 		private IXUILabel m_LoverLevel;
 
-		// Token: 0x0400782B RID: 30763
 		private IXUIButton m_LoverPrivilegeBtn;
 
-		// Token: 0x0400782C RID: 30764
 		private IXUIButton m_LoverPrivilegeClose;
 
-		// Token: 0x0400782D RID: 30765
 		private GameObject m_PrivilegeFrame;
 
-		// Token: 0x0400782E RID: 30766
 		private FriendsWeddingPrivilegeHandler m_PrivilegeHandler;
 	}
 }

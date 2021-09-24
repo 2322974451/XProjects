@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x020009C1 RID: 2497
+
 	internal class XShowGetItemDocument : XDocComponent
 	{
-		// Token: 0x17002D8F RID: 11663
-		// (get) Token: 0x06009747 RID: 38727 RVA: 0x0016F4AC File Offset: 0x0016D6AC
+
 		public override uint ID
 		{
 			get
@@ -21,9 +20,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002D90 RID: 11664
-		// (get) Token: 0x06009748 RID: 38728 RVA: 0x0016F4C4 File Offset: 0x0016D6C4
-		// (set) Token: 0x06009749 RID: 38729 RVA: 0x0016F4DC File Offset: 0x0016D6DC
 		public bool bBlock
 		{
 			get
@@ -46,9 +42,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002D91 RID: 11665
-		// (get) Token: 0x0600974A RID: 38730 RVA: 0x0016F524 File Offset: 0x0016D724
-		// (set) Token: 0x0600974B RID: 38731 RVA: 0x0016F53C File Offset: 0x0016D73C
 		public bool bIgonre
 		{
 			get
@@ -61,7 +54,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600974C RID: 38732 RVA: 0x0016F546 File Offset: 0x0016D746
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
@@ -71,7 +63,6 @@ namespace XMainClient
 			this.ItemFlashList.Clear();
 		}
 
-		// Token: 0x0600974D RID: 38733 RVA: 0x0016F57C File Offset: 0x0016D77C
 		protected override void EventSubscribe()
 		{
 			base.EventSubscribe();
@@ -81,13 +72,11 @@ namespace XMainClient
 			base.RegisterEvent(XEventDefine.XEvent_ItemChangeFinished, new XComponent.XEventHandler(this.OnChangeFinished));
 		}
 
-		// Token: 0x0600974E RID: 38734 RVA: 0x0014E32B File Offset: 0x0014C52B
 		public override void OnEnterScene()
 		{
 			base.OnEnterScene();
 		}
 
-		// Token: 0x0600974F RID: 38735 RVA: 0x0016F5E5 File Offset: 0x0016D7E5
 		public override void OnEnterSceneFinally()
 		{
 			base.OnEnterSceneFinally();
@@ -96,7 +85,6 @@ namespace XMainClient
 			this.CheckScene();
 		}
 
-		// Token: 0x06009750 RID: 38736 RVA: 0x0016F604 File Offset: 0x0016D804
 		public override void OnLeaveScene()
 		{
 			base.OnLeaveScene();
@@ -109,7 +97,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009751 RID: 38737 RVA: 0x0016F650 File Offset: 0x0016D850
 		private bool CampareItems(XEventArgs args)
 		{
 			XAddItemEventArgs xaddItemEventArgs = args as XAddItemEventArgs;
@@ -138,7 +125,6 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x06009752 RID: 38738 RVA: 0x0016F6F8 File Offset: 0x0016D8F8
 		private bool DealwithFlashItems(XAddItemEventArgs arg)
 		{
 			bool flag = false;
@@ -179,7 +165,6 @@ namespace XMainClient
 			return flag;
 		}
 
-		// Token: 0x06009753 RID: 38739 RVA: 0x0016F81C File Offset: 0x0016DA1C
 		protected bool OnAddItem(XEventArgs args)
 		{
 			bool bIgnore = this.m_bIgnore;
@@ -274,7 +259,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009754 RID: 38740 RVA: 0x0016FA39 File Offset: 0x0016DC39
 		public void ClearItemQueue()
 		{
 			this.ItemQueue.Clear();
@@ -284,7 +268,6 @@ namespace XMainClient
 			DlgBase<XShowGetItemUIView, XShowGetItemUIBehaviour>.singleton.isPlaying = false;
 		}
 
-		// Token: 0x06009755 RID: 38741 RVA: 0x0016FA74 File Offset: 0x0016DC74
 		protected bool OnAddVirtualItem(XEventArgs args)
 		{
 			bool bIgnore = this.m_bIgnore;
@@ -361,7 +344,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009756 RID: 38742 RVA: 0x0016FBD8 File Offset: 0x0016DDD8
 		protected bool OnNumChange(XEventArgs args)
 		{
 			bool bIgnore = this.m_bIgnore;
@@ -438,7 +420,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009757 RID: 38743 RVA: 0x0016FD4C File Offset: 0x0016DF4C
 		protected bool OnChangeFinished(XEventArgs args)
 		{
 			bool bDirty = this.m_bDirty;
@@ -470,7 +451,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x06009758 RID: 38744 RVA: 0x0016FE04 File Offset: 0x0016E004
 		private void CheckScene()
 		{
 			bool bBlock = this.m_bBlock;
@@ -493,13 +473,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009759 RID: 38745 RVA: 0x0016FEDF File Offset: 0x0016E0DF
 		private void CheckUIScene(IXUITweenTool tween)
 		{
 			this.CheckUIScene();
 		}
 
-		// Token: 0x0600975A RID: 38746 RVA: 0x0016FEEC File Offset: 0x0016E0EC
 		private void CheckUIScene()
 		{
 			bool flag = XSingleton<XGame>.singleton.CurrentStage.Stage == EXStage.Hall;
@@ -527,7 +505,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600975B RID: 38747 RVA: 0x0016FFA8 File Offset: 0x0016E1A8
 		private void CheckFlashItemScene()
 		{
 			bool flag = XSingleton<XGame>.singleton.CurrentStage.Stage == EXStage.Hall;
@@ -561,7 +538,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600975C RID: 38748 RVA: 0x001700C4 File Offset: 0x0016E2C4
 		public void CheckQueueItem(object o = null)
 		{
 			bool flag = this.ItemQueue.Count != 0 && XSingleton<XGame>.singleton.CurrentStage.Stage == EXStage.Hall;
@@ -612,7 +588,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600975D RID: 38749 RVA: 0x00170250 File Offset: 0x0016E450
 		public uint AddTip(string str)
 		{
 			this.StringQueueID += 1U;
@@ -624,7 +599,6 @@ namespace XMainClient
 			return this.StringQueueID;
 		}
 
-		// Token: 0x0600975E RID: 38750 RVA: 0x001702A8 File Offset: 0x0016E4A8
 		public void EditTip(string str, uint id)
 		{
 			bool flag = !DlgBase<XShowGetItemView, XShowGetItemBehaviour>.singleton.IsVisible();
@@ -634,15 +608,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600975F RID: 38751 RVA: 0x001702D6 File Offset: 0x0016E4D6
 		public void StopShowItem()
 		{
 			XSingleton<XTimerMgr>.singleton.KillTimer(this.ShowItemToken);
 			this.ShowItemToken = 0U;
 		}
 
-		// Token: 0x17002D92 RID: 11666
-		// (get) Token: 0x06009760 RID: 38752 RVA: 0x001702F4 File Offset: 0x0016E4F4
 		public bool IsForbidGetItemUI
 		{
 			get
@@ -652,9 +623,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002D93 RID: 11667
-		// (get) Token: 0x06009761 RID: 38753 RVA: 0x0017032C File Offset: 0x0016E52C
-		// (set) Token: 0x06009762 RID: 38754 RVA: 0x00170344 File Offset: 0x0016E544
 		public bool IsForbidByLua
 		{
 			get
@@ -668,57 +636,41 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009763 RID: 38755 RVA: 0x0017036F File Offset: 0x0016E56F
 		public void SetForbidByLua(bool bFlag)
 		{
 			this._ForbidByLua = bFlag;
 		}
 
-		// Token: 0x06009764 RID: 38756 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 		}
 
-		// Token: 0x040033A6 RID: 13222
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("ShowGetItemDocument");
 
-		// Token: 0x040033A7 RID: 13223
 		public Queue<XItem> ItemQueue = new Queue<XItem>();
 
-		// Token: 0x040033A8 RID: 13224
 		public static Queue<List<XItem>> ItemUIQueue = new Queue<List<XItem>>();
 
-		// Token: 0x040033A9 RID: 13225
 		public List<ItemBrief> ItemFlashList = new List<ItemBrief>();
 
-		// Token: 0x040033AA RID: 13226
 		private Queue<StringTip> StringQueue = new Queue<StringTip>();
 
-		// Token: 0x040033AB RID: 13227
 		private uint StringQueueID;
 
-		// Token: 0x040033AC RID: 13228
 		private bool QueueIsFull = false;
 
-		// Token: 0x040033AD RID: 13229
 		private int ExceedCount = 0;
 
-		// Token: 0x040033AE RID: 13230
 		private uint ShowItemToken;
 
-		// Token: 0x040033AF RID: 13231
 		private bool _ForbidByLua = false;
 
-		// Token: 0x040033B0 RID: 13232
 		private bool m_bBlock;
 
-		// Token: 0x040033B1 RID: 13233
 		private bool m_bIgnore;
 
-		// Token: 0x040033B2 RID: 13234
 		private bool m_bDirty = false;
 
-		// Token: 0x040033B3 RID: 13235
 		private List<XItem> m_ItemList = null;
 	}
 }

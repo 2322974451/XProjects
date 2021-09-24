@@ -4,10 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000D43 RID: 3395
+
 	public class XPostEffectMgr : XSingleton<XPostEffectMgr>
 	{
-		// Token: 0x0600BC07 RID: 48135 RVA: 0x0026BCA0 File Offset: 0x00269EA0
+
 		public void OnEnterScene(uint sceneid)
 		{
 			bool flag = XSingleton<XScene>.singleton.GameCamera.UnityCamera != null;
@@ -45,7 +45,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BC08 RID: 48136 RVA: 0x0026BDC4 File Offset: 0x00269FC4
 		public void OnLeaveScene()
 		{
 			this._radialBlur = null;
@@ -53,7 +52,6 @@ namespace XMainClient
 			this._gausBlur = null;
 		}
 
-		// Token: 0x0600BC09 RID: 48137 RVA: 0x0026BDDC File Offset: 0x00269FDC
 		public void MakeEffectEnable(XPostEffect effect, bool enabled)
 		{
 			bool quality = XQualitySetting.GetQuality(EFun.ECamera);
@@ -89,13 +87,10 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04004C4A RID: 19530
 		private XRadialBlur _radialBlur;
 
-		// Token: 0x04004C4B RID: 19531
 		private XBlackWhite _blackWhite;
 
-		// Token: 0x04004C4C RID: 19532
 		private XGausBlur _gausBlur;
 	}
 }

@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001892 RID: 6290
+
 	internal class CharacterItemBagHandler : DlgHandlerBase
 	{
-		// Token: 0x170039DC RID: 14812
-		// (get) Token: 0x060105F4 RID: 67060 RVA: 0x003FC8BC File Offset: 0x003FAABC
+
 		private XItemMorePowerfulTipMgr newItemMgr
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170039DD RID: 14813
-		// (get) Token: 0x060105F5 RID: 67061 RVA: 0x003FC8D8 File Offset: 0x003FAAD8
 		private XItemMorePowerfulTipMgr redPointMgr
 		{
 			get
@@ -31,8 +28,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170039DE RID: 14814
-		// (get) Token: 0x060105F6 RID: 67062 RVA: 0x003FC8F4 File Offset: 0x003FAAF4
 		public XWheelOfFortuneHandler WheelOfFortune
 		{
 			get
@@ -41,8 +36,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170039DF RID: 14815
-		// (get) Token: 0x060105F7 RID: 67063 RVA: 0x003FC90C File Offset: 0x003FAB0C
 		protected override string FileName
 		{
 			get
@@ -51,7 +44,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060105F8 RID: 67064 RVA: 0x003FC924 File Offset: 0x003FAB24
 		protected override void Init()
 		{
 			base.Init();
@@ -71,14 +63,12 @@ namespace XMainClient.UI
 			this.m_expandBagBtn.gameObject.SetActive(expandItemConfByType != null);
 		}
 
-		// Token: 0x060105F9 RID: 67065 RVA: 0x003FCA9D File Offset: 0x003FAC9D
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			this.m_expandBagBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnBagExpandClicked));
 		}
 
-		// Token: 0x060105FA RID: 67066 RVA: 0x003FCABF File Offset: 0x003FACBF
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -86,7 +76,6 @@ namespace XMainClient.UI
 			this.FillTabs();
 		}
 
-		// Token: 0x060105FB RID: 67067 RVA: 0x003FCAE0 File Offset: 0x003FACE0
 		protected override void OnHide()
 		{
 			this.m_bagWindow.OnHide();
@@ -97,7 +86,6 @@ namespace XMainClient.UI
 			base.OnHide();
 		}
 
-		// Token: 0x060105FC RID: 67068 RVA: 0x003FCB36 File Offset: 0x003FAD36
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
@@ -105,7 +93,6 @@ namespace XMainClient.UI
 			this.UpdateTabRedDot();
 		}
 
-		// Token: 0x060105FD RID: 67069 RVA: 0x003FCB4E File Offset: 0x003FAD4E
 		public override void OnUnload()
 		{
 			DlgHandlerBase.EnsureUnload<XWheelOfFortuneHandler>(ref this._WheelOfFortune);
@@ -113,7 +100,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x060105FE RID: 67070 RVA: 0x003FCB74 File Offset: 0x003FAD74
 		private void FillTabs()
 		{
 			this.m_tabTplPool.ReturnAll(false);
@@ -155,7 +141,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060105FF RID: 67071 RVA: 0x003FCD32 File Offset: 0x003FAF32
 		private void FillContent()
 		{
 			this.RefreshBag();
@@ -163,7 +148,6 @@ namespace XMainClient.UI
 			this.m_doc.NewItems.bCanClear = true;
 		}
 
-		// Token: 0x06010600 RID: 67072 RVA: 0x003FCD5B File Offset: 0x003FAF5B
 		private void RefreshBag()
 		{
 			this.m_bagWindow.ChangeData(new ItemUpdateHandler(this.WrapContentItemUpdated), new GetItemHandler(this.m_doc.GetItem));
@@ -171,14 +155,12 @@ namespace XMainClient.UI
 			this.SetBagNum();
 		}
 
-		// Token: 0x06010601 RID: 67073 RVA: 0x003FCD9A File Offset: 0x003FAF9A
 		public void Refresh()
 		{
 			this.m_bagWindow.RefreshWindow();
 			this.SetBagNum();
 		}
 
-		// Token: 0x06010602 RID: 67074 RVA: 0x003FCDB0 File Offset: 0x003FAFB0
 		public void UpdateBag()
 		{
 			this.itemBtnDic.Clear();
@@ -186,7 +168,6 @@ namespace XMainClient.UI
 			this.SetBagNum();
 		}
 
-		// Token: 0x06010603 RID: 67075 RVA: 0x003FCDD4 File Offset: 0x003FAFD4
 		public void UpdateTabRedDot()
 		{
 			bool flag = this.m_tabReddotDic == null;
@@ -216,7 +197,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010604 RID: 67076 RVA: 0x003FCEA0 File Offset: 0x003FB0A0
 		private void SetBagNum()
 		{
 			int totalNum = this.m_doc.GetTotalNum();
@@ -244,7 +224,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010605 RID: 67077 RVA: 0x003FCF68 File Offset: 0x003FB168
 		private void WrapContentItemUpdated(Transform t, int index)
 		{
 			IXUISprite ixuisprite = t.FindChild("Icon").GetComponent("XUISprite") as IXUISprite;
@@ -294,13 +273,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010606 RID: 67078 RVA: 0x003FD142 File Offset: 0x003FB342
 		public void AddItem(List<XItem> items)
 		{
 			this.m_bagWindow.UpdateBag();
 		}
 
-		// Token: 0x06010607 RID: 67079 RVA: 0x003FD154 File Offset: 0x003FB354
 		public void RemoveItem(List<ulong> uids)
 		{
 			this.UpdateBag();
@@ -319,13 +296,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010608 RID: 67080 RVA: 0x003FD1E8 File Offset: 0x003FB3E8
 		public void ItemNumChanged(XItem item)
 		{
 			this.m_bagWindow.UpdateItem(item);
 		}
 
-		// Token: 0x06010609 RID: 67081 RVA: 0x003FD1F8 File Offset: 0x003FB3F8
 		public void UpdateItem(XItem item)
 		{
 			EquipList.RowData equipConf = XBagDocument.GetEquipConf(item.itemID);
@@ -346,7 +321,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601060A RID: 67082 RVA: 0x003FD274 File Offset: 0x003FB474
 		public void RefreshTips(ulong uid)
 		{
 			IXUISprite ixuisprite;
@@ -381,7 +355,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601060B RID: 67083 RVA: 0x003FD338 File Offset: 0x003FB538
 		private void _OnItemClicked(IXUISprite iSp)
 		{
 			XItem itemByUID = XSingleton<XGame>.singleton.Doc.XBagDoc.GetItemByUID(iSp.ID);
@@ -397,14 +370,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601060C RID: 67084 RVA: 0x003FD39C File Offset: 0x003FB59C
 		public bool OnBagExpandClicked(IXUIButton button)
 		{
 			XBagDocument.BagDoc.UseBagExpandTicket(BagType.ItemBag);
 			return true;
 		}
 
-		// Token: 0x0601060D RID: 67085 RVA: 0x003FD3BC File Offset: 0x003FB5BC
 		private bool OnTabTooggleClicked(IXUICheckBox cb)
 		{
 			bool flag = !cb.bChecked;
@@ -422,31 +393,22 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x04007620 RID: 30240
 		private XCharacterItemDocument m_doc;
 
-		// Token: 0x04007621 RID: 30241
 		private IXUILabel m_bagNumLab;
 
-		// Token: 0x04007622 RID: 30242
 		private IXUIButton m_helpBtn;
 
-		// Token: 0x04007623 RID: 30243
 		private IXUIButton m_expandBagBtn;
 
-		// Token: 0x04007624 RID: 30244
 		private XBagWindow m_bagWindow;
 
-		// Token: 0x04007625 RID: 30245
 		private XWheelOfFortuneHandler _WheelOfFortune;
 
-		// Token: 0x04007626 RID: 30246
 		private XUIPool m_tabTplPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04007627 RID: 30247
 		private Dictionary<uint, GameObject> m_tabReddotDic = new Dictionary<uint, GameObject>();
 
-		// Token: 0x04007628 RID: 30248
 		private Dictionary<ulong, IXUISprite> itemBtnDic = new Dictionary<ulong, IXUISprite>();
 	}
 }

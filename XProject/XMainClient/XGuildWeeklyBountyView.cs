@@ -9,11 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000A5F RID: 2655
+
 	internal class XGuildWeeklyBountyView : DlgBase<XGuildWeeklyBountyView, XGuildWeeklyBountyBehavior>
 	{
-		// Token: 0x17002F13 RID: 12051
-		// (get) Token: 0x0600A0FC RID: 41212 RVA: 0x001B0E68 File Offset: 0x001AF068
+
 		public override string fileName
 		{
 			get
@@ -22,8 +21,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002F14 RID: 12052
-		// (get) Token: 0x0600A0FD RID: 41213 RVA: 0x001B0E80 File Offset: 0x001AF080
 		public override bool autoload
 		{
 			get
@@ -32,8 +29,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002F15 RID: 12053
-		// (get) Token: 0x0600A0FE RID: 41214 RVA: 0x001B0E94 File Offset: 0x001AF094
 		public override bool pushstack
 		{
 			get
@@ -42,8 +37,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002F16 RID: 12054
-		// (get) Token: 0x0600A0FF RID: 41215 RVA: 0x001B0EA8 File Offset: 0x001AF0A8
 		public override int sysid
 		{
 			get
@@ -52,19 +45,16 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A100 RID: 41216 RVA: 0x001B0EBF File Offset: 0x001AF0BF
 		protected override void OnLoad()
 		{
 			base.OnLoad();
 		}
 
-		// Token: 0x0600A101 RID: 41217 RVA: 0x001B0EC9 File Offset: 0x001AF0C9
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 		}
 
-		// Token: 0x0600A102 RID: 41218 RVA: 0x001B0ED4 File Offset: 0x001AF0D4
 		protected override void OnUnload()
 		{
 			bool flag = this._refreshTaskEffect != null;
@@ -80,21 +70,18 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x0600A103 RID: 41219 RVA: 0x001B0F27 File Offset: 0x001AF127
 		protected override void Init()
 		{
 			base.Init();
 			this.InitProperties();
 		}
 
-		// Token: 0x0600A104 RID: 41220 RVA: 0x001B0F38 File Offset: 0x001AF138
 		protected override void OnHide()
 		{
 			this._curSelectIndex = 0U;
 			base.OnHide();
 		}
 
-		// Token: 0x0600A105 RID: 41221 RVA: 0x001B0F4C File Offset: 0x001AF14C
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -112,7 +99,6 @@ namespace XMainClient
 			XGuildWeeklyBountyDocument.Doc.SendGetWeeklyTaskInfo();
 		}
 
-		// Token: 0x0600A106 RID: 41222 RVA: 0x001B0FB8 File Offset: 0x001AF1B8
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
@@ -130,7 +116,6 @@ namespace XMainClient
 			XGuildWeeklyBountyDocument.Doc.SendGetWeeklyTaskInfo();
 		}
 
-		// Token: 0x0600A107 RID: 41223 RVA: 0x001B1024 File Offset: 0x001AF224
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
@@ -158,7 +143,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A108 RID: 41224 RVA: 0x001B10DE File Offset: 0x001AF2DE
 		public void RefreshUI()
 		{
 			this.RefreshMailInfo();
@@ -166,7 +150,6 @@ namespace XMainClient
 			this.RefreshChestList();
 		}
 
-		// Token: 0x0600A109 RID: 41225 RVA: 0x001B10F8 File Offset: 0x001AF2F8
 		public void RefreshTaskItem()
 		{
 			GuildWeeklyTaskInfo taskInfoByIndex = XGuildWeeklyBountyDocument.Doc.GetTaskInfoByIndex(this._curSelectIndex);
@@ -259,7 +242,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A10A RID: 41226 RVA: 0x001B16FC File Offset: 0x001AF8FC
 		public void PlayRefreshEffect()
 		{
 			bool flag = this._refreshTaskEffect != null;
@@ -270,7 +252,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A10B RID: 41227 RVA: 0x001B1750 File Offset: 0x001AF950
 		public void PlayCompleteEffect()
 		{
 			bool flag = this._completedTaskEffect != null;
@@ -281,7 +262,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A10C RID: 41228 RVA: 0x001B17A4 File Offset: 0x001AF9A4
 		public void RefreshTaskItemALL()
 		{
 			bool flag = this._selectCheck != null;
@@ -301,7 +281,6 @@ namespace XMainClient
 			this.RefreshTaskItem();
 		}
 
-		// Token: 0x0600A10D RID: 41229 RVA: 0x001B1898 File Offset: 0x001AFA98
 		public void RefreshChestList()
 		{
 			List<uint> chestValueList = XGuildWeeklyBountyDocument.Doc.ChestValueList;
@@ -334,7 +313,6 @@ namespace XMainClient
 			base.uiBehaviour.CurrentValueLabel.SetText(XStringDefineProxy.GetString("WeeklyTaskTotalScore") + XGuildWeeklyBountyDocument.Doc.WeeklyScore);
 		}
 
-		// Token: 0x0600A10E RID: 41230 RVA: 0x001B1990 File Offset: 0x001AFB90
 		private void InitProperties()
 		{
 			base.uiBehaviour.RefreshBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnRefreshTasks));
@@ -355,19 +333,16 @@ namespace XMainClient
 			base.uiBehaviour.GetBtn.gameObject.SetActive(false);
 		}
 
-		// Token: 0x0600A10F RID: 41231 RVA: 0x001B1B38 File Offset: 0x001AFD38
 		private bool OnShowCommonHelpView(IXUIButton button)
 		{
 			DlgBase<XCommonHelpTipView, XCommonHelpTipBehaviour>.singleton.ShowHelp(XSysDefine.XSys_GuildWeeklyBountyTask);
 			return true;
 		}
 
-		// Token: 0x0600A110 RID: 41232 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		private void OnMailWrapContentInit(Transform itemTransform, int index)
 		{
 		}
 
-		// Token: 0x0600A111 RID: 41233 RVA: 0x001B1B5C File Offset: 0x001AFD5C
 		private bool OnSelectMailInfoItem(IXUICheckBox iXUICheckBox)
 		{
 			bool bChecked = iXUICheckBox.bChecked;
@@ -379,7 +354,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600A112 RID: 41234 RVA: 0x001B1BB0 File Offset: 0x001AFDB0
 		private bool OnClickSendGrateFulBtn(IXUIButton button)
 		{
 			List<TaskHelpInfo> taskHelpInfoList = XGuildWeeklyBountyDocument.Doc.TaskHelpInfoList;
@@ -437,7 +411,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A113 RID: 41235 RVA: 0x001B1DB4 File Offset: 0x001AFFB4
 		private void OnCloseMailView(IXUISprite uiSprite)
 		{
 			base.uiBehaviour.MailRoot.gameObject.SetActive(false);
@@ -446,14 +419,12 @@ namespace XMainClient
 			this._hasSendedIndex.Clear();
 		}
 
-		// Token: 0x0600A114 RID: 41236 RVA: 0x001B1DF8 File Offset: 0x001AFFF8
 		private bool OnCloseView(IXUIButton button)
 		{
 			this.SetVisible(false, true);
 			return true;
 		}
 
-		// Token: 0x0600A115 RID: 41237 RVA: 0x001B1E14 File Offset: 0x001B0014
 		private void SetOpBtnState(GuildWeeklyTaskInfo selectTaskinfo, DailyTask.RowData taskInfo)
 		{
 			bool flag = taskInfo.tasktype == 1U || taskInfo.tasktype == 4U;
@@ -508,7 +479,6 @@ namespace XMainClient
 			base.uiBehaviour.CommitBtnRedpoint.SetActive(!selectTaskinfo.isRewarded && selectTaskinfo.step >= taskInfo.conditionNum);
 		}
 
-		// Token: 0x0600A116 RID: 41238 RVA: 0x001B1F94 File Offset: 0x001B0194
 		private bool OnSummitTaskItem(IXUIButton button)
 		{
 			bool flag = this._curSelectIndex >= 0U;
@@ -588,7 +558,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600A117 RID: 41239 RVA: 0x001B2210 File Offset: 0x001B0410
 		private void onSummitItemID(uint number)
 		{
 			bool flag = this._curSelectIndex >= 0U;
@@ -615,7 +584,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A118 RID: 41240 RVA: 0x001B22E0 File Offset: 0x001B04E0
 		private void OnSelectQualityItem(List<ulong> itemList)
 		{
 			bool flag = itemList.Count > 0;
@@ -625,7 +593,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A119 RID: 41241 RVA: 0x001B2310 File Offset: 0x001B0510
 		private bool OnAskWeeklyHelp(IXUIButton button)
 		{
 			uint taskID = (uint)button.ID;
@@ -633,7 +600,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600A11A RID: 41242 RVA: 0x001B2338 File Offset: 0x001B0538
 		private bool OnGetTaskItem(IXUIButton button)
 		{
 			GuildWeeklyTaskInfo taskInfoByIndex = XGuildWeeklyBountyDocument.Doc.GetTaskInfoByIndex(this._curSelectIndex);
@@ -683,7 +649,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A11B RID: 41243 RVA: 0x001B247C File Offset: 0x001B067C
 		private bool OnRefreshTasks(IXUIButton button)
 		{
 			uint num = (uint)button.ID;
@@ -704,7 +669,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600A11C RID: 41244 RVA: 0x001B24F0 File Offset: 0x001B06F0
 		private bool ConfirmToRefresh(IXUIButton button)
 		{
 			XSingleton<UiUtility>.singleton.CloseModalDlg();
@@ -712,7 +676,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600A11D RID: 41245 RVA: 0x001B2518 File Offset: 0x001B0718
 		private void ToRefreshTask()
 		{
 			GuildWeeklyTaskInfo taskInfoByIndex = XGuildWeeklyBountyDocument.Doc.GetTaskInfoByIndex(this._curSelectIndex);
@@ -740,7 +703,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A11E RID: 41246 RVA: 0x001B25CC File Offset: 0x001B07CC
 		private void UpdateChestItem(GameObject chestItem, int index)
 		{
 			List<uint> chestValueList = XGuildWeeklyBountyDocument.Doc.ChestValueList;
@@ -785,7 +747,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A11F RID: 41247 RVA: 0x001B276C File Offset: 0x001B096C
 		private void OnClickedChestBox(IXUISprite uiSprite)
 		{
 			uint num = (uint)uiSprite.ID;
@@ -820,7 +781,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A120 RID: 41248 RVA: 0x001B28A0 File Offset: 0x001B0AA0
 		public void RefreshTaskList(bool init = true)
 		{
 			List<GuildWeeklyTaskInfo> curGuildWeeklyTaskList = XGuildWeeklyBountyDocument.Doc.CurGuildWeeklyTaskList;
@@ -891,7 +851,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A121 RID: 41249 RVA: 0x001B2C08 File Offset: 0x001B0E08
 		private bool OnSelectBountyItem(IXUICheckBox iXUICheckBox)
 		{
 			bool bChecked = iXUICheckBox.bChecked;
@@ -904,7 +863,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600A122 RID: 41250 RVA: 0x001B2C40 File Offset: 0x001B0E40
 		private void RefreshMailInfo()
 		{
 			List<TaskHelpInfo> taskHelpInfoList = XGuildWeeklyBountyDocument.Doc.TaskHelpInfoList;
@@ -921,7 +879,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A123 RID: 41251 RVA: 0x001B2CC4 File Offset: 0x001B0EC4
 		private void OnMailWrapContentUpdate(Transform itemTransform, int index)
 		{
 			List<TaskHelpInfo> taskHelpInfoList = XGuildWeeklyBountyDocument.Doc.TaskHelpInfoList;
@@ -945,25 +902,18 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x040039E8 RID: 14824
 		private const int colNum = 4;
 
-		// Token: 0x040039E9 RID: 14825
 		private uint _curSelectIndex = 0U;
 
-		// Token: 0x040039EA RID: 14826
 		private IXUICheckBox _selectCheck;
 
-		// Token: 0x040039EB RID: 14827
 		private List<int> _hasSendedIndex = new List<int>();
 
-		// Token: 0x040039EC RID: 14828
 		private int _curSelectMailIndex = 0;
 
-		// Token: 0x040039ED RID: 14829
 		private XFx _refreshTaskEffect;
 
-		// Token: 0x040039EE RID: 14830
 		private XFx _completedTaskEffect;
 	}
 }

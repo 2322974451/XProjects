@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x020009ED RID: 2541
+
 	internal class XRankDocument : XDocComponent
 	{
-		// Token: 0x17002E37 RID: 11831
-		// (get) Token: 0x06009B66 RID: 39782 RVA: 0x0018C59C File Offset: 0x0018A79C
+
 		public override uint ID
 		{
 			get
@@ -19,9 +18,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002E38 RID: 11832
-		// (get) Token: 0x06009B67 RID: 39783 RVA: 0x0018C5B4 File Offset: 0x0018A7B4
-		// (set) Token: 0x06009B68 RID: 39784 RVA: 0x0018C5CC File Offset: 0x0018A7CC
 		public XRankView View
 		{
 			get
@@ -34,8 +30,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002E39 RID: 11833
-		// (get) Token: 0x06009B69 RID: 39785 RVA: 0x0018C5D8 File Offset: 0x0018A7D8
 		public static XRankDocument Doc
 		{
 			get
@@ -44,8 +38,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002E3A RID: 11834
-		// (get) Token: 0x06009B6A RID: 39786 RVA: 0x0018C604 File Offset: 0x0018A804
 		public XBaseRankList PPTRankList
 		{
 			get
@@ -54,8 +46,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002E3B RID: 11835
-		// (get) Token: 0x06009B6B RID: 39787 RVA: 0x0018C61C File Offset: 0x0018A81C
 		public XBaseRankList LevelRankList
 		{
 			get
@@ -64,8 +54,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002E3C RID: 11836
-		// (get) Token: 0x06009B6C RID: 39788 RVA: 0x0018C634 File Offset: 0x0018A834
 		public XBaseRankList FashionRankList
 		{
 			get
@@ -74,8 +62,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002E3D RID: 11837
-		// (get) Token: 0x06009B6D RID: 39789 RVA: 0x0018C64C File Offset: 0x0018A84C
 		public XGuildRankList GuildRankList
 		{
 			get
@@ -84,8 +70,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002E3E RID: 11838
-		// (get) Token: 0x06009B6E RID: 39790 RVA: 0x0018C664 File Offset: 0x0018A864
 		public XDragonGuildRankList DragonRankList
 		{
 			get
@@ -94,8 +78,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002E3F RID: 11839
-		// (get) Token: 0x06009B6F RID: 39791 RVA: 0x0018C67C File Offset: 0x0018A87C
 		public XTeamTowerRankList TowerRankList
 		{
 			get
@@ -104,8 +86,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002E40 RID: 11840
-		// (get) Token: 0x06009B70 RID: 39792 RVA: 0x0018C694 File Offset: 0x0018A894
 		public XGuildBossRankList GuildBossRankList
 		{
 			get
@@ -114,8 +94,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002E41 RID: 11841
-		// (get) Token: 0x06009B71 RID: 39793 RVA: 0x0018C6AC File Offset: 0x0018A8AC
 		public XPetRankList PetRankList
 		{
 			get
@@ -124,8 +102,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002E42 RID: 11842
-		// (get) Token: 0x06009B72 RID: 39794 RVA: 0x0018C6C4 File Offset: 0x0018A8C4
 		public XBigMeleeRankList BigMeleeRankList
 		{
 			get
@@ -134,8 +110,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002E43 RID: 11843
-		// (get) Token: 0x06009B73 RID: 39795 RVA: 0x0018C6DC File Offset: 0x0018A8DC
 		public XSkyArenaList SkyArenaList
 		{
 			get
@@ -144,8 +118,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002E44 RID: 11844
-		// (get) Token: 0x06009B74 RID: 39796 RVA: 0x0018C6F4 File Offset: 0x0018A8F4
 		public XQualifyingRankList QualifyingRankList
 		{
 			get
@@ -154,8 +126,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002E45 RID: 11845
-		// (get) Token: 0x06009B75 RID: 39797 RVA: 0x0018C70C File Offset: 0x0018A90C
 		public XQualifyingRankList LastWeekQualifyingRankList
 		{
 			get
@@ -164,8 +134,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002E46 RID: 11846
-		// (get) Token: 0x06009B76 RID: 39798 RVA: 0x0018C724 File Offset: 0x0018A924
 		public XLeagueTeamRankList LastWeekLeagueTeamRankList
 		{
 			get
@@ -174,8 +142,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002E47 RID: 11847
-		// (get) Token: 0x06009B77 RID: 39799 RVA: 0x0018C73C File Offset: 0x0018A93C
 		public XRiftRankList RiftRankList
 		{
 			get
@@ -184,7 +150,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009B78 RID: 39800 RVA: 0x0018C754 File Offset: 0x0018A954
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
@@ -229,7 +194,6 @@ namespace XMainClient
 			this._RankDic.Add(XRankType.CampDuelRankRight, this._CampDuelRankRightList);
 		}
 
-		// Token: 0x06009B79 RID: 39801 RVA: 0x0018C9C0 File Offset: 0x0018ABC0
 		public XBaseRankList GetRankList(XRankType type)
 		{
 			XBaseRankList xbaseRankList;
@@ -246,7 +210,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009B7A RID: 39802 RVA: 0x0018C9EC File Offset: 0x0018ABEC
 		public void ReqPetUnitAppearance(ulong roleid, ulong petUID)
 		{
 			RpcC2M_GetUnitAppearanceNew rpcC2M_GetUnitAppearanceNew = new RpcC2M_GetUnitAppearanceNew();
@@ -257,7 +220,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_GetUnitAppearanceNew);
 		}
 
-		// Token: 0x06009B7B RID: 39803 RVA: 0x0018CA4C File Offset: 0x0018AC4C
 		public void ReqUnitAppearance(ulong id)
 		{
 			RpcC2M_GetUnitAppearanceNew rpcC2M_GetUnitAppearanceNew = new RpcC2M_GetUnitAppearanceNew();
@@ -267,7 +229,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_GetUnitAppearanceNew);
 		}
 
-		// Token: 0x06009B7C RID: 39804 RVA: 0x0018CA98 File Offset: 0x0018AC98
 		public void OnGetUnitAppearance(GetUnitAppearanceRes oRes)
 		{
 			bool flag = oRes.UnitAppearance == null;
@@ -281,7 +242,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009B7D RID: 39805 RVA: 0x0018CAE0 File Offset: 0x0018ACE0
 		public void ReqRankList(XRankType type)
 		{
 			XBaseRankList rankList = this.GetRankList(type);
@@ -299,7 +259,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009B7E RID: 39806 RVA: 0x0018CB60 File Offset: 0x0018AD60
 		public void OnGetRankList(ClientQueryRankListRes oRes)
 		{
 			XRankType xtype = XBaseRankList.GetXType((RankeType)oRes.RankType);
@@ -348,7 +307,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009B7F RID: 39807 RVA: 0x0018CC6C File Offset: 0x0018AE6C
 		public void ReqDragonGuildRankList()
 		{
 			RpcC2M_FetchDragonGuildList rpcC2M_FetchDragonGuildList = new RpcC2M_FetchDragonGuildList();
@@ -359,7 +317,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_FetchDragonGuildList);
 		}
 
-		// Token: 0x06009B80 RID: 39808 RVA: 0x0018CCC8 File Offset: 0x0018AEC8
 		public void ReqMysteriourRanklist()
 		{
 			RpcC2M_ClientQueryRankListNtf rpcC2M_ClientQueryRankListNtf = new RpcC2M_ClientQueryRankListNtf();
@@ -367,7 +324,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_ClientQueryRankListNtf);
 		}
 
-		// Token: 0x06009B81 RID: 39809 RVA: 0x0018CCFC File Offset: 0x0018AEFC
 		public void ReqGuildRankList()
 		{
 			RpcC2M_ReqGuildList rpcC2M_ReqGuildList = new RpcC2M_ReqGuildList();
@@ -378,7 +334,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_ReqGuildList);
 		}
 
-		// Token: 0x06009B82 RID: 39810 RVA: 0x0018CD54 File Offset: 0x0018AF54
 		public void ReqGuildBossRankList()
 		{
 			RpcC2M_ClientQueryRankListNtf rpcC2M_ClientQueryRankListNtf = new RpcC2M_ClientQueryRankListNtf();
@@ -387,7 +342,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_ClientQueryRankListNtf);
 		}
 
-		// Token: 0x06009B83 RID: 39811 RVA: 0x0018CDA0 File Offset: 0x0018AFA0
 		public void ReqQualifyingRankList()
 		{
 			RpcC2M_ClientQueryRankListNtf rpcC2M_ClientQueryRankListNtf = new RpcC2M_ClientQueryRankListNtf();
@@ -397,7 +351,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_ClientQueryRankListNtf);
 		}
 
-		// Token: 0x06009B84 RID: 39812 RVA: 0x0018CDF0 File Offset: 0x0018AFF0
 		public void ReqLastWeekQualifyingRankList()
 		{
 			RpcC2M_ClientQueryRankListNtf rpcC2M_ClientQueryRankListNtf = new RpcC2M_ClientQueryRankListNtf();
@@ -407,7 +360,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_ClientQueryRankListNtf);
 		}
 
-		// Token: 0x06009B85 RID: 39813 RVA: 0x0018CE40 File Offset: 0x0018B040
 		public void OnGetDragonGuildList(FetchDragonGuildListArg oArg, FetchDragonGuildRes oRes)
 		{
 			this.currentSelectRankList = this._DragonGuildRankList.type;
@@ -420,7 +372,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009B86 RID: 39814 RVA: 0x0018CEAC File Offset: 0x0018B0AC
 		public static void ProcessSelfRankData(List<DragonGuildInfo> data, XDragonGuildRankList rank)
 		{
 			XDragonGuildDocument doc = XDragonGuildDocument.Doc;
@@ -447,7 +398,6 @@ namespace XMainClient
 			rank.myRankInfo = null;
 		}
 
-		// Token: 0x06009B87 RID: 39815 RVA: 0x0018CF78 File Offset: 0x0018B178
 		public static void ProcessRankListData(List<DragonGuildInfo> data, XDragonGuildRankList rank)
 		{
 			int num = Math.Max(rank.rankList.Count, data.Count);
@@ -468,7 +418,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009B88 RID: 39816 RVA: 0x0018D058 File Offset: 0x0018B258
 		public void OnGetGuildList(FetchGuildListArg oArg, FetchGuildListRes oRes)
 		{
 			this.currentSelectRankList = this._GuildRankList.type;
@@ -481,7 +430,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009B89 RID: 39817 RVA: 0x0018D0C4 File Offset: 0x0018B2C4
 		private static bool ContainsRole(ulong roleid, XBaseRankList rank)
 		{
 			bool flag = rank != null && rank.rankList != null;
@@ -499,7 +447,6 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x06009B8A RID: 39818 RVA: 0x0018D128 File Offset: 0x0018B328
 		public static void ProcessRankListData(RankList data, XBaseRankList rank)
 		{
 			bool flag = rank.type == XRankType.RiftRank;
@@ -554,7 +501,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009B8B RID: 39819 RVA: 0x0018D364 File Offset: 0x0018B564
 		public static void ProcessRankListData(List<GuildInfo> data, XGuildRankList rank)
 		{
 			int num = Math.Max(rank.rankList.Count, data.Count);
@@ -575,7 +521,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009B8C RID: 39820 RVA: 0x0018D444 File Offset: 0x0018B644
 		public static void ProcessRankListData(List<MayhemRankInfo> data, XBigMeleeRankList rank)
 		{
 			int num = Math.Max(rank.rankList.Count, data.Count);
@@ -596,7 +541,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009B8D RID: 39821 RVA: 0x0018D524 File Offset: 0x0018B724
 		public static void ProcessSelfRankData(ClientQueryRankListRes oRes, XBaseRankList rank)
 		{
 			bool flag = oRes.RoleRankData != null;
@@ -617,7 +561,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009B8E RID: 39822 RVA: 0x0018D59C File Offset: 0x0018B79C
 		public static void ProcessSelfRankData(List<GuildInfo> data, XGuildRankList rank)
 		{
 			XGuildDocument specificDocument = XDocuments.GetSpecificDocument<XGuildDocument>(XGuildDocument.uuID);
@@ -644,7 +587,6 @@ namespace XMainClient
 			rank.myRankInfo = null;
 		}
 
-		// Token: 0x06009B8F RID: 39823 RVA: 0x0018D670 File Offset: 0x0018B870
 		public void SelectItem(uint index)
 		{
 			this.currentSelectIndex = index;
@@ -680,84 +622,58 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009B90 RID: 39824 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 		}
 
-		// Token: 0x040035C2 RID: 13762
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("RankDocument");
 
-		// Token: 0x040035C3 RID: 13763
 		public static readonly uint INVALID_RANK = uint.MaxValue;
 
-		// Token: 0x040035C4 RID: 13764
 		private XRankView _view = null;
 
-		// Token: 0x040035C5 RID: 13765
 		private XPPTRankList _PPTRankList;
 
-		// Token: 0x040035C6 RID: 13766
 		private XLevelRankList _LevelRankList;
 
-		// Token: 0x040035C7 RID: 13767
 		private XFashionRankList _FashionRankList;
 
-		// Token: 0x040035C8 RID: 13768
 		private XGuildRankList _GuildRankList;
 
-		// Token: 0x040035C9 RID: 13769
 		private XDragonGuildRankList _DragonGuildRankList;
 
-		// Token: 0x040035CA RID: 13770
 		private XTeamTowerRankList _TowerRankList;
 
-		// Token: 0x040035CB RID: 13771
 		private XGuildBossRankList _GuildBossRankList;
 
-		// Token: 0x040035CC RID: 13772
 		private XWorldBossDamageRankList _WorldBossRankList;
 
-		// Token: 0x040035CD RID: 13773
 		private XPetRankList _PetRankList;
 
-		// Token: 0x040035CE RID: 13774
 		private XSpriteRankList _SpriteRankList;
 
-		// Token: 0x040035CF RID: 13775
 		private XQualifyingRankList _QualifyingRankList;
 
-		// Token: 0x040035D0 RID: 13776
 		private XLeagueTeamRankList _LeagueTeamRankList;
 
-		// Token: 0x040035D1 RID: 13777
 		private XRiftRankList _RiftRankList;
 
-		// Token: 0x040035D2 RID: 13778
 		private XCampDuelRankLeftList _CampDuelRankLeftList;
 
-		// Token: 0x040035D3 RID: 13779
 		private XCampDuelRankRightList _CampDuelRankRightList;
 
-		// Token: 0x040035D4 RID: 13780
 		private XLeagueTeamRankList _LastWeekLeagueTeamRankList;
 
-		// Token: 0x040035D5 RID: 13781
 		private XQualifyingRankList _LastWeekQualifyingRankList;
 
-		// Token: 0x040035D6 RID: 13782
 		private XBigMeleeRankList _BigMeleeRankList;
 
-		// Token: 0x040035D7 RID: 13783
 		private XSkyArenaList _XSkyArenaList;
 
-		// Token: 0x040035D8 RID: 13784
 		public XRankType currentSelectRankList = XRankType.PPTRank;
 
-		// Token: 0x040035D9 RID: 13785
 		public uint currentSelectIndex = 0U;
 
-		// Token: 0x040035DA RID: 13786
 		private Dictionary<XRankType, XBaseRankList> _RankDic = new Dictionary<XRankType, XBaseRankList>(default(XFastEnumIntEqualityComparer<XRankType>));
 	}
 }

@@ -4,16 +4,15 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000A97 RID: 2711
+
 	internal class XEquipSuitManager
 	{
-		// Token: 0x0600A4EF RID: 42223 RVA: 0x001CA673 File Offset: 0x001C8873
+
 		public XEquipSuitManager(EquipSuitTable.RowData[] datas)
 		{
 			this.equipSuitTable = datas;
 		}
 
-		// Token: 0x0600A4F0 RID: 42224 RVA: 0x001CA68C File Offset: 0x001C888C
 		public EquipSuitTable.RowData GetSuit(int equipid, bool bConsiderOtherProf = false)
 		{
 			int basicTypeID = (int)XSingleton<XAttributeMgr>.singleton.XPlayerData.BasicTypeID;
@@ -59,7 +58,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x0600A4F1 RID: 42225 RVA: 0x001CA7C0 File Offset: 0x001C89C0
 		public EquipSuitTable.RowData GetSuitBySuitId(int suitId)
 		{
 			for (int i = 0; i < this.equipSuitTable.Length; i++)
@@ -73,7 +71,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x0600A4F2 RID: 42226 RVA: 0x001CA80C File Offset: 0x001C8A0C
 		public bool WillChangeEquipedCount(int suitItemID, int newItemID)
 		{
 			EquipSuitTable.RowData suit = this.GetSuit(suitItemID, false);
@@ -81,7 +78,6 @@ namespace XMainClient
 			return flag && !XEquipSuitManager.ContainEquip(suit, newItemID);
 		}
 
-		// Token: 0x0600A4F3 RID: 42227 RVA: 0x001CA840 File Offset: 0x001C8A40
 		public static bool ContainEquip(EquipSuitTable.RowData row, int itemID)
 		{
 			bool flag = row.EquipID != null;
@@ -99,13 +95,11 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x0600A4F4 RID: 42228 RVA: 0x001CA890 File Offset: 0x001C8A90
 		public static int GetEffectDataCount()
 		{
 			return 11;
 		}
 
-		// Token: 0x0600A4F5 RID: 42229 RVA: 0x001CA8A4 File Offset: 0x001C8AA4
 		public static int GetEffectData(EquipSuitTable.RowData row, int index, out int effect1)
 		{
 			int result;
@@ -159,14 +153,12 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A4F6 RID: 42230 RVA: 0x001CAA3C File Offset: 0x001C8C3C
 		public static bool IsEffectJustActivated(EquipSuitTable.RowData row, int equipCount)
 		{
 			int num = 0;
 			return XEquipSuitManager.GetEffectData(row, equipCount, out num) != 0;
 		}
 
-		// Token: 0x0600A4F7 RID: 42231 RVA: 0x001CAA5C File Offset: 0x001C8C5C
 		public static int GetEquipedSuits(EquipSuitTable.RowData row, XBodyBag equipsOnBody, List<int> pos)
 		{
 			int num = 0;
@@ -201,7 +193,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A4F8 RID: 42232 RVA: 0x001CAAE4 File Offset: 0x001C8CE4
 		public static bool WillChangeEquipedCount(EquipSuitTable.RowData row, int itemid, XBodyBag equipsOnBody)
 		{
 			EquipList.RowData equipConf = XBagDocument.GetEquipConf(itemid);
@@ -220,7 +211,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x04003C1D RID: 15389
 		private EquipSuitTable.RowData[] equipSuitTable = null;
 	}
 }

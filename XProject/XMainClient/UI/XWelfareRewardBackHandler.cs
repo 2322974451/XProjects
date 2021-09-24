@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020018F0 RID: 6384
+
 	internal class XWelfareRewardBackHandler : DlgHandlerBase
 	{
-		// Token: 0x17003A86 RID: 14982
-		// (get) Token: 0x06010A1C RID: 68124 RVA: 0x0041D6F8 File Offset: 0x0041B8F8
+
 		protected override string FileName
 		{
 			get
@@ -21,7 +20,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010A1D RID: 68125 RVA: 0x0041D710 File Offset: 0x0041B910
 		protected override void Init()
 		{
 			base.Init();
@@ -50,7 +48,6 @@ namespace XMainClient.UI
 			this.mNumberInput = (base.PanelObject.transform.FindChild("PanelHint/Count").GetComponent("XUIInput") as IXUIInput);
 		}
 
-		// Token: 0x06010A1E RID: 68126 RVA: 0x0041DACC File Offset: 0x0041BCCC
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -61,7 +58,6 @@ namespace XMainClient.UI
 			int.TryParse(XSingleton<XGlobalConfig>.singleton.GetValue("FindBackTicketExchangeDragon"), out this.mBackItem2DragonCoin);
 		}
 
-		// Token: 0x06010A1F RID: 68127 RVA: 0x0041DB20 File Offset: 0x0041BD20
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -77,13 +73,11 @@ namespace XMainClient.UI
 			this.mNumberInput.RegisterChangeEventHandler(new InputChangeEventHandler(this.InputChangeEventHandler));
 		}
 
-		// Token: 0x06010A20 RID: 68128 RVA: 0x0041DC14 File Offset: 0x0041BE14
 		private int compare(ItemFindBackInfo2Client a, ItemFindBackInfo2Client b)
 		{
 			return b.dayTime.CompareTo(a.dayTime);
 		}
 
-		// Token: 0x06010A21 RID: 68129 RVA: 0x0041DC3C File Offset: 0x0041BE3C
 		private int compareids(int a, int b)
 		{
 			bool flag = this.mFindBackInfo[a].maxfindback == 0 && this.mFindBackInfo[b].maxfindback == 0;
@@ -178,7 +172,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x06010A22 RID: 68130 RVA: 0x0041DEAC File Offset: 0x0041C0AC
 		private void InitBackData()
 		{
 			bool flag = this._doc == null;
@@ -309,7 +302,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010A23 RID: 68131 RVA: 0x0041E520 File Offset: 0x0041C720
 		public bool HasRedPoint()
 		{
 			List<int> list = new List<int>(this.mFindBackInfo.Keys);
@@ -350,7 +342,6 @@ namespace XMainClient.UI
 			return false;
 		}
 
-		// Token: 0x06010A24 RID: 68132 RVA: 0x0041E630 File Offset: 0x0041C830
 		public override void RefreshData()
 		{
 			this.InitBackData();
@@ -540,7 +531,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010A25 RID: 68133 RVA: 0x0041EEA0 File Offset: 0x0041D0A0
 		public void OnFindTypeClick(IXUISprite sp)
 		{
 			bool flag = sp.ID == 1UL;
@@ -556,13 +546,11 @@ namespace XMainClient.UI
 			this.mScrollView.SetPosition(0f);
 		}
 
-		// Token: 0x06010A26 RID: 68134 RVA: 0x0041EEE8 File Offset: 0x0041D0E8
 		public void OnCloseFindBorad(IXUISprite sp)
 		{
 			this.mPanelHint.SetVisible(false);
 		}
 
-		// Token: 0x06010A27 RID: 68135 RVA: 0x0041EEF8 File Offset: 0x0041D0F8
 		private int GetFindBackCost(FindBackData data, bool isdragoncoin)
 		{
 			int num = 0;
@@ -580,7 +568,6 @@ namespace XMainClient.UI
 			return num;
 		}
 
-		// Token: 0x06010A28 RID: 68136 RVA: 0x0041EF5C File Offset: 0x0041D15C
 		private bool HasExpFindBack(FindBackData data)
 		{
 			List<int> list = new List<int>(data.goldItemCount.Keys);
@@ -599,7 +586,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x06010A29 RID: 68137 RVA: 0x0041EFBC File Offset: 0x0041D1BC
 		private bool HasDiceBack(FindBackData data)
 		{
 			List<int> list = new List<int>(data.goldItemCount.Keys);
@@ -618,7 +604,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x06010A2A RID: 68138 RVA: 0x0041F01C File Offset: 0x0041D21C
 		private void InitFindBackItem()
 		{
 			this.mRewardItemPool.FakeReturnAll();
@@ -679,7 +664,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010A2B RID: 68139 RVA: 0x0041F2E0 File Offset: 0x0041D4E0
 		private bool TryFindBack(IXUIButton btn)
 		{
 			this.mFindID = (int)btn.ID;
@@ -702,7 +686,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x06010A2C RID: 68140 RVA: 0x0041F398 File Offset: 0x0041D598
 		private int GetCurCost()
 		{
 			int num = 0;
@@ -739,7 +722,6 @@ namespace XMainClient.UI
 			return num;
 		}
 
-		// Token: 0x06010A2D RID: 68141 RVA: 0x0041F518 File Offset: 0x0041D718
 		public int GetSingleFindBackNum()
 		{
 			bool flag = this.mIsNormalFind;
@@ -764,7 +746,6 @@ namespace XMainClient.UI
 			return 0;
 		}
 
-		// Token: 0x06010A2E RID: 68142 RVA: 0x0041F5A8 File Offset: 0x0041D7A8
 		private void RefreshFindInfo()
 		{
 			this.mFindBackNum.SetText(this.mWanFindNum.ToString());
@@ -792,7 +773,6 @@ namespace XMainClient.UI
 			this.InitFindBackItem();
 		}
 
-		// Token: 0x06010A2F RID: 68143 RVA: 0x0041F69C File Offset: 0x0041D89C
 		private bool SubFindCount(IXUIButton btn)
 		{
 			this.mWanFindNum--;
@@ -806,7 +786,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x06010A30 RID: 68144 RVA: 0x0041F6F4 File Offset: 0x0041D8F4
 		private bool AddFindCount(IXUIButton btn)
 		{
 			this.mWanFindNum++;
@@ -885,7 +864,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x06010A31 RID: 68145 RVA: 0x0041F9B4 File Offset: 0x0041DBB4
 		private bool DoFindBack(IXUIButton btn)
 		{
 			bool flag = this.mWanFindNum == 0;
@@ -991,7 +969,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x06010A32 RID: 68146 RVA: 0x0041FD6C File Offset: 0x0041DF6C
 		private bool GetFatigueSure(IXUIButton btn)
 		{
 			this.mPanelHint.SetVisible(false);
@@ -1004,7 +981,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x06010A33 RID: 68147 RVA: 0x0041FDFC File Offset: 0x0041DFFC
 		public bool OnDoBuy(IXUIButton btn)
 		{
 			RpcC2G_ItemFindBack rpcC2G_ItemFindBack = new RpcC2G_ItemFindBack();
@@ -1017,7 +993,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x06010A34 RID: 68148 RVA: 0x0041FE8C File Offset: 0x0041E08C
 		public bool OnCencelBuy(IXUIButton btn)
 		{
 			DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.SetVisible(false, true);
@@ -1025,27 +1000,23 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x06010A35 RID: 68149 RVA: 0x0041FEBC File Offset: 0x0041E0BC
 		private bool CancelFindBack(IXUIButton btn)
 		{
 			this.mPanelHint.SetVisible(false);
 			return true;
 		}
 
-		// Token: 0x06010A36 RID: 68150 RVA: 0x0041FEDC File Offset: 0x0041E0DC
 		private void WarningFatigeFull(IXUISprite sp)
 		{
 			XSingleton<UiUtility>.singleton.ShowSystemTip(XSingleton<XStringTable>.singleton.GetString("WELFARE_FATIGE_ERROR"), "fece00");
 		}
 
-		// Token: 0x06010A37 RID: 68151 RVA: 0x0041FF00 File Offset: 0x0041E100
 		private void ShowItemTip(IXUISprite sp)
 		{
 			XItem mainItem = XBagDocument.MakeXItem((int)sp.ID, false);
 			XSingleton<UiUtility>.singleton.ShowTooltipDialog(mainItem, null, sp, false, 0U);
 		}
 
-		// Token: 0x06010A38 RID: 68152 RVA: 0x0041FF2C File Offset: 0x0041E12C
 		private void InputChangeEventHandler(IXUIInput input)
 		{
 			bool flag = this.mCurData == null;
@@ -1094,106 +1065,72 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0400790D RID: 30989
 		private IXUILabel mTipName;
 
-		// Token: 0x0400790E RID: 30990
 		private IXUIPanel mPanelHint;
 
-		// Token: 0x0400790F RID: 30991
 		private IXUISprite mTemplate;
 
-		// Token: 0x04007910 RID: 30992
 		private IXUISprite mNormalFind;
 
-		// Token: 0x04007911 RID: 30993
 		private IXUISprite mPerfectFind;
 
-		// Token: 0x04007912 RID: 30994
 		private bool mIsNormalFind = false;
 
-		// Token: 0x04007913 RID: 30995
 		private bool mIsToolFind = false;
 
-		// Token: 0x04007914 RID: 30996
 		private IXUISprite mCloseDoFind;
 
-		// Token: 0x04007915 RID: 30997
 		private IXUIScrollView mScrollView;
 
-		// Token: 0x04007916 RID: 30998
 		private IXUISprite mButtonsContent;
 
-		// Token: 0x04007917 RID: 30999
 		private IXUISprite mAilin;
 
-		// Token: 0x04007918 RID: 31000
 		private IXUILabel mFindBackName;
 
-		// Token: 0x04007919 RID: 31001
 		private IXUILabel mFindBackInfoLabel;
 
-		// Token: 0x0400791A RID: 31002
 		private IXUILabel mFindBackNum;
 
-		// Token: 0x0400791B RID: 31003
 		private IXUIButton mFindBackSub;
 
-		// Token: 0x0400791C RID: 31004
 		private IXUIButton mFindBackAdd;
 
-		// Token: 0x0400791D RID: 31005
 		private IXUILabel mCostNum;
 
-		// Token: 0x0400791E RID: 31006
 		private IXUISprite mMoneyType;
 
-		// Token: 0x0400791F RID: 31007
 		private IXUIButton mDoFindBack;
 
-		// Token: 0x04007920 RID: 31008
 		private IXUIButton mCancelFindBack;
 
-		// Token: 0x04007921 RID: 31009
 		private IXUISprite mItemTemplate;
 
-		// Token: 0x04007922 RID: 31010
 		private IXUIInput mNumberInput;
 
-		// Token: 0x04007923 RID: 31011
 		private XUIPool mRewardBackPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04007924 RID: 31012
 		private XUIPool mRewardItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04007925 RID: 31013
 		private Dictionary<int, FindBackData> mFindBackInfo = new Dictionary<int, FindBackData>();
 
-		// Token: 0x04007926 RID: 31014
 		private XWelfareDocument _doc;
 
-		// Token: 0x04007927 RID: 31015
 		private int mWanFindNum = 0;
 
-		// Token: 0x04007928 RID: 31016
 		private int mFindMax = 0;
 
-		// Token: 0x04007929 RID: 31017
 		private int mFindID = 0;
 
-		// Token: 0x0400792A RID: 31018
 		private FindBackData mCurData = null;
 
-		// Token: 0x0400792B RID: 31019
 		private int mMaxFatige = 225000;
 
-		// Token: 0x0400792C RID: 31020
 		private int mFullFatige = 200000;
 
-		// Token: 0x0400792D RID: 31021
 		private bool mHasInfo = false;
 
-		// Token: 0x0400792E RID: 31022
 		private int mBackItem2DragonCoin = 5;
 	}
 }

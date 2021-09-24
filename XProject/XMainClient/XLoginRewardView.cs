@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000F02 RID: 3842
+
 	internal class XLoginRewardView : DlgHandlerBase
 	{
-		// Token: 0x1700358F RID: 13711
-		// (get) Token: 0x0600CC14 RID: 52244 RVA: 0x002EDAAC File Offset: 0x002EBCAC
+
 		protected override string FileName
 		{
 			get
@@ -21,7 +20,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC15 RID: 52245 RVA: 0x002EDAC4 File Offset: 0x002EBCC4
 		protected override void Init()
 		{
 			base.Init();
@@ -44,14 +42,12 @@ namespace XMainClient
 			this.m_WXGameCenter = base.PanelObject.transform.Find("Wechat").gameObject;
 		}
 
-		// Token: 0x0600CC16 RID: 52246 RVA: 0x002EDCEB File Offset: 0x002EBEEB
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			this.criticalConfirmOK.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCriticalBtnOKClicked));
 		}
 
-		// Token: 0x0600CC17 RID: 52247 RVA: 0x002EDD10 File Offset: 0x002EBF10
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -62,28 +58,24 @@ namespace XMainClient
 			this.RefreshPlatformAbilityInfo();
 		}
 
-		// Token: 0x0600CC18 RID: 52248 RVA: 0x002EDD65 File Offset: 0x002EBF65
 		protected override void OnHide()
 		{
 			base.OnHide();
 			this.m_Fx.SetActive(false);
 		}
 
-		// Token: 0x0600CC19 RID: 52249 RVA: 0x002EDD7C File Offset: 0x002EBF7C
 		public void ShowTQFx()
 		{
 			this.m_Fx.SetActive(false);
 			this.m_Fx.SetActive(true);
 		}
 
-		// Token: 0x0600CC1A RID: 52250 RVA: 0x002EDD99 File Offset: 0x002EBF99
 		private void RefreshPlatformAbilityInfo()
 		{
 			this.RefreshQQVipInfo();
 			this.RefreshQQWXGameCenterInfo();
 		}
 
-		// Token: 0x0600CC1B RID: 52251 RVA: 0x002EDDAC File Offset: 0x002EBFAC
 		private void RefreshQQVipInfo()
 		{
 			QQVipInfoClient qqvipInfo = XPlatformAbilityDocument.Doc.QQVipInfo;
@@ -112,7 +104,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC1C RID: 52252 RVA: 0x002EDF00 File Offset: 0x002EC100
 		private void RefreshQQWXGameCenterInfo()
 		{
 			StartUpType launchTypeServerInfo = XSingleton<XLoginDocument>.singleton.GetLaunchTypeServerInfo();
@@ -166,7 +157,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC1D RID: 52253 RVA: 0x002EE164 File Offset: 0x002EC364
 		public override void OnUnload()
 		{
 			bool flag = this._doc != null;
@@ -177,7 +167,6 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x0600CC1E RID: 52254 RVA: 0x002EE194 File Offset: 0x002EC394
 		public void RefreshPage()
 		{
 			List<uint> itemIDs = this._doc.ItemIDs;
@@ -226,7 +215,6 @@ namespace XMainClient
 			this.RefreshStates();
 		}
 
-		// Token: 0x0600CC1F RID: 52255 RVA: 0x002EE454 File Offset: 0x002EC654
 		public void RefreshStates()
 		{
 			uint dayChecked = this._doc.DayChecked;
@@ -270,7 +258,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC20 RID: 52256 RVA: 0x002EE624 File Offset: 0x002EC824
 		private void _canResign(GameObject go, bool can)
 		{
 			GameObject gameObject = go.transform.FindChild("ReSign").gameObject;
@@ -284,7 +271,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC21 RID: 52257 RVA: 0x002EE664 File Offset: 0x002EC864
 		private void _updateItemState(GameObject go, int index, uint daychecked, uint daycancheck, bool todaySigned)
 		{
 			GameObject gameObject = go.transform.FindChild("Cover").gameObject;
@@ -333,7 +319,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC22 RID: 52258 RVA: 0x002EE7A0 File Offset: 0x002EC9A0
 		private void _updateItemBasicInfo(GameObject go, uint itemID, uint itemCount, int index)
 		{
 			GameObject gameObject = go.transform.FindChild("Bg/Item").gameObject;
@@ -353,7 +338,6 @@ namespace XMainClient
 			XSingleton<XItemDrawerMgr>.singleton.normalItemDrawer.DrawItem(gameObject, (int)itemID, (int)itemCount, false);
 		}
 
-		// Token: 0x0600CC23 RID: 52259 RVA: 0x002EE858 File Offset: 0x002ECA58
 		private bool OnCheckClicked(IXUIButton iSp)
 		{
 			uint dayChecked = this._doc.DayChecked;
@@ -380,7 +364,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600CC24 RID: 52260 RVA: 0x002EE92C File Offset: 0x002ECB2C
 		private void OnItemClicked(IXUISprite iSp)
 		{
 			uint dayChecked = this._doc.DayChecked;
@@ -399,7 +382,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC25 RID: 52261 RVA: 0x002EE9A8 File Offset: 0x002ECBA8
 		private bool OnResignBtnOKClicked(IXUIButton btn)
 		{
 			XSingleton<UiUtility>.singleton.CloseModalDlg();
@@ -407,7 +389,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600CC26 RID: 52262 RVA: 0x002EE9D4 File Offset: 0x002ECBD4
 		public void SignTweenPlay()
 		{
 			IXUITweenTool ixuitweenTool = base.PanelObject.transform.FindChild("SignPlayTween").GetComponent("XUIPlayTween") as IXUITweenTool;
@@ -421,7 +402,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC27 RID: 52263 RVA: 0x002EEA60 File Offset: 0x002ECC60
 		private bool OnCriticalBtnOKClicked(IXUIButton btn)
 		{
 			this.criticalConfirmPanel.SetActive(false);
@@ -429,7 +409,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600CC28 RID: 52264 RVA: 0x002EEA90 File Offset: 0x002ECC90
 		public void ShowCritical()
 		{
 			IXUILabel ixuilabel = this.criticalConfirmPanel.transform.FindChild("P/Times0").GetComponent("XUILabel") as IXUILabel;
@@ -441,7 +420,6 @@ namespace XMainClient
 			this.PlayCritical();
 		}
 
-		// Token: 0x0600CC29 RID: 52265 RVA: 0x002EEB8C File Offset: 0x002ECD8C
 		public void PlayCritical()
 		{
 			this.inputBlocker.SetActive(true);
@@ -450,61 +428,43 @@ namespace XMainClient
 			XSingleton<XTimerMgr>.singleton.SetTimer(1f, new XTimerMgr.ElapsedEventHandler(this._OnFinishPlayCriticalFx), null);
 		}
 
-		// Token: 0x0600CC2A RID: 52266 RVA: 0x002EEBF6 File Offset: 0x002ECDF6
 		private void _OnFinishPlayCriticalFx(object o = null)
 		{
 			this.criticalConfirmPanel.SetActive(true);
 		}
 
-		// Token: 0x04005A9D RID: 23197
 		public XUIPool m_LoginItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04005A9E RID: 23198
 		private List<GameObject> m_LoginItemList = new List<GameObject>();
 
-		// Token: 0x04005A9F RID: 23199
 		private XLoginRewardDocument _doc = null;
 
-		// Token: 0x04005AA0 RID: 23200
 		private XWelfareDocument _welfDoc = null;
 
-		// Token: 0x04005AA1 RID: 23201
 		private GameObject criticalConfirmPanel;
 
-		// Token: 0x04005AA2 RID: 23202
 		private IXUIButton criticalConfirmOK;
 
-		// Token: 0x04005AA3 RID: 23203
 		private XFx criticalEffect;
 
-		// Token: 0x04005AA4 RID: 23204
 		private GameObject inputBlocker;
 
-		// Token: 0x04005AA5 RID: 23205
 		private IXUIScrollView itemListPanel;
 
-		// Token: 0x04005AA6 RID: 23206
 		private GameObject m_TQTips;
 
-		// Token: 0x04005AA7 RID: 23207
 		private GameObject m_Fx;
 
-		// Token: 0x04005AA8 RID: 23208
 		private GameObject m_QQVipIcon;
 
-		// Token: 0x04005AA9 RID: 23209
 		private GameObject m_QQSVipIcon;
 
-		// Token: 0x04005AAA RID: 23210
 		private IXUILabelSymbol m_QQVipTip;
 
-		// Token: 0x04005AAB RID: 23211
 		private GameObject m_QQGameCenter;
 
-		// Token: 0x04005AAC RID: 23212
 		private GameObject m_WXGameCenter;
 
-		// Token: 0x04005AAD RID: 23213
 		private static readonly int COLUMN = 5;
 	}
 }

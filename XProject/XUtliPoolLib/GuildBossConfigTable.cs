@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x02000104 RID: 260
+
 	public class GuildBossConfigTable : CVSReader
 	{
-		// Token: 0x06000686 RID: 1670 RVA: 0x0001FBD0 File Offset: 0x0001DDD0
+
 		public GuildBossConfigTable.RowData GetByBossID(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -21,7 +21,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000687 RID: 1671 RVA: 0x0001FC08 File Offset: 0x0001DE08
 		private GuildBossConfigTable.RowData BinarySearchBossID(uint key)
 		{
 			int num = 0;
@@ -80,7 +79,6 @@ namespace XUtliPoolLib
 			return null;
 		}
 
-		// Token: 0x06000688 RID: 1672 RVA: 0x0001FCE4 File Offset: 0x0001DEE4
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			GuildBossConfigTable.RowData rowData = new GuildBossConfigTable.RowData();
@@ -104,7 +102,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x06000689 RID: 1673 RVA: 0x0001FDE0 File Offset: 0x0001DFE0
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -118,34 +115,25 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x04000350 RID: 848
 		public GuildBossConfigTable.RowData[] Table = null;
 
-		// Token: 0x02000303 RID: 771
 		public class RowData
 		{
-			// Token: 0x04000B32 RID: 2866
+
 			public uint BossID;
 
-			// Token: 0x04000B33 RID: 2867
 			public uint EnemyID;
 
-			// Token: 0x04000B34 RID: 2868
 			public float LifePercent;
 
-			// Token: 0x04000B35 RID: 2869
 			public string BossName;
 
-			// Token: 0x04000B36 RID: 2870
 			public SeqListRef<uint> FirsttKillReward;
 
-			// Token: 0x04000B37 RID: 2871
 			public SeqListRef<uint> JoinReward;
 
-			// Token: 0x04000B38 RID: 2872
 			public SeqListRef<uint> KillReward;
 
-			// Token: 0x04000B39 RID: 2873
 			public string WinCutScene;
 		}
 	}

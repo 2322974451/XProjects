@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x020000B5 RID: 181
+
 	public class BackflowActivity : CVSReader
 	{
-		// Token: 0x06000546 RID: 1350 RVA: 0x00017554 File Offset: 0x00015754
+
 		public BackflowActivity.RowData GetByTaskId(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -21,7 +21,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000547 RID: 1351 RVA: 0x0001758C File Offset: 0x0001578C
 		private BackflowActivity.RowData BinarySearchTaskId(uint key)
 		{
 			int num = 0;
@@ -80,7 +79,6 @@ namespace XUtliPoolLib
 			return null;
 		}
 
-		// Token: 0x06000548 RID: 1352 RVA: 0x00017668 File Offset: 0x00015868
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			BackflowActivity.RowData rowData = new BackflowActivity.RowData();
@@ -96,7 +94,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x06000549 RID: 1353 RVA: 0x000176FC File Offset: 0x000158FC
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -110,22 +107,17 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x040002DB RID: 731
 		public BackflowActivity.RowData[] Table = null;
 
-		// Token: 0x020002B3 RID: 691
 		public class RowData
 		{
-			// Token: 0x0400090A RID: 2314
+
 			public uint Type;
 
-			// Token: 0x0400090B RID: 2315
 			public uint TaskId;
 
-			// Token: 0x0400090C RID: 2316
 			public SeqRef<uint> WorldLevel;
 
-			// Token: 0x0400090D RID: 2317
 			public uint Point;
 		}
 	}

@@ -4,11 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x020008CA RID: 2250
+
 	internal class ArtifactSuitMgr
 	{
-		// Token: 0x17002A95 RID: 10901
-		// (get) Token: 0x0600881F RID: 34847 RVA: 0x00118D88 File Offset: 0x00116F88
+
 		public List<ArtifactSuit> Suits
 		{
 			get
@@ -17,7 +16,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008820 RID: 34848 RVA: 0x00118DA0 File Offset: 0x00116FA0
 		public ArtifactSuitMgr(ArtifactSuitTable.RowData[] datas)
 		{
 			foreach (ArtifactSuitTable.RowData rowData in datas)
@@ -49,7 +47,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008821 RID: 34849 RVA: 0x00118F8C File Offset: 0x0011718C
 		public ArtifactSuit GetSuitByArtifactId(uint artifactId)
 		{
 			for (int i = 0; i < this.m_Suits.Count; i++)
@@ -63,7 +60,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x06008822 RID: 34850 RVA: 0x00118FE8 File Offset: 0x001171E8
 		public ArtifactSuit GetSuitBySuitId(uint suitId)
 		{
 			for (int i = 0; i < this.m_Suits.Count; i++)
@@ -77,7 +73,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x06008823 RID: 34851 RVA: 0x00119040 File Offset: 0x00117240
 		public bool WillChangeEquipedCount(int suitItemID, int newItemID)
 		{
 			ArtifactSuit suitByArtifactId = this.GetSuitByArtifactId((uint)suitItemID);
@@ -85,7 +80,6 @@ namespace XMainClient
 			return !flag && suitByArtifactId.WillChangeEquipedCount(newItemID, suitItemID);
 		}
 
-		// Token: 0x04002AF2 RID: 10994
 		private List<ArtifactSuit> m_Suits = new List<ArtifactSuit>();
 	}
 }

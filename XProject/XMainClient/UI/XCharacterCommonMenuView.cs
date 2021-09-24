@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200182A RID: 6186
+
 	internal class XCharacterCommonMenuView : DlgBase<XCharacterCommonMenuView, XCharacterCommonMenuBehaviour>
 	{
-		// Token: 0x17003927 RID: 14631
-		// (get) Token: 0x060100F0 RID: 65776 RVA: 0x003D45D8 File Offset: 0x003D27D8
+
 		public override string fileName
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003928 RID: 14632
-		// (get) Token: 0x060100F1 RID: 65777 RVA: 0x003D45F0 File Offset: 0x003D27F0
 		public override bool autoload
 		{
 			get
@@ -31,8 +28,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003929 RID: 14633
-		// (get) Token: 0x060100F2 RID: 65778 RVA: 0x003D4604 File Offset: 0x003D2804
 		public override bool isHideChat
 		{
 			get
@@ -41,8 +36,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700392A RID: 14634
-		// (get) Token: 0x060100F3 RID: 65779 RVA: 0x003D4618 File Offset: 0x003D2818
 		public override bool isHideTutorial
 		{
 			get
@@ -51,7 +44,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060100F4 RID: 65780 RVA: 0x003D462C File Offset: 0x003D282C
 		protected override void Init()
 		{
 			base.Init();
@@ -61,20 +53,17 @@ namespace XMainClient.UI
 			this._pastTime = 0f;
 		}
 
-		// Token: 0x060100F5 RID: 65781 RVA: 0x003D467D File Offset: 0x003D287D
 		protected override void OnUnload()
 		{
 			base.uiBehaviour.playerView = null;
 			base.OnUnload();
 		}
 
-		// Token: 0x060100F6 RID: 65782 RVA: 0x003D4693 File Offset: 0x003D2893
 		public void SetupMenuFilter(int filterValue)
 		{
 			this.charactorCommonMenuFilter = filterValue;
 		}
 
-		// Token: 0x060100F7 RID: 65783 RVA: 0x003D46A0 File Offset: 0x003D28A0
 		public override void RegisterEvent()
 		{
 			base.Init();
@@ -83,7 +72,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.btnExchange.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnExchangeBtnClick));
 		}
 
-		// Token: 0x060100F8 RID: 65784 RVA: 0x003D470C File Offset: 0x003D290C
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -92,7 +80,6 @@ namespace XMainClient.UI
 			this.FillBtn();
 		}
 
-		// Token: 0x060100F9 RID: 65785 RVA: 0x003D4748 File Offset: 0x003D2948
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
@@ -109,7 +96,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060100FA RID: 65786 RVA: 0x003D47A8 File Offset: 0x003D29A8
 		public void ShowMenu(UnitAppearance unitInfo)
 		{
 			bool flag = !base.IsVisible();
@@ -152,19 +138,16 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060100FB RID: 65787 RVA: 0x003D49D1 File Offset: 0x003D2BD1
 		public void RefreshBtns()
 		{
 			this.FillBtn();
 		}
 
-		// Token: 0x060100FC RID: 65788 RVA: 0x003D49DB File Offset: 0x003D2BDB
 		public void SetBlock()
 		{
 			this._bBlock = DlgBase<XFriendsView, XFriendsBehaviour>.singleton.IsBlock(this._roleID);
 		}
 
-		// Token: 0x060100FD RID: 65789 RVA: 0x003D49F4 File Offset: 0x003D2BF4
 		private void SetPlayerInfo()
 		{
 			base.uiBehaviour.playerView.uidLab.SetText(string.Format("UID:{0}", this._roleShortID));
@@ -182,7 +165,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.btnExchange.SetVisible(XSingleton<XScene>.singleton.SceneType == SceneType.SCENE_GUILD_HALL && specificDocument.ActivityState);
 		}
 
-		// Token: 0x060100FE RID: 65790 RVA: 0x003D4BB0 File Offset: 0x003D2DB0
 		private void FillBtn()
 		{
 			base.uiBehaviour.m_btntemPool.ReturnAll(true);
@@ -240,7 +222,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060100FF RID: 65791 RVA: 0x003D4E64 File Offset: 0x003D3064
 		public bool IsShow(uint type)
 		{
 			switch (type)
@@ -276,7 +257,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x06010100 RID: 65792 RVA: 0x003D4F84 File Offset: 0x003D3184
 		private void UpdateOnlineState(Transform trans, uint lastlogin)
 		{
 			GameObject gameObject = trans.Find("Online").gameObject;
@@ -285,21 +265,18 @@ namespace XMainClient.UI
 			ixuilabel.SetText(string.Empty);
 		}
 
-		// Token: 0x06010101 RID: 65793 RVA: 0x003D4FD8 File Offset: 0x003D31D8
 		private bool OnClose(IXUIButton sprClose)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x06010102 RID: 65794 RVA: 0x003D4FF4 File Offset: 0x003D31F4
 		private bool OnSendFlower(IXUIButton go)
 		{
 			DlgBase<XFlowerSendView, XFlowerSendBehaviour>.singleton.ShowBoard(this._roleID, this._roleName);
 			return true;
 		}
 
-		// Token: 0x06010103 RID: 65795 RVA: 0x003D5020 File Offset: 0x003D3220
 		private bool OnExchangeBtnClick(IXUIButton btn)
 		{
 			RpcC2G_GuildCampPartyReqExchange rpcC2G_GuildCampPartyReqExchange = new RpcC2G_GuildCampPartyReqExchange();
@@ -308,7 +285,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x06010104 RID: 65796 RVA: 0x003D5058 File Offset: 0x003D3258
 		private bool OnClickBtn(IXUIButton button)
 		{
 			ulong id = button.ID;
@@ -359,7 +335,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x06010105 RID: 65797 RVA: 0x003D5128 File Offset: 0x003D3328
 		private bool OnClickView(IXUIButton btn)
 		{
 			DlgBase<XOtherPlayerInfoView, XOtherPlayerInfoBehaviour>.singleton.SetPlayerInfo(this._roleID, this._roleName, this._setid, this._powerPoint, this._profession);
@@ -367,7 +342,6 @@ namespace XMainClient.UI
 			return DlgBase<XOtherPlayerInfoView, XOtherPlayerInfoBehaviour>.singleton.ShowDetailInfo(btn);
 		}
 
-		// Token: 0x06010106 RID: 65798 RVA: 0x003D517C File Offset: 0x003D337C
 		private bool OnDeleteFriendClicked()
 		{
 			bool flag = XPartnerDocument.Doc.IsMyPartner(this._roleID);
@@ -409,7 +383,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x06010107 RID: 65799 RVA: 0x003D5288 File Offset: 0x003D3488
 		private bool OnChatClicked()
 		{
 			bool flag = !XSingleton<XGameSysMgr>.singleton.IsSystemOpened(XSysDefine.XSys_Friends);
@@ -443,7 +416,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x06010108 RID: 65800 RVA: 0x003D5378 File Offset: 0x003D3578
 		private bool OnClickTeamChat()
 		{
 			bool flag = XSingleton<XScene>.singleton.SceneType == SceneType.SCENE_FAMILYGARDEN;
@@ -487,7 +459,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x06010109 RID: 65801 RVA: 0x003D548C File Offset: 0x003D368C
 		private bool OnGuildClicked()
 		{
 			bool inGuildSelf = this._inGuildSelf;
@@ -549,7 +520,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0601010A RID: 65802 RVA: 0x003D5654 File Offset: 0x003D3854
 		private bool OnClickBlackList(IXUIButton btn)
 		{
 			bool flag = !XSingleton<XGameSysMgr>.singleton.IsSystemOpened(XSysDefine.XSys_Friends);
@@ -587,7 +557,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0601010B RID: 65803 RVA: 0x003D574C File Offset: 0x003D394C
 		private bool OnPKBtnClicked()
 		{
 			int sysid = XFastEnumIntEqualityComparer<XSysDefine>.ToInt(XSysDefine.XSys_PK);
@@ -620,7 +589,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0601010C RID: 65804 RVA: 0x003D5810 File Offset: 0x003D3A10
 		private bool OnBSBtnClicked()
 		{
 			XMentorshipDocument.Doc.ClickedMainSceneRoleID = this._roleID;
@@ -640,7 +608,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0601010D RID: 65805 RVA: 0x003D5888 File Offset: 0x003D3A88
 		private bool OnInvite()
 		{
 			XPetDocument specificDocument = XDocuments.GetSpecificDocument<XPetDocument>(XPetDocument.uuID);
@@ -666,7 +633,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0601010E RID: 65806 RVA: 0x003D5910 File Offset: 0x003D3B10
 		private bool OnTransform()
 		{
 			XTransformDocument specificDocument = XDocuments.GetSpecificDocument<XTransformDocument>(XTransformDocument.uuID);
@@ -675,7 +641,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0601010F RID: 65807 RVA: 0x003D594A File Offset: 0x003D3B4A
 		private void AddBlockSucc()
 		{
 			XFriendsView singleton = DlgBase<XFriendsView, XFriendsBehaviour>.singleton;
@@ -683,7 +648,6 @@ namespace XMainClient.UI
 			this.SetVisibleWithAnimation(false, null);
 		}
 
-		// Token: 0x06010110 RID: 65808 RVA: 0x003D597C File Offset: 0x003D3B7C
 		private void RemoveFriendSucc()
 		{
 			XFriendsView singleton = DlgBase<XFriendsView, XFriendsBehaviour>.singleton;
@@ -691,70 +655,48 @@ namespace XMainClient.UI
 			this.SetVisibleWithAnimation(false, null);
 		}
 
-		// Token: 0x0400727D RID: 29309
 		private ulong _roleShortID;
 
-		// Token: 0x0400727E RID: 29310
 		private ulong _roleID;
 
-		// Token: 0x0400727F RID: 29311
 		private string _roleName;
 
-		// Token: 0x04007280 RID: 29312
 		private uint _titleID;
 
-		// Token: 0x04007281 RID: 29313
 		private uint _roleLevel;
 
-		// Token: 0x04007282 RID: 29314
 		private uint _roleVipLevel;
 
-		// Token: 0x04007283 RID: 29315
 		private uint _powerPoint;
 
-		// Token: 0x04007284 RID: 29316
 		private uint _profession;
 
-		// Token: 0x04007285 RID: 29317
 		private string _guildName;
 
-		// Token: 0x04007286 RID: 29318
 		private bool _isMyFriend;
 
-		// Token: 0x04007287 RID: 29319
 		private bool _bBlock;
 
-		// Token: 0x04007288 RID: 29320
 		private uint _dataLastLogin;
 
-		// Token: 0x04007289 RID: 29321
 		private ulong _guildID;
 
-		// Token: 0x0400728A RID: 29322
 		private XUnitAppearanceTeam _team = default(XUnitAppearanceTeam);
 
-		// Token: 0x0400728B RID: 29323
 		private int charactorCommonMenuFilter = 0;
 
-		// Token: 0x0400728C RID: 29324
 		private bool _inGuildSelf;
 
-		// Token: 0x0400728D RID: 29325
 		private int _inviteGuildCD;
 
-		// Token: 0x0400728E RID: 29326
 		private float _pastTime;
 
-		// Token: 0x0400728F RID: 29327
 		private bool _canInviteGuild;
 
-		// Token: 0x04007290 RID: 29328
 		private bool _isHadPairPet;
 
-		// Token: 0x04007291 RID: 29329
 		private List<uint> _setid = new List<uint>();
 
-		// Token: 0x04007292 RID: 29330
 		private XCharacterCommonMenuDocument m_doc;
 	}
 }

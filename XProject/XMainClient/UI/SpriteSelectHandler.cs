@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200185A RID: 6234
+
 	internal class SpriteSelectHandler : DlgHandlerBase
 	{
-		// Token: 0x17003988 RID: 14728
-		// (get) Token: 0x060103AE RID: 66478 RVA: 0x003EA788 File Offset: 0x003E8988
+
 		protected override string FileName
 		{
 			get
@@ -21,7 +20,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060103AF RID: 66479 RVA: 0x003EA7A0 File Offset: 0x003E89A0
 		protected override void Init()
 		{
 			base.Init();
@@ -31,14 +29,12 @@ namespace XMainClient.UI
 			this.m_WrapContent = (this.m_ScrollView.gameObject.transform.Find("WrapContent").GetComponent("XUIWrapContent") as IXUIWrapContent);
 		}
 
-		// Token: 0x060103B0 RID: 66480 RVA: 0x003EA834 File Offset: 0x003E8A34
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			this.m_WrapContent.RegisterItemUpdateEventHandler(new WrapItemUpdateEventHandler(this.DesWrapListUpdated));
 		}
 
-		// Token: 0x060103B1 RID: 66481 RVA: 0x003EA858 File Offset: 0x003E8A58
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -60,7 +56,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060103B2 RID: 66482 RVA: 0x003EA91C File Offset: 0x003E8B1C
 		public void SetSpriteList(List<SpriteInfo> list, bool resetScrollPos = true)
 		{
 			bool flag = !base.IsVisible();
@@ -75,7 +70,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060103B3 RID: 66483 RVA: 0x003EA96C File Offset: 0x003E8B6C
 		private void DesWrapListUpdated(Transform t, int i)
 		{
 			bool flag = i < 0 || i >= this._list.Count;
@@ -126,13 +120,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060103B4 RID: 66484 RVA: 0x003EACF4 File Offset: 0x003E8EF4
 		private bool isUpIconShow(int i)
 		{
 			return this._doc.isSpriteNeed2Fight(i);
 		}
 
-		// Token: 0x060103B5 RID: 66485 RVA: 0x003EAD14 File Offset: 0x003E8F14
 		private void SetStar(Transform ts, uint num)
 		{
 			uint num2 = num / XSpriteSystemDocument.MOONWORTH;
@@ -153,16 +145,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04007482 RID: 29826
 		private XSpriteSystemDocument _doc;
 
-		// Token: 0x04007483 RID: 29827
 		public IXUIScrollView m_ScrollView;
 
-		// Token: 0x04007484 RID: 29828
 		public IXUIWrapContent m_WrapContent;
 
-		// Token: 0x04007485 RID: 29829
 		private List<SpriteInfo> _list;
 	}
 }

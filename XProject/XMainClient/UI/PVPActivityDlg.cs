@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200170E RID: 5902
+
 	internal class PVPActivityDlg : DlgHandlerBase
 	{
-		// Token: 0x17003796 RID: 14230
-		// (get) Token: 0x0600F3AC RID: 62380 RVA: 0x00366910 File Offset: 0x00364B10
+
 		protected override string FileName
 		{
 			get
@@ -19,7 +18,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F3AD RID: 62381 RVA: 0x00366928 File Offset: 0x00364B28
 		protected override void Init()
 		{
 			this._doc = (XSingleton<XGame>.singleton.Doc.GetXComponent(XPVPActivityDocument.uuID) as XPVPActivityDocument);
@@ -32,7 +30,6 @@ namespace XMainClient.UI
 			this.m_MilitaryRankBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnMilitaryRankBtnClick));
 		}
 
-		// Token: 0x0600F3AE RID: 62382 RVA: 0x00366A33 File Offset: 0x00364C33
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -40,14 +37,12 @@ namespace XMainClient.UI
 			this.Refresh();
 		}
 
-		// Token: 0x0600F3AF RID: 62383 RVA: 0x00366A5C File Offset: 0x00364C5C
 		protected override void OnHide()
 		{
 			base.OnHide();
 			XSingleton<UiUtility>.singleton.DestroyTextureInActivePool(this.m_ActivityPool, "Tex");
 		}
 
-		// Token: 0x0600F3B0 RID: 62384 RVA: 0x00366A7C File Offset: 0x00364C7C
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
@@ -55,7 +50,6 @@ namespace XMainClient.UI
 			this.RefreshHallFameBtn();
 		}
 
-		// Token: 0x0600F3B1 RID: 62385 RVA: 0x00366A94 File Offset: 0x00364C94
 		private bool OnMilitaryRankBtnClick(IXUIButton btn)
 		{
 			bool flag = !XSingleton<XGameSysMgr>.singleton.IsSystemOpened(XSysDefine.XSys_MilitaryRank);
@@ -82,7 +76,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F3B2 RID: 62386 RVA: 0x00366B34 File Offset: 0x00364D34
 		private string GetMissConditionString(PVPActivityList.RowData data)
 		{
 			XActivityDocument specificDocument = XDocuments.GetSpecificDocument<XActivityDocument>(XActivityDocument.uuID);
@@ -109,7 +102,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F3B3 RID: 62387 RVA: 0x00366BFC File Offset: 0x00364DFC
 		public void OnPVPActivityClick(IXUISprite iSp)
 		{
 			XSysDefine xsysDefine = (XSysDefine)iSp.ID;
@@ -157,7 +149,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F3B4 RID: 62388 RVA: 0x00366DA4 File Offset: 0x00364FA4
 		public void Refresh()
 		{
 			this.RefreshHallFameBtn();
@@ -229,7 +220,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F3B5 RID: 62389 RVA: 0x003670F4 File Offset: 0x003652F4
 		private void RefreshHallFameBtn()
 		{
 			bool flag = XSingleton<XGameSysMgr>.singleton.IsSystemOpened(XSysDefine.XSys_HallFame);
@@ -242,7 +232,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F3B6 RID: 62390 RVA: 0x00367164 File Offset: 0x00365364
 		private int GetLeftCount(XSysDefine sys)
 		{
 			XSysDefine xsysDefine = sys;
@@ -284,29 +273,22 @@ namespace XMainClient.UI
 			return 0;
 		}
 
-		// Token: 0x0600F3B7 RID: 62391 RVA: 0x003672BC File Offset: 0x003654BC
 		private bool OnClickedFameHallBtn(IXUIButton button)
 		{
 			DlgBase<HallFameDlg, HallFameBehavior>.singleton.SetVisibleWithAnimation(true, null);
 			return true;
 		}
 
-		// Token: 0x0400689C RID: 26780
 		private XPVPActivityDocument _doc;
 
-		// Token: 0x0400689D RID: 26781
 		public XUIPool m_ActivityPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x0400689E RID: 26782
 		public IXUIScrollView m_ScrollView;
 
-		// Token: 0x0400689F RID: 26783
 		private IXUIButton m_FameHallBtn;
 
-		// Token: 0x040068A0 RID: 26784
 		private static readonly string ATLAS_PATH = "atlas/UI/GameSystem/Activity/";
 
-		// Token: 0x040068A1 RID: 26785
 		public IXUIButton m_MilitaryRankBtn;
 	}
 }

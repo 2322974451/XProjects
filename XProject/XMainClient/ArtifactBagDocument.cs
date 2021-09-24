@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x020008C0 RID: 2240
+
 	internal class ArtifactBagDocument : XDocComponent
 	{
-		// Token: 0x17002A68 RID: 10856
-		// (get) Token: 0x0600874B RID: 34635 RVA: 0x00114DD0 File Offset: 0x00112FD0
+
 		public override uint ID
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002A69 RID: 10857
-		// (get) Token: 0x0600874C RID: 34636 RVA: 0x00114DE8 File Offset: 0x00112FE8
 		public static ArtifactBagDocument Doc
 		{
 			get
@@ -31,8 +28,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002A6A RID: 10858
-		// (get) Token: 0x0600874D RID: 34637 RVA: 0x00114E14 File Offset: 0x00113014
 		public XNewItemTipsMgr NewItems
 		{
 			get
@@ -41,9 +36,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002A6B RID: 10859
-		// (get) Token: 0x0600874E RID: 34638 RVA: 0x00114E2C File Offset: 0x0011302C
-		// (set) Token: 0x0600874F RID: 34639 RVA: 0x00114E44 File Offset: 0x00113044
 		public ArtifactBagHandler BagHandler
 		{
 			get
@@ -56,9 +48,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002A6C RID: 10860
-		// (get) Token: 0x06008750 RID: 34640 RVA: 0x00114E50 File Offset: 0x00113050
-		// (set) Token: 0x06008751 RID: 34641 RVA: 0x00114E68 File Offset: 0x00113068
 		public bool CanBePowerful
 		{
 			get
@@ -72,8 +61,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002A6D RID: 10861
-		// (get) Token: 0x06008752 RID: 34642 RVA: 0x00114E84 File Offset: 0x00113084
 		public List<string> SuitEffectPosNames
 		{
 			get
@@ -92,14 +79,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008753 RID: 34643 RVA: 0x00114F0C File Offset: 0x0011310C
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			ArtifactBagDocument.AsyncLoader.AddTask("Table/ArtifactEffect", ArtifactBagDocument.m_artifactEffectTable, false);
 			ArtifactBagDocument.AsyncLoader.Execute(callback);
 		}
 
-		// Token: 0x06008754 RID: 34644 RVA: 0x00114F31 File Offset: 0x00113131
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
@@ -108,7 +93,6 @@ namespace XMainClient
 			XSingleton<XCombatEffectManager>.singleton.Init();
 		}
 
-		// Token: 0x06008755 RID: 34645 RVA: 0x00114F68 File Offset: 0x00113168
 		protected override void EventSubscribe()
 		{
 			base.EventSubscribe();
@@ -122,13 +106,11 @@ namespace XMainClient
 			base.RegisterEvent(XEventDefine.XEvent_ItemChangeFinished, new XComponent.XEventHandler(this.OnFinishItemChange));
 		}
 
-		// Token: 0x06008756 RID: 34646 RVA: 0x00114ADF File Offset: 0x00112CDF
 		public override void OnDetachFromHost()
 		{
 			base.OnDetachFromHost();
 		}
 
-		// Token: 0x06008757 RID: 34647 RVA: 0x00115028 File Offset: 0x00113228
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 			bool flag = this.BagHandler != null && this.BagHandler.IsVisible();
@@ -139,20 +121,17 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008758 RID: 34648 RVA: 0x00115069 File Offset: 0x00113269
 		public override void OnLeaveScene()
 		{
 			base.OnLeaveScene();
 			XSingleton<XCombatEffectManager>.singleton.ArrangeEffectData();
 		}
 
-		// Token: 0x06008759 RID: 34649 RVA: 0x00114AE9 File Offset: 0x00112CE9
 		public override void OnEnterSceneFinally()
 		{
 			base.OnEnterSceneFinally();
 		}
 
-		// Token: 0x0600875A RID: 34650 RVA: 0x00115080 File Offset: 0x00113280
 		protected bool OnLoadEquip(XEventArgs args)
 		{
 			XLoadEquipEventArgs xloadEquipEventArgs = args as XLoadEquipEventArgs;
@@ -172,7 +151,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600875B RID: 34651 RVA: 0x0011510C File Offset: 0x0011330C
 		protected bool OnUnloadEquip(XEventArgs args)
 		{
 			XUnloadEquipEventArgs xunloadEquipEventArgs = args as XUnloadEquipEventArgs;
@@ -192,7 +170,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600875C RID: 34652 RVA: 0x00115190 File Offset: 0x00113390
 		protected bool OnAddItem(XEventArgs args)
 		{
 			XAddItemEventArgs xaddItemEventArgs = args as XAddItemEventArgs;
@@ -212,7 +189,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600875D RID: 34653 RVA: 0x0011520C File Offset: 0x0011340C
 		protected bool OnRemoveItem(XEventArgs args)
 		{
 			XRemoveItemEventArgs xremoveItemEventArgs = args as XRemoveItemEventArgs;
@@ -233,7 +209,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600875E RID: 34654 RVA: 0x0011529C File Offset: 0x0011349C
 		protected bool OnUpdateItem(XEventArgs args)
 		{
 			XUpdateItemEventArgs xupdateItemEventArgs = args as XUpdateItemEventArgs;
@@ -258,7 +233,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600875F RID: 34655 RVA: 0x00115318 File Offset: 0x00113518
 		protected bool OnItemNumChanged(XEventArgs args)
 		{
 			bool flag = this.BagHandler == null || !this.BagHandler.IsVisible();
@@ -276,7 +250,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008760 RID: 34656 RVA: 0x00115368 File Offset: 0x00113568
 		protected bool OnSwapItem(XEventArgs args)
 		{
 			XSwapItemEventArgs xswapItemEventArgs = args as XSwapItemEventArgs;
@@ -306,7 +279,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008761 RID: 34657 RVA: 0x00115470 File Offset: 0x00113670
 		public bool OnFinishItemChange(XEventArgs args)
 		{
 			bool shouldUpdateRedPoints = this.m_shouldUpdateRedPoints;
@@ -328,7 +300,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x06008762 RID: 34658 RVA: 0x001154D8 File Offset: 0x001136D8
 		private void ProcessSuitEquiped(uint itemid)
 		{
 			ArtifactSuit suitByArtifactId = ArtifactDocument.SuitMgr.GetSuitByArtifactId(itemid);
@@ -354,7 +325,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008763 RID: 34659 RVA: 0x00115584 File Offset: 0x00113784
 		private void ProcessSuitUnEquiped(uint itemid)
 		{
 			ArtifactSuit suitByArtifactId = ArtifactDocument.SuitMgr.GetSuitByArtifactId(itemid);
@@ -364,7 +334,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008764 RID: 34660 RVA: 0x001155A8 File Offset: 0x001137A8
 		private void ShowSuitEffectTip(ArtifactSuit suit, int effectIndex, bool active)
 		{
 			StringBuilder stringBuilder = new StringBuilder();
@@ -388,7 +357,6 @@ namespace XMainClient
 			}), "fece00");
 		}
 
-		// Token: 0x06008765 RID: 34661 RVA: 0x00115694 File Offset: 0x00113894
 		public void UpdateRedPoints()
 		{
 			bool flag = XSingleton<XAttributeMgr>.singleton.XPlayerData != null;
@@ -398,7 +366,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008766 RID: 34662 RVA: 0x001156CC File Offset: 0x001138CC
 		public void UpdateRedPoints(uint playerLevel)
 		{
 			this.m_canBePowerful = false;
@@ -425,13 +392,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008767 RID: 34663 RVA: 0x00115750 File Offset: 0x00113950
 		public EquipCompare IsEquipMorePowerful(ulong uid)
 		{
 			return this.IsEquipMorePowerful(XSingleton<XGame>.singleton.Doc.XBagDoc.GetItemByUID(uid) as XArtifactItem);
 		}
 
-		// Token: 0x06008768 RID: 34664 RVA: 0x00115784 File Offset: 0x00113984
 		public EquipCompare IsEquipMorePowerful(XArtifactItem artifact)
 		{
 			bool flag = artifact == null;
@@ -476,7 +441,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008769 RID: 34665 RVA: 0x00115848 File Offset: 0x00113A48
 		public static EquipCompare GetFinal(EquipCompare mix)
 		{
 			bool flag = (mix & EquipCompare.EC_MORE_POWERFUL) > EquipCompare.EC_NONE;
@@ -508,12 +472,10 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600876A RID: 34666 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public void OnUseItem(UseItemArg oArg, UseItemRes oRes)
 		{
 		}
 
-		// Token: 0x0600876B RID: 34667 RVA: 0x00115888 File Offset: 0x00113A88
 		public void RefreshBag()
 		{
 			bool flag = this.BagHandler != null && this.BagHandler.IsVisible();
@@ -523,7 +485,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600876C RID: 34668 RVA: 0x001158C0 File Offset: 0x00113AC0
 		public List<XItem> GetArtifacts()
 		{
 			ulong typeFilter = 1UL << XFastEnumIntEqualityComparer<ItemType>.ToInt(ItemType.ARTIFACT);
@@ -532,7 +493,6 @@ namespace XMainClient
 			return this.m_ItemList;
 		}
 
-		// Token: 0x0600876D RID: 34669 RVA: 0x00115910 File Offset: 0x00113B10
 		public bool IsHadThisPosArtifact(uint position)
 		{
 			bool flag = this.m_ItemList.Count == 0;
@@ -553,14 +513,12 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x0600876E RID: 34670 RVA: 0x001159B4 File Offset: 0x00113BB4
 		public bool GetArtifactEffectPath(uint quanlity, uint attrType, out string path)
 		{
 			ulong key = this.MakeKey(quanlity, attrType);
 			return this.GetArtifactEffectPath(key, out path);
 		}
 
-		// Token: 0x0600876F RID: 34671 RVA: 0x001159D8 File Offset: 0x00113BD8
 		public bool GetArtifactEffectPath(ulong key, out string path)
 		{
 			bool flag = this.m_quantityEffectPath == null;
@@ -597,43 +555,31 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008770 RID: 34672 RVA: 0x00115AB0 File Offset: 0x00113CB0
 		public ulong MakeKey(uint quanlity, uint attrType)
 		{
 			return (ulong)(quanlity * 1000U + attrType);
 		}
 
-		// Token: 0x04002AAE RID: 10926
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("ArtifactBagDocument");
 
-		// Token: 0x04002AAF RID: 10927
 		private ArtifactBagHandler m_bagHandler;
 
-		// Token: 0x04002AB0 RID: 10928
 		private List<XItem> m_ItemList = new List<XItem>();
 
-		// Token: 0x04002AB1 RID: 10929
 		private XNewItemTipsMgr m_newItems = new XNewItemTipsMgr();
 
-		// Token: 0x04002AB2 RID: 10930
 		private bool m_shouldUpdateRedPoints = false;
 
-		// Token: 0x04002AB3 RID: 10931
 		private bool m_shouldCalcMorePowerfulTip = false;
 
-		// Token: 0x04002AB4 RID: 10932
 		private bool m_canBePowerful = false;
 
-		// Token: 0x04002AB5 RID: 10933
 		private Dictionary<ulong, string> m_quantityEffectPath;
 
-		// Token: 0x04002AB6 RID: 10934
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x04002AB7 RID: 10935
 		private static ArtifactEffect m_artifactEffectTable = new ArtifactEffect();
 
-		// Token: 0x04002AB8 RID: 10936
 		private List<string> m_suitEffectPosNames;
 	}
 }

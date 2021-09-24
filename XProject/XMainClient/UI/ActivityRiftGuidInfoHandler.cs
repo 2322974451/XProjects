@@ -7,11 +7,11 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020016CB RID: 5835
+
 	[Hotfix]
 	internal class ActivityRiftGuidInfoHandler : DlgHandlerBase
 	{
-		// Token: 0x0600F0AE RID: 61614 RVA: 0x0034F790 File Offset: 0x0034D990
+
 		protected override void Init()
 		{
 			base.Init();
@@ -34,21 +34,18 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F0AF RID: 61615 RVA: 0x0034F8E4 File Offset: 0x0034DAE4
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			this.m_btnClose.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnClose));
 		}
 
-		// Token: 0x0600F0B0 RID: 61616 RVA: 0x0034F906 File Offset: 0x0034DB06
 		public override void OnUnload()
 		{
 			this._doc = null;
 			base.OnUnload();
 		}
 
-		// Token: 0x0600F0B1 RID: 61617 RVA: 0x0034F918 File Offset: 0x0034DB18
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -74,14 +71,12 @@ namespace XMainClient.UI
 			this.RefreshRank();
 		}
 
-		// Token: 0x0600F0B2 RID: 61618 RVA: 0x0034FA58 File Offset: 0x0034DC58
 		private bool OnClose(IXUIButton btn)
 		{
 			base.SetVisible(false);
 			return true;
 		}
 
-		// Token: 0x0600F0B3 RID: 61619 RVA: 0x0034FA74 File Offset: 0x0034DC74
 		private void RefreshBuff()
 		{
 			List<int> guildBuffIDs = this._doc.guildBuffIDs;
@@ -117,7 +112,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F0B4 RID: 61620 RVA: 0x0034FC04 File Offset: 0x0034DE04
 		private void RefreshBuff(GameObject go, string atlas, string sp, string text)
 		{
 			IXUILabel ixuilabel = go.transform.FindChild("value").GetComponent("XUILabel") as IXUILabel;
@@ -134,7 +128,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F0B5 RID: 61621 RVA: 0x0034FC7C File Offset: 0x0034DE7C
 		private void RefreshRank()
 		{
 			bool flag = this._doc.guildInfos != null;
@@ -159,34 +152,24 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x040066A6 RID: 26278
 		public IXUILabel m_lblRank;
 
-		// Token: 0x040066A7 RID: 26279
 		public IXUILabel m_lblTime;
 
-		// Token: 0x040066A8 RID: 26280
 		public IXUILabel m_lblName;
 
-		// Token: 0x040066A9 RID: 26281
 		public IXUIButton m_btnClose;
 
-		// Token: 0x040066AA RID: 26282
 		public IXUIScrollView m_scroll;
 
-		// Token: 0x040066AB RID: 26283
 		public GameObject[] m_goBuff = new GameObject[5];
 
-		// Token: 0x040066AC RID: 26284
 		public XUIPool m_RankPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x040066AD RID: 26285
 		private const int max_buff = 5;
 
-		// Token: 0x040066AE RID: 26286
 		public XRiftDocument _doc;
 
-		// Token: 0x040066AF RID: 26287
 		private Rift.RowData _bestRift;
 	}
 }

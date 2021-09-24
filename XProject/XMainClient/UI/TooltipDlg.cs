@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200191B RID: 6427
+
 	internal abstract class TooltipDlg<TDlgClass, TUIBehaviour> : DlgBase<TDlgClass, TUIBehaviour>, ITooltipDlg where TDlgClass : IXUIDlg, new() where TUIBehaviour : TooltipDlgBehaviour
 	{
-		// Token: 0x17003AE7 RID: 15079
-		// (get) Token: 0x06010CDF RID: 68831 RVA: 0x00439094 File Offset: 0x00437294
+
 		public XItemSelector ItemSelector
 		{
 			get
@@ -20,9 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003AE8 RID: 15080
-		// (get) Token: 0x06010CE0 RID: 68832 RVA: 0x004390AC File Offset: 0x004372AC
-		// (set) Token: 0x06010CE1 RID: 68833 RVA: 0x004390C4 File Offset: 0x004372C4
 		public uint profession
 		{
 			get
@@ -40,8 +36,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003AE9 RID: 15081
-		// (get) Token: 0x06010CE2 RID: 68834 RVA: 0x004390F4 File Offset: 0x004372F4
 		public override int layer
 		{
 			get
@@ -50,8 +44,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003AEA RID: 15082
-		// (get) Token: 0x06010CE3 RID: 68835 RVA: 0x00439108 File Offset: 0x00437308
 		public override bool autoload
 		{
 			get
@@ -60,8 +52,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003AEB RID: 15083
-		// (get) Token: 0x06010CE4 RID: 68836 RVA: 0x0043911C File Offset: 0x0043731C
 		protected virtual int compareWindowDistance
 		{
 			get
@@ -70,8 +60,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003AEC RID: 15084
-		// (get) Token: 0x06010CE5 RID: 68837 RVA: 0x00439130 File Offset: 0x00437330
 		protected virtual int funcFrameWidth
 		{
 			get
@@ -80,8 +68,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003AED RID: 15085
-		// (get) Token: 0x06010CE6 RID: 68838 RVA: 0x00439148 File Offset: 0x00437348
 		public ulong MainItemUID
 		{
 			get
@@ -90,21 +76,18 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010CE7 RID: 68839 RVA: 0x00439160 File Offset: 0x00437360
 		protected override void Init()
 		{
 			base.Init();
 			this._bgTopOffset = (float)((XSingleton<XGameUI>.singleton.Base_UI_Height - base.uiBehaviour.m_PanelPool.TplHeight) / 2);
 		}
 
-		// Token: 0x06010CE8 RID: 68840 RVA: 0x00439193 File Offset: 0x00437393
 		protected override void OnUnload()
 		{
 			this._ItemSelector.Unload();
 			base.OnUnload();
 		}
 
-		// Token: 0x06010CE9 RID: 68841 RVA: 0x004391AC File Offset: 0x004373AC
 		public virtual bool HideToolTip(bool forceHide = false)
 		{
 			bool flag = !forceHide;
@@ -132,7 +115,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x06010CEA RID: 68842 RVA: 0x0043925C File Offset: 0x0043745C
 		public override void OnUpdate()
 		{
 			bool flag = this.blockTime == null;
@@ -176,14 +158,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010CEB RID: 68843 RVA: 0x00439405 File Offset: 0x00437605
 		public override void OnPostUpdate()
 		{
 			this._bShowedThisFrame = false;
 			this._bButtonClickedThisFrame = false;
 		}
 
-		// Token: 0x06010CEC RID: 68844 RVA: 0x00439418 File Offset: 0x00437618
 		public void SetPosition(IXUISprite clickIcon)
 		{
 			int num = base.uiBehaviour.m_TotalFrame.spriteHeight / 2;
@@ -192,7 +172,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.DelayShow(this);
 		}
 
-		// Token: 0x06010CED RID: 68845 RVA: 0x004394A4 File Offset: 0x004376A4
 		public virtual IXUISprite ShowToolTip(XItem mainItem, XItem compareItem, bool _bShowButtons, uint prof = 0U)
 		{
 			this.bShowButtons = _bShowButtons;
@@ -262,7 +241,6 @@ namespace XMainClient.UI
 			return base.uiBehaviour.m_TotalFrame;
 		}
 
-		// Token: 0x06010CEE RID: 68846 RVA: 0x0043976C File Offset: 0x0043796C
 		public IXUISprite ShowToolTip(int itemid, uint prof = 0U)
 		{
 			this.HideToolTip(true);
@@ -283,7 +261,6 @@ namespace XMainClient.UI
 			return base.uiBehaviour.m_TotalFrame;
 		}
 
-		// Token: 0x06010CEF RID: 68847 RVA: 0x0043987C File Offset: 0x00437A7C
 		protected void SetupToolTip(GameObject goToolTip, int itemid)
 		{
 			ItemList.RowData itemConf = XBagDocument.GetItemConf(itemid);
@@ -309,7 +286,6 @@ namespace XMainClient.UI
 			transform.gameObject.SetActive(false);
 		}
 
-		// Token: 0x06010CF0 RID: 68848 RVA: 0x00439978 File Offset: 0x00437B78
 		protected void SetupToolTip(GameObject goToolTip, XItem item, XItem compareItem, bool bMain)
 		{
 			bool flag = item == null;
@@ -354,7 +330,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010CF1 RID: 68849 RVA: 0x00439B38 File Offset: 0x00437D38
 		protected virtual void SetupTopFrame(GameObject goToolTip, ItemList.RowData data, bool bMain, XItem instanceData = null, XItem compareData = null)
 		{
 			bool flag = data == null;
@@ -375,7 +350,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010CF2 RID: 68850 RVA: 0x00439BE4 File Offset: 0x00437DE4
 		protected virtual void _SetupPPTFrame(GameObject goToolTip, ItemList.RowData data, bool bMain, XItem instanceData = null, XItem compareData = null)
 		{
 			Transform transform = goToolTip.transform.Find("TopFrame/PPTFrame");
@@ -439,14 +413,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010CF3 RID: 68851 RVA: 0x00439DC4 File Offset: 0x00437FC4
 		protected virtual int _GetPPT(XItem item, bool bMain, ref string valueText)
 		{
 			return -1;
 		}
 
-		// Token: 0x17003AEE RID: 15086
-		// (get) Token: 0x06010CF4 RID: 68852 RVA: 0x00439DD8 File Offset: 0x00437FD8
 		protected virtual string _PPTTitle
 		{
 			get
@@ -455,7 +426,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010CF5 RID: 68853 RVA: 0x00439DEC File Offset: 0x00437FEC
 		protected XItemChangeAttr FindCorrespondingAttr(IEnumerable<XItemChangeAttr> attrs, uint attrID)
 		{
 			foreach (XItemChangeAttr xitemChangeAttr in attrs)
@@ -469,7 +439,6 @@ namespace XMainClient.UI
 			return default(XItemChangeAttr);
 		}
 
-		// Token: 0x06010CF6 RID: 68854 RVA: 0x00439E54 File Offset: 0x00438054
 		protected virtual void SetAllAttrFrames(GameObject goToolTip, XAttrItem item, XAttrItem compareItem, bool bMain)
 		{
 			bool flag = item == null || item.changeAttr.Count == 0;
@@ -480,7 +449,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010CF7 RID: 68855 RVA: 0x00439EA0 File Offset: 0x004380A0
 		protected void SetBasicAttrFrame(GameObject scrollPanel, XAttrItem item, XAttrItem compareItem, bool bMain)
 		{
 			GameObject gameObject = base.uiBehaviour.m_AttrFramePool.FetchGameObject(false);
@@ -501,7 +469,6 @@ namespace XMainClient.UI
 			XSingleton<XGameUI>.singleton.m_uiTool.MarkParentAsChanged(gameObject);
 		}
 
-		// Token: 0x06010CF8 RID: 68856 RVA: 0x00439FA0 File Offset: 0x004381A0
 		public void AppendFrame(GameObject go, float frameHeight, Vector3? tplPos = null)
 		{
 			Vector3 vector = tplPos ?? go.transform.localPosition;
@@ -509,7 +476,6 @@ namespace XMainClient.UI
 			this.totalFrameHeight += frameHeight;
 		}
 
-		// Token: 0x06010CF9 RID: 68857 RVA: 0x0043A000 File Offset: 0x00438200
 		protected virtual int SetupAttrFrame(GameObject attrFrame, AttrFrameParam param, bool bMain)
 		{
 			int num = 0;
@@ -575,22 +541,18 @@ namespace XMainClient.UI
 			return ixuisprite2.spriteHeight;
 		}
 
-		// Token: 0x06010CFA RID: 68858 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected virtual void SetAttrOther(Transform ParentTra, AttrFrameParam param)
 		{
 		}
 
-		// Token: 0x06010CFB RID: 68859 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected virtual void SetupOtherFrame(GameObject goToolTip, XItem item, XItem compareItem, bool bMain)
 		{
 		}
 
-		// Token: 0x06010CFC RID: 68860 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected virtual void SetupOtherFrame(GameObject goToolTip, ItemList.RowData data)
 		{
 		}
 
-		// Token: 0x06010CFD RID: 68861 RVA: 0x0043A308 File Offset: 0x00438508
 		protected virtual void SetupToolTipButtons(GameObject goToolTip, XItem item, bool bMain)
 		{
 			for (int i = 0; i < base.uiBehaviour.m_ButtonsVisible.Length; i++)
@@ -657,7 +619,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010CFE RID: 68862 RVA: 0x0043A58C File Offset: 0x0043878C
 		protected Vector3 _GetNextButtonPos()
 		{
 			Vector3[] buttonsOriginPos = base.uiBehaviour.m_ButtonsOriginPos;
@@ -666,7 +627,6 @@ namespace XMainClient.UI
 			return buttonsOriginPos[activeButtonCount];
 		}
 
-		// Token: 0x06010CFF RID: 68863 RVA: 0x0043A5C4 File Offset: 0x004387C4
 		public void SetupButtons(GameObject goToolTip, int group, bool bMain, int selectedIndex = -1, List<int> redPointIndex = null)
 		{
 			this._ActiveButtonCount = 0;
@@ -718,7 +678,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010D00 RID: 68864 RVA: 0x0043A7A8 File Offset: 0x004389A8
 		protected void _SetupButtonVisiability(GameObject goToolTip, int group, XItem item)
 		{
 			this.m_TempList.Clear();
@@ -740,7 +699,6 @@ namespace XMainClient.UI
 			this.SetupButtons(goToolTip, group, true, -1, this.m_TempList);
 		}
 
-		// Token: 0x06010D01 RID: 68865 RVA: 0x0043A854 File Offset: 0x00438A54
 		protected virtual bool OnButton7Clicked(IXUIButton button)
 		{
 			this._bButtonClickedThisFrame = true;
@@ -753,7 +711,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x06010D02 RID: 68866 RVA: 0x0043A8B8 File Offset: 0x00438AB8
 		protected virtual bool OnButton6Clicked(IXUIButton button)
 		{
 			this._bButtonClickedThisFrame = true;
@@ -766,7 +723,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x06010D03 RID: 68867 RVA: 0x0043A91C File Offset: 0x00438B1C
 		protected virtual bool OnButton5Clicked(IXUIButton button)
 		{
 			this._bButtonClickedThisFrame = true;
@@ -779,7 +735,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x06010D04 RID: 68868 RVA: 0x0043A980 File Offset: 0x00438B80
 		protected virtual bool OnButton4Clicked(IXUIButton button)
 		{
 			this._bButtonClickedThisFrame = true;
@@ -792,7 +747,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x06010D05 RID: 68869 RVA: 0x0043A9E4 File Offset: 0x00438BE4
 		protected virtual bool OnButton3Clicked(IXUIButton button)
 		{
 			this._bButtonClickedThisFrame = true;
@@ -805,7 +759,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x06010D06 RID: 68870 RVA: 0x0043AA48 File Offset: 0x00438C48
 		protected virtual bool OnButton2Clicked(IXUIButton button)
 		{
 			this._bButtonClickedThisFrame = true;
@@ -818,7 +771,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x06010D07 RID: 68871 RVA: 0x0043AAAC File Offset: 0x00438CAC
 		protected virtual bool OnButton1Clicked(IXUIButton button)
 		{
 			this._bButtonClickedThisFrame = true;
@@ -831,7 +783,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x06010D08 RID: 68872 RVA: 0x0043AB10 File Offset: 0x00438D10
 		protected void _SetTopFrameLabel(GameObject goToolTip, int index, string key, string value)
 		{
 			IXUILabel ixuilabel = goToolTip.transform.FindChild("TopFrame/Text" + index.ToString()).GetComponent("XUILabel") as IXUILabel;
@@ -840,7 +791,6 @@ namespace XMainClient.UI
 			ixuilabel2.SetText(key);
 		}
 
-		// Token: 0x06010D09 RID: 68873 RVA: 0x0043AB80 File Offset: 0x00438D80
 		protected void _SetupQuality(GameObject goToolTip, ItemList.RowData data, bool bMain)
 		{
 			GameObject gameObject = goToolTip.transform.Find("TopFrame/Quality/MainFrame").gameObject;
@@ -852,7 +802,6 @@ namespace XMainClient.UI
 			ixuisprite.spriteName = XSingleton<UiUtility>.singleton.GetItemQualityIcon((int)data.ItemQuality);
 		}
 
-		// Token: 0x06010D0A RID: 68874 RVA: 0x0043AC18 File Offset: 0x00438E18
 		protected void _SetupBinding(GameObject goToolTip, ItemList.RowData data, bool bMain, XItem instanceData = null)
 		{
 			Transform transform = goToolTip.transform.Find("TopFrame/Binding/Yes");
@@ -906,7 +855,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010D0B RID: 68875 RVA: 0x0043ADC0 File Offset: 0x00438FC0
 		protected void _SetupIcon(GameObject goToolTip, ItemList.RowData data, XItem instanceData)
 		{
 			XItemDrawerMgr.Param.Profession = this.profession;
@@ -921,25 +869,21 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010D0C RID: 68876 RVA: 0x0043AE34 File Offset: 0x00439034
 		protected void _SetupLevel(GameObject goToolTip, ItemList.RowData data, int index)
 		{
 			this._SetTopFrameLabel(goToolTip, index, XStringDefineProxy.GetString("ToolTipText_Level"), ((long)data.ReqLevel > (long)((ulong)XSingleton<XAttributeMgr>.singleton.XPlayerData.Level)) ? ("[ff0000]" + data.ReqLevel.ToString()) : data.ReqLevel.ToString());
 		}
 
-		// Token: 0x06010D0D RID: 68877 RVA: 0x0043AE90 File Offset: 0x00439090
 		protected void _SetupProf(GameObject goToolTip, ItemList.RowData data, bool bMain, XItem instanceData, int index)
 		{
 			this._SetTopFrameLabel(goToolTip, index, XStringDefineProxy.GetString("ToolTipText_Prof"), this._GetProf(data, bMain, instanceData));
 		}
 
-		// Token: 0x06010D0E RID: 68878 RVA: 0x0043AEB1 File Offset: 0x004390B1
 		protected void _SetupType(GameObject goToolTip, ItemList.RowData data, int index)
 		{
 			this._SetTopFrameLabel(goToolTip, index, XStringDefineProxy.GetString("ToolTipText_Type"), XSingleton<UiUtility>.singleton.GetItemTypeStr((int)data.ItemType));
 		}
 
-		// Token: 0x06010D0F RID: 68879 RVA: 0x0043AED8 File Offset: 0x004390D8
 		protected void _SetupName(GameObject goToolTip, ItemList.RowData data, XItem instanceData = null)
 		{
 			IXUILabel ixuilabel = goToolTip.transform.Find("TopFrame/Name").GetComponent("XUILabel") as IXUILabel;
@@ -947,7 +891,6 @@ namespace XMainClient.UI
 			ixuilabel.SetColor(XSingleton<UiUtility>.singleton.GetItemQualityColor((int)data.ItemQuality));
 		}
 
-		// Token: 0x06010D10 RID: 68880 RVA: 0x0043AF38 File Offset: 0x00439138
 		protected string _GetProf(ItemList.RowData data, bool bMain, XItem instanceData)
 		{
 			bool flag = XBagDocument.IsProfMatched((uint)data.Profession);
@@ -963,7 +906,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x06010D11 RID: 68881 RVA: 0x0043AF88 File Offset: 0x00439188
 		public static Rect GetValidPos(int width, int height)
 		{
 			Rect result = default(Rect);
@@ -971,52 +913,36 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x04007B4C RID: 31564
 		public ulong mainItemUID = 0UL;
 
-		// Token: 0x04007B4D RID: 31565
 		public ulong compareItemUID = 0UL;
 
-		// Token: 0x04007B4E RID: 31566
 		protected bool _bShowedThisFrame = false;
 
-		// Token: 0x04007B4F RID: 31567
 		protected bool _bButtonClickedThisFrame = false;
 
-		// Token: 0x04007B50 RID: 31568
 		protected float _bgTopOffset;
 
-		// Token: 0x04007B51 RID: 31569
 		protected bool _bNeedReposition;
 
-		// Token: 0x04007B52 RID: 31570
 		public float totalFrameHeight;
 
-		// Token: 0x04007B53 RID: 31571
 		public bool bShowButtons = true;
 
-		// Token: 0x04007B54 RID: 31572
 		protected bool bHadJade = false;
 
-		// Token: 0x04007B55 RID: 31573
 		protected TooltipButtonOperateBase[,] m_OperateList = new TooltipButtonOperateBase[TooltipDlgBehaviour.MAX_GROUP_COUNT, TooltipDlgBehaviour.MAX_BUTTON_COUNT];
 
-		// Token: 0x04007B56 RID: 31574
 		private IXUILabel blockTime = null;
 
-		// Token: 0x04007B57 RID: 31575
 		private IXUILabel compareBlockTime = null;
 
-		// Token: 0x04007B58 RID: 31576
 		private XItemSelector _ItemSelector = new XItemSelector(XSingleton<XGlobalConfig>.singleton.DefaultIconWidth);
 
-		// Token: 0x04007B59 RID: 31577
 		private int _ActiveButtonCount = 0;
 
-		// Token: 0x04007B5A RID: 31578
 		protected uint _profession = 0U;
 
-		// Token: 0x04007B5B RID: 31579
 		private List<int> m_TempList = new List<int>();
 	}
 }

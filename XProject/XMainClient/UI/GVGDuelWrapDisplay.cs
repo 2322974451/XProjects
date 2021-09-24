@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020016F0 RID: 5872
+
 	internal class GVGDuelWrapDisplay
 	{
-		// Token: 0x0600F251 RID: 62033 RVA: 0x0035BB38 File Offset: 0x00359D38
+
 		public void Setup(Transform t, int index, SpriteClickEventHandler handler)
 		{
 			this._index = index;
@@ -35,7 +35,6 @@ namespace XMainClient.UI
 			this.m_enterBattle.ID = (ulong)((long)index);
 		}
 
-		// Token: 0x0600F252 RID: 62034 RVA: 0x0035BD34 File Offset: 0x00359F34
 		public void Reset()
 		{
 			this.m_time.SetText(string.Empty);
@@ -44,7 +43,6 @@ namespace XMainClient.UI
 			this.m_current.gameObject.SetActive(false);
 		}
 
-		// Token: 0x0600F253 RID: 62035 RVA: 0x0035BD8C File Offset: 0x00359F8C
 		public void Set(GVGDuelCombatInfo combatInfo)
 		{
 			bool flag = combatInfo == null;
@@ -98,7 +96,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F254 RID: 62036 RVA: 0x0035C02C File Offset: 0x0035A22C
 		public void Recycle()
 		{
 			this.m_time = null;
@@ -122,64 +119,44 @@ namespace XMainClient.UI
 			this.m_used = null;
 		}
 
-		// Token: 0x040067C6 RID: 26566
 		private IXUILabel m_time;
 
-		// Token: 0x040067C7 RID: 26567
 		private IXUILabel m_guildNameCurrent;
 
-		// Token: 0x040067C8 RID: 26568
 		private IXUILabel m_guildNameUsed;
 
-		// Token: 0x040067C9 RID: 26569
 		private IXUILabel m_guildNameNext;
 
-		// Token: 0x040067CA RID: 26570
 		private IXUISprite m_PortraitCurrent;
 
-		// Token: 0x040067CB RID: 26571
 		private IXUISprite m_PortraitUsed;
 
-		// Token: 0x040067CC RID: 26572
 		private IXUISprite m_PortraitNext;
 
-		// Token: 0x040067CD RID: 26573
 		private IXUISprite m_enterBattle;
 
-		// Token: 0x040067CE RID: 26574
 		private IXUILabel m_score;
 
-		// Token: 0x040067CF RID: 26575
 		private Transform m_UsedPortraitEmpty;
 
-		// Token: 0x040067D0 RID: 26576
 		private Transform m_CurrentPortraitEmpty;
 
-		// Token: 0x040067D1 RID: 26577
 		private Transform m_NextPortraitEmpty;
 
-		// Token: 0x040067D2 RID: 26578
 		private Transform m_CurrentVS;
 
-		// Token: 0x040067D3 RID: 26579
 		private Transform m_CurrentMessage;
 
-		// Token: 0x040067D4 RID: 26580
 		private Transform m_win;
 
-		// Token: 0x040067D5 RID: 26581
 		private Transform m_lose;
 
-		// Token: 0x040067D6 RID: 26582
 		private Transform m_current;
 
-		// Token: 0x040067D7 RID: 26583
 		private Transform m_next;
 
-		// Token: 0x040067D8 RID: 26584
 		private Transform m_used;
 
-		// Token: 0x040067D9 RID: 26585
 		private int _index;
 	}
 }

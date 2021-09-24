@@ -9,11 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x020009AF RID: 2479
+
 	internal class XLevelDocument : XDocComponent
 	{
-		// Token: 0x17002D44 RID: 11588
-		// (get) Token: 0x0600961E RID: 38430 RVA: 0x00169B60 File Offset: 0x00167D60
+
 		public override uint ID
 		{
 			get
@@ -22,20 +21,17 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600961F RID: 38431 RVA: 0x00169B78 File Offset: 0x00167D78
 		public XLevelDocument()
 		{
 			this._showRandomTaskCb = new XTimerMgr.ElapsedEventHandler(this.ShowRandomTask);
 		}
 
-		// Token: 0x06009620 RID: 38432 RVA: 0x00169BE7 File Offset: 0x00167DE7
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			XLevelDocument.AsyncLoader.AddTask("Table/randomtask", XLevelDocument._randomtask, false);
 			XLevelDocument.AsyncLoader.Execute(callback);
 		}
 
-		// Token: 0x06009621 RID: 38433 RVA: 0x00169C0C File Offset: 0x00167E0C
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
@@ -62,13 +58,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009622 RID: 38434 RVA: 0x00114ADF File Offset: 0x00112CDF
 		public override void OnDetachFromHost()
 		{
 			base.OnDetachFromHost();
 		}
 
-		// Token: 0x06009623 RID: 38435 RVA: 0x00169CF8 File Offset: 0x00167EF8
 		public void UpdateSceneDayTime(QuerySceneDayCountRes data)
 		{
 			for (int i = 0; i < data.sceneid.Count; i++)
@@ -103,7 +97,6 @@ namespace XMainClient
 			this.RefreshRedPoint();
 		}
 
-		// Token: 0x06009624 RID: 38436 RVA: 0x00169E48 File Offset: 0x00168048
 		public override void OnEnterSceneFinally()
 		{
 			base.OnEnterSceneFinally();
@@ -130,7 +123,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009625 RID: 38437 RVA: 0x00169F40 File Offset: 0x00168140
 		public static string GetDifficulty(int _PlayerPPT, int _RecommendPower)
 		{
 			string[] array = XSingleton<XGlobalConfig>.singleton.GetValue("SceneDifficult").Split(XGlobalConfig.ListSeparator);
@@ -170,7 +162,6 @@ namespace XMainClient
 			return @string;
 		}
 
-		// Token: 0x06009626 RID: 38438 RVA: 0x0016A020 File Offset: 0x00168220
 		public double GetExpAddition(int level)
 		{
 			PlayerLevelTable.RowData byLevel = XSingleton<XEntityMgr>.singleton.LevelTable.GetByLevel(level);
@@ -187,14 +178,12 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009627 RID: 38439 RVA: 0x0016A05D File Offset: 0x0016825D
 		public void RefreshRedPoint()
 		{
 			XSingleton<XGameSysMgr>.singleton.RecalculateRedPointState(XSysDefine.XSys_Level_Normal, false);
 			XSingleton<XGameSysMgr>.singleton.RecalculateRedPointState(XSysDefine.XSys_Level_Elite, true);
 		}
 
-		// Token: 0x06009628 RID: 38440 RVA: 0x0016A07C File Offset: 0x0016827C
 		public void OnFetchSceneChestSucc(uint sceneID)
 		{
 			this.SceneBox.Add(sceneID);
@@ -206,7 +195,6 @@ namespace XMainClient
 			this.RefreshRedPoint();
 		}
 
-		// Token: 0x06009629 RID: 38441 RVA: 0x0016A0BC File Offset: 0x001682BC
 		public List<XDropData> GetDropData(int dropID)
 		{
 			bool flag = this.DropData.ContainsKey(dropID);
@@ -222,7 +210,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600962A RID: 38442 RVA: 0x0016A0EF File Offset: 0x001682EF
 		public void AutoGoBattle(int sceneid, int chapterid, uint diff)
 		{
 			DlgBase<ItemAccessDlg, ItemAccessDlgBehaviour>.singleton.SetVisible(false, true);
@@ -230,7 +217,6 @@ namespace XMainClient
 			DlgBase<DungeonSelect, DungeonSelectBehaviour>.singleton.FadeShow();
 		}
 
-		// Token: 0x0600962B RID: 38443 RVA: 0x0016A118 File Offset: 0x00168318
 		public void ResetScene(int sceneid)
 		{
 			this.m_reqSceneId = sceneid;
@@ -241,7 +227,6 @@ namespace XMainClient
 			this.m_bIsResetSceneMesBack = false;
 		}
 
-		// Token: 0x0600962C RID: 38444 RVA: 0x0016A170 File Offset: 0x00168370
 		public void OnResetSceneSucc(uint sceneid, StageCountResetRes oRes)
 		{
 			this.m_bIsResetSceneMesBack = true;
@@ -280,7 +265,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600962D RID: 38445 RVA: 0x0016A250 File Offset: 0x00168450
 		public bool HasChapterRedpoint(int chapterid)
 		{
 			XChapter.RowData chapter = XSingleton<XSceneMgr>.singleton.GetChapter(chapterid);
@@ -326,7 +310,6 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x0600962E RID: 38446 RVA: 0x0016A388 File Offset: 0x00168588
 		public bool HasDifficultAllChapterRedpoint(int difficult)
 		{
 			List<int> list = ListPool<int>.Get();
@@ -350,7 +333,6 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x0600962F RID: 38447 RVA: 0x0016A41C File Offset: 0x0016861C
 		public int GetUnFinishedPreSceneID(SceneTable.RowData data)
 		{
 			bool flag = data != null && data.PreScene != null;
@@ -373,7 +355,6 @@ namespace XMainClient
 			return 0;
 		}
 
-		// Token: 0x06009630 RID: 38448 RVA: 0x0016A4A0 File Offset: 0x001686A0
 		public SceneRefuseReason CanLevelOpen(uint sceneID)
 		{
 			SceneTable.RowData sceneData = XSingleton<XSceneMgr>.singleton.GetSceneData(sceneID);
@@ -439,13 +420,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009631 RID: 38449 RVA: 0x0016A5BA File Offset: 0x001687BA
 		public void OnTaskRandomTask(int rtask)
 		{
 			XSingleton<XTimerMgr>.singleton.SetTimer(1f, this._showRandomTaskCb, rtask);
 		}
 
-		// Token: 0x06009632 RID: 38450 RVA: 0x0016A5DC File Offset: 0x001687DC
 		public override void PostUpdate(float fDeltaT)
 		{
 			base.PostUpdate(fDeltaT);
@@ -461,20 +440,17 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009633 RID: 38451 RVA: 0x0016A62C File Offset: 0x0016882C
 		protected void ShowRandomTask(object o)
 		{
 			int rtask = (int)o;
 			this._rtask = rtask;
 		}
 
-		// Token: 0x06009634 RID: 38452 RVA: 0x0016A648 File Offset: 0x00168848
 		public RandomTaskTable.RowData GetRandomTaskData(int rtask)
 		{
 			return XLevelDocument._randomtask.GetByTaskID(rtask);
 		}
 
-		// Token: 0x06009635 RID: 38453 RVA: 0x0016A668 File Offset: 0x00168868
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 			bool flag = !this.m_bIsResetSceneMesBack;
@@ -484,49 +460,36 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009636 RID: 38454 RVA: 0x0016A690 File Offset: 0x00168890
 		public BossRushTable.RowData GetBossRushConfig(uint sceneID, uint index)
 		{
 			return null;
 		}
 
-		// Token: 0x06009637 RID: 38455 RVA: 0x0016A6A4 File Offset: 0x001688A4
 		public uint GetBossRushReward(uint sceneID, int killcount)
 		{
 			return 0U;
 		}
 
-		// Token: 0x04003308 RID: 13064
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("XLevelDocument");
 
-		// Token: 0x04003309 RID: 13065
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x0400330A RID: 13066
 		private static RandomTaskTable _randomtask = new RandomTaskTable();
 
-		// Token: 0x0400330B RID: 13067
 		public Dictionary<uint, uint> SceneDayEnter = new Dictionary<uint, uint>();
 
-		// Token: 0x0400330C RID: 13068
 		public Dictionary<uint, uint> SceneBuyCount = new Dictionary<uint, uint>();
 
-		// Token: 0x0400330D RID: 13069
 		public Dictionary<int, List<XDropData>> DropData = new Dictionary<int, List<XDropData>>();
 
-		// Token: 0x0400330E RID: 13070
 		public List<uint> SceneBox = new List<uint>();
 
-		// Token: 0x0400330F RID: 13071
 		private int _rtask = 0;
 
-		// Token: 0x04003310 RID: 13072
 		private XTimerMgr.ElapsedEventHandler _showRandomTaskCb = null;
 
-		// Token: 0x04003311 RID: 13073
 		private bool m_bIsResetSceneMesBack = true;
 
-		// Token: 0x04003312 RID: 13074
 		private int m_reqSceneId = 0;
 	}
 }

@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000913 RID: 2323
+
 	internal class XHallFameDocument : XDocComponent
 	{
-		// Token: 0x17002B6D RID: 11117
-		// (get) Token: 0x06008C1E RID: 35870 RVA: 0x0012EAA8 File Offset: 0x0012CCA8
+
 		public override uint ID
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002B6E RID: 11118
-		// (get) Token: 0x06008C1F RID: 35871 RVA: 0x0012EAC0 File Offset: 0x0012CCC0
 		public static XHallFameDocument Doc
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002B6F RID: 11119
-		// (get) Token: 0x06008C20 RID: 35872 RVA: 0x0012EAEC File Offset: 0x0012CCEC
 		public List<ArenaStarType> CanSupportType
 		{
 			get
@@ -40,42 +35,35 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008C21 RID: 35873 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 		}
 
-		// Token: 0x06008C22 RID: 35874 RVA: 0x00114ACA File Offset: 0x00112CCA
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
 		}
 
-		// Token: 0x06008C23 RID: 35875 RVA: 0x00114AD5 File Offset: 0x00112CD5
 		protected override void EventSubscribe()
 		{
 			base.EventSubscribe();
 		}
 
-		// Token: 0x06008C24 RID: 35876 RVA: 0x0012EB04 File Offset: 0x0012CD04
 		public override void OnDetachFromHost()
 		{
 			base.OnDetachFromHost();
 			XSingleton<XDebug>.singleton.AddGreenLog("XHallFameDocument...OnDetachFromHost", null, null, null, null, null);
 		}
 
-		// Token: 0x06008C25 RID: 35877 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 		}
 
-		// Token: 0x06008C26 RID: 35878 RVA: 0x00114AE9 File Offset: 0x00112CE9
 		public override void OnEnterSceneFinally()
 		{
 			base.OnEnterSceneFinally();
 		}
 
-		// Token: 0x06008C27 RID: 35879 RVA: 0x0012EB24 File Offset: 0x0012CD24
 		public List<HallFameRoleInfo> GetRankInfoListBySysID(ArenaStarType id)
 		{
 			this._list.Clear();
@@ -154,7 +142,6 @@ namespace XMainClient
 			return this._list;
 		}
 
-		// Token: 0x06008C28 RID: 35880 RVA: 0x0012EE00 File Offset: 0x0012D000
 		public HallFameRoleInfo GetRoleInfoByRoleID(ulong roleID)
 		{
 			for (int i = 0; i < this._list.Count; i++)
@@ -168,7 +155,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x06008C29 RID: 35881 RVA: 0x0012EE5C File Offset: 0x0012D05C
 		public void SendArenaStarRoleReq(ArenaStarReqType reqType, ArenaStarType starType, ulong roleID)
 		{
 			RpcC2M_ArenaStarRoleReq rpcC2M_ArenaStarRoleReq = new RpcC2M_ArenaStarRoleReq();
@@ -178,7 +164,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_ArenaStarRoleReq);
 		}
 
-		// Token: 0x06008C2A RID: 35882 RVA: 0x0012EEA4 File Offset: 0x0012D0A4
 		public void OnGetStarRoleInfo(ArenaStarReqArg oArg, ArenaStarReqRes oRes)
 		{
 			bool flag = oArg.reqtype == ArenaStarReqType.ASRT_ROLEDATA;
@@ -214,7 +199,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008C2B RID: 35883 RVA: 0x0012EF78 File Offset: 0x0012D178
 		public XRankType GetRankTypeByStarType(ArenaStarType type)
 		{
 			XRankType result;
@@ -239,7 +223,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008C2C RID: 35884 RVA: 0x0012EFBC File Offset: 0x0012D1BC
 		public void OnGetSupportInfo(ArenaStarPara data)
 		{
 			this.CanSupportType.Clear();
@@ -250,7 +233,6 @@ namespace XMainClient
 			XSingleton<XGameSysMgr>.singleton.RecalculateRedPointState(XSysDefine.XSys_HallFame, true);
 		}
 
-		// Token: 0x06008C2D RID: 35885 RVA: 0x0012F018 File Offset: 0x0012D218
 		public ArenaStarHistData GetHistoryDataByRoleID(ulong roleID)
 		{
 			for (int i = 0; i < this._list.Count; i++)
@@ -264,7 +246,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x06008C2E RID: 35886 RVA: 0x0012F078 File Offset: 0x0012D278
 		public List<int> GetLastSeasonDataByRoleID(ulong roleID)
 		{
 			for (int i = 0; i < this._list.Count; i++)
@@ -278,13 +259,11 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x06008C2F RID: 35887 RVA: 0x0012F0D8 File Offset: 0x0012D2D8
 		public string GetVictioryAction(uint basicType)
 		{
 			return string.Format("Player_{0}_{1}", XSingleton<XProfessionSkillMgr>.singleton.GetLowerCaseWord(basicType), "victory");
 		}
 
-		// Token: 0x06008C30 RID: 35888 RVA: 0x0012F104 File Offset: 0x0012D304
 		private int GetRankListCountByType(ArenaStarType type)
 		{
 			int result = 0;
@@ -323,28 +302,20 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x04002D29 RID: 11561
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("HallFameDocument");
 
-		// Token: 0x04002D2A RID: 11562
 		public static readonly int Max_Role_Num = 4;
 
-		// Token: 0x04002D2B RID: 11563
 		public ulong SeasonBeginTime = 0UL;
 
-		// Token: 0x04002D2C RID: 11564
 		public ulong SeasonEndTime = 0UL;
 
-		// Token: 0x04002D2D RID: 11565
 		public uint Season_time = 0U;
 
-		// Token: 0x04002D2E RID: 11566
 		private List<HallFameRoleInfo> _list = new List<HallFameRoleInfo>(XHallFameDocument.Max_Role_Num);
 
-		// Token: 0x04002D2F RID: 11567
 		private List<ArenaStarTopRoleData> _curShowedRoleData;
 
-		// Token: 0x04002D30 RID: 11568
 		private List<ArenaStarType> _canSupportType = new List<ArenaStarType>();
 	}
 }

@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000B84 RID: 2948
+
 	internal class second_slash_show
 	{
-		// Token: 0x0600A972 RID: 43378 RVA: 0x001E2BD8 File Offset: 0x001E0DD8
+
 		public static bool Do(List<XActor> actors)
 		{
 			bool flag = actors != null && actors.Count == XGame.RoleCount && !second_slash_show._replaced;
@@ -99,7 +99,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600A973 RID: 43379 RVA: 0x001E2EC0 File Offset: 0x001E10C0
 		protected static XDummy SetupRole(RoleBriefInfo brief)
 		{
 			uint presentID = XSingleton<XEntityMgr>.singleton.RoleInfo.GetByProfID((uint)((int)brief.type % (int)(RoleType)10)).PresentID;
@@ -115,15 +114,12 @@ namespace XMainClient
 			return xdummy;
 		}
 
-		// Token: 0x0600A974 RID: 43380 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public static void Done(object o)
 		{
 		}
 
-		// Token: 0x04003EA5 RID: 16037
 		private static bool _replaced = false;
 
-		// Token: 0x04003EA6 RID: 16038
 		private static XTimerMgr.ElapsedEventHandler _done = null;
 	}
 }

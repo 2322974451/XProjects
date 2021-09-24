@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x0200024C RID: 588
+
 	public class BattleFieldPointReward : CVSReader
 	{
-		// Token: 0x06000CD6 RID: 3286 RVA: 0x00043804 File Offset: 0x00041A04
+
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			BattleFieldPointReward.RowData rowData = new BattleFieldPointReward.RowData();
@@ -25,7 +25,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x06000CD7 RID: 3287 RVA: 0x000438CC File Offset: 0x00041ACC
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -39,28 +38,21 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x0400079A RID: 1946
 		public BattleFieldPointReward.RowData[] Table = null;
 
-		// Token: 0x020003DB RID: 987
 		public class RowData
 		{
-			// Token: 0x0400115B RID: 4443
+
 			public SeqRef<int> levelrange;
 
-			// Token: 0x0400115C RID: 4444
 			public int point;
 
-			// Token: 0x0400115D RID: 4445
 			public SeqListRef<int> reward;
 
-			// Token: 0x0400115E RID: 4446
 			public uint id;
 
-			// Token: 0x0400115F RID: 4447
 			public uint count;
 
-			// Token: 0x04001160 RID: 4448
 			public SeqRef<uint> pointseg;
 		}
 	}

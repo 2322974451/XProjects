@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000A69 RID: 2665
+
 	internal class XGuildGrowthLabView : DlgBase<XGuildGrowthLabView, XGuildGrowthLabBehavior>
 	{
-		// Token: 0x17002F32 RID: 12082
-		// (get) Token: 0x0600A191 RID: 41361 RVA: 0x001B59E8 File Offset: 0x001B3BE8
+
 		public override string fileName
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002F33 RID: 12083
-		// (get) Token: 0x0600A192 RID: 41362 RVA: 0x001B5A00 File Offset: 0x001B3C00
 		public override int layer
 		{
 			get
@@ -31,8 +28,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002F34 RID: 12084
-		// (get) Token: 0x0600A193 RID: 41363 RVA: 0x001B5A14 File Offset: 0x001B3C14
 		public override int group
 		{
 			get
@@ -41,8 +36,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002F35 RID: 12085
-		// (get) Token: 0x0600A194 RID: 41364 RVA: 0x001B5A28 File Offset: 0x001B3C28
 		public override bool autoload
 		{
 			get
@@ -51,8 +44,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002F36 RID: 12086
-		// (get) Token: 0x0600A195 RID: 41365 RVA: 0x001B5A3C File Offset: 0x001B3C3C
 		public override bool hideMainMenu
 		{
 			get
@@ -61,8 +52,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002F37 RID: 12087
-		// (get) Token: 0x0600A196 RID: 41366 RVA: 0x001B5A50 File Offset: 0x001B3C50
 		public override bool pushstack
 		{
 			get
@@ -71,7 +60,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A197 RID: 41367 RVA: 0x001B5A63 File Offset: 0x001B3C63
 		protected override void Init()
 		{
 			this._doc = XDocuments.GetSpecificDocument<XGuildGrowthDocument>(XGuildGrowthDocument.uuID);
@@ -79,40 +67,33 @@ namespace XMainClient
 			this._skillDoc = XDocuments.GetSpecificDocument<XGuildSkillDocument>(XGuildSkillDocument.uuID);
 		}
 
-		// Token: 0x0600A198 RID: 41368 RVA: 0x001B5A98 File Offset: 0x001B3C98
 		private bool OnClose(IXUIButton button)
 		{
 			this.SetVisible(false, true);
 			return false;
 		}
 
-		// Token: 0x0600A199 RID: 41369 RVA: 0x001B5AB4 File Offset: 0x001B3CB4
 		private void OnPointClick(IXUISprite iSp)
 		{
 			XSingleton<UiUtility>.singleton.ShowItemAccess(35, null);
 		}
 
-		// Token: 0x0600A19A RID: 41370 RVA: 0x001B5AC8 File Offset: 0x001B3CC8
 		private bool OnHelpBtnClick(IXUIButton btn)
 		{
 			DlgBase<XCommonHelpTipView, XCommonHelpTipBehaviour>.singleton.ShowHelp(XSysDefine.XSys_GuildGrowthLab);
 			return true;
 		}
 
-		// Token: 0x0600A19B RID: 41371 RVA: 0x001B5AEB File Offset: 0x001B3CEB
 		protected override void OnHide()
 		{
 			base.OnHide();
 		}
 
-		// Token: 0x0600A19C RID: 41372 RVA: 0x001B5AF5 File Offset: 0x001B3CF5
 		protected override void OnUnload()
 		{
 			base.OnUnload();
 		}
 
-		// Token: 0x17002F38 RID: 12088
-		// (get) Token: 0x0600A19D RID: 41373 RVA: 0x001B5B00 File Offset: 0x001B3D00
 		public override int sysid
 		{
 			get
@@ -121,7 +102,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A19E RID: 41374 RVA: 0x001B5B1C File Offset: 0x001B3D1C
 		public override void RegisterEvent()
 		{
 			base.uiBehaviour.CloseBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnClose));
@@ -130,14 +110,12 @@ namespace XMainClient
 			base.uiBehaviour.m_PointClick.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnPointClick));
 		}
 
-		// Token: 0x0600A19F RID: 41375 RVA: 0x001B5B9E File Offset: 0x001B3D9E
 		protected override void OnShow()
 		{
 			this._currSelectID = -1;
 			this.RefreshList(false);
 		}
 
-		// Token: 0x0600A1A0 RID: 41376 RVA: 0x001B5BB0 File Offset: 0x001B3DB0
 		private bool OnCheckBoxClick(IXUICheckBox icb)
 		{
 			bool flag = !icb.bChecked;
@@ -155,7 +133,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A1A1 RID: 41377 RVA: 0x001B5BE8 File Offset: 0x001B3DE8
 		private bool OnLevelUpBtnClick(IXUIButton btn)
 		{
 			uint skillID = XGuildSkillDocument.GuildSkillIDs[this._currSelectID];
@@ -193,7 +170,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A1A2 RID: 41378 RVA: 0x001B5CD4 File Offset: 0x001B3ED4
 		public void RefreshList(bool forceRefreshDetail = false)
 		{
 			base.uiBehaviour.BuffItemPool.ReturnAll(false);
@@ -248,7 +224,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A1A3 RID: 41379 RVA: 0x001B5F80 File Offset: 0x001B4180
 		public void RefreshDetail()
 		{
 			uint skillID = XGuildSkillDocument.GuildSkillIDs[this._currSelectID];
@@ -284,16 +259,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04003A43 RID: 14915
 		private XGuildGrowthDocument _doc;
 
-		// Token: 0x04003A44 RID: 14916
 		private XGuildDocument _guildDoc;
 
-		// Token: 0x04003A45 RID: 14917
 		private XGuildSkillDocument _skillDoc = null;
 
-		// Token: 0x04003A46 RID: 14918
 		private int _currSelectID = 0;
 	}
 }

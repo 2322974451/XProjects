@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x02000250 RID: 592
+
 	public class DragonGuildAchieveTable : CVSReader
 	{
-		// Token: 0x06000CE4 RID: 3300 RVA: 0x00043D34 File Offset: 0x00041F34
+
 		public DragonGuildAchieveTable.RowData GetByID(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -29,7 +29,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000CE5 RID: 3301 RVA: 0x00043DA0 File Offset: 0x00041FA0
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			DragonGuildAchieveTable.RowData rowData = new DragonGuildAchieveTable.RowData();
@@ -61,7 +60,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x06000CE6 RID: 3302 RVA: 0x00043F04 File Offset: 0x00042104
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -75,46 +73,33 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x0400079E RID: 1950
 		public DragonGuildAchieveTable.RowData[] Table = null;
 
-		// Token: 0x020003DF RID: 991
 		public class RowData
 		{
-			// Token: 0x04001175 RID: 4469
+
 			public uint ID;
 
-			// Token: 0x04001176 RID: 4470
 			public uint Type;
 
-			// Token: 0x04001177 RID: 4471
 			public string name;
 
-			// Token: 0x04001178 RID: 4472
 			public string description;
 
-			// Token: 0x04001179 RID: 4473
 			public string icon;
 
-			// Token: 0x0400117A RID: 4474
 			public uint SceneID;
 
-			// Token: 0x0400117B RID: 4475
 			public uint count;
 
-			// Token: 0x0400117C RID: 4476
 			public uint guildExp;
 
-			// Token: 0x0400117D RID: 4477
 			public uint[] dropID;
 
-			// Token: 0x0400117E RID: 4478
 			public SeqListRef<uint> viewabledrop;
 
-			// Token: 0x0400117F RID: 4479
 			public uint chestCount;
 
-			// Token: 0x04001180 RID: 4480
 			public uint value;
 		}
 	}

@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020018AB RID: 6315
+
 	internal class XGuildApproveView : DlgBase<XGuildApproveView, XGuildApproveBehaviour>
 	{
-		// Token: 0x17003A19 RID: 14873
-		// (get) Token: 0x06010746 RID: 67398 RVA: 0x00406A68 File Offset: 0x00404C68
+
 		public override string fileName
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003A1A RID: 14874
-		// (get) Token: 0x06010747 RID: 67399 RVA: 0x00406A80 File Offset: 0x00404C80
 		public override int layer
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003A1B RID: 14875
-		// (get) Token: 0x06010748 RID: 67400 RVA: 0x00406A94 File Offset: 0x00404C94
 		public override int group
 		{
 			get
@@ -40,8 +35,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003A1C RID: 14876
-		// (get) Token: 0x06010749 RID: 67401 RVA: 0x00406AA8 File Offset: 0x00404CA8
 		public override bool autoload
 		{
 			get
@@ -50,8 +43,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003A1D RID: 14877
-		// (get) Token: 0x0601074A RID: 67402 RVA: 0x00406ABC File Offset: 0x00404CBC
 		public override bool hideMainMenu
 		{
 			get
@@ -60,8 +51,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003A1E RID: 14878
-		// (get) Token: 0x0601074B RID: 67403 RVA: 0x00406AD0 File Offset: 0x00404CD0
 		public override bool pushstack
 		{
 			get
@@ -70,7 +59,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601074C RID: 67404 RVA: 0x00406AE4 File Offset: 0x00404CE4
 		protected override void Init()
 		{
 			this._ApproveDoc = XDocuments.GetSpecificDocument<XGuildApproveDocument>(XGuildApproveDocument.uuID);
@@ -80,7 +68,6 @@ namespace XMainClient.UI
 			DlgHandlerBase.EnsureCreate<XGuildApproveSettingView>(ref this._SettingView, base.uiBehaviour.m_SettingPanel, null, true);
 		}
 
-		// Token: 0x0601074D RID: 67405 RVA: 0x00406B48 File Offset: 0x00404D48
 		protected override void OnUnload()
 		{
 			this._ApproveDoc.GuildApproveView = null;
@@ -88,7 +75,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x0601074E RID: 67406 RVA: 0x00406B6C File Offset: 0x00404D6C
 		public override void RegisterEvent()
 		{
 			base.uiBehaviour.m_Close.RegisterClickEventHandler(new ButtonClickEventHandler(this._OnCloseBtnClick));
@@ -99,7 +85,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_WrapContent.RegisterItemInitEventHandler(new WrapItemInitEventHandler(this._WrapContentInit));
 		}
 
-		// Token: 0x0601074F RID: 67407 RVA: 0x00406C28 File Offset: 0x00404E28
 		protected override void OnShow()
 		{
 			this._ApproveDoc.ReqApproveList();
@@ -108,7 +93,6 @@ namespace XMainClient.UI
 			this.RefreshMember();
 		}
 
-		// Token: 0x06010750 RID: 67408 RVA: 0x00406C54 File Offset: 0x00404E54
 		public void RefreshSetting()
 		{
 			GuildApproveSetting approveSetting = this._ApproveDoc.ApproveSetting;
@@ -124,14 +108,12 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_NeedApprove.SetText(approveSetting.autoApprove ? XStringDefineProxy.GetString("GUILD_APPROVE_NEEDNT") : XStringDefineProxy.GetString("GUILD_APPROVE_NEED"));
 		}
 
-		// Token: 0x06010751 RID: 67409 RVA: 0x00406CE0 File Offset: 0x00404EE0
 		public void RefreshMember()
 		{
 			this.m_ApproveStatu = false;
 			base.uiBehaviour.m_MemberCount.SetText(string.Format("{0}/{1}", this._GuildDoc.BasicData.memberCount, this._GuildDoc.BasicData.maxMemberCount));
 		}
 
-		// Token: 0x06010752 RID: 67410 RVA: 0x00406D3C File Offset: 0x00404F3C
 		public void RefreshList(bool bResetPosition)
 		{
 			List<XGuildApplyInfo> approveList = this._ApproveDoc.ApproveList;
@@ -143,7 +125,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010753 RID: 67411 RVA: 0x00406D88 File Offset: 0x00404F88
 		private void _WrapContentInit(Transform t, int index)
 		{
 			IXUIButton ixuibutton = t.FindChild("BtnOK").GetComponent("XUIButton") as IXUIButton;
@@ -152,7 +133,6 @@ namespace XMainClient.UI
 			ixuibutton2.RegisterClickEventHandler(new ButtonClickEventHandler(this._OnCancelBtnClick));
 		}
 
-		// Token: 0x06010754 RID: 67412 RVA: 0x00406DF4 File Offset: 0x00404FF4
 		private void _WrapContentItemUpdated(Transform t, int index)
 		{
 			bool flag = index < 0 || index >= this._ApproveDoc.ApproveList.Count;
@@ -178,14 +158,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010755 RID: 67413 RVA: 0x00406FB0 File Offset: 0x004051B0
 		private bool _OnCloseBtnClick(IXUIButton go)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x06010756 RID: 67414 RVA: 0x00406FCC File Offset: 0x004051CC
 		private bool _OnOneKeyCancelBtnClick(IXUIButton go)
 		{
 			bool flag = !this._GuildDoc.bInGuild;
@@ -202,7 +180,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x06010757 RID: 67415 RVA: 0x0040702C File Offset: 0x0040522C
 		private bool _OnOneKeyCancel(IXUIButton go)
 		{
 			this._ApproveDoc.ReqRejectAll();
@@ -210,14 +187,12 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x06010758 RID: 67416 RVA: 0x00407058 File Offset: 0x00405258
 		private bool _OnSettingBtnClick(IXUIButton btn)
 		{
 			this._SettingView.SetVisible(true);
 			return true;
 		}
 
-		// Token: 0x06010759 RID: 67417 RVA: 0x00407078 File Offset: 0x00405278
 		private bool _OnSendMessageBtnClick(IXUIButton btn)
 		{
 			XInvitationDocument specificDocument = XDocuments.GetSpecificDocument<XInvitationDocument>(XInvitationDocument.uuID);
@@ -225,7 +200,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0601075A RID: 67418 RVA: 0x004070A0 File Offset: 0x004052A0
 		private bool _OnOKBtnClick(IXUIButton btn)
 		{
 			bool approveStatu = this.m_ApproveStatu;
@@ -243,7 +217,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0601075B RID: 67419 RVA: 0x004070DC File Offset: 0x004052DC
 		private bool _OnCancelBtnClick(IXUIButton btn)
 		{
 			bool approveStatu = this.m_ApproveStatu;
@@ -261,19 +234,14 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x040076E5 RID: 30437
 		private XGuildApproveDocument _ApproveDoc;
 
-		// Token: 0x040076E6 RID: 30438
 		private XGuildDocument _GuildDoc;
 
-		// Token: 0x040076E7 RID: 30439
 		private XGuildHallDocument _HallDoc;
 
-		// Token: 0x040076E8 RID: 30440
 		private XGuildApproveSettingView _SettingView;
 
-		// Token: 0x040076E9 RID: 30441
 		private bool m_ApproveStatu = false;
 	}
 }

@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x020009C2 RID: 2498
+
 	internal class XActivityDocument : XDocComponent
 	{
-		// Token: 0x17002D94 RID: 11668
-		// (get) Token: 0x06009767 RID: 38759 RVA: 0x001703F4 File Offset: 0x0016E5F4
+
 		public override uint ID
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002D95 RID: 11669
-		// (get) Token: 0x06009768 RID: 38760 RVA: 0x0017040C File Offset: 0x0016E60C
 		public static XActivityDocument Doc
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002D96 RID: 11670
-		// (get) Token: 0x06009769 RID: 38761 RVA: 0x00170438 File Offset: 0x0016E638
 		public ActivityListTable _ActivityListTable
 		{
 			get
@@ -40,7 +35,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600976A RID: 38762 RVA: 0x00170450 File Offset: 0x0016E650
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			XActivityDocument.AsyncLoader.AddTask("Table/ActivityList", XActivityDocument._activityListTable, false);
@@ -49,13 +43,11 @@ namespace XMainClient
 			XActivityDocument.AsyncLoader.Execute(callback);
 		}
 
-		// Token: 0x0600976B RID: 38763 RVA: 0x00114ACA File Offset: 0x00112CCA
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
 		}
 
-		// Token: 0x0600976C RID: 38764 RVA: 0x001704AC File Offset: 0x0016E6AC
 		public override void OnEnterSceneFinally()
 		{
 			base.OnEnterSceneFinally();
@@ -67,7 +59,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600976D RID: 38765 RVA: 0x001704E8 File Offset: 0x0016E6E8
 		protected override void EventSubscribe()
 		{
 			base.EventSubscribe();
@@ -76,7 +67,6 @@ namespace XMainClient
 			base.RegisterEvent(XEventDefine.XEvent_PlayerLevelChange, new XComponent.XEventHandler(this.OnPlayerLevelChange));
 		}
 
-		// Token: 0x0600976E RID: 38766 RVA: 0x00170540 File Offset: 0x0016E740
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 			bool flag = this.View != null && this.View.IsVisible();
@@ -87,7 +77,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600976F RID: 38767 RVA: 0x00170578 File Offset: 0x0016E778
 		public void ReqDayCount()
 		{
 			this.m_DayCountReqNum = 5;
@@ -118,14 +107,12 @@ namespace XMainClient
 			specificDocument6.SendReqDragonNestInfo();
 		}
 
-		// Token: 0x06009770 RID: 38768 RVA: 0x00170680 File Offset: 0x0016E880
 		public void SendQueryGetMulActInfo()
 		{
 			RpcC2G_MulActivityReq rpc = new RpcC2G_MulActivityReq();
 			XSingleton<XClientNetwork>.singleton.Send(rpc);
 		}
 
-		// Token: 0x06009771 RID: 38769 RVA: 0x001706A0 File Offset: 0x0016E8A0
 		public void OnGetDayCount()
 		{
 			bool flag = this.m_DayCountReqNum == 0;
@@ -145,7 +132,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009772 RID: 38770 RVA: 0x00170710 File Offset: 0x0016E910
 		public void SetMulActivityInfo(List<MulActivitInfo> list)
 		{
 			this.m_mulActivityList.Clear();
@@ -168,7 +154,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009773 RID: 38771 RVA: 0x001707B8 File Offset: 0x0016E9B8
 		public void ChangeActivityState(List<MulActivitInfo> list)
 		{
 			for (int i = 0; i < list.Count; i++)
@@ -192,7 +177,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009774 RID: 38772 RVA: 0x0017088C File Offset: 0x0016EA8C
 		public MulActivityInfo TurnSeverDataToSlientData(MulActivitInfo serverData)
 		{
 			MulActivityInfo mulActivityInfo = new MulActivityInfo();
@@ -308,7 +292,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009775 RID: 38773 RVA: 0x00170BC8 File Offset: 0x0016EDC8
 		public void SetScrollView(int sysId)
 		{
 			bool flag = DlgBase<DailyActivityDlg, TabDlgBehaviour>.singleton.ActivityHandler != null && DlgBase<DailyActivityDlg, TabDlgBehaviour>.singleton.ActivityHandler.IsVisible();
@@ -318,7 +301,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009776 RID: 38774 RVA: 0x00170C0C File Offset: 0x0016EE0C
 		public void GetLeftDay(int sysID, ref int leftDay)
 		{
 			leftDay = 0;
@@ -355,8 +337,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002D97 RID: 11671
-		// (get) Token: 0x06009777 RID: 38775 RVA: 0x00170CFC File Offset: 0x0016EEFC
 		public List<int> DragonResetTime
 		{
 			get
@@ -370,7 +350,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009778 RID: 38776 RVA: 0x00170D38 File Offset: 0x0016EF38
 		public void GetCount(int sysID, ref int leftCount, ref int totalCount, ref int canBuyCount)
 		{
 			XExpeditionDocument specificDocument = XDocuments.GetSpecificDocument<XExpeditionDocument>(XExpeditionDocument.uuID);
@@ -475,8 +454,6 @@ namespace XMainClient
 			canBuyCount = 0;
 		}
 
-		// Token: 0x17002D98 RID: 11672
-		// (get) Token: 0x06009779 RID: 38777 RVA: 0x00170FE0 File Offset: 0x0016F1E0
 		public List<MulActivityInfo> MulActivityList
 		{
 			get
@@ -485,8 +462,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002D99 RID: 11673
-		// (get) Token: 0x0600977A RID: 38778 RVA: 0x00170FF8 File Offset: 0x0016F1F8
 		public MultiActivityList MulActivityTable
 		{
 			get
@@ -495,28 +470,24 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600977B RID: 38779 RVA: 0x00171010 File Offset: 0x0016F210
 		protected bool OnGuildLevelChanged(XEventArgs e)
 		{
 			this.CheckEntranceState();
 			return true;
 		}
 
-		// Token: 0x0600977C RID: 38780 RVA: 0x0017102C File Offset: 0x0016F22C
 		protected bool OnInGuildStateChanged(XEventArgs e)
 		{
 			this.CheckEntranceState();
 			return true;
 		}
 
-		// Token: 0x0600977D RID: 38781 RVA: 0x00171048 File Offset: 0x0016F248
 		private bool OnPlayerLevelChange(XEventArgs arg)
 		{
 			this.CheckEntranceState();
 			return true;
 		}
 
-		// Token: 0x0600977E RID: 38782 RVA: 0x00171064 File Offset: 0x0016F264
 		public void CheckEntranceState()
 		{
 			XGuildDocument specificDocument = XDocuments.GetSpecificDocument<XGuildDocument>(XGuildDocument.uuID);
@@ -562,7 +533,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600977F RID: 38783 RVA: 0x001711F0 File Offset: 0x0016F3F0
 		public MultiActivityList.RowData GetMultiActivityTableInfo(XSysDefine sys)
 		{
 			for (int i = 0; i < XActivityDocument.m_mulActivityTable.Table.Length; i++)
@@ -576,7 +546,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x06009780 RID: 38784 RVA: 0x00171248 File Offset: 0x0016F448
 		private int Compare(MulActivityInfo x, MulActivityInfo y)
 		{
 			bool flag = x.ID == y.ID;
@@ -632,7 +601,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009781 RID: 38785 RVA: 0x00171324 File Offset: 0x0016F524
 		private void SetTagTips()
 		{
 			bool flag = false;
@@ -664,7 +632,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009782 RID: 38786 RVA: 0x001713AC File Offset: 0x0016F5AC
 		public bool MainCityNeedEffect()
 		{
 			bool flag = XActivityDocument.m_doubleActivityTab == null;
@@ -692,7 +659,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009783 RID: 38787 RVA: 0x00171430 File Offset: 0x0016F630
 		public bool IsInnerDropTime(uint sysId)
 		{
 			bool flag = XActivityDocument.m_doubleActivityTab == null;
@@ -709,7 +675,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009784 RID: 38788 RVA: 0x00171468 File Offset: 0x0016F668
 		private bool ParseData(DoubleActivity.RowData data)
 		{
 			bool flag = data == null;
@@ -734,7 +699,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009785 RID: 38789 RVA: 0x001714C0 File Offset: 0x0016F6C0
 		private bool ParseWeekDays(uint[] weekOpenDays)
 		{
 			DateTime dateTime = new DateTime(1970, 1, 1, 0, 0, 0);
@@ -770,7 +734,6 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x06009786 RID: 38790 RVA: 0x001715A8 File Offset: 0x0016F7A8
 		private bool ParseTimeSpan(uint[] timeSpan)
 		{
 			bool flag = timeSpan.Length < 5;
@@ -815,7 +778,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009787 RID: 38791 RVA: 0x00171684 File Offset: 0x0016F884
 		public void OnSystemChanged(List<uint> openIds, List<uint> closeIds)
 		{
 			bool flag = this.View == null || !this.View.IsVisible();
@@ -864,46 +826,32 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x040033B4 RID: 13236
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("ActivityDocument");
 
-		// Token: 0x040033B5 RID: 13237
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x040033B6 RID: 13238
 		private static ActivityListTable _activityListTable = new ActivityListTable();
 
-		// Token: 0x040033B7 RID: 13239
 		private static DoubleActivity m_doubleActivityTab = new DoubleActivity();
 
-		// Token: 0x040033B8 RID: 13240
 		public ActivityHandler View;
 
-		// Token: 0x040033B9 RID: 13241
 		public int ServerOpenDay = 10000;
 
-		// Token: 0x040033BA RID: 13242
 		public int ServerOpenWeek = 10000;
 
-		// Token: 0x040033BB RID: 13243
 		public uint SeverOpenSecond = 10000U;
 
-		// Token: 0x040033BC RID: 13244
 		public uint ServerTimeSince1970 = 0U;
 
-		// Token: 0x040033BD RID: 13245
 		private int m_DayCountReqNum;
 
-		// Token: 0x040033BE RID: 13246
 		private List<int> m_DragonResetTime = null;
 
-		// Token: 0x040033BF RID: 13247
 		private List<MulActivityInfo> m_mulActivityList = new List<MulActivityInfo>();
 
-		// Token: 0x040033C0 RID: 13248
 		private static MultiActivityList m_mulActivityTable = new MultiActivityList();
 
-		// Token: 0x040033C1 RID: 13249
 		public string MainInterfaceTips = "";
 	}
 }

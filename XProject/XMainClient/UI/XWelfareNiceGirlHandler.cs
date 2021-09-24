@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020018EA RID: 6378
+
 	public class XWelfareNiceGirlHandler : DlgHandlerBase
 	{
-		// Token: 0x17003A81 RID: 14977
-		// (get) Token: 0x060109C7 RID: 68039 RVA: 0x00419F58 File Offset: 0x00418158
+
 		protected override string FileName
 		{
 			get
@@ -20,14 +19,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060109C8 RID: 68040 RVA: 0x00419F6F File Offset: 0x0041816F
 		protected override void Init()
 		{
 			base.Init();
 			this.InitProperties();
 		}
 
-		// Token: 0x060109C9 RID: 68041 RVA: 0x00419F80 File Offset: 0x00418180
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -36,13 +33,11 @@ namespace XMainClient.UI
 			XWelfareDocument.Doc.SendArgentaActivityInfo(1U, 0U);
 		}
 
-		// Token: 0x060109CA RID: 68042 RVA: 0x0019EEB0 File Offset: 0x0019D0B0
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 		}
 
-		// Token: 0x060109CB RID: 68043 RVA: 0x00419FB4 File Offset: 0x004181B4
 		public override void RefreshData()
 		{
 			base.RefreshData();
@@ -75,7 +70,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060109CC RID: 68044 RVA: 0x0041A040 File Offset: 0x00418240
 		private void RefreshScorllViewContent()
 		{
 			this._dailyGiftRoot.gameObject.SetActive(this._curBlessType == XWelfareNiceGirlHandler.BlessType.DialyGift);
@@ -96,7 +90,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060109CD RID: 68045 RVA: 0x0041A0EC File Offset: 0x004182EC
 		private void InitProperties()
 		{
 			this._CDRewards = (base.transform.Find("CDRewards").GetComponent("XUILabel") as IXUILabel);
@@ -118,7 +111,6 @@ namespace XMainClient.UI
 			this._specailWrapContent.RegisterItemInitEventHandler(new WrapItemInitEventHandler(this.SpecialGiftContentInit));
 		}
 
-		// Token: 0x060109CE RID: 68046 RVA: 0x0041A2D8 File Offset: 0x004184D8
 		private void RefreshRedPoint()
 		{
 			Transform transform = base.transform.Find("buttons/SelectNormal/redpoint");
@@ -127,7 +119,6 @@ namespace XMainClient.UI
 			transform2.gameObject.SetActive(XWelfareDocument.Doc.GetSpecialGiftRedPoint());
 		}
 
-		// Token: 0x060109CF RID: 68047 RVA: 0x0041A334 File Offset: 0x00418534
 		private void WrapContentUpdate(Transform itemTransform, int index)
 		{
 			bool flag = this._curBlessType == XWelfareNiceGirlHandler.BlessType.DialyGift;
@@ -141,7 +132,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060109D0 RID: 68048 RVA: 0x0041A364 File Offset: 0x00418564
 		private void SpecialGiftContentUpdate(Transform itemTransform, int index)
 		{
 			IXUIButton ixuibutton = itemTransform.Find("OperateBtn").GetComponent("XUIButton") as IXUIButton;
@@ -210,7 +200,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060109D1 RID: 68049 RVA: 0x0041A67C File Offset: 0x0041887C
 		private void DailyGiftContentUpdate(Transform itemTransform, int index)
 		{
 			Transform transform = itemTransform.Find("HadGet");
@@ -247,7 +236,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060109D2 RID: 68050 RVA: 0x0041A880 File Offset: 0x00418A80
 		private void WrapContentInit(Transform itemTransform, int index)
 		{
 			bool flag = this._curBlessType == XWelfareNiceGirlHandler.BlessType.DialyGift;
@@ -261,14 +249,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060109D3 RID: 68051 RVA: 0x0041A8B0 File Offset: 0x00418AB0
 		private void DailyGiftContentInit(Transform itemTransform, int index)
 		{
 			IXUIButton ixuibutton = itemTransform.Find("GetBtn").GetComponent("XUIButton") as IXUIButton;
 			ixuibutton.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnClickDailyBtn));
 		}
 
-		// Token: 0x060109D4 RID: 68052 RVA: 0x0041A8EC File Offset: 0x00418AEC
 		private bool OnClickDailyBtn(IXUIButton button)
 		{
 			uint num = (uint)button.ID;
@@ -280,14 +266,12 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x060109D5 RID: 68053 RVA: 0x0041A91C File Offset: 0x00418B1C
 		private void SpecialGiftContentInit(Transform itemTransform, int index)
 		{
 			IXUIButton ixuibutton = itemTransform.Find("OperateBtn").GetComponent("XUIButton") as IXUIButton;
 			ixuibutton.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnClickOperateBtn));
 		}
 
-		// Token: 0x060109D6 RID: 68054 RVA: 0x0041A958 File Offset: 0x00418B58
 		private bool OnClickOperateBtn(IXUIButton button)
 		{
 			uint num = (uint)button.ID;
@@ -334,7 +318,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x060109D7 RID: 68055 RVA: 0x0041AA7C File Offset: 0x00418C7C
 		private bool OnTabChecked(IXUICheckBox iXUICheckBox)
 		{
 			bool flag = !iXUICheckBox.bChecked;
@@ -352,14 +335,12 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x060109D8 RID: 68056 RVA: 0x0041AAB4 File Offset: 0x00418CB4
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
 			this.SetRewardLeftTime();
 		}
 
-		// Token: 0x060109D9 RID: 68057 RVA: 0x0041AAC8 File Offset: 0x00418CC8
 		private void SetRewardLeftTime()
 		{
 			int num = (int)(XWelfareDocument.Doc.ActivityLeftTime - (uint)((int)Time.realtimeSinceStartup));
@@ -384,42 +365,31 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x040078CE RID: 30926
 		private IXUIWrapContent _dailyWrapContent = null;
 
-		// Token: 0x040078CF RID: 30927
 		private IXUIWrapContent _specailWrapContent = null;
 
-		// Token: 0x040078D0 RID: 30928
 		private XWelfareNiceGirlHandler.BlessType _curBlessType = XWelfareNiceGirlHandler.BlessType.DialyGift;
 
-		// Token: 0x040078D1 RID: 30929
 		private Transform _dailyGiftRoot;
 
-		// Token: 0x040078D2 RID: 30930
 		private Transform _specialGiftRoot;
 
-		// Token: 0x040078D3 RID: 30931
 		private IXUIScrollView _dailyScrollView;
 
-		// Token: 0x040078D4 RID: 30932
 		private IXUIScrollView _specialScrollView;
 
-		// Token: 0x040078D5 RID: 30933
 		private IXUILabel _CDRewards;
 
-		// Token: 0x040078D6 RID: 30934
 		private IXUICheckBox _dailyCheck;
 
-		// Token: 0x040078D7 RID: 30935
 		private IXUICheckBox _specialCheck;
 
-		// Token: 0x02001A1C RID: 6684
 		private enum BlessType
 		{
-			// Token: 0x04008266 RID: 33382
+
 			DialyGift,
-			// Token: 0x04008267 RID: 33383
+
 			SpecialGift
 		}
 	}

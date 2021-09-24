@@ -7,10 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001785 RID: 6021
+
 	internal class XMentorshipPupilsDramaOperate : XDramaOperate
 	{
-		// Token: 0x0600F873 RID: 63603 RVA: 0x0038C4A1 File Offset: 0x0038A6A1
+
 		public override void ShowNpc(XNpc npc)
 		{
 			base.ShowNpc(npc);
@@ -20,7 +20,6 @@ namespace XMainClient.UI
 			XMentorshipDocument.Doc.SendMentorshipInfoReq();
 		}
 
-		// Token: 0x0600F874 RID: 63604 RVA: 0x0038C4E0 File Offset: 0x0038A6E0
 		public void RefreshOperateStatus()
 		{
 			switch (this.doc.GetMyMentorShip())
@@ -44,7 +43,6 @@ namespace XMainClient.UI
 			base._FireEvent(this._param);
 		}
 
-		// Token: 0x0600F875 RID: 63605 RVA: 0x0038C640 File Offset: 0x0038A840
 		private bool _FindMaster(IXUIButton btn)
 		{
 			XSingleton<XGameSysMgr>.singleton.OpenSystem(XSysDefine.XSys_Mentorship, 0UL);
@@ -52,7 +50,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F876 RID: 63606 RVA: 0x0038C670 File Offset: 0x0038A870
 		private bool _FindPupil(IXUIButton btn)
 		{
 			XSingleton<XGameSysMgr>.singleton.OpenSystem(XSysDefine.XSys_Mentorship, 0UL);
@@ -60,14 +57,12 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F877 RID: 63607 RVA: 0x0038C6A0 File Offset: 0x0038A8A0
 		private int _GetBreakTargetTime(uint breakTime)
 		{
 			int @int = XSingleton<XGlobalConfig>.singleton.GetInt("MentorBreakConfirmTime");
 			return @int + (int)breakTime - this.doc.ReceiveingProtocolTime - (int)Time.time;
 		}
 
-		// Token: 0x0600F878 RID: 63608 RVA: 0x0038C6D8 File Offset: 0x0038A8D8
 		private bool _ProcessRelation(IXUIButton btn)
 		{
 			XDramaOperateParam data = XDataPool<XDramaOperateParam>.GetData();
@@ -113,7 +108,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F879 RID: 63609 RVA: 0x0038C874 File Offset: 0x0038AA74
 		private bool _SelectComplete(IXUIButton btn)
 		{
 			XDramaOperateParam data = XDataPool<XDramaOperateParam>.GetData();
@@ -124,7 +118,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F87A RID: 63610 RVA: 0x0038C8F0 File Offset: 0x0038AAF0
 		private void _CreateSelection(string noneText, string pupilText, string masterText, SpriteClickEventHandler handler, MentorRelationStatus status = MentorRelationStatus.MentorRelationMax)
 		{
 			MyMentorship myMentorShip = this.doc.GetMyMentorShip();
@@ -188,35 +181,30 @@ namespace XMainClient.UI
 			base._FireEvent(data);
 		}
 
-		// Token: 0x0600F87B RID: 63611 RVA: 0x0038CAC0 File Offset: 0x0038ACC0
 		private bool _SelectForceComplete(IXUIButton btn)
 		{
 			this._CreateSelection(XSingleton<UiUtility>.singleton.ReplaceReturn(XStringDefineProxy.GetString("MentorshipNpcDialog_NoRelation")), XStringDefineProxy.GetString("MentorshipNpcDialog_SelectForceCompletePupil"), XStringDefineProxy.GetString("MentorshipNpcDialog_SelectForceCompleteMaster"), new SpriteClickEventHandler(this._ForceComplete), MentorRelationStatus.MentorRelationMax);
 			return true;
 		}
 
-		// Token: 0x0600F87C RID: 63612 RVA: 0x0038CB10 File Offset: 0x0038AD10
 		private bool _SelectNormalComplete(IXUIButton btn)
 		{
 			this._CreateSelection(XSingleton<UiUtility>.singleton.ReplaceReturn(XStringDefineProxy.GetString("MentorshipNpcDialog_NoRelation")), XStringDefineProxy.GetString("MentorshipNpcDialog_SelectNormalCompletePupil"), XStringDefineProxy.GetString("MentorshipNpcDialog_SelectNormalCompleteMaster"), new SpriteClickEventHandler(this._NormalComplete), MentorRelationStatus.MentorRelationMax);
 			return true;
 		}
 
-		// Token: 0x0600F87D RID: 63613 RVA: 0x0038CB60 File Offset: 0x0038AD60
 		private bool _SelectBreak(IXUIButton btn)
 		{
 			this._CreateSelection(XSingleton<UiUtility>.singleton.ReplaceReturn(XStringDefineProxy.GetString("MentorshipNpcDialog_NoRelation")), XStringDefineProxy.GetString("MentorshipNpcDialog_SelectBreakPupil"), XStringDefineProxy.GetString("MentorshipNpcDialog_SelectBreakMaster"), new SpriteClickEventHandler(this._Break), MentorRelationStatus.MentorRelationBreak);
 			return true;
 		}
 
-		// Token: 0x0600F87E RID: 63614 RVA: 0x0038CBB0 File Offset: 0x0038ADB0
 		private bool _SelectBreakCancel(IXUIButton btn)
 		{
 			this._CreateSelection(XSingleton<UiUtility>.singleton.ReplaceReturn(XStringDefineProxy.GetString("MentorshipNpcDialog_NoBreakingRelation")), XStringDefineProxy.GetString("MentorshipNpcDialog_SelectBreakCancelPupil"), XStringDefineProxy.GetString("MentorshipNpcDialog_SelectBreakCancelMaster"), new SpriteClickEventHandler(this._BreakCancel), MentorRelationStatus.MentorRelationBreakApply);
 			return true;
 		}
 
-		// Token: 0x0600F87F RID: 63615 RVA: 0x0038CC00 File Offset: 0x0038AE00
 		private void _GetSelectedRole(IXUISprite iSp)
 		{
 			this.m_SelectedRoleID = 0UL;
@@ -234,7 +222,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F880 RID: 63616 RVA: 0x0038CC6C File Offset: 0x0038AE6C
 		private void _Break(IXUISprite iSp)
 		{
 			this._GetSelectedRole(iSp);
@@ -244,7 +231,6 @@ namespace XMainClient.UI
 			}), XStringDefineProxy.GetString(XStringDefine.COMMON_OK), XStringDefineProxy.GetString(XStringDefine.COMMON_CANCEL), new ButtonClickEventHandler(this._DoBreak));
 		}
 
-		// Token: 0x0600F881 RID: 63617 RVA: 0x0038CCC0 File Offset: 0x0038AEC0
 		private bool _DoBreak(IXUIButton btn)
 		{
 			XSingleton<UiUtility>.singleton.CloseModalDlg();
@@ -252,7 +238,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F882 RID: 63618 RVA: 0x0038CCF4 File Offset: 0x0038AEF4
 		private void _OnBreak(MentorRelationOpRes oRes)
 		{
 			XDramaOperateParam data = XDataPool<XDramaOperateParam>.GetData();
@@ -268,7 +253,6 @@ namespace XMainClient.UI
 			base._FireEvent(data);
 		}
 
-		// Token: 0x0600F883 RID: 63619 RVA: 0x0038CD44 File Offset: 0x0038AF44
 		private void _BreakCancel(IXUISprite iSp)
 		{
 			this._GetSelectedRole(iSp);
@@ -278,7 +262,6 @@ namespace XMainClient.UI
 			}), XStringDefineProxy.GetString(XStringDefine.COMMON_OK), XStringDefineProxy.GetString(XStringDefine.COMMON_CANCEL), new ButtonClickEventHandler(this._DoBreakCancel));
 		}
 
-		// Token: 0x0600F884 RID: 63620 RVA: 0x0038CD98 File Offset: 0x0038AF98
 		private bool _DoBreakCancel(IXUIButton btn)
 		{
 			XSingleton<UiUtility>.singleton.CloseModalDlg();
@@ -286,7 +269,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F885 RID: 63621 RVA: 0x0038CDCC File Offset: 0x0038AFCC
 		private void _OnBreakCancel(MentorRelationOpRes oRes)
 		{
 			XDramaOperateParam data = XDataPool<XDramaOperateParam>.GetData();
@@ -302,13 +284,11 @@ namespace XMainClient.UI
 			base._FireEvent(data);
 		}
 
-		// Token: 0x0600F886 RID: 63622 RVA: 0x0038CE1C File Offset: 0x0038B01C
 		private void _PlayCompleteFx()
 		{
 			XSingleton<XFxMgr>.singleton.CreateAndPlay("Effects/FX_Particle/UIfx/UI_yh", XSingleton<XGameUI>.singleton.UIRoot.transform, Vector3.zero, Vector3.one, 1f, false, 8f, true);
 		}
 
-		// Token: 0x0600F887 RID: 63623 RVA: 0x0038CE60 File Offset: 0x0038B060
 		private void _ForceComplete(IXUISprite iSp)
 		{
 			this._GetSelectedRole(iSp);
@@ -318,7 +298,6 @@ namespace XMainClient.UI
 			}), XStringDefineProxy.GetString(XStringDefine.COMMON_OK), XStringDefineProxy.GetString(XStringDefine.COMMON_CANCEL), new ButtonClickEventHandler(this._DoForceComplete));
 		}
 
-		// Token: 0x0600F888 RID: 63624 RVA: 0x0038CEB4 File Offset: 0x0038B0B4
 		private bool _DoForceComplete(IXUIButton btn)
 		{
 			XSingleton<UiUtility>.singleton.CloseModalDlg();
@@ -330,7 +309,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F889 RID: 63625 RVA: 0x0038CF14 File Offset: 0x0038B114
 		private void _OnForceComplete(MentorRelationOpRes oRes)
 		{
 			XDramaOperateParam data = XDataPool<XDramaOperateParam>.GetData();
@@ -348,7 +326,6 @@ namespace XMainClient.UI
 			base._FireEvent(data);
 		}
 
-		// Token: 0x0600F88A RID: 63626 RVA: 0x0038CF74 File Offset: 0x0038B174
 		private void _NormalComplete(IXUISprite iSp)
 		{
 			this._GetSelectedRole(iSp);
@@ -358,7 +335,6 @@ namespace XMainClient.UI
 			}), XStringDefineProxy.GetString(XStringDefine.COMMON_OK), XStringDefineProxy.GetString(XStringDefine.COMMON_CANCEL), new ButtonClickEventHandler(this._DoNormalComplete));
 		}
 
-		// Token: 0x0600F88B RID: 63627 RVA: 0x0038CFC8 File Offset: 0x0038B1C8
 		private bool _DoNormalComplete(IXUIButton btn)
 		{
 			XSingleton<UiUtility>.singleton.CloseModalDlg();
@@ -370,7 +346,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F88C RID: 63628 RVA: 0x0038D028 File Offset: 0x0038B228
 		private void _OnNormalComplete(MentorRelationOpRes oRes)
 		{
 			XDramaOperateParam data = XDataPool<XDramaOperateParam>.GetData();
@@ -388,7 +363,6 @@ namespace XMainClient.UI
 			base._FireEvent(data);
 		}
 
-		// Token: 0x0600F88D RID: 63629 RVA: 0x0038D088 File Offset: 0x0038B288
 		public void OnMentorRelationOp(MentorRelationOpArg oArg, MentorRelationOpRes oRes)
 		{
 			switch (oArg.operation)
@@ -408,16 +382,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04006C74 RID: 27764
 		private ulong m_SelectedRoleID = 0UL;
 
-		// Token: 0x04006C75 RID: 27765
 		private string m_SelectedRoleName = null;
 
-		// Token: 0x04006C76 RID: 27766
 		private XDramaOperateParam _param;
 
-		// Token: 0x04006C77 RID: 27767
 		private XMentorshipDocument doc;
 	}
 }

@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C09 RID: 3081
+
 	internal class XGuildDonateView : DlgBase<XGuildDonateView, XGuildDonateBehavior>
 	{
-		// Token: 0x170030DE RID: 12510
-		// (get) Token: 0x0600AF02 RID: 44802 RVA: 0x0021101C File Offset: 0x0020F21C
+
 		public override string fileName
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170030DF RID: 12511
-		// (get) Token: 0x0600AF03 RID: 44803 RVA: 0x00211034 File Offset: 0x0020F234
 		public override bool autoload
 		{
 			get
@@ -31,8 +28,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170030E0 RID: 12512
-		// (get) Token: 0x0600AF04 RID: 44804 RVA: 0x00211048 File Offset: 0x0020F248
 		public override bool hideMainMenu
 		{
 			get
@@ -41,8 +36,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170030E1 RID: 12513
-		// (get) Token: 0x0600AF05 RID: 44805 RVA: 0x0021105C File Offset: 0x0020F25C
 		public override bool pushstack
 		{
 			get
@@ -51,26 +44,21 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AF06 RID: 44806 RVA: 0x0021106F File Offset: 0x0020F26F
 		protected override void OnLoad()
 		{
 			base.OnLoad();
 		}
 
-		// Token: 0x0600AF07 RID: 44807 RVA: 0x00211079 File Offset: 0x0020F279
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 		}
 
-		// Token: 0x0600AF08 RID: 44808 RVA: 0x00211083 File Offset: 0x0020F283
 		protected override void OnUnload()
 		{
 			base.OnUnload();
 		}
 
-		// Token: 0x170030E2 RID: 12514
-		// (get) Token: 0x0600AF09 RID: 44809 RVA: 0x00211090 File Offset: 0x0020F290
 		public override bool fullscreenui
 		{
 			get
@@ -79,7 +67,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AF0A RID: 44810 RVA: 0x002110A3 File Offset: 0x0020F2A3
 		protected override void Init()
 		{
 			base.Init();
@@ -87,7 +74,6 @@ namespace XMainClient
 			this.InitProperties();
 		}
 
-		// Token: 0x0600AF0B RID: 44811 RVA: 0x002110C4 File Offset: 0x0020F2C4
 		protected override void OnHide()
 		{
 			this.toSelectID = 0U;
@@ -95,7 +81,6 @@ namespace XMainClient
 			base.OnHide();
 		}
 
-		// Token: 0x0600AF0C RID: 44812 RVA: 0x002110DC File Offset: 0x0020F2DC
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -114,13 +99,11 @@ namespace XMainClient
 			this.UpdateDonationWrapContent();
 		}
 
-		// Token: 0x0600AF0D RID: 44813 RVA: 0x002111B0 File Offset: 0x0020F3B0
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
 		}
 
-		// Token: 0x0600AF0E RID: 44814 RVA: 0x002111BC File Offset: 0x0020F3BC
 		private void InitProperties()
 		{
 			base.uiBehaviour.RankRoot.gameObject.SetActive(true);
@@ -138,21 +121,18 @@ namespace XMainClient
 			base.uiBehaviour.m_GrowthRecordCloseBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnGrowthListCloseBtnClick));
 		}
 
-		// Token: 0x0600AF0F RID: 44815 RVA: 0x00211340 File Offset: 0x0020F540
 		private bool OnGrowthListBtnClick(IXUIButton btn)
 		{
 			this.ShowGrowthList();
 			return true;
 		}
 
-		// Token: 0x0600AF10 RID: 44816 RVA: 0x0021135C File Offset: 0x0020F55C
 		private bool OnGrowthListCloseBtnClick(IXUIButton btn)
 		{
 			base.uiBehaviour.m_GrowthRecordList.gameObject.SetActive(false);
 			return true;
 		}
 
-		// Token: 0x0600AF11 RID: 44817 RVA: 0x00211388 File Offset: 0x0020F588
 		private bool OnShowRankView(IXUIButton button)
 		{
 			base.uiBehaviour.RankRoot.gameObject.SetActive(true);
@@ -160,14 +140,12 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600AF12 RID: 44818 RVA: 0x002113BC File Offset: 0x0020F5BC
 		private bool OnCloseRankView(IXUIButton button)
 		{
 			base.uiBehaviour.RankRoot.gameObject.SetActive(false);
 			return true;
 		}
 
-		// Token: 0x0600AF13 RID: 44819 RVA: 0x002113E8 File Offset: 0x0020F5E8
 		private bool OnSelectWeeklyDonation(IXUICheckBox iXUICheckBox)
 		{
 			bool bChecked = iXUICheckBox.bChecked;
@@ -182,7 +160,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600AF14 RID: 44820 RVA: 0x0021145C File Offset: 0x0020F65C
 		private bool OnSelectDailyDonation(IXUICheckBox iXUICheckBox)
 		{
 			bool bChecked = iXUICheckBox.bChecked;
@@ -197,7 +174,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600AF15 RID: 44821 RVA: 0x002114D0 File Offset: 0x0020F6D0
 		private bool OnSelectGrowthDonation(IXUICheckBox iXUICheckBox)
 		{
 			bool bChecked = iXUICheckBox.bChecked;
@@ -213,14 +189,12 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600AF16 RID: 44822 RVA: 0x00211550 File Offset: 0x0020F750
 		private bool OnclickCloseBtn(IXUIButton button)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x0600AF17 RID: 44823 RVA: 0x0021156C File Offset: 0x0020F76C
 		private bool SelectedTodayTab(IXUICheckBox iXUICheckBox)
 		{
 			bool bChecked = iXUICheckBox.bChecked;
@@ -232,14 +206,12 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600AF18 RID: 44824 RVA: 0x00211599 File Offset: 0x0020F799
 		private void UpdateRankContent()
 		{
 			this.UpdateRankWrapContent();
 			this.UpdateMyRank();
 		}
 
-		// Token: 0x0600AF19 RID: 44825 RVA: 0x002115AC File Offset: 0x0020F7AC
 		private bool SelectedHistoryTab(IXUICheckBox iXUICheckBox)
 		{
 			bool bChecked = iXUICheckBox.bChecked;
@@ -251,7 +223,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600AF1A RID: 44826 RVA: 0x002115DC File Offset: 0x0020F7DC
 		private void DonateRankItemUpdate(Transform itemTransform, int index)
 		{
 			GuildDonateRankInfo rankInfoByIndex = XGuildDonateDocument.Doc.GetRankInfoByIndex(index, this._rankType);
@@ -288,7 +259,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AF1B RID: 44827 RVA: 0x00211748 File Offset: 0x0020F948
 		private void DonateItemUpdate(Transform itemTransform, int index)
 		{
 			GuildDonateItemInfo donateItemInfoByIndex = XGuildDonateDocument.Doc.GetDonateItemInfoByIndex(this.DonateType, index);
@@ -372,13 +342,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AF1C RID: 44828 RVA: 0x001AE886 File Offset: 0x001ACA86
 		private void OnClickItemIcon(IXUISprite uiSprite)
 		{
 			XSingleton<UiUtility>.singleton.ShowItemAccess((int)uiSprite.ID, null);
 		}
 
-		// Token: 0x0600AF1D RID: 44829 RVA: 0x00211A60 File Offset: 0x0020FC60
 		private bool OnclickDonateBtn(IXUIButton button)
 		{
 			GuildDonateItemInfo donationItemInfoWithTypeID = XGuildDonateDocument.Doc.GetDonationItemInfoWithTypeID(this.DonateType, (uint)button.ID);
@@ -432,7 +400,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600AF1E RID: 44830 RVA: 0x00211C08 File Offset: 0x0020FE08
 		private void OnSelectQualityItem(List<ulong> itemList)
 		{
 			bool flag = itemList.Count > 0;
@@ -442,7 +409,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AF1F RID: 44831 RVA: 0x00211C40 File Offset: 0x0020FE40
 		private void GetItemNumer(uint number)
 		{
 			bool flag = number > 0U;
@@ -452,7 +418,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AF20 RID: 44832 RVA: 0x00211C6C File Offset: 0x0020FE6C
 		private void UpdateMyRank()
 		{
 			int myRankIndex = XGuildDonateDocument.Doc.GetMyRankIndex(this._rankType);
@@ -468,7 +433,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AF21 RID: 44833 RVA: 0x00211CE0 File Offset: 0x0020FEE0
 		public void RefreshUI(GuildDonateType type)
 		{
 			bool flag = this.DonateType == type;
@@ -478,13 +442,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AF22 RID: 44834 RVA: 0x00211D04 File Offset: 0x0020FF04
 		public void RefreshCurDonateTypeUI()
 		{
 			this.UpdateDonationWrapContent();
 		}
 
-		// Token: 0x0600AF23 RID: 44835 RVA: 0x00211D10 File Offset: 0x0020FF10
 		private void UpdateRankWrapContent()
 		{
 			int rankContentCount = XGuildDonateDocument.Doc.GetRankContentCount(this._rankType);
@@ -503,7 +465,6 @@ namespace XMainClient
 			this.UpdateDonationWrapContent();
 		}
 
-		// Token: 0x0600AF24 RID: 44836 RVA: 0x00211DA8 File Offset: 0x0020FFA8
 		private void UpdateDonationWrapContent()
 		{
 			int donationListCount = XGuildDonateDocument.Doc.GetDonationListCount(this.DonateType);
@@ -511,7 +472,6 @@ namespace XMainClient
 			base.uiBehaviour.RightScrollView.ResetPosition();
 		}
 
-		// Token: 0x0600AF25 RID: 44837 RVA: 0x00211DEB File Offset: 0x0020FFEB
 		public void SetupGrowthDonate()
 		{
 			this._growthDoc.QueryGrowthRecordList();
@@ -521,7 +481,6 @@ namespace XMainClient
 			this.Refresh();
 		}
 
-		// Token: 0x0600AF26 RID: 44838 RVA: 0x00211E2C File Offset: 0x0021002C
 		public void Refresh()
 		{
 			bool flag = !base.uiBehaviour.m_GrowthFrame.gameObject.activeInHierarchy;
@@ -555,14 +514,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AF27 RID: 44839 RVA: 0x002120AC File Offset: 0x002102AC
 		public bool OnDoBtnClick(IXUIButton btn)
 		{
 			this._growthDoc.QueryGuildGrowthDonate((uint)btn.ID);
 			return true;
 		}
 
-		// Token: 0x0600AF28 RID: 44840 RVA: 0x002120D4 File Offset: 0x002102D4
 		public void SetReward(Transform t, SeqListRef<uint> list)
 		{
 			bool flag = list.Count == 0;
@@ -590,14 +547,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AF29 RID: 44841 RVA: 0x002121FA File Offset: 0x002103FA
 		public void ShowGrowthList()
 		{
 			base.uiBehaviour.m_GrowthRecordList.gameObject.SetActive(true);
 			this.RefreshDonateList();
 		}
 
-		// Token: 0x0600AF2A RID: 44842 RVA: 0x0021221C File Offset: 0x0021041C
 		public void RefreshDonateList()
 		{
 			base.uiBehaviour.m_GrowthRecordEmpty.gameObject.SetActive(this._growthDoc.RecordList.Count == 0);
@@ -616,7 +571,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AF2B RID: 44843 RVA: 0x002123C4 File Offset: 0x002105C4
 		public void CheckRecordRefresh()
 		{
 			bool activeInHierarchy = base.uiBehaviour.m_GrowthRecordList.gameObject.activeInHierarchy;
@@ -626,7 +580,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AF2C RID: 44844 RVA: 0x002123F4 File Offset: 0x002105F4
 		public void RefreshGrowthDonateTimes()
 		{
 			bool flag = !base.uiBehaviour.m_GrowthFrame.gameObject.activeInHierarchy;
@@ -637,19 +590,14 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x040042AF RID: 17071
 		private XGuildGrowthDocument _growthDoc;
 
-		// Token: 0x040042B0 RID: 17072
 		private DonateRankType _rankType = DonateRankType.TodayRank;
 
-		// Token: 0x040042B1 RID: 17073
 		public GuildDonateType DonateType = GuildDonateType.DailyDonate;
 
-		// Token: 0x040042B2 RID: 17074
 		public uint _curDonateID = 0U;
 
-		// Token: 0x040042B3 RID: 17075
 		public uint toSelectID = 0U;
 	}
 }

@@ -5,11 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000EF7 RID: 3831
+
 	internal class XCharacterInfoView : DlgHandlerBase
 	{
-		// Token: 0x17003578 RID: 13688
-		// (get) Token: 0x0600CB4C RID: 52044 RVA: 0x002E4C98 File Offset: 0x002E2E98
+
 		public string EffectPath
 		{
 			get
@@ -23,8 +22,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003579 RID: 13689
-		// (get) Token: 0x0600CB4D RID: 52045 RVA: 0x002E4CD4 File Offset: 0x002E2ED4
 		protected override string FileName
 		{
 			get
@@ -33,7 +30,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CB4E RID: 52046 RVA: 0x002E4CEC File Offset: 0x002E2EEC
 		protected override void Init()
 		{
 			base.Init();
@@ -77,14 +73,12 @@ namespace XMainClient
 			this.m_fx.Play(base.PanelObject.transform.FindChild("CharacterFrame/T1/FX"), Vector3.zero, Vector3.one, 1f, true, false);
 		}
 
-		// Token: 0x0600CB4F RID: 52047 RVA: 0x002E4EB2 File Offset: 0x002E30B2
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			this.m_CharacterBG.RegisterSpriteDragEventHandler(new SpriteDragEventHandler(this.OnCharacterWindowDrag));
 		}
 
-		// Token: 0x0600CB50 RID: 52048 RVA: 0x002E4ED4 File Offset: 0x002E30D4
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -109,7 +103,6 @@ namespace XMainClient
 			XSingleton<X3DAvatarMgr>.singleton.EnableMainDummy(true, this.m_SnapShot);
 		}
 
-		// Token: 0x0600CB51 RID: 52049 RVA: 0x002E4FAF File Offset: 0x002E31AF
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
@@ -117,7 +110,6 @@ namespace XMainClient
 			XSingleton<X3DAvatarMgr>.singleton.EnableMainDummy(true, this.m_SnapShot);
 		}
 
-		// Token: 0x0600CB52 RID: 52050 RVA: 0x002E4FE0 File Offset: 0x002E31E0
 		protected override void OnHide()
 		{
 			base.OnHide();
@@ -130,7 +122,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CB53 RID: 52051 RVA: 0x002E502C File Offset: 0x002E322C
 		public override void OnUnload()
 		{
 			XSingleton<X3DAvatarMgr>.singleton.OnUIUnloadMainDummy(this.m_SnapShot);
@@ -149,14 +140,12 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x0600CB54 RID: 52052 RVA: 0x002E50A4 File Offset: 0x002E32A4
 		protected bool OnCharacterWindowDrag(Vector2 delta)
 		{
 			XSingleton<X3DAvatarMgr>.singleton.RotateMain(-delta.x / 2f);
 			return true;
 		}
 
-		// Token: 0x0600CB55 RID: 52053 RVA: 0x002E50D0 File Offset: 0x002E32D0
 		public void SetPowerpoint(bool visible, uint value)
 		{
 			this.m_ShowPPT = visible;
@@ -172,34 +161,24 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x040059E4 RID: 23012
 		public IXUISprite m_CharacterBG;
 
-		// Token: 0x040059E5 RID: 23013
 		public IXUILabel m_PPT;
 
-		// Token: 0x040059E6 RID: 23014
 		public IXUILabel m_UID;
 
-		// Token: 0x040059E7 RID: 23015
 		public IXUILabel m_Name;
 
-		// Token: 0x040059E8 RID: 23016
 		public IXUISprite m_ProfIcon;
 
-		// Token: 0x040059E9 RID: 23017
 		private IUIDummy m_SnapShot = null;
 
-		// Token: 0x040059EA RID: 23018
 		private XCharacterDocument _doc = null;
 
-		// Token: 0x040059EB RID: 23019
 		private bool m_ShowPPT = true;
 
-		// Token: 0x040059EC RID: 23020
 		private XFx m_fx;
 
-		// Token: 0x040059ED RID: 23021
 		private string m_effectPath = string.Empty;
 	}
 }

@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200176D RID: 5997
+
 	internal class GuildSalaryDescHandler : DlgHandlerBase
 	{
-		// Token: 0x17003817 RID: 14359
-		// (get) Token: 0x0600F796 RID: 63382 RVA: 0x00386530 File Offset: 0x00384730
+
 		protected override string FileName
 		{
 			get
@@ -20,7 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F797 RID: 63383 RVA: 0x00386548 File Offset: 0x00384748
 		protected override void Init()
 		{
 			base.Init();
@@ -37,14 +35,12 @@ namespace XMainClient.UI
 			this.m_WrapContent.RegisterItemUpdateEventHandler(new WrapItemUpdateEventHandler(this.OnWrapUpdateContent));
 		}
 
-		// Token: 0x0600F798 RID: 63384 RVA: 0x003866A6 File Offset: 0x003848A6
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			this.m_Close.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnClickClose));
 		}
 
-		// Token: 0x0600F799 RID: 63385 RVA: 0x003866C8 File Offset: 0x003848C8
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -52,7 +48,6 @@ namespace XMainClient.UI
 			this.SetBaseInfo();
 		}
 
-		// Token: 0x0600F79A RID: 63386 RVA: 0x003866E0 File Offset: 0x003848E0
 		private void InitTabInfos()
 		{
 			List<int> tabIndexs = XGuildSalaryDocument.TabIndexs;
@@ -60,7 +55,6 @@ namespace XMainClient.UI
 			this.m_tabControl.SetupTabs(tabIndexs, tabNames, new XUITabControl.UITabControlCallback(this.OnSelectTable), true, 1f, this._Doc.SelectTabs, true);
 		}
 
-		// Token: 0x0600F79B RID: 63387 RVA: 0x00386728 File Offset: 0x00384928
 		private void OnSelectTable(ulong id)
 		{
 			int num = (int)id;
@@ -78,14 +72,12 @@ namespace XMainClient.UI
 			this.m_ScrollView.ResetPosition();
 		}
 
-		// Token: 0x0600F79C RID: 63388 RVA: 0x0038679C File Offset: 0x0038499C
 		private bool OnClickClose(IXUIButton btn)
 		{
 			base.SetVisible(false);
 			return true;
 		}
 
-		// Token: 0x0600F79D RID: 63389 RVA: 0x003867B8 File Offset: 0x003849B8
 		private void OnWrapUpdateContent(Transform t, int index)
 		{
 			bool flag = this.m_salaryDesc == null || index >= this.m_salaryDesc.Count;
@@ -102,7 +94,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F79E RID: 63390 RVA: 0x0038687C File Offset: 0x00384A7C
 		private void OnClickGoHandler(IXUILabel label)
 		{
 			bool flag = label.ID > 0UL;
@@ -112,7 +103,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F79F RID: 63391 RVA: 0x003868AC File Offset: 0x00384AAC
 		private void SetBaseInfo()
 		{
 			XGuildSalaryInfo value = this._Doc.GetValue(this._Doc.SelectTabs);
@@ -122,34 +112,24 @@ namespace XMainClient.UI
 			this.m_ProgressLabel.SetText(string.Format("{0}/{1}", value.Value, value.TotalScore));
 		}
 
-		// Token: 0x04006BD3 RID: 27603
 		private IXUIButton m_Close;
 
-		// Token: 0x04006BD4 RID: 27604
 		private XUITabControl m_tabControl = new XUITabControl();
 
-		// Token: 0x04006BD5 RID: 27605
 		private IXUIProgress m_Progress;
 
-		// Token: 0x04006BD6 RID: 27606
 		private IXUILabel m_ScoreValue;
 
-		// Token: 0x04006BD7 RID: 27607
 		private IXUILabel m_ScoreMark;
 
-		// Token: 0x04006BD8 RID: 27608
 		private IXUILabel m_ProgressLabel;
 
-		// Token: 0x04006BD9 RID: 27609
 		private IXUIScrollView m_ScrollView;
 
-		// Token: 0x04006BDA RID: 27610
 		private IXUIWrapContent m_WrapContent;
 
-		// Token: 0x04006BDB RID: 27611
 		private XGuildSalaryDocument _Doc;
 
-		// Token: 0x04006BDC RID: 27612
 		private List<GuildSalaryDesc.RowData> m_salaryDesc;
 	}
 }

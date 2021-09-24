@@ -7,10 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000A4D RID: 2637
+
 	internal class XDragonGuildCreateView : DlgHandlerBase
 	{
-		// Token: 0x06009FF1 RID: 40945 RVA: 0x001A967C File Offset: 0x001A787C
+
 		protected override void Init()
 		{
 			base.Init();
@@ -46,7 +46,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009FF2 RID: 40946 RVA: 0x001A988C File Offset: 0x001A7A8C
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -64,7 +63,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009FF3 RID: 40947 RVA: 0x001A99E0 File Offset: 0x001A7BE0
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -81,7 +79,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009FF4 RID: 40948 RVA: 0x001A9A80 File Offset: 0x001A7C80
 		public override void OnUnload()
 		{
 			bool flag = this.m_helpList != null;
@@ -93,13 +90,11 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x06009FF5 RID: 40949 RVA: 0x0019EEFD File Offset: 0x0019D0FD
 		protected override void OnHide()
 		{
 			base.OnHide();
 		}
 
-		// Token: 0x06009FF6 RID: 40950 RVA: 0x001A9AB8 File Offset: 0x001A7CB8
 		private bool _ShowCreateHelpClick(IXUIButton button)
 		{
 			string helpName;
@@ -123,7 +118,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009FF7 RID: 40951 RVA: 0x001A9B24 File Offset: 0x001A7D24
 		private bool _OnCreateBtnClicked(IXUIButton btn)
 		{
 			string text = this.m_NameInput.GetText();
@@ -139,7 +133,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x06009FF8 RID: 40952 RVA: 0x001A9B7C File Offset: 0x001A7D7C
 		private bool _OnVipBtnClicked(IXUIButton btn)
 		{
 			XSingleton<XGameSysMgr>.singleton.OpenSystem(XSysDefine.XSys_Money, 0UL);
@@ -147,38 +140,28 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x06009FF9 RID: 40953 RVA: 0x001A9BA8 File Offset: 0x001A7DA8
 		private bool _OnCloseBtnClick(IXUIButton go)
 		{
 			base.SetVisible(false);
 			return true;
 		}
 
-		// Token: 0x04003935 RID: 14645
 		private IXUIInput m_NameInput;
 
-		// Token: 0x04003936 RID: 14646
 		private IXUILabel m_Cost;
 
-		// Token: 0x04003937 RID: 14647
 		private GameObject m_CreatePanel;
 
-		// Token: 0x04003938 RID: 14648
 		private GameObject m_VipPanel;
 
-		// Token: 0x04003939 RID: 14649
 		private int m_CostNum;
 
-		// Token: 0x0400393A RID: 14650
 		private GameObject m_CreateHighlight;
 
-		// Token: 0x0400393B RID: 14651
 		private Dictionary<IXUIButton, string> m_helpList = new Dictionary<IXUIButton, string>();
 
-		// Token: 0x0400393C RID: 14652
 		private XDragonGuildListDocument m_listDoc;
 
-		// Token: 0x0400393D RID: 14653
 		private XDragonGuildDocument m_guildDoc;
 	}
 }

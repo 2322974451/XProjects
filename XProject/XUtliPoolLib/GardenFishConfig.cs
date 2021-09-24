@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x02000100 RID: 256
+
 	public class GardenFishConfig : CVSReader
 	{
-		// Token: 0x06000676 RID: 1654 RVA: 0x0001F708 File Offset: 0x0001D908
+
 		public GardenFishConfig.RowData GetByFishLeve(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -29,7 +29,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000677 RID: 1655 RVA: 0x0001F774 File Offset: 0x0001D974
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			GardenFishConfig.RowData rowData = new GardenFishConfig.RowData();
@@ -45,7 +44,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x06000678 RID: 1656 RVA: 0x0001F808 File Offset: 0x0001DA08
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -59,22 +57,17 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x0400034C RID: 844
 		public GardenFishConfig.RowData[] Table = null;
 
-		// Token: 0x020002FF RID: 767
 		public class RowData
 		{
-			// Token: 0x04000B25 RID: 2853
+
 			public uint FishLeve;
 
-			// Token: 0x04000B26 RID: 2854
 			public uint Experience;
 
-			// Token: 0x04000B27 RID: 2855
 			public SeqListRef<int> FishWeight;
 
-			// Token: 0x04000B28 RID: 2856
 			public uint SuccessRate;
 		}
 	}

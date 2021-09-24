@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x020000FC RID: 252
+
 	public class FriendSysConfigTable : CVSReader
 	{
-		// Token: 0x06000667 RID: 1639 RVA: 0x0001F0D4 File Offset: 0x0001D2D4
+
 		public FriendSysConfigTable.RowData GetByTabID(int key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -29,7 +29,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000668 RID: 1640 RVA: 0x0001F140 File Offset: 0x0001D340
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			FriendSysConfigTable.RowData rowData = new FriendSysConfigTable.RowData();
@@ -53,7 +52,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x06000669 RID: 1641 RVA: 0x0001F23C File Offset: 0x0001D43C
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -67,34 +65,25 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x04000348 RID: 840
 		public FriendSysConfigTable.RowData[] Table = null;
 
-		// Token: 0x020002FB RID: 763
 		public class RowData
 		{
-			// Token: 0x04000B05 RID: 2821
+
 			public int TabID;
 
-			// Token: 0x04000B06 RID: 2822
 			public bool IsOpen;
 
-			// Token: 0x04000B07 RID: 2823
 			public string TabName;
 
-			// Token: 0x04000B08 RID: 2824
 			public string Icon;
 
-			// Token: 0x04000B09 RID: 2825
 			public string NumLabel;
 
-			// Token: 0x04000B0A RID: 2826
 			public string RButtonLabel;
 
-			// Token: 0x04000B0B RID: 2827
 			public string LButtonLabel;
 
-			// Token: 0x04000B0C RID: 2828
 			public int NumLimit;
 		}
 	}

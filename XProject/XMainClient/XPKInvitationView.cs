@@ -9,11 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C84 RID: 3204
+
 	internal class XPKInvitationView : DlgBase<XPKInvitationView, XPKInvitationBehaviour>
 	{
-		// Token: 0x1700320C RID: 12812
-		// (get) Token: 0x0600B507 RID: 46343 RVA: 0x00239568 File Offset: 0x00237768
+
 		public override string fileName
 		{
 			get
@@ -22,8 +21,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700320D RID: 12813
-		// (get) Token: 0x0600B508 RID: 46344 RVA: 0x00239580 File Offset: 0x00237780
 		public override bool autoload
 		{
 			get
@@ -32,14 +29,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B509 RID: 46345 RVA: 0x00239593 File Offset: 0x00237793
 		protected override void Init()
 		{
 			base.Init();
 			this._Doc = XDocuments.GetSpecificDocument<XPKInvitationDocument>(XPKInvitationDocument.uuID);
 		}
 
-		// Token: 0x0600B50A RID: 46346 RVA: 0x002395B0 File Offset: 0x002377B0
 		protected override void OnHide()
 		{
 			base.OnHide();
@@ -61,7 +56,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B50B RID: 46347 RVA: 0x00239634 File Offset: 0x00237834
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -71,7 +65,6 @@ namespace XMainClient
 			base.uiBehaviour.m_Help.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnHelpBtnClicked));
 		}
 
-		// Token: 0x0600B50C RID: 46348 RVA: 0x002396C0 File Offset: 0x002378C0
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -82,7 +75,6 @@ namespace XMainClient
 			this._Doc.ReqAllPKInvitation();
 		}
 
-		// Token: 0x0600B50D RID: 46349 RVA: 0x00239718 File Offset: 0x00237918
 		public void StartTimer()
 		{
 			bool flag = !base.IsVisible();
@@ -97,7 +89,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B50E RID: 46350 RVA: 0x002397C4 File Offset: 0x002379C4
 		private void LeftTimeUpdate(object o)
 		{
 			for (int i = 0; i < this._Doc.AllInvitation.Count; i++)
@@ -134,7 +125,6 @@ namespace XMainClient
 			this._CDToken = XSingleton<XTimerMgr>.singleton.SetTimer(1f, new XTimerMgr.ElapsedEventHandler(this.LeftTimeUpdate), null);
 		}
 
-		// Token: 0x0600B50F RID: 46351 RVA: 0x00239978 File Offset: 0x00237B78
 		public void RefreshList()
 		{
 			bool flag = !base.IsVisible();
@@ -145,7 +135,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B510 RID: 46352 RVA: 0x002399CC File Offset: 0x00237BCC
 		private void OnWrapContentUpdate(Transform t, int index)
 		{
 			List<InvFightRoleBrief> allInvitation = this._Doc.AllInvitation;
@@ -156,7 +145,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B511 RID: 46353 RVA: 0x00239A08 File Offset: 0x00237C08
 		private void SetInvitationInfo(Transform t, InvFightRoleBrief info)
 		{
 			bool flag = info == null;
@@ -209,7 +197,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B512 RID: 46354 RVA: 0x00239CB4 File Offset: 0x00237EB4
 		private bool OnAcceptBtnClicked(IXUIButton btn)
 		{
 			uint num;
@@ -229,47 +216,38 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B513 RID: 46355 RVA: 0x00239D20 File Offset: 0x00237F20
 		private bool OnRejectBtnClicked(IXUIButton btn)
 		{
 			this._Doc.RejectInvitation(btn.ID);
 			return true;
 		}
 
-		// Token: 0x0600B514 RID: 46356 RVA: 0x00239D48 File Offset: 0x00237F48
 		private bool OnIgnoreAllClicked(IXUIButton btn)
 		{
 			this._Doc.IgnoreAllInvitation();
 			return true;
 		}
 
-		// Token: 0x0600B515 RID: 46357 RVA: 0x00239D68 File Offset: 0x00237F68
 		private bool OnHelpBtnClicked(IXUIButton btn)
 		{
 			DlgBase<XCommonHelpTipView, XCommonHelpTipBehaviour>.singleton.ShowHelp(XSysDefine.XSys_PK);
 			return true;
 		}
 
-		// Token: 0x0600B516 RID: 46358 RVA: 0x00239D88 File Offset: 0x00237F88
 		private bool OnCloseBtnClicked(IXUIButton btn)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x04004696 RID: 18070
 		private XPKInvitationDocument _Doc;
 
-		// Token: 0x04004697 RID: 18071
 		private uint _CDToken = 0U;
 
-		// Token: 0x04004698 RID: 18072
 		private List<IXUILabel> m_TimeLabelList = new List<IXUILabel>();
 
-		// Token: 0x04004699 RID: 18073
 		private List<ulong> m_TimeInvID = new List<ulong>();
 
-		// Token: 0x0400469A RID: 18074
 		private Dictionary<ulong, uint> m_TimeDic = new Dictionary<ulong, uint>();
 	}
 }

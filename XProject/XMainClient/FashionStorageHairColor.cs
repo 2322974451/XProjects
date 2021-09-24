@@ -3,10 +3,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x020008DA RID: 2266
+
 	internal class FashionStorageHairColor : FashionStorageTabBase, IFashionStorageSelect
 	{
-		// Token: 0x0600897A RID: 35194 RVA: 0x00120FE8 File Offset: 0x0011F1E8
+
 		public FashionStorageHairColor(FashionHair.RowData hairData)
 		{
 			this.m_hairData = hairData;
@@ -35,22 +35,18 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600897B RID: 35195 RVA: 0x001210C0 File Offset: 0x0011F2C0
 		public override string GetName()
 		{
 			return this.m_hairName;
 		}
 
-		// Token: 0x0600897C RID: 35196 RVA: 0x001210D8 File Offset: 0x0011F2D8
 		public override int GetID()
 		{
 			return (int)this.m_hairData.HairID;
 		}
 
-		// Token: 0x04002B9E RID: 11166
 		private FashionHair.RowData m_hairData;
 
-		// Token: 0x04002B9F RID: 11167
 		private string m_hairName;
 	}
 }

@@ -4,10 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000B77 RID: 2935
+
 	internal class academic_slash_show
 	{
-		// Token: 0x0600A93F RID: 43327 RVA: 0x001E1CD8 File Offset: 0x001DFED8
+
 		public static bool Do(List<XActor> actors)
 		{
 			bool flag = actors != null && actors.Count == XGame.RoleCount;
@@ -38,15 +38,12 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600A940 RID: 43328 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		private static void ResetBound(object o)
 		{
 		}
 
-		// Token: 0x04003E94 RID: 16020
 		private static bool _start = false;
 
-		// Token: 0x04003E95 RID: 16021
 		private static uint token = 0U;
 	}
 }

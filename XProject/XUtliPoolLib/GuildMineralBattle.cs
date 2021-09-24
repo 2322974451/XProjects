@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x0200010E RID: 270
+
 	public class GuildMineralBattle : CVSReader
 	{
-		// Token: 0x060006AC RID: 1708 RVA: 0x00020984 File Offset: 0x0001EB84
+
 		public GuildMineralBattle.RowData GetByID(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -21,7 +21,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x060006AD RID: 1709 RVA: 0x000209BC File Offset: 0x0001EBBC
 		private GuildMineralBattle.RowData BinarySearchID(uint key)
 		{
 			int num = 0;
@@ -80,7 +79,6 @@ namespace XUtliPoolLib
 			return null;
 		}
 
-		// Token: 0x060006AE RID: 1710 RVA: 0x00020A98 File Offset: 0x0001EC98
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			GuildMineralBattle.RowData rowData = new GuildMineralBattle.RowData();
@@ -96,7 +94,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x060006AF RID: 1711 RVA: 0x00020B2C File Offset: 0x0001ED2C
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -110,22 +107,17 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x0400035A RID: 858
 		public GuildMineralBattle.RowData[] Table = null;
 
-		// Token: 0x0200030D RID: 781
 		public class RowData
 		{
-			// Token: 0x04000B69 RID: 2921
+
 			public uint ID;
 
-			// Token: 0x04000B6A RID: 2922
 			public uint Mineralcounts;
 
-			// Token: 0x04000B6B RID: 2923
 			public int DifficultLevel;
 
-			// Token: 0x04000B6C RID: 2924
 			public uint BossID;
 		}
 	}

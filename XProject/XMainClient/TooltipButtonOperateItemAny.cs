@@ -5,22 +5,20 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000CA2 RID: 3234
+
 	internal class TooltipButtonOperateItemAny : TooltipButtonOperateBase
 	{
-		// Token: 0x0600B637 RID: 46647 RVA: 0x0024192C File Offset: 0x0023FB2C
+
 		public override string GetButtonText()
 		{
 			return this.m_Text;
 		}
 
-		// Token: 0x0600B638 RID: 46648 RVA: 0x00241944 File Offset: 0x0023FB44
 		public override bool HasRedPoint(XItem item)
 		{
 			return false;
 		}
 
-		// Token: 0x0600B639 RID: 46649 RVA: 0x00241958 File Offset: 0x0023FB58
 		public override bool IsButtonVisible(XItem item)
 		{
 			ItemType type = item.Type;
@@ -50,7 +48,6 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x0600B63A RID: 46650 RVA: 0x00241A1C File Offset: 0x0023FC1C
 		public override void OnButtonClick(ulong mainUID, ulong compareUID)
 		{
 			base.OnButtonClick(mainUID, compareUID);
@@ -78,7 +75,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B63B RID: 46651 RVA: 0x00241AB0 File Offset: 0x0023FCB0
 		private void OpenAnyTimesTip(XItem item)
 		{
 			ItemList.RowData itemConf = XBagDocument.GetItemConf(item.itemID);
@@ -93,7 +89,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B63C RID: 46652 RVA: 0x00241B38 File Offset: 0x0023FD38
 		private bool UseOnceItem(IXUIButton btn)
 		{
 			XItem itemByUID = XSingleton<XGame>.singleton.Doc.XBagDoc.GetItemByUID(this.mainItemUID);
@@ -112,10 +107,8 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0400474F RID: 18255
 		private string m_Text;
 
-		// Token: 0x04004750 RID: 18256
 		private ulong m_useCount;
 	}
 }

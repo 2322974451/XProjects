@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200189A RID: 6298
+
 	internal class XBriefStrengthenView : DlgBase<XBriefStrengthenView, XBriefStrengthenBehaviour>
 	{
-		// Token: 0x170039E9 RID: 14825
-		// (get) Token: 0x0601064F RID: 67151 RVA: 0x003FFAD0 File Offset: 0x003FDCD0
+
 		public override string fileName
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170039EA RID: 14826
-		// (get) Token: 0x06010650 RID: 67152 RVA: 0x003FFAE8 File Offset: 0x003FDCE8
 		public override int group
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170039EB RID: 14827
-		// (get) Token: 0x06010651 RID: 67153 RVA: 0x003FFAFC File Offset: 0x003FDCFC
 		public override bool autoload
 		{
 			get
@@ -40,8 +35,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170039EC RID: 14828
-		// (get) Token: 0x06010652 RID: 67154 RVA: 0x003FFB10 File Offset: 0x003FDD10
 		public override bool pushstack
 		{
 			get
@@ -50,13 +43,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010653 RID: 67155 RVA: 0x003FFB23 File Offset: 0x003FDD23
 		protected override void Init()
 		{
 			this._doc = XDocuments.GetSpecificDocument<XFPStrengthenDocument>(XFPStrengthenDocument.uuID);
 		}
 
-		// Token: 0x06010654 RID: 67156 RVA: 0x003FFB38 File Offset: 0x003FDD38
 		public override void RegisterEvent()
 		{
 			base.uiBehaviour.m_Close.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseClicked));
@@ -64,7 +55,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_More.RegisterLabelClickEventHandler(new LabelClickEventHandler(this._OnMoreClicked));
 		}
 
-		// Token: 0x06010655 RID: 67157 RVA: 0x003FFBA0 File Offset: 0x003FDDA0
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -95,27 +85,23 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_FuncPool.ActualReturnAll(false);
 		}
 
-		// Token: 0x06010656 RID: 67158 RVA: 0x003FFD28 File Offset: 0x003FDF28
 		public bool OnCloseClicked(IXUIButton sp)
 		{
 			this.SetVisible(false, true);
 			return true;
 		}
 
-		// Token: 0x06010657 RID: 67159 RVA: 0x003FFD44 File Offset: 0x003FDF44
 		public void OnCloseClicked(IXUISprite sp)
 		{
 			this.SetVisible(false, true);
 		}
 
-		// Token: 0x06010658 RID: 67160 RVA: 0x003FFD50 File Offset: 0x003FDF50
 		private void _OnMoreClicked(IXUILabel iLabel)
 		{
 			this.SetVisible(false, true);
 			DlgBase<XFpStrengthenView, XFPStrengthenBehaviour>.singleton.SetVisibleWithAnimation(true, null);
 		}
 
-		// Token: 0x06010659 RID: 67161 RVA: 0x003FFD6C File Offset: 0x003FDF6C
 		public void GoToStrengthSys(IXUISprite sp)
 		{
 			int num = (int)sp.ID;
@@ -127,19 +113,14 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0400765B RID: 30299
 		public static readonly int FUNCTION_NUM = 3;
 
-		// Token: 0x0400765C RID: 30300
 		private XFPStrengthenDocument _doc = null;
 
-		// Token: 0x0400765D RID: 30301
 		public XUIPool m_FpStrengthenPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x0400765E RID: 30302
 		public XUIPool m_FpButtonPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x0400765F RID: 30303
 		private List<FpStrengthenTable.RowData> m_BQList = null;
 	}
 }

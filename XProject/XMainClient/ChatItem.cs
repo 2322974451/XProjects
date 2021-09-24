@@ -7,10 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000CC5 RID: 3269
+
 	public class ChatItem : MonoBehaviour
 	{
-		// Token: 0x0600B786 RID: 46982 RVA: 0x0024901C File Offset: 0x0024721C
+
 		private void Awake()
 		{
 			this.m_sprHead = (base.transform.FindChild("head").GetComponent("XUISprite") as IXUISprite);
@@ -30,7 +30,6 @@ namespace XMainClient
 			this.m_sprHead.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnClickChatHead));
 		}
 
-		// Token: 0x0600B787 RID: 46983 RVA: 0x00249214 File Offset: 0x00247414
 		public void Refresh(ChatInfo info)
 		{
 			bool flag = this.mChatInfo == info || this.m_lblTime == null;
@@ -179,7 +178,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B788 RID: 46984 RVA: 0x002497E4 File Offset: 0x002479E4
 		private void SetPivot()
 		{
 			this.m_sprBoard.SetFlipHorizontal(this.mChatInfo.isSelfSender);
@@ -193,7 +191,6 @@ namespace XMainClient
 			this.m_sprHead.gameObject.transform.localPosition = new Vector3(num, num3, 0f);
 		}
 
-		// Token: 0x0600B789 RID: 46985 RVA: 0x0024990C File Offset: 0x00247B0C
 		private void InitAudioUI()
 		{
 			this.mChatInfo.mUIObject = this.m_objVoice;
@@ -217,7 +214,6 @@ namespace XMainClient
 			ixuispriteAnimation.SetFrameRate(0);
 		}
 
-		// Token: 0x0600B78A RID: 46986 RVA: 0x00249B48 File Offset: 0x00247D48
 		private void InitTextUI()
 		{
 			this.mChatInfo.mContent = DlgBase<ChatEmotionView, ChatEmotionBehaviour>.singleton.OnParseEmotion(this.mChatInfo.mContent);
@@ -229,7 +225,6 @@ namespace XMainClient
 			this.m_offset.transform.localPosition = new Vector3(0f, (float)((this.m_sprBoard.spriteHeight - this.boardHeight) / 2 + 30), 0f);
 		}
 
-		// Token: 0x0600B78B RID: 46987 RVA: 0x00249C50 File Offset: 0x00247E50
 		private void OnClickChatHead(IXUISprite sp)
 		{
 			bool flag = !this.mChatInfo.isSelfSender && this.mChatInfo.mSenderId != 0UL && XSingleton<XGame>.singleton.CurrentStage.Stage == EXStage.Hall;
@@ -243,7 +238,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B78C RID: 46988 RVA: 0x00249CC0 File Offset: 0x00247EC0
 		public static string ParsePayComsume(ChatInfo info, string txt, bool ismini)
 		{
 			bool flag = info != null && info.payConsume != null;
@@ -286,52 +280,36 @@ namespace XMainClient
 			return txt;
 		}
 
-		// Token: 0x04004824 RID: 18468
 		private ChatInfo mChatInfo;
 
-		// Token: 0x04004825 RID: 18469
 		private int boardHeight = 144;
 
-		// Token: 0x04004826 RID: 18470
 		private IXUISprite m_sprHead;
 
-		// Token: 0x04004827 RID: 18471
 		private IXUISprite m_sprHost;
 
-		// Token: 0x04004828 RID: 18472
 		private IXUISprite m_sprFrame;
 
-		// Token: 0x04004829 RID: 18473
 		private IXUILabel m_lblTime;
 
-		// Token: 0x0400482A RID: 18474
 		private IXUILabelSymbol m_symContent;
 
-		// Token: 0x0400482B RID: 18475
 		private IXUILabel m_lblContent;
 
-		// Token: 0x0400482C RID: 18476
 		private IXUISprite m_sprBoard;
 
-		// Token: 0x0400482D RID: 18477
 		private GameObject m_objName;
 
-		// Token: 0x0400482E RID: 18478
 		private IXUILabelSymbol m_lblName;
 
-		// Token: 0x0400482F RID: 18479
 		private GameObject m_objVoice;
 
-		// Token: 0x04004830 RID: 18480
 		private IXUISprite m_sprRoot;
 
-		// Token: 0x04004831 RID: 18481
 		private Transform m_offset;
 
-		// Token: 0x04004832 RID: 18482
 		private IXUISprite m_regression;
 
-		// Token: 0x04004833 RID: 18483
 		private IXUISprite m_campDuel;
 	}
 }

@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000BB7 RID: 2999
+
 	internal class CarnivalDlg : DlgBase<CarnivalDlg, CarnivalBehavior>
 	{
-		// Token: 0x17003057 RID: 12375
-		// (get) Token: 0x0600ABA6 RID: 43942 RVA: 0x001F6774 File Offset: 0x001F4974
+
 		public XCarnivalDocument doc
 		{
 			get
@@ -19,8 +18,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003058 RID: 12376
-		// (get) Token: 0x0600ABA7 RID: 43943 RVA: 0x001F6790 File Offset: 0x001F4990
 		public override bool pushstack
 		{
 			get
@@ -29,8 +26,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003059 RID: 12377
-		// (get) Token: 0x0600ABA8 RID: 43944 RVA: 0x001F67A4 File Offset: 0x001F49A4
 		public override int sysid
 		{
 			get
@@ -39,8 +34,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700305A RID: 12378
-		// (get) Token: 0x0600ABA9 RID: 43945 RVA: 0x001F67C0 File Offset: 0x001F49C0
 		public override string fileName
 		{
 			get
@@ -49,7 +42,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600ABAA RID: 43946 RVA: 0x001F67D8 File Offset: 0x001F49D8
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -61,7 +53,6 @@ namespace XMainClient
 			base.uiBehaviour._close.RegisterClickEventHandler(new ButtonClickEventHandler(this.Close));
 		}
 
-		// Token: 0x0600ABAB RID: 43947 RVA: 0x001F6855 File Offset: 0x001F4A55
 		protected override void OnLoad()
 		{
 			base.OnLoad();
@@ -69,7 +60,6 @@ namespace XMainClient
 			DlgHandlerBase.EnsureCreate<CarnivalContentHander>(ref this._contentHander, base.uiBehaviour._contentPanel, this, true);
 		}
 
-		// Token: 0x0600ABAC RID: 43948 RVA: 0x001F6891 File Offset: 0x001F4A91
 		protected override void OnUnload()
 		{
 			DlgHandlerBase.EnsureUnload<CarnivalContentHander>(ref this._contentHander);
@@ -77,7 +67,6 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x0600ABAD RID: 43949 RVA: 0x001F68B3 File Offset: 0x001F4AB3
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -87,7 +76,6 @@ namespace XMainClient
 			this.RefreshTime();
 		}
 
-		// Token: 0x0600ABAE RID: 43950 RVA: 0x001F68DA File Offset: 0x001F4ADA
 		protected override void OnHide()
 		{
 			this.doc.UpdateHallPoint(false);
@@ -95,7 +83,6 @@ namespace XMainClient
 			base.OnHide();
 		}
 
-		// Token: 0x0600ABAF RID: 43951 RVA: 0x001F6900 File Offset: 0x001F4B00
 		private void RefreshTime()
 		{
 			XSingleton<XDebug>.singleton.AddLog("openday is: ", this.doc.openDay.ToString(), null, null, null, null, XDebugColor.XDebug_None);
@@ -129,7 +116,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600ABB0 RID: 43952 RVA: 0x001F6A28 File Offset: 0x001F4C28
 		private bool OnTabClick(IXUICheckBox box)
 		{
 			ulong id = box.ID;
@@ -144,7 +130,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600ABB1 RID: 43953 RVA: 0x001F6AA4 File Offset: 0x001F4CA4
 		public void Refresh()
 		{
 			bool flag = base.IsVisible();
@@ -167,7 +152,6 @@ namespace XMainClient
 			this.RefreshHallRedp();
 		}
 
-		// Token: 0x0600ABB2 RID: 43954 RVA: 0x001F6B14 File Offset: 0x001F4D14
 		private void Refresh(CarnivalBelong belong)
 		{
 			this._contentHander.SetVisible(belong != CarnivalBelong.Rwd);
@@ -183,7 +167,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600ABB3 RID: 43955 RVA: 0x001F6B70 File Offset: 0x001F4D70
 		private void RefreshTabs()
 		{
 			for (int i = 0; i < 6; i++)
@@ -201,13 +184,11 @@ namespace XMainClient
 			base.uiBehaviour._tabs[6].bChecked = true;
 		}
 
-		// Token: 0x0600ABB4 RID: 43956 RVA: 0x001F6C58 File Offset: 0x001F4E58
 		private void OnLockTip(IXUISprite sp)
 		{
 			XSingleton<UiUtility>.singleton.ShowSystemTip(XStringDefineProxy.GetString("CarnivalLock"), "fece00");
 		}
 
-		// Token: 0x0600ABB5 RID: 43957 RVA: 0x001F6C78 File Offset: 0x001F4E78
 		private void RefreshRedp()
 		{
 			for (int i = 0; i < 6; i++)
@@ -226,7 +207,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600ABB6 RID: 43958 RVA: 0x001F6D6C File Offset: 0x001F4F6C
 		public void RefreshHallRedp()
 		{
 			bool bState = false;
@@ -258,20 +238,16 @@ namespace XMainClient
 			XSingleton<XGameSysMgr>.singleton.RecalculateRedPointState(XSysDefine.XSys_Carnival, true);
 		}
 
-		// Token: 0x0600ABB7 RID: 43959 RVA: 0x001F6E70 File Offset: 0x001F5070
 		private bool Close(IXUIButton btn)
 		{
 			this.SetVisible(false, true);
 			return true;
 		}
 
-		// Token: 0x04004076 RID: 16502
 		public const int SYS_CNT = 6;
 
-		// Token: 0x04004077 RID: 16503
 		public CarnivalContentHander _contentHander;
 
-		// Token: 0x04004078 RID: 16504
 		public CarnivalRwdHander _rwdHander;
 	}
 }

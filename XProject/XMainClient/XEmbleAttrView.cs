@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000BC2 RID: 3010
+
 	internal class XEmbleAttrView<T> : XAttrCommonHandler<T> where T : XAttrCommonFile, new()
 	{
-		// Token: 0x0600ABF8 RID: 44024 RVA: 0x001F8FEC File Offset: 0x001F71EC
+
 		public void SetBaseData(XBodyBag equipments)
 		{
 			this.SetShowData(equipments);
@@ -19,7 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600ABF9 RID: 44025 RVA: 0x001F9014 File Offset: 0x001F7214
 		public void SetBaseData(List<Item> lst)
 		{
 			this.SetShowData(lst);
@@ -30,7 +29,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600ABFA RID: 44026 RVA: 0x001F903C File Offset: 0x001F723C
 		public override void SetData()
 		{
 			base.SetData();
@@ -81,7 +79,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600ABFB RID: 44027 RVA: 0x001F9208 File Offset: 0x001F7408
 		private void GetData(ref List<ShowAttriData> lst1, ref List<ShowAttriData> lst2, ref List<ShowAttriData> lst3)
 		{
 			for (int i = 0; i < this.m_ShowAttriDataLst.Count; i++)
@@ -110,7 +107,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600ABFC RID: 44028 RVA: 0x001F92C4 File Offset: 0x001F74C4
 		private void SetShowData(XBodyBag equipments)
 		{
 			this.m_ShowAttriDataLst = new List<ShowAttriData>();
@@ -155,7 +151,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600ABFD RID: 44029 RVA: 0x001F944C File Offset: 0x001F764C
 		private void SetShowData(List<Item> lst)
 		{
 			bool flag = lst == null;
@@ -203,7 +198,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600ABFE RID: 44030 RVA: 0x001F95EC File Offset: 0x001F77EC
 		private ShowAttriData FindTheSameAttri(uint nameId)
 		{
 			for (int i = 0; i < this.m_ShowAttriDataLst.Count; i++)
@@ -217,7 +211,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x040040A2 RID: 16546
 		private List<ShowAttriData> m_ShowAttriDataLst;
 	}
 }

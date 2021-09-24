@@ -6,23 +6,21 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C49 RID: 3145
+
 	internal class XShopTabCategoryHandler : XNormalShopView
 	{
-		// Token: 0x0600B265 RID: 45669 RVA: 0x00226B3F File Offset: 0x00224D3F
+
 		protected override void Init()
 		{
 			base.Init();
 			this.InitProperties();
 		}
 
-		// Token: 0x0600B266 RID: 45670 RVA: 0x0019EEB0 File Offset: 0x0019D0B0
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 		}
 
-		// Token: 0x0600B267 RID: 45671 RVA: 0x00226B50 File Offset: 0x00224D50
 		protected override void OnShow()
 		{
 			this.UpdateTabs();
@@ -30,7 +28,6 @@ namespace XMainClient
 			base.OnShow();
 		}
 
-		// Token: 0x0600B268 RID: 45672 RVA: 0x00226B68 File Offset: 0x00224D68
 		private void SetDefaultTabCheck()
 		{
 			int shopViewDefaultTab = XNormalShopDocument.ShopDoc.GetShopViewDefaultTab();
@@ -73,13 +70,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B269 RID: 45673 RVA: 0x00226C6D File Offset: 0x00224E6D
 		protected override void OnHide()
 		{
 			base.OnHide();
 		}
 
-		// Token: 0x0600B26A RID: 45674 RVA: 0x00226C77 File Offset: 0x00224E77
 		public override void OnUnload()
 		{
 			this._tabCheckList.Clear();
@@ -88,7 +83,6 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x0600B26B RID: 45675 RVA: 0x00226CA8 File Offset: 0x00224EA8
 		private void UpdateTabs()
 		{
 			XNormalShopDocument specificDocument = XDocuments.GetSpecificDocument<XNormalShopDocument>(XNormalShopDocument.uuID);
@@ -103,7 +97,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B26C RID: 45676 RVA: 0x00226D2C File Offset: 0x00224F2C
 		private void InitTabItem(GameObject item, int tabIndex)
 		{
 			List<string> stringList = XSingleton<XGlobalConfig>.singleton.GetStringList("ShopTabTypeList");
@@ -120,7 +113,6 @@ namespace XMainClient
 			ixuilabel2.SetText(text);
 		}
 
-		// Token: 0x0600B26D RID: 45677 RVA: 0x00226E78 File Offset: 0x00225078
 		private bool OnItemTypeChecked(IXUICheckBox iXUICheckBox)
 		{
 			bool flag = !iXUICheckBox.bChecked;
@@ -138,35 +130,28 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B26E RID: 45678 RVA: 0x00226EB0 File Offset: 0x002250B0
 		private void RefreshTabItems()
 		{
 			base.RefreshGoodsList();
 		}
 
-		// Token: 0x0600B26F RID: 45679 RVA: 0x00226EBA File Offset: 0x002250BA
 		private void InitProperties()
 		{
 			this._tabItemPool.SetupPool(base.PanelObject, base.PanelObject.transform.FindChild("TabItem").gameObject, 4U, false);
 		}
 
-		// Token: 0x0600B270 RID: 45680 RVA: 0x00226EEC File Offset: 0x002250EC
 		protected override bool CheckGoodsShowing(ShopTable.RowData shopGoods)
 		{
 			bool flag = base.CheckGoodsShowing(shopGoods);
 			return flag && (int)shopGoods.ShopItemType == this._curTabId;
 		}
 
-		// Token: 0x040044BE RID: 17598
 		private XUIPool _tabItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x040044BF RID: 17599
 		private List<int> _tabs = new List<int>();
 
-		// Token: 0x040044C0 RID: 17600
 		private List<IXUICheckBox> _tabCheckList = new List<IXUICheckBox>();
 
-		// Token: 0x040044C1 RID: 17601
 		private int _curTabId = -1;
 	}
 }

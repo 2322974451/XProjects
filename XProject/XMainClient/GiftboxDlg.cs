@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000BFE RID: 3070
+
 	internal class GiftboxDlg : DlgBase<GiftboxDlg, GiftboxBehaviour>
 	{
-		// Token: 0x170030C4 RID: 12484
-		// (get) Token: 0x0600AE99 RID: 44697 RVA: 0x0020E0A4 File Offset: 0x0020C2A4
+
 		private XGameMallDocument doc
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170030C5 RID: 12485
-		// (get) Token: 0x0600AE9A RID: 44698 RVA: 0x0020E0C0 File Offset: 0x0020C2C0
 		public override int layer
 		{
 			get
@@ -31,8 +28,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170030C6 RID: 12486
-		// (get) Token: 0x0600AE9B RID: 44699 RVA: 0x0020E0D4 File Offset: 0x0020C2D4
 		public override int group
 		{
 			get
@@ -41,8 +36,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170030C7 RID: 12487
-		// (get) Token: 0x0600AE9C RID: 44700 RVA: 0x0020E0E8 File Offset: 0x0020C2E8
 		public override bool autoload
 		{
 			get
@@ -51,8 +44,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170030C8 RID: 12488
-		// (get) Token: 0x0600AE9D RID: 44701 RVA: 0x0020E0FC File Offset: 0x0020C2FC
 		public override bool fullscreenui
 		{
 			get
@@ -61,8 +52,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170030C9 RID: 12489
-		// (get) Token: 0x0600AE9E RID: 44702 RVA: 0x0020E110 File Offset: 0x0020C310
 		public override bool hideMainMenu
 		{
 			get
@@ -71,8 +60,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170030CA RID: 12490
-		// (get) Token: 0x0600AE9F RID: 44703 RVA: 0x0020E124 File Offset: 0x0020C324
 		public override string fileName
 		{
 			get
@@ -81,13 +68,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AEA0 RID: 44704 RVA: 0x0020E13B File Offset: 0x0020C33B
 		protected override void Init()
 		{
 			base.Init();
 		}
 
-		// Token: 0x0600AEA1 RID: 44705 RVA: 0x0020E148 File Offset: 0x0020C348
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -97,7 +82,6 @@ namespace XMainClient
 			base.uiBehaviour.m_wrap.RegisterItemUpdateEventHandler(new WrapItemUpdateEventHandler(this.WrapContentItemUpdated));
 		}
 
-		// Token: 0x0600AEA2 RID: 44706 RVA: 0x0020E1D1 File Offset: 0x0020C3D1
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -105,14 +89,12 @@ namespace XMainClient
 			this.TogglePresent(base.uiBehaviour.m_checkbox1);
 		}
 
-		// Token: 0x0600AEA3 RID: 44707 RVA: 0x0020E1FF File Offset: 0x0020C3FF
 		protected override void OnHide()
 		{
 			this.doc.ClearGiftItems();
 			base.OnHide();
 		}
 
-		// Token: 0x0600AEA4 RID: 44708 RVA: 0x0020E218 File Offset: 0x0020C418
 		public void Refresh()
 		{
 			this.currItems = ((this.state == GiftboxDlg.State.Present) ? this.doc.presentList : this.doc.recvList);
@@ -135,14 +117,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AEA5 RID: 44709 RVA: 0x0020E288 File Offset: 0x0020C488
 		private bool Close(IXUIButton btn)
 		{
 			this.SetVisible(false, true);
 			return true;
 		}
 
-		// Token: 0x0600AEA6 RID: 44710 RVA: 0x0020E2A4 File Offset: 0x0020C4A4
 		private bool ToggleRecv(IXUICheckBox box)
 		{
 			bool bChecked = box.bChecked;
@@ -155,7 +135,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600AEA7 RID: 44711 RVA: 0x0020E2E4 File Offset: 0x0020C4E4
 		private void RefreshRecv()
 		{
 			bool flag = this.doc.recvList != null;
@@ -166,7 +145,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AEA8 RID: 44712 RVA: 0x0020E33C File Offset: 0x0020C53C
 		private bool TogglePresent(IXUICheckBox box)
 		{
 			bool bChecked = box.bChecked;
@@ -179,14 +157,12 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600AEA9 RID: 44713 RVA: 0x0020E37C File Offset: 0x0020C57C
 		private void ToggleTip(GiftboxDlg.State state)
 		{
 			base.uiBehaviour.m_tip0.SetActive(state == GiftboxDlg.State.Recv);
 			base.uiBehaviour.m_tip1.SetActive(state == GiftboxDlg.State.Present);
 		}
 
-		// Token: 0x0600AEAA RID: 44714 RVA: 0x0020E3AC File Offset: 0x0020C5AC
 		private void RefreshPresent()
 		{
 			bool flag = this.doc.presentList != null;
@@ -197,7 +173,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AEAB RID: 44715 RVA: 0x0020E404 File Offset: 0x0020C604
 		private void WrapContentItemUpdated(Transform t, int index)
 		{
 			bool flag = this.currItems == null || this.currItems.Count <= index;
@@ -212,21 +187,17 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0400425C RID: 16988
 		private DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new DateTime(1970, 1, 1));
 
-		// Token: 0x0400425D RID: 16989
 		private List<IBGiftHistItem> currItems;
 
-		// Token: 0x0400425E RID: 16990
 		public GiftboxDlg.State state = GiftboxDlg.State.Present;
 
-		// Token: 0x020019A2 RID: 6562
 		public enum State
 		{
-			// Token: 0x04007F53 RID: 32595
+
 			Present,
-			// Token: 0x04007F54 RID: 32596
+
 			Recv
 		}
 	}

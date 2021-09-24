@@ -4,10 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000DBE RID: 3518
+
 	internal sealed class XBoss : XOpposer
 	{
-		// Token: 0x0600BEA1 RID: 48801 RVA: 0x0027D5A0 File Offset: 0x0027B7A0
+
 		public override bool Initilize(int flag)
 		{
 			base.Initilize(flag);
@@ -21,13 +21,11 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600BEA2 RID: 48802 RVA: 0x0027D606 File Offset: 0x0027B806
 		public override void Dying()
 		{
 			base.Dying();
 		}
 
-		// Token: 0x0600BEA3 RID: 48803 RVA: 0x0027D610 File Offset: 0x0027B810
 		public override void OnDestroy()
 		{
 			bool flag = XSingleton<XEntityMgr>.singleton.Boss == this;
@@ -38,7 +36,6 @@ namespace XMainClient
 			base.OnDestroy();
 		}
 
-		// Token: 0x0600BEA4 RID: 48804 RVA: 0x0027D642 File Offset: 0x0027B842
 		public override void OnCreated()
 		{
 			base.OnCreated();

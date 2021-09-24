@@ -7,10 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001819 RID: 6169
+
 	internal class SuperRiskOpenboxHandler : DlgHandlerBase
 	{
-		// Token: 0x06010017 RID: 65559 RVA: 0x003CB930 File Offset: 0x003C9B30
+
 		protected override void Init()
 		{
 			this._doc = (XSingleton<XGame>.singleton.Doc.GetXComponent(XSuperRiskDocument.uuID) as XSuperRiskDocument);
@@ -26,7 +26,6 @@ namespace XMainClient.UI
 			this.m_StartTime = (base.PanelObject.transform.Find("OpenBtn/Time").GetComponent("XUILabel") as IXUILabel);
 		}
 
-		// Token: 0x06010018 RID: 65560 RVA: 0x003CBAD8 File Offset: 0x003C9CD8
 		public override void RegisterEvent()
 		{
 			this.m_CloseBg.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnCloseClick));
@@ -35,26 +34,22 @@ namespace XMainClient.UI
 			base.RegisterEvent();
 		}
 
-		// Token: 0x06010019 RID: 65561 RVA: 0x001A6C1F File Offset: 0x001A4E1F
 		protected void OnCloseClick(IXUISprite sp)
 		{
 			base.SetVisible(false);
 		}
 
-		// Token: 0x0601001A RID: 65562 RVA: 0x003CBB35 File Offset: 0x003C9D35
 		protected override void OnHide()
 		{
 			this.m_CurrentSlot = -1;
 			base.OnHide();
 		}
 
-		// Token: 0x0601001B RID: 65563 RVA: 0x003CBB46 File Offset: 0x003C9D46
 		public void ClearCatchTex()
 		{
 			this.m_TopBox.SetTexturePath("");
 		}
 
-		// Token: 0x0601001C RID: 65564 RVA: 0x003CBB5C File Offset: 0x003C9D5C
 		public void ShowBox(int slot)
 		{
 			base.SetVisible(true);
@@ -131,7 +126,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601001D RID: 65565 RVA: 0x003CBE88 File Offset: 0x003CA088
 		public void BoxStateChange(int slot)
 		{
 			bool flag = slot != this.m_CurrentSlot;
@@ -180,7 +174,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601001E RID: 65566 RVA: 0x003CBFF8 File Offset: 0x003CA1F8
 		private string GetBoxPicByState(uint itemID, RiskBoxState state)
 		{
 			ItemList.RowData itemConf = XBagDocument.GetItemConf((int)itemID);
@@ -203,7 +196,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0601001F RID: 65567 RVA: 0x003CC064 File Offset: 0x003CA264
 		public bool OnSpeedClick(IXUIButton button)
 		{
 			bool flag = this.SetButtonCool(this.m_fCoolTime);
@@ -260,7 +252,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x06010020 RID: 65568 RVA: 0x003CC188 File Offset: 0x003CA388
 		public bool OnStartClick(IXUIButton button)
 		{
 			bool flag = this.SetButtonCool1(this.m_fCoolTime);
@@ -286,7 +277,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x06010021 RID: 65569 RVA: 0x003CC244 File Offset: 0x003CA444
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
@@ -306,7 +296,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010022 RID: 65570 RVA: 0x003CC2CC File Offset: 0x003CA4CC
 		private bool SetButtonCool(float time)
 		{
 			float num = Time.realtimeSinceStartup - this.m_fLastClickBtnTime;
@@ -324,7 +313,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x06010023 RID: 65571 RVA: 0x003CC304 File Offset: 0x003CA504
 		private bool SetButtonCool1(float time)
 		{
 			float num = Time.realtimeSinceStartup - this.m_fLastClickBtnTime1;
@@ -342,46 +330,32 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x04007194 RID: 29076
 		private IXUITexture m_TopBox;
 
-		// Token: 0x04007195 RID: 29077
 		private XUIPool BoxPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04007196 RID: 29078
 		private GameObject m_SpeedFrame;
 
-		// Token: 0x04007197 RID: 29079
 		private IXUILabel m_SpeedTime;
 
-		// Token: 0x04007198 RID: 29080
 		private IXUIButton m_SpeedButton;
 
-		// Token: 0x04007199 RID: 29081
 		private IXUILabelSymbol m_SpeedCost;
 
-		// Token: 0x0400719A RID: 29082
 		private IXUIButton m_StartButton;
 
-		// Token: 0x0400719B RID: 29083
 		private IXUILabel m_StartTime;
 
-		// Token: 0x0400719C RID: 29084
 		private IXUISprite m_CloseBg;
 
-		// Token: 0x0400719D RID: 29085
 		private XSuperRiskDocument _doc;
 
-		// Token: 0x0400719E RID: 29086
 		private int m_CurrentSlot = -1;
 
-		// Token: 0x0400719F RID: 29087
 		private float m_fCoolTime = 1f;
 
-		// Token: 0x040071A0 RID: 29088
 		private float m_fLastClickBtnTime = 0f;
 
-		// Token: 0x040071A1 RID: 29089
 		private float m_fLastClickBtnTime1 = 0f;
 	}
 }

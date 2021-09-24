@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001910 RID: 6416
+
 	internal class CharacterEquipHandler : DlgHandlerBase
 	{
-		// Token: 0x17003AD8 RID: 15064
-		// (get) Token: 0x06010C65 RID: 68709 RVA: 0x004359EC File Offset: 0x00433BEC
+
 		public GameObject[] EquipGo
 		{
 			get
@@ -19,8 +18,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003AD9 RID: 15065
-		// (get) Token: 0x06010C66 RID: 68710 RVA: 0x00435A04 File Offset: 0x00433C04
 		protected override string FileName
 		{
 			get
@@ -29,7 +26,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010C67 RID: 68711 RVA: 0x00435A1C File Offset: 0x00433C1C
 		protected override void Init()
 		{
 			base.Init();
@@ -55,7 +51,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010C68 RID: 68712 RVA: 0x00435BB8 File Offset: 0x00433DB8
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -66,7 +61,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010C69 RID: 68713 RVA: 0x00435C10 File Offset: 0x00433E10
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -82,7 +76,6 @@ namespace XMainClient.UI
 			this.ShowEquipments();
 		}
 
-		// Token: 0x06010C6A RID: 68714 RVA: 0x00435C78 File Offset: 0x00433E78
 		protected override void OnHide()
 		{
 			bool flag = this.m_EnhanceMasterEffect != null;
@@ -95,7 +88,6 @@ namespace XMainClient.UI
 			base.OnHide();
 		}
 
-		// Token: 0x06010C6B RID: 68715 RVA: 0x00435CB8 File Offset: 0x00433EB8
 		public override void OnUnload()
 		{
 			this._ItemSelector.Unload();
@@ -121,7 +113,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x06010C6C RID: 68716 RVA: 0x00435D6C File Offset: 0x00433F6C
 		public override void StackRefresh()
 		{
 			bool flag = this.m_EnhanceMasterEffect != null;
@@ -132,7 +123,6 @@ namespace XMainClient.UI
 			base.StackRefresh();
 		}
 
-		// Token: 0x06010C6D RID: 68717 RVA: 0x00435DA0 File Offset: 0x00433FA0
 		private void _StopItemShining()
 		{
 			foreach (uint token in this._ShiningTimerTokens.Values)
@@ -142,7 +132,6 @@ namespace XMainClient.UI
 			this._ShiningTimerTokens.Clear();
 		}
 
-		// Token: 0x06010C6E RID: 68718 RVA: 0x00435E10 File Offset: 0x00434010
 		private void _StartItemShining()
 		{
 			this._StopItemShining();
@@ -160,7 +149,6 @@ namespace XMainClient.UI
 			this._ItemShining.ActualReturnAll();
 		}
 
-		// Token: 0x06010C6F RID: 68719 RVA: 0x00435EAC File Offset: 0x004340AC
 		private void _ShowItemShining(object o)
 		{
 			GameObject gameObject = o as GameObject;
@@ -175,7 +163,6 @@ namespace XMainClient.UI
 			this._ShiningTimerTokens[gameObject] = XSingleton<XTimerMgr>.singleton.SetTimer(interval, new XTimerMgr.ElapsedEventHandler(this._ShowItemShining), gameObject);
 		}
 
-		// Token: 0x06010C70 RID: 68720 RVA: 0x00435F44 File Offset: 0x00434144
 		public void SetRedPoints(List<int> equipList)
 		{
 			this._MorePowerfulMgr.ReturnAll();
@@ -189,7 +176,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010C71 RID: 68721 RVA: 0x00435FBC File Offset: 0x004341BC
 		public void SetArrows(List<int> equipList)
 		{
 			this._WeakMorePowerfulMgr.ReturnAll();
@@ -203,7 +189,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010C72 RID: 68722 RVA: 0x00436034 File Offset: 0x00434234
 		public void ShowEquipments()
 		{
 			XBodyBag equipBag = XSingleton<XGame>.singleton.Doc.XBagDoc.EquipBag;
@@ -228,7 +213,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010C73 RID: 68723 RVA: 0x00436140 File Offset: 0x00434340
 		public void ShowNormalEquip(bool bFlag)
 		{
 			this.bNormal = bFlag;
@@ -238,8 +222,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003ADA RID: 15066
-		// (get) Token: 0x06010C74 RID: 68724 RVA: 0x00436184 File Offset: 0x00434384
 		public string EnhanceMasterPath
 		{
 			get
@@ -253,7 +235,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010C75 RID: 68725 RVA: 0x004361C0 File Offset: 0x004343C0
 		public void PlayEnhanceMasterEffect()
 		{
 			bool flag = this.m_EnhanceMasterEffect != null;
@@ -277,7 +258,6 @@ namespace XMainClient.UI
 			this.m_EnhanceMasterEffect.Play(base.PanelObject.transform.parent.parent, Vector3.zero, Vector3.one, 1f, true, false);
 		}
 
-		// Token: 0x06010C76 RID: 68726 RVA: 0x00436260 File Offset: 0x00434460
 		private void SetEffect(GameObject go, uint breakLevel, int slot)
 		{
 			bool flag = slot >= this.m_fuseBreakFx.Length;
@@ -311,7 +291,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010C77 RID: 68727 RVA: 0x00436300 File Offset: 0x00434500
 		private void RestQuanlityFx()
 		{
 			for (int i = 0; i < CharacterEquipHandler.Equip_Slot_Count; i++)
@@ -324,7 +303,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010C78 RID: 68728 RVA: 0x00436344 File Offset: 0x00434544
 		public void UpdateEquipSlot(XItem item)
 		{
 			bool flag = item == null;
@@ -346,7 +324,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010C79 RID: 68729 RVA: 0x004363E8 File Offset: 0x004345E8
 		public void SetEquipSlot(int slot, XItem item)
 		{
 			XItemDrawerMgr.Param.bHideBinding = true;
@@ -364,7 +341,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010C7A RID: 68730 RVA: 0x00436470 File Offset: 0x00434670
 		public void RegisterItemClickEvents(SpriteClickEventHandler handle = null)
 		{
 			SpriteClickEventHandler eventHandler = handle;
@@ -379,7 +355,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010C7B RID: 68731 RVA: 0x004364BC File Offset: 0x004346BC
 		public void SelectEquip(ulong uid)
 		{
 			bool flag = uid == 0UL;
@@ -401,7 +376,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010C7C RID: 68732 RVA: 0x00436524 File Offset: 0x00434724
 		public static void OnItemClicked(IXUISprite iSp)
 		{
 			XItem itemByUID = XSingleton<XGame>.singleton.Doc.XBagDoc.GetItemByUID(iSp.ID);
@@ -422,7 +396,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010C7D RID: 68733 RVA: 0x004365AC File Offset: 0x004347AC
 		private void _OnSlotBgClick(IXUISprite iSp)
 		{
 			EquipPosition equipPosition = (EquipPosition)iSp.ID;
@@ -438,7 +411,6 @@ namespace XMainClient.UI
 			XSingleton<UiUtility>.singleton.ShowSystemTip(text, "fece00");
 		}
 
-		// Token: 0x06010C7E RID: 68734 RVA: 0x0043660C File Offset: 0x0043480C
 		public void PlaySuitFx(List<int> equipPos)
 		{
 			this._SuitFxMgr.FakeReturnAll();
@@ -451,52 +423,36 @@ namespace XMainClient.UI
 			this._SuitFxMgr.ActualReturnAll();
 		}
 
-		// Token: 0x04007AF1 RID: 31473
 		public static int Equip_Slot_Count = XBagDocument.EquipMax;
 
-		// Token: 0x04007AF2 RID: 31474
 		private GameObject[] m_EquipGo = new GameObject[CharacterEquipHandler.Equip_Slot_Count];
 
-		// Token: 0x04007AF3 RID: 31475
 		public IXUISprite[] m_EquipSlots = new IXUISprite[CharacterEquipHandler.Equip_Slot_Count];
 
-		// Token: 0x04007AF4 RID: 31476
 		public IXUISprite[] m_EquipBg = new IXUISprite[CharacterEquipHandler.Equip_Slot_Count];
 
-		// Token: 0x04007AF5 RID: 31477
 		private XItemSelector _ItemSelector = new XItemSelector(0U);
 
-		// Token: 0x04007AF6 RID: 31478
 		private XItemMorePowerfulTipMgr _MorePowerfulMgr = new XItemMorePowerfulTipMgr();
 
-		// Token: 0x04007AF7 RID: 31479
 		private XItemMorePowerfulTipMgr _WeakMorePowerfulMgr = new XItemMorePowerfulTipMgr();
 
-		// Token: 0x04007AF8 RID: 31480
 		private XItemMorePowerfulTipMgr _ItemShining = null;
 
-		// Token: 0x04007AF9 RID: 31481
 		private XItemMorePowerfulTipMgr _SuitFxMgr = new XItemMorePowerfulTipMgr();
 
-		// Token: 0x04007AFA RID: 31482
 		private Dictionary<GameObject, uint> _ShiningTimerTokens = new Dictionary<GameObject, uint>();
 
-		// Token: 0x04007AFB RID: 31483
 		private XUIPool m_ItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04007AFC RID: 31484
 		private bool bNormal = true;
 
-		// Token: 0x04007AFD RID: 31485
 		private XFx m_EnhanceMasterEffect;
 
-		// Token: 0x04007AFE RID: 31486
 		private ArtifactQuanlityFx[] m_fuseBreakFx = new ArtifactQuanlityFx[CharacterEquipHandler.Equip_Slot_Count];
 
-		// Token: 0x04007AFF RID: 31487
 		private EquipFusionDocument m_doc;
 
-		// Token: 0x04007B00 RID: 31488
 		private string m_enhanceMasterPath = string.Empty;
 	}
 }

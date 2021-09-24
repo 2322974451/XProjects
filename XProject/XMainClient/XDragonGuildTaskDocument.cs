@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000907 RID: 2311
+
 	internal class XDragonGuildTaskDocument : XDocComponent
 	{
-		// Token: 0x17002B63 RID: 11107
-		// (get) Token: 0x06008BB4 RID: 35764 RVA: 0x0012BF0C File Offset: 0x0012A10C
+
 		public override uint ID
 		{
 			get
@@ -20,9 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002B64 RID: 11108
-		// (get) Token: 0x06008BB5 RID: 35765 RVA: 0x0012BF24 File Offset: 0x0012A124
-		// (set) Token: 0x06008BB6 RID: 35766 RVA: 0x0012BF3C File Offset: 0x0012A13C
 		public XDragonGuildTaskView View
 		{
 			get
@@ -35,7 +31,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008BB7 RID: 35767 RVA: 0x0012BF46 File Offset: 0x0012A146
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			XDragonGuildTaskDocument.AsyncLoader.AddTask("Table/DragonGuildTask", XDragonGuildTaskDocument.m_dragontaskTab, false);
@@ -43,13 +38,11 @@ namespace XMainClient
 			XDragonGuildTaskDocument.AsyncLoader.Execute(callback);
 		}
 
-		// Token: 0x06008BB8 RID: 35768 RVA: 0x0012BF81 File Offset: 0x0012A181
 		public override void OnGamePause(bool pause)
 		{
 			base.OnGamePause(pause);
 		}
 
-		// Token: 0x06008BB9 RID: 35769 RVA: 0x0012BF8C File Offset: 0x0012A18C
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 			bool flag = DlgBase<XDragonGuildTaskView, XDragonGuildTaskBehaviour>.singleton != null && DlgBase<XDragonGuildTaskView, XDragonGuildTaskBehaviour>.singleton.IsVisible();
@@ -59,7 +52,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008BBA RID: 35770 RVA: 0x0012BFBC File Offset: 0x0012A1BC
 		public bool HadTaskRedPoint()
 		{
 			bool result = false;
@@ -75,7 +67,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008BBB RID: 35771 RVA: 0x0012C00C File Offset: 0x0012A20C
 		public bool HadAchieveRedPoint()
 		{
 			bool result = false;
@@ -91,7 +82,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008BBC RID: 35772 RVA: 0x0012C05C File Offset: 0x0012A25C
 		private DragonGuildTaskTable.RowData GetTaskById(uint id)
 		{
 			for (int i = 0; i < XDragonGuildTaskDocument.m_dragontaskTab.Table.Length; i++)
@@ -105,7 +95,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x06008BBD RID: 35773 RVA: 0x0012C0B4 File Offset: 0x0012A2B4
 		private DragonGuildAchieveTable.RowData GetAchieveById(uint id)
 		{
 			for (int i = 0; i < XDragonGuildTaskDocument.m_dragonachieveTab.Table.Length; i++)
@@ -119,7 +108,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x06008BBE RID: 35774 RVA: 0x0012C10C File Offset: 0x0012A30C
 		public XDragonGuildTpl GetDataByindex(int index, uint state)
 		{
 			bool flag = state == 1U;
@@ -144,14 +132,12 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008BBF RID: 35775 RVA: 0x0012C164 File Offset: 0x0012A364
 		public void ReqInfo()
 		{
 			RpcC2M_GetDragonGuildTaskInfo rpc = new RpcC2M_GetDragonGuildTaskInfo();
 			XSingleton<XClientNetwork>.singleton.Send(rpc);
 		}
 
-		// Token: 0x06008BC0 RID: 35776 RVA: 0x0012C184 File Offset: 0x0012A384
 		public void ReqFetchAchieve(int id)
 		{
 			RpcC2G_GetDragonGuildTaskChest rpcC2G_GetDragonGuildTaskChest = new RpcC2G_GetDragonGuildTaskChest();
@@ -160,7 +146,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_GetDragonGuildTaskChest);
 		}
 
-		// Token: 0x06008BC1 RID: 35777 RVA: 0x0012C1C0 File Offset: 0x0012A3C0
 		public void ReqFetchTask(int id)
 		{
 			RpcC2G_GetDragonGuildTaskChest rpcC2G_GetDragonGuildTaskChest = new RpcC2G_GetDragonGuildTaskChest();
@@ -169,7 +154,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_GetDragonGuildTaskChest);
 		}
 
-		// Token: 0x06008BC2 RID: 35778 RVA: 0x0012C1FC File Offset: 0x0012A3FC
 		public void OnGetInfo(GetDragonGuildTaskInfoRes oRes)
 		{
 			this.m_achievelist.Clear();
@@ -252,7 +236,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008BC3 RID: 35779 RVA: 0x0012C518 File Offset: 0x0012A718
 		private int GetAchieveSortNum(XDragonGuildTpl a)
 		{
 			bool flag = a.state == 2;
@@ -284,7 +267,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008BC4 RID: 35780 RVA: 0x0012C560 File Offset: 0x0012A760
 		public int AchieveSort(XDragonGuildTpl a, XDragonGuildTpl b)
 		{
 			int achieveSortNum = this.GetAchieveSortNum(a);
@@ -292,13 +274,11 @@ namespace XMainClient
 			return achieveSortNum2 - achieveSortNum;
 		}
 
-		// Token: 0x06008BC5 RID: 35781 RVA: 0x0012C585 File Offset: 0x0012A785
 		public void OnFetchAchieve(uint id)
 		{
 			this.ReqInfo();
 		}
 
-		// Token: 0x06008BC6 RID: 35782 RVA: 0x0012C590 File Offset: 0x0012A790
 		public void OnFetchTask(uint id)
 		{
 			bool flag = this.View != null && this.View.IsVisible();
@@ -309,28 +289,20 @@ namespace XMainClient
 			XDragonGuildDocument.Doc.IsHadRecordRedPoint = (this.HadAchieveRedPoint() || this.HadTaskRedPoint());
 		}
 
-		// Token: 0x04002CC1 RID: 11457
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("XDragonGuildTaskDocument");
 
-		// Token: 0x04002CC2 RID: 11458
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x04002CC3 RID: 11459
 		public static DragonGuildAchieveTable m_dragonachieveTab = new DragonGuildAchieveTable();
 
-		// Token: 0x04002CC4 RID: 11460
 		public static DragonGuildTaskTable m_dragontaskTab = new DragonGuildTaskTable();
 
-		// Token: 0x04002CC5 RID: 11461
 		public List<XDragonGuildTpl> m_achievelist = new List<XDragonGuildTpl>();
 
-		// Token: 0x04002CC6 RID: 11462
 		public List<XDragonGuildTpl> m_tasklist = new List<XDragonGuildTpl>();
 
-		// Token: 0x04002CC7 RID: 11463
 		public string m_taskresettime;
 
-		// Token: 0x04002CC8 RID: 11464
 		private XDragonGuildTaskView _view = null;
 	}
 }

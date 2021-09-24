@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000B02 RID: 2818
+
 	internal class XAISkill : XSingleton<XAISkill>
 	{
-		// Token: 0x0600A61B RID: 42523 RVA: 0x001D0F00 File Offset: 0x001CF100
+
 		public XAISkill()
 		{
 			bool inited = this._inited;
@@ -80,7 +80,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A61C RID: 42524 RVA: 0x001D1148 File Offset: 0x001CF348
 		public List<string> GetStartSkill(int profIndex)
 		{
 			bool flag = this._start_skills.ContainsKey(profIndex);
@@ -96,7 +95,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A61D RID: 42525 RVA: 0x001D117C File Offset: 0x001CF37C
 		public List<string> GetNextSkill(string skillname)
 		{
 			bool flag = this._next_skills.ContainsKey(skillname);
@@ -112,7 +110,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A61E RID: 42526 RVA: 0x001D11B0 File Offset: 0x001CF3B0
 		public int GetProfIndex(XEntity entity)
 		{
 			int num = (int)(entity.Attributes.TypeID % 10U - 1U);
@@ -130,7 +127,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A61F RID: 42527 RVA: 0x001D122C File Offset: 0x001CF42C
 		public bool TryCastPhysicalSkill(XEntity host, XEntity target)
 		{
 			bool flag = host == null || target == null;
@@ -164,19 +160,16 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A620 RID: 42528 RVA: 0x001D12D4 File Offset: 0x001CF4D4
 		public bool TryCastInstallSkill(XEntity host, XEntity target)
 		{
 			return false;
 		}
 
-		// Token: 0x0600A621 RID: 42529 RVA: 0x001D12E8 File Offset: 0x001CF4E8
 		public bool TryCastLearnedSkill(XEntity host, XEntity target)
 		{
 			return false;
 		}
 
-		// Token: 0x0600A622 RID: 42530 RVA: 0x001D12FC File Offset: 0x001CF4FC
 		private bool CastSkill(XEntity host, XEntity target, uint skillid)
 		{
 			bool flag = host == null || target == null;
@@ -226,7 +219,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A623 RID: 42531 RVA: 0x001D1498 File Offset: 0x001CF698
 		public bool CastQTESkill(XEntity entity)
 		{
 			bool flag = entity.QTE == null || !entity.QTE.IsInAnyState();
@@ -275,7 +267,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A624 RID: 42532 RVA: 0x001D15B8 File Offset: 0x001CF7B8
 		public bool CastDashSkill(XEntity entity)
 		{
 			uint dashIdentity = entity.SkillMgr.GetDashIdentity();
@@ -293,7 +284,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A625 RID: 42533 RVA: 0x001D1604 File Offset: 0x001CF804
 		public uint GetNextComboSkill(XEntity entity, uint skillid)
 		{
 			Vector3 position = XSingleton<XEntityMgr>.singleton.Player.EngineObject.Position;
@@ -390,7 +380,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A626 RID: 42534 RVA: 0x001D18F8 File Offset: 0x001CFAF8
 		public bool IsSkillCooledDown(GameObject go, uint skillid)
 		{
 			XEntity entity = XSingleton<XEntityMgr>.singleton.GetEntity(ulong.Parse(go.transform.name));
@@ -408,7 +397,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A627 RID: 42535 RVA: 0x001D1948 File Offset: 0x001CFB48
 		public bool CastStartSkill(XEntity host, XEntity target)
 		{
 			int profIndex = this.GetProfIndex(host);
@@ -453,7 +441,6 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x0600A628 RID: 42536 RVA: 0x001D1B18 File Offset: 0x001CFD18
 		public bool ResetSkillSelect(XEntity host, FilterSkillArg skillarg)
 		{
 			bool mAIArgUseInstall = skillarg.mAIArgUseInstall;
@@ -519,7 +506,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600A629 RID: 42537 RVA: 0x001D1D34 File Offset: 0x001CFF34
 		public bool SelectInstallSkill(XEntity host)
 		{
 			bool isPlayer = host.IsPlayer;
@@ -561,7 +547,6 @@ namespace XMainClient
 			return !flag6;
 		}
 
-		// Token: 0x0600A62A RID: 42538 RVA: 0x001D1E4C File Offset: 0x001D004C
 		public bool SelectMPOKSkill(XEntity host)
 		{
 			List<XSkillCore> list = ListPool<XSkillCore>.Get();
@@ -585,7 +570,6 @@ namespace XMainClient
 			return !flag2;
 		}
 
-		// Token: 0x0600A62B RID: 42539 RVA: 0x001D1F44 File Offset: 0x001D0144
 		public bool SelectSkillByName(XEntity host, string name)
 		{
 			List<XSkillCore> list = ListPool<XSkillCore>.Get();
@@ -604,7 +588,6 @@ namespace XMainClient
 			return !flag2;
 		}
 
-		// Token: 0x0600A62C RID: 42540 RVA: 0x001D1FD4 File Offset: 0x001D01D4
 		public bool SelectComboSkill(XEntity host, int skilltype, string startname)
 		{
 			bool result = true;
@@ -686,7 +669,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A62D RID: 42541 RVA: 0x001D223C File Offset: 0x001D043C
 		public bool SelectSkillByHP(XEntity host)
 		{
 			List<XSkillCore> list = ListPool<XSkillCore>.Get();
@@ -708,7 +690,6 @@ namespace XMainClient
 			return !flag2;
 		}
 
-		// Token: 0x0600A62E RID: 42542 RVA: 0x001D2348 File Offset: 0x001D0548
 		public bool SelectSkillByCoolDown(XEntity host)
 		{
 			List<XSkillCore> list = ListPool<XSkillCore>.Get();
@@ -727,7 +708,6 @@ namespace XMainClient
 			return !flag2;
 		}
 
-		// Token: 0x0600A62F RID: 42543 RVA: 0x001D23D8 File Offset: 0x001D05D8
 		public bool SelectSkillByAttackField(XEntity host, XEntity target, bool detectall)
 		{
 			List<XSkillCore> list = ListPool<XSkillCore>.Get();
@@ -758,13 +738,11 @@ namespace XMainClient
 			return !flag4;
 		}
 
-		// Token: 0x0600A630 RID: 42544 RVA: 0x001D24B4 File Offset: 0x001D06B4
 		public bool SelectSkillByCombo(XEntity host, int skilltype, string skillname)
 		{
 			return this.SelectComboSkill(host, skilltype, skillname);
 		}
 
-		// Token: 0x0600A631 RID: 42545 RVA: 0x001D24D0 File Offset: 0x001D06D0
 		public bool SelectSkill(XEntity host, XEntity target, FilterSkillArg skillarg)
 		{
 			this.ResetSkillSelect(host, skillarg);
@@ -831,7 +809,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A632 RID: 42546 RVA: 0x001D2608 File Offset: 0x001D0808
 		public bool DoSelectInOrder(XEntity host)
 		{
 			bool flag = host.AI.CanCastSkillCount == 0;
@@ -850,7 +827,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A633 RID: 42547 RVA: 0x001D2658 File Offset: 0x001D0858
 		public bool DoSelectRandom(XEntity host)
 		{
 			bool flag = host.AI.CanCastSkillCount == 0;
@@ -869,7 +845,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A634 RID: 42548 RVA: 0x001D26BC File Offset: 0x001D08BC
 		public bool DoCastSkill(XEntity host, XEntity target)
 		{
 			bool flag = host.AI.CanCastSkillCount == 0;
@@ -904,20 +879,16 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A635 RID: 42549 RVA: 0x001D278C File Offset: 0x001D098C
 		public bool StopCastingSkill(XEntity host)
 		{
 			host.Skill.EndSkill(false, false);
 			return true;
 		}
 
-		// Token: 0x04003D18 RID: 15640
 		private Dictionary<int, List<string>> _start_skills = new Dictionary<int, List<string>>();
 
-		// Token: 0x04003D19 RID: 15641
 		private Dictionary<string, List<string>> _next_skills = new Dictionary<string, List<string>>();
 
-		// Token: 0x04003D1A RID: 15642
 		private bool _inited = false;
 	}
 }

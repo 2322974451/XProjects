@@ -6,10 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000E91 RID: 3729
+
 	internal class XWorldBossBehaviour : DlgBehaviourBase
 	{
-		// Token: 0x0600C727 RID: 50983 RVA: 0x002C2A50 File Offset: 0x002C0C50
+
 		private void Awake()
 		{
 			this.m_BtnClose = (base.transform.FindChild("Bg/Close").GetComponent("XUIButton") as IXUIButton);
@@ -52,82 +52,56 @@ namespace XMainClient
 			this.m_Privilege = (base.transform.FindChild("Bg/tq/p").GetComponent("XUISprite") as IXUISprite);
 		}
 
-		// Token: 0x0400575E RID: 22366
 		public IXUIButton m_BtnClose;
 
-		// Token: 0x0400575F RID: 22367
 		public IXUIButton m_BtnGoBattle;
 
-		// Token: 0x04005760 RID: 22368
 		public IXUIButton m_BtnSubscribe;
 
-		// Token: 0x04005761 RID: 22369
 		public IXUIButton m_BtnCancelSubscribe;
 
-		// Token: 0x04005762 RID: 22370
 		public IXUILabel m_LeftTime;
 
-		// Token: 0x04005763 RID: 22371
 		public IXUILabel m_LeftTimeHint;
 
-		// Token: 0x04005764 RID: 22372
 		public IXUILabel m_BossName;
 
-		// Token: 0x04005765 RID: 22373
 		public IXUILabel m_OpenTime;
 
-		// Token: 0x04005766 RID: 22374
 		public IXUIWrapContent m_WrapContent;
 
-		// Token: 0x04005767 RID: 22375
 		public IXUIScrollView m_ScrollView;
 
-		// Token: 0x04005768 RID: 22376
 		public IXUIWrapContent m_AwardWrapContent;
 
-		// Token: 0x04005769 RID: 22377
 		public IXUIScrollView m_AwardScrollView;
 
-		// Token: 0x0400576A RID: 22378
 		public GameObject m_RankPanel;
 
-		// Token: 0x0400576B RID: 22379
 		public IXUILabel m_RankPanel_EmptyRank;
 
-		// Token: 0x0400576C RID: 22380
 		public IXUIButton m_BtnReward;
 
-		// Token: 0x0400576D RID: 22381
 		public GameObject m_RewardPanel;
 
-		// Token: 0x0400576E RID: 22382
 		public IXUIButton m_BtnRewardPanelClose;
 
-		// Token: 0x0400576F RID: 22383
 		public IXUIList m_DropAward;
 
-		// Token: 0x04005770 RID: 22384
 		public XUIPool m_DropAwardPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04005771 RID: 22385
 		public IXUILabel m_AwardTip;
 
-		// Token: 0x04005772 RID: 22386
 		public IXUITexture m_BossTexture;
 
-		// Token: 0x04005773 RID: 22387
 		public IXUICheckBox m_GuildRankTab;
 
-		// Token: 0x04005774 RID: 22388
 		public IXUICheckBox m_DamageRankTab;
 
-		// Token: 0x04005775 RID: 22389
 		public IXUISprite m_PrivilegeIcon;
 
-		// Token: 0x04005776 RID: 22390
 		public IXUILabel m_PrivilegeName;
 
-		// Token: 0x04005777 RID: 22391
 		public IXUISprite m_Privilege;
 	}
 }

@@ -7,10 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000E32 RID: 3634
+
 	internal class XFriendsSendFlowerBehaviour : DlgBehaviourBase
 	{
-		// Token: 0x0600C341 RID: 49985 RVA: 0x002A3934 File Offset: 0x002A1B34
+
 		private void Awake()
 		{
 			this.m_Close = (base.transform.Find("Bg/Close").GetComponent("XUIButton") as IXUIButton);
@@ -63,94 +63,64 @@ namespace XMainClient
 			this.m_InfoMine = (base.transform.FindChild("Bg/backMine").GetComponent("XUISprite") as IXUISprite);
 		}
 
-		// Token: 0x04005443 RID: 21571
 		public const int TOTAL_RANK_NUM = 3;
 
-		// Token: 0x04005444 RID: 21572
 		public IXUIButton m_Close;
 
-		// Token: 0x04005445 RID: 21573
 		public IXUISprite m_PlayerImage;
 
-		// Token: 0x04005446 RID: 21574
 		public IXUIButton m_AddFriends;
 
-		// Token: 0x04005447 RID: 21575
 		public IXUIButton m_Chat;
 
-		// Token: 0x04005448 RID: 21576
 		public IXUILabel m_FlowerTotalNum;
 
-		// Token: 0x04005449 RID: 21577
 		public IXUILabel m_FlowerWeekNum;
 
-		// Token: 0x0400544A RID: 21578
 		public IXUILabel m_FlowerRankNum;
 
-		// Token: 0x0400544B RID: 21579
 		public IXUILabel m_PlayerName;
 
-		// Token: 0x0400544C RID: 21580
 		public IXUILabel m_SendTimes;
 
-		// Token: 0x0400544D RID: 21581
 		public IXUIButton m_SendOne;
 
-		// Token: 0x0400544E RID: 21582
 		public IXUIButton m_SendNine;
 
-		// Token: 0x0400544F RID: 21583
 		public IXUIButton m_SendNN;
 
-		// Token: 0x04005450 RID: 21584
 		public List<IXUISprite> m_RankBoard = new List<IXUISprite>();
 
-		// Token: 0x04005451 RID: 21585
 		public List<IXUISprite> m_RankSprite = new List<IXUISprite>();
 
-		// Token: 0x04005452 RID: 21586
 		public List<IXUILabel> m_RankName = new List<IXUILabel>();
 
-		// Token: 0x04005453 RID: 21587
 		public List<IXUILabel> m_RankNum = new List<IXUILabel>();
 
-		// Token: 0x04005454 RID: 21588
 		public List<IXUILabel> m_GiveFatigueNum = new List<IXUILabel>();
 
-		// Token: 0x04005455 RID: 21589
 		public List<IXUILabel> m_CostMoneyNum = new List<IXUILabel>();
 
-		// Token: 0x04005456 RID: 21590
 		public List<IXUILabel> m_GiveFlowerNum = new List<IXUILabel>();
 
-		// Token: 0x04005457 RID: 21591
 		public List<IXUISprite> m_CostSprite = new List<IXUISprite>();
 
-		// Token: 0x04005458 RID: 21592
 		public List<IXUISprite> m_RewardSprite = new List<IXUISprite>();
 
-		// Token: 0x04005459 RID: 21593
 		public List<IXUIButton> m_SendButton = new List<IXUIButton>();
 
-		// Token: 0x0400545A RID: 21594
 		public List<IXUISprite> m_SendFlowerSp = new List<IXUISprite>();
 
-		// Token: 0x0400545B RID: 21595
 		public XUIPool m_FlowerMsgPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x0400545C RID: 21596
 		public XUIPool m_FlowerMineMsgPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x0400545D RID: 21597
 		public IXUILabel m_GiveFatigueNum2;
 
-		// Token: 0x0400545E RID: 21598
 		public IXUISprite m_SendBoard;
 
-		// Token: 0x0400545F RID: 21599
 		public IXUISprite m_InfoOther;
 
-		// Token: 0x04005460 RID: 21600
 		public IXUISprite m_InfoMine;
 	}
 }

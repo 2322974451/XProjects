@@ -7,10 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000BEC RID: 3052
+
 	internal class LevelRewardTeamLeagueBigHandler : DlgHandlerBase
 	{
-		// Token: 0x0600ADDC RID: 44508 RVA: 0x002074A0 File Offset: 0x002056A0
+
 		protected override void Init()
 		{
 			base.Init();
@@ -34,7 +34,6 @@ namespace XMainClient
 			this.CloseTween();
 		}
 
-		// Token: 0x0600ADDD RID: 44509 RVA: 0x0020769C File Offset: 0x0020589C
 		private void InitTeam(Transform t, int team)
 		{
 			this.m_TeamName[team] = (t.Find("TeamName").GetComponent("XUILabel") as IXUILabel);
@@ -43,7 +42,6 @@ namespace XMainClient
 			this.m_None[team] = t.Find("None");
 		}
 
-		// Token: 0x0600ADDE RID: 44510 RVA: 0x00207724 File Offset: 0x00205924
 		private void InitDetail(XUIPool pool, int team)
 		{
 			pool.FakeReturnAll();
@@ -73,8 +71,6 @@ namespace XMainClient
 			pool.ActualReturnAll(false);
 		}
 
-		// Token: 0x170030A6 RID: 12454
-		// (get) Token: 0x0600ADDF RID: 44511 RVA: 0x002078E0 File Offset: 0x00205AE0
 		protected override string FileName
 		{
 			get
@@ -83,36 +79,30 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600ADE0 RID: 44512 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public override void RegisterEvent()
 		{
 		}
 
-		// Token: 0x0600ADE1 RID: 44513 RVA: 0x0019F00C File Offset: 0x0019D20C
 		protected override void OnShow()
 		{
 			base.OnShow();
 		}
 
-		// Token: 0x0600ADE2 RID: 44514 RVA: 0x0019EEFD File Offset: 0x0019D0FD
 		protected override void OnHide()
 		{
 			base.OnHide();
 		}
 
-		// Token: 0x0600ADE3 RID: 44515 RVA: 0x0019EF07 File Offset: 0x0019D107
 		public override void OnUnload()
 		{
 			base.OnUnload();
 		}
 
-		// Token: 0x0600ADE4 RID: 44516 RVA: 0x001E669E File Offset: 0x001E489E
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
 		}
 
-		// Token: 0x0600ADE5 RID: 44517 RVA: 0x002078F8 File Offset: 0x00205AF8
 		public void SetRewardData(LeagueBattleResultNtf data)
 		{
 			XSingleton<XDebug>.singleton.AddGreenLog("ShowTeamLeagueBigReward", null, null, null, null, null);
@@ -156,7 +146,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600ADE6 RID: 44518 RVA: 0x00207AA8 File Offset: 0x00205CA8
 		private void SetDetail(LeagueBattleResultTeam data, bool isLeft, bool isWin)
 		{
 			int num = isLeft ? 0 : 1;
@@ -218,13 +207,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600ADE7 RID: 44519 RVA: 0x00207E49 File Offset: 0x00206049
 		private void OnEndMoveOver(IXUITweenTool tween)
 		{
 			this.m_Close.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseClicked));
 		}
 
-		// Token: 0x0600ADE8 RID: 44520 RVA: 0x00207E64 File Offset: 0x00206064
 		public bool OnCloseClicked(IXUIButton btn)
 		{
 			XLevelRewardDocument specificDocument = XDocuments.GetSpecificDocument<XLevelRewardDocument>(XLevelRewardDocument.uuID);
@@ -232,7 +219,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600ADE9 RID: 44521 RVA: 0x00207E8C File Offset: 0x0020608C
 		public void CloseTween()
 		{
 			bool activeSelf = this.m_Tween.gameObject.activeSelf;
@@ -242,73 +228,50 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x040041B9 RID: 16825
 		public static readonly uint TEAM_MEMBER_NUM = 4U;
 
-		// Token: 0x040041BA RID: 16826
 		private IXUITweenTool m_Tween;
 
-		// Token: 0x040041BB RID: 16827
 		private IXUIButton m_Close;
 
-		// Token: 0x040041BC RID: 16828
 		private Transform m_Reward;
 
-		// Token: 0x040041BD RID: 16829
 		private IXUILabel m_Rank;
 
-		// Token: 0x040041BE RID: 16830
 		private IXUILabel m_RankTip;
 
-		// Token: 0x040041BF RID: 16831
 		private IXUISprite m_RankPic;
 
-		// Token: 0x040041C0 RID: 16832
 		private IXUILabel m_Point;
 
-		// Token: 0x040041C1 RID: 16833
 		private IXUISprite m_PointPic;
 
-		// Token: 0x040041C2 RID: 16834
 		private IXUILabel m_Honor;
 
-		// Token: 0x040041C3 RID: 16835
 		private XUIPool m_DetailLeftPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x040041C4 RID: 16836
 		private XUIPool m_DetailRightPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x040041C5 RID: 16837
 		private Transform[,] m_Detail = new Transform[2, (int)LevelRewardTeamLeagueBigHandler.TEAM_MEMBER_NUM];
 
-		// Token: 0x040041C6 RID: 16838
 		private IXUILabel[,] m_DetailLevel = new IXUILabel[2, (int)LevelRewardTeamLeagueBigHandler.TEAM_MEMBER_NUM];
 
-		// Token: 0x040041C7 RID: 16839
 		private IXUISprite[,] m_DetailAvatar = new IXUISprite[2, (int)LevelRewardTeamLeagueBigHandler.TEAM_MEMBER_NUM];
 
-		// Token: 0x040041C8 RID: 16840
 		private IXUISprite[,] m_DetailProfession = new IXUISprite[2, (int)LevelRewardTeamLeagueBigHandler.TEAM_MEMBER_NUM];
 
-		// Token: 0x040041C9 RID: 16841
 		private IXUILabel[,] m_DetailName = new IXUILabel[2, (int)LevelRewardTeamLeagueBigHandler.TEAM_MEMBER_NUM];
 
-		// Token: 0x040041CA RID: 16842
 		private IXUILabel[,] m_DetailKillNum = new IXUILabel[2, (int)LevelRewardTeamLeagueBigHandler.TEAM_MEMBER_NUM];
 
-		// Token: 0x040041CB RID: 16843
 		private Transform[,] m_DetailNoPlay = new Transform[2, (int)LevelRewardTeamLeagueBigHandler.TEAM_MEMBER_NUM];
 
-		// Token: 0x040041CC RID: 16844
 		private IXUILabel[] m_TeamName = new IXUILabel[2];
 
-		// Token: 0x040041CD RID: 16845
 		private IXUILabel[] m_Server = new IXUILabel[2];
 
-		// Token: 0x040041CE RID: 16846
 		private IXUISprite[] m_Result = new IXUISprite[2];
 
-		// Token: 0x040041CF RID: 16847
 		private Transform[] m_None = new Transform[2];
 	}
 }

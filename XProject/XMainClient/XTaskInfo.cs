@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000A8D RID: 2701
+
 	internal class XTaskInfo
 	{
-		// Token: 0x17002FBF RID: 12223
-		// (get) Token: 0x0600A43B RID: 42043 RVA: 0x001C554C File Offset: 0x001C374C
+
 		public uint ID
 		{
 			get
@@ -19,8 +18,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002FC0 RID: 12224
-		// (get) Token: 0x0600A43C RID: 42044 RVA: 0x001C5564 File Offset: 0x001C3764
 		public TaskStatus Status
 		{
 			get
@@ -29,8 +26,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002FC1 RID: 12225
-		// (get) Token: 0x0600A43D RID: 42045 RVA: 0x001C557C File Offset: 0x001C377C
 		public NpcTaskState NpcState
 		{
 			get
@@ -39,8 +34,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002FC2 RID: 12226
-		// (get) Token: 0x0600A43E RID: 42046 RVA: 0x001C5594 File Offset: 0x001C3794
 		public List<TaskConditionInfo> Conds
 		{
 			get
@@ -49,8 +42,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002FC3 RID: 12227
-		// (get) Token: 0x0600A43F RID: 42047 RVA: 0x001C55AC File Offset: 0x001C37AC
 		public TaskTableNew.RowData TableData
 		{
 			get
@@ -59,8 +50,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002FC4 RID: 12228
-		// (get) Token: 0x0600A440 RID: 42048 RVA: 0x001C55C4 File Offset: 0x001C37C4
 		public XTaskDialog BeginDialog
 		{
 			get
@@ -69,8 +58,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002FC5 RID: 12229
-		// (get) Token: 0x0600A441 RID: 42049 RVA: 0x001C55E0 File Offset: 0x001C37E0
 		public XTaskDialog InprocessDialog
 		{
 			get
@@ -79,8 +66,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002FC6 RID: 12230
-		// (get) Token: 0x0600A442 RID: 42050 RVA: 0x001C55FC File Offset: 0x001C37FC
 		public XTaskDialog EndDialog
 		{
 			get
@@ -89,7 +74,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A443 RID: 42051 RVA: 0x001C5618 File Offset: 0x001C3818
 		public bool Init(TaskInfo info)
 		{
 			this.m_ID = info.id;
@@ -119,7 +103,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A444 RID: 42052 RVA: 0x001C56FC File Offset: 0x001C38FC
 		private XTaskDialog _GetDialog(int index)
 		{
 			bool flag = index < 0 || index >= this.m_Dialogs.Length;
@@ -142,7 +125,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A445 RID: 42053 RVA: 0x001C5760 File Offset: 0x001C3960
 		private void _Load(uint prof)
 		{
 			string location = XSingleton<XCommon>.singleton.StringCombine("Table/Task/", this.ID.ToString());
@@ -253,7 +235,6 @@ namespace XMainClient
 			XSingleton<XResourceLoaderMgr>.singleton.ClearStream(stream);
 		}
 
-		// Token: 0x0600A446 RID: 42054 RVA: 0x001C59D0 File Offset: 0x001C3BD0
 		private void _AppendPrevious(XTaskDialog dialog, ref XDialogSentence sentence)
 		{
 			bool flag = dialog != null;
@@ -264,8 +245,6 @@ namespace XMainClient
 			sentence.Reset();
 		}
 
-		// Token: 0x17002FC7 RID: 12231
-		// (get) Token: 0x0600A447 RID: 42055 RVA: 0x001C59FC File Offset: 0x001C3BFC
 		public XTaskDialog CurDialog
 		{
 			get
@@ -290,22 +269,16 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04003BA9 RID: 15273
 		private uint m_ID;
 
-		// Token: 0x04003BAA RID: 15274
 		private TaskStatus m_Status;
 
-		// Token: 0x04003BAB RID: 15275
 		private NpcTaskState m_State;
 
-		// Token: 0x04003BAC RID: 15276
 		private List<TaskConditionInfo> m_Conditions = new List<TaskConditionInfo>();
 
-		// Token: 0x04003BAD RID: 15277
 		private TaskTableNew.RowData m_TableData;
 
-		// Token: 0x04003BAE RID: 15278
 		private XTaskDialog[] m_Dialogs = new XTaskDialog[3];
 	}
 }

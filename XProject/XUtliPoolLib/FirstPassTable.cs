@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x020000F1 RID: 241
+
 	public class FirstPassTable : CVSReader
 	{
-		// Token: 0x06000641 RID: 1601 RVA: 0x0001E46C File Offset: 0x0001C66C
+
 		public FirstPassTable.RowData GetByID(int key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -29,7 +29,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000642 RID: 1602 RVA: 0x0001E4D8 File Offset: 0x0001C6D8
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			FirstPassTable.RowData rowData = new FirstPassTable.RowData();
@@ -55,7 +54,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x06000643 RID: 1603 RVA: 0x0001E5EC File Offset: 0x0001C7EC
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -69,37 +67,27 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x0400033D RID: 829
 		public FirstPassTable.RowData[] Table = null;
 
-		// Token: 0x020002F0 RID: 752
 		public class RowData
 		{
-			// Token: 0x04000ACF RID: 2767
+
 			public int ID;
 
-			// Token: 0x04000AD0 RID: 2768
 			public int[] SceneID;
 
-			// Token: 0x04000AD1 RID: 2769
 			public int RewardID;
 
-			// Token: 0x04000AD2 RID: 2770
 			public SeqListRef<int> CommendReward;
 
-			// Token: 0x04000AD3 RID: 2771
 			public int SystemId;
 
-			// Token: 0x04000AD4 RID: 2772
 			public string Des;
 
-			// Token: 0x04000AD5 RID: 2773
 			public string BgTexName;
 
-			// Token: 0x04000AD6 RID: 2774
 			public uint NestType;
 
-			// Token: 0x04000AD7 RID: 2775
 			public string RankTittle;
 		}
 	}

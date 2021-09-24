@@ -4,10 +4,10 @@ using XMainClient.UI.UICommon;
 
 namespace XMainClient
 {
-	// Token: 0x02000E19 RID: 3609
+
 	internal class XChatSettingBehaviour : DlgBehaviourBase
 	{
-		// Token: 0x0600C22F RID: 49711 RVA: 0x0029B84C File Offset: 0x00299A4C
+
 		private void Awake()
 		{
 			this.m_WorldChat = (base.transform.FindChild("Bg/WorldChannel").GetComponent("XUICheckBox") as IXUICheckBox);
@@ -24,25 +24,18 @@ namespace XMainClient
 			this.m_SystemChat.ID = 4UL;
 		}
 
-		// Token: 0x040052FE RID: 21246
 		public IXUICheckBox m_WorldChat;
 
-		// Token: 0x040052FF RID: 21247
 		public IXUICheckBox m_GuildChat;
 
-		// Token: 0x04005300 RID: 21248
 		public IXUICheckBox m_FriendsChat;
 
-		// Token: 0x04005301 RID: 21249
 		public IXUICheckBox m_TeamChat;
 
-		// Token: 0x04005302 RID: 21250
 		public IXUICheckBox m_SystemChat;
 
-		// Token: 0x04005303 RID: 21251
 		public IXUIButton m_BackClick;
 
-		// Token: 0x04005304 RID: 21252
 		public IXUIButton m_Close;
 	}
 }

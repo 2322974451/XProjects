@@ -6,10 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020018BA RID: 6330
+
 	internal class SelectCharWindowBehaviour : DlgBehaviourBase
 	{
-		// Token: 0x060107EC RID: 67564 RVA: 0x0040A81C File Offset: 0x00408A1C
+
 		private void Awake()
 		{
 			Transform transform = base.transform.FindChild("Bg/SelectFrame/EnterGame");
@@ -59,7 +59,6 @@ namespace XMainClient.UI
 			this.m_block.gameObject.SetActive(false);
 		}
 
-		// Token: 0x060107ED RID: 67565 RVA: 0x0040AC30 File Offset: 0x00408E30
 		private void OnDestroy()
 		{
 			this.m_enterworld = null;
@@ -86,70 +85,48 @@ namespace XMainClient.UI
 			this.m_Version = null;
 		}
 
-		// Token: 0x0400775C RID: 30556
 		public IXUIButton m_enterworld;
 
-		// Token: 0x0400775D RID: 30557
 		public IXUILabel m_enterWorldLabel;
 
-		// Token: 0x0400775E RID: 30558
 		public IXUIButton m_return;
 
-		// Token: 0x0400775F RID: 30559
 		public Transform m_selectFrame = null;
 
-		// Token: 0x04007760 RID: 30560
 		public IXUITweenTool m_SelectTween;
 
-		// Token: 0x04007761 RID: 30561
 		public IXUISprite m_profIntro;
 
-		// Token: 0x04007762 RID: 30562
 		public IXUILabel m_profDetail;
 
-		// Token: 0x04007763 RID: 30563
 		public IXUILabel m_profType;
 
-		// Token: 0x04007764 RID: 30564
 		public XUIPool m_AttrPoint = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04007765 RID: 30565
 		public IXUISprite m_profName;
 
-		// Token: 0x04007766 RID: 30566
 		public IXUITweenTool m_profTween;
 
-		// Token: 0x04007767 RID: 30567
 		public IXUIInput m_createName;
 
-		// Token: 0x04007768 RID: 30568
 		public GameObject m_createNameFrame;
 
-		// Token: 0x04007769 RID: 30569
 		public IXUITweenTool m_createNameTween;
 
-		// Token: 0x0400776A RID: 30570
 		public IXUISprite m_createRandom;
 
-		// Token: 0x0400776B RID: 30571
 		public IXUISprite[] m_create_profp = new IXUISprite[XGame.RoleCount];
 
-		// Token: 0x0400776C RID: 30572
 		public Transform m_playerNameFrame = null;
 
-		// Token: 0x0400776D RID: 30573
 		public IXUILabel m_playerNameLabel;
 
-		// Token: 0x0400776E RID: 30574
 		public IXUILabel m_playerLevelLabel;
 
-		// Token: 0x0400776F RID: 30575
 		public Transform m_block;
 
-		// Token: 0x04007770 RID: 30576
 		public IXUILabel m_Version;
 
-		// Token: 0x04007771 RID: 30577
 		public IXUILabel m_preLevel;
 	}
 }

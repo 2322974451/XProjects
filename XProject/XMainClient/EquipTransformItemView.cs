@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace XMainClient
 {
-	// Token: 0x02000CDC RID: 3292
+
 	internal class EquipTransformItemView
 	{
-		// Token: 0x0600B88A RID: 47242 RVA: 0x00252C44 File Offset: 0x00250E44
+
 		public void FindFrom(Transform trans)
 		{
 			bool flag = trans != null;
@@ -62,25 +62,18 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04004913 RID: 18707
 		public IXUISprite sprIcon;
 
-		// Token: 0x04004914 RID: 18708
 		public IXUILabel lbLevel;
 
-		// Token: 0x04004915 RID: 18709
 		public GameObject goEquipOn;
 
-		// Token: 0x04004916 RID: 18710
 		public GameObject goItem;
 
-		// Token: 0x04004917 RID: 18711
 		public GameObject goFX_wm;
 
-		// Token: 0x04004918 RID: 18712
 		public GameObject goFX_fwm;
 
-		// Token: 0x04004919 RID: 18713
 		public GameObject goAdd;
 	}
 }

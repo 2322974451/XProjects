@@ -3,22 +3,20 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001801 RID: 6145
+
 	internal class FashionStorageFashionPutOnSuit : TooltipButtonOperateBase
 	{
-		// Token: 0x0600FEE0 RID: 65248 RVA: 0x003C0810 File Offset: 0x003BEA10
+
 		public override string GetButtonText()
 		{
 			return XStringDefineProxy.GetString("PUT_FASHIONSUIT");
 		}
 
-		// Token: 0x0600FEE1 RID: 65249 RVA: 0x003C082C File Offset: 0x003BEA2C
 		public override bool HasRedPoint(XItem item)
 		{
 			return false;
 		}
 
-		// Token: 0x0600FEE2 RID: 65250 RVA: 0x003C0840 File Offset: 0x003BEA40
 		public override bool IsButtonVisible(XItem item)
 		{
 			XFashionStorageDocument specificDocument = XDocuments.GetSpecificDocument<XFashionStorageDocument>(XFashionStorageDocument.uuID);
@@ -37,7 +35,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FEE3 RID: 65251 RVA: 0x003C08AC File Offset: 0x003BEAAC
 		public override void OnButtonClick(ulong mainUID, ulong compareUID)
 		{
 			XFashionDocument specificDocument = XDocuments.GetSpecificDocument<XFashionDocument>(XFashionDocument.uuID);

@@ -6,10 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C73 RID: 3187
+
 	internal class ActivityHelpRewardHandler : DlgHandlerBase
 	{
-		// Token: 0x0600B438 RID: 46136 RVA: 0x00232974 File Offset: 0x00230B74
+
 		protected override void Init()
 		{
 			base.Init();
@@ -31,8 +31,6 @@ namespace XMainClient
 			this.InitShow();
 		}
 
-		// Token: 0x170031E9 RID: 12777
-		// (get) Token: 0x0600B439 RID: 46137 RVA: 0x00232AC0 File Offset: 0x00230CC0
 		protected override string FileName
 		{
 			get
@@ -41,44 +39,37 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B43A RID: 46138 RVA: 0x00232AD7 File Offset: 0x00230CD7
 		public override void RegisterEvent()
 		{
 			this.m_Close.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseClick));
 			this.m_WrapContent.RegisterItemUpdateEventHandler(new WrapItemUpdateEventHandler(this._OnListItemUpdated));
 		}
 
-		// Token: 0x0600B43B RID: 46139 RVA: 0x0019F00C File Offset: 0x0019D20C
 		protected override void OnShow()
 		{
 			base.OnShow();
 		}
 
-		// Token: 0x0600B43C RID: 46140 RVA: 0x0019EEFD File Offset: 0x0019D0FD
 		protected override void OnHide()
 		{
 			base.OnHide();
 		}
 
-		// Token: 0x0600B43D RID: 46141 RVA: 0x0019EF07 File Offset: 0x0019D107
 		public override void OnUnload()
 		{
 			base.OnUnload();
 		}
 
-		// Token: 0x0600B43E RID: 46142 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		private void InitShow()
 		{
 		}
 
-		// Token: 0x0600B43F RID: 46143 RVA: 0x00232B0A File Offset: 0x00230D0A
 		public void SetData(List<ActivityHelpReward> RewardData)
 		{
 			this.m_RewardData = RewardData;
 			this.RefreshList(true);
 		}
 
-		// Token: 0x0600B440 RID: 46144 RVA: 0x00232B1C File Offset: 0x00230D1C
 		public void RefreshList(bool bResetPosition = true)
 		{
 			this.m_RewardData.Sort(new Comparison<ActivityHelpReward>(ActivityHelpReward.Compare));
@@ -94,7 +85,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B441 RID: 46145 RVA: 0x00232B7C File Offset: 0x00230D7C
 		private void _OnListItemUpdated(Transform t, int index)
 		{
 			bool flag = index < 0 || index >= this.m_RewardData.Count;
@@ -155,7 +145,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B442 RID: 46146 RVA: 0x00232E98 File Offset: 0x00231098
 		private bool OnGetRewardClick(IXUIButton btn)
 		{
 			int index = (int)btn.ID;
@@ -163,14 +152,12 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B443 RID: 46147 RVA: 0x00232EEC File Offset: 0x002310EC
 		private bool OnCloseClick(IXUIButton btn)
 		{
 			base.SetVisible(false);
 			return true;
 		}
 
-		// Token: 0x0600B444 RID: 46148 RVA: 0x00232F08 File Offset: 0x00231108
 		public void SetEndTime(uint actID)
 		{
 			DateTime endTime = XTempActivityDocument.Doc.GetEndTime(actID);
@@ -178,25 +165,18 @@ namespace XMainClient
 			this.m_Time.SetText(string.Format("{0} {1}:00", arg, endTime.Hour));
 		}
 
-		// Token: 0x040045E5 RID: 17893
 		private List<ActivityHelpReward> m_RewardData;
 
-		// Token: 0x040045E6 RID: 17894
 		public static readonly uint REWARD_SHOW_NUM = 3U;
 
-		// Token: 0x040045E7 RID: 17895
 		private IXUILabel m_Time;
 
-		// Token: 0x040045E8 RID: 17896
 		private IXUIButton m_Close;
 
-		// Token: 0x040045E9 RID: 17897
 		private IXUIWrapContent m_WrapContent;
 
-		// Token: 0x040045EA RID: 17898
 		private IXUIScrollView m_ListScrollView;
 
-		// Token: 0x040045EB RID: 17899
 		private XUIPool m_ItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 	}
 }

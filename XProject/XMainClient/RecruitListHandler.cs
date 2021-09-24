@@ -5,10 +5,10 @@ using UnityEngine;
 
 namespace XMainClient
 {
-	// Token: 0x02000A42 RID: 2626
+
 	internal class RecruitListHandler : DlgHandlerBase
 	{
-		// Token: 0x06009F9B RID: 40859 RVA: 0x001A75D0 File Offset: 0x001A57D0
+
 		protected override void Init()
 		{
 			this._doc = XDocuments.GetSpecificDocument<GroupChatDocument>(GroupChatDocument.uuID);
@@ -22,18 +22,15 @@ namespace XMainClient
 			this.m_info = (base.transform.Find("Info/Info/Time").GetComponent("XUILabel") as IXUILabel);
 		}
 
-		// Token: 0x06009F9C RID: 40860 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public virtual void RefreshRedPoint()
 		{
 		}
 
-		// Token: 0x06009F9D RID: 40861 RVA: 0x001A76E8 File Offset: 0x001A58E8
 		protected virtual List<GroupMember> GetMemberList()
 		{
 			return null;
 		}
 
-		// Token: 0x06009F9E RID: 40862 RVA: 0x001A76FB File Offset: 0x001A58FB
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -43,13 +40,11 @@ namespace XMainClient
 			this.RefreshRedPoint();
 		}
 
-		// Token: 0x06009F9F RID: 40863 RVA: 0x001A7721 File Offset: 0x001A5921
 		protected void RefreshInfo()
 		{
 			this.SetInfo(this.m_info);
 		}
 
-		// Token: 0x06009FA0 RID: 40864 RVA: 0x001A7734 File Offset: 0x001A5934
 		public override void OnUnload()
 		{
 			bool flag = this._memberDisplay != null;
@@ -62,7 +57,6 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x06009FA1 RID: 40865 RVA: 0x001A7778 File Offset: 0x001A5978
 		public override void RefreshData()
 		{
 			this.RefreshInfo();
@@ -87,7 +81,6 @@ namespace XMainClient
 			base.RefreshData();
 		}
 
-		// Token: 0x06009FA2 RID: 40866 RVA: 0x001A7818 File Offset: 0x001A5A18
 		protected virtual void OnWrapContent(Transform t, int index)
 		{
 			List<GroupMember> memberList = this.GetMemberList();
@@ -106,49 +99,37 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009FA3 RID: 40867 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected virtual void SetupOtherInfo(Transform t, GroupMember member)
 		{
 		}
 
-		// Token: 0x06009FA4 RID: 40868 RVA: 0x001A787A File Offset: 0x001A5A7A
 		protected virtual void OnTitleChange()
 		{
 			this.RefreshData();
 		}
 
-		// Token: 0x06009FA5 RID: 40869 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public virtual void OnReSelect()
 		{
 		}
 
-		// Token: 0x06009FA6 RID: 40870 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected virtual void SetInfo(IXUILabel label)
 		{
 		}
 
-		// Token: 0x040038F9 RID: 14585
 		protected GroupChatDocument _doc;
 
-		// Token: 0x040038FA RID: 14586
 		protected RecruitTitleBar m_titleBar;
 
-		// Token: 0x040038FB RID: 14587
 		protected Transform m_empty;
 
-		// Token: 0x040038FC RID: 14588
 		protected IXUILabel m_info;
 
-		// Token: 0x040038FD RID: 14589
 		private IXUIScrollView _MemberList;
 
-		// Token: 0x040038FE RID: 14590
 		private IXUIWrapContent _MemberWrapContent;
 
-		// Token: 0x040038FF RID: 14591
 		private GroupMemberDisplay _memberDisplay;
 
-		// Token: 0x04003900 RID: 14592
 		private bool m_response = false;
 	}
 }

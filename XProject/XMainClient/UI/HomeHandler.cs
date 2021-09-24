@@ -7,10 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200178B RID: 6027
+
 	internal class HomeHandler : DlgHandlerBase
 	{
-		// Token: 0x0600F8A5 RID: 63653 RVA: 0x0038E2AC File Offset: 0x0038C4AC
+
 		protected override void Init()
 		{
 			this.m_exitHomeBtn = (base.PanelObject.transform.FindChild("ExitHome").GetComponent("XUIButton") as IXUIButton);
@@ -35,7 +35,6 @@ namespace XMainClient.UI
 			base.Init();
 		}
 
-		// Token: 0x0600F8A6 RID: 63654 RVA: 0x0038E460 File Offset: 0x0038C660
 		public override void RegisterEvent()
 		{
 			this.m_exitHomeBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnClickExitHome));
@@ -45,8 +44,6 @@ namespace XMainClient.UI
 			base.RegisterEvent();
 		}
 
-		// Token: 0x1700383E RID: 14398
-		// (get) Token: 0x0600F8A7 RID: 63655 RVA: 0x0038E4E4 File Offset: 0x0038C6E4
 		protected override string FileName
 		{
 			get
@@ -55,7 +52,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F8A8 RID: 63656 RVA: 0x0038E4FC File Offset: 0x0038C6FC
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -69,19 +65,16 @@ namespace XMainClient.UI
 			this.SetView(XSingleton<XOperationData>.singleton.OperationMode);
 		}
 
-		// Token: 0x0600F8A9 RID: 63657 RVA: 0x0019EEFD File Offset: 0x0019D0FD
 		protected override void OnHide()
 		{
 			base.OnHide();
 		}
 
-		// Token: 0x0600F8AA RID: 63658 RVA: 0x0019EF07 File Offset: 0x0019D107
 		public override void OnUnload()
 		{
 			base.OnUnload();
 		}
 
-		// Token: 0x0600F8AB RID: 63659 RVA: 0x0038E56C File Offset: 0x0038C76C
 		private bool OnClickExitHome(IXUIButton btn)
 		{
 			SceneType sceneType = XSingleton<XScene>.singleton.SceneType;
@@ -99,21 +92,18 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F8AC RID: 63660 RVA: 0x0038E5A8 File Offset: 0x0038C7A8
 		private bool OnClickPlanting(IXUIButton btn)
 		{
 			this.GoTargetPoint(this.m_plantPos);
 			return true;
 		}
 
-		// Token: 0x0600F8AD RID: 63661 RVA: 0x0038E5C8 File Offset: 0x0038C7C8
 		private bool OnClickFishing(IXUIButton btn)
 		{
 			this.GoTargetPoint(this.m_fishingPos);
 			return true;
 		}
 
-		// Token: 0x0600F8AE RID: 63662 RVA: 0x0038E5E8 File Offset: 0x0038C7E8
 		private void GoTargetPoint(Vector3 v3)
 		{
 			XSingleton<XInput>.singleton.LastNpc = null;
@@ -123,14 +113,12 @@ namespace XMainClient.UI
 			XSingleton<XEventMgr>.singleton.FireEvent(@event);
 		}
 
-		// Token: 0x0600F8AF RID: 63663 RVA: 0x0038E62C File Offset: 0x0038C82C
 		private bool OnViewClick(IXUIButton btn)
 		{
 			this.SetView((XOperationMode)btn.ID);
 			return true;
 		}
 
-		// Token: 0x0600F8B0 RID: 63664 RVA: 0x0038E650 File Offset: 0x0038C850
 		public void SetView(XOperationMode mode)
 		{
 			if (mode != XOperationMode.X25D)
@@ -148,13 +136,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F8B1 RID: 63665 RVA: 0x0038E6BC File Offset: 0x0038C8BC
 		public void EnableBackToMainCity(bool allow)
 		{
 			base.transform.gameObject.SetActive(allow);
 		}
 
-		// Token: 0x0600F8B2 RID: 63666 RVA: 0x0038E6D4 File Offset: 0x0038C8D4
 		public void RefreshPlantRedDot()
 		{
 			bool flag = this.m_redDotGo != null;
@@ -164,34 +150,24 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04006C7F RID: 27775
 		private GameObject m_redDotGo;
 
-		// Token: 0x04006C80 RID: 27776
 		private IXUIButton m_exitHomeBtn;
 
-		// Token: 0x04006C81 RID: 27777
 		private IXUIButton m_plantingBtn;
 
-		// Token: 0x04006C82 RID: 27778
 		private IXUIButton m_fishingBtn;
 
-		// Token: 0x04006C83 RID: 27779
 		private IXUIButton m_3dBtn;
 
-		// Token: 0x04006C84 RID: 27780
 		private IXUIButton m_25dBtn;
 
-		// Token: 0x04006C85 RID: 27781
 		private IXUILabel m_nameLab;
 
-		// Token: 0x04006C86 RID: 27782
 		private Vector3 m_plantPos = Vector3.zero;
 
-		// Token: 0x04006C87 RID: 27783
 		private Vector3 m_fishingPos = Vector3.zero;
 
-		// Token: 0x04006C88 RID: 27784
 		private XSwitchSight m_SwitchSight;
 	}
 }

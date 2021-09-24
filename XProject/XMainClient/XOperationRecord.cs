@@ -5,15 +5,12 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000E97 RID: 3735
+
 	internal class XOperationRecord : XSingleton<XOperationRecord>, IXOperationRecord, IXInterface
 	{
-		// Token: 0x170034BC RID: 13500
-		// (get) Token: 0x0600C754 RID: 51028 RVA: 0x002C6F70 File Offset: 0x002C5170
-		// (set) Token: 0x0600C755 RID: 51029 RVA: 0x002C6F78 File Offset: 0x002C5178
+
 		public bool Deprecated { get; set; }
 
-		// Token: 0x0600C756 RID: 51030 RVA: 0x002C6F84 File Offset: 0x002C5184
 		public override bool Init()
 		{
 			bool flag = this._async_loader == null;
@@ -57,7 +54,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C757 RID: 51031 RVA: 0x002C70CD File Offset: 0x002C52CD
 		public override void Uninit()
 		{
 			this._string_table.Clear();
@@ -67,7 +63,6 @@ namespace XMainClient
 			this._async_loader = null;
 		}
 
-		// Token: 0x0600C758 RID: 51032 RVA: 0x002C7108 File Offset: 0x002C5308
 		protected uint GetStringTableID(string key)
 		{
 			bool flag = this._string_table.ContainsKey(key);
@@ -85,7 +80,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C759 RID: 51033 RVA: 0x002C7164 File Offset: 0x002C5364
 		protected string GetStringByID(uint id)
 		{
 			foreach (KeyValuePair<string, uint> keyValuePair in this._string_table)
@@ -99,7 +93,6 @@ namespace XMainClient
 			return "";
 		}
 
-		// Token: 0x0600C75A RID: 51034 RVA: 0x002C71D8 File Offset: 0x002C53D8
 		protected string GetStringSectionFromEnd(string s, int section)
 		{
 			string text = s;
@@ -123,7 +116,6 @@ namespace XMainClient
 			return text2;
 		}
 
-		// Token: 0x0600C75B RID: 51035 RVA: 0x002C7254 File Offset: 0x002C5454
 		protected void SetupStringDictionary()
 		{
 			for (int i = 0; i < this.table.Table.Length; i++)
@@ -195,7 +187,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C75C RID: 51036 RVA: 0x002C74F0 File Offset: 0x002C56F0
 		protected void CloneDictionary(Dictionary<string, List<uint>> src, ref Dictionary<string, List<uint>> dst)
 		{
 			dst.Clear();
@@ -205,7 +196,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C75D RID: 51037 RVA: 0x002C755C File Offset: 0x002C575C
 		public int FindRecordID(Transform go)
 		{
 			Transform transform = go;
@@ -257,7 +247,6 @@ namespace XMainClient
 			return 0;
 		}
 
-		// Token: 0x0600C75E RID: 51038 RVA: 0x002C76F0 File Offset: 0x002C58F0
 		public void DoScriptRecord(string key)
 		{
 			string key2 = "sc:" + key;
@@ -272,7 +261,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C75F RID: 51039 RVA: 0x002C776C File Offset: 0x002C596C
 		protected int _GetRecordID(string key)
 		{
 			bool flag = this._string_dictionary.ContainsKey(key);
@@ -288,7 +276,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C760 RID: 51040 RVA: 0x002C77A4 File Offset: 0x002C59A4
 		protected string GetGameObjectPath(Transform obj)
 		{
 			string text = "/" + obj.name;
@@ -302,25 +289,18 @@ namespace XMainClient
 			return text.Substring(num + 1);
 		}
 
-		// Token: 0x0400578E RID: 22414
 		private XTableAsyncLoader _async_loader = null;
 
-		// Token: 0x0400578F RID: 22415
 		private Dictionary<string, uint> _string_table = new Dictionary<string, uint>();
 
-		// Token: 0x04005790 RID: 22416
 		private uint _string_table_index = 0U;
 
-		// Token: 0x04005791 RID: 22417
 		private Dictionary<string, List<uint>> _string_dictionary = new Dictionary<string, List<uint>>();
 
-		// Token: 0x04005792 RID: 22418
 		private Dictionary<uint, uint> _string_operation_id = new Dictionary<uint, uint>();
 
-		// Token: 0x04005793 RID: 22419
 		private Dictionary<uint, uint> _script_operation_id = new Dictionary<uint, uint>();
 
-		// Token: 0x04005794 RID: 22420
 		private OperationRecord table = new OperationRecord();
 	}
 }

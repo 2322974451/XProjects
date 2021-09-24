@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020018E1 RID: 6369
+
 	internal class XWelfareGrowthFundHandler : DlgHandlerBase
 	{
-		// Token: 0x17003A78 RID: 14968
-		// (get) Token: 0x0601098A RID: 67978 RVA: 0x004176A8 File Offset: 0x004158A8
+
 		protected override string FileName
 		{
 			get
@@ -21,7 +20,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601098B RID: 67979 RVA: 0x004176C0 File Offset: 0x004158C0
 		protected override void Init()
 		{
 			base.Init();
@@ -36,7 +34,6 @@ namespace XMainClient.UI
 			this.InitWelfreGrowthList();
 		}
 
-		// Token: 0x0601098C RID: 67980 RVA: 0x00417794 File Offset: 0x00415994
 		private bool OnClickRechargeHandler(IXUIButton btn)
 		{
 			RechargeTable.RowData rowData;
@@ -62,7 +59,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0601098D RID: 67981 RVA: 0x00417858 File Offset: 0x00415A58
 		private void InitWelfreGrowthList()
 		{
 			this.m_ItemList = new List<WelfareGrowthFundItem>();
@@ -91,7 +87,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601098E RID: 67982 RVA: 0x0041793C File Offset: 0x00415B3C
 		private WelfareGrowthFundItem CreateGrowthFundItem()
 		{
 			GameObject gameObject = XCommon.Instantiate<GameObject>(this.m_ItemTemp.gameObject);
@@ -105,7 +100,6 @@ namespace XMainClient.UI
 			return welfareGrowthFundItem;
 		}
 
-		// Token: 0x0601098F RID: 67983 RVA: 0x004179D4 File Offset: 0x00415BD4
 		public override void RefreshData()
 		{
 			base.RefreshData();
@@ -123,32 +117,24 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010990 RID: 67984 RVA: 0x00417A2F File Offset: 0x00415C2F
 		private void RefreshRechargeHandler()
 		{
 			this.m_rechargeBtn.SetVisible(!this._Doc.HasBuyGrowthFund);
 			this.m_hasBuySprite.SetVisible(this._Doc.HasBuyGrowthFund);
 		}
 
-		// Token: 0x0400787C RID: 30844
 		private IXUIScrollView m_ScrollView;
 
-		// Token: 0x0400787D RID: 30845
 		private IXUIList m_ItemGrid;
 
-		// Token: 0x0400787E RID: 30846
 		private List<WelfareGrowthFundItem> m_ItemList;
 
-		// Token: 0x0400787F RID: 30847
 		private Transform m_ItemTemp;
 
-		// Token: 0x04007880 RID: 30848
 		private IXUISprite m_hasBuySprite;
 
-		// Token: 0x04007881 RID: 30849
 		private IXUIButton m_rechargeBtn;
 
-		// Token: 0x04007882 RID: 30850
 		private XWelfareDocument _Doc;
 	}
 }

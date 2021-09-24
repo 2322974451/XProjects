@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x0200010C RID: 268
+
 	public class GuildConfigTable : CVSReader
 	{
-		// Token: 0x060006A4 RID: 1700 RVA: 0x00020520 File Offset: 0x0001E720
+
 		public GuildConfigTable.RowData GetByGuildLevel(int key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -29,7 +29,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x060006A5 RID: 1701 RVA: 0x0002058C File Offset: 0x0001E78C
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			GuildConfigTable.RowData rowData = new GuildConfigTable.RowData();
@@ -83,7 +82,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x060006A6 RID: 1702 RVA: 0x0002081C File Offset: 0x0001EA1C
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -97,79 +95,55 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x04000358 RID: 856
 		public GuildConfigTable.RowData[] Table = null;
 
-		// Token: 0x0200030B RID: 779
 		public class RowData
 		{
-			// Token: 0x04000B4F RID: 2895
+
 			public int GuildLevel;
 
-			// Token: 0x04000B50 RID: 2896
 			public uint GuildExpNeed;
 
-			// Token: 0x04000B51 RID: 2897
 			public int PokerTimes;
 
-			// Token: 0x04000B52 RID: 2898
 			public int GuildSign;
 
-			// Token: 0x04000B53 RID: 2899
 			public int GuildWelfare;
 
-			// Token: 0x04000B54 RID: 2900
 			public int GuildStore;
 
-			// Token: 0x04000B55 RID: 2901
 			public int GuildSkill;
 
-			// Token: 0x04000B56 RID: 2902
 			public uint GuildDragon;
 
-			// Token: 0x04000B57 RID: 2903
 			public int GuildActivity;
 
-			// Token: 0x04000B58 RID: 2904
 			public uint StudySkillTimes;
 
-			// Token: 0x04000B59 RID: 2905
 			public int GuildArena;
 
-			// Token: 0x04000B5A RID: 2906
 			public int GuildChallenge;
 
-			// Token: 0x04000B5B RID: 2907
 			public int GuildJokerMatch;
 
-			// Token: 0x04000B5C RID: 2908
 			public int GuildSalay;
 
-			// Token: 0x04000B5D RID: 2909
 			public int GuildMine;
 
-			// Token: 0x04000B5E RID: 2910
 			public int GuildTerritory;
 
-			// Token: 0x04000B5F RID: 2911
 			public uint JZSchoolRoleMax;
 
-			// Token: 0x04000B60 RID: 2912
 			public uint JZSchoolTotalMax;
 
-			// Token: 0x04000B61 RID: 2913
 			public uint JZHallRoleMax;
 
-			// Token: 0x04000B62 RID: 2914
 			public uint JZHallTotalmax;
 
-			// Token: 0x04000B63 RID: 2915
 			public uint JZSalaryOpen;
 
-			// Token: 0x04000B64 RID: 2916
 			public uint JZSaleOpen;
 
-			// Token: 0x04000B65 RID: 2917
 			public int CrossGVG;
 		}
 	}

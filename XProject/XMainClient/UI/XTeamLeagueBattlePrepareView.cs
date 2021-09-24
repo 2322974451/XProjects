@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001740 RID: 5952
+
 	internal class XTeamLeagueBattlePrepareView : DlgBase<XTeamLeagueBattlePrepareView, XTeamLeagueBattlePrepareBehaviour>
 	{
-		// Token: 0x170037E3 RID: 14307
-		// (get) Token: 0x0600F615 RID: 62997 RVA: 0x0037BA6C File Offset: 0x00379C6C
+
 		public override string fileName
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170037E4 RID: 14308
-		// (get) Token: 0x0600F616 RID: 62998 RVA: 0x0037BA84 File Offset: 0x00379C84
 		public override int layer
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170037E5 RID: 14309
-		// (get) Token: 0x0600F617 RID: 62999 RVA: 0x0037BA98 File Offset: 0x00379C98
 		public override bool autoload
 		{
 			get
@@ -40,7 +35,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F618 RID: 63000 RVA: 0x0037BAAB File Offset: 0x00379CAB
 		protected override void Init()
 		{
 			base.Init();
@@ -48,7 +42,6 @@ namespace XMainClient.UI
 			this._BaseDoc = XDocuments.GetSpecificDocument<XFreeTeamVersusLeagueDocument>(XFreeTeamVersusLeagueDocument.uuID);
 		}
 
-		// Token: 0x0600F619 RID: 63001 RVA: 0x0037BAD8 File Offset: 0x00379CD8
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -60,19 +53,16 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_RedViewSwitch.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnRightToogle));
 		}
 
-		// Token: 0x0600F61A RID: 63002 RVA: 0x0037BB87 File Offset: 0x00379D87
 		private void OnUp(IXUISprite btn)
 		{
 			this._BattleDoc.ReqBattle(LeagueBattleReadyOper.LBReady_Up);
 		}
 
-		// Token: 0x0600F61B RID: 63003 RVA: 0x0037BB97 File Offset: 0x00379D97
 		private void OnDown(IXUISprite btn)
 		{
 			this._BattleDoc.ReqBattle(LeagueBattleReadyOper.LBReady_Down);
 		}
 
-		// Token: 0x0600F61C RID: 63004 RVA: 0x0037BBA8 File Offset: 0x00379DA8
 		private void OnLeftToogle(IXUISprite btn)
 		{
 			int num = (int)btn.ID;
@@ -83,7 +73,6 @@ namespace XMainClient.UI
 			btn.ID = (ulong)((num == 0) ? 1L : 0L);
 		}
 
-		// Token: 0x0600F61D RID: 63005 RVA: 0x0037BC20 File Offset: 0x00379E20
 		private void OnRightToogle(IXUISprite btn)
 		{
 			int num = (int)btn.ID;
@@ -92,14 +81,12 @@ namespace XMainClient.UI
 			btn.ID = (ulong)((num == 0) ? 1L : 0L);
 		}
 
-		// Token: 0x0600F61E RID: 63006 RVA: 0x0037BC6E File Offset: 0x00379E6E
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.RefreshTeamName();
 		}
 
-		// Token: 0x0600F61F RID: 63007 RVA: 0x0037BC80 File Offset: 0x00379E80
 		private void RefreshTeamName()
 		{
 			bool flag = this._BattleDoc.LoadingInfoBlue != null;
@@ -116,13 +103,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F620 RID: 63008 RVA: 0x0037BD2E File Offset: 0x00379F2E
 		protected override void OnHide()
 		{
 			base.OnHide();
 		}
 
-		// Token: 0x0600F621 RID: 63009 RVA: 0x0037BD38 File Offset: 0x00379F38
 		protected override void OnUnload()
 		{
 			DlgHandlerBase.EnsureUnload<LevelRewardTeamLeagueSmallHandler>(ref this.SmallRewardHandler);
@@ -130,7 +115,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x0600F622 RID: 63010 RVA: 0x0037BD5C File Offset: 0x00379F5C
 		public void ResetCommonUI(bool show = true)
 		{
 			bool flag = DlgBase<BattleMain, BattleMainBehaviour>.singleton.IsLoaded() && DlgBase<BattleMain, BattleMainBehaviour>.singleton.IsVisible();
@@ -152,7 +136,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F623 RID: 63011 RVA: 0x0037BE00 File Offset: 0x0037A000
 		private void RefreshKillInfo()
 		{
 			IXUILabel ixuilabel = base.uiBehaviour.m_BlueInfo.FindChild("Kill").GetComponent("XUILabel") as IXUILabel;
@@ -189,7 +172,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F624 RID: 63012 RVA: 0x0037C000 File Offset: 0x0037A200
 		public void RefreshBattleBaseInfo()
 		{
 			bool flag = !base.IsVisible();
@@ -201,7 +183,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F625 RID: 63013 RVA: 0x0037C060 File Offset: 0x0037A260
 		private void SetBattleList(Transform view, LeagueBattleOneTeam battleTeamBaseInfo, int index)
 		{
 			bool flag = battleTeamBaseInfo == null;
@@ -240,7 +221,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F626 RID: 63014 RVA: 0x0037C2F4 File Offset: 0x0037A4F4
 		public void RefreshBattleState()
 		{
 			LeagueBattleFightState battleState = this._BattleDoc.BattleState;
@@ -310,7 +290,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F627 RID: 63015 RVA: 0x0037C654 File Offset: 0x0037A854
 		public void RefreahCountTime(uint time)
 		{
 			bool flag = DlgBase<BattleMain, BattleMainBehaviour>.singleton.IsLoaded() && DlgBase<BattleMain, BattleMainBehaviour>.singleton.IsVisible();
@@ -325,13 +304,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F628 RID: 63016 RVA: 0x0037C6B7 File Offset: 0x0037A8B7
 		public override void OnUpdate()
 		{
 			this.RefreshKillInfo();
 		}
 
-		// Token: 0x0600F629 RID: 63017 RVA: 0x0037C6C4 File Offset: 0x0037A8C4
 		public void PlaySmallReward(LeagueBattleOneResultNtf data)
 		{
 			bool flag = this.SmallRewardHandler == null;
@@ -355,7 +332,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F62A RID: 63018 RVA: 0x0037C754 File Offset: 0x0037A954
 		public void PlayBigReward(LeagueBattleResultNtf data)
 		{
 			this.CloseSmallReward();
@@ -380,7 +356,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F62B RID: 63019 RVA: 0x0037C7E8 File Offset: 0x0037A9E8
 		public void CloseSmallReward()
 		{
 			bool flag = this.SmallRewardHandler != null;
@@ -390,16 +365,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04006AC6 RID: 27334
 		private XTeamLeagueBattleDocument _BattleDoc;
 
-		// Token: 0x04006AC7 RID: 27335
 		private XFreeTeamVersusLeagueDocument _BaseDoc;
 
-		// Token: 0x04006AC8 RID: 27336
 		public LevelRewardTeamLeagueSmallHandler SmallRewardHandler = null;
 
-		// Token: 0x04006AC9 RID: 27337
 		public LevelRewardTeamLeagueBigHandler BigRewardHandler = null;
 	}
 }

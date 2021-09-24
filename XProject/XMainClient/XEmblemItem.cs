@@ -3,10 +3,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000DEC RID: 3564
+
 	internal class XEmblemItem : XAttrItem
 	{
-		// Token: 0x0600C102 RID: 49410 RVA: 0x0028E182 File Offset: 0x0028C382
+
 		public override void Init()
 		{
 			base.Init();
@@ -14,15 +14,12 @@ namespace XMainClient
 			this.emblemInfo.Init();
 		}
 
-		// Token: 0x0600C103 RID: 49411 RVA: 0x0028E1A4 File Offset: 0x0028C3A4
 		public override void Recycle()
 		{
 			base.Recycle();
 			XDataPool<XEmblemItem>.Recycle(this);
 		}
 
-		// Token: 0x170033E7 RID: 13287
-		// (get) Token: 0x0600C104 RID: 49412 RVA: 0x0028E1B8 File Offset: 0x0028C3B8
 		public bool bIsSkillEmblem
 		{
 			get
@@ -43,8 +40,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170033E8 RID: 13288
-		// (get) Token: 0x0600C105 RID: 49413 RVA: 0x0028E218 File Offset: 0x0028C418
 		public override bool Treasure
 		{
 			get
@@ -53,8 +48,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170033E9 RID: 13289
-		// (get) Token: 0x0600C106 RID: 49414 RVA: 0x0028E250 File Offset: 0x0028C450
 		public override bool bHasPPT
 		{
 			get
@@ -63,7 +56,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C107 RID: 49415 RVA: 0x0028E264 File Offset: 0x0028C464
 		public override string ToPPTString(XAttributes attributes = null)
 		{
 			string result = string.Empty;
@@ -117,10 +109,8 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x04005126 RID: 20774
 		public XEmblemInfo emblemInfo = default(XEmblemInfo);
 
-		// Token: 0x04005127 RID: 20775
 		public XSmeltingInfo smeltingInfo = default(XSmeltingInfo);
 	}
 }

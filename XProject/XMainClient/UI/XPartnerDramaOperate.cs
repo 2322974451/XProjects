@@ -6,10 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001786 RID: 6022
+
 	internal class XPartnerDramaOperate : XDramaOperate
 	{
-		// Token: 0x0600F88F RID: 63631 RVA: 0x0038D0F8 File Offset: 0x0038B2F8
+
 		public override void ShowNpc(XNpc npc)
 		{
 			base.ShowNpc(npc);
@@ -21,7 +21,6 @@ namespace XMainClient.UI
 			base._FireEvent(data);
 		}
 
-		// Token: 0x0600F890 RID: 63632 RVA: 0x0038D170 File Offset: 0x0038B370
 		private bool _OnOKClicked(IXUIButton btn)
 		{
 			DlgBase<DramaDlg, DramaDlgBehaviour>.singleton.SetVisible(false, true);

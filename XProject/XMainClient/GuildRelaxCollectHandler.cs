@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C11 RID: 3089
+
 	internal class GuildRelaxCollectHandler : GuildRelaxChildHandler
 	{
-		// Token: 0x0600AF7D RID: 44925 RVA: 0x00214374 File Offset: 0x00212574
+
 		protected override void Init()
 		{
 			base.Init();
@@ -27,19 +27,16 @@ namespace XMainClient
 			this.m_centerLabel = (base.transform.Find("QA/center").GetComponent("XUILabel") as IXUILabel);
 		}
 
-		// Token: 0x0600AF7E RID: 44926 RVA: 0x0021450A File Offset: 0x0021270A
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 		}
 
-		// Token: 0x0600AF7F RID: 44927 RVA: 0x00214514 File Offset: 0x00212714
 		protected override void OnShow()
 		{
 			base.OnShow();
 		}
 
-		// Token: 0x0600AF80 RID: 44928 RVA: 0x00214520 File Offset: 0x00212720
 		public override void SetUnLockLevel()
 		{
 			base.SetUnLockLevel();
@@ -66,7 +63,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AF81 RID: 44929 RVA: 0x00214610 File Offset: 0x00212810
 		private void SetUnEnable()
 		{
 			this.m_enterButton.SetVisible(false);
@@ -77,13 +73,11 @@ namespace XMainClient
 			this.m_centerLabel.SetVisible(false);
 		}
 
-		// Token: 0x0600AF82 RID: 44930 RVA: 0x0021466C File Offset: 0x0021286C
 		public override void RefreshRedPoint()
 		{
 			this.m_redPoint.SetActive(false);
 		}
 
-		// Token: 0x0600AF83 RID: 44931 RVA: 0x0021467C File Offset: 0x0021287C
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
@@ -106,34 +100,24 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x040042DD RID: 17117
 		private XGuildCollectDocument _doc;
 
-		// Token: 0x040042DE RID: 17118
 		private IXUIButton m_enterButton;
 
-		// Token: 0x040042DF RID: 17119
 		private IXUIButton m_openButton;
 
-		// Token: 0x040042E0 RID: 17120
 		private IXUILabel m_timeLabel;
 
-		// Token: 0x040042E1 RID: 17121
 		private IXUILabel m_timeTips;
 
-		// Token: 0x040042E2 RID: 17122
 		private IXUILabel m_topLabel;
 
-		// Token: 0x040042E3 RID: 17123
 		private IXUILabel m_RefreshTime = null;
 
-		// Token: 0x040042E4 RID: 17124
 		private IXUILabel m_centerLabel;
 
-		// Token: 0x040042E5 RID: 17125
 		private IXUILabel m_enterLabel;
 
-		// Token: 0x040042E6 RID: 17126
 		private IXUILabel m_openLabel;
 	}
 }

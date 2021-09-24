@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200183A RID: 6202
+
 	internal class XMainInterfaceBriefHandler : DlgHandlerBase
 	{
-		// Token: 0x17003944 RID: 14660
-		// (get) Token: 0x060101C4 RID: 65988 RVA: 0x003D99E8 File Offset: 0x003D7BE8
+
 		public XMainInterfaceTeamHandler TeamHandler
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003945 RID: 14661
-		// (get) Token: 0x060101C5 RID: 65989 RVA: 0x003D9A00 File Offset: 0x003D7C00
 		public XMainInterfaceTaskHandler TaskHandler
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003946 RID: 14662
-		// (get) Token: 0x060101C6 RID: 65990 RVA: 0x003D9A18 File Offset: 0x003D7C18
 		public bool IsShowingTaskTab
 		{
 			get
@@ -40,8 +35,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003947 RID: 14663
-		// (get) Token: 0x060101C7 RID: 65991 RVA: 0x003D9A34 File Offset: 0x003D7C34
 		protected override string FileName
 		{
 			get
@@ -50,7 +43,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060101C8 RID: 65992 RVA: 0x003D9A4C File Offset: 0x003D7C4C
 		protected override void Init()
 		{
 			base.Init();
@@ -86,7 +78,6 @@ namespace XMainClient.UI
 			this.m_MainTween = (base.PanelObject.transform.Find("Main").GetComponent("XUIPlayTween") as IXUITweenTool);
 		}
 
-		// Token: 0x060101C9 RID: 65993 RVA: 0x003D9CC0 File Offset: 0x003D7EC0
 		protected override void OnShow()
 		{
 			bool flag = this._TaskHandler != null;
@@ -96,7 +87,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060101CA RID: 65994 RVA: 0x003D9CEC File Offset: 0x003D7EEC
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -111,7 +101,6 @@ namespace XMainClient.UI
 			this.m_SwitchBtn.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnTaskSwitchBtnClick));
 		}
 
-		// Token: 0x060101CB RID: 65995 RVA: 0x003D9DB1 File Offset: 0x003D7FB1
 		public override void OnUnload()
 		{
 			DlgHandlerBase.EnsureUnload<XMainInterfaceTeamHandler>(ref this._TeamHandler);
@@ -119,7 +108,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x060101CC RID: 65996 RVA: 0x003D9DD4 File Offset: 0x003D7FD4
 		private void _OnSpriteClick(IXUISprite iSp)
 		{
 			bool flag = XSingleton<XScene>.singleton.SceneType == SceneType.SKYCITY_WAITING;
@@ -139,7 +127,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060101CD RID: 65997 RVA: 0x003D9E30 File Offset: 0x003D8030
 		private bool OnTabClick(IXUICheckBox iXUICheckBox)
 		{
 			bool flag = !base.bLoaded;
@@ -175,7 +162,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x060101CE RID: 65998 RVA: 0x003D9EB4 File Offset: 0x003D80B4
 		public void NavigateToBattle()
 		{
 			XSingleton<XInput>.singleton.LastNpc = null;
@@ -188,7 +174,6 @@ namespace XMainClient.UI
 			this.IsNavigateToBattle = 1;
 		}
 
-		// Token: 0x060101CF RID: 65999 RVA: 0x003D9F48 File Offset: 0x003D8148
 		public void NavigateToNest()
 		{
 			XSingleton<XInput>.singleton.LastNpc = null;
@@ -200,7 +185,6 @@ namespace XMainClient.UI
 			this.IsNavigateToBattle = 2;
 		}
 
-		// Token: 0x060101D0 RID: 66000 RVA: 0x003D9FA0 File Offset: 0x003D81A0
 		public void SetTeamMemberCount(int count)
 		{
 			bool flag = count == 0;
@@ -216,20 +200,17 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060101D1 RID: 66001 RVA: 0x003D9FF9 File Offset: 0x003D81F9
 		public void SetTeamMatching(bool bMatching)
 		{
 			this._TeamMatchingGo.SetActive(bMatching);
 		}
 
-		// Token: 0x060101D2 RID: 66002 RVA: 0x003DA009 File Offset: 0x003D8209
 		public void OnSysChange()
 		{
 			this._TeamTab.SetVisible(XSingleton<XGameSysMgr>.singleton.IsSystemOpened(XSysDefine.XSys_Team));
 			this.m_List.Refresh();
 		}
 
-		// Token: 0x060101D3 RID: 66003 RVA: 0x003DA030 File Offset: 0x003D8230
 		private void OnTaskSwitchBtnClick(IXUISprite iSp)
 		{
 			this._TaskSwitchBtnState = !this._TaskSwitchBtnState;
@@ -240,55 +221,38 @@ namespace XMainClient.UI
 			this.m_SwitchTween.PlayTween(true, -1f);
 		}
 
-		// Token: 0x040072DB RID: 29403
 		private IXUICheckBox _TaskTab;
 
-		// Token: 0x040072DC RID: 29404
 		private IXUICheckBox _TeamTab;
 
-		// Token: 0x040072DD RID: 29405
 		private IXUISprite _TaskSprite;
 
-		// Token: 0x040072DE RID: 29406
 		private IXUISprite _TeamSprite;
 
-		// Token: 0x040072DF RID: 29407
 		private IXUIList m_List;
 
-		// Token: 0x040072E0 RID: 29408
 		private IXUISprite m_SwitchBtn;
 
-		// Token: 0x040072E1 RID: 29409
 		private IXUITweenTool m_SwitchTween;
 
-		// Token: 0x040072E2 RID: 29410
 		private IXUITweenTool m_MainTween;
 
-		// Token: 0x040072E3 RID: 29411
 		private XMainInterfaceTeamHandler _TeamHandler;
 
-		// Token: 0x040072E4 RID: 29412
 		private XMainInterfaceTaskHandler _TaskHandler;
 
-		// Token: 0x040072E5 RID: 29413
 		public bool _TaskSwitchBtnState = true;
 
-		// Token: 0x040072E6 RID: 29414
 		public int IsNavigateToBattle = 0;
 
-		// Token: 0x040072E7 RID: 29415
 		private int m_SelectedTab = 0;
 
-		// Token: 0x040072E8 RID: 29416
 		private IXUILabel _TeamMemberCount;
 
-		// Token: 0x040072E9 RID: 29417
 		private IXUITweenTool _TeamMemberTween;
 
-		// Token: 0x040072EA RID: 29418
 		private GameObject _TeamMemberGo;
 
-		// Token: 0x040072EB RID: 29419
 		private GameObject _TeamMatchingGo;
 	}
 }

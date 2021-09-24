@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x020000B6 RID: 182
+
 	public class BackflowShop : CVSReader
 	{
-		// Token: 0x0600054B RID: 1355 RVA: 0x0001773C File Offset: 0x0001593C
+
 		public BackflowShop.RowData GetByGoodID(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -21,7 +21,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x0600054C RID: 1356 RVA: 0x00017774 File Offset: 0x00015974
 		private BackflowShop.RowData BinarySearchGoodID(uint key)
 		{
 			int num = 0;
@@ -80,7 +79,6 @@ namespace XUtliPoolLib
 			return null;
 		}
 
-		// Token: 0x0600054D RID: 1357 RVA: 0x00017850 File Offset: 0x00015A50
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			BackflowShop.RowData rowData = new BackflowShop.RowData();
@@ -102,7 +100,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x0600054E RID: 1358 RVA: 0x00017930 File Offset: 0x00015B30
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -116,31 +113,23 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x040002DC RID: 732
 		public BackflowShop.RowData[] Table = null;
 
-		// Token: 0x020002B4 RID: 692
 		public class RowData
 		{
-			// Token: 0x0400090E RID: 2318
+
 			public uint GoodID;
 
-			// Token: 0x0400090F RID: 2319
 			public uint ItemID;
 
-			// Token: 0x04000910 RID: 2320
 			public uint ItemCount;
 
-			// Token: 0x04000911 RID: 2321
 			public uint CostType;
 
-			// Token: 0x04000912 RID: 2322
 			public uint CostNum;
 
-			// Token: 0x04000913 RID: 2323
 			public uint Discount;
 
-			// Token: 0x04000914 RID: 2324
 			public uint Quality;
 		}
 	}

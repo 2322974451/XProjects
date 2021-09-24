@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x02000188 RID: 392
+
 	public class XOptions : CVSReader
 	{
-		// Token: 0x0600087A RID: 2170 RVA: 0x0002DC20 File Offset: 0x0002BE20
+
 		public XOptions.RowData GetByID(int key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -21,7 +21,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x0600087B RID: 2171 RVA: 0x0002DC58 File Offset: 0x0002BE58
 		private XOptions.RowData BinarySearchID(int key)
 		{
 			int num = 0;
@@ -80,7 +79,6 @@ namespace XUtliPoolLib
 			return null;
 		}
 
-		// Token: 0x0600087C RID: 2172 RVA: 0x0002DD34 File Offset: 0x0002BF34
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			XOptions.RowData rowData = new XOptions.RowData();
@@ -104,7 +102,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x0600087D RID: 2173 RVA: 0x0002DE30 File Offset: 0x0002C030
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -118,34 +115,25 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x040003D4 RID: 980
 		public XOptions.RowData[] Table = null;
 
-		// Token: 0x02000387 RID: 903
 		public class RowData
 		{
-			// Token: 0x04000FB7 RID: 4023
+
 			public int ID;
 
-			// Token: 0x04000FB8 RID: 4024
 			public int[] Classify;
 
-			// Token: 0x04000FB9 RID: 4025
 			public int Sort;
 
-			// Token: 0x04000FBA RID: 4026
 			public string Text;
 
-			// Token: 0x04000FBB RID: 4027
 			public int Type;
 
-			// Token: 0x04000FBC RID: 4028
 			public string Range;
 
-			// Token: 0x04000FBD RID: 4029
 			public string Default;
 
-			// Token: 0x04000FBE RID: 4030
 			public string[] OptionText;
 		}
 	}

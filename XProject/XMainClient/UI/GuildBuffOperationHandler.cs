@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001769 RID: 5993
+
 	internal class GuildBuffOperationHandler : DlgHandlerBase
 	{
-		// Token: 0x1700380F RID: 14351
-		// (get) Token: 0x0600F755 RID: 63317 RVA: 0x00384504 File Offset: 0x00382704
+
 		protected override string FileName
 		{
 			get
@@ -19,7 +18,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F756 RID: 63318 RVA: 0x0038451B File Offset: 0x0038271B
 		protected override void Init()
 		{
 			base.Init();
@@ -28,13 +26,11 @@ namespace XMainClient.UI
 			this.InitUI();
 		}
 
-		// Token: 0x0600F757 RID: 63319 RVA: 0x0019EEB0 File Offset: 0x0019D0B0
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 		}
 
-		// Token: 0x0600F758 RID: 63320 RVA: 0x0038453C File Offset: 0x0038273C
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -50,14 +46,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F759 RID: 63321 RVA: 0x0038458A File Offset: 0x0038278A
 		protected override void OnHide()
 		{
 			this._close = false;
 			base.OnHide();
 		}
 
-		// Token: 0x0600F75A RID: 63322 RVA: 0x0038459B File Offset: 0x0038279B
 		public override void OnUnload()
 		{
 			this._tableChildren.Clear();
@@ -68,7 +62,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x0600F75B RID: 63323 RVA: 0x003845D0 File Offset: 0x003827D0
 		public void StartToSlide()
 		{
 			bool flag = this._slider != null;
@@ -92,7 +85,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F75C RID: 63324 RVA: 0x0038464C File Offset: 0x0038284C
 		public void RefreshCardCd()
 		{
 			GuildBuffTable guildBuffData = XGuildResContentionBuffDocument.GuildBuffData;
@@ -120,7 +112,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F75D RID: 63325 RVA: 0x0038471C File Offset: 0x0038291C
 		public void RefreshOwnedBuffItem(uint itemID, uint cd)
 		{
 			this.UpdateBuffItemByItemID(itemID);
@@ -138,7 +129,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F75E RID: 63326 RVA: 0x0038477C File Offset: 0x0038297C
 		public void FoldByHasGuildBuffCd()
 		{
 			uint guildBuffCDTime = XGuildResContentionBuffDocument.Doc.GuildBuffCDTime;
@@ -150,7 +140,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F75F RID: 63327 RVA: 0x003847C4 File Offset: 0x003829C4
 		public void ResetPostion()
 		{
 			bool flag = this._slider != null;
@@ -160,7 +149,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F760 RID: 63328 RVA: 0x003847EC File Offset: 0x003829EC
 		private void InitProperties()
 		{
 			this._buffTableTrans = base.transform.FindChild("ScrollPanel/UITable");
@@ -172,7 +160,6 @@ namespace XMainClient.UI
 			this._inited = false;
 		}
 
-		// Token: 0x0600F761 RID: 63329 RVA: 0x00384898 File Offset: 0x00382A98
 		private void FoldChildren()
 		{
 			foreach (object obj in this._buffTableTrans)
@@ -188,7 +175,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F762 RID: 63330 RVA: 0x0038493C File Offset: 0x00382B3C
 		private bool OnclickCloseBtn(IXUIButton button)
 		{
 			bool flag = this.sliding;
@@ -206,7 +192,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F763 RID: 63331 RVA: 0x0038496C File Offset: 0x00382B6C
 		private void SetVisible(IXUITweenTool tween)
 		{
 			bool close = this._close;
@@ -220,7 +205,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F764 RID: 63332 RVA: 0x00384998 File Offset: 0x00382B98
 		private void InitUIPool()
 		{
 			this._buffDetailItemPool.SetupPool(this._buffTableTrans.gameObject, this._buffTableTrans.Find("ItemTpl").gameObject, 10U, false);
@@ -228,7 +212,6 @@ namespace XMainClient.UI
 			this._personalUseItemPool.SetupPool(this._buffTableTrans.gameObject, this._buffTableTrans.Find("Use").gameObject, 4U, false);
 		}
 
-		// Token: 0x0600F765 RID: 63333 RVA: 0x00384A34 File Offset: 0x00382C34
 		private void InitUI()
 		{
 			this._tableChildren.Clear();
@@ -261,7 +244,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F766 RID: 63334 RVA: 0x00384B58 File Offset: 0x00382D58
 		private void RefreshUI()
 		{
 			this._curTween = null;
@@ -284,7 +266,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F767 RID: 63335 RVA: 0x00384BF0 File Offset: 0x00382DF0
 		private void UpdateBuffItem(Transform parent, Transform child, GuildMineralStorage.RowData info)
 		{
 			IXUICheckBox ixuicheckBox = parent.GetComponent("XUICheckBox") as IXUICheckBox;
@@ -356,13 +337,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F768 RID: 63336 RVA: 0x00384F64 File Offset: 0x00383164
 		private void OnNoBuffCard(IXUISprite uiSprite)
 		{
 			XSingleton<UiUtility>.singleton.ShowSystemTip(XSingleton<XStringTable>.singleton.GetString("ERR_GUILDBUFF_ITEM"), "fece00");
 		}
 
-		// Token: 0x0600F769 RID: 63337 RVA: 0x00384F88 File Offset: 0x00383188
 		private GuildBuffInfo GetOwnedBuffInfo(GuildMineralStorage.RowData info)
 		{
 			bool flag = info.self > 0U;
@@ -378,7 +357,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F76A RID: 63338 RVA: 0x00384FD0 File Offset: 0x003831D0
 		private void OnclickBuffSprite(IXUISprite uiSprite)
 		{
 			Transform transform = uiSprite.gameObject.transform.Find("Child");
@@ -413,13 +391,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F76B RID: 63339 RVA: 0x00385088 File Offset: 0x00383288
 		private bool OnClickBuffItem(IXUICheckBox iXUICheckBox)
 		{
 			return false;
 		}
 
-		// Token: 0x0600F76C RID: 63340 RVA: 0x0038509C File Offset: 0x0038329C
 		private void UpdateBuffItemByItemID(uint itemID)
 		{
 			Transform transform = null;
@@ -451,7 +427,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F76D RID: 63341 RVA: 0x00385148 File Offset: 0x00383348
 		private bool UseBuffOnGuild(IXUIButton button)
 		{
 			bool flag = this.HasNoCardCD();
@@ -467,7 +442,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F76E RID: 63342 RVA: 0x003851C4 File Offset: 0x003833C4
 		private bool OnUsePositiveBuff(IXUIButton button)
 		{
 			GuildMineralStorage.RowData mineralStorageByID = XGuildResContentionBuffDocument.Doc.GetMineralStorageByID(this._curBuffItemID);
@@ -493,13 +467,11 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F76F RID: 63343 RVA: 0x00385244 File Offset: 0x00383444
 		private bool HasNoCardCD()
 		{
 			return XGuildResContentionBuffDocument.Doc.GuildBuffCDTime <= 0U;
 		}
 
-		// Token: 0x0600F770 RID: 63344 RVA: 0x00385268 File Offset: 0x00383468
 		private void ResetBuffItemSpriteState()
 		{
 			foreach (KeyValuePair<uint, Transform> keyValuePair in this._tableChildren)
@@ -509,43 +481,30 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04006BAC RID: 27564
 		private IXUITweenTool _slider;
 
-		// Token: 0x04006BAD RID: 27565
 		private IXUITweenTool _curTween = null;
 
-		// Token: 0x04006BAE RID: 27566
 		private ulong _curTargetGuildID = 0UL;
 
-		// Token: 0x04006BAF RID: 27567
 		private uint _curBuffItemID = 0U;
 
-		// Token: 0x04006BB0 RID: 27568
 		private Dictionary<uint, Transform> _tableChildren = new Dictionary<uint, Transform>();
 
-		// Token: 0x04006BB1 RID: 27569
 		protected XUIPool _buffDetailItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006BB2 RID: 27570
 		protected XUIPool _personalUseItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006BB3 RID: 27571
 		protected XUIPool _guildUseItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006BB4 RID: 27572
 		protected IXUITable _buffTable;
 
-		// Token: 0x04006BB5 RID: 27573
 		protected Transform _buffTableTrans;
 
-		// Token: 0x04006BB6 RID: 27574
 		private bool _close;
 
-		// Token: 0x04006BB7 RID: 27575
 		private bool _inited;
 
-		// Token: 0x04006BB8 RID: 27576
 		private bool sliding = false;
 	}
 }

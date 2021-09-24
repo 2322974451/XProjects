@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001898 RID: 6296
+
 	internal class XFpStrengthenView : DlgBase<XFpStrengthenView, XFPStrengthenBehaviour>
 	{
-		// Token: 0x170039E3 RID: 14819
-		// (get) Token: 0x06010633 RID: 67123 RVA: 0x003FE9D8 File Offset: 0x003FCBD8
+
 		public override string fileName
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170039E4 RID: 14820
-		// (get) Token: 0x06010634 RID: 67124 RVA: 0x003FE9F0 File Offset: 0x003FCBF0
 		public override int group
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170039E5 RID: 14821
-		// (get) Token: 0x06010635 RID: 67125 RVA: 0x003FEA04 File Offset: 0x003FCC04
 		public override bool autoload
 		{
 			get
@@ -40,8 +35,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170039E6 RID: 14822
-		// (get) Token: 0x06010636 RID: 67126 RVA: 0x003FEA18 File Offset: 0x003FCC18
 		public override bool hideMainMenu
 		{
 			get
@@ -50,8 +43,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170039E7 RID: 14823
-		// (get) Token: 0x06010637 RID: 67127 RVA: 0x003FEA2C File Offset: 0x003FCC2C
 		public override bool fullscreenui
 		{
 			get
@@ -60,8 +51,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170039E8 RID: 14824
-		// (get) Token: 0x06010638 RID: 67128 RVA: 0x003FEA40 File Offset: 0x003FCC40
 		public override bool pushstack
 		{
 			get
@@ -70,7 +59,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010639 RID: 67129 RVA: 0x003FEA54 File Offset: 0x003FCC54
 		protected override void Init()
 		{
 			this._doc = XDocuments.GetSpecificDocument<XFPStrengthenDocument>(XFPStrengthenDocument.uuID);
@@ -80,13 +68,11 @@ namespace XMainClient.UI
 			this.m_FpButtonPool.SetupPool(transform.gameObject, transform.FindChild("template").gameObject, 20U, false);
 		}
 
-		// Token: 0x0601063A RID: 67130 RVA: 0x003FEAF6 File Offset: 0x003FCCF6
 		public override void RegisterEvent()
 		{
 			base.uiBehaviour.m_Close.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseClicked));
 		}
 
-		// Token: 0x0601063B RID: 67131 RVA: 0x003FEB18 File Offset: 0x003FCD18
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -103,7 +89,6 @@ namespace XMainClient.UI
 			this.m_checkBoxDic[this._curFunctionEnum].bChecked = true;
 		}
 
-		// Token: 0x0601063C RID: 67132 RVA: 0x003FEBA0 File Offset: 0x003FCDA0
 		protected override void OnHide()
 		{
 			base.OnHide();
@@ -124,7 +109,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_RateTex.SetTexturePath("");
 		}
 
-		// Token: 0x0601063D RID: 67133 RVA: 0x003FEC54 File Offset: 0x003FCE54
 		protected override void OnUnload()
 		{
 			this.m_checkBoxDic.Clear();
@@ -132,7 +116,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x0601063E RID: 67134 RVA: 0x003FEC71 File Offset: 0x003FCE71
 		public override void StackRefresh()
 		{
 			base.uiBehaviour.m_Scroll.SetPosition(0f);
@@ -140,7 +123,6 @@ namespace XMainClient.UI
 			this._doc.RequsetFightNum();
 		}
 
-		// Token: 0x0601063F RID: 67135 RVA: 0x003FECA0 File Offset: 0x003FCEA0
 		public void ShowContent(FunctionDef fun = FunctionDef.ZHANLI)
 		{
 			bool flag = !XSingleton<XGameSysMgr>.singleton.IsSystemOpened(XSysDefine.XSys_Strong);
@@ -155,7 +137,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010640 RID: 67136 RVA: 0x003FECE0 File Offset: 0x003FCEE0
 		public void RefreshUi(bool isFromMes)
 		{
 			bool flag = this._curFunctionEnum == FunctionDef.ZHANLI;
@@ -180,7 +161,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010641 RID: 67137 RVA: 0x003FED64 File Offset: 0x003FCF64
 		public void RefreshTabRedDot()
 		{
 			bool flag = this.m_tabReddot == null || this.m_tabReddot.Count == 0;
@@ -217,7 +197,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010642 RID: 67138 RVA: 0x003FEED0 File Offset: 0x003FD0D0
 		private void InitLeftViews()
 		{
 			string @string = XStringDefineProxy.GetString("BQ_TITLE_STRING");
@@ -246,7 +225,6 @@ namespace XMainClient.UI
 			ixuiscrollView.ResetPosition();
 		}
 
-		// Token: 0x06010643 RID: 67139 RVA: 0x003FF024 File Offset: 0x003FD224
 		private void InitTabInfo(Transform tra, string name, int index)
 		{
 			bool flag = tra == null;
@@ -271,13 +249,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010644 RID: 67140 RVA: 0x003FF128 File Offset: 0x003FD328
 		private int GetFuncNum(FunctionDef def)
 		{
 			return this._doc.GetFuncNumByType(XFastEnumIntEqualityComparer<FunctionDef>.ToInt(def));
 		}
 
-		// Token: 0x06010645 RID: 67141 RVA: 0x003FF14C File Offset: 0x003FD34C
 		private void FillContentArea(FunctionDef def)
 		{
 			bool flag = def == FunctionDef.ZHANLI;
@@ -295,7 +271,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_Scroll.ResetPosition();
 		}
 
-		// Token: 0x06010646 RID: 67142 RVA: 0x003FF1B0 File Offset: 0x003FD3B0
 		private void FillTopContent()
 		{
 			uint num = (uint)XSingleton<XAttributeMgr>.singleton.XPlayerData.GetAttr(XAttributeDefine.XAttr_POWER_POINT_Basic);
@@ -318,7 +293,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_RateTex.SetTexturePath("atlas/UI/GameSystem/Activity/" + totalFightRateDes);
 		}
 
-		// Token: 0x06010647 RID: 67143 RVA: 0x003FF2CC File Offset: 0x003FD4CC
 		private void FillStrengthenContent()
 		{
 			int num = 0;
@@ -382,7 +356,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010648 RID: 67144 RVA: 0x003FF650 File Offset: 0x003FD850
 		private void FillOtherContent(FunctionDef def)
 		{
 			List<FpStrengthNew.RowData> strengthByType = this._doc.GetStrengthByType(XFastEnumIntEqualityComparer<FunctionDef>.ToInt(def));
@@ -414,14 +387,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010649 RID: 67145 RVA: 0x003FF86C File Offset: 0x003FDA6C
 		private bool OnCloseClicked(IXUIButton sp)
 		{
 			this.SetVisible(false, true);
 			return true;
 		}
 
-		// Token: 0x0601064A RID: 67146 RVA: 0x003FF888 File Offset: 0x003FDA88
 		private bool SelectStrengthItem(IXUICheckBox iXUICheckBox)
 		{
 			FunctionDef functionDef = (FunctionDef)iXUICheckBox.ID;
@@ -440,7 +411,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0601064B RID: 67147 RVA: 0x003FF8E0 File Offset: 0x003FDAE0
 		public bool GoToStrengthSys(IXUIButton sp)
 		{
 			XSysDefine xsysDefine = (XSysDefine)sp.ID;
@@ -480,31 +450,22 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0400764E RID: 30286
 		private XFPStrengthenDocument _doc = null;
 
-		// Token: 0x0400764F RID: 30287
 		public XUIPool m_FpStrengthenPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04007650 RID: 30288
 		public XUIPool m_FpButtonPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04007651 RID: 30289
 		private Dictionary<FunctionDef, IXUICheckBox> m_checkBoxDic = new Dictionary<FunctionDef, IXUICheckBox>();
 
-		// Token: 0x04007652 RID: 30290
 		private Dictionary<FunctionDef, XTuple<GameObject, GameObject>> m_tabReddot = new Dictionary<FunctionDef, XTuple<GameObject, GameObject>>();
 
-		// Token: 0x04007653 RID: 30291
 		private FunctionDef _curFunctionEnum = FunctionDef.ZHANLI;
 
-		// Token: 0x04007654 RID: 30292
 		private FunctionDef _defFunctionEnum = FunctionDef.END;
 
-		// Token: 0x04007655 RID: 30293
 		private bool _isFirst = true;
 
-		// Token: 0x04007656 RID: 30294
 		private bool _isFromShow = false;
 	}
 }

@@ -4,10 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200172A RID: 5930
+
 	internal class BattleTargetHandler : DlgHandlerBase
 	{
-		// Token: 0x0600F4E2 RID: 62690 RVA: 0x00371B80 File Offset: 0x0036FD80
+
 		protected override void Init()
 		{
 			base.Init();
@@ -17,7 +17,6 @@ namespace XMainClient.UI
 			this.PretargetFx.transform.localPosition = XGameUI.Far_Far_Away;
 		}
 
-		// Token: 0x0600F4E3 RID: 62691 RVA: 0x00371C04 File Offset: 0x0036FE04
 		public void ShowTargetFx(bool show, XEntity e)
 		{
 			bool flag = !show;
@@ -38,7 +37,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F4E4 RID: 62692 RVA: 0x00371CB8 File Offset: 0x0036FEB8
 		public void ShowPretargetFx(bool show, XEntity e)
 		{
 			bool flag = !show;
@@ -66,7 +64,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F4E5 RID: 62693 RVA: 0x00371D9C File Offset: 0x0036FF9C
 		protected Vector3 EntityOnUI(XEntity e)
 		{
 			Vector3 vector = e.EngineObject.Position + new Vector3(0f, e.Height / 2f, 0f);
@@ -74,10 +71,8 @@ namespace XMainClient.UI
 			return XSingleton<XGameUI>.singleton.UICamera.ViewportToWorldPoint(vector2);
 		}
 
-		// Token: 0x040069BC RID: 27068
 		public GameObject TargetFx;
 
-		// Token: 0x040069BD RID: 27069
 		public GameObject PretargetFx;
 	}
 }

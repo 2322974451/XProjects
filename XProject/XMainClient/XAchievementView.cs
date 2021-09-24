@@ -6,10 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000F03 RID: 3843
+
 	internal class XAchievementView : DlgHandlerBase
 	{
-		// Token: 0x0600CC2D RID: 52269 RVA: 0x002EEC48 File Offset: 0x002ECE48
+
 		protected override void Init()
 		{
 			base.Init();
@@ -19,21 +19,18 @@ namespace XMainClient
 			this.m_RewardPool.SetupPool(transform.parent.gameObject, transform.gameObject, 50U, false);
 		}
 
-		// Token: 0x0600CC2E RID: 52270 RVA: 0x002EECBF File Offset: 0x002ECEBF
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.RefreshAchivementList();
 		}
 
-		// Token: 0x0600CC2F RID: 52271 RVA: 0x002EECD0 File Offset: 0x002ECED0
 		public override void OnUnload()
 		{
 			this._doc.AchievementView = null;
 			base.OnUnload();
 		}
 
-		// Token: 0x0600CC30 RID: 52272 RVA: 0x002EECE8 File Offset: 0x002ECEE8
 		public void RefreshAchivementList()
 		{
 			this.m_RewardPool.ReturnAll(false);
@@ -87,7 +84,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC31 RID: 52273 RVA: 0x002EEEEC File Offset: 0x002ED0EC
 		protected void _SetAchiveRecord(GameObject go, AchivementTable.RowData achivementData, AchivementState state)
 		{
 			IXUISprite ixuisprite = go.GetComponent("XUISprite") as IXUISprite;
@@ -130,22 +126,18 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC32 RID: 52274 RVA: 0x002EF108 File Offset: 0x002ED308
 		protected bool OnFetchClicked(IXUIButton button)
 		{
 			this._doc.FetchAchivement((uint)button.ID);
 			return true;
 		}
 
-		// Token: 0x0600CC33 RID: 52275 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public void RefreshLoginList()
 		{
 		}
 
-		// Token: 0x04005AAE RID: 23214
 		private XAchievementDocument _doc = null;
 
-		// Token: 0x04005AAF RID: 23215
 		public XUIPool m_RewardPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 	}
 }

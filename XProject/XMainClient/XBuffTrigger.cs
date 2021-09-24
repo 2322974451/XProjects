@@ -3,10 +3,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000896 RID: 2198
+
 	internal abstract class XBuffTrigger : BuffEffect
 	{
-		// Token: 0x060085D3 RID: 34259 RVA: 0x0010C1E4 File Offset: 0x0010A3E4
+
 		public static bool TryCreate(BuffTable.RowData rowData, XBuff buff)
 		{
 			bool flag = rowData.BuffTriggerCond == 0;
@@ -55,7 +55,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060085D4 RID: 34260 RVA: 0x0010C2E8 File Offset: 0x0010A4E8
 		public XBuffTrigger(XBuff buff)
 		{
 			this._Buff = buff;
@@ -79,8 +78,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002A2A RID: 10794
-		// (get) Token: 0x060085D5 RID: 34261 RVA: 0x0010C3D4 File Offset: 0x0010A5D4
 		public XEntity Entity
 		{
 			get
@@ -89,19 +86,16 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060085D6 RID: 34262 RVA: 0x0010C3EC File Offset: 0x0010A5EC
 		public virtual bool CheckTriggerCondition()
 		{
 			return true;
 		}
 
-		// Token: 0x060085D7 RID: 34263 RVA: 0x0010C3FF File Offset: 0x0010A5FF
 		protected void _SetTarget(XEntity entity)
 		{
 			this._Target = entity;
 		}
 
-		// Token: 0x060085D8 RID: 34264 RVA: 0x0010C40C File Offset: 0x0010A60C
 		private void AddTriggerBuff()
 		{
 			bool flag = this._Buff.BuffInfo.BuffTriggerBuff.Count == 0;
@@ -129,7 +123,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060085D9 RID: 34265 RVA: 0x0010C534 File Offset: 0x0010A734
 		private void CastTriggerSkill()
 		{
 			bool flag = this._triggerSkillID == 0U;
@@ -155,12 +148,10 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060085DA RID: 34266 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected virtual void OnTrigger()
 		{
 		}
 
-		// Token: 0x060085DB RID: 34267 RVA: 0x0010C5D4 File Offset: 0x0010A7D4
 		public void Trigger()
 		{
 			bool flag = this._TriggerCondition.CanTrigger();
@@ -194,7 +185,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060085DC RID: 34268 RVA: 0x0010C66C File Offset: 0x0010A86C
 		public override void OnAdd(XEntity entity, CombatEffectHelper pEffectHelper)
 		{
 			this._entity = entity;
@@ -213,12 +203,10 @@ namespace XMainClient
 			this._bSkillTriggered = false;
 		}
 
-		// Token: 0x060085DD RID: 34269 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public override void OnRemove(XEntity entity, bool IsReplaced)
 		{
 		}
 
-		// Token: 0x060085DE RID: 34270 RVA: 0x0010C71C File Offset: 0x0010A91C
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
@@ -230,7 +218,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060085DF RID: 34271 RVA: 0x0010C74C File Offset: 0x0010A94C
 		protected float _GetTriggerParam(BuffTable.RowData buffInfo, int index)
 		{
 			bool flag = buffInfo == null || buffInfo.BuffTriggerParam == null || buffInfo.BuffTriggerParam.Length <= index;
@@ -246,7 +233,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060085E0 RID: 34272 RVA: 0x0010C794 File Offset: 0x0010A994
 		protected int _GetTriggerParamInt(BuffTable.RowData buffInfo, int index)
 		{
 			bool flag = buffInfo == null || buffInfo.BuffTriggerParam == null || buffInfo.BuffTriggerParam.Length <= index;
@@ -262,7 +248,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060085E1 RID: 34273 RVA: 0x0010C7D8 File Offset: 0x0010A9D8
 		protected string _GetTriggerParamStr(BuffTable.RowData buffInfo, int index)
 		{
 			bool flag = buffInfo == null || buffInfo.BuffTriggerParam == null || buffInfo.BuffTriggerParam.Length <= index;
@@ -278,34 +263,24 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0400299F RID: 10655
 		private float _triggerRate = 0f;
 
-		// Token: 0x040029A0 RID: 10656
 		private bool _bRandomTriggerBuff = false;
 
-		// Token: 0x040029A1 RID: 10657
 		private uint _triggerSkillID = 0U;
 
-		// Token: 0x040029A2 RID: 10658
 		private XTriggerCondition _TriggerCondition = null;
 
-		// Token: 0x040029A3 RID: 10659
 		private XEntity _entity;
 
-		// Token: 0x040029A4 RID: 10660
 		protected XBuff _Buff;
 
-		// Token: 0x040029A5 RID: 10661
 		private XEntity _Target = null;
 
-		// Token: 0x040029A6 RID: 10662
 		private XLocateTargetComponent _locate = null;
 
-		// Token: 0x040029A7 RID: 10663
 		private bool _bSkillTriggered = false;
 
-		// Token: 0x040029A8 RID: 10664
 		protected bool m_bIsTriggerImm = false;
 	}
 }

@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000A92 RID: 2706
+
 	internal class XDramaDocument : XDocComponent
 	{
-		// Token: 0x17002FD7 RID: 12247
-		// (get) Token: 0x0600A4B1 RID: 42161 RVA: 0x001C8ACC File Offset: 0x001C6CCC
+
 		public override uint ID
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002FD8 RID: 12248
-		// (get) Token: 0x0600A4B2 RID: 42162 RVA: 0x001C8AE4 File Offset: 0x001C6CE4
 		public XDramaOperate CurOperate
 		{
 			get
@@ -30,7 +27,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A4B3 RID: 42163 RVA: 0x001C8AFC File Offset: 0x001C6CFC
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
@@ -45,14 +41,12 @@ namespace XMainClient
 			this.favorDrama.BDeprecated = true;
 		}
 
-		// Token: 0x0600A4B4 RID: 42164 RVA: 0x001C8B89 File Offset: 0x001C6D89
 		protected override void EventSubscribe()
 		{
 			base.EventSubscribe();
 			base.RegisterEvent(XEventDefine.XEvent_MentorshipRelationOperation, new XComponent.XEventHandler(this.OnOperatingMentorship));
 		}
 
-		// Token: 0x0600A4B5 RID: 42165 RVA: 0x001C8BAC File Offset: 0x001C6DAC
 		public void OnMeetNpc(XNpc npc)
 		{
 			bool flag = npc == null;
@@ -100,7 +94,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A4B6 RID: 42166 RVA: 0x001C8C90 File Offset: 0x001C6E90
 		public void CommonNpc(XNpc npc)
 		{
 			this._npc = npc;
@@ -174,7 +167,6 @@ namespace XMainClient
 			XSingleton<XEventMgr>.singleton.FireEvent(@event);
 		}
 
-		// Token: 0x0600A4B7 RID: 42167 RVA: 0x001C8E98 File Offset: 0x001C7098
 		private bool OnClickSys(IXUIButton btn)
 		{
 			bool flag = this._npc == null;
@@ -193,7 +185,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A4B8 RID: 42168 RVA: 0x001C8EE4 File Offset: 0x001C70E4
 		private bool OnShowNpc(IXUIButton btn)
 		{
 			bool flag = this.favorDrama != null && this._npc != null;
@@ -207,7 +198,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600A4B9 RID: 42169 RVA: 0x001C8F43 File Offset: 0x001C7143
 		public void OnUIClose()
 		{
 			this.m_CurOperate = null;
@@ -215,7 +205,6 @@ namespace XMainClient
 			this.favorDrama.BDeprecated = true;
 		}
 
-		// Token: 0x0600A4BA RID: 42170 RVA: 0x001C8F60 File Offset: 0x001C7160
 		public XDramaOperate GetOpenedOperate(XSysDefine sys)
 		{
 			bool flag = this.m_CurOperateSys == sys;
@@ -231,13 +220,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A4BB RID: 42171 RVA: 0x001C8F89 File Offset: 0x001C7189
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 			this.bBlockClose = false;
 		}
 
-		// Token: 0x0600A4BC RID: 42172 RVA: 0x001C8F94 File Offset: 0x001C7194
 		protected bool OnOperatingMentorship(XEventArgs e)
 		{
 			XDramaOperate openedOperate = this.GetOpenedOperate(XSysDefine.XSys_Mentorship);
@@ -255,7 +242,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600A4BD RID: 42173 RVA: 0x001C8FE8 File Offset: 0x001C71E8
 		public XNPCFavorDrama GetFavorDrama()
 		{
 			bool flag = !this.favorDrama.BDeprecated;
@@ -271,25 +257,18 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x04003BE6 RID: 15334
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("DramaDocument");
 
-		// Token: 0x04003BE7 RID: 15335
 		private Dictionary<XSysDefine, XDramaOperate> _DramaOperateDic = new Dictionary<XSysDefine, XDramaOperate>(default(XFastEnumIntEqualityComparer<XSysDefine>));
 
-		// Token: 0x04003BE8 RID: 15336
 		public bool bBlockClose = false;
 
-		// Token: 0x04003BE9 RID: 15337
 		private XSysDefine m_CurOperateSys;
 
-		// Token: 0x04003BEA RID: 15338
 		private XDramaOperate m_CurOperate;
 
-		// Token: 0x04003BEB RID: 15339
 		private XNPCFavorDrama favorDrama;
 
-		// Token: 0x04003BEC RID: 15340
 		private XNpc _npc = null;
 	}
 }

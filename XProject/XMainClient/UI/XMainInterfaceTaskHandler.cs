@@ -7,10 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200183B RID: 6203
+
 	internal class XMainInterfaceTaskHandler : DlgHandlerBase
 	{
-		// Token: 0x060101D5 RID: 66005 RVA: 0x003DA0B8 File Offset: 0x003D82B8
+
 		protected override void Init()
 		{
 			base.Init();
@@ -20,7 +20,6 @@ namespace XMainClient.UI
 			this.doc = XDocuments.GetSpecificDocument<XTaskDocument>(XTaskDocument.uuID);
 		}
 
-		// Token: 0x060101D6 RID: 66006 RVA: 0x003DA156 File Offset: 0x003D8356
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -28,19 +27,16 @@ namespace XMainClient.UI
 			this.m_WrapContent.RegisterItemUpdateEventHandler(new WrapItemUpdateEventHandler(this._OnWrapUpdated));
 		}
 
-		// Token: 0x060101D7 RID: 66007 RVA: 0x001F8A12 File Offset: 0x001F6C12
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.RefreshData();
 		}
 
-		// Token: 0x060101D8 RID: 66008 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		private void _OnWrapInit(Transform t, int index)
 		{
 		}
 
-		// Token: 0x060101D9 RID: 66009 RVA: 0x003DA190 File Offset: 0x003D8390
 		private void _OnWrapUpdated(Transform t, int index)
 		{
 			bool flag = index < 0 || index >= this.doc.TaskRecord.Tasks.Count;
@@ -89,7 +85,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060101DA RID: 66010 RVA: 0x003DA3DC File Offset: 0x003D85DC
 		public override void RefreshData()
 		{
 			base.RefreshData();
@@ -107,29 +102,23 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060101DB RID: 66011 RVA: 0x003DA44D File Offset: 0x003D864D
 		public void RefreshVisibleContents()
 		{
 			this.m_WrapContent.RefreshAllVisibleContents();
 		}
 
-		// Token: 0x060101DC RID: 66012 RVA: 0x003DA45C File Offset: 0x003D865C
 		private void _OnTaskClicked(IXUISprite iSp)
 		{
 			this.doc.DoTask((uint)iSp.ID);
 			this.m_WrapContent.RefreshAllVisibleContents();
 		}
 
-		// Token: 0x040072EC RID: 29420
 		private IXUIScrollView m_ScrollView;
 
-		// Token: 0x040072ED RID: 29421
 		private IXUIWrapContent m_WrapContent;
 
-		// Token: 0x040072EE RID: 29422
 		private GameObject m_Emtpy;
 
-		// Token: 0x040072EF RID: 29423
 		private XTaskDocument doc;
 	}
 }

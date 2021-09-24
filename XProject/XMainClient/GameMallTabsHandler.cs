@@ -9,10 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000CE7 RID: 3303
+
 	internal class GameMallTabsHandler : DlgHandlerBase
 	{
-		// Token: 0x0600B8ED RID: 47341 RVA: 0x00256574 File Offset: 0x00254774
+
 		protected override void Init()
 		{
 			base.Init();
@@ -29,7 +29,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B8EE RID: 47342 RVA: 0x0025667C File Offset: 0x0025487C
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -41,7 +40,6 @@ namespace XMainClient
 			this.m_btnGift.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnGiftClick));
 		}
 
-		// Token: 0x0600B8EF RID: 47343 RVA: 0x002566EC File Offset: 0x002548EC
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -136,20 +134,17 @@ namespace XMainClient
 			this.m_btnGift.SetVisible(this.doc.presentStatus);
 		}
 
-		// Token: 0x0600B8F0 RID: 47344 RVA: 0x0019EEFD File Offset: 0x0019D0FD
 		protected override void OnHide()
 		{
 			base.OnHide();
 		}
 
-		// Token: 0x0600B8F1 RID: 47345 RVA: 0x00256974 File Offset: 0x00254B74
 		private bool OnGiftClick(IXUIButton btn)
 		{
 			DlgBase<GiftboxDlg, GiftboxBehaviour>.singleton.SetVisible(true, true);
 			return true;
 		}
 
-		// Token: 0x0600B8F2 RID: 47346 RVA: 0x00256994 File Offset: 0x00254B94
 		public void Refresh()
 		{
 			List<uint> uintList = XSingleton<XGlobalConfig>.singleton.GetUIntList("MallTabLevel");
@@ -177,13 +172,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B8F3 RID: 47347 RVA: 0x00209F22 File Offset: 0x00208122
 		public override void RefreshData()
 		{
 			base.RefreshData();
 		}
 
-		// Token: 0x0600B8F4 RID: 47348 RVA: 0x00256A58 File Offset: 0x00254C58
 		public void CheckTabs()
 		{
 			this.SetMalltypeWithItemID();
@@ -214,7 +207,6 @@ namespace XMainClient
 			DlgBase<GameMallDlg, TabDlgBehaviour>.singleton.QueryItemsInfo();
 		}
 
-		// Token: 0x0600B8F5 RID: 47349 RVA: 0x00256B0C File Offset: 0x00254D0C
 		private void SetMalltypeWithItemID()
 		{
 			bool flag = this.doc.currItemID != 0;
@@ -231,7 +223,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B8F6 RID: 47350 RVA: 0x00256B60 File Offset: 0x00254D60
 		private IEnumerator ResetOnshowCheck()
 		{
 			yield return new WaitForEndOfFrame();
@@ -239,7 +230,6 @@ namespace XMainClient
 			yield break;
 		}
 
-		// Token: 0x0600B8F7 RID: 47351 RVA: 0x00256B70 File Offset: 0x00254D70
 		private void SetupTabs()
 		{
 			int num = 0;
@@ -261,7 +251,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B8F8 RID: 47352 RVA: 0x00256C1C File Offset: 0x00254E1C
 		private bool IsShowNew(MallType type)
 		{
 			bool flag = this.doc == null;
@@ -283,7 +272,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B8F9 RID: 47353 RVA: 0x00256C78 File Offset: 0x00254E78
 		private bool OnTabClick(IXUICheckBox icbox)
 		{
 			bool flag = !icbox.bChecked;
@@ -301,7 +289,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B8FA RID: 47354 RVA: 0x00256CB4 File Offset: 0x00254EB4
 		private void ExecuteTab(MallType type)
 		{
 			bool flag = type != MallType.VIP && this.mClickTab == MallType.VIP;
@@ -327,28 +314,20 @@ namespace XMainClient
 			DlgBase<GameMallDlg, TabDlgBehaviour>.singleton.QueryItemsInfo();
 		}
 
-		// Token: 0x0400497E RID: 18814
 		private const int tabsNum = 8;
 
-		// Token: 0x0400497F RID: 18815
 		private List<MallType> malltype_list = new List<MallType>();
 
-		// Token: 0x04004980 RID: 18816
 		public IXUIButton m_btnGift;
 
-		// Token: 0x04004981 RID: 18817
 		public IXUICheckBox[] m_objTabs = new IXUICheckBox[8];
 
-		// Token: 0x04004982 RID: 18818
 		public IXUISprite[] m_sprRedpoints = new IXUISprite[8];
 
-		// Token: 0x04004983 RID: 18819
 		private Vector3[] m_tabPos = new Vector3[8];
 
-		// Token: 0x04004984 RID: 18820
 		private bool _onShowCheck = false;
 
-		// Token: 0x04004985 RID: 18821
 		public MallType[] showTypes = new MallType[]
 		{
 			MallType.WEEK,
@@ -361,10 +340,8 @@ namespace XMainClient
 			MallType.VIP
 		};
 
-		// Token: 0x04004986 RID: 18822
 		private MallType mClickTab = MallType.WEEK;
 
-		// Token: 0x04004987 RID: 18823
 		private XGameMallDocument doc;
 	}
 }

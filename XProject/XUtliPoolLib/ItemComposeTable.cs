@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x02000120 RID: 288
+
 	public class ItemComposeTable : CVSReader
 	{
-		// Token: 0x060006F0 RID: 1776 RVA: 0x00022464 File Offset: 0x00020664
+
 		public ItemComposeTable.RowData GetByID(int key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -21,7 +21,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x060006F1 RID: 1777 RVA: 0x0002249C File Offset: 0x0002069C
 		private ItemComposeTable.RowData BinarySearchID(int key)
 		{
 			int num = 0;
@@ -80,7 +79,6 @@ namespace XUtliPoolLib
 			return null;
 		}
 
-		// Token: 0x060006F2 RID: 1778 RVA: 0x00022578 File Offset: 0x00020778
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			ItemComposeTable.RowData rowData = new ItemComposeTable.RowData();
@@ -108,7 +106,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x060006F3 RID: 1779 RVA: 0x000226A8 File Offset: 0x000208A8
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -122,40 +119,29 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x0400036C RID: 876
 		public ItemComposeTable.RowData[] Table = null;
 
-		// Token: 0x0200031F RID: 799
 		public class RowData
 		{
-			// Token: 0x04000BE7 RID: 3047
+
 			public int ItemID;
 
-			// Token: 0x04000BE8 RID: 3048
 			public SeqRef<int> SrcItem1;
 
-			// Token: 0x04000BE9 RID: 3049
 			public SeqRef<int> SrcItem2;
 
-			// Token: 0x04000BEA RID: 3050
 			public SeqRef<int> SrcItem3;
 
-			// Token: 0x04000BEB RID: 3051
 			public int ID;
 
-			// Token: 0x04000BEC RID: 3052
 			public int Coin;
 
-			// Token: 0x04000BED RID: 3053
 			public int Level;
 
-			// Token: 0x04000BEE RID: 3054
 			public bool IsBind;
 
-			// Token: 0x04000BEF RID: 3055
 			public SeqRef<int> SrcItem4;
 
-			// Token: 0x04000BF0 RID: 3056
 			public int Type;
 		}
 	}

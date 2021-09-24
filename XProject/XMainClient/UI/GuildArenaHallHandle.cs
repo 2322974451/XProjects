@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001834 RID: 6196
+
 	internal class GuildArenaHallHandle : GVGHallBase
 	{
-		// Token: 0x17003934 RID: 14644
-		// (get) Token: 0x0601016A RID: 65898 RVA: 0x003D771C File Offset: 0x003D591C
+
 		protected override string FileName
 		{
 			get
@@ -20,7 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601016B RID: 65899 RVA: 0x003D7734 File Offset: 0x003D5934
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
@@ -31,7 +29,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601016C RID: 65900 RVA: 0x003D775C File Offset: 0x003D595C
 		protected override void Init()
 		{
 			base.Init();
@@ -42,34 +39,29 @@ namespace XMainClient.UI
 			this.SetupRewardList(XSingleton<XGlobalConfig>.singleton.GetAndSeparateValue("Guild_Arena_Award", XGlobalConfig.ListSeparator));
 		}
 
-		// Token: 0x0601016D RID: 65901 RVA: 0x003D781A File Offset: 0x003D5A1A
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.StackRefresh();
 		}
 
-		// Token: 0x0601016E RID: 65902 RVA: 0x003D782C File Offset: 0x003D5A2C
 		protected override int GetContentSize()
 		{
 			return this._Doc.IntegralUnits.Count;
 		}
 
-		// Token: 0x0601016F RID: 65903 RVA: 0x003D784E File Offset: 0x003D5A4E
 		public override void StackRefresh()
 		{
 			this._Doc.SendGetApplyGuildList();
 			this.UpdateSignStatu();
 		}
 
-		// Token: 0x06010170 RID: 65904 RVA: 0x003D7864 File Offset: 0x003D5A64
 		public override void RefreshData()
 		{
 			base.RefreshData();
 			this.UpdateSignStatu();
 		}
 
-		// Token: 0x06010171 RID: 65905 RVA: 0x003D7878 File Offset: 0x003D5A78
 		protected override void OnItemWrapUpdate(Transform t, int index)
 		{
 			IXUILabel ixuilabel = t.FindChild("Rank").GetComponent("XUILabel") as IXUILabel;
@@ -96,7 +88,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010172 RID: 65906 RVA: 0x003D7978 File Offset: 0x003D5B78
 		private void UpdateSignUpTime()
 		{
 			bool flag = this._Doc.RegistrationTime > 0.0;
@@ -114,7 +105,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010173 RID: 65907 RVA: 0x003D79FC File Offset: 0x003D5BFC
 		private void UpdateSignStatu()
 		{
 			this.m_responseNow = false;
@@ -157,14 +147,12 @@ namespace XMainClient.UI
 			this.m_SignUp.SetGrey(this._Doc.RegistrationStatu || (this._Doc.BattleStep == GuildArenaType.apply && flag5));
 		}
 
-		// Token: 0x06010174 RID: 65908 RVA: 0x003D7B4A File Offset: 0x003D5D4A
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			this.m_SignUp.RegisterClickEventHandler(new ButtonClickEventHandler(this.RegistractionClick));
 		}
 
-		// Token: 0x06010175 RID: 65909 RVA: 0x003D7B6C File Offset: 0x003D5D6C
 		private bool RegistractionClick(IXUIButton btn)
 		{
 			bool flag = this._Doc.BattleStep == GuildArenaType.notopen;
@@ -223,19 +211,14 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x040072C1 RID: 29377
 		private XGuildArenaDocument _Doc;
 
-		// Token: 0x040072C2 RID: 29378
 		private IXUILabel m_Status;
 
-		// Token: 0x040072C3 RID: 29379
 		private IXUIButton m_SignUp;
 
-		// Token: 0x040072C4 RID: 29380
 		private IXUILabel m_SignUpLabel;
 
-		// Token: 0x040072C5 RID: 29381
 		private bool m_responseNow = false;
 	}
 }

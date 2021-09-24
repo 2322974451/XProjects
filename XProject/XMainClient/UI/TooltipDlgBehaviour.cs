@@ -7,10 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200191C RID: 6428
+
 	internal class TooltipDlgBehaviour : DlgBehaviourBase
 	{
-		// Token: 0x06010D13 RID: 68883 RVA: 0x0043B07C File Offset: 0x0043927C
+
 		protected virtual void Awake()
 		{
 			Transform transform = base.transform.FindChild("Black");
@@ -75,13 +75,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010D14 RID: 68884 RVA: 0x0043B429 File Offset: 0x00439629
 		public void DelayShow(IXUIDlg dlg)
 		{
 			base.StartCoroutine(this.InnerShow(dlg));
 		}
 
-		// Token: 0x06010D15 RID: 68885 RVA: 0x0043B43A File Offset: 0x0043963A
 		private IEnumerator InnerShow(IXUIDlg dlg)
 		{
 			IXUIPanel panel = base.gameObject.transform.FindChild("Bg").gameObject.GetComponent("XUIPanel") as IXUIPanel;
@@ -91,61 +89,42 @@ namespace XMainClient.UI
 			yield break;
 		}
 
-		// Token: 0x04007B5C RID: 31580
 		public XUIPool m_PanelPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04007B5D RID: 31581
 		public XUIPool m_AttrPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04007B5E RID: 31582
 		public XUIPool m_AttrFramePool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04007B5F RID: 31583
 		public Vector3 m_OriginPos;
 
-		// Token: 0x04007B60 RID: 31584
 		public Color m_OriginAttrNameColor;
 
-		// Token: 0x04007B61 RID: 31585
 		public Color m_OriginAttrValueColor;
 
-		// Token: 0x04007B62 RID: 31586
 		public GameObject m_Black;
 
-		// Token: 0x04007B63 RID: 31587
 		public IXUISprite m_TotalFrame;
 
-		// Token: 0x04007B64 RID: 31588
 		public IXUISprite m_ToolTipMain;
 
-		// Token: 0x04007B65 RID: 31589
 		public int m_TopFrameHeight;
 
-		// Token: 0x04007B66 RID: 31590
 		public float m_ScrollPanelSoftnessOffset;
 
-		// Token: 0x04007B67 RID: 31591
 		public float m_TooltipBorder;
 
-		// Token: 0x04007B68 RID: 31592
 		public float m_MaxTooltipHeight;
 
-		// Token: 0x04007B69 RID: 31593
 		public float m_MaxTooltipHeightWithJade;
 
-		// Token: 0x04007B6A RID: 31594
 		public Vector3[] m_ButtonsOriginPos = new Vector3[TooltipDlgBehaviour.MAX_BUTTON_COUNT];
 
-		// Token: 0x04007B6B RID: 31595
 		public string[,] m_ButtonsText = new string[TooltipDlgBehaviour.MAX_GROUP_COUNT, TooltipDlgBehaviour.MAX_BUTTON_COUNT];
 
-		// Token: 0x04007B6C RID: 31596
 		public bool[] m_ButtonsVisible = new bool[TooltipDlgBehaviour.MAX_BUTTON_COUNT];
 
-		// Token: 0x04007B6D RID: 31597
 		public static readonly int MAX_BUTTON_COUNT = 7;
 
-		// Token: 0x04007B6E RID: 31598
 		public static readonly int MAX_GROUP_COUNT = 4;
 	}
 }

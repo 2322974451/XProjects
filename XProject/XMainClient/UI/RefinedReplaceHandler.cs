@@ -7,10 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017B9 RID: 6073
+
 	internal class RefinedReplaceHandler : DlgHandlerBase
 	{
-		// Token: 0x0600FB55 RID: 64341 RVA: 0x003A5330 File Offset: 0x003A3530
+
 		protected override void Init()
 		{
 			base.Init();
@@ -21,7 +21,6 @@ namespace XMainClient.UI
 			this.m_itemPool.SetupPool(this.m_parentTra.gameObject, this.m_parentTra.FindChild("AttrItem").gameObject, 2U, true);
 		}
 
-		// Token: 0x0600FB56 RID: 64342 RVA: 0x003A53ED File Offset: 0x003A35ED
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -29,26 +28,22 @@ namespace XMainClient.UI
 			this.m_sureBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnSureClicked));
 		}
 
-		// Token: 0x0600FB57 RID: 64343 RVA: 0x003A5427 File Offset: 0x003A3627
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.FillContent();
 		}
 
-		// Token: 0x0600FB58 RID: 64344 RVA: 0x0019EEFD File Offset: 0x0019D0FD
 		protected override void OnHide()
 		{
 			base.OnHide();
 		}
 
-		// Token: 0x0600FB59 RID: 64345 RVA: 0x0019EF07 File Offset: 0x0019D107
 		public override void OnUnload()
 		{
 			base.OnUnload();
 		}
 
-		// Token: 0x0600FB5A RID: 64346 RVA: 0x003A5438 File Offset: 0x003A3638
 		private void FillContent()
 		{
 			XItem itemByUID = XBagDocument.BagDoc.GetItemByUID(this.m_doc.SelectUid);
@@ -142,7 +137,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FB5B RID: 64347 RVA: 0x003A592C File Offset: 0x003A3B2C
 		private string GetColor(uint attrValue, uint min, uint max)
 		{
 			bool flag = min >= max;
@@ -176,7 +170,6 @@ namespace XMainClient.UI
 			return XSingleton<UiUtility>.singleton.GetItemQualityRGB(quality);
 		}
 
-		// Token: 0x0600FB5C RID: 64348 RVA: 0x003A59D0 File Offset: 0x003A3BD0
 		private int GetPPT(XItem item, bool isTemp)
 		{
 			XArtifactItem xartifactItem = item as XArtifactItem;
@@ -226,7 +219,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FB5D RID: 64349 RVA: 0x003A5AFC File Offset: 0x003A3CFC
 		private bool OnCancleClicked(IXUIButton btn)
 		{
 			base.SetVisible(false);
@@ -234,7 +226,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FB5E RID: 64350 RVA: 0x003A5B24 File Offset: 0x003A3D24
 		private bool OnSureClicked(IXUIButton btn)
 		{
 			base.SetVisible(false);
@@ -242,22 +233,16 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x04006E49 RID: 28233
 		private ArtifactRefinedDocument m_doc;
 
-		// Token: 0x04006E4A RID: 28234
 		private IXUIButton m_cancleBtn;
 
-		// Token: 0x04006E4B RID: 28235
 		private IXUIButton m_sureBtn;
 
-		// Token: 0x04006E4C RID: 28236
 		private Transform m_parentTra;
 
-		// Token: 0x04006E4D RID: 28237
 		private readonly int m_gap = 42;
 
-		// Token: 0x04006E4E RID: 28238
 		private XUIPool m_itemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 	}
 }

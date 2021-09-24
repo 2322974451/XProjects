@@ -8,16 +8,15 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017D6 RID: 6102
+
 	internal class XNPCSendSubHandler : DlgHandlerBase
 	{
-		// Token: 0x0600FCD3 RID: 64723 RVA: 0x003B0B79 File Offset: 0x003AED79
+
 		public void SetParentHandler(XNPCFavorHandler handler = null)
 		{
 			this._parentHandler = handler;
 		}
 
-		// Token: 0x0600FCD4 RID: 64724 RVA: 0x003B0B84 File Offset: 0x003AED84
 		protected override void Init()
 		{
 			base.Init();
@@ -39,20 +38,17 @@ namespace XMainClient.UI
 			this._SendBtn = (base.transform.FindChild("GoBtn").GetComponent("XUIButton") as IXUIButton);
 		}
 
-		// Token: 0x0600FCD5 RID: 64725 RVA: 0x001A787A File Offset: 0x001A5A7A
 		protected override void OnShow()
 		{
 			this.RefreshData();
 		}
 
-		// Token: 0x0600FCD6 RID: 64726 RVA: 0x003B0D84 File Offset: 0x003AEF84
 		public override void RefreshData()
 		{
 			this.RefreshRelics();
 			this.RefreshItems();
 		}
 
-		// Token: 0x0600FCD7 RID: 64727 RVA: 0x003B0D98 File Offset: 0x003AEF98
 		public override void RegisterEvent()
 		{
 			this._NextLevel.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnClickNextAdditionBtn));
@@ -60,14 +56,12 @@ namespace XMainClient.UI
 			this._SendBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnClickSendBtn));
 		}
 
-		// Token: 0x0600FCD8 RID: 64728 RVA: 0x003B0DEE File Offset: 0x003AEFEE
 		public override void OnUnload()
 		{
 			this.m_doc = null;
 			this._parentHandler = null;
 		}
 
-		// Token: 0x0600FCD9 RID: 64729 RVA: 0x003B0E00 File Offset: 0x003AF000
 		private void RefreshRelics()
 		{
 			bool flag = this._parentHandler._selectedNPCID == 0U;
@@ -120,7 +114,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FCDA RID: 64730 RVA: 0x003B1010 File Offset: 0x003AF210
 		private void RefreshItems()
 		{
 			this._itemPool.ReturnAll(false);
@@ -154,7 +147,6 @@ namespace XMainClient.UI
 			this.m_ScrollView.ResetPosition();
 		}
 
-		// Token: 0x0600FCDB RID: 64731 RVA: 0x003B111C File Offset: 0x003AF31C
 		private void DrawItem(int itemId, int itemNum, int i)
 		{
 			Transform transform = this.DrawItem(itemId, itemNum, this._items, i);
@@ -176,7 +168,6 @@ namespace XMainClient.UI
 			ixuilabel.SetText(text);
 		}
 
-		// Token: 0x0600FCDC RID: 64732 RVA: 0x003B11C8 File Offset: 0x003AF3C8
 		private Transform DrawItem(int itemID, int num, Transform parent, int index)
 		{
 			GameObject gameObject = this._itemPool.FetchGameObject(false);
@@ -189,7 +180,6 @@ namespace XMainClient.UI
 			return gameObject.transform;
 		}
 
-		// Token: 0x0600FCDD RID: 64733 RVA: 0x003B127C File Offset: 0x003AF47C
 		private bool OnClickSendBtn(IXUIButton btn)
 		{
 			bool flag = this._parentHandler._selectedNPCID == 0U;
@@ -226,7 +216,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FCDE RID: 64734 RVA: 0x003B1360 File Offset: 0x003AF560
 		private bool OnClickLevelUpBtn(IXUIButton btn)
 		{
 			bool flag = this._parentHandler._selectedNPCID == 0U;
@@ -268,7 +257,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FCDF RID: 64735 RVA: 0x003B1450 File Offset: 0x003AF650
 		private bool OnClickNextAdditionBtn(IXUIButton btn)
 		{
 			bool flag = this._parentHandler._selectedNPCID == 0U;
@@ -320,49 +308,34 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x04006F2D RID: 28461
 		private XNPCFavorHandler _parentHandler = null;
 
-		// Token: 0x04006F2E RID: 28462
 		private XNPCFavorDocument m_doc;
 
-		// Token: 0x04006F2F RID: 28463
 		private IXUIScrollView m_ScrollView;
 
-		// Token: 0x04006F30 RID: 28464
 		private Transform _items;
 
-		// Token: 0x04006F31 RID: 28465
 		protected XUIPool _itemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006F32 RID: 28466
 		private IXUISprite _RelicsSpr;
 
-		// Token: 0x04006F33 RID: 28467
 		private IXUILabel _RelicsName;
 
-		// Token: 0x04006F34 RID: 28468
 		private IXUILabel _RelicsLevel;
 
-		// Token: 0x04006F35 RID: 28469
 		private IXUILabel _RelicsDesc;
 
-		// Token: 0x04006F36 RID: 28470
 		private IXUILabel _RelicsAddition;
 
-		// Token: 0x04006F37 RID: 28471
 		private IXUILabel _curAttr;
 
-		// Token: 0x04006F38 RID: 28472
 		private IXUIButton _NextLevel;
 
-		// Token: 0x04006F39 RID: 28473
 		private IXUIButton _LevelUpBtn;
 
-		// Token: 0x04006F3A RID: 28474
 		private GameObject _LevelUpRedPoint;
 
-		// Token: 0x04006F3B RID: 28475
 		private IXUIButton _SendBtn;
 	}
 }

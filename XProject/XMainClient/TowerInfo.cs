@@ -4,16 +4,15 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000B1C RID: 2844
+
 	internal class TowerInfo
 	{
-		// Token: 0x0600A73C RID: 42812 RVA: 0x001D8B34 File Offset: 0x001D6D34
+
 		public TowerInfo()
 		{
 			this.Init();
 		}
 
-		// Token: 0x0600A73D RID: 42813 RVA: 0x001D8B48 File Offset: 0x001D6D48
 		public void Init()
 		{
 			this.UID = 0UL;
@@ -26,13 +25,11 @@ namespace XMainClient
 			this.bInRange = false;
 		}
 
-		// Token: 0x0600A73E RID: 42814 RVA: 0x001D8B94 File Offset: 0x001D6D94
 		public void Destroy()
 		{
 			this._DestroyFx();
 		}
 
-		// Token: 0x0600A73F RID: 42815 RVA: 0x001D8BA0 File Offset: 0x001D6DA0
 		private void _DestroyFx()
 		{
 			bool flag = this.Fx != null;
@@ -43,13 +40,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A740 RID: 42816 RVA: 0x001D8BD6 File Offset: 0x001D6DD6
 		private void _SetDistanceType(float sqrDis)
 		{
 			this.bInRange = (sqrDis <= this.WarningSqrRadius);
 		}
 
-		// Token: 0x0600A741 RID: 42817 RVA: 0x001D8BEC File Offset: 0x001D6DEC
 		private void _SetTargetType(ulong playerUID)
 		{
 			bool flag = this.TargetUID == 0UL;
@@ -71,7 +66,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A742 RID: 42818 RVA: 0x001D8C30 File Offset: 0x001D6E30
 		private void _SetFx(XFxType newFxType, Vector3 pos)
 		{
 			bool flag = newFxType == this.FxType;
@@ -107,7 +101,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A743 RID: 42819 RVA: 0x001D8D38 File Offset: 0x001D6F38
 		private XFxType _GetFxType()
 		{
 			bool flag = !this.bInRange;
@@ -137,7 +130,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A744 RID: 42820 RVA: 0x001D8D84 File Offset: 0x001D6F84
 		public void Update()
 		{
 			bool flag = XSingleton<XEntityMgr>.singleton.Player == null;
@@ -157,28 +149,20 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04003DB7 RID: 15799
 		public ulong UID;
 
-		// Token: 0x04003DB8 RID: 15800
 		public float WarningSqrRadius;
 
-		// Token: 0x04003DB9 RID: 15801
 		public ulong TargetUID;
 
-		// Token: 0x04003DBA RID: 15802
 		public XFx Fx;
 
-		// Token: 0x04003DBB RID: 15803
 		public XEntity Entity;
 
-		// Token: 0x04003DBC RID: 15804
 		public XTargetState TargetState;
 
-		// Token: 0x04003DBD RID: 15805
 		public XFxType FxType;
 
-		// Token: 0x04003DBE RID: 15806
 		public bool bInRange;
 	}
 }

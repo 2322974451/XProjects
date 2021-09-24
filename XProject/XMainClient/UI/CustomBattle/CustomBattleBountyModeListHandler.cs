@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI.CustomBattle
 {
-	// Token: 0x0200192F RID: 6447
+
 	internal class CustomBattleBountyModeListHandler : DlgHandlerBase
 	{
-		// Token: 0x17003B24 RID: 15140
-		// (get) Token: 0x06010F0E RID: 69390 RVA: 0x0044C884 File Offset: 0x0044AA84
+
 		protected override string FileName
 		{
 			get
@@ -21,7 +20,6 @@ namespace XMainClient.UI.CustomBattle
 			}
 		}
 
-		// Token: 0x06010F0F RID: 69391 RVA: 0x0044C89C File Offset: 0x0044AA9C
 		protected override void Init()
 		{
 			base.Init();
@@ -34,28 +32,24 @@ namespace XMainClient.UI.CustomBattle
 			this._wrap_content.RegisterItemUpdateEventHandler(new WrapItemUpdateEventHandler(this.WrapContentUpdated));
 		}
 
-		// Token: 0x06010F10 RID: 69392 RVA: 0x0044C96F File Offset: 0x0044AB6F
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this._doc.SendCustomBattleQueryBountyMode();
 		}
 
-		// Token: 0x06010F11 RID: 69393 RVA: 0x0044C985 File Offset: 0x0044AB85
 		protected override void OnHide()
 		{
 			this.DestoryAllFx();
 			base.OnHide();
 		}
 
-		// Token: 0x06010F12 RID: 69394 RVA: 0x0044C996 File Offset: 0x0044AB96
 		public override void OnUnload()
 		{
 			this.DestoryAllFx();
 			base.OnUnload();
 		}
 
-		// Token: 0x06010F13 RID: 69395 RVA: 0x0044C9A8 File Offset: 0x0044ABA8
 		private void DestoryAllFx()
 		{
 			foreach (KeyValuePair<Transform, XFx> keyValuePair in this._fx_list)
@@ -65,7 +59,6 @@ namespace XMainClient.UI.CustomBattle
 			this._fx_list.Clear();
 		}
 
-		// Token: 0x06010F14 RID: 69396 RVA: 0x0044CA18 File Offset: 0x0044AC18
 		public override void RefreshData()
 		{
 			base.RefreshData();
@@ -73,7 +66,6 @@ namespace XMainClient.UI.CustomBattle
 			this._scroll_view.ResetPosition();
 		}
 
-		// Token: 0x06010F15 RID: 69397 RVA: 0x0044CA4C File Offset: 0x0044AC4C
 		private void WrapContentUpdated(Transform t, int index)
 		{
 			bool flag = index < 0 || index >= this._doc.BountyList.Count;
@@ -87,7 +79,6 @@ namespace XMainClient.UI.CustomBattle
 			}
 		}
 
-		// Token: 0x06010F16 RID: 69398 RVA: 0x0044CA94 File Offset: 0x0044AC94
 		private void SetupBounty(Transform t, int index)
 		{
 			Transform transform = t.Find("Box");
@@ -225,13 +216,11 @@ namespace XMainClient.UI.CustomBattle
 			}
 		}
 
-		// Token: 0x06010F17 RID: 69399 RVA: 0x0044D23E File Offset: 0x0044B43E
 		private void OnEnterDetailClicked(IXUISprite sp)
 		{
 			this.ShowDetailByIndex((int)sp.ID);
 		}
 
-		// Token: 0x06010F18 RID: 69400 RVA: 0x0044D250 File Offset: 0x0044B450
 		public void ShowDetailByIndex(int index)
 		{
 			bool flag = index >= this._doc.BountyList.Count;
@@ -242,7 +231,6 @@ namespace XMainClient.UI.CustomBattle
 			}
 		}
 
-		// Token: 0x06010F19 RID: 69401 RVA: 0x0044D2A4 File Offset: 0x0044B4A4
 		private void OnHelpClicked(IXUISprite sp)
 		{
 			CustomBattleTypeTable.RowData customBattleTypeData = this._doc.GetCustomBattleTypeData((int)sp.ID);
@@ -251,7 +239,6 @@ namespace XMainClient.UI.CustomBattle
 			DlgBase<XCommonHelpTipView, XCommonHelpTipBehaviour>.singleton.ShowHelp(title, @string);
 		}
 
-		// Token: 0x06010F1A RID: 69402 RVA: 0x0044D310 File Offset: 0x0044B510
 		private bool OnJoinClicked(IXUIButton button)
 		{
 			bool flag = (int)button.ID >= this._doc.BountyList.Count;
@@ -272,7 +259,6 @@ namespace XMainClient.UI.CustomBattle
 			return result;
 		}
 
-		// Token: 0x06010F1B RID: 69403 RVA: 0x0044D404 File Offset: 0x0044B604
 		private bool OnJoinOkClicked(IXUIButton button)
 		{
 			this._doc.SendCustomBattleJoin(this._cache_gameid, false, "");
@@ -281,7 +267,6 @@ namespace XMainClient.UI.CustomBattle
 			return true;
 		}
 
-		// Token: 0x06010F1C RID: 69404 RVA: 0x0044D444 File Offset: 0x0044B644
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
@@ -295,28 +280,20 @@ namespace XMainClient.UI.CustomBattle
 			}
 		}
 
-		// Token: 0x04007C99 RID: 31897
 		private XCustomBattleDocument _doc = null;
 
-		// Token: 0x04007C9A RID: 31898
 		private IXUILabel _tip;
 
-		// Token: 0x04007C9B RID: 31899
 		private IXUIScrollView _scroll_view;
 
-		// Token: 0x04007C9C RID: 31900
 		private IXUIWrapContent _wrap_content;
 
-		// Token: 0x04007C9D RID: 31901
 		private Dictionary<Transform, XLeftTimeCounter> timers = new Dictionary<Transform, XLeftTimeCounter>();
 
-		// Token: 0x04007C9E RID: 31902
 		private ulong _cache_gameid = 0UL;
 
-		// Token: 0x04007C9F RID: 31903
 		private Dictionary<Transform, XFx> _fx_list = new Dictionary<Transform, XFx>();
 
-		// Token: 0x04007CA0 RID: 31904
 		private Vector3 _fx_scale = new Vector3(0.7f, 0.7f);
 	}
 }

@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000E94 RID: 3732
+
 	internal class YorozuyaDlg : DlgBase<YorozuyaDlg, YorozuyaBehaviour>
 	{
-		// Token: 0x170034B2 RID: 13490
-		// (get) Token: 0x0600C72D RID: 50989 RVA: 0x002C3148 File Offset: 0x002C1348
+
 		public override string fileName
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170034B3 RID: 13491
-		// (get) Token: 0x0600C72E RID: 50990 RVA: 0x002C3160 File Offset: 0x002C1360
 		public override int layer
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170034B4 RID: 13492
-		// (get) Token: 0x0600C72F RID: 50991 RVA: 0x002C3174 File Offset: 0x002C1374
 		public override bool autoload
 		{
 			get
@@ -40,8 +35,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170034B5 RID: 13493
-		// (get) Token: 0x0600C730 RID: 50992 RVA: 0x002C3188 File Offset: 0x002C1388
 		public override bool hideMainMenu
 		{
 			get
@@ -50,8 +43,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170034B6 RID: 13494
-		// (get) Token: 0x0600C731 RID: 50993 RVA: 0x002C319C File Offset: 0x002C139C
 		public override bool pushstack
 		{
 			get
@@ -60,8 +51,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170034B7 RID: 13495
-		// (get) Token: 0x0600C732 RID: 50994 RVA: 0x002C31B0 File Offset: 0x002C13B0
 		public override bool fullscreenui
 		{
 			get
@@ -70,14 +59,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C733 RID: 50995 RVA: 0x002C31C3 File Offset: 0x002C13C3
 		protected override void OnLoad()
 		{
 			base.OnLoad();
 		}
 
-		// Token: 0x170034B8 RID: 13496
-		// (get) Token: 0x0600C734 RID: 50996 RVA: 0x002C31D0 File Offset: 0x002C13D0
 		public override int sysid
 		{
 			get
@@ -86,41 +72,35 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C735 RID: 50997 RVA: 0x002C31E7 File Offset: 0x002C13E7
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			base.uiBehaviour.m_closedBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnClickClosedBtn));
 		}
 
-		// Token: 0x0600C736 RID: 50998 RVA: 0x002C320E File Offset: 0x002C140E
 		protected override void OnUnload()
 		{
 			base.OnUnload();
 		}
 
-		// Token: 0x0600C737 RID: 50999 RVA: 0x002C3218 File Offset: 0x002C1418
 		protected override void Init()
 		{
 			base.Init();
 			this.m_doc = XYorozuyaDocument.Doc;
 		}
 
-		// Token: 0x0600C738 RID: 51000 RVA: 0x002C322D File Offset: 0x002C142D
 		protected override void OnHide()
 		{
 			base.OnHide();
 			XSingleton<XInput>.singleton.Freezed = false;
 		}
 
-		// Token: 0x0600C739 RID: 51001 RVA: 0x002C3243 File Offset: 0x002C1443
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.FillContent();
 		}
 
-		// Token: 0x0600C73A RID: 51002 RVA: 0x002C3254 File Offset: 0x002C1454
 		private void FillContent()
 		{
 			base.uiBehaviour.m_itemPool.ReturnAll(true);
@@ -146,14 +126,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C73B RID: 51003 RVA: 0x002C33F8 File Offset: 0x002C15F8
 		private bool OnClickClosedBtn(IXUIButton btn)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x0600C73C RID: 51004 RVA: 0x002C3414 File Offset: 0x002C1614
 		private void OnClickIcon(IXUISprite spr)
 		{
 			YorozuyaTable.RowData rowData = this.m_doc.GetRowData((byte)spr.ID);
@@ -172,7 +150,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04005786 RID: 22406
 		private XYorozuyaDocument m_doc;
 	}
 }

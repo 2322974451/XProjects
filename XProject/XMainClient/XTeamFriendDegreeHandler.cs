@@ -7,10 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000D14 RID: 3348
+
 	internal class XTeamFriendDegreeHandler : DlgHandlerBase
 	{
-		// Token: 0x0600BADA RID: 47834 RVA: 0x002641B4 File Offset: 0x002623B4
+
 		protected override void Init()
 		{
 			base.Init();
@@ -34,7 +34,6 @@ namespace XMainClient
 			this._FriendsDoc = XDocuments.GetSpecificDocument<XFriendsDocument>(XFriendsDocument.uuID);
 		}
 
-		// Token: 0x0600BADB RID: 47835 RVA: 0x002643E4 File Offset: 0x002625E4
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -43,13 +42,11 @@ namespace XMainClient
 			this.m_BtnAdd.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this._OnAddFriendClicked));
 		}
 
-		// Token: 0x0600BADC RID: 47836 RVA: 0x00264441 File Offset: 0x00262641
 		private void _OnCloseClicked(IXUISprite iSp)
 		{
 			this.m_InfoPanel.SetActive(false);
 		}
 
-		// Token: 0x0600BADD RID: 47837 RVA: 0x00264454 File Offset: 0x00262654
 		private void _OnBuffClicked(IXUISprite iSp)
 		{
 			this.m_InfoPanel.SetActive(true);
@@ -76,13 +73,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BADE RID: 47838 RVA: 0x002644EB File Offset: 0x002626EB
 		private void _OnAddFriendClicked(IXUISprite iSp)
 		{
 			DlgBase<XFriendsView, XFriendsBehaviour>.singleton.AddFriendById(this.m_CurrentUID);
 		}
 
-		// Token: 0x0600BADF RID: 47839 RVA: 0x00264500 File Offset: 0x00262700
 		public void Refresh(XTeamMember data, bool bActive, int teamMemberIndex)
 		{
 			bool flag = data != null && bActive;
@@ -151,7 +146,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BAE0 RID: 47840 RVA: 0x002646D8 File Offset: 0x002628D8
 		private void _AppendAttr(List<XTeamFriendDegreeHandler.XPercentAttr> attrs, XTeamFriendDegreeHandler.XPercentAttr newAttr)
 		{
 			int i;
@@ -172,7 +166,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BAE1 RID: 47841 RVA: 0x00264750 File Offset: 0x00262950
 		private void _SetAttr(XTeamFriendDegreeHandler.XPercentAttr attr, GameObject go)
 		{
 			IXUILabel ixuilabel = go.transform.FindChild("Name").GetComponent("XUILabel") as IXUILabel;
@@ -191,7 +184,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BAE2 RID: 47842 RVA: 0x00264808 File Offset: 0x00262A08
 		private void _RefreshMyInfoPanel(ulong myUID)
 		{
 			this.m_InfoBottomFrameMe.SetActive(true);
@@ -259,7 +251,6 @@ namespace XMainClient
 			this.m_AttrPool.ActualReturnAll(false);
 		}
 
-		// Token: 0x0600BAE3 RID: 47843 RVA: 0x00264ADC File Offset: 0x00262CDC
 		private void _RefreshFriendInfoPanel(XFriendData friendData, FriendTable.RowData rowData)
 		{
 			this.m_InfoBottomFrameMe.SetActive(false);
@@ -325,61 +316,43 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04004B3D RID: 19261
 		private IXUILabel m_FriendLevel;
 
-		// Token: 0x04004B3E RID: 19262
 		private IXUILabel m_FriendTitle;
 
-		// Token: 0x04004B3F RID: 19263
 		private IXUISprite m_BtnAdd;
 
-		// Token: 0x04004B40 RID: 19264
 		private IXUISprite m_BtnBuff;
 
-		// Token: 0x04004B41 RID: 19265
 		private GameObject m_InfoPanel;
 
-		// Token: 0x04004B42 RID: 19266
 		private IXUISprite m_InfoClose;
 
-		// Token: 0x04004B43 RID: 19267
 		private IXUISprite m_InfoMiddleFrame;
 
-		// Token: 0x04004B44 RID: 19268
 		private IXUILabel m_InfoTopFrameFriendLevel;
 
-		// Token: 0x04004B45 RID: 19269
 		private GameObject m_InfoTopFrameMe;
 
-		// Token: 0x04004B46 RID: 19270
 		private IXUILabel m_InfoBottomFrameFriend;
 
-		// Token: 0x04004B47 RID: 19271
 		private GameObject m_InfoBottomFrameMe;
 
-		// Token: 0x04004B48 RID: 19272
 		private XUIPool m_AttrPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04004B49 RID: 19273
 		private XFriendsView _FriendsView;
 
-		// Token: 0x04004B4A RID: 19274
 		private XFriendsDocument _FriendsDoc;
 
-		// Token: 0x04004B4B RID: 19275
 		private XTeamDocument _TeamDoc;
 
-		// Token: 0x04004B4C RID: 19276
 		private int m_TeamMemberIndex = 0;
 
-		// Token: 0x04004B4D RID: 19277
 		private ulong m_CurrentUID = 0UL;
 
-		// Token: 0x020019B7 RID: 6583
 		private struct XPercentAttr
 		{
-			// Token: 0x0601105D RID: 69725 RVA: 0x004548A4 File Offset: 0x00452AA4
+
 			public static XTeamFriendDegreeHandler.XPercentAttr CreateFromTableData(float data0, float data1)
 			{
 				XTeamFriendDegreeHandler.XPercentAttr result;
@@ -388,10 +361,8 @@ namespace XMainClient
 				return result;
 			}
 
-			// Token: 0x04007FA6 RID: 32678
 			public uint AttrID;
 
-			// Token: 0x04007FA7 RID: 32679
 			public double Scale;
 		}
 	}

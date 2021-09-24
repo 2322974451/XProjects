@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C8B RID: 3211
+
 	internal class PersonalCareerView : DlgBase<PersonalCareerView, PersonalCareerBehaviour>
 	{
-		// Token: 0x17003212 RID: 12818
-		// (get) Token: 0x0600B556 RID: 46422 RVA: 0x0023C108 File Offset: 0x0023A308
+
 		public override string fileName
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003213 RID: 12819
-		// (get) Token: 0x0600B557 RID: 46423 RVA: 0x0023C120 File Offset: 0x0023A320
 		public override int layer
 		{
 			get
@@ -31,8 +28,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003214 RID: 12820
-		// (get) Token: 0x0600B558 RID: 46424 RVA: 0x0023C134 File Offset: 0x0023A334
 		public override int group
 		{
 			get
@@ -41,8 +36,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003215 RID: 12821
-		// (get) Token: 0x0600B559 RID: 46425 RVA: 0x0023C148 File Offset: 0x0023A348
 		public override bool autoload
 		{
 			get
@@ -51,8 +44,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003216 RID: 12822
-		// (get) Token: 0x0600B55A RID: 46426 RVA: 0x0023C15C File Offset: 0x0023A35C
 		public override bool hideMainMenu
 		{
 			get
@@ -61,8 +52,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003217 RID: 12823
-		// (get) Token: 0x0600B55B RID: 46427 RVA: 0x0023C170 File Offset: 0x0023A370
 		public override bool fullscreenui
 		{
 			get
@@ -71,8 +60,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003218 RID: 12824
-		// (get) Token: 0x0600B55C RID: 46428 RVA: 0x0023C184 File Offset: 0x0023A384
 		public override bool pushstack
 		{
 			get
@@ -81,8 +68,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003219 RID: 12825
-		// (get) Token: 0x0600B55D RID: 46429 RVA: 0x0023C198 File Offset: 0x0023A398
 		public override int sysid
 		{
 			get
@@ -91,7 +76,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B55E RID: 46430 RVA: 0x0023C1B4 File Offset: 0x0023A3B4
 		protected override void Init()
 		{
 			this.doc = XDocuments.GetSpecificDocument<XPersonalCareerDocument>(XPersonalCareerDocument.uuID);
@@ -114,7 +98,6 @@ namespace XMainClient
 			base.uiBehaviour.m_TabPool.ActualReturnAll(false);
 		}
 
-		// Token: 0x0600B55F RID: 46431 RVA: 0x0023C33C File Offset: 0x0023A53C
 		private bool _CheckBoxChanged(IXUICheckBox iXUICheckBox)
 		{
 			bool flag = !iXUICheckBox.bChecked;
@@ -131,20 +114,17 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B560 RID: 46432 RVA: 0x0023C36E File Offset: 0x0023A56E
 		public override void RegisterEvent()
 		{
 			base.uiBehaviour.m_Close.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseClicked));
 		}
 
-		// Token: 0x0600B561 RID: 46433 RVA: 0x0023C390 File Offset: 0x0023A590
 		public bool OnCloseClicked(IXUIButton btn)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x0600B562 RID: 46434 RVA: 0x0023C3AC File Offset: 0x0023A5AC
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -158,7 +138,6 @@ namespace XMainClient
 			this.OnTabChanged(this.m_PrefabTab);
 		}
 
-		// Token: 0x0600B563 RID: 46435 RVA: 0x0023C3F7 File Offset: 0x0023A5F7
 		protected override void OnHide()
 		{
 			this.roleId = 0UL;
@@ -167,7 +146,6 @@ namespace XMainClient
 			base.OnHide();
 		}
 
-		// Token: 0x0600B564 RID: 46436 RVA: 0x0023C421 File Offset: 0x0023A621
 		protected override void OnUnload()
 		{
 			DlgHandlerBase.EnsureUnload<CareerHomepageHandler>(ref this.HomepageHandler);
@@ -176,7 +154,6 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x0600B565 RID: 46437 RVA: 0x0023C450 File Offset: 0x0023A650
 		private void CloseAllTab()
 		{
 			bool flag = this.HomepageHandler != null && this.HomepageHandler.IsVisible();
@@ -196,7 +173,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B566 RID: 46438 RVA: 0x0023C4D4 File Offset: 0x0023A6D4
 		public void OnTabChanged(PersonalCareerView.CareerTab handler)
 		{
 			XSingleton<XDebug>.singleton.AddGreenLog("Tab:" + handler.ToString(), null, null, null, null, null);
@@ -259,7 +235,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B567 RID: 46439 RVA: 0x0023C648 File Offset: 0x0023A848
 		public bool IsHasData(PersonalCarrerReqType type)
 		{
 			bool flag2;
@@ -277,7 +252,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B568 RID: 46440 RVA: 0x0023C69C File Offset: 0x0023A89C
 		public void SetCareer(PersonalCareerArg oArg, PersonalCareerRes oRes)
 		{
 			switch (oArg.quest_type)
@@ -300,7 +274,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B569 RID: 46441 RVA: 0x0023C768 File Offset: 0x0023A968
 		public void OpenTab(PersonalCareerView.CareerTab tab)
 		{
 			this.CloseAllTab();
@@ -319,7 +292,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B56A RID: 46442 RVA: 0x0023C7D0 File Offset: 0x0023A9D0
 		public void OpenOtherPush(List<ulong> param)
 		{
 			for (int i = 0; i < param.Count; i++)
@@ -352,7 +324,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B56B RID: 46443 RVA: 0x0023C8C4 File Offset: 0x0023AAC4
 		public void ShareClick()
 		{
 			bool flag = this.roleId > 0UL;
@@ -364,7 +335,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B56C RID: 46444 RVA: 0x0023C910 File Offset: 0x0023AB10
 		public void PushClick(ulong p1 = 0UL)
 		{
 			bool flag = this.roleId > 0UL;
@@ -379,7 +349,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B56D RID: 46445 RVA: 0x0023C998 File Offset: 0x0023AB98
 		private void OnChatSend()
 		{
 			XInvitationDocument specificDocument = XDocuments.GetSpecificDocument<XInvitationDocument>(XInvitationDocument.uuID);
@@ -391,7 +360,6 @@ namespace XMainClient
 			});
 		}
 
-		// Token: 0x0600B56E RID: 46446 RVA: 0x0023C9F0 File Offset: 0x0023ABF0
 		private NoticeType GetNotice()
 		{
 			NoticeType result = NoticeType.NT_OPENSYS_CAREER_MAIN;
@@ -410,45 +378,35 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x040046E4 RID: 18148
 		private XPersonalCareerDocument doc = null;
 
-		// Token: 0x040046E5 RID: 18149
 		private Dictionary<PersonalCareerView.CareerTab, IXUICheckBox> m_AllTabs = new Dictionary<PersonalCareerView.CareerTab, IXUICheckBox>();
 
-		// Token: 0x040046E6 RID: 18150
 		private PersonalCareerView.CareerTab m_CurrentTab;
 
-		// Token: 0x040046E7 RID: 18151
 		private PersonalCareerView.CareerTab m_PrefabTab = PersonalCareerView.CareerTab.NONE;
 
-		// Token: 0x040046E8 RID: 18152
 		public CareerHomepageHandler HomepageHandler = null;
 
-		// Token: 0x040046E9 RID: 18153
 		public CareerPVPDataHandler PVPHandler = null;
 
-		// Token: 0x040046EA RID: 18154
 		public CareerTrophyHandler TrophyHandler = null;
 
-		// Token: 0x040046EB RID: 18155
 		public ulong roleId = 0UL;
 
-		// Token: 0x040046EC RID: 18156
 		private ulong param1 = 1UL;
 
-		// Token: 0x020019AD RID: 6573
 		public enum CareerTab
 		{
-			// Token: 0x04007F80 RID: 32640
+
 			NONE,
-			// Token: 0x04007F81 RID: 32641
+
 			Homepage,
-			// Token: 0x04007F82 RID: 32642
+
 			PVPInfo,
-			// Token: 0x04007F83 RID: 32643
+
 			Trophy,
-			// Token: 0x04007F84 RID: 32644
+
 			MAX
 		}
 	}

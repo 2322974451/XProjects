@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000E5A RID: 3674
+
 	internal class XOnlineRewardView : DlgBase<XOnlineRewardView, XOnlineRewardBehaviour>
 	{
-		// Token: 0x17003479 RID: 13433
-		// (get) Token: 0x0600C4D7 RID: 50391 RVA: 0x002B2070 File Offset: 0x002B0270
+
 		public override string fileName
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700347A RID: 13434
-		// (get) Token: 0x0600C4D8 RID: 50392 RVA: 0x002B2088 File Offset: 0x002B0288
 		public override bool autoload
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700347B RID: 13435
-		// (get) Token: 0x0600C4D9 RID: 50393 RVA: 0x002B209C File Offset: 0x002B029C
 		public override bool pushstack
 		{
 			get
@@ -40,7 +35,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C4DA RID: 50394 RVA: 0x002B20B0 File Offset: 0x002B02B0
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -48,7 +42,6 @@ namespace XMainClient
 			base.uiBehaviour.m_GetReward.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnGetRewardClick));
 		}
 
-		// Token: 0x0600C4DB RID: 50395 RVA: 0x002B2100 File Offset: 0x002B0300
 		private bool OnCloseClick(IXUIButton button)
 		{
 			base.uiBehaviour.m_BgTween.PlayTween(false, -1f);
@@ -56,21 +49,18 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600C4DC RID: 50396 RVA: 0x002B2148 File Offset: 0x002B0348
 		private bool OnGetRewardClick(IXUIButton button)
 		{
 			this._doc.SendGetReward(this._doc.CurrentID);
 			return true;
 		}
 
-		// Token: 0x0600C4DD RID: 50397 RVA: 0x002B2172 File Offset: 0x002B0372
 		protected override void Init()
 		{
 			base.Init();
 			this._doc = XDocuments.GetSpecificDocument<XOnlineRewardDocument>(XOnlineRewardDocument.uuID);
 		}
 
-		// Token: 0x0600C4DE RID: 50398 RVA: 0x002B218C File Offset: 0x002B038C
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -90,14 +80,12 @@ namespace XMainClient
 			base.uiBehaviour.m_BgTween.RegisterOnFinishEventHandler(null);
 		}
 
-		// Token: 0x0600C4DF RID: 50399 RVA: 0x002B223F File Offset: 0x002B043F
 		protected override void OnUnload()
 		{
 			XSingleton<XTimerMgr>.singleton.KillTimer(this._timeToken);
 			base.OnUnload();
 		}
 
-		// Token: 0x0600C4E0 RID: 50400 RVA: 0x002B225C File Offset: 0x002B045C
 		public void RefreshItemList()
 		{
 			base.uiBehaviour.m_ItemPool.FakeReturnAll();
@@ -116,7 +104,6 @@ namespace XMainClient
 			base.uiBehaviour.m_ItemPool.ActualReturnAll(false);
 		}
 
-		// Token: 0x0600C4E1 RID: 50401 RVA: 0x002B2408 File Offset: 0x002B0608
 		public void SetGetRewardLabel(int status)
 		{
 			bool flag = status == 0;
@@ -147,13 +134,11 @@ namespace XMainClient
 			base.uiBehaviour.m_TimeTip.SetText(XOnlineRewardDocument.RewardTable.Table[this._doc.CurrentID].RewardTip);
 		}
 
-		// Token: 0x0600C4E2 RID: 50402 RVA: 0x002B24F6 File Offset: 0x002B06F6
 		public void OnPlayTweenFinish(IXUITweenTool tween)
 		{
 			this.SetVisible(false, true);
 		}
 
-		// Token: 0x0600C4E3 RID: 50403 RVA: 0x002B2504 File Offset: 0x002B0704
 		public void SetLeftTime(object o = null)
 		{
 			bool flag = !base.IsVisible();
@@ -179,10 +164,8 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x040055DF RID: 21983
 		private XOnlineRewardDocument _doc = null;
 
-		// Token: 0x040055E0 RID: 21984
 		private uint _timeToken;
 	}
 }

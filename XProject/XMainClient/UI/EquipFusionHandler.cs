@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020016E0 RID: 5856
+
 	internal class EquipFusionHandler : DlgHandlerBase
 	{
-		// Token: 0x17003752 RID: 14162
-		// (get) Token: 0x0600F194 RID: 61844 RVA: 0x00355FE0 File Offset: 0x003541E0
+
 		public string FxPath
 		{
 			get
@@ -25,8 +24,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003753 RID: 14163
-		// (get) Token: 0x0600F195 RID: 61845 RVA: 0x0035601C File Offset: 0x0035421C
 		protected override string FileName
 		{
 			get
@@ -35,7 +32,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F196 RID: 61846 RVA: 0x00356034 File Offset: 0x00354234
 		protected override void Init()
 		{
 			base.Init();
@@ -71,7 +67,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F197 RID: 61847 RVA: 0x00356328 File Offset: 0x00354528
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -82,14 +77,12 @@ namespace XMainClient.UI
 			this.m_addSpr.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnSelectItem));
 		}
 
-		// Token: 0x0600F198 RID: 61848 RVA: 0x001F8A12 File Offset: 0x001F6C12
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.RefreshData();
 		}
 
-		// Token: 0x0600F199 RID: 61849 RVA: 0x003563B8 File Offset: 0x003545B8
 		protected override void OnHide()
 		{
 			base.OnHide();
@@ -109,7 +102,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F19A RID: 61850 RVA: 0x0035643C File Offset: 0x0035463C
 		public override void OnUnload()
 		{
 			base.OnUnload();
@@ -128,7 +120,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F19B RID: 61851 RVA: 0x003564B0 File Offset: 0x003546B0
 		public override void RefreshData()
 		{
 			base.RefreshData();
@@ -150,14 +141,12 @@ namespace XMainClient.UI
 			this.FillContent();
 		}
 
-		// Token: 0x0600F19C RID: 61852 RVA: 0x0035654D File Offset: 0x0035474D
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
 			this.RefreshData();
 		}
 
-		// Token: 0x0600F19D RID: 61853 RVA: 0x00356560 File Offset: 0x00354760
 		public void ShowUI(bool playEffect = false)
 		{
 			if (playEffect)
@@ -167,7 +156,6 @@ namespace XMainClient.UI
 			this.FillContent();
 		}
 
-		// Token: 0x0600F19E RID: 61854 RVA: 0x00356584 File Offset: 0x00354784
 		private void PlayBreakEffect()
 		{
 			bool flag = this.m_fx == null;
@@ -182,7 +170,6 @@ namespace XMainClient.UI
 			this.m_fx.Play(base.PanelObject.transform.Find("Effect"), Vector3.zero, Vector3.one, 1f, true, false);
 		}
 
-		// Token: 0x0600F19F RID: 61855 RVA: 0x003565FC File Offset: 0x003547FC
 		private void FillContent()
 		{
 			this.m_contentGo.SetActive(false);
@@ -247,7 +234,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F1A0 RID: 61856 RVA: 0x003568B4 File Offset: 0x00354AB4
 		private void FillAttribute()
 		{
 			this.m_tplPool.ReturnAll(false);
@@ -280,7 +266,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F1A1 RID: 61857 RVA: 0x00356A9C File Offset: 0x00354C9C
 		private void SetItemActive(bool flag)
 		{
 			bool flag2 = this.m_itemsGoList == null;
@@ -293,7 +278,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F1A2 RID: 61858 RVA: 0x00356AE8 File Offset: 0x00354CE8
 		private void FillButtom(XequipFuseInfo info, EquipList.RowData row)
 		{
 			bool flag = XSingleton<XEntityMgr>.singleton.Player == null;
@@ -322,7 +306,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F1A3 RID: 61859 RVA: 0x00356C20 File Offset: 0x00354E20
 		private void FillNeedItem(int itemId, EquipFusionTable.RowData fuseRow)
 		{
 			bool isBreak = this.m_doc.IsBreak;
@@ -388,7 +371,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F1A4 RID: 61860 RVA: 0x00356EE0 File Offset: 0x003550E0
 		public void UpdateItem()
 		{
 			this.SetItemActive(false);
@@ -491,7 +473,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F1A5 RID: 61861 RVA: 0x00357344 File Offset: 0x00355544
 		private void UpdateProcessBar()
 		{
 			XItem itemByUID = XBagDocument.BagDoc.GetItemByUID(this.m_doc.SelectUid);
@@ -534,7 +515,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F1A6 RID: 61862 RVA: 0x00357534 File Offset: 0x00355734
 		public void UpdateButtom()
 		{
 			XItem itemByUID = XBagDocument.BagDoc.GetItemByUID(this.m_doc.SelectUid);
@@ -551,7 +531,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F1A7 RID: 61863 RVA: 0x003575A0 File Offset: 0x003557A0
 		private void DeActiveEffect()
 		{
 			bool flag = this.m_fx != null;
@@ -566,7 +545,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F1A8 RID: 61864 RVA: 0x003575E4 File Offset: 0x003557E4
 		private void SetEffect(GameObject go, uint breakLevel)
 		{
 			bool flag = go == null;
@@ -588,21 +566,18 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F1A9 RID: 61865 RVA: 0x00357670 File Offset: 0x00355870
 		private bool OnClosed(IXUIButton btn)
 		{
 			base.SetVisible(false);
 			return true;
 		}
 
-		// Token: 0x0600F1AA RID: 61866 RVA: 0x0035768C File Offset: 0x0035588C
 		private bool OnHelp(IXUIButton btn)
 		{
 			DlgBase<XCommonHelpTipView, XCommonHelpTipBehaviour>.singleton.ShowHelp(XSysDefine.XSys_EquipFusion);
 			return true;
 		}
 
-		// Token: 0x0600F1AB RID: 61867 RVA: 0x003576B0 File Offset: 0x003558B0
 		private bool OnFuse(IXUIButton btn)
 		{
 			bool flag = this.SetButtonCool(this.m_delayTime);
@@ -646,7 +621,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F1AC RID: 61868 RVA: 0x00357798 File Offset: 0x00355998
 		private void OnSelectItem(IXUISprite spr)
 		{
 			bool flag = this.m_doc.IsBreak || this.m_doc.IsMax;
@@ -656,7 +630,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F1AD RID: 61869 RVA: 0x003577E0 File Offset: 0x003559E0
 		private void OnClickItem(IXUISprite iSp)
 		{
 			ulong id = iSp.ID;
@@ -673,26 +646,22 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F1AE RID: 61870 RVA: 0x0035782E File Offset: 0x00355A2E
 		public void OnEquipClicked(IXUISprite iSp)
 		{
 			this.m_doc.SelectEquip(iSp.ID);
 		}
 
-		// Token: 0x0600F1AF RID: 61871 RVA: 0x00357844 File Offset: 0x00355A44
 		private void OnClickItemIcon(IXUISprite spr)
 		{
 			int itemid = (int)spr.ID;
 			XSingleton<UiUtility>.singleton.ShowItemAccess(itemid, null);
 		}
 
-		// Token: 0x0600F1B0 RID: 61872 RVA: 0x00357867 File Offset: 0x00355A67
 		private void OnFuseHelpPress(IXUIButton btn, bool isPressed)
 		{
 			this.m_contentGo.SetActive(isPressed);
 		}
 
-		// Token: 0x0600F1B1 RID: 61873 RVA: 0x00357878 File Offset: 0x00355A78
 		private bool SetButtonCool(float time)
 		{
 			float num = Time.realtimeSinceStartup - this.m_fLastClickBtnTime;
@@ -710,82 +679,56 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x04006742 RID: 26434
 		private EquipFusionDocument m_doc;
 
-		// Token: 0x04006743 RID: 26435
 		private EquipFusionSelectHandler m_selectHandler;
 
-		// Token: 0x04006744 RID: 26436
 		private IXUIButton m_closedBtn;
 
-		// Token: 0x04006745 RID: 26437
 		private IXUIButton m_helpBtn;
 
-		// Token: 0x04006746 RID: 26438
 		private IXUIButton m_fuseHelpBtn;
 
-		// Token: 0x04006747 RID: 26439
 		private IXUIButton m_fuseBtn;
 
-		// Token: 0x04006748 RID: 26440
 		private IXUILabel m_breakLevelLab;
 
-		// Token: 0x04006749 RID: 26441
 		private IXUILabel m_processValueLab;
 
-		// Token: 0x0400674A RID: 26442
 		private IXUILabel m_previewValueLab;
 
-		// Token: 0x0400674B RID: 26443
 		private IXUILabel m_contentLab;
 
-		// Token: 0x0400674C RID: 26444
 		private IXUILabelSymbol m_symbolLab;
 
-		// Token: 0x0400674D RID: 26445
 		private IXUILabel m_tipsLab;
 
-		// Token: 0x0400674E RID: 26446
 		private IXUIProgress m_process;
 
-		// Token: 0x0400674F RID: 26447
 		private IXUISprite m_addSpr;
 
-		// Token: 0x04006750 RID: 26448
 		private IXUISprite m_previewSpr;
 
-		// Token: 0x04006751 RID: 26449
 		private GameObject m_equipItemGo;
 
-		// Token: 0x04006752 RID: 26450
 		private GameObject m_itemGo;
 
-		// Token: 0x04006753 RID: 26451
 		private GameObject m_contentGo;
 
-		// Token: 0x04006754 RID: 26452
 		private XUIPool m_tplPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006755 RID: 26453
 		private List<GameObject> m_itemsGoList;
 
-		// Token: 0x04006756 RID: 26454
 		private bool m_materialIsEnough = true;
 
-		// Token: 0x04006757 RID: 26455
 		private float m_delayTime = 0.5f;
 
-		// Token: 0x04006758 RID: 26456
 		private float m_fLastClickBtnTime = 0f;
 
-		// Token: 0x04006759 RID: 26457
 		private XFx m_fuseBreakFx;
 
-		// Token: 0x0400675A RID: 26458
 		private XFx m_fx;
 
-		// Token: 0x0400675B RID: 26459
 		private string m_fxPath = string.Empty;
 	}
 }

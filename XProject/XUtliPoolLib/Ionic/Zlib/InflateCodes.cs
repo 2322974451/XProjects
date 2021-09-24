@@ -2,15 +2,14 @@
 
 namespace Ionic.Zlib
 {
-	// Token: 0x0200002C RID: 44
+
 	internal sealed class InflateCodes
 	{
-		// Token: 0x06000151 RID: 337 RVA: 0x0000B08F File Offset: 0x0000928F
+
 		internal InflateCodes()
 		{
 		}
 
-		// Token: 0x06000152 RID: 338 RVA: 0x0000B0A0 File Offset: 0x000092A0
 		internal void Init(int bl, int bd, int[] tl, int tl_index, int[] td, int td_index)
 		{
 			this.mode = 0;
@@ -23,7 +22,6 @@ namespace Ionic.Zlib
 			this.tree = null;
 		}
 
-		// Token: 0x06000153 RID: 339 RVA: 0x0000B0E0 File Offset: 0x000092E0
 		internal int Process(InflateBlocks blocks, int r)
 		{
 			ZlibCodec codec = blocks._codec;
@@ -412,7 +410,6 @@ namespace Ionic.Zlib
 			return blocks.Flush(r);
 		}
 
-		// Token: 0x06000154 RID: 340 RVA: 0x0000BD14 File Offset: 0x00009F14
 		internal int InflateFast(int bl, int bd, int[] tl, int tl_index, int[] td, int td_index, InflateBlocks s, ZlibCodec z)
 		{
 			int num = z.NextIn;
@@ -650,76 +647,52 @@ namespace Ionic.Zlib
 			return 0;
 		}
 
-		// Token: 0x0400012C RID: 300
 		private const int START = 0;
 
-		// Token: 0x0400012D RID: 301
 		private const int LEN = 1;
 
-		// Token: 0x0400012E RID: 302
 		private const int LENEXT = 2;
 
-		// Token: 0x0400012F RID: 303
 		private const int DIST = 3;
 
-		// Token: 0x04000130 RID: 304
 		private const int DISTEXT = 4;
 
-		// Token: 0x04000131 RID: 305
 		private const int COPY = 5;
 
-		// Token: 0x04000132 RID: 306
 		private const int LIT = 6;
 
-		// Token: 0x04000133 RID: 307
 		private const int WASH = 7;
 
-		// Token: 0x04000134 RID: 308
 		private const int END = 8;
 
-		// Token: 0x04000135 RID: 309
 		private const int BADCODE = 9;
 
-		// Token: 0x04000136 RID: 310
 		internal int mode;
 
-		// Token: 0x04000137 RID: 311
 		internal int len;
 
-		// Token: 0x04000138 RID: 312
 		internal int[] tree;
 
-		// Token: 0x04000139 RID: 313
 		internal int tree_index = 0;
 
-		// Token: 0x0400013A RID: 314
 		internal int need;
 
-		// Token: 0x0400013B RID: 315
 		internal int lit;
 
-		// Token: 0x0400013C RID: 316
 		internal int bitsToGet;
 
-		// Token: 0x0400013D RID: 317
 		internal int dist;
 
-		// Token: 0x0400013E RID: 318
 		internal byte lbits;
 
-		// Token: 0x0400013F RID: 319
 		internal byte dbits;
 
-		// Token: 0x04000140 RID: 320
 		internal int[] ltree;
 
-		// Token: 0x04000141 RID: 321
 		internal int ltree_index;
 
-		// Token: 0x04000142 RID: 322
 		internal int[] dtree;
 
-		// Token: 0x04000143 RID: 323
 		internal int dtree_index;
 	}
 }

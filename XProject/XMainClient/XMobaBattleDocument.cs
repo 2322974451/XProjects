@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000955 RID: 2389
+
 	internal class XMobaBattleDocument : XDocComponent
 	{
-		// Token: 0x17002C32 RID: 11314
-		// (get) Token: 0x06008FE9 RID: 36841 RVA: 0x00145034 File Offset: 0x00143234
+
 		public override uint ID
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002C33 RID: 11315
-		// (get) Token: 0x06008FEA RID: 36842 RVA: 0x0014504C File Offset: 0x0014324C
 		public MobaLevel MobaLevelReader
 		{
 			get
@@ -31,8 +28,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002C34 RID: 11316
-		// (get) Token: 0x06008FEB RID: 36843 RVA: 0x00145064 File Offset: 0x00143264
 		public XBetterDictionary<ulong, MobaMemberData> MobaData
 		{
 			get
@@ -41,8 +36,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002C35 RID: 11317
-		// (get) Token: 0x06008FEC RID: 36844 RVA: 0x0014507C File Offset: 0x0014327C
 		private XHeroBattleSkillDocument _skillDoc
 		{
 			get
@@ -56,8 +49,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002C36 RID: 11318
-		// (get) Token: 0x06008FED RID: 36845 RVA: 0x001450B4 File Offset: 0x001432B4
 		public int SkillPoint
 		{
 			get
@@ -71,7 +62,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008FEE RID: 36846 RVA: 0x001450F0 File Offset: 0x001432F0
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			XMobaBattleDocument.AsyncLoader.AddTask("Table/MobaLevel", XMobaBattleDocument._mobaLevelReader, false);
@@ -80,20 +70,17 @@ namespace XMainClient
 			XMobaBattleDocument.AsyncLoader.Execute(callback);
 		}
 
-		// Token: 0x06008FEF RID: 36847 RVA: 0x0014514C File Offset: 0x0014334C
 		protected override void EventSubscribe()
 		{
 			base.EventSubscribe();
 			base.RegisterEvent(XEventDefine.XEvent_OnEntityCreated, new XComponent.XEventHandler(this.OnEntityCreate));
 		}
 
-		// Token: 0x06008FF0 RID: 36848 RVA: 0x00114ACA File Offset: 0x00112CCA
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
 		}
 
-		// Token: 0x06008FF1 RID: 36849 RVA: 0x0014516C File Offset: 0x0014336C
 		public override void OnEnterSceneFinally()
 		{
 			base.OnEnterSceneFinally();
@@ -111,7 +98,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008FF2 RID: 36850 RVA: 0x001451E8 File Offset: 0x001433E8
 		public override void OnLeaveScene()
 		{
 			base.OnLeaveScene();
@@ -124,12 +110,10 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008FF3 RID: 36851 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 		}
 
-		// Token: 0x06008FF4 RID: 36852 RVA: 0x00145230 File Offset: 0x00143430
 		private bool OnEntityCreate(XEventArgs args)
 		{
 			bool flag = XSingleton<XScene>.singleton.SceneType != SceneType.SCENE_MOBA;
@@ -147,13 +131,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008FF5 RID: 36853 RVA: 0x00145275 File Offset: 0x00143475
 		public void OnEntityTargetChange(EntityTargetData changeData)
 		{
 			this._TowerMgr.OnTargetChange(changeData);
 		}
 
-		// Token: 0x06008FF6 RID: 36854 RVA: 0x00145288 File Offset: 0x00143488
 		public void SetBattleMsg(List<MobaBattleTeamData> list)
 		{
 			bool flag = list.Count < 2 || this.MyData == null || (list[0].teamid != this.MyData.teamID && list[1].teamid != this.MyData.teamID);
@@ -186,7 +168,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008FF7 RID: 36855 RVA: 0x001453D8 File Offset: 0x001435D8
 		public void SetAllData(MobaBattleTeamRoleData data)
 		{
 			this._skillDoc.TAS.Clear();
@@ -238,7 +219,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008FF8 RID: 36856 RVA: 0x0014560C File Offset: 0x0014380C
 		public void InitData(MobaRoleData data, uint teamID)
 		{
 			MobaMemberData mobaMemberData = null;
@@ -256,7 +236,6 @@ namespace XMainClient
 			this.TurnFromServerData(data, ref mobaMemberData);
 		}
 
-		// Token: 0x06008FF9 RID: 36857 RVA: 0x00145684 File Offset: 0x00143884
 		public void OnDataChange(List<MobaRoleData> list)
 		{
 			bool flag = false;
@@ -295,7 +274,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008FFA RID: 36858 RVA: 0x001457B8 File Offset: 0x001439B8
 		public bool TurnFromServerData(MobaRoleData data, ref MobaMemberData info)
 		{
 			bool nameSpecified = data.nameSpecified;
@@ -423,7 +401,6 @@ namespace XMainClient
 			return data.heroidSpecified || data.killNumSpecified || data.deathNumSpecified || data.assistNumSpecified || data.attackLevelSpecified || data.defenseLevelSpecified;
 		}
 
-		// Token: 0x06008FFB RID: 36859 RVA: 0x00145C0C File Offset: 0x00143E0C
 		public int MyLevel()
 		{
 			bool flag = this.MyData == null;
@@ -439,7 +416,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008FFC RID: 36860 RVA: 0x00145C3C File Offset: 0x00143E3C
 		public bool GetRoleLevelAndExp(ulong uid, out int level, out float exp)
 		{
 			level = 1;
@@ -461,7 +437,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008FFD RID: 36861 RVA: 0x00145CA8 File Offset: 0x00143EA8
 		public int GetLevelUpExp(uint level)
 		{
 			MobaLevel.RowData byLevel = XMobaBattleDocument._mobaLevelReader.GetByLevel(level);
@@ -479,12 +454,10 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008FFE RID: 36862 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public void ShowGetExp(int exp)
 		{
 		}
 
-		// Token: 0x06008FFF RID: 36863 RVA: 0x00145CF8 File Offset: 0x00143EF8
 		public void OnRoleLevelUp(ulong uid, bool haveFx, bool isMy)
 		{
 			if (haveFx)
@@ -506,7 +479,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009000 RID: 36864 RVA: 0x00145D88 File Offset: 0x00143F88
 		public void QuerySkillLevelUp(uint skillID)
 		{
 			RpcC2G_SceneMobaOp rpcC2G_SceneMobaOp = new RpcC2G_SceneMobaOp();
@@ -515,7 +487,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_SceneMobaOp);
 		}
 
-		// Token: 0x06009001 RID: 36865 RVA: 0x00145DC4 File Offset: 0x00143FC4
 		public void QueryAdditionLevelUp(int type)
 		{
 			bool flag = this.MyData != null && this.MyData.additionPoint == 0U;
@@ -528,7 +499,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009002 RID: 36866 RVA: 0x00145E20 File Offset: 0x00144020
 		public void SendSignal(uint type)
 		{
 			RpcC2G_MobaSignaling rpcC2G_MobaSignaling = new RpcC2G_MobaSignaling();
@@ -536,7 +506,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_MobaSignaling);
 		}
 
-		// Token: 0x06009003 RID: 36867 RVA: 0x00145E50 File Offset: 0x00144050
 		public void OnSignalGet(ulong uid, uint type, Vector3 pos)
 		{
 			uint heroID = 0U;
@@ -589,7 +558,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009004 RID: 36868 RVA: 0x00145FF8 File Offset: 0x001441F8
 		public override void Update(float fDeltaT)
 		{
 			base.Update(fDeltaT);
@@ -617,13 +585,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009005 RID: 36869 RVA: 0x001460F0 File Offset: 0x001442F0
 		public bool isAlly(int teamID)
 		{
 			return this.MyData == null || (long)teamID == (long)((ulong)this.MyData.teamID);
 		}
 
-		// Token: 0x06009006 RID: 36870 RVA: 0x00146120 File Offset: 0x00144320
 		public bool isAlly(ulong uid)
 		{
 			bool flag = this.MyData == null;
@@ -641,13 +607,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009007 RID: 36871 RVA: 0x0014616F File Offset: 0x0014436F
 		public void StartMvpCutScene(bool blueWin)
 		{
 			XSingleton<XCutScene>.singleton.Start(blueWin ? "CutScene/herocanyan_blue_cutscene" : "CutScene/herocanyan_red_cutscene", true, true);
 		}
 
-		// Token: 0x06009008 RID: 36872 RVA: 0x00146190 File Offset: 0x00144390
 		public void SetMiniMapIcon(List<uint> list)
 		{
 			HashSet<uint> hashSet = new HashSet<uint>();
@@ -689,13 +653,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009009 RID: 36873 RVA: 0x00146358 File Offset: 0x00144558
 		public void MobaHintNotify(MobaHintNtf ntf)
 		{
 			this.CreateMessageInfo(ntf.index);
 		}
 
-		// Token: 0x0600900A RID: 36874 RVA: 0x00146368 File Offset: 0x00144568
 		public void MobaKillerNotify(HeroKillNotifyData notify)
 		{
 			bool flag = notify.killer == null || notify.dead == null;
@@ -786,7 +748,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600900B RID: 36875 RVA: 0x00146558 File Offset: 0x00144758
 		private void CreateKillerInfo(int type, HeroKillUnit killer, HeroKillUnit deader, List<HeroKillUnit> assists)
 		{
 			MobaReminder info = MobaInfoPool.GetInfo();
@@ -805,7 +766,6 @@ namespace XMainClient
 			DlgBase<MobaKillView, MobaKillBehaviour>.singleton.Enqueue(info);
 		}
 
-		// Token: 0x0600900C RID: 36876 RVA: 0x001465CC File Offset: 0x001447CC
 		private void CreateMessageInfo(int type)
 		{
 			MobaReminder info = MobaInfoPool.GetInfo();
@@ -821,7 +781,6 @@ namespace XMainClient
 			DlgBase<MobaKillView, MobaKillBehaviour>.singleton.Enqueue(info);
 		}
 
-		// Token: 0x0600900D RID: 36877 RVA: 0x00146628 File Offset: 0x00144828
 		public uint GetHeroIDByRoleID(ulong uid)
 		{
 			MobaMemberData mobaMemberData = null;
@@ -838,64 +797,45 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x04002F88 RID: 12168
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("MobaBattleDocument");
 
-		// Token: 0x04002F89 RID: 12169
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x04002F8A RID: 12170
 		private static MobaLevel _mobaLevelReader = new MobaLevel();
 
-		// Token: 0x04002F8B RID: 12171
 		private static MobaMiniMap _miniMapReader = new MobaMiniMap();
 
-		// Token: 0x04002F8C RID: 12172
 		public static MobaSignalTable MobaSignalReader = new MobaSignalTable();
 
-		// Token: 0x04002F8D RID: 12173
 		private XBetterDictionary<ulong, MobaMemberData> _mobaData = new XBetterDictionary<ulong, MobaMemberData>(0);
 
-		// Token: 0x04002F8E RID: 12174
 		private List<XMobaBattleDocument.MobaMiniMapIcon> _miniMapIconToken = new List<XMobaBattleDocument.MobaMiniMapIcon>();
 
-		// Token: 0x04002F8F RID: 12175
 		private XHeroBattleSkillDocument _valueDoc;
 
-		// Token: 0x04002F90 RID: 12176
 		public uint MyTeamkill;
 
-		// Token: 0x04002F91 RID: 12177
 		public uint OtherTeamKill;
 
-		// Token: 0x04002F92 RID: 12178
 		public uint MyTeamLevel;
 
-		// Token: 0x04002F93 RID: 12179
 		public uint OtherTeamLevel;
 
-		// Token: 0x04002F94 RID: 12180
 		public MobaMemberData MyData = null;
 
-		// Token: 0x04002F95 RID: 12181
 		private uint _mapFxToken;
 
-		// Token: 0x04002F96 RID: 12182
 		private bool _heroChange;
 
-		// Token: 0x04002F97 RID: 12183
 		private XMobaTowerTargetMgr _TowerMgr = new XMobaTowerTargetMgr();
 
-		// Token: 0x04002F98 RID: 12184
 		private float _RefreshSignTime;
 
-		// Token: 0x02001962 RID: 6498
 		private struct MobaMiniMapIcon
 		{
-			// Token: 0x04007DFE RID: 32254
+
 			public uint _index;
 
-			// Token: 0x04007DFF RID: 32255
 			public uint _token;
 		}
 	}

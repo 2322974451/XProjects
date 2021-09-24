@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000DD0 RID: 3536
+
 	internal class XStageProgress : XSingleton<XStageProgress>
 	{
-		// Token: 0x170033D3 RID: 13267
-		// (get) Token: 0x0600C09E RID: 49310 RVA: 0x0028C900 File Offset: 0x0028AB00
+
 		public int BaseRank
 		{
 			get
@@ -20,17 +19,10 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170033D4 RID: 13268
-		// (get) Token: 0x0600C09F RID: 49311 RVA: 0x0028C918 File Offset: 0x0028AB18
-		// (set) Token: 0x0600C0A0 RID: 49312 RVA: 0x0028C920 File Offset: 0x0028AB20
 		public int LastNormalChapter { get; set; }
 
-		// Token: 0x170033D5 RID: 13269
-		// (get) Token: 0x0600C0A1 RID: 49313 RVA: 0x0028C929 File Offset: 0x0028AB29
-		// (set) Token: 0x0600C0A2 RID: 49314 RVA: 0x0028C931 File Offset: 0x0028AB31
 		public int LastHardChapter { get; set; }
 
-		// Token: 0x0600C0A3 RID: 49315 RVA: 0x0028C93C File Offset: 0x0028AB3C
 		public void Init(StageInfo stageInfo)
 		{
 			this.StageRanks.Clear();
@@ -53,7 +45,6 @@ namespace XMainClient
 			this.ReCalculateLastChapter();
 		}
 
-		// Token: 0x0600C0A4 RID: 49316 RVA: 0x0028CA40 File Offset: 0x0028AC40
 		public bool HasChapterBoxFetched(int chapterID, int index)
 		{
 			bool flag = this.StageBox.ContainsKey(chapterID);
@@ -68,7 +59,6 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x0600C0A5 RID: 49317 RVA: 0x0028CA84 File Offset: 0x0028AC84
 		public void OnFetchChapterBoxSucc(int chapterID, int chestID)
 		{
 			bool flag = this.StageBox.ContainsKey(chapterID);
@@ -92,20 +82,17 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C0A6 RID: 49318 RVA: 0x0028CB15 File Offset: 0x0028AD15
 		public void OnEnterScene()
 		{
 			this._base_rank = this.GetRank((int)XSingleton<XScene>.singleton.SceneID);
 		}
 
-		// Token: 0x0600C0A7 RID: 49319 RVA: 0x0028CB2E File Offset: 0x0028AD2E
 		protected void ReCalculateLastChapter()
 		{
 			this.LastNormalChapter = this._CalPlayerLastChapter(0U, ref this.LastNormalLocationChapter);
 			this.LastHardChapter = this._CalPlayerLastChapter(1U, ref this.LastHardLocationChapter);
 		}
 
-		// Token: 0x0600C0A8 RID: 49320 RVA: 0x0028CB5C File Offset: 0x0028AD5C
 		protected int _CalPlayerLastChapter(uint difficult, ref int lastLocationChapter)
 		{
 			lastLocationChapter = 0;
@@ -161,7 +148,6 @@ namespace XMainClient
 			return num;
 		}
 
-		// Token: 0x0600C0A9 RID: 49321 RVA: 0x0028CC60 File Offset: 0x0028AE60
 		public int GetPlayerLastChapter(uint difficult)
 		{
 			bool flag = difficult == 0U;
@@ -177,7 +163,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C0AA RID: 49322 RVA: 0x0028CC8C File Offset: 0x0028AE8C
 		public int GetPlayerLocationChapter(uint difficult)
 		{
 			bool flag = difficult == 0U;
@@ -193,7 +178,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C0AB RID: 49323 RVA: 0x0028CCB8 File Offset: 0x0028AEB8
 		public uint GetPlayerLastSceneInChapter(int chapter)
 		{
 			List<uint> list = ListPool<uint>.Get();
@@ -212,7 +196,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C0AC RID: 49324 RVA: 0x0028CD24 File Offset: 0x0028AF24
 		internal int GetRank(int sceneID)
 		{
 			StageRankInfo stageRankInfo = null;
@@ -229,7 +212,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C0AD RID: 49325 RVA: 0x0028CD60 File Offset: 0x0028AF60
 		internal bool GetRankDetail(int sceneID, int index)
 		{
 			StageRankInfo stageRankInfo = null;
@@ -249,7 +231,6 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x0600C0AE RID: 49326 RVA: 0x0028CDD4 File Offset: 0x0028AFD4
 		internal void SetRank(int sceneID, int rank)
 		{
 			StageRankInfo stageRankInfo;
@@ -267,19 +248,14 @@ namespace XMainClient
 			this.ReCalculateLastChapter();
 		}
 
-		// Token: 0x0400506E RID: 20590
 		public Dictionary<int, StageRankInfo> StageRanks = new Dictionary<int, StageRankInfo>();
 
-		// Token: 0x0400506F RID: 20591
 		public Dictionary<int, List<int>> StageBox = new Dictionary<int, List<int>>();
 
-		// Token: 0x04005070 RID: 20592
 		private int _base_rank = -1;
 
-		// Token: 0x04005073 RID: 20595
 		public int LastNormalLocationChapter = 0;
 
-		// Token: 0x04005074 RID: 20596
 		public int LastHardLocationChapter = 0;
 	}
 }

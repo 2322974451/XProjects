@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000A6E RID: 2670
+
 	internal class XWorldBossDocument : XDocComponent, IWorldBossBattleSource, IRankSource
 	{
-		// Token: 0x17002F55 RID: 12117
-		// (get) Token: 0x0600A234 RID: 41524 RVA: 0x001B99CC File Offset: 0x001B7BCC
+
 		public override uint ID
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002F56 RID: 12118
-		// (get) Token: 0x0600A235 RID: 41525 RVA: 0x001B99E4 File Offset: 0x001B7BE4
 		public List<WorldBossDamageInfo> EndListDamage
 		{
 			get
@@ -31,8 +28,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002F57 RID: 12119
-		// (get) Token: 0x0600A236 RID: 41526 RVA: 0x001B99FC File Offset: 0x001B7BFC
 		public uint EncourageCount
 		{
 			get
@@ -41,8 +36,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002F58 RID: 12120
-		// (get) Token: 0x0600A237 RID: 41527 RVA: 0x001B9A14 File Offset: 0x001B7C14
 		public uint EncourgeGuildCount
 		{
 			get
@@ -51,8 +44,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002F59 RID: 12121
-		// (get) Token: 0x0600A238 RID: 41528 RVA: 0x001B9A2C File Offset: 0x001B7C2C
 		public XWorldBossDamageRankList DamageRankList
 		{
 			get
@@ -61,8 +52,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002F5A RID: 12122
-		// (get) Token: 0x0600A239 RID: 41529 RVA: 0x001B9A44 File Offset: 0x001B7C44
 		public XWorldBossGuildRankList GuildRankList
 		{
 			get
@@ -71,8 +60,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002F5B RID: 12123
-		// (get) Token: 0x0600A23A RID: 41530 RVA: 0x001B9A5C File Offset: 0x001B7C5C
 		public XWorldBossGuildRoleRankList GuildRoleRankList
 		{
 			get
@@ -81,20 +68,17 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A23B RID: 41531 RVA: 0x001B9A74 File Offset: 0x001B7C74
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			XWorldBossDocument.AsyncLoader.AddTask("Table/WorldBossReward", XWorldBossDocument.WorldBossAwardTable, false);
 			XWorldBossDocument.AsyncLoader.Execute(callback);
 		}
 
-		// Token: 0x0600A23C RID: 41532 RVA: 0x001B9A9C File Offset: 0x001B7C9C
 		public uint GetWorldBossSceneID()
 		{
 			return (uint)XSingleton<XGlobalConfig>.singleton.GetInt("WorldBossSceneID");
 		}
 
-		// Token: 0x0600A23D RID: 41533 RVA: 0x001B9AC0 File Offset: 0x001B7CC0
 		public uint GetEncourageCount(int index)
 		{
 			bool flag = index == 0;
@@ -118,7 +102,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A23E RID: 41534 RVA: 0x001B9AF8 File Offset: 0x001B7CF8
 		public override void OnEnterSceneFinally()
 		{
 			base.OnEnterSceneFinally();
@@ -129,7 +112,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A23F RID: 41535 RVA: 0x001B9B2C File Offset: 0x001B7D2C
 		public override void OnLeaveScene()
 		{
 			base.OnLeaveScene();
@@ -140,7 +122,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A240 RID: 41536 RVA: 0x001B9B54 File Offset: 0x001B7D54
 		public void SetMainInterfaceBtnState(bool state)
 		{
 			this.MainInterfaceState = state;
@@ -151,7 +132,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A241 RID: 41537 RVA: 0x001B9B8C File Offset: 0x001B7D8C
 		public void ReqWorldBossState()
 		{
 			RpcC2M_GetWorldBossStateNew rpcC2M_GetWorldBossStateNew = new RpcC2M_GetWorldBossStateNew();
@@ -159,7 +139,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_GetWorldBossStateNew);
 		}
 
-		// Token: 0x0600A242 RID: 41538 RVA: 0x001B9BBC File Offset: 0x001B7DBC
 		public void OnGetWorldBossLeftState(GetWorldBossStateRes oRes)
 		{
 			bool flag = this.ActivityWorldBossView != null && this.ActivityWorldBossView.active;
@@ -176,7 +155,6 @@ namespace XMainClient
 			this._BossHP = oRes.BossHp;
 		}
 
-		// Token: 0x0600A243 RID: 41539 RVA: 0x001B9C4C File Offset: 0x001B7E4C
 		public void ReqEnterWorldBossScene()
 		{
 			bool flag = Time.realtimeSinceStartup - this.fCdTime < 1f;
@@ -190,7 +168,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A244 RID: 41540 RVA: 0x001B9CAC File Offset: 0x001B7EAC
 		public void ReqRankData(RankeType type, bool inFight)
 		{
 			RpcC2M_ClientQueryRankListNtf rpcC2M_ClientQueryRankListNtf = new RpcC2M_ClientQueryRankListNtf();
@@ -200,7 +177,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_ClientQueryRankListNtf);
 		}
 
-		// Token: 0x0600A245 RID: 41541 RVA: 0x001B9D00 File Offset: 0x001B7F00
 		public void OnGetLatestRankInfo(ClientQueryRankListRes oRes)
 		{
 			bool flag = oRes.ErrorCode > ErrorCode.ERR_SUCCESS;
@@ -254,7 +230,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A246 RID: 41542 RVA: 0x001B9E88 File Offset: 0x001B8088
 		public XBaseRankList GetRankList(RankeType type)
 		{
 			bool flag = type == RankeType.WorldBossGuildRank;
@@ -278,14 +253,12 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A247 RID: 41543 RVA: 0x001B9EC4 File Offset: 0x001B80C4
 		public void ReqBattleInfo()
 		{
 			RpcC2M_GetWorldBossTimeLeft rpc = new RpcC2M_GetWorldBossTimeLeft();
 			XSingleton<XClientNetwork>.singleton.Send(rpc);
 		}
 
-		// Token: 0x0600A248 RID: 41544 RVA: 0x001B9EE4 File Offset: 0x001B80E4
 		public void OnGetBattleInfo(GetWorldBossTimeLeftRes oRes)
 		{
 			bool flag = this.BattleHandler != null && this.BattleHandler.active;
@@ -300,13 +273,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A249 RID: 41545 RVA: 0x001B9F4A File Offset: 0x001B814A
 		public void OnGetAttrCount(WorldBossAttrNtf ntf)
 		{
 			this._EncourageCount = ntf.count;
 		}
 
-		// Token: 0x0600A24A RID: 41546 RVA: 0x001B9F5C File Offset: 0x001B815C
 		public void ReqEncourageTwo()
 		{
 			XSingleton<XDebug>.singleton.AddGreenLog("ReqEncourageTwo", null, null, null, null, null);
@@ -315,7 +286,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_WorldBossGuildAddAttr);
 		}
 
-		// Token: 0x0600A24B RID: 41547 RVA: 0x001B9FA4 File Offset: 0x001B81A4
 		public void OnGetEncourageTwo(WorldBossGuildAddAttrArg arg, WorldBossGuildAddAttrRes oRes)
 		{
 			XSingleton<XDebug>.singleton.AddGreenLog("OnGetEncourageTwo", null, null, null, null, null);
@@ -326,7 +296,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A24C RID: 41548 RVA: 0x001B9FF0 File Offset: 0x001B81F0
 		public void ReceiveGuildAttAttrSync(WorldBossGuildAddAttrSyncClient ntf)
 		{
 			XSingleton<XDebug>.singleton.AddGreenLog("ReceiveGuildAttAttrSync:" + ntf.count.ToString(), null, null, null, null, null);
@@ -334,7 +303,6 @@ namespace XMainClient
 			this.BattleHandler.RefreshEncourage(1);
 		}
 
-		// Token: 0x0600A24D RID: 41549 RVA: 0x001BA040 File Offset: 0x001B8240
 		public void ReqEncourage()
 		{
 			XSingleton<XDebug>.singleton.AddGreenLog("ReqEncourage", null, null, null, null, null);
@@ -343,7 +311,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_AddTempAttr);
 		}
 
-		// Token: 0x0600A24E RID: 41550 RVA: 0x001BA084 File Offset: 0x001B8284
 		public void OnGetEncourage(AddTempAttrRes oRes)
 		{
 			bool flag = oRes.ErrorCode > ErrorCode.ERR_SUCCESS;
@@ -358,7 +325,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A24F RID: 41551 RVA: 0x001BA0D4 File Offset: 0x001B82D4
 		public List<WorldBossRewardTable.RowData> GetAwardList(uint roleLevel)
 		{
 			List<WorldBossRewardTable.RowData> list = new List<WorldBossRewardTable.RowData>();
@@ -384,7 +350,6 @@ namespace XMainClient
 			return list;
 		}
 
-		// Token: 0x0600A250 RID: 41552 RVA: 0x001BA170 File Offset: 0x001B8370
 		public WorldBossRewardTable.RowData GetDropReward(uint roleLevel)
 		{
 			WorldBossRewardTable.RowData[] table = XWorldBossDocument.WorldBossAwardTable.Table;
@@ -409,7 +374,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x0600A251 RID: 41553 RVA: 0x001BA200 File Offset: 0x001B8400
 		public void OnWorldBossStateNtf(WorldBossStateNtf stateInfo)
 		{
 			bool flag = stateInfo.state == WorldBossState.WorldBoss_WaitEnd;
@@ -420,13 +384,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A252 RID: 41554 RVA: 0x00160161 File Offset: 0x0015E361
 		public void ReqQutiScene()
 		{
 			XSingleton<XScene>.singleton.ReqLeaveScene();
 		}
 
-		// Token: 0x0600A253 RID: 41555 RVA: 0x001BA238 File Offset: 0x001B8438
 		public void GetWorldBossTime(ref int startTime, ref int endTime)
 		{
 			XActivityDocument doc = XActivityDocument.Doc;
@@ -446,14 +408,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A254 RID: 41556 RVA: 0x001BA2CC File Offset: 0x001B84CC
 		public void ReqWorldBossEnd()
 		{
 			RpcC2M_WorldBossEnd rpc = new RpcC2M_WorldBossEnd();
 			XSingleton<XClientNetwork>.singleton.Send(rpc);
 		}
 
-		// Token: 0x0600A255 RID: 41557 RVA: 0x001BA2EC File Offset: 0x001B84EC
 		public void OnWorldBossEnd(WorldBossEndArg oArg, WorldBossEndRes oRes)
 		{
 			this._EndListDamage = oRes.damages;
@@ -465,7 +425,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A256 RID: 41558 RVA: 0x001BA340 File Offset: 0x001B8540
 		public void LeaveSceneCountDown(uint time)
 		{
 			bool flag = this.BattleHandler != null && this.BattleHandler.IsVisible();
@@ -475,66 +434,46 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A257 RID: 41559 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 		}
 
-		// Token: 0x04003A8C RID: 14988
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("WorldBossDocument");
 
-		// Token: 0x04003A8D RID: 14989
 		public ActivityWorldBossHandler ActivityWorldBossView;
 
-		// Token: 0x04003A8E RID: 14990
 		public XWorldBossDamageRankHandler RankHandler;
 
-		// Token: 0x04003A8F RID: 14991
 		public BattleWorldBossHandler BattleHandler;
 
-		// Token: 0x04003A90 RID: 14992
 		public XWorldBossView WorldBossDescView;
 
-		// Token: 0x04003A91 RID: 14993
 		public XWorldBossResultView WorldBossResultView;
 
-		// Token: 0x04003A92 RID: 14994
 		public XWorldBossEndRankView WorldBossEndRankView;
 
-		// Token: 0x04003A93 RID: 14995
 		private uint _BossHP;
 
-		// Token: 0x04003A94 RID: 14996
 		private bool _WorldBossEnd = false;
 
-		// Token: 0x04003A95 RID: 14997
 		private List<WorldBossDamageInfo> _EndListDamage = new List<WorldBossDamageInfo>();
 
-		// Token: 0x04003A96 RID: 14998
 		private uint _EncourageCount = 0U;
 
-		// Token: 0x04003A97 RID: 14999
 		private uint _EncourgeGuildCount = 0U;
 
-		// Token: 0x04003A98 RID: 15000
 		private XWorldBossDamageRankList _DamageRankList = new XWorldBossDamageRankList();
 
-		// Token: 0x04003A99 RID: 15001
 		private XWorldBossGuildRankList _GuildRankList = new XWorldBossGuildRankList();
 
-		// Token: 0x04003A9A RID: 15002
 		private XWorldBossGuildRoleRankList _GuildRoleRankList = new XWorldBossGuildRoleRankList();
 
-		// Token: 0x04003A9B RID: 15003
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x04003A9C RID: 15004
 		public static WorldBossRewardTable WorldBossAwardTable = new WorldBossRewardTable();
 
-		// Token: 0x04003A9D RID: 15005
 		public bool MainInterfaceState = false;
 
-		// Token: 0x04003A9E RID: 15006
 		private float fCdTime = 0f;
 	}
 }

@@ -9,11 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000A4E RID: 2638
+
 	internal class XDragonGuildListHandler : DlgHandlerBase
 	{
-		// Token: 0x17002EEB RID: 12011
-		// (get) Token: 0x06009FFB RID: 40955 RVA: 0x001A9BD8 File Offset: 0x001A7DD8
+
 		protected override string FileName
 		{
 			get
@@ -22,7 +21,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009FFC RID: 40956 RVA: 0x001A9BF0 File Offset: 0x001A7DF0
 		protected override void Init()
 		{
 			base.Init();
@@ -61,7 +59,6 @@ namespace XMainClient
 			DlgHandlerBase.EnsureCreate<XDragonGuildCreateView>(ref this._CreateView, this.m_CreatePanel, null, true);
 		}
 
-		// Token: 0x06009FFD RID: 40957 RVA: 0x001A9E98 File Offset: 0x001A8098
 		public override void OnUnload()
 		{
 			this.m_listDoc.View = null;
@@ -70,7 +67,6 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x06009FFE RID: 40958 RVA: 0x001A9EC8 File Offset: 0x001A80C8
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -85,7 +81,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009FFF RID: 40959 RVA: 0x001A9FB0 File Offset: 0x001A81B0
 		protected override void OnShow()
 		{
 			this.m_SearchText.SetText("");
@@ -96,14 +91,12 @@ namespace XMainClient
 			this.m_TitleBar.Refresh((ulong)((long)XFastEnumIntEqualityComparer<DragonGuildSortType>.ToInt(this.m_listDoc.SortType)));
 		}
 
-		// Token: 0x0600A000 RID: 40960 RVA: 0x001AA020 File Offset: 0x001A8220
 		private bool _OnHelpBtnClick(IXUIButton button)
 		{
 			DlgBase<XCommonHelpTipView, XCommonHelpTipBehaviour>.singleton.ShowHelp(XSysDefine.XSys_GuildCollectSummon);
 			return true;
 		}
 
-		// Token: 0x0600A001 RID: 40961 RVA: 0x001AA044 File Offset: 0x001A8244
 		private bool _OnCreateBtnClick(IXUIButton go)
 		{
 			bool flag = this.m_guildDoc.IsInDragonGuild();
@@ -121,7 +114,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A002 RID: 40962 RVA: 0x001AA090 File Offset: 0x001A8290
 		private bool _OnSearchBtnClick(IXUIButton go)
 		{
 			string text = this.m_SearchText.GetText();
@@ -129,7 +121,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600A003 RID: 40963 RVA: 0x001AA0BC File Offset: 0x001A82BC
 		private bool _OnQuickJoinBtnClick(IXUIButton go)
 		{
 			bool flag = this.m_guildDoc.IsInDragonGuild();
@@ -147,7 +138,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A004 RID: 40964 RVA: 0x001AA104 File Offset: 0x001A8304
 		private bool _OnTitleClickEventHandler(ulong ID)
 		{
 			this.m_listDoc.SortType = (DragonGuildSortType)ID;
@@ -155,7 +145,6 @@ namespace XMainClient
 			return this.m_listDoc.SortDirection > 0;
 		}
 
-		// Token: 0x0600A005 RID: 40965 RVA: 0x001AA140 File Offset: 0x001A8340
 		private bool _ShowHelpClick(IXUIButton button)
 		{
 			string helpName;
@@ -178,14 +167,12 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A006 RID: 40966 RVA: 0x001AA1A4 File Offset: 0x001A83A4
 		public void NewContentAppended()
 		{
 			List<XDragonGuildListData> listData = this.m_listDoc.ListData;
 			this.m_WrapContent.SetContentCount(listData.Count, false);
 		}
 
-		// Token: 0x0600A007 RID: 40967 RVA: 0x001AA1D4 File Offset: 0x001A83D4
 		private void WrapContentItemUpdated(Transform t, int index)
 		{
 			List<XDragonGuildListData> listData = this.m_listDoc.ListData;
@@ -242,8 +229,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002EEC RID: 12012
-		// (get) Token: 0x0600A008 RID: 40968 RVA: 0x001AA3E0 File Offset: 0x001A85E0
 		private int CurPPT
 		{
 			get
@@ -260,7 +245,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A009 RID: 40969 RVA: 0x001AA434 File Offset: 0x001A8634
 		private void WrapContentItemInit(Transform t, int index)
 		{
 			IXUIButton ixuibutton = t.FindChild("ValidContent/Apply").GetComponent("XUIButton") as IXUIButton;
@@ -269,7 +253,6 @@ namespace XMainClient
 			ixuilabel.RegisterLabelClickEventHandler(new LabelClickEventHandler(this._OnLoadMoreClick));
 		}
 
-		// Token: 0x0600A00A RID: 40970 RVA: 0x001AA4A0 File Offset: 0x001A86A0
 		private bool _OnJoinBtnClick(IXUIButton go)
 		{
 			bool flag = XDragonGuildDocument.Doc.IsInDragonGuild();
@@ -297,20 +280,17 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A00B RID: 40971 RVA: 0x001AA53F File Offset: 0x001A873F
 		private void _OnLoadMoreClick(IXUILabel go)
 		{
 			this.m_listDoc.ReqMoreGuilds();
 		}
 
-		// Token: 0x0600A00C RID: 40972 RVA: 0x001AA54E File Offset: 0x001A874E
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
 			this.m_WrapContent.RefreshAllVisibleContents();
 		}
 
-		// Token: 0x0600A00D RID: 40973 RVA: 0x001AA564 File Offset: 0x001A8764
 		public void RefreshPage(bool bResetPosition = true)
 		{
 			List<XDragonGuildListData> listData = this.m_listDoc.ListData;
@@ -318,52 +298,36 @@ namespace XMainClient
 			this.m_WrapContent.SetContentCount(listData.Count, false);
 		}
 
-		// Token: 0x0400393E RID: 14654
 		private XDragonGuildListDocument m_listDoc = XDragonGuildListDocument.Doc;
 
-		// Token: 0x0400393F RID: 14655
 		private XDragonGuildDocument m_guildDoc = XDragonGuildDocument.Doc;
 
-		// Token: 0x04003940 RID: 14656
 		private XDragonGuildCreateView _CreateView;
 
-		// Token: 0x04003941 RID: 14657
 		private XDragonGuildBasicInfoDisplay _BasicInfoDisplayer = new XDragonGuildBasicInfoDisplay();
 
-		// Token: 0x04003942 RID: 14658
 		private int m_curPPT = 0;
 
-		// Token: 0x04003943 RID: 14659
 		private bool GetPPT = false;
 
-		// Token: 0x04003944 RID: 14660
 		private IXUIButton m_Help;
 
-		// Token: 0x04003945 RID: 14661
 		private IXUIWrapContent m_WrapContent;
 
-		// Token: 0x04003946 RID: 14662
 		private IXUIScrollView m_ScrollView;
 
-		// Token: 0x04003947 RID: 14663
 		private IXUIButton m_Create;
 
-		// Token: 0x04003948 RID: 14664
 		private IXUIButton m_QuickJoin;
 
-		// Token: 0x04003949 RID: 14665
 		private IXUIButton m_Search;
 
-		// Token: 0x0400394A RID: 14666
 		private IXUIInput m_SearchText;
 
-		// Token: 0x0400394B RID: 14667
 		private GameObject m_CreatePanel;
 
-		// Token: 0x0400394C RID: 14668
 		private XTitleBar m_TitleBar;
 
-		// Token: 0x0400394D RID: 14669
 		private Dictionary<IXUIButton, string> m_helpList = new Dictionary<IXUIButton, string>();
 	}
 }

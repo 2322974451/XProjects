@@ -5,17 +5,16 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001822 RID: 6178
+
 	internal class EquipSetItemBaseView
 	{
-		// Token: 0x060100B2 RID: 65714 RVA: 0x003D1E29 File Offset: 0x003D0029
+
 		public void SetFinishItem(XItem item)
 		{
 			this.mXItemToShow = item;
 			XSingleton<XItemDrawerMgr>.singleton.normalItemDrawer.OpenClickShowTooltipEvent(this.goItem, item.itemID, new SpriteClickEventHandler(this._OnClickItemIcon));
 		}
 
-		// Token: 0x060100B3 RID: 65715 RVA: 0x003D1E5C File Offset: 0x003D005C
 		public virtual void FindFrom(Transform t)
 		{
 			bool flag = null != t;
@@ -82,14 +81,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060100B4 RID: 65716 RVA: 0x003D201C File Offset: 0x003D021C
 		public void SetItemInfo(int _itemID, EquipSetItemBaseView.stEquipInfoParam _param, bool _isBind = false)
 		{
 			ItemList.RowData itemConf = XBagDocument.GetItemConf(_itemID);
 			this.SetItemInfo(itemConf, _param, _isBind);
 		}
 
-		// Token: 0x060100B5 RID: 65717 RVA: 0x003D203C File Offset: 0x003D023C
 		public void SetItemInfo(XItem item, EquipSetItemBaseView.stEquipInfoParam _param, bool _isBind = false)
 		{
 			bool flag = item == null;
@@ -101,7 +98,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060100B6 RID: 65718 RVA: 0x003D207C File Offset: 0x003D027C
 		public void SetItemInfo(ItemList.RowData _item, EquipSetItemBaseView.stEquipInfoParam _param, bool _isBind = false)
 		{
 			bool flag = _item == null;
@@ -227,7 +223,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060100B7 RID: 65719 RVA: 0x003D23DC File Offset: 0x003D05DC
 		private void _OnClickItemIcon(IXUISprite spr)
 		{
 			bool flag = this.mXItemToShow == null;
@@ -238,50 +233,37 @@ namespace XMainClient.UI
 			XSingleton<UiUtility>.singleton.ShowTooltipDialogWithSearchingCompare(this.mXItemToShow, spr, false, 0U);
 		}
 
-		// Token: 0x0400722C RID: 29228
 		public IXUILabel lbProfName;
 
-		// Token: 0x0400722D RID: 29229
 		public IXUILabel lbLevel;
 
-		// Token: 0x0400722E RID: 29230
 		public IXUILabel lbPartName;
 
-		// Token: 0x0400722F RID: 29231
 		public GameObject goItem;
 
-		// Token: 0x04007230 RID: 29232
 		public GameObject goHadGet;
 
-		// Token: 0x04007231 RID: 29233
 		public EquipSetItemBaseView.stQualityEffectItem[] qualityEffectItemArr;
 
-		// Token: 0x04007232 RID: 29234
 		public GameObject goCurrentEffect;
 
-		// Token: 0x04007233 RID: 29235
 		private XItem mXItemToShow;
 
-		// Token: 0x04007234 RID: 29236
 		private bool bBinding = false;
 
-		// Token: 0x02001A14 RID: 6676
 		public struct stQualityEffectItem
 		{
-			// Token: 0x0400823E RID: 33342
+
 			public GameObject effect;
 
-			// Token: 0x0400823F RID: 33343
 			public int quality;
 		}
 
-		// Token: 0x02001A15 RID: 6677
 		public struct stEquipInfoParam
 		{
-			// Token: 0x04008240 RID: 33344
+
 			public bool isShowTooltip;
 
-			// Token: 0x04008241 RID: 33345
 			public int playerProf;
 		}
 	}

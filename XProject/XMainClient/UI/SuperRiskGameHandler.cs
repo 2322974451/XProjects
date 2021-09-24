@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001817 RID: 6167
+
 	internal class SuperRiskGameHandler : DlgHandlerBase
 	{
-		// Token: 0x17003908 RID: 14600
-		// (get) Token: 0x0600FFD6 RID: 65494 RVA: 0x003C89B8 File Offset: 0x003C6BB8
+
 		public string ScrollEffectPath
 		{
 			get
@@ -26,8 +25,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003909 RID: 14601
-		// (get) Token: 0x0600FFD7 RID: 65495 RVA: 0x003C89F4 File Offset: 0x003C6BF4
 		public string DungeonEffectPath
 		{
 			get
@@ -41,8 +38,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700390A RID: 14602
-		// (get) Token: 0x0600FFD8 RID: 65496 RVA: 0x003C8A30 File Offset: 0x003C6C30
 		public string BoxEffectPath
 		{
 			get
@@ -56,8 +51,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700390B RID: 14603
-		// (get) Token: 0x0600FFD9 RID: 65497 RVA: 0x003C8A6C File Offset: 0x003C6C6C
 		protected override string FileName
 		{
 			get
@@ -66,7 +59,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FFDA RID: 65498 RVA: 0x003C8A84 File Offset: 0x003C6C84
 		protected override void Init()
 		{
 			base.Init();
@@ -113,7 +105,6 @@ namespace XMainClient.UI
 			this.m_NoticeFrame.SetActive(false);
 		}
 
-		// Token: 0x0600FFDB RID: 65499 RVA: 0x003C8FA8 File Offset: 0x003C71A8
 		public override void OnUnload()
 		{
 			this._doc.GameViewHandler = null;
@@ -151,7 +142,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x0600FFDC RID: 65500 RVA: 0x003C90D4 File Offset: 0x003C72D4
 		public override void RegisterEvent()
 		{
 			this.m_NoticeYes.RegisterClickEventHandler(new ButtonClickEventHandler(this._NoticeYesClick));
@@ -160,21 +150,18 @@ namespace XMainClient.UI
 			this.m_PrerogativeBg.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnMemberPrivilegeClicked));
 		}
 
-		// Token: 0x0600FFDD RID: 65501 RVA: 0x003C9144 File Offset: 0x003C7344
 		public bool OnHelpClicked(IXUIButton button)
 		{
 			DlgBase<XCommonHelpTipView, XCommonHelpTipBehaviour>.singleton.ShowHelp(XSysDefine.XSys_SuperRisk);
 			return true;
 		}
 
-		// Token: 0x0600FFDE RID: 65502 RVA: 0x003C9164 File Offset: 0x003C7364
 		protected override void OnShow()
 		{
 			this.InitMapBaseInfo();
 			this._doc.ReqMapDynamicInfo(this._doc.CurrentMapID, false, false);
 		}
 
-		// Token: 0x0600FFDF RID: 65503 RVA: 0x003C9187 File Offset: 0x003C7387
 		public override void LeaveStackTop()
 		{
 			XSingleton<XDebug>.singleton.AddGreenLog("LeaveStackTop!", null, null, null, null, null);
@@ -182,7 +169,6 @@ namespace XMainClient.UI
 			base.LeaveStackTop();
 		}
 
-		// Token: 0x0600FFE0 RID: 65504 RVA: 0x003C91AD File Offset: 0x003C73AD
 		public void RefreshUi()
 		{
 			this.RefreshMap();
@@ -191,14 +177,12 @@ namespace XMainClient.UI
 			this.ShowCatchedOnlineBox();
 		}
 
-		// Token: 0x0600FFE1 RID: 65505 RVA: 0x003C91CC File Offset: 0x003C73CC
 		protected override void OnHide()
 		{
 			this.Clear();
 			base.OnHide();
 		}
 
-		// Token: 0x0600FFE2 RID: 65506 RVA: 0x003C91E0 File Offset: 0x003C73E0
 		private void Clear()
 		{
 			bool flag = this.m_DiceTimer > 0U;
@@ -293,20 +277,17 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FFE3 RID: 65507 RVA: 0x003C9500 File Offset: 0x003C7700
 		private void DestoryTex()
 		{
 			this.m_mapTexture.SetTexturePath("");
 		}
 
-		// Token: 0x0600FFE4 RID: 65508 RVA: 0x003C9164 File Offset: 0x003C7364
 		public override void StackRefresh()
 		{
 			this.InitMapBaseInfo();
 			this._doc.ReqMapDynamicInfo(this._doc.CurrentMapID, false, false);
 		}
 
-		// Token: 0x0600FFE5 RID: 65509 RVA: 0x003C9514 File Offset: 0x003C7714
 		public void RefreshMap()
 		{
 			this.PlayerAvatar.gameObject.SetActive(true);
@@ -469,7 +450,6 @@ namespace XMainClient.UI
 			this.m_ItemPool.ActualReturnAll(false);
 		}
 
-		// Token: 0x0600FFE6 RID: 65510 RVA: 0x003C9A50 File Offset: 0x003C7C50
 		private void OnShowItemTips(IXUISprite spr)
 		{
 			switch ((int)spr.ID)
@@ -492,7 +472,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FFE7 RID: 65511 RVA: 0x003C9B18 File Offset: 0x003C7D18
 		private void InitMapBaseInfo()
 		{
 			RiskMapFile.RowData currentMapData = this._doc.GetCurrentMapData();
@@ -510,7 +489,6 @@ namespace XMainClient.UI
 			this.m_PrerogativeLab.SetEnabled(this._welfareDoc.IsOwnMemberPrivilege(MemberPrivilege.KingdomPrivilege_Commerce));
 		}
 
-		// Token: 0x0600FFE8 RID: 65512 RVA: 0x003C9BE8 File Offset: 0x003C7DE8
 		private void OnMemberPrivilegeClicked(IXUISprite btn)
 		{
 			bool flag = this._doc.GameState == SuperRiskState.SuperRiskSendingRollMes || this._doc.GameState == SuperRiskState.SuperRiskRolling || this._doc.GameState == SuperRiskState.SuperRiskDicing || this._doc.GameState == SuperRiskState.SuperRiskMoving || this._doc.GameState == SuperRiskState.SuperRiskEvent || this._doc.GameState == SuperRiskState.SuperRiskRefreshMap;
@@ -520,7 +498,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FFE9 RID: 65513 RVA: 0x003C9C60 File Offset: 0x003C7E60
 		public void HideDice()
 		{
 			bool flag = this.m_DiceDummy != null;
@@ -530,7 +507,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FFEA RID: 65514 RVA: 0x003C9C94 File Offset: 0x003C7E94
 		public void OnMapItemFetched(Coordinate c)
 		{
 			RiskGridInfo gridDynamicInfo = this._doc.GetGridDynamicInfo(c);
@@ -593,7 +569,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FFEB RID: 65515 RVA: 0x003C9E58 File Offset: 0x003C8058
 		public string GetBoxSprNameByState(uint itemID)
 		{
 			ItemList.RowData itemConf = XBagDocument.GetItemConf((int)itemID);
@@ -610,7 +585,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FFEC RID: 65516 RVA: 0x003C9EA0 File Offset: 0x003C80A0
 		public string GetHandbookSprName(int itemId)
 		{
 			ItemList.RowData itemConf = XBagDocument.GetItemConf(itemId);
@@ -647,7 +621,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FFED RID: 65517 RVA: 0x003C9F20 File Offset: 0x003C8120
 		public string GetBoxPicByState(uint itemID, RiskBoxState state)
 		{
 			ItemList.RowData itemConf = XBagDocument.GetItemConf((int)itemID);
@@ -670,7 +643,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FFEE RID: 65518 RVA: 0x003C9F7C File Offset: 0x003C817C
 		public void SetDiceLeftTime()
 		{
 			bool flag = this._doc.LeftDiceTime <= 0;
@@ -729,7 +701,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FFEF RID: 65519 RVA: 0x003CA210 File Offset: 0x003C8410
 		public void SetupSlotBoxes()
 		{
 			this.SlotBoxPool.FakeReturnAll();
@@ -753,7 +724,6 @@ namespace XMainClient.UI
 			this.SlotBoxPool.ActualReturnAll(false);
 		}
 
-		// Token: 0x0600FFF0 RID: 65520 RVA: 0x003CA33C File Offset: 0x003C853C
 		private void ShowCatchedOnlineBox()
 		{
 			RiskGridInfo gridDynamicInfo = this._doc.GetGridDynamicInfo(XSingleton<XSuperRiskMapMgr>.singleton.CurrentMap.PlayerCoord);
@@ -774,7 +744,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FFF1 RID: 65521 RVA: 0x003CA3AC File Offset: 0x003C85AC
 		protected void SetupSlotBox(GameObject go, ClientBoxInfo info, int slot)
 		{
 			IXUISprite ixuisprite = go.GetComponent("XUISprite") as IXUISprite;
@@ -844,7 +813,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FFF2 RID: 65522 RVA: 0x003CA644 File Offset: 0x003C8844
 		protected void OnBoxSlotClicked(IXUISprite sp)
 		{
 			bool flag = this.SetButtonCool(this.m_fCoolTime);
@@ -873,7 +841,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FFF3 RID: 65523 RVA: 0x003CA6E8 File Offset: 0x003C88E8
 		private bool SetButtonCool(float time)
 		{
 			float num = Time.realtimeSinceStartup - this.m_fLastClickBtnTime;
@@ -891,7 +858,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FFF4 RID: 65524 RVA: 0x003CA720 File Offset: 0x003C8920
 		public void MoveStep(Vector2 targetPos)
 		{
 			XSingleton<XAudioMgr>.singleton.PlayUISound("Audio/UI/UI_Anim_DiceGame_CharacterMove", true, AudioChannel.Action);
@@ -900,14 +866,12 @@ namespace XMainClient.UI
 			this.PlayerTween.PlayTween(true, -1f);
 		}
 
-		// Token: 0x0600FFF5 RID: 65525 RVA: 0x003CA797 File Offset: 0x003C8997
 		protected void OnMoveStepOver(IXUITweenTool tween)
 		{
 			XSingleton<XAudioMgr>.singleton.StopUISound();
 			this._doc.OnGoStepOver();
 		}
 
-		// Token: 0x0600FFF6 RID: 65526 RVA: 0x003CA7B4 File Offset: 0x003C89B4
 		public void ResetMapAni()
 		{
 			this.m_bIsPlayingResetAnimation = true;
@@ -918,19 +882,16 @@ namespace XMainClient.UI
 			this.ResetTween.PlayTween(true, -1f);
 		}
 
-		// Token: 0x0600FFF7 RID: 65527 RVA: 0x003CA820 File Offset: 0x003C8A20
 		protected void OnResetMapOver(IXUITweenTool tween)
 		{
 			this.m_bIsPlayingResetAnimation = false;
 		}
 
-		// Token: 0x0600FFF8 RID: 65528 RVA: 0x003CA82A File Offset: 0x003C8A2A
 		private void _OnRollClick(IXUISprite uiSprite)
 		{
 			XSingleton<UiUtility>.singleton.ShowSystemTip(XStringDefineProxy.GetString("NoDice"), "fece00");
 		}
 
-		// Token: 0x0600FFF9 RID: 65529 RVA: 0x003CA848 File Offset: 0x003C8A48
 		private bool _OnRollPress(IXUISprite uiSprite, bool isPressed)
 		{
 			if (isPressed)
@@ -982,7 +943,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FFFA RID: 65530 RVA: 0x003CAA20 File Offset: 0x003C8C20
 		protected int GetRollResult(float pos)
 		{
 			float num = 75f;
@@ -1009,7 +969,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FFFB RID: 65531 RVA: 0x003CAA78 File Offset: 0x003C8C78
 		private static void _PlayDice(XGameObject gameObject, object o, int commandID)
 		{
 			SuperRiskGameHandler superRiskGameHandler = o as SuperRiskGameHandler;
@@ -1043,7 +1002,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FFFC RID: 65532 RVA: 0x003CABCC File Offset: 0x003C8DCC
 		public void PlayDiceAnimation(int value)
 		{
 			bool flag = this.m_DiceDummy == null;
@@ -1059,7 +1017,6 @@ namespace XMainClient.UI
 			this.m_DiceDummy.EngineObject.CallCommand(SuperRiskGameHandler._playDiceCb, this, -1, false);
 		}
 
-		// Token: 0x0600FFFD RID: 65533 RVA: 0x003CAC94 File Offset: 0x003C8E94
 		protected Quaternion ValueToQuaternion(int value)
 		{
 			Quaternion result;
@@ -1090,7 +1047,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FFFE RID: 65534 RVA: 0x003CAD5C File Offset: 0x003C8F5C
 		protected void OnDiceAnimationOver(object o)
 		{
 			XSingleton<XAudioMgr>.singleton.StopUISound();
@@ -1099,7 +1055,6 @@ namespace XMainClient.UI
 			this._doc.Go(num);
 		}
 
-		// Token: 0x0600FFFF RID: 65535 RVA: 0x003CADAC File Offset: 0x003C8FAC
 		public void PlayGetBoxAnimation(uint itemID, int slot)
 		{
 			this.HideDice();
@@ -1119,7 +1074,6 @@ namespace XMainClient.UI
 			this.m_GetBoxTween.PlayTween(true, -1f);
 		}
 
-		// Token: 0x06010000 RID: 65536 RVA: 0x003CAEB4 File Offset: 0x003C90B4
 		protected void BoxFlyInOver(IXUITweenTool tween)
 		{
 			GameObject gameObject = this.m_GetBoxFrame.transform.Find("Box").gameObject;
@@ -1136,7 +1090,6 @@ namespace XMainClient.UI
 			this.m_GetBoxTween.PlayTween(true, -1f);
 		}
 
-		// Token: 0x06010001 RID: 65537 RVA: 0x003CAFA8 File Offset: 0x003C91A8
 		protected void ShowBoxOver(IXUITweenTool tween)
 		{
 			this.m_GetBoxFrame.SetActive(false);
@@ -1147,7 +1100,6 @@ namespace XMainClient.UI
 			this._doc.OnGetBoxAnimationOver();
 		}
 
-		// Token: 0x06010002 RID: 65538 RVA: 0x003CB018 File Offset: 0x003C9218
 		public void UpdateSlotBox(int slot)
 		{
 			Transform transform = base.PanelObject.transform.Find("BoxSlot/slot" + slot);
@@ -1173,7 +1125,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010003 RID: 65539 RVA: 0x003CB0C8 File Offset: 0x003C92C8
 		public void ShowOnlineBox()
 		{
 			bool flag = !this.m_OnlineBoxHandler.IsVisible();
@@ -1183,7 +1134,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010004 RID: 65540 RVA: 0x003CB0F8 File Offset: 0x003C92F8
 		public void CloseOnlineBox()
 		{
 			bool flag = this.m_OnlineBoxHandler.IsVisible();
@@ -1193,7 +1143,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010005 RID: 65541 RVA: 0x003CB124 File Offset: 0x003C9324
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
@@ -1241,7 +1190,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010006 RID: 65542 RVA: 0x003CB2E4 File Offset: 0x003C94E4
 		private void SetCost(ClientBoxInfo data, IXUILabelSymbol lab)
 		{
 			bool flag = data == null;
@@ -1276,21 +1224,18 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010007 RID: 65543 RVA: 0x003CB3AB File Offset: 0x003C95AB
 		public void ShowNoticeFrame()
 		{
 			this.HideDice();
 			this.m_NoticeFrame.SetActive(true);
 		}
 
-		// Token: 0x06010008 RID: 65544 RVA: 0x003CB3C4 File Offset: 0x003C95C4
 		protected bool _NoticeYesClick(IXUIButton sp)
 		{
 			this.m_NoticeFrame.SetActive(false);
 			return true;
 		}
 
-		// Token: 0x06010009 RID: 65545 RVA: 0x003CB3E4 File Offset: 0x003C95E4
 		protected bool _NoticeNoClick(IXUIButton sp)
 		{
 			this.m_NoticeFrame.SetActive(false);
@@ -1298,7 +1243,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0601000A RID: 65546 RVA: 0x003CB410 File Offset: 0x003C9610
 		private void OnClickDiscardBox(IXUISprite sp)
 		{
 			this.m_discardBoxId = (int)sp.ID;
@@ -1315,7 +1259,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601000B RID: 65547 RVA: 0x003CB494 File Offset: 0x003C9694
 		private bool SendDiscardBoxMes(IXUIButton btn)
 		{
 			this._doc.ChangeBoxState(this.m_discardBoxId, RiskBoxState.RISK_BOX_DELETE);
@@ -1323,7 +1266,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0601000C RID: 65548 RVA: 0x003CB4C8 File Offset: 0x003C96C8
 		private bool OnCloseClick(IXUIButton go)
 		{
 			bool flag = this._doc.GameState == SuperRiskState.SuperRiskSendingRollMes || this._doc.GameState == SuperRiskState.SuperRiskRolling || this._doc.GameState == SuperRiskState.SuperRiskDicing || this._doc.GameState == SuperRiskState.SuperRiskMoving || this._doc.GameState == SuperRiskState.SuperRiskEvent || this._doc.GameState == SuperRiskState.SuperRiskRefreshMap;
@@ -1345,172 +1287,116 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x04007156 RID: 29014
 		private readonly Color GreyColor = new Color(0.3019608f, 0.3019608f, 0.3019608f, 1f);
 
-		// Token: 0x04007157 RID: 29015
 		private readonly Color NormalColor = new Color(1f, 1f, 1f, 1f);
 
-		// Token: 0x04007158 RID: 29016
 		private XSuperRiskDocument _doc;
 
-		// Token: 0x04007159 RID: 29017
 		private XWelfareDocument _welfareDoc;
 
-		// Token: 0x0400715A RID: 29018
 		private IXUISprite PlayerAvatar = null;
 
-		// Token: 0x0400715B RID: 29019
 		private IXUITweenTool PlayerTween = null;
 
-		// Token: 0x0400715C RID: 29020
 		private IXUITweenTool ResetTween = null;
 
-		// Token: 0x0400715D RID: 29021
 		public static uint total_slot_box = 3U;
 
-		// Token: 0x0400715E RID: 29022
 		private IXUIButton m_Close;
 
-		// Token: 0x0400715F RID: 29023
 		private IXUIButton m_Help;
 
-		// Token: 0x04007160 RID: 29024
 		private XUIPool m_ItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04007161 RID: 29025
 		private IXUISprite m_rollBtn;
 
-		// Token: 0x04007162 RID: 29026
 		private IXUITweenTool m_rollTween;
 
-		// Token: 0x04007163 RID: 29027
 		private Transform m_rollFx;
 
-		// Token: 0x04007164 RID: 29028
 		private GameObject m_rollBarGo;
 
-		// Token: 0x04007165 RID: 29029
 		private Dictionary<RiskGridInfo, GameObject> m_MapItems = new Dictionary<RiskGridInfo, GameObject>();
 
-		// Token: 0x04007166 RID: 29030
 		private Transform m_DiceDummyPoint;
 
-		// Token: 0x04007167 RID: 29031
 		private XDummy m_DiceDummy;
 
-		// Token: 0x04007168 RID: 29032
 		private Transform m_controller;
 
-		// Token: 0x04007169 RID: 29033
 		private int m_DiceAnimValue = 0;
 
-		// Token: 0x0400716A RID: 29034
 		private static float DiceAnimationTime = 2f;
 
-		// Token: 0x0400716B RID: 29035
 		private uint m_DiceTimer;
 
-		// Token: 0x0400716C RID: 29036
 		private IXUILabel m_LeftTime;
 
-		// Token: 0x0400716D RID: 29037
 		private IXUILabel m_RecoverTime;
 
-		// Token: 0x0400716E RID: 29038
 		private IXUILabel m_mapTittleLab;
 
-		// Token: 0x0400716F RID: 29039
 		private IXUILabel m_RecoverFullLab;
 
-		// Token: 0x04007170 RID: 29040
 		private IXUISprite m_PrerogativeSpr;
 
-		// Token: 0x04007171 RID: 29041
 		private IXUILabel m_PrerogativeLab;
 
-		// Token: 0x04007172 RID: 29042
 		private IXUISprite m_PrerogativeBg;
 
-		// Token: 0x04007173 RID: 29043
 		private XUIPool SlotBoxPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04007174 RID: 29044
 		private IXUILabel[] m_CachedBoxSlotTimeLabel = new IXUILabel[3];
 
-		// Token: 0x04007175 RID: 29045
 		private IXUILabelSymbol[] m_CachedBoxCostLabel = new IXUILabelSymbol[3];
 
-		// Token: 0x04007176 RID: 29046
 		private IXUITweenTool m_BoxSlotTween;
 
-		// Token: 0x04007177 RID: 29047
 		private GameObject m_GetBoxFrame;
 
-		// Token: 0x04007178 RID: 29048
 		private IXUITweenTool m_GetBoxTween;
 
-		// Token: 0x04007179 RID: 29049
 		private uint m_CacheItemID;
 
-		// Token: 0x0400717A RID: 29050
 		private int m_CacheSlot;
 
-		// Token: 0x0400717B RID: 29051
 		private Transform m_theEndTra;
 
-		// Token: 0x0400717C RID: 29052
 		private IXUITexture m_mapTexture;
 
-		// Token: 0x0400717D RID: 29053
 		public GameObject m_OpenBoxFrame;
 
-		// Token: 0x0400717E RID: 29054
 		private GameObject m_OnlineBoxFrame;
 
-		// Token: 0x0400717F RID: 29055
 		private SuperRiskOpenboxHandler m_OpenBoxHandler;
 
-		// Token: 0x04007180 RID: 29056
 		private SuperRiskOnlineBoxHandler m_OnlineBoxHandler;
 
-		// Token: 0x04007181 RID: 29057
 		private bool m_bIsPlayingResetAnimation = false;
 
-		// Token: 0x04007182 RID: 29058
 		public GameObject m_NoticeFrame;
 
-		// Token: 0x04007183 RID: 29059
 		public IXUIButton m_NoticeYes;
 
-		// Token: 0x04007184 RID: 29060
 		private float m_fCoolTime = 0.7f;
 
-		// Token: 0x04007185 RID: 29061
 		private float m_fLastClickBtnTime = 0f;
 
-		// Token: 0x04007186 RID: 29062
 		private static CommandCallback _playDiceCb = new CommandCallback(SuperRiskGameHandler._PlayDice);
 
-		// Token: 0x04007187 RID: 29063
 		private XFx m_scrollFx;
 
-		// Token: 0x04007188 RID: 29064
 		private List<XFx> m_dungeonFxs = new List<XFx>();
 
-		// Token: 0x04007189 RID: 29065
 		private XFx[] m_boxFxs = new XFx[3];
 
-		// Token: 0x0400718A RID: 29066
 		private string m_scrollEffectPath = string.Empty;
 
-		// Token: 0x0400718B RID: 29067
 		private string m_dungeonEffectPath = string.Empty;
 
-		// Token: 0x0400718C RID: 29068
 		private string m_boxEffectPath = string.Empty;
 
-		// Token: 0x0400718D RID: 29069
 		private int m_discardBoxId = 0;
 	}
 }

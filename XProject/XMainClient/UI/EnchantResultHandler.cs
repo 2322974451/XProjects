@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017BE RID: 6078
+
 	internal class EnchantResultHandler : DlgHandlerBase
 	{
-		// Token: 0x17003887 RID: 14471
-		// (get) Token: 0x0600FBA8 RID: 64424 RVA: 0x003A7894 File Offset: 0x003A5A94
+
 		protected override string FileName
 		{
 			get
@@ -19,7 +18,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FBA9 RID: 64425 RVA: 0x003A78AB File Offset: 0x003A5AAB
 		protected override void Init()
 		{
 			base.Init();
@@ -28,26 +26,22 @@ namespace XMainClient.UI
 			this.InitProperties();
 		}
 
-		// Token: 0x0600FBAA RID: 64426 RVA: 0x0019EEB0 File Offset: 0x0019D0B0
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 		}
 
-		// Token: 0x0600FBAB RID: 64427 RVA: 0x003A78D8 File Offset: 0x003A5AD8
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this._doc.ReqEnchant();
 		}
 
-		// Token: 0x0600FBAC RID: 64428 RVA: 0x0019EEFD File Offset: 0x0019D0FD
 		protected override void OnHide()
 		{
 			base.OnHide();
 		}
 
-		// Token: 0x0600FBAD RID: 64429 RVA: 0x003A78EE File Offset: 0x003A5AEE
 		public override void OnUnload()
 		{
 			this._doc._EnchantResultHandler = null;
@@ -55,14 +49,12 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x0600FBAE RID: 64430 RVA: 0x0035654D File Offset: 0x0035474D
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
 			this.RefreshData();
 		}
 
-		// Token: 0x0600FBAF RID: 64431 RVA: 0x003A790C File Offset: 0x003A5B0C
 		public override void RefreshData()
 		{
 			base.RefreshData();
@@ -81,7 +73,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FBB0 RID: 64432 RVA: 0x003A7998 File Offset: 0x003A5B98
 		private void InitProperties()
 		{
 			IXUIButton ixuibutton = base.PanelObject.transform.Find("Bottom/BtnOK").GetComponent("XUIButton") as IXUIButton;
@@ -100,7 +91,6 @@ namespace XMainClient.UI
 			this._scrollView = (base.transform.Find("Detail").GetComponent("XUIScrollView") as IXUIScrollView);
 		}
 
-		// Token: 0x0600FBB1 RID: 64433 RVA: 0x003A7B6C File Offset: 0x003A5D6C
 		private void UpdateWrapContent(Transform itemTransform, int index)
 		{
 			bool flag = index >= this._curEnchantInfo.AttrList.Count;
@@ -184,14 +174,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FBB2 RID: 64434 RVA: 0x003A7EAC File Offset: 0x003A60AC
 		private bool ToAccesss(IXUIButton button)
 		{
 			XSingleton<UiUtility>.singleton.ShowItemAccess(240, null);
 			return true;
 		}
 
-		// Token: 0x0600FBB3 RID: 64435 RVA: 0x003A7ED0 File Offset: 0x003A60D0
 		private bool ContinueToEnchant(IXUIButton button)
 		{
 			bool flag = !this.m_ItemRequiredCollector.bItemsEnough;
@@ -226,13 +214,11 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FBB4 RID: 64436 RVA: 0x001A6C1F File Offset: 0x001A4E1F
 		private void OnClose(IXUISprite uiSprite)
 		{
 			base.SetVisible(false);
 		}
 
-		// Token: 0x0600FBB5 RID: 64437 RVA: 0x003A7FA4 File Offset: 0x003A61A4
 		private void _RefreshCost()
 		{
 			ItemList.RowData itemConf = XBagDocument.GetItemConf(this._doc.SelectedItemID);
@@ -272,12 +258,10 @@ namespace XMainClient.UI
 			this._costStone.gameObject.transform.Find("GetTip").gameObject.SetActive(itemCount < (ulong)num);
 		}
 
-		// Token: 0x0600FBB6 RID: 64438 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		private void RefreshAfterAttri()
 		{
 		}
 
-		// Token: 0x0600FBB7 RID: 64439 RVA: 0x003A81C4 File Offset: 0x003A63C4
 		private int GetChangedPreAttrValue()
 		{
 			XEnchantInfo preEnchantInfo = this._doc.GetPreEnchantInfo();
@@ -296,40 +280,28 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x04006E79 RID: 28281
 		private XEnchantDocument _doc = null;
 
-		// Token: 0x04006E7A RID: 28282
 		private GameObject _equipItem;
 
-		// Token: 0x04006E7B RID: 28283
 		private IXUISprite _enchantIcon;
 
-		// Token: 0x04006E7C RID: 28284
 		private IXUIButton _accessBtn;
 
-		// Token: 0x04006E7D RID: 28285
 		private XItemRequiredCollector m_ItemRequiredCollector = new XItemRequiredCollector();
 
-		// Token: 0x04006E7E RID: 28286
 		private IXUILabel _costStone;
 
-		// Token: 0x04006E7F RID: 28287
 		private IXUILabel m_uiCostValue;
 
-		// Token: 0x04006E80 RID: 28288
 		private IXUISprite m_uiCostIcon;
 
-		// Token: 0x04006E81 RID: 28289
 		private IXUISprite m_Close;
 
-		// Token: 0x04006E82 RID: 28290
 		private IXUIScrollView _scrollView;
 
-		// Token: 0x04006E83 RID: 28291
 		private IXUIWrapContent _wrapContent;
 
-		// Token: 0x04006E84 RID: 28292
 		private XEnchantInfo _curEnchantInfo;
 	}
 }

@@ -5,22 +5,20 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000B01 RID: 2817
+
 	internal class XAIOtherActions : XSingleton<XAIOtherActions>
 	{
-		// Token: 0x0600A60C RID: 42508 RVA: 0x001D008D File Offset: 0x001CE28D
+
 		public XAIOtherActions()
 		{
 			this._delayRunScriptCb = new XTimerMgr.ElapsedEventHandler(this.DelayRunScript);
 		}
 
-		// Token: 0x0600A60D RID: 42509 RVA: 0x001D00B8 File Offset: 0x001CE2B8
 		public bool Shout(XEntity entity)
 		{
 			return true;
 		}
 
-		// Token: 0x0600A60E RID: 42510 RVA: 0x001D00CC File Offset: 0x001CE2CC
 		public string ReceiveAIEvent(XEntity entity, int msgType, bool Deprecate)
 		{
 			string text = "";
@@ -55,7 +53,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A60F RID: 42511 RVA: 0x001D01F4 File Offset: 0x001CE3F4
 		public bool SendAIEvent(XEntity entity, int msgto, int msgtype, int entitytypeid, string msgarg, Vector3 pos, float delaytime = 0f)
 		{
 			List<XEntity> list = new List<XEntity>();
@@ -141,7 +138,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600A610 RID: 42512 RVA: 0x001D0438 File Offset: 0x001CE638
 		public bool CallMonster(XEntity entity, CallMonsterData data)
 		{
 			Vector3 vector = Vector3.zero;
@@ -289,7 +285,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600A611 RID: 42513 RVA: 0x001D088C File Offset: 0x001CEA8C
 		private void LateSpawn(object obj)
 		{
 			CallMonsterArg callMonsterArg = (CallMonsterArg)obj;
@@ -314,7 +309,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A612 RID: 42514 RVA: 0x001D09D8 File Offset: 0x001CEBD8
 		private void KillSpawn(object obj)
 		{
 			ulong id = (ulong)obj;
@@ -327,7 +321,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A613 RID: 42515 RVA: 0x001D0A28 File Offset: 0x001CEC28
 		public bool CallScript(string script, float delaytime)
 		{
 			bool flag = delaytime > 0f;
@@ -342,13 +335,11 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600A614 RID: 42516 RVA: 0x001D0A6C File Offset: 0x001CEC6C
 		private void DelayRunScript(object args)
 		{
 			XSingleton<XLevelScriptMgr>.singleton.RunScript((string)args);
 		}
 
-		// Token: 0x0600A615 RID: 42517 RVA: 0x001D0A80 File Offset: 0x001CEC80
 		public bool AddBuff(int monsterid, int buffid, int buffid2)
 		{
 			List<XEntity> list = new List<XEntity>();
@@ -381,7 +372,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A616 RID: 42518 RVA: 0x001D0B58 File Offset: 0x001CED58
 		private void AddEntityBuff(XEntity entity, int buffid)
 		{
 			int num = buffid / 100000;
@@ -398,13 +388,11 @@ namespace XMainClient
 			XSingleton<XEventMgr>.singleton.FireEvent(@event);
 		}
 
-		// Token: 0x0600A617 RID: 42519 RVA: 0x001D0BC4 File Offset: 0x001CEDC4
 		public bool PlayFx(string fxname, Vector3 fxpos, float delaytime)
 		{
 			return true;
 		}
 
-		// Token: 0x0600A618 RID: 42520 RVA: 0x001D0BD8 File Offset: 0x001CEDD8
 		public bool DetectEnemyInRange(XEntity entity, ref DetectEnemyInRangeArg arg)
 		{
 			List<XEntity> list = null;
@@ -491,7 +479,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A619 RID: 42521 RVA: 0x001D0E3C File Offset: 0x001CF03C
 		public void TickKillAll(object obj)
 		{
 			bool flag = obj as string == "stop";
@@ -515,16 +502,13 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A61A RID: 42522 RVA: 0x001D0EEC File Offset: 0x001CF0EC
 		public bool AIDoodad(int doodadid, int waveid, Vector3 pos, float randompos, float delaytime)
 		{
 			return true;
 		}
 
-		// Token: 0x04003D16 RID: 15638
 		private XTimerMgr.ElapsedEventHandler _delayRunScriptCb = null;
 
-		// Token: 0x04003D17 RID: 15639
 		private uint _kill_timer_token = 0U;
 	}
 }

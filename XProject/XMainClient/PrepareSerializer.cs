@@ -4,10 +4,10 @@ using ProtoBuf;
 
 namespace XMainClient
 {
-	// Token: 0x02000D8F RID: 3471
+
 	internal class PrepareSerializer
 	{
-		// Token: 0x0600BD32 RID: 48434 RVA: 0x002709DC File Offset: 0x0026EBDC
+
 		static PrepareSerializer()
 		{
 			Serializer.PrepareSerializer<LoadAccountData>();

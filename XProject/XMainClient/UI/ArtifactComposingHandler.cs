@@ -5,11 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017AE RID: 6062
+
 	internal class ArtifactComposingHandler : DlgHandlerBase
 	{
-		// Token: 0x17003873 RID: 14451
-		// (get) Token: 0x0600FAB2 RID: 64178 RVA: 0x003A0410 File Offset: 0x0039E610
+
 		protected override string FileName
 		{
 			get
@@ -18,7 +17,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FAB3 RID: 64179 RVA: 0x003A0428 File Offset: 0x0039E628
 		protected override void Init()
 		{
 			base.Init();
@@ -37,20 +35,17 @@ namespace XMainClient.UI
 			this.m_barFullWidth = this.m_sprBar.spriteWidth;
 		}
 
-		// Token: 0x0600FAB4 RID: 64180 RVA: 0x0019EEB0 File Offset: 0x0019D0B0
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 		}
 
-		// Token: 0x0600FAB5 RID: 64181 RVA: 0x003A0591 File Offset: 0x0039E791
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.FillContent();
 		}
 
-		// Token: 0x0600FAB6 RID: 64182 RVA: 0x003A05A4 File Offset: 0x0039E7A4
 		protected override void OnHide()
 		{
 			base.OnHide();
@@ -64,13 +59,11 @@ namespace XMainClient.UI
 			this.m_quanlityFx.Reset();
 		}
 
-		// Token: 0x0600FAB7 RID: 64183 RVA: 0x0022CCF0 File Offset: 0x0022AEF0
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
 		}
 
-		// Token: 0x0600FAB8 RID: 64184 RVA: 0x003A05FC File Offset: 0x0039E7FC
 		public override void OnUnload()
 		{
 			base.OnUnload();
@@ -90,7 +83,6 @@ namespace XMainClient.UI
 			this.m_quanlityFx.Reset();
 		}
 
-		// Token: 0x0600FAB9 RID: 64185 RVA: 0x003A0674 File Offset: 0x0039E874
 		private void FillContent()
 		{
 			bool flag = this.m_itemView.goItem != null;
@@ -100,7 +92,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FABA RID: 64186 RVA: 0x003A06AC File Offset: 0x0039E8AC
 		public void SetFinishState(bool bFinish)
 		{
 			this.m_barView.SetActive(!bFinish);
@@ -123,7 +114,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FABB RID: 64187 RVA: 0x003A07A4 File Offset: 0x0039E9A4
 		public void SetFinishArtifactInfo(XItem item)
 		{
 			bool flag = this.m_itemView.goItem != null;
@@ -151,7 +141,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FABC RID: 64188 RVA: 0x003A086C File Offset: 0x0039EA6C
 		private void ShowEffect()
 		{
 			bool flag = this.m_creatFx == null;
@@ -167,8 +156,6 @@ namespace XMainClient.UI
 			XSingleton<XAudioMgr>.singleton.PlayUISound("Audio/UI/UI_datie", true, AudioChannel.Action);
 		}
 
-		// Token: 0x17003874 RID: 14452
-		// (get) Token: 0x0600FABD RID: 64189 RVA: 0x003A08F8 File Offset: 0x0039EAF8
 		public string CreatePath
 		{
 			get
@@ -182,7 +169,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FABE RID: 64190 RVA: 0x003A0934 File Offset: 0x0039EB34
 		private void SetEffect(GameObject go, int itemId)
 		{
 			bool flag = go == null;
@@ -216,7 +202,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FABF RID: 64191 RVA: 0x003A09F0 File Offset: 0x0039EBF0
 		private void HideEffect()
 		{
 			bool flag = this.m_creatFx != null;
@@ -227,14 +212,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FAC0 RID: 64192 RVA: 0x003A0A26 File Offset: 0x0039EC26
 		public void SetBar(int f)
 		{
 			f = Mathf.Clamp(f, 1, 100);
 			this.m_sprBar.spriteWidth = this.m_barFullWidth * f / 100;
 		}
 
-		// Token: 0x0600FAC1 RID: 64193 RVA: 0x003A0A4C File Offset: 0x0039EC4C
 		private bool OnClickButtonOK(IXUIButton btn)
 		{
 			bool flag = this.SetButtonCool(this.m_fCoolTime);
@@ -259,7 +242,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FAC2 RID: 64194 RVA: 0x003A0A90 File Offset: 0x0039EC90
 		private bool OnClickButtonCancel(IXUIButton btn)
 		{
 			bool flag = this.SetButtonCool(this.m_fCoolTime);
@@ -284,7 +266,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FAC3 RID: 64195 RVA: 0x003A0AD4 File Offset: 0x0039ECD4
 		private bool SetButtonCool(float time)
 		{
 			float num = Time.realtimeSinceStartup - this.m_fLastClickBtnTime;
@@ -302,52 +283,36 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x04006DE7 RID: 28135
 		private ArtifactComposeDocument m_doc;
 
-		// Token: 0x04006DE8 RID: 28136
 		private ArtifactBagDocument m_artifactBagdoc;
 
-		// Token: 0x04006DE9 RID: 28137
 		private IXUILabel m_textLab;
 
-		// Token: 0x04006DEA RID: 28138
 		private IXUIButton m_doBtn;
 
-		// Token: 0x04006DEB RID: 28139
 		private IXUILabel m_doLab;
 
-		// Token: 0x04006DEC RID: 28140
 		private IXUISprite m_sprBar;
 
-		// Token: 0x04006DED RID: 28141
 		private GameObject m_barView;
 
-		// Token: 0x04006DEE RID: 28142
 		private XFx m_creatFx = null;
 
-		// Token: 0x04006DEF RID: 28143
 		private XFx m_successFx = null;
 
-		// Token: 0x04006DF0 RID: 28144
 		private Transform m_successEffectTra;
 
-		// Token: 0x04006DF1 RID: 28145
 		private EquipSetItemBaseView m_itemView;
 
-		// Token: 0x04006DF2 RID: 28146
 		private ArtifactQuanlityFx m_quanlityFx = new ArtifactQuanlityFx();
 
-		// Token: 0x04006DF3 RID: 28147
 		private float m_fCoolTime = 0.5f;
 
-		// Token: 0x04006DF4 RID: 28148
 		private float m_fLastClickBtnTime = 0f;
 
-		// Token: 0x04006DF5 RID: 28149
 		private int m_barFullWidth;
 
-		// Token: 0x04006DF6 RID: 28150
 		private string m_createPath = string.Empty;
 	}
 }

@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017E8 RID: 6120
+
 	internal class LuckyTurntableRecordView : DlgBase<LuckyTurntableRecordView, LuckyTurntableRecordBehaviour>
 	{
-		// Token: 0x170038BB RID: 14523
-		// (get) Token: 0x0600FDB0 RID: 64944 RVA: 0x003B8824 File Offset: 0x003B6A24
+
 		public override string fileName
 		{
 			get
@@ -20,7 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FDB1 RID: 64945 RVA: 0x003B883C File Offset: 0x003B6A3C
 		protected override void Init()
 		{
 			this.m_btnBack = (base.uiBehaviour.transform.Find("backclick").GetComponent("XUIButton") as IXUIButton);
@@ -30,7 +28,6 @@ namespace XMainClient.UI
 			this.m_ItemPool.SetupPool(this.m_root.gameObject, gameObject, 8U, false);
 		}
 
-		// Token: 0x0600FDB2 RID: 64946 RVA: 0x003B88F0 File Offset: 0x003B6AF0
 		public void ShowList(List<KeyValuePair<int, int>> list)
 		{
 			this.m_map.Clear();
@@ -49,7 +46,6 @@ namespace XMainClient.UI
 			this.RefreshList();
 		}
 
-		// Token: 0x0600FDB3 RID: 64947 RVA: 0x003B89B0 File Offset: 0x003B6BB0
 		public void RefreshList()
 		{
 			this.m_ItemPool.ReturnAll(false);
@@ -107,33 +103,26 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FDB4 RID: 64948 RVA: 0x003B8AEA File Offset: 0x003B6CEA
 		public override void RegisterEvent()
 		{
 			this.m_btnClose.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseClicked));
 			this.m_btnBack.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseClicked));
 		}
 
-		// Token: 0x0600FDB5 RID: 64949 RVA: 0x003B8B20 File Offset: 0x003B6D20
 		private bool OnCloseClicked(IXUIButton sp)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x04006FF8 RID: 28664
 		private IXUIButton m_btnBack;
 
-		// Token: 0x04006FF9 RID: 28665
 		private IXUIButton m_btnClose;
 
-		// Token: 0x04006FFA RID: 28666
 		private XUIPool m_ItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006FFB RID: 28667
 		private Transform m_root;
 
-		// Token: 0x04006FFC RID: 28668
 		private Dictionary<int, int> m_map = new Dictionary<int, int>();
 	}
 }

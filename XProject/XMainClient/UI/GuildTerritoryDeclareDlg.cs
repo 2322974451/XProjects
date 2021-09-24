@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001772 RID: 6002
+
 	internal class GuildTerritoryDeclareDlg : DlgBase<GuildTerritoryDeclareDlg, GuildTerritoryDeclareBehaviour>
 	{
-		// Token: 0x17003820 RID: 14368
-		// (get) Token: 0x0600F7C8 RID: 63432 RVA: 0x00387CEC File Offset: 0x00385EEC
+
 		public override string fileName
 		{
 			get
@@ -20,7 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F7C9 RID: 63433 RVA: 0x00387D04 File Offset: 0x00385F04
 		protected override void Init()
 		{
 			base.Init();
@@ -29,7 +27,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.mAllianceWrapContent.RegisterItemUpdateEventHandler(new WrapItemUpdateEventHandler(this.OnTerritoryUpdate));
 		}
 
-		// Token: 0x0600F7CA RID: 63434 RVA: 0x00387D64 File Offset: 0x00385F64
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -38,28 +35,24 @@ namespace XMainClient.UI
 			base.uiBehaviour.mTerritoryJoin.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnTerritoryJoinClick));
 		}
 
-		// Token: 0x0600F7CB RID: 63435 RVA: 0x00387DD0 File Offset: 0x00385FD0
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.RefreshWhenShow();
 		}
 
-		// Token: 0x0600F7CC RID: 63436 RVA: 0x00387DE1 File Offset: 0x00385FE1
 		protected override void OnUnload()
 		{
 			this.m_lastTime = null;
 			base.OnUnload();
 		}
 
-		// Token: 0x0600F7CD RID: 63437 RVA: 0x00387DF2 File Offset: 0x00385FF2
 		protected override void OnHide()
 		{
 			base.uiBehaviour.mAllianceWrapContent.SetContentCount(0, false);
 			base.OnHide();
 		}
 
-		// Token: 0x0600F7CE RID: 63438 RVA: 0x00387E10 File Offset: 0x00386010
 		private bool OnTerritoryDeclareClick(IXUIButton btn)
 		{
 			CityData cityData;
@@ -93,7 +86,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F7CF RID: 63439 RVA: 0x00387F24 File Offset: 0x00386124
 		private bool OnSureAllianceGuildTerr(IXUIButton btn)
 		{
 			XSingleton<UiUtility>.singleton.CloseModalDlg();
@@ -101,7 +93,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F7D0 RID: 63440 RVA: 0x00387F5C File Offset: 0x0038615C
 		private bool OnTerritoryJoinClick(IXUIButton btn)
 		{
 			bool flag = this.m_lastTime != null && this.m_lastTime.LeftTime > 0f;
@@ -122,14 +113,12 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F7D1 RID: 63441 RVA: 0x00387FE0 File Offset: 0x003861E0
 		private bool OnCloseClick(IXUIButton btn)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x0600F7D2 RID: 63442 RVA: 0x00387FFC File Offset: 0x003861FC
 		private void OnListUpdate(Transform t, int index)
 		{
 			GuildTerrChallInfo guildTerrChallInfo = this._Doc.GuildTerrChallList[index];
@@ -139,7 +128,6 @@ namespace XMainClient.UI
 			ixuilabel2.SetText(guildTerrChallInfo.guildname);
 		}
 
-		// Token: 0x0600F7D3 RID: 63443 RVA: 0x00388074 File Offset: 0x00386274
 		private void OnTerritoryUpdate(Transform t, int index)
 		{
 			XGuildDocument specificDocument = XDocuments.GetSpecificDocument<XGuildDocument>(XGuildDocument.uuID);
@@ -169,7 +157,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F7D4 RID: 63444 RVA: 0x00388270 File Offset: 0x00386470
 		private bool OnAllianceClick(IXUIButton btn)
 		{
 			XSingleton<XDebug>.singleton.AddGreenLog("Alliance:", btn.ID.ToString(), null, null, null, null);
@@ -233,7 +220,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F7D5 RID: 63445 RVA: 0x00388430 File Offset: 0x00386630
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
@@ -258,7 +244,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F7D6 RID: 63446 RVA: 0x003884A8 File Offset: 0x003866A8
 		private bool TrySendTryAlliance(IXUIButton btn)
 		{
 			XSingleton<UiUtility>.singleton.CloseModalDlg();
@@ -270,13 +255,11 @@ namespace XMainClient.UI
 			return false;
 		}
 
-		// Token: 0x0600F7D7 RID: 63447 RVA: 0x003884E8 File Offset: 0x003866E8
 		private bool CheckDeclare(CityData cityData)
 		{
 			return cityData.id != this._Doc.SelfTargetTerritoryID && cityData.type == GUILDTERRTYPE.ALLIANCE;
 		}
 
-		// Token: 0x0600F7D8 RID: 63448 RVA: 0x0038851C File Offset: 0x0038671C
 		public void RefreshWhenShow()
 		{
 			XSingleton<UiUtility>.singleton.CloseModalDlg();
@@ -369,7 +352,6 @@ namespace XMainClient.UI
 			this.RefreshAllianceContent();
 		}
 
-		// Token: 0x0600F7D9 RID: 63449 RVA: 0x003888F8 File Offset: 0x00386AF8
 		private void RefreshAllianceContent()
 		{
 			bool flag = !base.uiBehaviour.mAllianceScrollView.IsVisible();
@@ -388,16 +370,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04006C0E RID: 27662
 		private XGuildTerritoryDocument _Doc;
 
-		// Token: 0x04006C0F RID: 27663
 		private XElapseTimer m_lastTime;
 
-		// Token: 0x04006C10 RID: 27664
 		private bool mCountDown = false;
 
-		// Token: 0x04006C11 RID: 27665
 		private ulong AllianceGuildID = 0UL;
 	}
 }

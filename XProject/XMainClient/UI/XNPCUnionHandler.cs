@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017D7 RID: 6103
+
 	internal class XNPCUnionHandler : DlgHandlerBase
 	{
-		// Token: 0x170038AB RID: 14507
-		// (get) Token: 0x0600FCE1 RID: 64737 RVA: 0x003B15E8 File Offset: 0x003AF7E8
+
 		public uint SelectedUnionID
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170038AC RID: 14508
-		// (get) Token: 0x0600FCE2 RID: 64738 RVA: 0x003B1600 File Offset: 0x003AF800
 		protected override string FileName
 		{
 			get
@@ -30,7 +27,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FCE3 RID: 64739 RVA: 0x003B1618 File Offset: 0x003AF818
 		protected override void Init()
 		{
 			base.Init();
@@ -42,14 +38,12 @@ namespace XMainClient.UI
 			this.m_WrapContent = (base.PanelObject.transform.Find("Group/NpcScrollView/WrapContent").GetComponent("XUIWrapContent") as IXUIWrapContent);
 		}
 
-		// Token: 0x0600FCE4 RID: 64740 RVA: 0x003B16D2 File Offset: 0x003AF8D2
 		protected override void OnShow()
 		{
 			this.RefreshData();
 			this.m_MemberHandler.SetVisible(true);
 		}
 
-		// Token: 0x0600FCE5 RID: 64741 RVA: 0x003B16EC File Offset: 0x003AF8EC
 		public override void RefreshData()
 		{
 			this.SetupUnionList();
@@ -60,13 +54,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FCE6 RID: 64742 RVA: 0x003B171C File Offset: 0x003AF91C
 		public override void RegisterEvent()
 		{
 			this.m_WrapContent.RegisterItemUpdateEventHandler(new WrapItemUpdateEventHandler(this.UnionWrapListUpdate));
 		}
 
-		// Token: 0x0600FCE7 RID: 64743 RVA: 0x003B1737 File Offset: 0x003AF937
 		public override void OnUnload()
 		{
 			this.m_doc = null;
@@ -74,7 +66,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x0600FCE8 RID: 64744 RVA: 0x003B1754 File Offset: 0x003AF954
 		private void SetupUnionList()
 		{
 			this.m_UnionIds = this.m_doc.UnionIds;
@@ -86,7 +77,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FCE9 RID: 64745 RVA: 0x003B17A8 File Offset: 0x003AF9A8
 		private void UnionWrapListUpdate(Transform item, int index)
 		{
 			bool flag = this.m_UnionIds == null || index >= this.m_UnionIds.Count;
@@ -120,7 +110,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FCEA RID: 64746 RVA: 0x003B194C File Offset: 0x003AFB4C
 		private void OnSelectUnion(IXUISprite sprite)
 		{
 			uint num = (uint)sprite.ID;
@@ -138,7 +127,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FCEB RID: 64747 RVA: 0x003B19B8 File Offset: 0x003AFBB8
 		private void OnNotifyRefreshSubHandler()
 		{
 			bool flag = this.m_MemberHandler.IsVisible();
@@ -148,7 +136,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FCEC RID: 64748 RVA: 0x003B19E4 File Offset: 0x003AFBE4
 		private void ToggleSelection(GameObject go, bool bSelect)
 		{
 			Transform transform = go.transform.FindChild("Select");
@@ -163,28 +150,20 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04006F3C RID: 28476
 		private XNPCFavorDocument m_doc;
 
-		// Token: 0x04006F3D RID: 28477
 		private IXUIScrollView m_ScrollView;
 
-		// Token: 0x04006F3E RID: 28478
 		private IXUIWrapContent m_WrapContent;
 
-		// Token: 0x04006F3F RID: 28479
 		private GameObject m_MemberFrame;
 
-		// Token: 0x04006F40 RID: 28480
 		private XNPCUnionMemSubHandler m_MemberHandler = null;
 
-		// Token: 0x04006F41 RID: 28481
 		private List<uint> m_UnionIds;
 
-		// Token: 0x04006F42 RID: 28482
 		private uint _selectedUnionID = 0U;
 
-		// Token: 0x04006F43 RID: 28483
 		private GameObject SelectedItem = null;
 	}
 }

@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C48 RID: 3144
+
 	internal class NextLevelSealView : DlgBase<NextLevelSealView, NextLevelSealBehaviour>
 	{
-		// Token: 0x17003189 RID: 12681
-		// (get) Token: 0x0600B257 RID: 45655 RVA: 0x0022675C File Offset: 0x0022495C
+
 		public override string fileName
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700318A RID: 12682
-		// (get) Token: 0x0600B258 RID: 45656 RVA: 0x00226774 File Offset: 0x00224974
 		public override int layer
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700318B RID: 12683
-		// (get) Token: 0x0600B259 RID: 45657 RVA: 0x00226788 File Offset: 0x00224988
 		public override int group
 		{
 			get
@@ -40,8 +35,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700318C RID: 12684
-		// (get) Token: 0x0600B25A RID: 45658 RVA: 0x0022679C File Offset: 0x0022499C
 		public override bool autoload
 		{
 			get
@@ -50,33 +43,28 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B25B RID: 45659 RVA: 0x002267AF File Offset: 0x002249AF
 		protected override void Init()
 		{
 			this.doc = XDocuments.GetSpecificDocument<XLevelSealDocument>(XLevelSealDocument.uuID);
 		}
 
-		// Token: 0x0600B25C RID: 45660 RVA: 0x002267C2 File Offset: 0x002249C2
 		public override void RegisterEvent()
 		{
 			base.uiBehaviour.m_Close.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseClicked));
 		}
 
-		// Token: 0x0600B25D RID: 45661 RVA: 0x002267E4 File Offset: 0x002249E4
 		public bool OnCloseClicked(IXUIButton btn)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x0600B25E RID: 45662 RVA: 0x00226800 File Offset: 0x00224A00
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.RefreshPage();
 		}
 
-		// Token: 0x0600B25F RID: 45663 RVA: 0x00226814 File Offset: 0x00224A14
 		protected override void OnHide()
 		{
 			base.uiBehaviour.m_NextSealTexL.SetTexturePath("");
@@ -85,13 +73,11 @@ namespace XMainClient
 			base.OnHide();
 		}
 
-		// Token: 0x0600B260 RID: 45664 RVA: 0x0022686B File Offset: 0x00224A6B
 		protected override void OnUnload()
 		{
 			base.OnUnload();
 		}
 
-		// Token: 0x0600B261 RID: 45665 RVA: 0x00226878 File Offset: 0x00224A78
 		public void RefreshPage()
 		{
 			uint removeSealType = this.doc.GetRemoveSealType(XSingleton<XAttributeMgr>.singleton.XPlayerData.Level);
@@ -140,19 +126,16 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B262 RID: 45666 RVA: 0x00226B05 File Offset: 0x00224D05
 		public void SetNextSealLabel(string str)
 		{
 			base.uiBehaviour.m_NextSealLabel.SetText(str);
 		}
 
-		// Token: 0x0600B263 RID: 45667 RVA: 0x00226B1A File Offset: 0x00224D1A
 		public void SetPosition(Vector3 pos)
 		{
 			base.uiBehaviour.transform.position = pos;
 		}
 
-		// Token: 0x040044BD RID: 17597
 		private XLevelSealDocument doc = null;
 	}
 }

@@ -7,10 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C4E RID: 3150
+
 	internal class MobaBattleRecordHandler : DlgHandlerBase
 	{
-		// Token: 0x0600B2BC RID: 45756 RVA: 0x00229844 File Offset: 0x00227A44
+
 		protected override void Init()
 		{
 			this.doc = XDocuments.GetSpecificDocument<XMobaEntranceDocument>(XMobaEntranceDocument.uuID);
@@ -34,8 +34,6 @@ namespace XMainClient
 			this.m_MiniIconPool.SetupPool(null, transform4.gameObject, 15U, false);
 		}
 
-		// Token: 0x1700318F RID: 12687
-		// (get) Token: 0x0600B2BD RID: 45757 RVA: 0x00229A34 File Offset: 0x00227C34
 		protected override string FileName
 		{
 			get
@@ -44,13 +42,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B2BE RID: 45758 RVA: 0x00229A4B File Offset: 0x00227C4B
 		public override void RegisterEvent()
 		{
 			this.m_Close.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseClicked));
 		}
 
-		// Token: 0x0600B2BF RID: 45759 RVA: 0x00229A66 File Offset: 0x00227C66
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -59,19 +55,16 @@ namespace XMainClient
 			this.InitShow();
 		}
 
-		// Token: 0x0600B2C0 RID: 45760 RVA: 0x0019EEFD File Offset: 0x0019D0FD
 		protected override void OnHide()
 		{
 			base.OnHide();
 		}
 
-		// Token: 0x0600B2C1 RID: 45761 RVA: 0x0019EF07 File Offset: 0x0019D107
 		public override void OnUnload()
 		{
 			base.OnUnload();
 		}
 
-		// Token: 0x0600B2C2 RID: 45762 RVA: 0x00229A8C File Offset: 0x00227C8C
 		public void InitShow()
 		{
 			this.m_BattleTotal.SetText("0");
@@ -83,7 +76,6 @@ namespace XMainClient
 			this.InitDetail();
 		}
 
-		// Token: 0x0600B2C3 RID: 45763 RVA: 0x00229B04 File Offset: 0x00227D04
 		public void InitDetail()
 		{
 			this.m_Date.SetText("00-00");
@@ -93,7 +85,6 @@ namespace XMainClient
 			this.m_DetailPool.ReturnAll(false);
 		}
 
-		// Token: 0x0600B2C4 RID: 45764 RVA: 0x00229B78 File Offset: 0x00227D78
 		public void Refresh()
 		{
 			bool flag = !base.IsVisible();
@@ -113,7 +104,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B2C5 RID: 45765 RVA: 0x00229C74 File Offset: 0x00227E74
 		public void RefreshTotal()
 		{
 			XHeroBattleDocument specificDocument = XDocuments.GetSpecificDocument<XHeroBattleDocument>(XHeroBattleDocument.uuID);
@@ -168,7 +158,6 @@ namespace XMainClient
 			this.m_RoundPool.ActualReturnAll(false);
 		}
 
-		// Token: 0x0600B2C6 RID: 45766 RVA: 0x00229FA4 File Offset: 0x002281A4
 		public void RefreshDetail(XMobaEntranceDocument.XMobaRecordRound data)
 		{
 			bool flag = data.roundID != this.SelectID;
@@ -271,7 +260,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B2C7 RID: 45767 RVA: 0x0022A5C0 File Offset: 0x002287C0
 		private void SetupMiniIconList(Transform ts, XMobaEntranceDocument.XMobaRecordDetailOne curOne, XMobaEntranceDocument.XMobaRecordRound data)
 		{
 			XLevelRewardDocument specificDocument = XDocuments.GetSpecificDocument<XLevelRewardDocument>(XLevelRewardDocument.uuID);
@@ -282,7 +270,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B2C8 RID: 45768 RVA: 0x0022A628 File Offset: 0x00228828
 		private void AddMiniIcon(Transform ts, string iconName, int index)
 		{
 			GameObject gameObject = this.m_MiniIconPool.FetchGameObject(false);
@@ -292,7 +279,6 @@ namespace XMainClient
 			ixuisprite.spriteName = iconName;
 		}
 
-		// Token: 0x0600B2C9 RID: 45769 RVA: 0x0022A6A0 File Offset: 0x002288A0
 		private void OnRoundClick(IXUISprite btn)
 		{
 			XSingleton<XDebug>.singleton.AddGreenLog(btn.ID.ToString(), null, null, null, null, null);
@@ -301,62 +287,44 @@ namespace XMainClient
 			this.doc.ReqMobaRecordRound(this.SelectID);
 		}
 
-		// Token: 0x0600B2CA RID: 45770 RVA: 0x0022A6F4 File Offset: 0x002288F4
 		private bool OnCloseClicked(IXUIButton button)
 		{
 			base.SetVisible(false);
 			return true;
 		}
 
-		// Token: 0x040044F8 RID: 17656
 		private XMobaEntranceDocument doc = null;
 
-		// Token: 0x040044F9 RID: 17657
 		private uint SelectID;
 
-		// Token: 0x040044FA RID: 17658
 		private int KillMax;
 
-		// Token: 0x040044FB RID: 17659
 		private int AssistsMax;
 
-		// Token: 0x040044FC RID: 17660
 		private IXUIButton m_Close;
 
-		// Token: 0x040044FD RID: 17661
 		private IXUILabel m_BattleTotal;
 
-		// Token: 0x040044FE RID: 17662
 		private IXUILabel m_BattleRate;
 
-		// Token: 0x040044FF RID: 17663
 		private IXUILabel m_BattleWin;
 
-		// Token: 0x04004500 RID: 17664
 		private IXUILabel m_BattleLose;
 
-		// Token: 0x04004501 RID: 17665
 		private IXUILabel m_Date;
 
-		// Token: 0x04004502 RID: 17666
 		private IXUILabel m_Time;
 
-		// Token: 0x04004503 RID: 17667
 		private IXUILabel m_Kill1;
 
-		// Token: 0x04004504 RID: 17668
 		private IXUILabel m_Kill2;
 
-		// Token: 0x04004505 RID: 17669
 		private Transform m_Empty;
 
-		// Token: 0x04004506 RID: 17670
 		private XUIPool m_RoundPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04004507 RID: 17671
 		private XUIPool m_DetailPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04004508 RID: 17672
 		private XUIPool m_MiniIconPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 	}
 }

@@ -3,10 +3,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000D49 RID: 3401
+
 	internal sealed class XPuppet : XEnemy
 	{
-		// Token: 0x0600BC2A RID: 48170 RVA: 0x0026C8D4 File Offset: 0x0026AAD4
+
 		public override bool Initilize(int flag)
 		{
 			base.Initilize(flag);
@@ -24,7 +24,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600BC2B RID: 48171 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void Move()
 		{
 		}

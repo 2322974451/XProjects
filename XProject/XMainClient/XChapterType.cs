@@ -2,28 +2,28 @@
 
 namespace XMainClient
 {
-	// Token: 0x02000ED8 RID: 3800
+
 	public enum XChapterType
 	{
-		// Token: 0x040058FC RID: 22780
+
 		SCENE_HALL = 1,
-		// Token: 0x040058FD RID: 22781
+
 		SCENE_BATTLE,
-		// Token: 0x040058FE RID: 22782
+
 		SCENE_NEST,
-		// Token: 0x040058FF RID: 22783
+
 		SCENE_PARK,
-		// Token: 0x04005900 RID: 22784
+
 		SCENE_ARENA,
-		// Token: 0x04005901 RID: 22785
+
 		SCENE_FASHION,
-		// Token: 0x04005902 RID: 22786
+
 		SCENE_WORLDBOSS,
-		// Token: 0x04005903 RID: 22787
+
 		SCENE_SMALLMONSTER,
-		// Token: 0x04005904 RID: 22788
+
 		SCENE_BOSSRUSH,
-		// Token: 0x04005905 RID: 22789
+
 		SCENE_DRAGONNEST
 	}
 }

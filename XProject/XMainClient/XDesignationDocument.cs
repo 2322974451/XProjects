@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000984 RID: 2436
+
 	internal class XDesignationDocument : XDocComponent
 	{
-		// Token: 0x17002C9B RID: 11419
-		// (get) Token: 0x06009269 RID: 37481 RVA: 0x0015226C File Offset: 0x0015046C
+
 		public override uint ID
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002C9C RID: 11420
-		// (get) Token: 0x0600926A RID: 37482 RVA: 0x00152284 File Offset: 0x00150484
 		public DesignationTable _DesignationTable
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002C9D RID: 11421
-		// (get) Token: 0x0600926B RID: 37483 RVA: 0x0015229C File Offset: 0x0015049C
 		public List<List<DesignationInfo>> DesList
 		{
 			get
@@ -40,8 +35,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002C9E RID: 11422
-		// (get) Token: 0x0600926C RID: 37484 RVA: 0x001522B4 File Offset: 0x001504B4
 		public string SpecialDesignation
 		{
 			get
@@ -50,8 +43,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002C9F RID: 11423
-		// (get) Token: 0x0600926D RID: 37485 RVA: 0x001522CC File Offset: 0x001504CC
 		public uint CoverDesignationID
 		{
 			get
@@ -60,8 +51,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002CA0 RID: 11424
-		// (get) Token: 0x0600926E RID: 37486 RVA: 0x001522E4 File Offset: 0x001504E4
 		public uint AbilityDesignationID
 		{
 			get
@@ -70,9 +59,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002CA1 RID: 11425
-		// (get) Token: 0x0600926F RID: 37487 RVA: 0x001522FC File Offset: 0x001504FC
-		// (set) Token: 0x06009270 RID: 37488 RVA: 0x00152314 File Offset: 0x00150514
 		public bool RedPoint
 		{
 			get
@@ -85,7 +71,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009271 RID: 37489 RVA: 0x00152320 File Offset: 0x00150520
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			XDesignationDocument.AsyncLoader.AddTask("Table/Designation", XDesignationDocument._designationTable, false);
@@ -94,12 +79,10 @@ namespace XMainClient
 			XDesignationDocument.AsyncLoader.Execute(callback);
 		}
 
-		// Token: 0x06009272 RID: 37490 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 		}
 
-		// Token: 0x06009273 RID: 37491 RVA: 0x0015237C File Offset: 0x0015057C
 		public string GetMyCoverDesignation()
 		{
 			DesignationTable.RowData byID = XDesignationDocument._designationTable.GetByID((int)this._coverDesignationID);
@@ -132,7 +115,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009274 RID: 37492 RVA: 0x00152414 File Offset: 0x00150614
 		private int Compare(DesignationInfo x, DesignationInfo y)
 		{
 			bool flag = x.ID == y.ID;
@@ -164,20 +146,17 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009275 RID: 37493 RVA: 0x00152491 File Offset: 0x00150691
 		public void UpdateRedPoints()
 		{
 			XSingleton<XGameSysMgr>.singleton.RecalculateRedPointState(XSysDefine.XSys_Design, true);
 		}
 
-		// Token: 0x06009276 RID: 37494 RVA: 0x001524A4 File Offset: 0x001506A4
 		public void SendQueryDesignationInfo()
 		{
 			RpcC2G_GetDesignationReq rpc = new RpcC2G_GetDesignationReq();
 			XSingleton<XClientNetwork>.singleton.Send(rpc);
 		}
 
-		// Token: 0x06009277 RID: 37495 RVA: 0x001524C4 File Offset: 0x001506C4
 		public void SendQuerySetDesignation(uint type, uint ID)
 		{
 			RpcC2G_SetDesignationReq rpcC2G_SetDesignationReq = new RpcC2G_SetDesignationReq();
@@ -186,7 +165,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_SetDesignationReq);
 		}
 
-		// Token: 0x06009278 RID: 37496 RVA: 0x00152500 File Offset: 0x00150700
 		public void SendQueryDesignationList(uint type)
 		{
 			RpcC2G_GetClassifyDesignationReq rpcC2G_GetClassifyDesignationReq = new RpcC2G_GetClassifyDesignationReq();
@@ -194,7 +172,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_GetClassifyDesignationReq);
 		}
 
-		// Token: 0x06009279 RID: 37497 RVA: 0x00152530 File Offset: 0x00150730
 		public void SetTabRedPoint(List<bool> list)
 		{
 			bool flag = DlgBase<ItemSystemDlg, TabDlgBehaviour>.singleton._DesignationHandler != null && DlgBase<ItemSystemDlg, TabDlgBehaviour>.singleton._DesignationHandler.IsVisible();
@@ -204,7 +181,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600927A RID: 37498 RVA: 0x00152574 File Offset: 0x00150774
 		public void DealWithAppearRedPoint(uint abilityDesID, List<bool> list)
 		{
 			bool flag = this.IsMaxAbilityDes && this.GetPPTOfAbilityDes(abilityDesID) != this.MaxAbilityDesNum;
@@ -214,7 +190,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600927B RID: 37499 RVA: 0x001525B0 File Offset: 0x001507B0
 		public void SendQueryGetAchiPointReward(uint ID)
 		{
 			bool flag = ID != this._lastSurveyID;
@@ -227,7 +202,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600927C RID: 37500 RVA: 0x001525F8 File Offset: 0x001507F8
 		public void SetDesignationListData(List<StcDesignationInfo> list, int type)
 		{
 			this.GetSignTime = this.GetNowTime();
@@ -307,7 +281,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600927D RID: 37501 RVA: 0x00152980 File Offset: 0x00150B80
 		private bool CheckChannelShow(DesignationTable.RowData data)
 		{
 			bool flag = data.Channel == 0;
@@ -340,7 +313,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600927E RID: 37502 RVA: 0x00152A00 File Offset: 0x00150C00
 		public uint GetPPTOfAbilityDes(uint ID)
 		{
 			DesignationTable.RowData byID = XDesignationDocument._designationTable.GetByID((int)ID);
@@ -362,7 +334,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600927F RID: 37503 RVA: 0x00152A8C File Offset: 0x00150C8C
 		public void SetCoverDesignationID(uint ID, string specialDesi)
 		{
 			this._specialDesignation = specialDesi;
@@ -372,7 +343,6 @@ namespace XMainClient
 			XSingleton<XEventMgr>.singleton.FireEvent(@event);
 		}
 
-		// Token: 0x06009280 RID: 37504 RVA: 0x00152ACC File Offset: 0x00150CCC
 		public void SetDesignationInfo(uint type, uint ID, string specialDesi)
 		{
 			bool flag = type == 1U;
@@ -414,7 +384,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009281 RID: 37505 RVA: 0x00152BD8 File Offset: 0x00150DD8
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
@@ -426,7 +395,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009282 RID: 37506 RVA: 0x00152C20 File Offset: 0x00150E20
 		private int Sort(AchieveItemInfo x, AchieveItemInfo y)
 		{
 			bool flag = x.state != y.state;
@@ -450,14 +418,12 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009283 RID: 37507 RVA: 0x00152CAC File Offset: 0x00150EAC
 		public void FetchAchieveSurvey()
 		{
 			RpcC2G_GetAchieveBrifInfoReq rpc = new RpcC2G_GetAchieveBrifInfoReq();
 			XSingleton<XClientNetwork>.singleton.Send(rpc);
 		}
 
-		// Token: 0x06009284 RID: 37508 RVA: 0x00152CCC File Offset: 0x00150ECC
 		public void OnResAchieveSurvey(GetAchieveBrifInfoRes oRes)
 		{
 			this.achieveSurveyInfo = oRes;
@@ -476,7 +442,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009285 RID: 37509 RVA: 0x00152D28 File Offset: 0x00150F28
 		public void GetPPT(out string text, out uint value, SeqListRef<uint> list, bool hasLineBreak = false)
 		{
 			text = "";
@@ -496,7 +461,6 @@ namespace XMainClient
 			value = (uint)num;
 		}
 
-		// Token: 0x06009286 RID: 37510 RVA: 0x00152DFC File Offset: 0x00150FFC
 		public void FetchAchieveType(AchieveType type)
 		{
 			RpcC2G_GetAchieveClassifyInfoReq rpcC2G_GetAchieveClassifyInfoReq = new RpcC2G_GetAchieveClassifyInfoReq();
@@ -504,7 +468,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_GetAchieveClassifyInfoReq);
 		}
 
-		// Token: 0x06009287 RID: 37511 RVA: 0x00152E2C File Offset: 0x0015102C
 		public void OnResAchieveType(GetAchieveClassifyInfoRes oRes)
 		{
 			this.achievesDetails.Clear();
@@ -554,7 +517,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009288 RID: 37512 RVA: 0x00152FA4 File Offset: 0x001511A4
 		public bool FindAchieve(AchievementV2Table.RowData row)
 		{
 			foreach (AchieveItemInfo achieveItemInfo in this.achievesDetails)
@@ -568,7 +530,6 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x06009289 RID: 37513 RVA: 0x00153018 File Offset: 0x00151218
 		public AchievementV2Table.RowData FindAchieve(StcAchieveInfo info)
 		{
 			foreach (AchievementV2Table.RowData rowData in XDesignationDocument.achieveTable.Table)
@@ -583,7 +544,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x0600928A RID: 37514 RVA: 0x0015308C File Offset: 0x0015128C
 		public void OnReachAhieveNtf(PtcG2C_ReachAchieveNtf res)
 		{
 			uint achieveID = res.Data.achieveID;
@@ -597,14 +557,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600928B RID: 37515 RVA: 0x001530E8 File Offset: 0x001512E8
 		public void OnReachDesignationNtf(PtcG2C_ReachDesignationNtf res)
 		{
 			DesignationTable.RowData byID = XDesignationDocument._designationTable.GetByID((int)res.Data.designationID);
 			DlgBase<XShowGetAchivementTipView, XShowGetAchivementTipBehaviour>.singleton.ShowDesignation(byID);
 		}
 
-		// Token: 0x0600928C RID: 37516 RVA: 0x00153118 File Offset: 0x00151318
 		public void ClaimAchieve(int id)
 		{
 			XSingleton<XDebug>.singleton.AddLog("ClaimAchieve ", id.ToString(), null, null, null, null, XDebugColor.XDebug_None);
@@ -613,7 +571,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_GetAchieveRewardReq);
 		}
 
-		// Token: 0x0600928D RID: 37517 RVA: 0x00153164 File Offset: 0x00151364
 		public void OnClaimedAchieve(uint id)
 		{
 			bool flag = this.achievesDetails != null && this.achieveView != null && this.achieveSurveyInfo != null;
@@ -658,70 +615,49 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600928E RID: 37518 RVA: 0x001532F0 File Offset: 0x001514F0
 		public double GetNowTime()
 		{
 			return (double)(DateTime.Now.Ticks / 10000000L);
 		}
 
-		// Token: 0x0400310F RID: 12559
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("DesignationDocument");
 
-		// Token: 0x04003110 RID: 12560
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x04003111 RID: 12561
 		public List<AchieveItemInfo> achievesDetails = new List<AchieveItemInfo>();
 
-		// Token: 0x04003112 RID: 12562
 		public XAchieveView achieveView;
 
-		// Token: 0x04003113 RID: 12563
 		public GetAchieveBrifInfoRes achieveSurveyInfo;
 
-		// Token: 0x04003114 RID: 12564
 		private static DesignationTable _designationTable = new DesignationTable();
 
-		// Token: 0x04003115 RID: 12565
 		public static AchievementV2Table achieveTable = new AchievementV2Table();
 
-		// Token: 0x04003116 RID: 12566
 		public static AchievementPointRewardTable achieveRwdTable = new AchievementPointRewardTable();
 
-		// Token: 0x04003117 RID: 12567
 		private List<List<DesignationInfo>> _desList = new List<List<DesignationInfo>>();
 
-		// Token: 0x04003118 RID: 12568
 		private HashSet<int> hash = new HashSet<int>();
 
-		// Token: 0x04003119 RID: 12569
 		private static readonly int DESIGNATION_FRAME_RATE = 16;
 
-		// Token: 0x0400311A RID: 12570
 		private string _specialDesignation;
 
-		// Token: 0x0400311B RID: 12571
 		private uint _coverDesignationID;
 
-		// Token: 0x0400311C RID: 12572
 		private uint _abilityDesignationID;
 
-		// Token: 0x0400311D RID: 12573
 		public bool IsMaxAbilityDes;
 
-		// Token: 0x0400311E RID: 12574
 		public int LastDisPlayTab = 0;
 
-		// Token: 0x0400311F RID: 12575
 		public uint MaxAbilityDesNum;
 
-		// Token: 0x04003120 RID: 12576
 		private bool _redPoint = false;
 
-		// Token: 0x04003121 RID: 12577
 		private uint _lastSurveyID = 0U;
 
-		// Token: 0x04003122 RID: 12578
 		public double GetSignTime;
 	}
 }

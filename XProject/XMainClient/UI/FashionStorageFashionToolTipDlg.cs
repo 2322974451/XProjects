@@ -5,11 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001807 RID: 6151
+
 	internal class FashionStorageFashionToolTipDlg : FashionStorageTooltipBase<FashionStorageFashionToolTipDlg, FashionTooltipDlgBehaviour>
 	{
-		// Token: 0x170038F0 RID: 14576
-		// (get) Token: 0x0600FF02 RID: 65282 RVA: 0x003C0FA0 File Offset: 0x003BF1A0
+
 		public override string fileName
 		{
 			get
@@ -18,7 +17,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FF03 RID: 65283 RVA: 0x003C0FB8 File Offset: 0x003BF1B8
 		protected override void SetupTopFrame(GameObject goToolTip, ItemList.RowData data, bool bMain, XItem instanceData = null, XItem compareData = null)
 		{
 			base.SetupTopFrame(goToolTip, data, bMain, instanceData, compareData);
@@ -42,14 +40,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FF04 RID: 65284 RVA: 0x003C10B4 File Offset: 0x003BF2B4
 		protected override void SetupOtherFrame(GameObject goToolTip, XItem item, XItem compareItem, bool bMain)
 		{
 			this._SetupSuitFrame(goToolTip, item, compareItem, bMain);
 			base.SetupOtherFrame(goToolTip, item, compareItem, bMain);
 		}
 
-		// Token: 0x0600FF05 RID: 65285 RVA: 0x003C10D0 File Offset: 0x003BF2D0
 		protected override int _GetPPT(XItem item, bool bMain, ref string valueText)
 		{
 			bool flag = item == null;
@@ -67,7 +63,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FF06 RID: 65286 RVA: 0x003C1118 File Offset: 0x003BF318
 		private void _SetupSuitFrame(GameObject goToolTip, XItem mainItem, XItem compareItem, bool bMain)
 		{
 			IXUISprite ixuisprite = goToolTip.transform.FindChild("ScrollPanel/SuitFrame").GetComponent("XUISprite") as IXUISprite;
@@ -165,7 +160,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FF07 RID: 65287 RVA: 0x003C145C File Offset: 0x003BF65C
 		private int GetFashionCount(int quality, bool IsThreeSuit)
 		{
 			bool flag = XSingleton<TooltipParam>.singleton.FashionOnBody == null;
@@ -206,7 +200,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x040070B8 RID: 28856
 		private IXUILabel time = null;
 	}
 }

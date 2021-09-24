@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000B8A RID: 2954
+
 	internal class XCommandClickEntity : XBaseCommand
 	{
-		// Token: 0x0600A991 RID: 43409 RVA: 0x001E3984 File Offset: 0x001E1B84
+
 		public override bool Execute()
 		{
 			Vector3 zero = Vector3.zero;
@@ -27,14 +27,12 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600A992 RID: 43410 RVA: 0x001E3A30 File Offset: 0x001E1C30
 		public override void Update()
 		{
 			base.Update();
 			this.UpdateFinger();
 		}
 
-		// Token: 0x0600A993 RID: 43411 RVA: 0x001E3A44 File Offset: 0x001E1C44
 		protected void UpdateFinger()
 		{
 			bool flag = this._target == null || this._finger == null;
@@ -54,13 +52,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A994 RID: 43412 RVA: 0x001E3B34 File Offset: 0x001E1D34
 		public override void OnFinish()
 		{
 			this.Stop();
 		}
 
-		// Token: 0x0600A995 RID: 43413 RVA: 0x001E3B3E File Offset: 0x001E1D3E
 		public override void Stop()
 		{
 			XSingleton<XTutorialMgr>.singleton.Exculsive = false;
@@ -69,10 +65,8 @@ namespace XMainClient
 			base.Stop();
 		}
 
-		// Token: 0x04003EB2 RID: 16050
 		private GameObject _finger;
 
-		// Token: 0x04003EB3 RID: 16051
 		private XEntity _target = null;
 	}
 }

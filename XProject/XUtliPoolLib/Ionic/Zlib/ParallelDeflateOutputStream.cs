@@ -1,8 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: Ionic.Zlib.ParallelDeflateOutputStream
-// Assembly: XUtliPoolLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 1D0B5E37-6957-4C11-AC8A-5F5BE652A435
-// Assembly location: F:\龙之谷\Client\Assets\Lib\XUtliPoolLib.dll
+﻿
 
 using Ionic.Crc;
 using System;
@@ -433,19 +429,19 @@ namespace Ionic.Zlib
             EmitLock = 2,
             EmitEnter = 4,
             EmitBegin = 8,
-            EmitDone = 16, // 0x00000010
-            EmitSkip = 32, // 0x00000020
-            EmitAll = EmitSkip | EmitDone | EmitBegin | EmitLock, // 0x0000003A
-            Flush = 64, // 0x00000040
-            Lifecycle = 128, // 0x00000080
-            Session = 256, // 0x00000100
-            Synch = 512, // 0x00000200
-            Instance = 1024, // 0x00000400
-            Compress = 2048, // 0x00000800
-            Write = 4096, // 0x00001000
-            WriteEnter = 8192, // 0x00002000
-            WriteTake = 16384, // 0x00004000
-            All = 4294967295, // 0xFFFFFFFF
+            EmitDone = 16, 
+            EmitSkip = 32, 
+            EmitAll = EmitSkip | EmitDone | EmitBegin | EmitLock, 
+            Flush = 64, 
+            Lifecycle = 128, 
+            Session = 256, 
+            Synch = 512, 
+            Instance = 1024, 
+            Compress = 2048, 
+            Write = 4096, 
+            WriteEnter = 8192, 
+            WriteTake = 16384, 
+            All = 4294967295, 
         }
     }
 }

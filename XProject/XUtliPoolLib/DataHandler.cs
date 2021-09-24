@@ -3,10 +3,10 @@ using System.IO;
 
 namespace XUtliPoolLib
 {
-	// Token: 0x020000CC RID: 204
+
 	public class DataHandler
 	{
-		// Token: 0x060005B1 RID: 1457 RVA: 0x0001A238 File Offset: 0x00018438
+
 		public void Init(XBinaryReader br)
 		{
 			this.m_hasStringSeq = br.ReadBoolean();
@@ -106,7 +106,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x060005B2 RID: 1458 RVA: 0x0001A4A4 File Offset: 0x000186A4
 		public void Init(BinaryReader br)
 		{
 			this.m_hasStringSeq = br.ReadBoolean();
@@ -182,7 +181,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x060005B3 RID: 1459 RVA: 0x0001A6B4 File Offset: 0x000188B4
 		public void UnInit(bool forceClean = false)
 		{
 			bool flag = !this.m_hasStringSeq;
@@ -202,7 +200,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x060005B4 RID: 1460 RVA: 0x0001A710 File Offset: 0x00018910
 		public string ReadString(XBinaryReader br)
 		{
 			ushort num = br.ReadUInt16();
@@ -218,7 +215,6 @@ namespace XUtliPoolLib
 			return string.Empty;
 		}
 
-		// Token: 0x060005B5 RID: 1461 RVA: 0x0001A760 File Offset: 0x00018960
 		public string ReadString(BinaryReader br)
 		{
 			int num = (int)br.ReadUInt16();
@@ -234,53 +230,38 @@ namespace XUtliPoolLib
 			return string.Empty;
 		}
 
-		// Token: 0x060005B6 RID: 1462 RVA: 0x0001A7B0 File Offset: 0x000189B0
 		public T ReadValue<T>(CVSReader.ValueParse<T> parser, byte allSameMask, ushort startOffset, int index, int key)
 		{
 			T[] buffer = parser.GetBuffer(this);
 			return (allSameMask == 1) ? buffer[(int)startOffset + key] : buffer[(int)this.indexBuffer[(int)startOffset + index] + key];
 		}
 
-		// Token: 0x040002FB RID: 763
 		private bool m_hasStringSeq = false;
 
-		// Token: 0x040002FC RID: 764
 		public string[] stringBuffer = null;
 
-		// Token: 0x040002FD RID: 765
 		public int[] intBuffer;
 
-		// Token: 0x040002FE RID: 766
 		public uint[] uintBuffer;
 
-		// Token: 0x040002FF RID: 767
 		public long[] longBuffer;
 
-		// Token: 0x04000300 RID: 768
 		public float[] floatBuffer;
 
-		// Token: 0x04000301 RID: 769
 		public double[] doubleBuffer;
 
-		// Token: 0x04000302 RID: 770
 		public ushort[] indexBuffer;
 
-		// Token: 0x04000303 RID: 771
 		public static string[] defaultStringBuffer = new string[4];
 
-		// Token: 0x04000304 RID: 772
 		public static int[] defaultIntBuffer = new int[4];
 
-		// Token: 0x04000305 RID: 773
 		public static uint[] defaultUIntBuffer = new uint[4];
 
-		// Token: 0x04000306 RID: 774
 		public static long[] defaultLongBuffer = new long[4];
 
-		// Token: 0x04000307 RID: 775
 		public static float[] defaultFloatBuffer = new float[4];
 
-		// Token: 0x04000308 RID: 776
 		public static double[] defaultDoubleBuffe = new double[4];
 	}
 }

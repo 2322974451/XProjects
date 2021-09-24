@@ -4,10 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000B27 RID: 2855
+
 	internal class XPowerPointCalculator : XSingleton<XPowerPointCalculator>
 	{
-		// Token: 0x0600A766 RID: 42854 RVA: 0x001D9718 File Offset: 0x001D7918
+
 		public override bool Init()
 		{
 			bool flag = this._async_loader == null;
@@ -35,7 +35,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A767 RID: 42855 RVA: 0x001D97B4 File Offset: 0x001D79B4
 		private void _BuildPPTWeightMap()
 		{
 			this.m_PPTWeight.Clear();
@@ -55,7 +54,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A768 RID: 42856 RVA: 0x001D9868 File Offset: 0x001D7A68
 		private void _BuildAttrConvertor()
 		{
 			this.m_AttrConvertor.Clear();
@@ -122,7 +120,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A769 RID: 42857 RVA: 0x001D9AE4 File Offset: 0x001D7CE4
 		public XTuple<int, double>[] GetConvertCoefficient(int attrid, int prof)
 		{
 			XTuple<int, double>[] result;
@@ -130,19 +127,16 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A76A RID: 42858 RVA: 0x001D9B10 File Offset: 0x001D7D10
 		public double GetPPT(XItemChangeAttr attr, XAttributes attributes = null, int prof = -1)
 		{
 			return this.GetPPT(attr.AttrID, attr.AttrValue, attributes, prof);
 		}
 
-		// Token: 0x0600A76B RID: 42859 RVA: 0x001D9B38 File Offset: 0x001D7D38
 		public double GetPPT(uint attrid, uint attrvalue, XAttributes attributes = null, int prof = -1)
 		{
 			return this.GetPPT(attrid, attrvalue, attributes, prof);
 		}
 
-		// Token: 0x0600A76C RID: 42860 RVA: 0x001D9B58 File Offset: 0x001D7D58
 		public double GetPPT(uint attrid, double attrvalue, XAttributes attributes = null, int prof = -1)
 		{
 			int num = (int)attrid;
@@ -205,7 +199,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A76D RID: 42861 RVA: 0x001D9C90 File Offset: 0x001D7E90
 		private double _GetPPT(int attrid, double attrvalue, int prof)
 		{
 			double num;
@@ -230,40 +223,31 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A76E RID: 42862 RVA: 0x001D9CF0 File Offset: 0x001D7EF0
 		private int GetKey(int prof, int attrid)
 		{
 			return prof << 8 | attrid;
 		}
 
-		// Token: 0x0600A76F RID: 42863 RVA: 0x001D9D08 File Offset: 0x001D7F08
 		private int GetBasicKey(int prof, int attrid)
 		{
 			return prof % 10 << 8 | attrid;
 		}
 
-		// Token: 0x0600A770 RID: 42864 RVA: 0x001D9D24 File Offset: 0x001D7F24
 		private int GetKey(int attrid)
 		{
 			return attrid;
 		}
 
-		// Token: 0x04003DDC RID: 15836
 		private XTableAsyncLoader _async_loader = null;
 
-		// Token: 0x04003DDD RID: 15837
 		private PowerPointCoeffTable m_AttrTable = new PowerPointCoeffTable();
 
-		// Token: 0x04003DDE RID: 15838
 		private ProfessionConvertTable m_AttrConvertTable = new ProfessionConvertTable();
 
-		// Token: 0x04003DDF RID: 15839
 		private Dictionary<int, double> m_PPTWeight = new Dictionary<int, double>();
 
-		// Token: 0x04003DE0 RID: 15840
 		private Dictionary<int, XTuple<int, double>[]> m_AttrConvertor = new Dictionary<int, XTuple<int, double>[]>();
 
-		// Token: 0x04003DE1 RID: 15841
 		private HashSet<XAttributeDefine> m_BasicAttrs = new HashSet<XAttributeDefine>(default(XFastEnumIntEqualityComparer<XAttributeDefine>))
 		{
 			XAttributeDefine.XAttr_Strength_Basic,

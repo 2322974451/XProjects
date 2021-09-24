@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000943 RID: 2371
+
 	internal class XApolloDocument : XDocComponent
 	{
-		// Token: 0x17002C1E RID: 11294
-		// (get) Token: 0x06008F4E RID: 36686 RVA: 0x001412FC File Offset: 0x0013F4FC
+
 		public override uint ID
 		{
 			get
@@ -21,23 +20,16 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002C1F RID: 11295
-		// (get) Token: 0x06008F4F RID: 36687 RVA: 0x00141313 File Offset: 0x0013F513
-		// (set) Token: 0x06008F50 RID: 36688 RVA: 0x0014131B File Offset: 0x0013F51B
 		private JoinRoomReply voipRoomInfo { get; set; }
 
-		// Token: 0x06008F51 RID: 36689 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public override void OnAttachToHost(XObject host)
 		{
 		}
 
-		// Token: 0x06008F52 RID: 36690 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 		}
 
-		// Token: 0x17002C20 RID: 11296
-		// (get) Token: 0x06008F53 RID: 36691 RVA: 0x00141324 File Offset: 0x0013F524
 		public bool IsRealVoice
 		{
 			get
@@ -47,8 +39,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002C21 RID: 11297
-		// (get) Token: 0x06008F54 RID: 36692 RVA: 0x00141364 File Offset: 0x0013F564
 		public bool IsRealtimeVoiceOn
 		{
 			get
@@ -58,8 +48,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002C22 RID: 11298
-		// (get) Token: 0x06008F55 RID: 36693 RVA: 0x00141394 File Offset: 0x0013F594
 		public int TimeOut
 		{
 			get
@@ -73,15 +61,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008F56 RID: 36694 RVA: 0x001413CE File Offset: 0x0013F5CE
 		public override void OnDetachFromHost()
 		{
 			this.QuitRoom();
 			base.OnDetachFromHost();
 		}
 
-		// Token: 0x17002C23 RID: 11299
-		// (get) Token: 0x06008F57 RID: 36695 RVA: 0x001413E0 File Offset: 0x0013F5E0
 		public bool JoinRoomSucc
 		{
 			get
@@ -90,8 +75,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002C24 RID: 11300
-		// (get) Token: 0x06008F58 RID: 36696 RVA: 0x001413F8 File Offset: 0x0013F5F8
 		public bool IsWaittingJoinRoom
 		{
 			get
@@ -100,7 +83,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008F59 RID: 36697 RVA: 0x00141420 File Offset: 0x0013F620
 		public override void Update(float fDeltaT)
 		{
 			base.Update(fDeltaT);
@@ -151,7 +133,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008F5A RID: 36698 RVA: 0x001415B4 File Offset: 0x0013F7B4
 		private void HideState()
 		{
 			bool flag = DlgBase<BattleMain, BattleMainBehaviour>.singleton.IsLoaded();
@@ -171,7 +152,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008F5B RID: 36699 RVA: 0x00141614 File Offset: 0x0013F814
 		public void RequestJoinRoom()
 		{
 			bool isRealVoice = this.IsRealVoice;
@@ -188,7 +168,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008F5C RID: 36700 RVA: 0x00141664 File Offset: 0x0013F864
 		public void JoinRoom(JoinRoomReply data)
 		{
 			XSingleton<XDebug>.singleton.AddLog("url1:", data.url1, " url2:", data.url2, " url3:", data.url3, XDebugColor.XDebug_None);
@@ -218,7 +197,6 @@ namespace XMainClient
 			xapolloManager.JoinRoom(data.url1, data.url2, data.url3, data.roomID, data.roomKey, (short)data.memberID);
 		}
 
-		// Token: 0x06008F5D RID: 36701 RVA: 0x001417D0 File Offset: 0x0013F9D0
 		public void QuitRoom()
 		{
 			this.RecoverySound();
@@ -237,7 +215,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008F5E RID: 36702 RVA: 0x00141880 File Offset: 0x0013FA80
 		public void OnMembersInfoChange(List<VoipRoomMember> _server)
 		{
 			this.roomRoles.Clear();
@@ -250,7 +227,6 @@ namespace XMainClient
 			this.RefreshState(this.roomRoles.ToArray(), this.roomStates.ToArray());
 		}
 
-		// Token: 0x06008F5F RID: 36703 RVA: 0x0014190C File Offset: 0x0013FB0C
 		public void RefreshState(ulong[] roleids, int[] states)
 		{
 			bool flag = DlgBase<BattleMain, BattleMainBehaviour>.singleton.IsLoaded() && DlgBase<BattleMain, BattleMainBehaviour>.singleton.IsVisible();
@@ -274,7 +250,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008F60 RID: 36704 RVA: 0x0014198C File Offset: 0x0013FB8C
 		public void SendStateServer(uint state)
 		{
 			PtcC2G_SetVoipMemberState ptcC2G_SetVoipMemberState = new PtcC2G_SetVoipMemberState();
@@ -282,7 +257,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(ptcC2G_SetVoipMemberState);
 		}
 
-		// Token: 0x06008F61 RID: 36705 RVA: 0x001419BC File Offset: 0x0013FBBC
 		public void PlayGameSound(bool on)
 		{
 			bool flag = !on;
@@ -296,7 +270,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008F62 RID: 36706 RVA: 0x001419E4 File Offset: 0x0013FBE4
 		public void MuteSound()
 		{
 			bool flag = this.muteVol >= 100f;
@@ -308,44 +281,32 @@ namespace XMainClient
 			XSingleton<XAudioMgr>.singleton.SetMainBusVolume(this.currVol);
 		}
 
-		// Token: 0x06008F63 RID: 36707 RVA: 0x00141A3F File Offset: 0x0013FC3F
 		public void RecoverySound()
 		{
 			this.currVol = 1f;
 			XSingleton<XAudioMgr>.singleton.SetMainBusVolume(this.currVol);
 		}
 
-		// Token: 0x04002F10 RID: 12048
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("XApolloDocument");
 
-		// Token: 0x04002F11 RID: 12049
 		private List<ulong> roomRoles = new List<ulong>();
 
-		// Token: 0x04002F12 RID: 12050
 		private List<int> roomStates = new List<int>();
 
-		// Token: 0x04002F14 RID: 12052
 		private bool mJoinRoomSucc = false;
 
-		// Token: 0x04002F15 RID: 12053
 		private XChatDocument doc;
 
-		// Token: 0x04002F16 RID: 12054
 		private int _timeout = 0;
 
-		// Token: 0x04002F17 RID: 12055
 		private bool startLoop = false;
 
-		// Token: 0x04002F18 RID: 12056
 		private float acc_time = 0f;
 
-		// Token: 0x04002F19 RID: 12057
 		private float all_time = 0f;
 
-		// Token: 0x04002F1A RID: 12058
 		private float currVol = 1f;
 
-		// Token: 0x04002F1B RID: 12059
 		private float muteVol = 100f;
 	}
 }

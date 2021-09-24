@@ -3,10 +3,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000B89 RID: 2953
+
 	internal class XSkillFactory : XSingleton<XSkillFactory>
 	{
-		// Token: 0x0600A985 RID: 43397 RVA: 0x001E3244 File Offset: 0x001E1444
+
 		public void OnSceneLoaded()
 		{
 			this._skillData.debugName = "XSkillCorePool._skillData";
@@ -17,7 +17,6 @@ namespace XMainClient
 			XSingleton<XBulletMgr>.singleton.OnEnterScene();
 		}
 
-		// Token: 0x0600A986 RID: 43398 RVA: 0x001E32C4 File Offset: 0x001E14C4
 		public void OnLeaveScene()
 		{
 			bool isInit = this._skillData.IsInit;
@@ -42,7 +41,6 @@ namespace XMainClient
 			XSingleton<XBulletMgr>.singleton.OnLeaveScene();
 		}
 
-		// Token: 0x0600A987 RID: 43399 RVA: 0x001E3368 File Offset: 0x001E1568
 		public XSkillCore Build(string skillprefix, string name, XEntity firer)
 		{
 			string text = skillprefix + name;
@@ -131,7 +129,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A988 RID: 43400 RVA: 0x001E3654 File Offset: 0x001E1854
 		public void Release(XSkillCore core)
 		{
 			core.CoolDown();
@@ -151,13 +148,11 @@ namespace XMainClient
 			this._skillData.Add(core);
 		}
 
-		// Token: 0x0600A989 RID: 43401 RVA: 0x001E36C0 File Offset: 0x001E18C0
 		public void Print()
 		{
 			XSingleton<XDebug>.singleton.AddLog("skill core count:", this._skillData.Count.ToString(), null, null, null, null, XDebugColor.XDebug_None);
 		}
 
-		// Token: 0x0600A98A RID: 43402 RVA: 0x001E36F8 File Offset: 0x001E18F8
 		public string GetTypeName(int token)
 		{
 			bool flag = token < XSkillData.Skills.Length;
@@ -173,7 +168,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A98B RID: 43403 RVA: 0x001E3724 File Offset: 0x001E1924
 		public int GetTypeHash(int token)
 		{
 			int result;
@@ -197,7 +191,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A98C RID: 43404 RVA: 0x001E3774 File Offset: 0x001E1974
 		public XSkill CreateSkill(XEntity firer, int token)
 		{
 			int i = 0;
@@ -236,7 +229,6 @@ namespace XMainClient
 			return xskill2;
 		}
 
-		// Token: 0x0600A98D RID: 43405 RVA: 0x001E3838 File Offset: 0x001E1A38
 		public void ReturnSkill(XSkill skill)
 		{
 			int i = 0;
@@ -254,7 +246,6 @@ namespace XMainClient
 			this._skillCache.Add(skill);
 		}
 
-		// Token: 0x0600A98E RID: 43406 RVA: 0x001E3898 File Offset: 0x001E1A98
 		public XSkillMgr CreateSkillMgr(XEntity entity)
 		{
 			int i = 0;
@@ -274,7 +265,6 @@ namespace XMainClient
 			return new XSkillMgr(entity);
 		}
 
-		// Token: 0x0600A98F RID: 43407 RVA: 0x001E3908 File Offset: 0x001E1B08
 		public void ReturnSkillMgr(XSkillMgr skillMgr)
 		{
 			bool flag = skillMgr != null;
@@ -297,13 +287,10 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04003EAF RID: 16047
 		private SmallBuffer<object> _skillData;
 
-		// Token: 0x04003EB0 RID: 16048
 		private SmallBuffer<object> _skillCache;
 
-		// Token: 0x04003EB1 RID: 16049
 		private SmallBuffer<object> _skillMgrCache;
 	}
 }

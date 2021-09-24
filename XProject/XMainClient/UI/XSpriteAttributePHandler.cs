@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001811 RID: 6161
+
 	internal class XSpriteAttributePHandler : DlgHandlerBase
 	{
-		// Token: 0x170038FF RID: 14591
-		// (get) Token: 0x0600FF9A RID: 65434 RVA: 0x003C7040 File Offset: 0x003C5240
+
 		protected override string FileName
 		{
 			get
@@ -20,7 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FF9B RID: 65435 RVA: 0x003C7058 File Offset: 0x003C5258
 		protected override void Init()
 		{
 			base.Init();
@@ -29,7 +27,6 @@ namespace XMainClient.UI
 			this.m_AttributePool.SetupPool(transform.parent.gameObject, transform.gameObject, 6U, false);
 		}
 
-		// Token: 0x0600FF9C RID: 65436 RVA: 0x003C70CC File Offset: 0x003C52CC
 		private void PreProcessComparedData(SpriteInfo compareData)
 		{
 			this.attrCompareData.Clear();
@@ -51,7 +48,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FF9D RID: 65437 RVA: 0x003C7160 File Offset: 0x003C5360
 		private void CreateSpriteAttr(List<uint> attrID, List<double> attrValue, List<uint> evoAttrID, List<double> evoAttrValue)
 		{
 			this.m_AttributePool.FakeReturnAll();
@@ -90,7 +86,6 @@ namespace XMainClient.UI
 			this.m_AttributePool.ActualReturnAll(false);
 		}
 
-		// Token: 0x0600FF9E RID: 65438 RVA: 0x003C7284 File Offset: 0x003C5484
 		public void SetSpriteAttributeInfo(SpriteInfo spriteData, SpriteInfo compareData = null)
 		{
 			bool flag = spriteData == null;
@@ -105,7 +100,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FF9F RID: 65439 RVA: 0x003C72D4 File Offset: 0x003C54D4
 		public void SetSpriteAttributeInfo(uint spriteID)
 		{
 			this.attrCompareData.Clear();
@@ -122,7 +116,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FFA0 RID: 65440 RVA: 0x003C7340 File Offset: 0x003C5540
 		private void SetAttributeInfo(GameObject obj, uint attrID, uint attrValue, double evoValue)
 		{
 			IXUILabel ixuilabel = obj.transform.Find("Name").GetComponent("XUILabel") as IXUILabel;
@@ -167,16 +160,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04007129 RID: 28969
 		private XUIPool m_AttributePool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x0400712A RID: 28970
 		private IXUIList m_AttributeList;
 
-		// Token: 0x0400712B RID: 28971
 		private Dictionary<uint, double> attrCompareData = new Dictionary<uint, double>();
 
-		// Token: 0x0400712C RID: 28972
 		private Dictionary<uint, double> aptitudeCompareData = new Dictionary<uint, double>();
 	}
 }

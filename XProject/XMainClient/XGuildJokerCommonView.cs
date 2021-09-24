@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C41 RID: 3137
+
 	internal class XGuildJokerCommonView<T> : DlgBase<T, XGuildJokerBehaviour> where T : IXUIDlg, new()
 	{
-		// Token: 0x1700315F RID: 12639
-		// (get) Token: 0x0600B1A9 RID: 45481 RVA: 0x00221DF0 File Offset: 0x0021FFF0
+
 		public override int layer
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003160 RID: 12640
-		// (get) Token: 0x0600B1AA RID: 45482 RVA: 0x00221E04 File Offset: 0x00220004
 		public override bool pushstack
 		{
 			get
@@ -31,8 +28,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003161 RID: 12641
-		// (get) Token: 0x0600B1AB RID: 45483 RVA: 0x00221E18 File Offset: 0x00220018
 		public override bool hideMainMenu
 		{
 			get
@@ -41,8 +36,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003162 RID: 12642
-		// (get) Token: 0x0600B1AC RID: 45484 RVA: 0x00221E2C File Offset: 0x0022002C
 		public override bool autoload
 		{
 			get
@@ -51,26 +44,22 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B1AD RID: 45485 RVA: 0x00221E3F File Offset: 0x0022003F
 		public XGuildJokerCommonView()
 		{
 			this.ResetJokerStatusCb = new XTimerMgr.ElapsedEventHandler(this.ResetJokerStatus);
 		}
 
-		// Token: 0x0600B1AE RID: 45486 RVA: 0x00221E62 File Offset: 0x00220062
 		protected override void Init()
 		{
 			base.Init();
 			this.CreateCard();
 		}
 
-		// Token: 0x0600B1AF RID: 45487 RVA: 0x00221E73 File Offset: 0x00220073
 		protected override void OnUnload()
 		{
 			base.OnUnload();
 		}
 
-		// Token: 0x0600B1B0 RID: 45488 RVA: 0x00221E80 File Offset: 0x00220080
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -82,13 +71,10 @@ namespace XMainClient
 			this._changeCardLock = false;
 		}
 
-		// Token: 0x0600B1B1 RID: 45489 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public virtual void SetCurrentReward()
 		{
 		}
 
-		// Token: 0x17003163 RID: 12643
-		// (get) Token: 0x0600B1B2 RID: 45490 RVA: 0x00221ED4 File Offset: 0x002200D4
 		protected virtual int CurrentStore
 		{
 			get
@@ -97,8 +83,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003164 RID: 12644
-		// (get) Token: 0x0600B1B3 RID: 45491 RVA: 0x00221EE8 File Offset: 0x002200E8
 		protected virtual int CurrentCardCount
 		{
 			get
@@ -107,8 +91,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003165 RID: 12645
-		// (get) Token: 0x0600B1B4 RID: 45492 RVA: 0x00221EFC File Offset: 0x002200FC
 		protected virtual uint CardResult
 		{
 			get
@@ -117,8 +99,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003166 RID: 12646
-		// (get) Token: 0x0600B1B5 RID: 45493 RVA: 0x00221F10 File Offset: 0x00220110
 		protected virtual List<uint> BestCard
 		{
 			get
@@ -127,8 +107,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003167 RID: 12647
-		// (get) Token: 0x0600B1B6 RID: 45494 RVA: 0x00221F28 File Offset: 0x00220128
 		protected virtual string BestName
 		{
 			get
@@ -137,8 +115,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003168 RID: 12648
-		// (get) Token: 0x0600B1B7 RID: 45495 RVA: 0x00221F40 File Offset: 0x00220140
 		protected virtual List<uint> CurrentCard
 		{
 			get
@@ -147,37 +123,31 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B1B8 RID: 45496 RVA: 0x00221F58 File Offset: 0x00220158
 		protected virtual bool OnCloseClick(IXUIButton button)
 		{
 			return false;
 		}
 
-		// Token: 0x0600B1B9 RID: 45497 RVA: 0x00221F6C File Offset: 0x0022016C
 		protected virtual bool OnEndGameClicked(IXUIButton button)
 		{
 			return false;
 		}
 
-		// Token: 0x0600B1BA RID: 45498 RVA: 0x00221F80 File Offset: 0x00220180
 		protected virtual bool OnStartGameClicked(IXUIButton button)
 		{
 			return false;
 		}
 
-		// Token: 0x0600B1BB RID: 45499 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected virtual void OnCardClick(IXUISprite sp)
 		{
 		}
 
-		// Token: 0x0600B1BC RID: 45500 RVA: 0x00221F93 File Offset: 0x00220193
 		protected override void OnHide()
 		{
 			base.OnHide();
 			base.uiBehaviour.m_JokerPic.SetTexturePath("");
 		}
 
-		// Token: 0x0600B1BD RID: 45501 RVA: 0x00221FB4 File Offset: 0x002201B4
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -189,14 +159,12 @@ namespace XMainClient
 			base.uiBehaviour.m_RuleClose.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnRuleCloseClicked));
 		}
 
-		// Token: 0x0600B1BE RID: 45502 RVA: 0x0022207C File Offset: 0x0022027C
 		private bool OnRuleCloseClicked(IXUIButton sp)
 		{
 			base.uiBehaviour.m_Rule.gameObject.SetActive(false);
 			return true;
 		}
 
-		// Token: 0x0600B1BF RID: 45503 RVA: 0x002220A8 File Offset: 0x002202A8
 		private bool OnHelpClick(IXUIButton button)
 		{
 			base.uiBehaviour.m_Rule.gameObject.SetActive(true);
@@ -204,14 +172,12 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B1C0 RID: 45504 RVA: 0x002220DC File Offset: 0x002202DC
 		private bool OnRechargeClicked(IXUIButton button)
 		{
 			XSingleton<XGameSysMgr>.singleton.OpenSystem(XSysDefine.XSys_Recharge, 0UL);
 			return true;
 		}
 
-		// Token: 0x0600B1C1 RID: 45505 RVA: 0x00222100 File Offset: 0x00220300
 		private bool OnAddCoinClicked(IXUIButton button)
 		{
 			XPurchaseView singleton = DlgBase<XPurchaseView, XPurchaseBehaviour>.singleton;
@@ -219,13 +185,11 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B1C2 RID: 45506 RVA: 0x00222121 File Offset: 0x00220321
 		public void SetButtonTip(string tip)
 		{
 			base.uiBehaviour.m_ButtonTip.SetText(XStringDefineProxy.GetString(tip));
 		}
 
-		// Token: 0x0600B1C3 RID: 45507 RVA: 0x0022213C File Offset: 0x0022033C
 		private void CreateCard()
 		{
 			for (int i = 0; i < 4; i++)
@@ -278,7 +242,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B1C4 RID: 45508 RVA: 0x0022243C File Offset: 0x0022063C
 		public void ClearCard()
 		{
 			for (int i = 0; i < 4; i++)
@@ -294,7 +257,6 @@ namespace XMainClient
 			this._changeCardLock = false;
 		}
 
-		// Token: 0x0600B1C5 RID: 45509 RVA: 0x0022252C File Offset: 0x0022072C
 		public void RefreshCard()
 		{
 			this.ClearCard();
@@ -311,7 +273,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B1C6 RID: 45510 RVA: 0x002225A4 File Offset: 0x002207A4
 		private void SetupCard(object o)
 		{
 			int num = (int)o;
@@ -338,7 +299,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B1C7 RID: 45511 RVA: 0x00222708 File Offset: 0x00220908
 		private uint CardAnalyze(uint cardNum)
 		{
 			uint num = cardNum >> 4;
@@ -351,7 +311,6 @@ namespace XMainClient
 			return (num << 4) + num2;
 		}
 
-		// Token: 0x0600B1C8 RID: 45512 RVA: 0x00222734 File Offset: 0x00220934
 		protected uint CardReAnalyze(uint cardNum)
 		{
 			uint num = cardNum >> 4;
@@ -364,7 +323,6 @@ namespace XMainClient
 			return (num << 4) + num2;
 		}
 
-		// Token: 0x0600B1C9 RID: 45513 RVA: 0x00222760 File Offset: 0x00220960
 		public void ChangeCard(uint oldCard, uint newCard, int cardNum)
 		{
 			bool flag = newCard == 0U || oldCard == 0U || cardNum == -1;
@@ -387,7 +345,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B1CA RID: 45514 RVA: 0x00222848 File Offset: 0x00220A48
 		public void SetCardStore()
 		{
 			bool flag = this.CurrentStore >= XGuildJokerDocument._CardStoreTable.Table.Length;
@@ -403,19 +360,16 @@ namespace XMainClient
 			this.SetJokerLabel(jokerLabel);
 		}
 
-		// Token: 0x0600B1CB RID: 45515 RVA: 0x002228B5 File Offset: 0x00220AB5
 		protected void SetJokerLabel(string strTmp)
 		{
 			base.uiBehaviour.m_JokerLabel.SetText(strTmp);
 		}
 
-		// Token: 0x0600B1CC RID: 45516 RVA: 0x002228CA File Offset: 0x00220ACA
 		protected void SetCurrentRewardStr(string strTmp)
 		{
 			base.uiBehaviour.m_CurrentReward.InputText = strTmp;
 		}
 
-		// Token: 0x0600B1CD RID: 45517 RVA: 0x002228E0 File Offset: 0x00220AE0
 		private void ClearCardSelect()
 		{
 			for (int i = 0; i < this.CurrentCardCount; i++)
@@ -427,7 +381,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B1CE RID: 45518 RVA: 0x00222950 File Offset: 0x00220B50
 		public void SetupBestCard()
 		{
 			bool flag = this.BestCard.Count == 0;
@@ -536,13 +489,11 @@ namespace XMainClient
 			base.uiBehaviour.m_BestPlayerName.SetText(this.BestName);
 		}
 
-		// Token: 0x0600B1CF RID: 45519 RVA: 0x00222C50 File Offset: 0x00220E50
 		protected virtual SeqListRef<uint> GetCardReward(int index)
 		{
 			return XGuildJokerDocument._CardRewardTable.Table[index].reward;
 		}
 
-		// Token: 0x0600B1D0 RID: 45520 RVA: 0x00222C74 File Offset: 0x00220E74
 		public void SetupRuleFrame()
 		{
 			base.uiBehaviour.m_RuleItemPool.FakeReturnAll();
@@ -570,7 +521,6 @@ namespace XMainClient
 			base.uiBehaviour.m_RuleScrollView.ResetPosition();
 		}
 
-		// Token: 0x0600B1D1 RID: 45521 RVA: 0x00222E3C File Offset: 0x0022103C
 		private void PlayCardTween(IXUITweenTool cardTween)
 		{
 			bool flag = !base.IsVisible();
@@ -587,7 +537,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B1D2 RID: 45522 RVA: 0x00222EA4 File Offset: 0x002210A4
 		private void OnCardTween1Finish(IXUITweenTool cardTween)
 		{
 			bool flag = !base.IsVisible();
@@ -604,7 +553,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B1D3 RID: 45523 RVA: 0x00222F14 File Offset: 0x00221114
 		private void PlayCardWaitTween(object o)
 		{
 			bool flag = !base.IsVisible();
@@ -627,7 +575,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B1D4 RID: 45524 RVA: 0x002230E4 File Offset: 0x002212E4
 		private void OnCardTween2Finish(IXUITweenTool cardTween)
 		{
 			bool flag = !base.IsVisible();
@@ -642,7 +589,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B1D5 RID: 45525 RVA: 0x00223140 File Offset: 0x00221340
 		private void OnCardTween4Finish(IXUITweenTool cardTween)
 		{
 			bool flag = !base.IsVisible();
@@ -662,7 +608,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B1D6 RID: 45526 RVA: 0x002231F8 File Offset: 0x002213F8
 		private void OnCardTween3Finish(IXUITweenTool cardTween)
 		{
 			bool flag = !base.IsVisible();
@@ -679,7 +624,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B1D7 RID: 45527 RVA: 0x00223268 File Offset: 0x00221468
 		private void OnCardTweenOver(IXUITweenTool cardTween)
 		{
 			bool flag = !base.IsVisible();
@@ -694,7 +638,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B1D8 RID: 45528 RVA: 0x002232A4 File Offset: 0x002214A4
 		protected void RefreshCardSelect()
 		{
 			bool flag = this.CardResult == 0U || this.CardResult == 2U || this.CardResult == 3U || this.CardResult == 4U;
@@ -731,7 +674,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B1D9 RID: 45529 RVA: 0x002233D8 File Offset: 0x002215D8
 		private void SetCardSelected(uint type, uint index)
 		{
 			bool flag = type >= 4U || index >= 13U;
@@ -749,7 +691,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B1DA RID: 45530 RVA: 0x00223468 File Offset: 0x00221668
 		public void JokerStatus(int status)
 		{
 			switch (status)
@@ -766,7 +707,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B1DB RID: 45531 RVA: 0x002234D8 File Offset: 0x002216D8
 		private void ResetJokerStatus(object o = null)
 		{
 			bool flag = !base.IsVisible();
@@ -776,37 +716,27 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B1DC RID: 45532 RVA: 0x002234FD File Offset: 0x002216FD
 		public void SetGameTipStatus(bool status)
 		{
 			base.uiBehaviour.m_GameTip.gameObject.SetActive(status);
 		}
 
-		// Token: 0x04004477 RID: 17527
 		protected uint _currentChangeCard;
 
-		// Token: 0x04004478 RID: 17528
 		private uint _oldCardNum;
 
-		// Token: 0x04004479 RID: 17529
 		private uint _oldCardType;
 
-		// Token: 0x0400447A RID: 17530
 		private uint _newCardNum;
 
-		// Token: 0x0400447B RID: 17531
 		private uint _newCardType;
 
-		// Token: 0x0400447C RID: 17532
 		private int _cardChangeNum;
 
-		// Token: 0x0400447D RID: 17533
 		protected bool _changeCardLock;
 
-		// Token: 0x0400447E RID: 17534
 		protected bool _cardLock;
 
-		// Token: 0x0400447F RID: 17535
 		public XTimerMgr.ElapsedEventHandler ResetJokerStatusCb = null;
 	}
 }

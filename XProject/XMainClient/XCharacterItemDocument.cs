@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000A81 RID: 2689
+
 	internal class XCharacterItemDocument : XDocComponent
 	{
-		// Token: 0x17002F9F RID: 12191
-		// (get) Token: 0x0600A387 RID: 41863 RVA: 0x001BFF74 File Offset: 0x001BE174
+
 		public override uint ID
 		{
 			get
@@ -20,9 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002FA0 RID: 12192
-		// (get) Token: 0x0600A388 RID: 41864 RVA: 0x001BFF8C File Offset: 0x001BE18C
-		// (set) Token: 0x0600A389 RID: 41865 RVA: 0x001BFFA4 File Offset: 0x001BE1A4
 		public CharacterItemBagHandler Handler
 		{
 			get
@@ -35,8 +31,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002FA1 RID: 12193
-		// (get) Token: 0x0600A38A RID: 41866 RVA: 0x001BFFB0 File Offset: 0x001BE1B0
 		public bool bHasAvailableItems
 		{
 			get
@@ -45,8 +39,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002FA2 RID: 12194
-		// (get) Token: 0x0600A38B RID: 41867 RVA: 0x001BFFD0 File Offset: 0x001BE1D0
 		public XNewItemTipsMgr NewItems
 		{
 			get
@@ -55,8 +47,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002FA3 RID: 12195
-		// (get) Token: 0x0600A38C RID: 41868 RVA: 0x001BFFE8 File Offset: 0x001BE1E8
 		public XNewItemTipsMgr AvailableItems
 		{
 			get
@@ -65,8 +55,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002FA4 RID: 12196
-		// (get) Token: 0x0600A38D RID: 41869 RVA: 0x001C0000 File Offset: 0x001BE200
 		public static List<XTuple<uint, string>> TabList
 		{
 			get
@@ -75,14 +63,8 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002FA5 RID: 12197
-		// (get) Token: 0x0600A38E RID: 41870 RVA: 0x001C0017 File Offset: 0x001BE217
-		// (set) Token: 0x0600A38F RID: 41871 RVA: 0x001C001F File Offset: 0x001BE21F
 		public uint BagType { get; set; }
 
-		// Token: 0x17002FA6 RID: 12198
-		// (get) Token: 0x0600A390 RID: 41872 RVA: 0x001C0028 File Offset: 0x001BE228
-		// (set) Token: 0x0600A391 RID: 41873 RVA: 0x001C0040 File Offset: 0x001BE240
 		public bool bBlock
 		{
 			get
@@ -104,7 +86,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A392 RID: 41874 RVA: 0x001C008A File Offset: 0x001BE28A
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			XCharacterItemDocument.ItemID_Index.Clear();
@@ -113,7 +94,6 @@ namespace XMainClient
 			XCharacterItemDocument.AsyncLoader.Execute(callback);
 		}
 
-		// Token: 0x0600A393 RID: 41875 RVA: 0x001C00C8 File Offset: 0x001BE2C8
 		public static void OnTableLoaded()
 		{
 			for (int i = 0; i < XCharacterItemDocument.m_ItemUseButtonListTable.Table.Length; i++)
@@ -151,7 +131,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A394 RID: 41876 RVA: 0x001C01C4 File Offset: 0x001BE3C4
 		public static void InitFromGlobalConfig()
 		{
 			XCharacterItemDocument._NoRedPointItems.Clear();
@@ -159,7 +138,6 @@ namespace XMainClient
 			XCharacterItemDocument._NoRedPointItems.UnionWith(intList);
 		}
 
-		// Token: 0x0600A395 RID: 41877 RVA: 0x001C01FC File Offset: 0x001BE3FC
 		private ItemUseButtonList.RowData GetByItemID(uint itemID)
 		{
 			int num;
@@ -176,7 +154,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A396 RID: 41878 RVA: 0x001C0230 File Offset: 0x001BE430
 		private ItemUseButtonList.RowData GetByTypeID(uint typeID)
 		{
 			int num;
@@ -193,7 +170,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A397 RID: 41879 RVA: 0x001C0264 File Offset: 0x001BE464
 		public ItemUseButtonList.RowData GetButtonData(uint itemID, uint typeID)
 		{
 			ItemUseButtonList.RowData rowData = this.GetByItemID(itemID);
@@ -205,7 +181,6 @@ namespace XMainClient
 			return rowData;
 		}
 
-		// Token: 0x0600A398 RID: 41880 RVA: 0x001C0290 File Offset: 0x001BE490
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
@@ -225,7 +200,6 @@ namespace XMainClient
 			this.bBlock = false;
 		}
 
-		// Token: 0x0600A399 RID: 41881 RVA: 0x001C035C File Offset: 0x001BE55C
 		protected override void EventSubscribe()
 		{
 			base.EventSubscribe();
@@ -237,7 +211,6 @@ namespace XMainClient
 			base.RegisterEvent(XEventDefine.XEvent_PlayerLevelChange, new XComponent.XEventHandler(this.OnPlayerLevelChange));
 		}
 
-		// Token: 0x0600A39A RID: 41882 RVA: 0x001C03F4 File Offset: 0x001BE5F4
 		public List<XItem> GetItem()
 		{
 			ulong filterValue = this._NewItems.Filter.FilterValue;
@@ -271,7 +244,6 @@ namespace XMainClient
 			return this.m_ItemList;
 		}
 
-		// Token: 0x0600A39B RID: 41883 RVA: 0x001C04E4 File Offset: 0x001BE6E4
 		public int GetTotalNum()
 		{
 			ulong filterValue = this._NewItems.Filter.FilterValue;
@@ -280,7 +252,6 @@ namespace XMainClient
 			return this.m_ItemList.Count;
 		}
 
-		// Token: 0x0600A39C RID: 41884 RVA: 0x001C0530 File Offset: 0x001BE730
 		public void UpdateBagTypeReddot()
 		{
 			this.m_bagTypeRedDotDic.Clear();
@@ -317,7 +288,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A39D RID: 41885 RVA: 0x001C0654 File Offset: 0x001BE854
 		protected bool OnAddItem(XEventArgs args)
 		{
 			XAddItemEventArgs xaddItemEventArgs = args as XAddItemEventArgs;
@@ -398,7 +368,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A39E RID: 41886 RVA: 0x001C08B8 File Offset: 0x001BEAB8
 		protected bool OnRemoveItem(XEventArgs args)
 		{
 			XRemoveItemEventArgs xremoveItemEventArgs = args as XRemoveItemEventArgs;
@@ -455,7 +424,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A39F RID: 41887 RVA: 0x001C0A2C File Offset: 0x001BEC2C
 		protected bool OnUpdateItem(XEventArgs args)
 		{
 			bool flag = this._handler == null || !this._handler.active;
@@ -477,7 +445,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A3A0 RID: 41888 RVA: 0x001C0A88 File Offset: 0x001BEC88
 		protected bool OnItemNumChanged(XEventArgs args)
 		{
 			bool flag = this._handler == null || !this._handler.active;
@@ -499,7 +466,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A3A1 RID: 41889 RVA: 0x001C0AE4 File Offset: 0x001BECE4
 		protected bool OnUnloadEquip(XEventArgs args)
 		{
 			bool flag = this._handler == null || !this._handler.active;
@@ -517,13 +483,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A3A2 RID: 41890 RVA: 0x001C0B2B File Offset: 0x001BED2B
 		public void UpdateRedPoints()
 		{
 			this.UpdateRedPoints(XSingleton<XAttributeMgr>.singleton.XPlayerData.Level);
 		}
 
-		// Token: 0x0600A3A3 RID: 41891 RVA: 0x001C0B44 File Offset: 0x001BED44
 		public void UpdateRedPoints(uint playerLevel)
 		{
 			this._AvailableItems.Clear();
@@ -541,7 +505,6 @@ namespace XMainClient
 			this.UpdateBagTypeReddot();
 		}
 
-		// Token: 0x0600A3A4 RID: 41892 RVA: 0x001C0BFC File Offset: 0x001BEDFC
 		private bool _IsItemAvailable(XItem item, uint playerLevel)
 		{
 			ItemList.RowData itemConf = XBagDocument.GetItemConf(item.itemID);
@@ -577,7 +540,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A3A5 RID: 41893 RVA: 0x001C0CD8 File Offset: 0x001BEED8
 		public void ToggleBlock(bool block)
 		{
 			XMainInterfaceDocument specificDocument = XDocuments.GetSpecificDocument<XMainInterfaceDocument>(XMainInterfaceDocument.uuID);
@@ -590,7 +552,6 @@ namespace XMainClient
 			this.bBlock = block;
 		}
 
-		// Token: 0x0600A3A6 RID: 41894 RVA: 0x001C0D34 File Offset: 0x001BEF34
 		public void UseItem(ulong uid)
 		{
 			bool flag = this.m_UsedItem > 0UL;
@@ -606,7 +567,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A3A7 RID: 41895 RVA: 0x001C0DA0 File Offset: 0x001BEFA0
 		public void OnUseItem(UseItemArg oArg, UseItemRes oRes)
 		{
 			bool flag = oRes.ErrorCode == ErrorCode.ERR_SUCCESS;
@@ -639,7 +599,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A3A8 RID: 41896 RVA: 0x001C0E7C File Offset: 0x001BF07C
 		private void ShowEmblemTips(UseItemArg oArg, UseItemRes oRes)
 		{
 			bool flag = oArg.OpType != 0U && oArg.OpType != 1U;
@@ -692,7 +651,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A3A9 RID: 41897 RVA: 0x001C1008 File Offset: 0x001BF208
 		public void RefreshBag()
 		{
 			bool flag = this._handler != null && this._handler.IsVisible();
@@ -702,7 +660,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A3AA RID: 41898 RVA: 0x001C1040 File Offset: 0x001BF240
 		public void ShowLotteryResult(int index)
 		{
 			bool flag = this.Handler != null && this.Handler.active && this.Handler.WheelOfFortune.active;
@@ -712,7 +669,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A3AB RID: 41899 RVA: 0x001C1090 File Offset: 0x001BF290
 		public void ShowWheelView(XItem item)
 		{
 			bool flag = this.Handler != null && this.Handler.active;
@@ -722,7 +678,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A3AC RID: 41900 RVA: 0x001C10D0 File Offset: 0x001BF2D0
 		private bool OnPlayerLevelChange(XEventArgs arg)
 		{
 			XPlayerLevelChangedEventArgs xplayerLevelChangedEventArgs = arg as XPlayerLevelChangedEventArgs;
@@ -730,7 +685,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600A3AD RID: 41901 RVA: 0x001C10F8 File Offset: 0x001BF2F8
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 			this.m_UsedItem = 0UL;
@@ -741,7 +695,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A3AE RID: 41902 RVA: 0x001C1138 File Offset: 0x001BF338
 		public static void InitTabList()
 		{
 			XCharacterItemDocument.m_tabList = new List<XTuple<uint, string>>();
@@ -760,49 +713,34 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04003B30 RID: 15152
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("CharacterItemDocument");
 
-		// Token: 0x04003B31 RID: 15153
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x04003B32 RID: 15154
 		private static ItemUseButtonList m_ItemUseButtonListTable = new ItemUseButtonList();
 
-		// Token: 0x04003B33 RID: 15155
 		private static Dictionary<uint, int> ItemID_Index = new Dictionary<uint, int>();
 
-		// Token: 0x04003B34 RID: 15156
 		private static Dictionary<uint, int> TypeID_Index = new Dictionary<uint, int>();
 
-		// Token: 0x04003B35 RID: 15157
 		private CharacterItemBagHandler _handler = null;
 
-		// Token: 0x04003B36 RID: 15158
 		private XNewItemTipsMgr _NewItems = new XNewItemTipsMgr();
 
-		// Token: 0x04003B37 RID: 15159
 		private XNewItemTipsMgr _AvailableItems = new XNewItemTipsMgr();
 
-		// Token: 0x04003B38 RID: 15160
 		private static List<XTuple<uint, string>> m_tabList = null;
 
-		// Token: 0x04003B39 RID: 15161
 		private ulong m_UsedItem = 0UL;
 
-		// Token: 0x04003B3A RID: 15162
 		private List<XItem> m_ItemList = new List<XItem>();
 
-		// Token: 0x04003B3B RID: 15163
 		private List<XItem> m_AvailableItemList = new List<XItem>();
 
-		// Token: 0x04003B3C RID: 15164
 		private static HashSet<int> _NoRedPointItems = new HashSet<int>();
 
-		// Token: 0x04003B3E RID: 15166
 		private bool m_bBlock;
 
-		// Token: 0x04003B3F RID: 15167
 		public Dictionary<uint, bool> m_bagTypeRedDotDic = new Dictionary<uint, bool>();
 	}
 }

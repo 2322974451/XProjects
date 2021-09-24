@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200177A RID: 6010
+
 	internal class GuildTerritoryReportDlg : DlgBase<GuildTerritoryReportDlg, GuildTerritoryBahaviour>
 	{
-		// Token: 0x17003825 RID: 14373
-		// (get) Token: 0x0600F809 RID: 63497 RVA: 0x00389A9C File Offset: 0x00387C9C
+
 		public override string fileName
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003826 RID: 14374
-		// (get) Token: 0x0600F80A RID: 63498 RVA: 0x00389AB4 File Offset: 0x00387CB4
 		public override bool autoload
 		{
 			get
@@ -31,8 +28,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003827 RID: 14375
-		// (get) Token: 0x0600F80B RID: 63499 RVA: 0x00389AC8 File Offset: 0x00387CC8
 		public override bool hideMainMenu
 		{
 			get
@@ -41,7 +36,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F80C RID: 63500 RVA: 0x00389ADC File Offset: 0x00387CDC
 		protected override void Init()
 		{
 			this._doc = XDocuments.GetSpecificDocument<XGuildTerritoryDocument>(XGuildTerritoryDocument.uuID);
@@ -59,20 +53,17 @@ namespace XMainClient.UI
 			this.timeConnter = new XLeftTimeCounter(base.uiBehaviour.m_lblTime, false);
 		}
 
-		// Token: 0x0600F80D RID: 63501 RVA: 0x00389B8C File Offset: 0x00387D8C
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			base.uiBehaviour._close_btn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseClick));
 		}
 
-		// Token: 0x0600F80E RID: 63502 RVA: 0x00389BB3 File Offset: 0x00387DB3
 		protected override void OnShow()
 		{
 			this._doc.SendGCFCommonReq(GCFReqType.GCF_FIGHT_REPORT);
 		}
 
-		// Token: 0x0600F80F RID: 63503 RVA: 0x00389BC3 File Offset: 0x00387DC3
 		public void RefreshAll()
 		{
 			this.MergeInfo();
@@ -80,7 +71,6 @@ namespace XMainClient.UI
 			this.RefreshList();
 		}
 
-		// Token: 0x0600F810 RID: 63504 RVA: 0x00389BDC File Offset: 0x00387DDC
 		public override void OnUpdate()
 		{
 			bool flag = this.timeConnter != null;
@@ -90,7 +80,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F811 RID: 63505 RVA: 0x00389C08 File Offset: 0x00387E08
 		private void MergeInfo()
 		{
 			this.reportList.Clear();
@@ -128,7 +117,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F812 RID: 63506 RVA: 0x00389D80 File Offset: 0x00387F80
 		private void RefreshTitleInfo()
 		{
 			bool flag = this._doc == null;
@@ -143,14 +131,12 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_sprIcon.SetSprite(byID.territoryIcon);
 		}
 
-		// Token: 0x0600F813 RID: 63507 RVA: 0x00389E15 File Offset: 0x00388015
 		private void RefreshList()
 		{
 			base.uiBehaviour.m_scroll.ResetPosition();
 			base.uiBehaviour.m_wrap.SetContentCount(6, false);
 		}
 
-		// Token: 0x0600F814 RID: 63508 RVA: 0x00389E3C File Offset: 0x0038803C
 		private void UpdateItem(Transform t, int index)
 		{
 			bool flag = this.reportList.Count > index;
@@ -184,23 +170,18 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F815 RID: 63509 RVA: 0x0038A0C0 File Offset: 0x003882C0
 		private bool OnCloseClick(IXUIButton button)
 		{
 			this.SetVisible(false, true);
 			return true;
 		}
 
-		// Token: 0x04006C37 RID: 27703
 		private XGuildTerritoryDocument _doc = null;
 
-		// Token: 0x04006C38 RID: 27704
 		private Dictionary<uint, GuildTransfer.RowData> dic = new Dictionary<uint, GuildTransfer.RowData>();
 
-		// Token: 0x04006C39 RID: 27705
 		private List<ReportNode> reportList = new List<ReportNode>();
 
-		// Token: 0x04006C3A RID: 27706
 		public XLeftTimeCounter timeConnter;
 	}
 }

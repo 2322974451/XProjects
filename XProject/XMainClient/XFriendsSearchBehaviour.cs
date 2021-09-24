@@ -6,10 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000E31 RID: 3633
+
 	internal class XFriendsSearchBehaviour : DlgBehaviourBase
 	{
-		// Token: 0x0600C33E RID: 49982 RVA: 0x002A37F8 File Offset: 0x002A19F8
+
 		private void Awake()
 		{
 			this.m_Close = (base.transform.Find("Bg/Close").GetComponent("XUIButton") as IXUIButton);
@@ -23,28 +23,20 @@ namespace XMainClient
 			this.m_FriendRandomListPool.SetupPool(transform.gameObject, transform2.gameObject, 4U, false);
 		}
 
-		// Token: 0x0400543B RID: 21563
 		public IXUIScrollView m_ScrollView;
 
-		// Token: 0x0400543C RID: 21564
 		public IXUIButton m_Close;
 
-		// Token: 0x0400543D RID: 21565
 		public IXUIButton m_Refresh;
 
-		// Token: 0x0400543E RID: 21566
 		public IXUIButton m_AddFriend;
 
-		// Token: 0x0400543F RID: 21567
 		public IXUIInput m_SearchName;
 
-		// Token: 0x04005440 RID: 21568
 		public IXUILabel m_CountdownText;
 
-		// Token: 0x04005441 RID: 21569
 		public static readonly uint FUNCTION_NUM = 3U;
 
-		// Token: 0x04005442 RID: 21570
 		public XUIPool m_FriendRandomListPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 	}
 }

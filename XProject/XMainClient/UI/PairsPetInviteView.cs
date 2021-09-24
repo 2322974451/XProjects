@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017F7 RID: 6135
+
 	internal class PairsPetInviteView : DlgBase<PairsPetInviteView, PairsPetInviteBehaviour>
 	{
-		// Token: 0x170038DB RID: 14555
-		// (get) Token: 0x0600FE64 RID: 65124 RVA: 0x003BD154 File Offset: 0x003BB354
+
 		public override string fileName
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170038DC RID: 14556
-		// (get) Token: 0x0600FE65 RID: 65125 RVA: 0x003BD16C File Offset: 0x003BB36C
 		public override bool autoload
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170038DD RID: 14557
-		// (get) Token: 0x0600FE66 RID: 65126 RVA: 0x003BD180 File Offset: 0x003BB380
 		public override bool hideMainMenu
 		{
 			get
@@ -40,8 +35,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170038DE RID: 14558
-		// (get) Token: 0x0600FE67 RID: 65127 RVA: 0x003BD194 File Offset: 0x003BB394
 		public override bool pushstack
 		{
 			get
@@ -50,8 +43,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170038DF RID: 14559
-		// (get) Token: 0x0600FE68 RID: 65128 RVA: 0x003BD1A8 File Offset: 0x003BB3A8
 		public override bool fullscreenui
 		{
 			get
@@ -60,13 +51,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FE69 RID: 65129 RVA: 0x003BD1BB File Offset: 0x003BB3BB
 		protected override void OnLoad()
 		{
 			base.OnLoad();
 		}
 
-		// Token: 0x0600FE6A RID: 65130 RVA: 0x003BD1C8 File Offset: 0x003BB3C8
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -75,13 +64,11 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_tempRejectBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnClickTempRejectBtn));
 		}
 
-		// Token: 0x0600FE6B RID: 65131 RVA: 0x003BD234 File Offset: 0x003BB434
 		protected override void OnUnload()
 		{
 			base.OnUnload();
 		}
 
-		// Token: 0x0600FE6C RID: 65132 RVA: 0x003BD23E File Offset: 0x003BB43E
 		protected override void Init()
 		{
 			base.Init();
@@ -89,13 +76,11 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_wrapContent.RegisterItemUpdateEventHandler(new WrapItemUpdateEventHandler(this.WrapContentItemUpdated));
 		}
 
-		// Token: 0x0600FE6D RID: 65133 RVA: 0x003BD275 File Offset: 0x003BB475
 		protected override void OnHide()
 		{
 			base.OnHide();
 		}
 
-		// Token: 0x0600FE6E RID: 65134 RVA: 0x003BD27F File Offset: 0x003BB47F
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -103,26 +88,22 @@ namespace XMainClient.UI
 			this.m_doc.OnReqInviteList();
 		}
 
-		// Token: 0x0600FE6F RID: 65135 RVA: 0x003BD2AC File Offset: 0x003BB4AC
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
 		}
 
-		// Token: 0x0600FE70 RID: 65136 RVA: 0x003BD2B6 File Offset: 0x003BB4B6
 		public void RefreshUi()
 		{
 			this.FillContent();
 		}
 
-		// Token: 0x0600FE71 RID: 65137 RVA: 0x003BD2C0 File Offset: 0x003BB4C0
 		private void FillContent()
 		{
 			base.uiBehaviour.m_wrapContent.gameObject.SetActive(true);
 			base.uiBehaviour.m_wrapContent.SetContentCount(this.m_doc.PetInviteInfolist.Count, false);
 		}
 
-		// Token: 0x0600FE72 RID: 65138 RVA: 0x003BD2FC File Offset: 0x003BB4FC
 		private void WrapContentItemUpdated(Transform t, int index)
 		{
 			bool flag = index >= this.m_doc.PetInviteInfolist.Count;
@@ -193,14 +174,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FE73 RID: 65139 RVA: 0x003BD5BC File Offset: 0x003BB7BC
 		private bool OnCloseClicked(IXUIButton btn)
 		{
 			this.SetVisible(false, true);
 			return true;
 		}
 
-		// Token: 0x0600FE74 RID: 65140 RVA: 0x003BD5D8 File Offset: 0x003BB7D8
 		private bool OnClickIgnoreAllBtn(IXUIButton btn)
 		{
 			this.SetVisible(false, true);
@@ -208,14 +187,12 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FE75 RID: 65141 RVA: 0x003BD600 File Offset: 0x003BB800
 		private bool OnClickTempRejectBtn(IXUIButton btn)
 		{
 			this.SetVisible(false, true);
 			return true;
 		}
 
-		// Token: 0x0600FE76 RID: 65142 RVA: 0x003BD61C File Offset: 0x003BB81C
 		private bool OnClickDrive(IXUIButton btn)
 		{
 			ulong id = btn.ID;
@@ -223,7 +200,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x04007065 RID: 28773
 		private XPetDocument m_doc;
 	}
 }

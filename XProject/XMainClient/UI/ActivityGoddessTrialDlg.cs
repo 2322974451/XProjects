@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001705 RID: 5893
+
 	internal class ActivityGoddessTrialDlg : DlgBase<ActivityGoddessTrialDlg, ActivityGoddessTrialBehaviour>
 	{
-		// Token: 0x17003774 RID: 14196
-		// (get) Token: 0x0600F315 RID: 62229 RVA: 0x0036200C File Offset: 0x0036020C
+
 		public override string fileName
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003775 RID: 14197
-		// (get) Token: 0x0600F316 RID: 62230 RVA: 0x00362024 File Offset: 0x00360224
 		public override int layer
 		{
 			get
@@ -31,8 +28,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003776 RID: 14198
-		// (get) Token: 0x0600F317 RID: 62231 RVA: 0x00362038 File Offset: 0x00360238
 		public override bool autoload
 		{
 			get
@@ -41,8 +36,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003777 RID: 14199
-		// (get) Token: 0x0600F318 RID: 62232 RVA: 0x0036204C File Offset: 0x0036024C
 		public override bool hideMainMenu
 		{
 			get
@@ -51,8 +44,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003778 RID: 14200
-		// (get) Token: 0x0600F319 RID: 62233 RVA: 0x00362060 File Offset: 0x00360260
 		public override bool pushstack
 		{
 			get
@@ -61,8 +52,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003779 RID: 14201
-		// (get) Token: 0x0600F31A RID: 62234 RVA: 0x00362074 File Offset: 0x00360274
 		public override bool fullscreenui
 		{
 			get
@@ -71,7 +60,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F31B RID: 62235 RVA: 0x00362087 File Offset: 0x00360287
 		protected override void Init()
 		{
 			this._doc = XDocuments.GetSpecificDocument<XExpeditionDocument>(XExpeditionDocument.uuID);
@@ -79,7 +67,6 @@ namespace XMainClient.UI
 			this.RefreshTimes();
 		}
 
-		// Token: 0x0600F31C RID: 62236 RVA: 0x003620B0 File Offset: 0x003602B0
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -90,27 +77,23 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_Help.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnHelpClicked));
 		}
 
-		// Token: 0x0600F31D RID: 62237 RVA: 0x00362158 File Offset: 0x00360358
 		public bool OnHelpClicked(IXUIButton button)
 		{
 			DlgBase<XCommonHelpTipView, XCommonHelpTipBehaviour>.singleton.ShowHelp(XSysDefine.XSys_Activity_GoddessTrial);
 			return true;
 		}
 
-		// Token: 0x0600F31E RID: 62238 RVA: 0x0036217B File Offset: 0x0036037B
 		protected override void OnShow()
 		{
 			this.FillItem();
 			this.RequstLeftCount();
 		}
 
-		// Token: 0x0600F31F RID: 62239 RVA: 0x0036218C File Offset: 0x0036038C
 		protected override void OnHide()
 		{
 			base.uiBehaviour.m_ItemPool.ReturnAll(false);
 		}
 
-		// Token: 0x0600F320 RID: 62240 RVA: 0x003621A4 File Offset: 0x003603A4
 		private void FillItem()
 		{
 			base.uiBehaviour.m_ItemPool.ReturnAll(false);
@@ -128,7 +111,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F321 RID: 62241 RVA: 0x003622D0 File Offset: 0x003604D0
 		public void RefreshTimes()
 		{
 			bool flag = this._doc == null || !base.IsVisible();
@@ -169,7 +151,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F322 RID: 62242 RVA: 0x00362470 File Offset: 0x00360670
 		private void RequstLeftCount()
 		{
 			List<ExpeditionTable.RowData> expeditionList = this._doc.GetExpeditionList(TeamLevelType.TeamLevelGoddessTrial);
@@ -192,14 +173,12 @@ namespace XMainClient.UI
 			XSingleton<XDebug>.singleton.AddLog("Df data is error,not find target DATA!", null, null, null, null, null, XDebugColor.XDebug_None);
 		}
 
-		// Token: 0x0600F323 RID: 62243 RVA: 0x0036252C File Offset: 0x0036072C
 		private bool OnCloseDlg(IXUIButton btn)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x0600F324 RID: 62244 RVA: 0x00362548 File Offset: 0x00360748
 		private bool OnEnterTeamClick(IXUIButton button)
 		{
 			XTeamDocument specificDocument = XDocuments.GetSpecificDocument<XTeamDocument>(XTeamDocument.uuID);
@@ -207,7 +186,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F325 RID: 62245 RVA: 0x00362578 File Offset: 0x00360778
 		private bool OnGetReward(IXUIButton button)
 		{
 			RpcC2G_GetGoddessTrialRewards rpc = new RpcC2G_GetGoddessTrialRewards();
@@ -215,14 +193,12 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F326 RID: 62246 RVA: 0x003625A0 File Offset: 0x003607A0
 		private bool OnGoToShop(IXUIButton button)
 		{
 			DlgBase<MallSystemDlg, MallSystemBehaviour>.singleton.ShowShopSystem(XSysDefine.XSys_Mall_Tear, 0UL);
 			return true;
 		}
 
-		// Token: 0x0600F327 RID: 62247 RVA: 0x003625C8 File Offset: 0x003607C8
 		private void ShowTip(IXUISprite sp)
 		{
 			bool flag = this._doc.GoddessRewardsCanGetTimes > 0;
@@ -236,7 +212,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04006869 RID: 26729
 		private XExpeditionDocument _doc;
 	}
 }

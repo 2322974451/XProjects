@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020018E7 RID: 6375
+
 	internal class XWelfareKingdomPrivilegeRenewView : DlgBase<XWelfareKingdomPrivilegeRenewView, XWelfareKingdomPrivilegeRenewBehaviour>
 	{
-		// Token: 0x17003A7E RID: 14974
-		// (get) Token: 0x060109AE RID: 68014 RVA: 0x00418C4C File Offset: 0x00416E4C
+
 		public override bool autoload
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003A7F RID: 14975
-		// (get) Token: 0x060109AF RID: 68015 RVA: 0x00418C60 File Offset: 0x00416E60
 		public override string fileName
 		{
 			get
@@ -30,7 +27,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060109B0 RID: 68016 RVA: 0x00418C78 File Offset: 0x00416E78
 		public void Show(PayMemberTable.RowData info, bool suc = false, int leftTime = 0)
 		{
 			bool flag = !base.IsVisible();
@@ -64,7 +60,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060109B1 RID: 68017 RVA: 0x00418E10 File Offset: 0x00417010
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -72,21 +67,18 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_Buy.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnBuyBtnClicked));
 		}
 
-		// Token: 0x060109B2 RID: 68018 RVA: 0x00418E5F File Offset: 0x0041705F
 		protected override void OnHide()
 		{
 			base.OnHide();
 			base.uiBehaviour.m_Icon.SetTexturePath("");
 		}
 
-		// Token: 0x060109B3 RID: 68019 RVA: 0x00418E80 File Offset: 0x00417080
 		private bool OnCloseBtnClicked(IXUIButton btn)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return false;
 		}
 
-		// Token: 0x060109B4 RID: 68020 RVA: 0x00418E9C File Offset: 0x0041709C
 		private bool OnBuyBtnClicked(IXUIButton btn)
 		{
 			XRechargeDocument specificDocument = XDocuments.GetSpecificDocument<XRechargeDocument>(XRechargeDocument.uuID);
@@ -107,7 +99,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x040078A0 RID: 30880
 		private PayMemberTable.RowData payInfo;
 	}
 }

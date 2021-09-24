@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001732 RID: 5938
+
 	internal class ProfressionTrialsHandler : DlgHandlerBase
 	{
-		// Token: 0x170037BA RID: 14266
-		// (get) Token: 0x0600F538 RID: 62776 RVA: 0x0037582C File Offset: 0x00373A2C
+
 		protected override string FileName
 		{
 			get
@@ -19,7 +18,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F539 RID: 62777 RVA: 0x00375844 File Offset: 0x00373A44
 		protected override void Init()
 		{
 			base.Init();
@@ -56,25 +54,21 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F53A RID: 62778 RVA: 0x0019EEB0 File Offset: 0x0019D0B0
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 		}
 
-		// Token: 0x0600F53B RID: 62779 RVA: 0x0019EF07 File Offset: 0x0019D107
 		public override void OnUnload()
 		{
 			base.OnUnload();
 		}
 
-		// Token: 0x0600F53C RID: 62780 RVA: 0x0019F00C File Offset: 0x0019D20C
 		protected override void OnShow()
 		{
 			base.OnShow();
 		}
 
-		// Token: 0x0600F53D RID: 62781 RVA: 0x0037594C File Offset: 0x00373B4C
 		private void GetProfressional()
 		{
 			XProfessionChangeDocument specificDocument = XDocuments.GetSpecificDocument<XProfessionChangeDocument>(XProfessionChangeDocument.uuID);
@@ -176,7 +170,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F53E RID: 62782 RVA: 0x00375BD8 File Offset: 0x00373DD8
 		private void SetProSelect(Transform ts, int i)
 		{
 			IXUICheckBox ixuicheckBox = ts.GetComponent("XUICheckBox") as IXUICheckBox;
@@ -197,7 +190,6 @@ namespace XMainClient.UI
 			ixuilabel.SetText(XSingleton<XProfessionSkillMgr>.singleton.GetProfName(this._pro[i]));
 		}
 
-		// Token: 0x0600F53F RID: 62783 RVA: 0x00375CD4 File Offset: 0x00373ED4
 		private bool OnCheckBoxClick(IXUICheckBox icb)
 		{
 			bool flag = !icb.bChecked;
@@ -225,7 +217,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F540 RID: 62784 RVA: 0x00375DB8 File Offset: 0x00373FB8
 		public void SetGeneralTab()
 		{
 			bool flag = this.m_GeneralTab != null;
@@ -235,10 +226,8 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04006A37 RID: 27191
 		private List<int> _pro = new List<int>();
 
-		// Token: 0x04006A38 RID: 27192
 		private int[] MI = new int[]
 		{
 			1,
@@ -248,16 +237,12 @@ namespace XMainClient.UI
 			10000
 		};
 
-		// Token: 0x04006A39 RID: 27193
 		private static readonly bool IsShowAvengerProf = false;
 
-		// Token: 0x04006A3A RID: 27194
 		private List<GameObject> _FxList = new List<GameObject>();
 
-		// Token: 0x04006A3B RID: 27195
 		private List<GameObject> _ClickTips = new List<GameObject>();
 
-		// Token: 0x04006A3C RID: 27196
 		private IXUICheckBox m_GeneralTab;
 	}
 }

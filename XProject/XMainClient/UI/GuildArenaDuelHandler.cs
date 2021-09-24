@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001751 RID: 5969
+
 	internal class GuildArenaDuelHandler : DlgHandlerBase
 	{
-		// Token: 0x170037F3 RID: 14323
-		// (get) Token: 0x0600F69F RID: 63135 RVA: 0x0037F9E8 File Offset: 0x0037DBE8
+
 		protected override string FileName
 		{
 			get
@@ -19,7 +18,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F6A0 RID: 63136 RVA: 0x0037FA00 File Offset: 0x0037DC00
 		protected override void Init()
 		{
 			base.Init();
@@ -37,7 +35,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F6A1 RID: 63137 RVA: 0x0037FADB File Offset: 0x0037DCDB
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -45,7 +42,6 @@ namespace XMainClient.UI
 			this.RefreshData();
 		}
 
-		// Token: 0x0600F6A2 RID: 63138 RVA: 0x0037FAF8 File Offset: 0x0037DCF8
 		public override void RefreshData()
 		{
 			base.RefreshData();
@@ -64,22 +60,16 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04006B24 RID: 27428
 		private XGuildArenaDocument _Doc;
 
-		// Token: 0x04006B25 RID: 27429
 		private List<GuildArenaDuelInfo> m_duelInfos;
 
-		// Token: 0x04006B26 RID: 27430
 		private Transform m_UnApply;
 
-		// Token: 0x04006B27 RID: 27431
 		private Transform m_DuelList;
 
-		// Token: 0x04006B28 RID: 27432
 		private int m_length = 4;
 
-		// Token: 0x04006B29 RID: 27433
 		private IXUILabel m_DuelHelp;
 	}
 }

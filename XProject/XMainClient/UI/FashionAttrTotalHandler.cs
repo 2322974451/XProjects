@@ -6,10 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001824 RID: 6180
+
 	internal class FashionAttrTotalHandler : DlgHandlerBase
 	{
-		// Token: 0x060100BB RID: 65723 RVA: 0x003D25D8 File Offset: 0x003D07D8
+
 		protected override void Init()
 		{
 			this._doc = (XSingleton<XGame>.singleton.Doc.GetXComponent(XFashionDocument.uuID) as XFashionDocument);
@@ -32,7 +32,6 @@ namespace XMainClient.UI
 			this.SuitAttrPool.SetupPool(transform.parent.gameObject, transform.gameObject, 3U, false);
 		}
 
-		// Token: 0x060100BC RID: 65724 RVA: 0x003D2812 File Offset: 0x003D0A12
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -40,19 +39,16 @@ namespace XMainClient.UI
 			this._closebg.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnClose));
 		}
 
-		// Token: 0x060100BD RID: 65725 RVA: 0x001A6C1F File Offset: 0x001A4E1F
 		protected void OnClose(IXUISprite sp)
 		{
 			base.SetVisible(false);
 		}
 
-		// Token: 0x060100BE RID: 65726 RVA: 0x003D284C File Offset: 0x003D0A4C
 		public void SetDataSource(List<uint> s)
 		{
 			this.UDataSource = s;
 		}
 
-		// Token: 0x060100BF RID: 65727 RVA: 0x003D2858 File Offset: 0x003D0A58
 		protected override void OnShow()
 		{
 			Vector3 localPosition = this.SuitFrameAnchor.transform.localPosition;
@@ -202,55 +198,38 @@ namespace XMainClient.UI
 			this.m_scrollView.ResetPosition();
 		}
 
-		// Token: 0x04007240 RID: 29248
 		private XUIPool AttrPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04007241 RID: 29249
 		private XUIPool SuitAttrPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04007242 RID: 29250
 		private XUIPool CharmAttrPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04007243 RID: 29251
 		private XFashionDocument _doc;
 
-		// Token: 0x04007244 RID: 29252
 		private XFashionStorageDocument _fsDoc;
 
-		// Token: 0x04007245 RID: 29253
 		private IXUIScrollView m_scrollView;
 
-		// Token: 0x04007246 RID: 29254
 		private IXUISprite _close;
 
-		// Token: 0x04007247 RID: 29255
 		private IXUISprite _closebg;
 
-		// Token: 0x04007248 RID: 29256
 		private GameObject SuitFrame = null;
 
-		// Token: 0x04007249 RID: 29257
 		private GameObject BaseFrame = null;
 
-		// Token: 0x0400724A RID: 29258
 		private GameObject NoAttrGo = null;
 
-		// Token: 0x0400724B RID: 29259
 		private GameObject NoSuitAttrGo = null;
 
-		// Token: 0x0400724C RID: 29260
 		private GameObject SuitFrameAnchor = null;
 
-		// Token: 0x0400724D RID: 29261
 		private GameObject CharmFrame = null;
 
-		// Token: 0x0400724E RID: 29262
 		private GameObject NotCharmAttrGo = null;
 
-		// Token: 0x0400724F RID: 29263
 		private List<uint> UDataSource = null;
 
-		// Token: 0x04007250 RID: 29264
 		public bool ShowCharm = false;
 	}
 }

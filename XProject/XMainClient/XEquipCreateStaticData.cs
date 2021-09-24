@@ -3,10 +3,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000988 RID: 2440
+
 	public class XEquipCreateStaticData : XStaticDataBase<XEquipCreateStaticData>
 	{
-		// Token: 0x060092A8 RID: 37544 RVA: 0x00153908 File Offset: 0x00151B08
+
 		protected override void OnInit()
 		{
 			this.TimerPerSecondCount = XSingleton<XGlobalConfig>.singleton.GetInt("EquipCreateTimerPerSecondCount");
@@ -32,29 +32,22 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060092A9 RID: 37545 RVA: 0x00153A4A File Offset: 0x00151C4A
 		public override void Uninit()
 		{
 			this.EquipPosOrderArray = null;
 			base.Uninit();
 		}
 
-		// Token: 0x04003129 RID: 12585
 		public int[] EquipPosOrderArray;
 
-		// Token: 0x0400312A RID: 12586
 		public int TimerPerSecondCount = 0;
 
-		// Token: 0x0400312B RID: 12587
 		public float TimerTotalSecond = 0f;
 
-		// Token: 0x0400312C RID: 12588
 		public EquipSuitItemData[][] ItemPosGroupList;
 
-		// Token: 0x0400312D RID: 12589
 		public int[][] RedPointPosGroupList;
 
-		// Token: 0x0400312E RID: 12590
 		public int[] RedPointCheckLevelList;
 	}
 }

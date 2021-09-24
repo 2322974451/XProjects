@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000B03 RID: 2819
+
 	internal class XAITarget : XSingleton<XAITarget>
 	{
-		// Token: 0x0600A636 RID: 42550 RVA: 0x001D27B0 File Offset: 0x001D09B0
+
 		private int SortEnemy(XEntity a, XEntity b)
 		{
 			bool flag = a == null || b == null;
@@ -46,7 +46,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A637 RID: 42551 RVA: 0x001D2860 File Offset: 0x001D0A60
 		public bool ResetTargets(XEntity entity)
 		{
 			List<XEntity> opponent = XSingleton<XEntityMgr>.singleton.GetOpponent(entity);
@@ -73,7 +72,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A638 RID: 42552 RVA: 0x001D28F0 File Offset: 0x001D0AF0
 		public bool FindTargetByDistance(XEntity entity, float dist, bool filterImmortal, float angle, float delta, int targettype)
 		{
 			bool flag = !this.ResetTargets(entity);
@@ -153,7 +151,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A639 RID: 42553 RVA: 0x001D2AE0 File Offset: 0x001D0CE0
 		public bool FindTargetByHitLevel(XEntity entity, bool filterImmortal)
 		{
 			this.ResetTargets(entity);
@@ -283,7 +280,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A63A RID: 42554 RVA: 0x001D2E40 File Offset: 0x001D1040
 		public bool FindTargetByHartedList(XEntity entity, bool filterImmortal)
 		{
 			List<XEntity> hateEntity = entity.AI.EnmityList.GetHateEntity(filterImmortal);
@@ -302,13 +298,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A63B RID: 42555 RVA: 0x001D2E94 File Offset: 0x001D1094
 		public bool FindTargetByNonImmortal(XEntity entity)
 		{
 			return true;
 		}
 
-		// Token: 0x0600A63C RID: 42556 RVA: 0x001D2EA8 File Offset: 0x001D10A8
 		public bool DoSelectNearest(XEntity entity)
 		{
 			bool flag = entity.AI.TargetsCount == 0;
@@ -349,7 +343,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A63D RID: 42557 RVA: 0x001D2FC4 File Offset: 0x001D11C4
 		public bool DoSelectFarthest(XEntity entity)
 		{
 			bool flag = entity.AI.TargetsCount == 0;
@@ -390,7 +383,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A63E RID: 42558 RVA: 0x001D30E0 File Offset: 0x001D12E0
 		public bool DoSelectRandom(XEntity entity)
 		{
 			bool flag = entity.AI.TargetsCount == 0;
@@ -420,7 +412,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A63F RID: 42559 RVA: 0x001D31A0 File Offset: 0x001D13A0
 		public XGameObject SelectMoveTargetById(XEntity entity, int objectid)
 		{
 			List<XEntity> opponent = XSingleton<XEntityMgr>.singleton.GetOpponent(XSingleton<XEntityMgr>.singleton.Player);
@@ -444,7 +435,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A640 RID: 42560 RVA: 0x001D324C File Offset: 0x001D144C
 		public Transform SelectDoodaTarget(XEntity entity, XDoodadType type)
 		{
 			List<GameObject> doodadsInScene = XSingleton<XLevelDoodadMgr>.singleton.GetDoodadsInScene(type);
@@ -485,13 +475,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A641 RID: 42561 RVA: 0x001D3318 File Offset: 0x001D1518
 		public Transform SelectItemTarget(XEntity entity)
 		{
 			return XSingleton<XAITarget>.singleton.SelectDoodaTarget(entity, XDoodadType.Item);
 		}
 
-		// Token: 0x0600A642 RID: 42562 RVA: 0x001D3338 File Offset: 0x001D1538
 		public bool SelectTargetBySkillCircle(XEntity entity)
 		{
 			bool flag = !entity.IsPlayer;
@@ -528,7 +516,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A643 RID: 42563 RVA: 0x001D33E0 File Offset: 0x001D15E0
 		public bool ResetHartedList(XEntity entity)
 		{
 			entity.AI.EnmityList.Reset();

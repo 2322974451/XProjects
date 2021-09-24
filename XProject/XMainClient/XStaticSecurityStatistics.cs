@@ -4,10 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000B18 RID: 2840
+
 	internal sealed class XStaticSecurityStatistics
 	{
-		// Token: 0x0600A717 RID: 42775 RVA: 0x001D7E28 File Offset: 0x001D6028
+
 		public static void Reset()
 		{
 			XStaticSecurityStatistics._MonsterDamageInfo.Reset();
@@ -22,7 +22,6 @@ namespace XMainClient
 			XStaticSecurityStatistics._Inited = true;
 		}
 
-		// Token: 0x0600A718 RID: 42776 RVA: 0x001D7E9C File Offset: 0x001D609C
 		public static void OnEnd()
 		{
 			bool flag = !XStaticSecurityStatistics._Inited;
@@ -63,26 +62,22 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A719 RID: 42777 RVA: 0x001D7FA0 File Offset: 0x001D61A0
 		public static void Append(string key, string value, List<string> keyList, List<string> valueList)
 		{
 			keyList.Add(key);
 			valueList.Add(value);
 		}
 
-		// Token: 0x0600A71A RID: 42778 RVA: 0x001D7FB3 File Offset: 0x001D61B3
 		public static void Append(string key, string value)
 		{
 			XStaticSecurityStatistics.Append(key, value, XStaticSecurityStatistics._KeyList, XStaticSecurityStatistics._ValueList);
 		}
 
-		// Token: 0x0600A71B RID: 42779 RVA: 0x001D7FC8 File Offset: 0x001D61C8
 		public static void Append(string key, double value, List<string> keyList, List<string> valueList)
 		{
 			XStaticSecurityStatistics.Append(key, ((long)value).ToString(), keyList, valueList);
 		}
 
-		// Token: 0x0600A71C RID: 42780 RVA: 0x001D7FEC File Offset: 0x001D61EC
 		public static void Append(string key, double value)
 		{
 			bool flag = value == 0.0 || value == double.MaxValue;
@@ -92,13 +87,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A71D RID: 42781 RVA: 0x001D8030 File Offset: 0x001D6230
 		public static void Append(string key, float value, List<string> keyList, List<string> valueList)
 		{
 			XStaticSecurityStatistics.Append(key, ((long)value).ToString(), keyList, valueList);
 		}
 
-		// Token: 0x0600A71E RID: 42782 RVA: 0x001D8054 File Offset: 0x001D6254
 		public static void Append(string key, float value)
 		{
 			bool flag = value == 0f || value == float.MaxValue;
@@ -108,7 +101,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A71F RID: 42783 RVA: 0x001D8090 File Offset: 0x001D6290
 		private static void _SendBattleStartData()
 		{
 			PtcC2G_BattleLogReport ptcC2G_BattleLogReport = new PtcC2G_BattleLogReport();
@@ -123,7 +115,6 @@ namespace XMainClient
 			XStaticSecurityStatistics._ValueList = null;
 		}
 
-		// Token: 0x0600A720 RID: 42784 RVA: 0x001D8120 File Offset: 0x001D6320
 		private static void _SendBattleFinishMainData()
 		{
 			XPlayerAttributes xplayerData = XSingleton<XAttributeMgr>.singleton.XPlayerData;
@@ -191,7 +182,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A721 RID: 42785 RVA: 0x001D8388 File Offset: 0x001D6588
 		private static void _SendBattleFinishOtherData()
 		{
 			bool syncMode = XSingleton<XGame>.singleton.SyncMode;
@@ -215,40 +205,28 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04003D95 RID: 15765
 		public static XSecurityHPInfo _BossHPInfo = new XSecurityHPInfo();
 
-		// Token: 0x04003D96 RID: 15766
 		public static XSecurityHPInfo _MonsterHPInfo = new XSecurityHPInfo();
 
-		// Token: 0x04003D97 RID: 15767
 		public static XSecurityDamageInfo _BossDamageInfo = new XSecurityDamageInfo();
 
-		// Token: 0x04003D98 RID: 15768
 		public static XSecurityDamageInfo _MonsterDamageInfo = new XSecurityDamageInfo();
 
-		// Token: 0x04003D99 RID: 15769
 		public static XSecurityAIInfo _BossAIInfo = new XSecurityAIInfo();
 
-		// Token: 0x04003D9A RID: 15770
 		public static XSecurityAIInfo _MonsterAIInfo = new XSecurityAIInfo();
 
-		// Token: 0x04003D9B RID: 15771
 		public static float _BossMoveDistance;
 
-		// Token: 0x04003D9C RID: 15772
 		public static float _MonsterMoveDistance;
 
-		// Token: 0x04003D9D RID: 15773
 		public static DateTime _StartTime;
 
-		// Token: 0x04003D9E RID: 15774
 		private static bool _Inited = false;
 
-		// Token: 0x04003D9F RID: 15775
 		private static List<string> _KeyList;
 
-		// Token: 0x04003DA0 RID: 15776
 		private static List<string> _ValueList;
 	}
 }

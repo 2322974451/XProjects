@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200179A RID: 6042
+
 	internal class CookingHandler : DlgHandlerBase
 	{
-		// Token: 0x17003851 RID: 14417
-		// (get) Token: 0x0600F97F RID: 63871 RVA: 0x00395E98 File Offset: 0x00394098
+
 		protected override string FileName
 		{
 			get
@@ -19,7 +18,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F980 RID: 63872 RVA: 0x00395EAF File Offset: 0x003940AF
 		protected override void Init()
 		{
 			base.Init();
@@ -28,32 +26,27 @@ namespace XMainClient.UI
 			this.InitClickCallback();
 		}
 
-		// Token: 0x0600F981 RID: 63873 RVA: 0x0019EEB0 File Offset: 0x0019D0B0
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 		}
 
-		// Token: 0x0600F982 RID: 63874 RVA: 0x00395ECE File Offset: 0x003940CE
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.RefreshUI();
 		}
 
-		// Token: 0x0600F983 RID: 63875 RVA: 0x0019EEFD File Offset: 0x0019D0FD
 		protected override void OnHide()
 		{
 			base.OnHide();
 		}
 
-		// Token: 0x0600F984 RID: 63876 RVA: 0x0019EF07 File Offset: 0x0019D107
 		public override void OnUnload()
 		{
 			base.OnUnload();
 		}
 
-		// Token: 0x0600F985 RID: 63877 RVA: 0x00395EDF File Offset: 0x003940DF
 		public void RefreshUI()
 		{
 			this._selectedFoodItem = null;
@@ -63,7 +56,6 @@ namespace XMainClient.UI
 			this.RefreshRightDetail(this._curCookID);
 		}
 
-		// Token: 0x0600F986 RID: 63878 RVA: 0x00395F14 File Offset: 0x00394114
 		protected void InitSelectedFood()
 		{
 			bool flag = this._levelItems.Count <= 0;
@@ -102,7 +94,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F987 RID: 63879 RVA: 0x00396050 File Offset: 0x00394250
 		private void SwitchToggleSprite(Transform spriteToggle)
 		{
 			bool flag = this._toggleSprite != null && this._toggleSprite != spriteToggle;
@@ -113,7 +104,6 @@ namespace XMainClient.UI
 			this._toggleSprite = spriteToggle;
 		}
 
-		// Token: 0x0600F988 RID: 63880 RVA: 0x00396098 File Offset: 0x00394298
 		protected void InitProperties()
 		{
 			this._cookingProgressFrame = base.transform.Find("Content/CookingProgressFrame");
@@ -142,7 +132,6 @@ namespace XMainClient.UI
 			this._downCuisineDec = (base.transform.Find("Content/ContentLab").GetComponent("XUILabel") as IXUILabel);
 		}
 
-		// Token: 0x0600F989 RID: 63881 RVA: 0x00396344 File Offset: 0x00394544
 		protected void InitUIPool()
 		{
 			this._tabs = base.transform.Find("Tabs");
@@ -155,7 +144,6 @@ namespace XMainClient.UI
 			this._foodItemPool.SetupPool(this._needMats.gameObject, this._needMats.Find("Item").gameObject, 2U, false);
 		}
 
-		// Token: 0x0600F98A RID: 63882 RVA: 0x00396434 File Offset: 0x00394634
 		protected void InitLeftPanel()
 		{
 			uint num = Math.Min(this._curCookLevel + 1U, XHomeCookAndPartyDocument.Doc.GetMaxLevel());
@@ -197,7 +185,6 @@ namespace XMainClient.UI
 			this._tabTable.Reposition();
 		}
 
-		// Token: 0x0600F98B RID: 63883 RVA: 0x00396594 File Offset: 0x00394794
 		protected Transform SetLevelItem(ref int height, int level)
 		{
 			GameObject gameObject = this._levelCuisinePool.FetchGameObject(false);
@@ -216,7 +203,6 @@ namespace XMainClient.UI
 			return gameObject.transform;
 		}
 
-		// Token: 0x0600F98C RID: 63884 RVA: 0x003966E0 File Offset: 0x003948E0
 		protected Transform SetChildItem(ref int height, CookingFoodInfo.RowData info, Transform parent)
 		{
 			GameObject gameObject = this._cuisineChildPool.FetchGameObject(false);
@@ -262,7 +248,6 @@ namespace XMainClient.UI
 			return gameObject.transform;
 		}
 
-		// Token: 0x0600F98D RID: 63885 RVA: 0x00396938 File Offset: 0x00394B38
 		protected void OnClicklevel(IXUISprite uiSprite)
 		{
 			foreach (object obj in uiSprite.gameObject.transform)
@@ -271,13 +256,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F98E RID: 63886 RVA: 0x00396994 File Offset: 0x00394B94
 		protected void OnUnactiveFood(IXUISprite sprite)
 		{
 			XSingleton<UiUtility>.singleton.ShowSystemTip(XStringDefineProxy.GetString("CookMenuNotActive"), "fece00");
 		}
 
-		// Token: 0x0600F98F RID: 63887 RVA: 0x003969B4 File Offset: 0x00394BB4
 		protected void InitClickCallback()
 		{
 			this._makeBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.StartToCooking));
@@ -286,7 +269,6 @@ namespace XMainClient.UI
 			this._cancelMakingBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.CancelCooking));
 		}
 
-		// Token: 0x0600F990 RID: 63888 RVA: 0x00396A24 File Offset: 0x00394C24
 		protected bool OnCuisineToggleChanged(IXUICheckBox checkbox)
 		{
 			bool bChecked = checkbox.bChecked;
@@ -312,7 +294,6 @@ namespace XMainClient.UI
 			return false;
 		}
 
-		// Token: 0x0600F991 RID: 63889 RVA: 0x00396AEC File Offset: 0x00394CEC
 		protected void RefreshRightDetail(uint cuisineId)
 		{
 			CookingFoodInfo.RowData cookInfoByCuisineID = XHomeCookAndPartyDocument.Doc.GetCookInfoByCuisineID(cuisineId);
@@ -388,13 +369,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F992 RID: 63890 RVA: 0x00396E9D File Offset: 0x0039509D
 		protected void SendMakeCuisineReq()
 		{
 			XHomeCookAndPartyDocument.Doc.ReqGardenCookingFood(this._curCookID);
 		}
 
-		// Token: 0x0600F993 RID: 63891 RVA: 0x00396EB4 File Offset: 0x003950B4
 		protected bool StartToCooking(IXUIButton cook)
 		{
 			bool flag = XHomeCookAndPartyDocument.Doc.IsTimeLimited(this._curCookID);
@@ -431,7 +410,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F994 RID: 63892 RVA: 0x00396F70 File Offset: 0x00395170
 		protected bool OneShotCooking(IXUIButton cook)
 		{
 			bool flag = XHomeCookAndPartyDocument.Doc.IsTimeLimited(this._curCookID);
@@ -458,7 +436,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F995 RID: 63893 RVA: 0x00396FFA File Offset: 0x003951FA
 		private void OneKeyContinue(bool continueCooking)
 		{
 			this._isOneKeyCooking = continueCooking;
@@ -466,7 +443,6 @@ namespace XMainClient.UI
 			this._doBtn.gameObject.SetActive(!continueCooking);
 		}
 
-		// Token: 0x0600F996 RID: 63894 RVA: 0x0039702C File Offset: 0x0039522C
 		private bool CancelCooking(IXUIButton button)
 		{
 			this.OneKeyContinue(false);
@@ -477,7 +453,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F997 RID: 63895 RVA: 0x00397084 File Offset: 0x00395284
 		protected void RefreshProgressFrame()
 		{
 			this._cookingProgressFrame.gameObject.SetActive(true);
@@ -490,7 +465,6 @@ namespace XMainClient.UI
 			this._cookingItem.gameObject.SetActive(false);
 		}
 
-		// Token: 0x0600F998 RID: 63896 RVA: 0x00397134 File Offset: 0x00395334
 		protected bool IsValidCooking()
 		{
 			CookingFoodInfo.RowData cookInfoByCuisineID = XHomeCookAndPartyDocument.Doc.GetCookInfoByCuisineID(this._curCookID);
@@ -518,7 +492,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F999 RID: 63897 RVA: 0x003971C4 File Offset: 0x003953C4
 		private bool OnClickCookingButtonOK(IXUIButton btn)
 		{
 			this._successEffect.gameObject.SetActive(false);
@@ -526,7 +499,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F99A RID: 63898 RVA: 0x003971FB File Offset: 0x003953FB
 		public void CookingTimeEnd()
 		{
 			this._doBtn.gameObject.SetActive(!this._isOneKeyCooking);
@@ -534,7 +506,6 @@ namespace XMainClient.UI
 			this.SendMakeCuisineReq();
 		}
 
-		// Token: 0x0600F99B RID: 63899 RVA: 0x00397234 File Offset: 0x00395434
 		public void CookingSuccess()
 		{
 			this._successEffect.gameObject.SetActive(true);
@@ -551,7 +522,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F99C RID: 63900 RVA: 0x003972E8 File Offset: 0x003954E8
 		public void SetProgress(float percent)
 		{
 			this._cookingSlider.Value = percent;
@@ -562,106 +532,73 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F99D RID: 63901 RVA: 0x00397319 File Offset: 0x00395519
 		public void RefreshRightInfo()
 		{
 			this.RefreshRightDetail(this._curCookID);
 		}
 
-		// Token: 0x04006D11 RID: 27921
 		protected IXUILabel _upCuisineLevel;
 
-		// Token: 0x04006D12 RID: 27922
 		protected IXUILabel _upExpPercent;
 
-		// Token: 0x04006D13 RID: 27923
 		protected IXUISlider _upProgress;
 
-		// Token: 0x04006D14 RID: 27924
 		protected Transform _middCuisineItem;
 
-		// Token: 0x04006D15 RID: 27925
 		protected IXUILabel _middCuisineName;
 
-		// Token: 0x04006D16 RID: 27926
 		protected IXUILabel _middCuisineAddExp;
 
-		// Token: 0x04006D17 RID: 27927
 		protected IXUILabel _middMakeTimes;
 
-		// Token: 0x04006D18 RID: 27928
 		protected IXUILabel _downCuisineDec;
 
-		// Token: 0x04006D19 RID: 27929
 		protected Transform _needMats;
 
-		// Token: 0x04006D1A RID: 27930
 		protected IXUIButton _makeBtn;
 
-		// Token: 0x04006D1B RID: 27931
 		protected IXUIButton _cancelMakingBtn = null;
 
-		// Token: 0x04006D1C RID: 27932
 		protected IXUIButton _oneKeyCookingBtn = null;
 
-		// Token: 0x04006D1D RID: 27933
 		protected uint _curCookID = 0U;
 
-		// Token: 0x04006D1E RID: 27934
 		protected uint _curCookLevel = 0U;
 
-		// Token: 0x04006D1F RID: 27935
 		protected Transform _selectedFoodItem;
 
-		// Token: 0x04006D20 RID: 27936
 		protected Transform _tabs;
 
-		// Token: 0x04006D21 RID: 27937
 		protected IXUITable _tabTable;
 
-		// Token: 0x04006D22 RID: 27938
 		protected XUIPool _levelCuisinePool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006D23 RID: 27939
 		protected XUIPool _cuisineChildPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006D24 RID: 27940
 		protected XUIPool _foodItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006D25 RID: 27941
 		protected List<Transform> _childCuisineItems = new List<Transform>();
 
-		// Token: 0x04006D26 RID: 27942
 		protected List<Transform> _levelItems = new List<Transform>();
 
-		// Token: 0x04006D27 RID: 27943
 		protected ulong _preCookID = 0UL;
 
-		// Token: 0x04006D28 RID: 27944
 		protected bool _isOneKeyCooking = false;
 
-		// Token: 0x04006D29 RID: 27945
 		protected Transform _cookingProgressFrame;
 
-		// Token: 0x04006D2A RID: 27946
 		protected IXUISlider _cookingSlider;
 
-		// Token: 0x04006D2B RID: 27947
 		protected Transform _cookingItem;
 
-		// Token: 0x04006D2C RID: 27948
 		protected Transform _makingTrans;
 
-		// Token: 0x04006D2D RID: 27949
 		protected Transform _successEffect;
 
-		// Token: 0x04006D2E RID: 27950
 		protected Transform _cookingEffect;
 
-		// Token: 0x04006D2F RID: 27951
 		protected IXUIButton _doBtn;
 
-		// Token: 0x04006D30 RID: 27952
 		protected Transform _toggleSprite;
 	}
 }

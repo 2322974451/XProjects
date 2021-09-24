@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020018C9 RID: 6345
+
 	internal class ItemIconListDlg : DlgBase<ItemIconListDlg, ItemIconListDlgBehaviour>
 	{
-		// Token: 0x17003A59 RID: 14937
-		// (get) Token: 0x060108B5 RID: 67765 RVA: 0x004108D4 File Offset: 0x0040EAD4
+
 		public override string fileName
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003A5A RID: 14938
-		// (get) Token: 0x060108B6 RID: 67766 RVA: 0x004108EC File Offset: 0x0040EAEC
 		public override int layer
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003A5B RID: 14939
-		// (get) Token: 0x060108B7 RID: 67767 RVA: 0x00410900 File Offset: 0x0040EB00
 		public override bool autoload
 		{
 			get
@@ -40,24 +35,20 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060108B8 RID: 67768 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void Init()
 		{
 		}
 
-		// Token: 0x060108B9 RID: 67769 RVA: 0x00410913 File Offset: 0x0040EB13
 		public override void RegisterEvent()
 		{
 			base.uiBehaviour.m_Close.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnCloseClicked));
 		}
 
-		// Token: 0x060108BA RID: 67770 RVA: 0x00410933 File Offset: 0x0040EB33
 		public void SetTitle(string text)
 		{
 			base.uiBehaviour.m_Title.SetText(text);
 		}
 
-		// Token: 0x060108BB RID: 67771 RVA: 0x00410948 File Offset: 0x0040EB48
 		private Rect _GetValidRect()
 		{
 			Rect result = default(Rect);
@@ -65,7 +56,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x060108BC RID: 67772 RVA: 0x004109E4 File Offset: 0x0040EBE4
 		public void SetGlobalPosition(Vector3 position)
 		{
 			base.uiBehaviour.m_Bg.gameObject.transform.position = position;
@@ -93,7 +83,6 @@ namespace XMainClient.UI
 			this.SetVisible(true, true);
 		}
 
-		// Token: 0x060108BD RID: 67773 RVA: 0x00410C08 File Offset: 0x0040EE08
 		public void Show(List<uint> itemid, List<uint> itemCount, bool isCamp = false)
 		{
 			this.SetVisible(true, true);
@@ -153,7 +142,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060108BE RID: 67774 RVA: 0x00410F2E File Offset: 0x0040F12E
 		private void OnCloseClicked(IXUISprite iSp)
 		{
 			this.SetVisible(false, true);

@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017F9 RID: 6137
+
 	internal class ProfessionChangeDlg : DlgBase<ProfessionChangeDlg, ProfessionChangeBehaviour>
 	{
-		// Token: 0x170038E1 RID: 14561
-		// (get) Token: 0x0600FE85 RID: 65157 RVA: 0x003BD8C0 File Offset: 0x003BBAC0
+
 		public override bool autoload
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170038E2 RID: 14562
-		// (get) Token: 0x0600FE86 RID: 65158 RVA: 0x003BD8D4 File Offset: 0x003BBAD4
 		public override bool pushstack
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170038E3 RID: 14563
-		// (get) Token: 0x0600FE87 RID: 65159 RVA: 0x003BD8E8 File Offset: 0x003BBAE8
 		public override bool hideMainMenu
 		{
 			get
@@ -40,8 +35,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170038E4 RID: 14564
-		// (get) Token: 0x0600FE88 RID: 65160 RVA: 0x003BD8FC File Offset: 0x003BBAFC
 		public override bool fullscreenui
 		{
 			get
@@ -50,8 +43,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170038E5 RID: 14565
-		// (get) Token: 0x0600FE89 RID: 65161 RVA: 0x003BD910 File Offset: 0x003BBB10
 		public override int group
 		{
 			get
@@ -60,8 +51,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170038E6 RID: 14566
-		// (get) Token: 0x0600FE8A RID: 65162 RVA: 0x003BD924 File Offset: 0x003BBB24
 		public override string fileName
 		{
 			get
@@ -70,8 +59,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170038E7 RID: 14567
-		// (get) Token: 0x0600FE8B RID: 65163 RVA: 0x003BD93C File Offset: 0x003BBB3C
 		public override int sysid
 		{
 			get
@@ -80,7 +67,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FE8C RID: 65164 RVA: 0x003BD958 File Offset: 0x003BBB58
 		protected override void Init()
 		{
 			base.Init();
@@ -90,7 +76,6 @@ namespace XMainClient.UI
 			this._init = true;
 		}
 
-		// Token: 0x0600FE8D RID: 65165 RVA: 0x003BD994 File Offset: 0x003BBB94
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -102,7 +87,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_OKBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnSureChangeProfBtnClick));
 		}
 
-		// Token: 0x0600FE8E RID: 65166 RVA: 0x003BDA58 File Offset: 0x003BBC58
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -143,32 +127,27 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FE8F RID: 65167 RVA: 0x003BDB75 File Offset: 0x003BBD75
 		protected override void OnHide()
 		{
 			base.uiBehaviour.m_Texture.SetTexturePath("");
 			base.OnHide();
 		}
 
-		// Token: 0x0600FE90 RID: 65168 RVA: 0x003BDB95 File Offset: 0x003BBD95
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
 		}
 
-		// Token: 0x0600FE91 RID: 65169 RVA: 0x003BDB9F File Offset: 0x003BBD9F
 		public override void LeaveStackTop()
 		{
 			base.LeaveStackTop();
 		}
 
-		// Token: 0x0600FE92 RID: 65170 RVA: 0x003BDBA9 File Offset: 0x003BBDA9
 		protected override void OnUnload()
 		{
 			base.OnUnload();
 		}
 
-		// Token: 0x0600FE93 RID: 65171 RVA: 0x003BDBB4 File Offset: 0x003BBDB4
 		private void SetupTabs()
 		{
 			base.uiBehaviour.m_TabPool.ReturnAll(false);
@@ -201,21 +180,18 @@ namespace XMainClient.UI
 			ixuicheckBox.bChecked = true;
 		}
 
-		// Token: 0x0600FE94 RID: 65172 RVA: 0x003BDD34 File Offset: 0x003BBF34
 		private bool OnCloseBtnClick(IXUIButton btn)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x0600FE95 RID: 65173 RVA: 0x003BDD50 File Offset: 0x003BBF50
 		private bool OnTipsWindowCloseBtnClick(IXUIButton btn)
 		{
 			base.uiBehaviour.m_TipsWindow.SetActive(false);
 			return true;
 		}
 
-		// Token: 0x0600FE96 RID: 65174 RVA: 0x003BDD78 File Offset: 0x003BBF78
 		private bool OnExperienceBtnClick(IXUIButton btn)
 		{
 			string label = string.Format(XSingleton<UiUtility>.singleton.ReplaceReturn(XStringDefineProxy.GetString("ProfessionChangeExperience")), XSingleton<XProfessionSkillMgr>.singleton.GetProfName(this._doc.SelectProfession));
@@ -225,7 +201,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FE97 RID: 65175 RVA: 0x003BDDEC File Offset: 0x003BBFEC
 		private bool OnExperienceSure(IXUIButton btn)
 		{
 			DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.SetVisible(false, true);
@@ -235,7 +210,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FE98 RID: 65176 RVA: 0x003BDE38 File Offset: 0x003BC038
 		private bool OnChangeProfBtnClick(IXUIButton btn)
 		{
 			base.uiBehaviour.m_TipsWindow.SetActive(true);
@@ -249,13 +223,11 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FE99 RID: 65177 RVA: 0x001AE886 File Offset: 0x001ACA86
 		private void OnGetPathBtnClick(IXUISprite btn)
 		{
 			XSingleton<UiUtility>.singleton.ShowItemAccess((int)btn.ID, null);
 		}
 
-		// Token: 0x0600FE9A RID: 65178 RVA: 0x003BDF48 File Offset: 0x003BC148
 		private bool OnSureChangeProfBtnClick(IXUIButton btn)
 		{
 			base.uiBehaviour.m_TipsWindow.SetActive(false);
@@ -281,7 +253,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FE9B RID: 65179 RVA: 0x003BE070 File Offset: 0x003BC270
 		private bool OnSureCoverBtnClick(IXUIButton btn)
 		{
 			DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.SetVisible(false, true);
@@ -289,7 +260,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FE9C RID: 65180 RVA: 0x003BE09C File Offset: 0x003BC29C
 		private bool OnTabClick(IXUICheckBox icb)
 		{
 			bool flag = !icb.bChecked;
@@ -325,16 +295,12 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0400706B RID: 28779
 		private XProfessionChangeDocument _doc = null;
 
-		// Token: 0x0400706C RID: 28780
 		private readonly string TEXPATH = "atlas/UI/common/ProfPic";
 
-		// Token: 0x0400706D RID: 28781
 		private string _texPath = "";
 
-		// Token: 0x0400706E RID: 28782
 		private bool _init;
 	}
 }

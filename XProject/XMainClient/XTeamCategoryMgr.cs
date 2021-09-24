@@ -5,15 +5,12 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000D3B RID: 3387
+
 	internal class XTeamCategoryMgr
 	{
-		// Token: 0x17003306 RID: 13062
-		// (get) Token: 0x0600BB94 RID: 48020 RVA: 0x00268F08 File Offset: 0x00267108
-		// (set) Token: 0x0600BB95 RID: 48021 RVA: 0x00268F10 File Offset: 0x00267110
+
 		public int LastestNoRankAbyssSceneID { get; set; }
 
-		// Token: 0x0600BB96 RID: 48022 RVA: 0x00268F1C File Offset: 0x0026711C
 		public void Init()
 		{
 			XExpeditionDocument specificDocument = XDocuments.GetSpecificDocument<XExpeditionDocument>(XExpeditionDocument.uuID);
@@ -60,7 +57,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BB97 RID: 48023 RVA: 0x002690CC File Offset: 0x002672CC
 		public void RefreshAbyssStates()
 		{
 			this.LastestNoRankAbyssSceneID = 1073741824;
@@ -78,7 +74,6 @@ namespace XMainClient
 			ListPool<int>.Release(list);
 		}
 
-		// Token: 0x0600BB98 RID: 48024 RVA: 0x00269150 File Offset: 0x00267350
 		public XTeamCategory GetCategoryByExpID(int expID)
 		{
 			XTeamCategory xteamCategory;
@@ -95,7 +90,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600BB99 RID: 48025 RVA: 0x0026917C File Offset: 0x0026737C
 		public XTeamCategory FindCategory(int category)
 		{
 			XTeamCategory xteamCategory;
@@ -112,7 +106,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600BB9A RID: 48026 RVA: 0x002691A8 File Offset: 0x002673A8
 		public bool IsExpOpened(ExpeditionTable.RowData rowData)
 		{
 			bool flag = rowData == null;
@@ -130,7 +123,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600BB9B RID: 48027 RVA: 0x002691E8 File Offset: 0x002673E8
 		public bool IsExpOpening(ExpeditionTable.RowData rowData)
 		{
 			bool flag = rowData == null;
@@ -147,13 +139,10 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x04004C22 RID: 19490
 		public List<XTeamCategory> m_Categories = new List<XTeamCategory>();
 
-		// Token: 0x04004C23 RID: 19491
 		private Dictionary<int, XTeamCategory> m_DicCate = new Dictionary<int, XTeamCategory>();
 
-		// Token: 0x04004C24 RID: 19492
 		private Dictionary<int, XTeamCategory> m_DicExpCate = new Dictionary<int, XTeamCategory>();
 	}
 }

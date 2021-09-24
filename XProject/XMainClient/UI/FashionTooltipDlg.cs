@@ -5,11 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200183E RID: 6206
+
 	internal class FashionTooltipDlg : TooltipDlg<FashionTooltipDlg, FashionTooltipDlgBehaviour>
 	{
-		// Token: 0x17003948 RID: 14664
-		// (get) Token: 0x060101F0 RID: 66032 RVA: 0x003DAEE8 File Offset: 0x003D90E8
+
 		public override string fileName
 		{
 			get
@@ -18,8 +17,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003949 RID: 14665
-		// (get) Token: 0x060101F1 RID: 66033 RVA: 0x003DAF00 File Offset: 0x003D9100
 		protected override int compareWindowDistance
 		{
 			get
@@ -28,7 +25,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060101F2 RID: 66034 RVA: 0x003DAF14 File Offset: 0x003D9114
 		protected override void Init()
 		{
 			base.Init();
@@ -42,13 +38,11 @@ namespace XMainClient.UI
 			this._doc = XDocuments.GetSpecificDocument<XFashionDocument>(XFashionDocument.uuID);
 		}
 
-		// Token: 0x060101F3 RID: 66035 RVA: 0x003DAFBC File Offset: 0x003D91BC
 		public override bool HideToolTip(bool forceHide = false)
 		{
 			return base.HideToolTip(forceHide);
 		}
 
-		// Token: 0x060101F4 RID: 66036 RVA: 0x003DAFE0 File Offset: 0x003D91E0
 		protected override void SetupTopFrame(GameObject goToolTip, ItemList.RowData data, bool bMain, XItem instanceData = null, XItem compareData = null)
 		{
 			base.SetupTopFrame(goToolTip, data, bMain, instanceData, compareData);
@@ -101,7 +95,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060101F5 RID: 66037 RVA: 0x003DB1B4 File Offset: 0x003D93B4
 		protected override int _GetPPT(XItem item, bool bMain, ref string valueText)
 		{
 			bool flag = item == null;
@@ -119,14 +112,12 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x060101F6 RID: 66038 RVA: 0x003DB1FC File Offset: 0x003D93FC
 		protected override void SetupOtherFrame(GameObject goToolTip, XItem mainItem, XItem compareItem, bool bMain)
 		{
 			this._SetupSuitFrame(goToolTip, mainItem, compareItem, bMain);
 			base.SetupOtherFrame(goToolTip, mainItem, compareItem, bMain);
 		}
 
-		// Token: 0x060101F7 RID: 66039 RVA: 0x003DB218 File Offset: 0x003D9418
 		protected override void SetupToolTipButtons(GameObject goToolTip, XItem item, bool bMain)
 		{
 			base.SetupToolTipButtons(goToolTip, item, bMain);
@@ -148,7 +139,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060101F8 RID: 66040 RVA: 0x003DB278 File Offset: 0x003D9478
 		private void _SetupSuitFrame(GameObject goToolTip, XItem mainItem, XItem compareItem, bool bMain)
 		{
 			IXUISprite ixuisprite = goToolTip.transform.FindChild("ScrollPanel/SuitFrame").GetComponent("XUISprite") as IXUISprite;
@@ -248,7 +238,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060101F9 RID: 66041 RVA: 0x003DB5CC File Offset: 0x003D97CC
 		private int GetFashionCount(int quality, bool IsThreeSuit)
 		{
 			bool flag = XSingleton<TooltipParam>.singleton.FashionOnBody == null;
@@ -289,7 +278,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x060101FA RID: 66042 RVA: 0x003DB6B0 File Offset: 0x003D98B0
 		public override void OnUpdate()
 		{
 			ClientFashionData clientFashionData = this._doc.FindFashion(this.mainItemUID);
@@ -304,10 +292,8 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0400730A RID: 29450
 		private XFashionDocument _doc;
 
-		// Token: 0x0400730B RID: 29451
 		private IXUILabel time = null;
 	}
 }

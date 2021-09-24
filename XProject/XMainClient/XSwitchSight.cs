@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000D19 RID: 3353
+
 	internal class XSwitchSight
 	{
-		// Token: 0x0600BB0F RID: 47887 RVA: 0x002662C8 File Offset: 0x002644C8
+
 		public XSwitchSight(ButtonClickEventHandler eventHandler, IXUIButton Btn25D, IXUIButton Btn3D, IXUIButton Btn3DFree = null)
 		{
 			this.buttonClick = eventHandler;
@@ -31,7 +31,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BB10 RID: 47888 RVA: 0x0026639C File Offset: 0x0026459C
 		public bool OnSwitchSightClick(IXUIButton sp)
 		{
 			bool isPlaying = XSingleton<XCutScene>.singleton.IsPlaying;
@@ -69,7 +68,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x04004B71 RID: 19313
 		private ButtonClickEventHandler buttonClick;
 	}
 }

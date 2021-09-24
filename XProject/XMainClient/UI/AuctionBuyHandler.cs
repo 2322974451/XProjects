@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200171A RID: 5914
+
 	internal class AuctionBuyHandler : DlgHandlerBase
 	{
-		// Token: 0x170037A1 RID: 14241
-		// (get) Token: 0x0600F430 RID: 62512 RVA: 0x0036B72C File Offset: 0x0036992C
+
 		protected override string FileName
 		{
 			get
@@ -20,7 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F431 RID: 62513 RVA: 0x0036B744 File Offset: 0x00369944
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
@@ -32,7 +30,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F432 RID: 62514 RVA: 0x0036B774 File Offset: 0x00369974
 		public override void OnUnload()
 		{
 			this.m_ItemContentGroup = null;
@@ -46,7 +43,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x0600F433 RID: 62515 RVA: 0x0036B7BC File Offset: 0x003699BC
 		protected override void Init()
 		{
 			base.Init();
@@ -72,7 +68,6 @@ namespace XMainClient.UI
 			this.SetupTypeList();
 		}
 
-		// Token: 0x0600F434 RID: 62516 RVA: 0x0036BA1C File Offset: 0x00369C1C
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -81,7 +76,6 @@ namespace XMainClient.UI
 			this.m_refreshButton.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnTimeFreshClick));
 		}
 
-		// Token: 0x0600F435 RID: 62517 RVA: 0x0036BA7C File Offset: 0x00369C7C
 		private void OnItemWrapContentUpdate(Transform t, int index)
 		{
 			bool flag = t == null;
@@ -124,7 +118,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F436 RID: 62518 RVA: 0x0036BBF8 File Offset: 0x00369DF8
 		private void OnAuctionItemUpdate(Transform t, int index)
 		{
 			bool flag = t == null;
@@ -167,21 +160,18 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F437 RID: 62519 RVA: 0x0036BDA4 File Offset: 0x00369FA4
 		private bool OnTimeFreshClick(IXUIButton btn)
 		{
 			this._Doc.RequestAuctionRefresh();
 			return false;
 		}
 
-		// Token: 0x0600F438 RID: 62520 RVA: 0x0036BDC4 File Offset: 0x00369FC4
 		private void OnCheckBoxOnCheckEventHandler(IXUISprite sprite)
 		{
 			uint itemid = (uint)sprite.ID;
 			this._Doc.RequestAuctionItemData(itemid);
 		}
 
-		// Token: 0x0600F439 RID: 62521 RVA: 0x0036BDE8 File Offset: 0x00369FE8
 		private void OnClickAuctionDetailHandler(IXUISprite checkBox)
 		{
 			int num = (int)checkBox.ID;
@@ -192,7 +182,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F43A RID: 62522 RVA: 0x0036BE2C File Offset: 0x0036A02C
 		private void OnItemClicked(IXUISprite sp)
 		{
 			bool flag = this.m_showSelectItems.Count > (int)sp.ID;
@@ -215,7 +204,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F43B RID: 62523 RVA: 0x0036BEC4 File Offset: 0x0036A0C4
 		private void ShowSelectItem()
 		{
 			this.m_ItemWrap.gameObject.SetActive(false);
@@ -224,7 +212,6 @@ namespace XMainClient.UI
 			this.m_AuctionItemGroup.SetWrapContentSize(this.m_showSelectItems.Count);
 		}
 
-		// Token: 0x0600F43C RID: 62524 RVA: 0x0036BF1E File Offset: 0x0036A11E
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -232,7 +219,6 @@ namespace XMainClient.UI
 			this.m_freeRefresh = false;
 		}
 
-		// Token: 0x0600F43D RID: 62525 RVA: 0x0036BF3C File Offset: 0x0036A13C
 		public override void RefreshData()
 		{
 			bool showItemData = this._Doc.ShowItemData;
@@ -248,7 +234,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F43E RID: 62526 RVA: 0x0036BF7C File Offset: 0x0036A17C
 		private void RefreshFreeRefreshCount()
 		{
 			bool flag = this._Doc.NextFreeRefreshTime > 0.0;
@@ -268,14 +253,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F43F RID: 62527 RVA: 0x0036C014 File Offset: 0x0036A214
 		private void SetNextFreeTime()
 		{
 			this.m_freeRefreshTime.LeftTime = this._Doc.NextOutoRefreshTime;
 			this.UpdateNextFreshTime();
 		}
 
-		// Token: 0x0600F440 RID: 62528 RVA: 0x0036C038 File Offset: 0x0036A238
 		private void UpdateNextFreshTime()
 		{
 			this.m_freeRefreshTime.Update();
@@ -296,7 +279,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F441 RID: 62529 RVA: 0x0036C0D0 File Offset: 0x0036A2D0
 		private void SetNormalSelect()
 		{
 			GameObject gameObject;
@@ -312,7 +294,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F442 RID: 62530 RVA: 0x0036C11C File Offset: 0x0036A31C
 		private void SetupTypeList()
 		{
 			this.m_levelOnePool.ReturnAll(false);
@@ -380,7 +361,6 @@ namespace XMainClient.UI
 			this.ShowNormalSelect();
 		}
 
-		// Token: 0x0600F443 RID: 62531 RVA: 0x0036C5CC File Offset: 0x0036A7CC
 		private void ShowNormalSelect()
 		{
 			int parentID = 0;
@@ -399,7 +379,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F444 RID: 62532 RVA: 0x0036C638 File Offset: 0x0036A838
 		private void ShowSelectParent(int parentID)
 		{
 			bool flag = parentID == 0;
@@ -419,14 +398,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F445 RID: 62533 RVA: 0x0036C68C File Offset: 0x0036A88C
 		private bool OnItemFilterCheckClicked(IXUICheckBox box)
 		{
 			this.CalculateAuctionSelect();
 			return true;
 		}
 
-		// Token: 0x0600F446 RID: 62534 RVA: 0x0036C6A8 File Offset: 0x0036A8A8
 		private void OnTypeCheckBoxClicked(IXUISprite box)
 		{
 			bool flag = this.m_curAuctionType != (int)box.ID || !this.m_ItemContentGroup.Active;
@@ -437,7 +414,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F447 RID: 62535 RVA: 0x0036C6F0 File Offset: 0x0036A8F0
 		private void CalculateAuctionSelect()
 		{
 			this.m_ItemWrap.gameObject.SetActive(true);
@@ -481,7 +457,6 @@ namespace XMainClient.UI
 			this._Doc.CurrentSelectRefresh = false;
 		}
 
-		// Token: 0x0600F448 RID: 62536 RVA: 0x0036C874 File Offset: 0x0036AA74
 		private void SelectItemList(int auctionType, int selectCount, int maxLeavl, int minLevel)
 		{
 			List<ItemList.RowData> list;
@@ -502,7 +477,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F449 RID: 62537 RVA: 0x0036C8D8 File Offset: 0x0036AAD8
 		private int Compare(ItemList.RowData f, ItemList.RowData l)
 		{
 			bool flag = l.ReqLevel == f.ReqLevel;
@@ -526,7 +500,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F44A RID: 62538 RVA: 0x0036C93C File Offset: 0x0036AB3C
 		private bool FilterAuctionItem(ItemList.RowData rowData, int selectCount, int maxLeavl, int minLevel)
 		{
 			uint auctionBriefCount = this._Doc.GetAuctionBriefCount((uint)rowData.ItemID);
@@ -544,67 +517,46 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x04006918 RID: 26904
 		private AuctionDocument _Doc;
 
-		// Token: 0x04006919 RID: 26905
 		private IXUIScrollView m_typeListScrollView;
 
-		// Token: 0x0400691A RID: 26906
 		private XUIPool m_levelOnePool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x0400691B RID: 26907
 		private XUIPool m_levelTwoPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x0400691C RID: 26908
 		private Dictionary<int, GameObject> m_typeDictionary = new Dictionary<int, GameObject>();
 
-		// Token: 0x0400691D RID: 26909
 		private int m_NormalSelect = 6;
 
-		// Token: 0x0400691E RID: 26910
 		private IXUILabel m_refreshTime;
 
-		// Token: 0x0400691F RID: 26911
 		private IXUILabelSymbol m_refreshButtonLabel;
 
-		// Token: 0x04006920 RID: 26912
 		private IXUIButton m_refreshButton;
 
-		// Token: 0x04006921 RID: 26913
 		private Transform m_ailinTransform;
 
-		// Token: 0x04006922 RID: 26914
 		private IXUICheckBox m_ItemLevelCheck;
 
-		// Token: 0x04006923 RID: 26915
 		private IXUICheckBox m_ItemBlockCheck;
 
-		// Token: 0x04006924 RID: 26916
 		private int m_curAuctionType = 0;
 
-		// Token: 0x04006925 RID: 26917
 		private Transform m_ItemWrap;
 
-		// Token: 0x04006926 RID: 26918
 		private Transform m_GoodWrap;
 
-		// Token: 0x04006927 RID: 26919
 		private List<ItemList.RowData> m_ShowAuctionList;
 
-		// Token: 0x04006928 RID: 26920
 		private List<AuctionItem> m_showSelectItems;
 
-		// Token: 0x04006929 RID: 26921
 		private AuctionWrapContentGroup m_ItemContentGroup;
 
-		// Token: 0x0400692A RID: 26922
 		private AuctionWrapContentGroup m_AuctionItemGroup;
 
-		// Token: 0x0400692B RID: 26923
 		private XElapseTimer m_freeRefreshTime = new XElapseTimer();
 
-		// Token: 0x0400692C RID: 26924
 		private bool m_freeRefresh = false;
 	}
 }

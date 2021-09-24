@@ -5,16 +5,15 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000EE3 RID: 3811
+
 	internal abstract class XSkill
 	{
-		// Token: 0x0600CA08 RID: 51720 RVA: 0x002DB28C File Offset: 0x002D948C
+
 		public XSkill()
 		{
 			this._TimerCallback = new XTimerMgr.ElapsedIDEventHandler(this.ProcessTimer);
 		}
 
-		// Token: 0x0600CA09 RID: 51721 RVA: 0x002DB358 File Offset: 0x002D9558
 		public virtual void Initialize(XEntity firer)
 		{
 			this._firer = firer;
@@ -25,7 +24,6 @@ namespace XMainClient
 			XSingleton<BufferPoolMgr>.singleton.GetSmallBuffer(ref this._present_token, 16, 0);
 		}
 
-		// Token: 0x0600CA0A RID: 51722 RVA: 0x002DB3C8 File Offset: 0x002D95C8
 		public virtual void Uninitialize()
 		{
 			this._firer = null;
@@ -40,8 +38,6 @@ namespace XMainClient
 			XSingleton<BufferPoolMgr>.singleton.ReturnSmallBuffer(ref this._present_token);
 		}
 
-		// Token: 0x1700353A RID: 13626
-		// (get) Token: 0x0600CA0B RID: 51723 RVA: 0x002DB448 File Offset: 0x002D9648
 		public virtual int SkillType
 		{
 			get
@@ -50,8 +46,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700353B RID: 13627
-		// (get) Token: 0x0600CA0C RID: 51724 RVA: 0x002DB45C File Offset: 0x002D965C
 		public long Token
 		{
 			get
@@ -60,13 +54,8 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700353C RID: 13628
-		// (get) Token: 0x0600CA0D RID: 51725 RVA: 0x002DB474 File Offset: 0x002D9674
-		// (set) Token: 0x0600CA0E RID: 51726 RVA: 0x002DB47C File Offset: 0x002D967C
 		public bool AnimInit { get; set; }
 
-		// Token: 0x1700353D RID: 13629
-		// (get) Token: 0x0600CA0F RID: 51727 RVA: 0x002DB488 File Offset: 0x002D9688
 		public bool DemonstrationMode
 		{
 			get
@@ -75,9 +64,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700353E RID: 13630
-		// (get) Token: 0x0600CA10 RID: 51728 RVA: 0x002DB4A0 File Offset: 0x002D96A0
-		// (set) Token: 0x0600CA11 RID: 51729 RVA: 0x002DB4B8 File Offset: 0x002D96B8
 		public float MultipleDirectionFactorByServer
 		{
 			get
@@ -90,9 +76,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700353F RID: 13631
-		// (get) Token: 0x0600CA12 RID: 51730 RVA: 0x002DB4C4 File Offset: 0x002D96C4
-		// (set) Token: 0x0600CA13 RID: 51731 RVA: 0x002DB4DC File Offset: 0x002D96DC
 		public Vector3 SkillTowardsTo
 		{
 			get
@@ -105,8 +88,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003540 RID: 13632
-		// (get) Token: 0x0600CA14 RID: 51732 RVA: 0x002DB4E8 File Offset: 0x002D96E8
 		public XSkillCore Core
 		{
 			get
@@ -115,8 +96,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003541 RID: 13633
-		// (get) Token: 0x0600CA15 RID: 51733 RVA: 0x002DB500 File Offset: 0x002D9700
 		public virtual XSkillCore MainCore
 		{
 			get
@@ -125,7 +104,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CA16 RID: 51734 RVA: 0x002DB518 File Offset: 0x002D9718
 		public virtual void TriggerAnim()
 		{
 			bool flag = this._firer.Ator != null;
@@ -151,12 +129,8 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003542 RID: 13634
-		// (get) Token: 0x0600CA17 RID: 51735
 		public abstract string AnimClipName { get; }
 
-		// Token: 0x17003543 RID: 13635
-		// (get) Token: 0x0600CA18 RID: 51736 RVA: 0x002DB5DC File Offset: 0x002D97DC
 		public XEntity Firer
 		{
 			get
@@ -165,8 +139,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003544 RID: 13636
-		// (get) Token: 0x0600CA19 RID: 51737 RVA: 0x002DB5F4 File Offset: 0x002D97F4
 		public XEntity Target
 		{
 			get
@@ -175,8 +147,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003545 RID: 13637
-		// (get) Token: 0x0600CA1A RID: 51738 RVA: 0x002DB618 File Offset: 0x002D9818
 		public int SlotPos
 		{
 			get
@@ -185,8 +155,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003546 RID: 13638
-		// (get) Token: 0x0600CA1B RID: 51739 RVA: 0x002DB630 File Offset: 0x002D9830
 		public bool Casting
 		{
 			get
@@ -195,8 +163,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003547 RID: 13639
-		// (get) Token: 0x0600CA1C RID: 51740 RVA: 0x002DB648 File Offset: 0x002D9848
 		public float TimeElapsed
 		{
 			get
@@ -205,8 +171,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003548 RID: 13640
-		// (get) Token: 0x0600CA1D RID: 51741 RVA: 0x002DB668 File Offset: 0x002D9868
 		public float TimeScale
 		{
 			get
@@ -215,7 +179,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CA1E RID: 51742 RVA: 0x002DB688 File Offset: 0x002D9888
 		protected virtual bool InnerProcessTimer(object param, int id)
 		{
 			bool flag = id == 1;
@@ -232,19 +195,16 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CA1F RID: 51743 RVA: 0x002DB6B0 File Offset: 0x002D98B0
 		private void ProcessTimer(object param, int id)
 		{
 			this.InnerProcessTimer(param, id);
 		}
 
-		// Token: 0x0600CA20 RID: 51744 RVA: 0x002DB6BC File Offset: 0x002D98BC
 		public void UpdateCollisionLayer(float velocity)
 		{
 			this._firer.SetCollisionLayer((this.MainCore.Soul.IgnoreCollision || (!this._firer.IsRole && this._core.Offset > 1.5f && velocity > this._firer.Attributes.RunSpeed)) ? 14 : this._firer.DefaultLayer);
 		}
 
-		// Token: 0x0600CA21 RID: 51745 RVA: 0x002DB72C File Offset: 0x002D992C
 		protected void CalcForward()
 		{
 			bool flag = !this.MainCore.Soul.MultipleAttackSupported;
@@ -254,10 +214,8 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CA22 RID: 51746
 		protected abstract void Result(XResultData data);
 
-		// Token: 0x0600CA23 RID: 51747 RVA: 0x002DB788 File Offset: 0x002D9988
 		protected void OnResult(object o)
 		{
 			bool flag = true;
@@ -278,7 +236,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CA24 RID: 51748 RVA: 0x002DB7EC File Offset: 0x002D99EC
 		protected void AddedTimerToken(uint token, bool logical)
 		{
 			if (logical)
@@ -291,27 +248,22 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CA25 RID: 51749
 		protected abstract bool Present();
 
-		// Token: 0x0600CA26 RID: 51750 RVA: 0x002DB81B File Offset: 0x002D9A1B
 		protected virtual void Start()
 		{
 			this.Reflection();
 		}
 
-		// Token: 0x0600CA27 RID: 51751 RVA: 0x002DB828 File Offset: 0x002D9A28
 		protected virtual bool Launch(XSkillCore core)
 		{
 			return true;
 		}
 
-		// Token: 0x0600CA28 RID: 51752 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected virtual void Stop(bool cleanUp)
 		{
 		}
 
-		// Token: 0x0600CA29 RID: 51753 RVA: 0x002DB83C File Offset: 0x002D9A3C
 		protected virtual void KillTimerAll()
 		{
 			for (int i = 0; i < this._present_token.Count; i++)
@@ -328,13 +280,11 @@ namespace XMainClient
 			this._logical_token.Clear();
 		}
 
-		// Token: 0x0600CA2A RID: 51754 RVA: 0x002DB8D0 File Offset: 0x002D9AD0
 		public virtual uint GetCombinedId()
 		{
 			return 0U;
 		}
 
-		// Token: 0x0600CA2B RID: 51755 RVA: 0x002DB8E4 File Offset: 0x002D9AE4
 		public bool Update(float fDeltaT)
 		{
 			bool flag = this._casting;
@@ -367,7 +317,6 @@ namespace XMainClient
 			return flag;
 		}
 
-		// Token: 0x0600CA2C RID: 51756 RVA: 0x002DB984 File Offset: 0x002D9B84
 		public void Execute()
 		{
 			bool flag = this._casting && !this._execute;
@@ -400,7 +349,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CA2D RID: 51757 RVA: 0x002DBA6C File Offset: 0x002D9C6C
 		public bool Fire(XEntity target, XSkillCore core, XAttackEventArgs args)
 		{
 			bool flag = !this._casting || !this._execute;
@@ -485,7 +433,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CA2E RID: 51758 RVA: 0x002DBD04 File Offset: 0x002D9F04
 		public void Puppetize(bool cleanUp = false)
 		{
 			bool flag = this._core != null;
@@ -532,7 +479,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CA2F RID: 51759 RVA: 0x002DBE38 File Offset: 0x002DA038
 		public void Cease(bool cleanUp = false)
 		{
 			bool casting = this._casting;
@@ -583,7 +529,6 @@ namespace XMainClient
 			this._stop_method = null;
 		}
 
-		// Token: 0x0600CA30 RID: 51760 RVA: 0x002DBFC0 File Offset: 0x002DA1C0
 		public virtual bool CanPerformAction(XStateDefine state, long token)
 		{
 			bool flag = !this._casting;
@@ -616,7 +561,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CA31 RID: 51761 RVA: 0x002DC028 File Offset: 0x002DA228
 		public void FocusTarget(XEntity target)
 		{
 			bool flag = !XEntity.ValideEntity(target) || XSingleton<XGame>.singleton.SyncMode;
@@ -626,13 +570,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CA32 RID: 51762 RVA: 0x002DC0A0 File Offset: 0x002DA2A0
 		public bool HasValidTarget()
 		{
 			return this.MainCore != null && this.MainCore.Soul.NeedTarget && XEntity.ValideEntity(this._target);
 		}
 
-		// Token: 0x0600CA33 RID: 51763 RVA: 0x002DC0DC File Offset: 0x002DA2DC
 		public bool ExternalCallback(XSkillExternalArgs args)
 		{
 			bool flag = this is XCombinedSkill;
@@ -647,7 +589,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600CA34 RID: 51764 RVA: 0x002DC144 File Offset: 0x002DA344
 		protected void Manual()
 		{
 			bool flag = XSingleton<XGame>.singleton.SyncMode || this.MainCore.Soul.MultipleAttackSupported;
@@ -669,7 +610,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CA35 RID: 51765 RVA: 0x002DC214 File Offset: 0x002DA414
 		private void Reflection()
 		{
 			this._start_method = null;
@@ -702,14 +642,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CA36 RID: 51766 RVA: 0x002DC3A0 File Offset: 0x002DA5A0
 		private void ExternalExecute(object o)
 		{
 			XSkillExternalArgs xskillExternalArgs = o as XSkillExternalArgs;
 			xskillExternalArgs.callback(xskillExternalArgs);
 		}
 
-		// Token: 0x0600CA37 RID: 51767 RVA: 0x002DC3C4 File Offset: 0x002DA5C4
 		public static void SkillResult(long token, XEntity firer, XSkillCore core, XBullet bullet, int triggerTime, uint resultID, int resultTime, Vector3 hitdir, XEntity target)
 		{
 			bool flag = (bullet == null) ? core.IsHurtEntity(target.ID, triggerTime) : bullet.IsHurtEntity(target.ID);
@@ -755,7 +693,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CA38 RID: 51768 RVA: 0x002DC584 File Offset: 0x002DA784
 		public static void SkillResult(XBullet bullet, Vector3 forward, Vector3 position, bool bulletcycle)
 		{
 			bool syncMode = XSingleton<XGame>.singleton.SyncMode;
@@ -786,7 +723,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CA39 RID: 51769 RVA: 0x002DC704 File Offset: 0x002DA904
 		public static void SkillResult(long token, XEntity firer, XSkillCore core, int triggerTime, uint resultID, int resultTime, Vector3 forward, Vector3 position)
 		{
 			bool syncMode = XSingleton<XGame>.singleton.SyncMode;
@@ -816,7 +752,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CA3A RID: 51770 RVA: 0x002DC824 File Offset: 0x002DAA24
 		public static void SkillResult_TakeEffect(XEntity firer, XEntity target, ProjectDamageResult dResult, XHitData data, Vector3 hurtDiretion, XStrickenResponse rps, bool standOn, float paralyzeFactor, Vector3 error)
 		{
 			bool accept = dResult.Accept;
@@ -966,7 +901,6 @@ namespace XMainClient
 			dResult.Recycle();
 		}
 
-		// Token: 0x0600CA3B RID: 51771 RVA: 0x002DCC28 File Offset: 0x002DAE28
 		public static void ProcessDemonstrationStart(long token, uint skillId, XEntity firer, XEntity target, SkillExternalCallback callback)
 		{
 			HurtInfo data = XDataPool<HurtInfo>.GetData();
@@ -979,7 +913,6 @@ namespace XMainClient
 			data.Recycle();
 		}
 
-		// Token: 0x0600CA3C RID: 51772 RVA: 0x002DCC78 File Offset: 0x002DAE78
 		public static void ProcessStart(long token, uint skillId, XEntity firer, XEntity target, SkillExternalCallback callback)
 		{
 			bool syncMode = XSingleton<XGame>.singleton.SyncMode;
@@ -996,7 +929,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CA3D RID: 51773 RVA: 0x002DCCD8 File Offset: 0x002DAED8
 		public static ProjectDamageResult ProcessHurt(long token, uint skillId, XEntity firer, XEntity target, int hitCount)
 		{
 			bool syncMode = XSingleton<XGame>.singleton.SyncMode;
@@ -1020,7 +952,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CA3E RID: 51774 RVA: 0x002DCD40 File Offset: 0x002DAF40
 		public static void ProcessEnd(long token, uint skillId, XEntity firer, XEntity target)
 		{
 			bool syncMode = XSingleton<XGame>.singleton.SyncMode;
@@ -1036,93 +967,65 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04005950 RID: 22864
 		public static readonly int XJAComboSkillHash = 0;
 
-		// Token: 0x04005951 RID: 22865
 		public static readonly int XArtsSkillHash = 1;
 
-		// Token: 0x04005952 RID: 22866
 		public static readonly int XUltraSkillHash = 2;
 
-		// Token: 0x04005953 RID: 22867
 		public static readonly int XCombinedSkillHash = 3;
 
-		// Token: 0x04005954 RID: 22868
 		private string _last_anim_token = null;
 
-		// Token: 0x04005955 RID: 22869
 		private bool _casting = false;
 
-		// Token: 0x04005956 RID: 22870
 		private bool _execute = false;
 
-		// Token: 0x04005957 RID: 22871
 		protected float _time_scale = 1f;
 
-		// Token: 0x04005958 RID: 22872
 		protected float _multiple_direction_factor = 1f;
 
-		// Token: 0x04005959 RID: 22873
 		protected bool _demonstration = false;
 
-		// Token: 0x0400595A RID: 22874
 		protected XCameraEx _affect_camera = null;
 
-		// Token: 0x0400595B RID: 22875
 		protected SmallBuffer<uint> _logical_token;
 
-		// Token: 0x0400595C RID: 22876
 		protected SmallBuffer<uint> _present_token;
 
-		// Token: 0x0400595D RID: 22877
 		protected SkillDo _start_method = null;
 
-		// Token: 0x0400595E RID: 22878
 		protected SkillDo _update_method = null;
 
-		// Token: 0x0400595F RID: 22879
 		protected SkillDo _result_method = null;
 
-		// Token: 0x04005960 RID: 22880
 		protected SkillDo _stop_method = null;
 
-		// Token: 0x04005961 RID: 22881
 		protected XEntity _target = null;
 
-		// Token: 0x04005962 RID: 22882
 		protected XEntity _firer = null;
 
-		// Token: 0x04005963 RID: 22883
 		protected XSkillMgr _skillmgr = null;
 
-		// Token: 0x04005964 RID: 22884
 		protected long _token = 0L;
 
-		// Token: 0x04005965 RID: 22885
 		protected int _slot_pos = -1;
 
-		// Token: 0x04005966 RID: 22886
 		protected float _timeElapsed = 0f;
 
-		// Token: 0x04005967 RID: 22887
 		protected XSkillCore _core = null;
 
-		// Token: 0x04005968 RID: 22888
 		protected XSkillData _data = null;
 
-		// Token: 0x04005969 RID: 22889
 		private Vector3 _skill_forward = Vector3.forward;
 
-		// Token: 0x0400596A RID: 22890
 		protected XTimerMgr.ElapsedIDEventHandler _TimerCallback = null;
 
-		// Token: 0x020019E5 RID: 6629
 		protected enum ESkillTimerCb
 		{
-			// Token: 0x0400808A RID: 32906
+
 			EExternalExecute = 1,
-			// Token: 0x0400808B RID: 32907
+
 			ESkillNum
 		}
 	}

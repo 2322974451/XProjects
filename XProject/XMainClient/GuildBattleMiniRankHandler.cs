@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C12 RID: 3090
+
 	internal class GuildBattleMiniRankHandler : DlgHandlerBase
 	{
-		// Token: 0x170030F5 RID: 12533
-		// (get) Token: 0x0600AF85 RID: 44933 RVA: 0x00214710 File Offset: 0x00212910
+
 		protected override string FileName
 		{
 			get
@@ -20,7 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AF86 RID: 44934 RVA: 0x00214728 File Offset: 0x00212928
 		protected override void Init()
 		{
 			base.Init();
@@ -37,7 +35,6 @@ namespace XMainClient
 			this.m_wrapTerritory.RegisterItemUpdateEventHandler(new WrapItemUpdateEventHandler(this.WrapTorritoryUpdate));
 		}
 
-		// Token: 0x0600AF87 RID: 44935 RVA: 0x002148BC File Offset: 0x00212ABC
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -47,7 +44,6 @@ namespace XMainClient
 			this.m_btnOpen.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnOpenClick));
 		}
 
-		// Token: 0x0600AF88 RID: 44936 RVA: 0x00214931 File Offset: 0x00212B31
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -55,7 +51,6 @@ namespace XMainClient
 			this.ChangeTab(true);
 		}
 
-		// Token: 0x0600AF89 RID: 44937 RVA: 0x0021494C File Offset: 0x00212B4C
 		public void RefreshAll()
 		{
 			XGuildTerritoryDocument specificDocument = XDocuments.GetSpecificDocument<XGuildTerritoryDocument>(XGuildTerritoryDocument.uuID);
@@ -72,14 +67,12 @@ namespace XMainClient
 			this.RefreshFeats(specificDocument);
 		}
 
-		// Token: 0x0600AF8A RID: 44938 RVA: 0x002149C5 File Offset: 0x00212BC5
 		private void ChangeState(bool open)
 		{
 			this.m_btnOpen.SetVisible(!open);
 			this.m_sprClose.SetVisible(open);
 		}
 
-		// Token: 0x0600AF8B RID: 44939 RVA: 0x002149E8 File Offset: 0x00212BE8
 		private void ChangeTab(bool isScoreTab)
 		{
 			this.m_wrapPoint.gameObject.SetActive(isScoreTab);
@@ -88,7 +81,6 @@ namespace XMainClient
 			this.m_lblTerritory.SetVisible(!isScoreTab && flag);
 		}
 
-		// Token: 0x0600AF8C RID: 44940 RVA: 0x00214A44 File Offset: 0x00212C44
 		private bool OnTabPointClick(IXUICheckBox box)
 		{
 			bool bChecked = box.bChecked;
@@ -99,7 +91,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600AF8D RID: 44941 RVA: 0x00214A6C File Offset: 0x00212C6C
 		private bool OnTerritoryClick(IXUICheckBox box)
 		{
 			bool bChecked = box.bChecked;
@@ -110,7 +101,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600AF8E RID: 44942 RVA: 0x00214A91 File Offset: 0x00212C91
 		private void OnCloseClick(IXUISprite sp)
 		{
 			this.ChangeState(false);
@@ -118,7 +108,6 @@ namespace XMainClient
 			this.m_tween.PlayTween(true, -1f);
 		}
 
-		// Token: 0x0600AF8F RID: 44943 RVA: 0x00214ABC File Offset: 0x00212CBC
 		private bool OnOpenClick(IXUIButton btn)
 		{
 			this.ChangeState(true);
@@ -127,7 +116,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600AF90 RID: 44944 RVA: 0x00214AF8 File Offset: 0x00212CF8
 		private void WrapPointUpdate(Transform t, int index)
 		{
 			XGuildTerritoryDocument specificDocument = XDocuments.GetSpecificDocument<XGuildTerritoryDocument>(XGuildTerritoryDocument.uuID);
@@ -150,7 +138,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AF91 RID: 44945 RVA: 0x00214C58 File Offset: 0x00212E58
 		private void WrapTorritoryUpdate(Transform t, int index)
 		{
 			XGuildTerritoryDocument specificDocument = XDocuments.GetSpecificDocument<XGuildTerritoryDocument>(XGuildTerritoryDocument.uuID);
@@ -166,7 +153,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AF92 RID: 44946 RVA: 0x00214D18 File Offset: 0x00212F18
 		private void RefreshFeats(XGuildTerritoryDocument doc)
 		{
 			uint feats = doc.feats;
@@ -199,7 +185,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AF93 RID: 44947 RVA: 0x00214E18 File Offset: 0x00213018
 		private void CulResult()
 		{
 			this.seal_list = new List<int>();
@@ -215,34 +200,24 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x040042E7 RID: 17127
 		private IXUISprite m_sprClose;
 
-		// Token: 0x040042E8 RID: 17128
 		private IXUIButton m_btnOpen;
 
-		// Token: 0x040042E9 RID: 17129
 		private IXUICheckBox m_boxPoint;
 
-		// Token: 0x040042EA RID: 17130
 		private IXUICheckBox m_boxTerritory;
 
-		// Token: 0x040042EB RID: 17131
 		private IXUITweenTool m_tween;
 
-		// Token: 0x040042EC RID: 17132
 		private IXUILabel m_lblTerritory;
 
-		// Token: 0x040042ED RID: 17133
 		private IXUILabel m_lblFeats;
 
-		// Token: 0x040042EE RID: 17134
 		private IXUIWrapContent m_wrapPoint;
 
-		// Token: 0x040042EF RID: 17135
 		private IXUIWrapContent m_wrapTerritory;
 
-		// Token: 0x040042F0 RID: 17136
 		private List<int> seal_list;
 	}
 }

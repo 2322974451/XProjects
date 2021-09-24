@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x0200013F RID: 319
+
 	public class PetFoodTable : CVSReader
 	{
-		// Token: 0x06000764 RID: 1892 RVA: 0x00025520 File Offset: 0x00023720
+
 		public PetFoodTable.RowData GetByitemid(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -29,7 +29,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000765 RID: 1893 RVA: 0x0002558C File Offset: 0x0002378C
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			PetFoodTable.RowData rowData = new PetFoodTable.RowData();
@@ -45,7 +44,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x06000766 RID: 1894 RVA: 0x00025620 File Offset: 0x00023820
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -59,22 +57,17 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x0400038B RID: 907
 		public PetFoodTable.RowData[] Table = null;
 
-		// Token: 0x0200033E RID: 830
 		public class RowData
 		{
-			// Token: 0x04000CD7 RID: 3287
+
 			public uint itemid;
 
-			// Token: 0x04000CD8 RID: 3288
 			public uint exp;
 
-			// Token: 0x04000CD9 RID: 3289
 			public string description;
 
-			// Token: 0x04000CDA RID: 3290
 			public uint hungry;
 		}
 	}

@@ -7,10 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000EAE RID: 3758
+
 	public class CClientSocket
 	{
-		// Token: 0x0600C83C RID: 51260 RVA: 0x002CD5C0 File Offset: 0x002CB7C0
+
 		public CClientSocket()
 		{
 			this.m_oSocket = null;
@@ -34,8 +34,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170034F2 RID: 13554
-		// (get) Token: 0x0600C83D RID: 51261 RVA: 0x002CD6B8 File Offset: 0x002CB8B8
 		public int ID
 		{
 			get
@@ -44,7 +42,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C83E RID: 51262 RVA: 0x002CD6D0 File Offset: 0x002CB8D0
 		private void GetNetworkType()
 		{
 			try
@@ -59,7 +56,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C83F RID: 51263 RVA: 0x002CD758 File Offset: 0x002CB958
 		public bool Init(uint dwSendBuffSize, uint dwRecvBuffSize, CNetwork oNetwork, IPacketBreaker oBreaker)
 		{
 			this.GetNetworkType();
@@ -96,13 +92,11 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600C840 RID: 51264 RVA: 0x002CD858 File Offset: 0x002CBA58
 		public void UnInit()
 		{
 			this.Close();
 		}
 
-		// Token: 0x0600C841 RID: 51265 RVA: 0x002CD864 File Offset: 0x002CBA64
 		private void OnConnect(IAsyncResult iar)
 		{
 			try
@@ -127,7 +121,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C842 RID: 51266 RVA: 0x002CD928 File Offset: 0x002CBB28
 		public bool Connect(string host, int port)
 		{
 			bool result;
@@ -145,7 +138,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C843 RID: 51267 RVA: 0x002CD98C File Offset: 0x002CBB8C
 		public void Close()
 		{
 			XSingleton<XDebug>.singleton.AddLog("close socket ", this.m_nUID.ToString(), null, null, null, null, XDebugColor.XDebug_None);
@@ -166,13 +158,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C844 RID: 51268 RVA: 0x002CDA1C File Offset: 0x002CBC1C
 		public bool Send(byte[] buffer)
 		{
 			return this.Send(buffer, 0, buffer.Length);
 		}
 
-		// Token: 0x0600C845 RID: 51269 RVA: 0x002CDA3C File Offset: 0x002CBC3C
 		private void OnSendCallback(IAsyncResult iar)
 		{
 			try
@@ -195,7 +185,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C846 RID: 51270 RVA: 0x002CDAF8 File Offset: 0x002CBCF8
 		private void FindSomethingToSend()
 		{
 			try
@@ -249,7 +238,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C847 RID: 51271 RVA: 0x002CDD04 File Offset: 0x002CBF04
 		public bool Send(byte[] buffer, int start, int length)
 		{
 			bool flag = this.GetState() != SocketState.State_Connected;
@@ -294,31 +282,26 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C848 RID: 51272 RVA: 0x002CDE40 File Offset: 0x002CC040
 		public Socket GetSocket()
 		{
 			return this.m_oSocket;
 		}
 
-		// Token: 0x0600C849 RID: 51273 RVA: 0x002CDE58 File Offset: 0x002CC058
 		public SocketState GetState()
 		{
 			return this.m_nState;
 		}
 
-		// Token: 0x0600C84A RID: 51274 RVA: 0x002CDE70 File Offset: 0x002CC070
 		private void SetState(SocketState nState)
 		{
 			this.m_nState = nState;
 		}
 
-		// Token: 0x0600C84B RID: 51275 RVA: 0x002CDE7C File Offset: 0x002CC07C
 		private CNetwork GetNetwork()
 		{
 			return this.m_oNetwork;
 		}
 
-		// Token: 0x0600C84C RID: 51276 RVA: 0x002CDE94 File Offset: 0x002CC094
 		public void RecvCallback(IAsyncResult ar)
 		{
 			try
@@ -376,7 +359,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C84D RID: 51277 RVA: 0x002CE07C File Offset: 0x002CC27C
 		public void DetectPacket()
 		{
 			int num = 0;
@@ -416,7 +398,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C84E RID: 51278 RVA: 0x002CE184 File Offset: 0x002CC384
 		public static void GetBuffer(ref SmallBuffer<byte> sb, int size)
 		{
 			SmallBufferPool<byte> bufferPool = CClientSocket.m_BufferPool;
@@ -426,7 +407,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C84F RID: 51279 RVA: 0x002CE1CC File Offset: 0x002CC3CC
 		public static void ReturnBuffer(ref SmallBuffer<byte> sb)
 		{
 			SmallBufferPool<byte> bufferPool = CClientSocket.m_BufferPool;
@@ -436,82 +416,56 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04005869 RID: 22633
 		private Socket m_oSocket;
 
-		// Token: 0x0400586A RID: 22634
 		private SocketState m_nState;
 
-		// Token: 0x0400586B RID: 22635
 		private static byte[] m_oSendBuff;
 
-		// Token: 0x0400586C RID: 22636
 		private static byte[] m_oRecvBuff;
 
-		// Token: 0x0400586D RID: 22637
 		private volatile int m_nStartPos;
 
-		// Token: 0x0400586E RID: 22638
 		private volatile int m_nEndPos;
 
-		// Token: 0x0400586F RID: 22639
 		private int m_nCurrRecvLen;
 
-		// Token: 0x04005870 RID: 22640
 		private CClientSocket.SendState m_oSendState;
 
-		// Token: 0x04005871 RID: 22641
 		public static int TotalSendBytes;
 
-		// Token: 0x04005872 RID: 22642
 		public static int TotalRecvBytes;
 
-		// Token: 0x04005873 RID: 22643
 		private CNetwork m_oNetwork;
 
-		// Token: 0x04005874 RID: 22644
 		private IPacketBreaker m_oBreaker;
 
-		// Token: 0x04005875 RID: 22645
 		private int m_nUID;
 
-		// Token: 0x04005876 RID: 22646
 		private static int SOCKET_UID = 0;
 
-		// Token: 0x04005877 RID: 22647
 		private AsyncCallback m_RecvCb = null;
 
-		// Token: 0x04005878 RID: 22648
 		private AsyncCallback m_ConnectCb = null;
 
-		// Token: 0x04005879 RID: 22649
 		private AsyncCallback m_SendCb = null;
 
-		// Token: 0x0400587A RID: 22650
 		public bool m_bRecvMsg = true;
 
-		// Token: 0x0400587B RID: 22651
 		public bool m_bPause = false;
 
-		// Token: 0x0400587C RID: 22652
 		public int m_nPauseRecvLen = 0;
 
-		// Token: 0x0400587D RID: 22653
 		public static int PAUSE_RECV_MAX_LEN = XSingleton<XGlobalConfig>.singleton.GetInt("PauseRecvMaxLen");
 
-		// Token: 0x0400587E RID: 22654
 		public static int MaxSendSize = 1024;
 
-		// Token: 0x0400587F RID: 22655
 		public static int SendBufferSize = 32768;
 
-		// Token: 0x04005880 RID: 22656
 		private AddressFamily m_NetworkType = AddressFamily.InterNetwork;
 
-		// Token: 0x04005881 RID: 22657
 		private static SmallBufferPool<byte> m_BufferPool = null;
 
-		// Token: 0x04005882 RID: 22658
 		private static BlockInfo[] blockInit = new BlockInfo[]
 		{
 			new BlockInfo(32, 128),
@@ -526,13 +480,11 @@ namespace XMainClient
 			new BlockInfo(65536, 4)
 		};
 
-		// Token: 0x020019D7 RID: 6615
 		private class SendState
 		{
-			// Token: 0x04008022 RID: 32802
+
 			public int start;
 
-			// Token: 0x04008023 RID: 32803
 			public int len;
 		}
 	}

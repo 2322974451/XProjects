@@ -6,10 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.Utility
 {
-	// Token: 0x020016BB RID: 5819
+
 	internal class XUITabControl
 	{
-		// Token: 0x0600F048 RID: 61512 RVA: 0x0034C5F0 File Offset: 0x0034A7F0
+
 		public IXUICheckBox GetByCheckBoxId(ulong id)
 		{
 			List<GameObject> list = ListPool<GameObject>.Get();
@@ -34,13 +34,11 @@ namespace XMainClient.Utility
 			return ixuicheckBox;
 		}
 
-		// Token: 0x0600F049 RID: 61513 RVA: 0x0034C693 File Offset: 0x0034A893
 		public void SetTabTpl(Transform tpl)
 		{
 			this.tab_pool.SetupPool(tpl.parent.gameObject, tpl.gameObject, 5U, false);
 		}
 
-		// Token: 0x0600F04A RID: 61514 RVA: 0x0034C6B8 File Offset: 0x0034A8B8
 		public static XSysDefine GetTargetSys(XSysDefine sys, out List<XSysDefine> subSys)
 		{
 			XSysDefine parentSys = XSingleton<XGameSysMgr>.singleton.GetParentSys(sys);
@@ -71,7 +69,6 @@ namespace XMainClient.Utility
 			return xsysDefine;
 		}
 
-		// Token: 0x0600F04B RID: 61515 RVA: 0x0034C76C File Offset: 0x0034A96C
 		public IXUICheckBox[] SetupTabs(XSysDefine sys, XUITabControl.UITabControlCallback func, bool bHorizontal = false, float fDisable = 1f)
 		{
 			this.tab_pool.ReturnAll(false);
@@ -168,7 +165,6 @@ namespace XMainClient.Utility
 			return array;
 		}
 
-		// Token: 0x0600F04C RID: 61516 RVA: 0x0034CB28 File Offset: 0x0034AD28
 		public IXUICheckBox[] SetupTabs(List<int> ids, List<string> prefix, XUITabControl.UITabControlCallback func, bool bHorizontal = false, float fDisable = 1f, int select = -1, bool bFromStringTable = true)
 		{
 			this.tab_pool.ReturnAll(false);
@@ -244,7 +240,6 @@ namespace XMainClient.Utility
 			return array;
 		}
 
-		// Token: 0x0600F04D RID: 61517 RVA: 0x0034CE14 File Offset: 0x0034B014
 		public void RegistrerNewTab(ulong id, XUITabControl.UITabControlCallback func)
 		{
 			List<GameObject> list = ListPool<GameObject>.Get();
@@ -262,7 +257,6 @@ namespace XMainClient.Utility
 			ListPool<GameObject>.Release(list);
 		}
 
-		// Token: 0x0600F04E RID: 61518 RVA: 0x0034CEAC File Offset: 0x0034B0AC
 		public bool OnTabControlStateChange(IXUICheckBox chkBox)
 		{
 			bool bChecked = chkBox.bChecked;
@@ -284,17 +278,12 @@ namespace XMainClient.Utility
 			return true;
 		}
 
-		// Token: 0x04006679 RID: 26233
 		private XUIPool tab_pool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x0400667A RID: 26234
 		protected float m_DisableAlpha;
 
-		// Token: 0x0400667B RID: 26235
 		private Dictionary<int, XUITabControl.UITabControlCallback> m_TabFrames = new Dictionary<int, XUITabControl.UITabControlCallback>();
 
-		// Token: 0x02001A01 RID: 6657
-		// (Invoke) Token: 0x060110F8 RID: 69880
 		public delegate void UITabControlCallback(ulong id);
 	}
 }

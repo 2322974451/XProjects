@@ -9,76 +9,41 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000E09 RID: 3593
+
 	internal class XLevelFinishMgr : XSingleton<XLevelFinishMgr>
 	{
-		// Token: 0x170033F7 RID: 13303
-		// (get) Token: 0x0600C1AD RID: 49581 RVA: 0x00296D60 File Offset: 0x00294F60
-		// (set) Token: 0x0600C1AE RID: 49582 RVA: 0x00296D68 File Offset: 0x00294F68
+
 		public bool NeedUpdate { get; set; }
 
-		// Token: 0x170033F8 RID: 13304
-		// (get) Token: 0x0600C1AF RID: 49583 RVA: 0x00296D71 File Offset: 0x00294F71
-		// (set) Token: 0x0600C1B0 RID: 49584 RVA: 0x00296D79 File Offset: 0x00294F79
 		public uint LastFinishScene { get; set; }
 
-		// Token: 0x170033F9 RID: 13305
-		// (get) Token: 0x0600C1B1 RID: 49585 RVA: 0x00296D82 File Offset: 0x00294F82
-		// (set) Token: 0x0600C1B2 RID: 49586 RVA: 0x00296D8A File Offset: 0x00294F8A
 		public string LevelRewardToken { get; set; }
 
-		// Token: 0x170033FA RID: 13306
-		// (get) Token: 0x0600C1B3 RID: 49587 RVA: 0x00296D93 File Offset: 0x00294F93
-		// (set) Token: 0x0600C1B4 RID: 49588 RVA: 0x00296D9B File Offset: 0x00294F9B
 		public bool HaveBattleResultData { get; set; }
 
-		// Token: 0x170033FB RID: 13307
-		// (get) Token: 0x0600C1B5 RID: 49589 RVA: 0x00296DA4 File Offset: 0x00294FA4
-		// (set) Token: 0x0600C1B6 RID: 49590 RVA: 0x00296DAC File Offset: 0x00294FAC
 		public bool IsCurrentLevelFinished { get; set; }
 
-		// Token: 0x170033FC RID: 13308
-		// (get) Token: 0x0600C1B7 RID: 49591 RVA: 0x00296DB5 File Offset: 0x00294FB5
-		// (set) Token: 0x0600C1B8 RID: 49592 RVA: 0x00296DBD File Offset: 0x00294FBD
 		public bool IsCurrentLevelWin { get; set; }
 
-		// Token: 0x170033FD RID: 13309
-		// (get) Token: 0x0600C1B9 RID: 49593 RVA: 0x00296DC6 File Offset: 0x00294FC6
-		// (set) Token: 0x0600C1BA RID: 49594 RVA: 0x00296DCE File Offset: 0x00294FCE
 		public bool NeedCheckLevelfinishScript { get; set; }
 
-		// Token: 0x170033FE RID: 13310
-		// (get) Token: 0x0600C1BB RID: 49595 RVA: 0x00296DD7 File Offset: 0x00294FD7
-		// (set) Token: 0x0600C1BC RID: 49596 RVA: 0x00296DDF File Offset: 0x00294FDF
 		public bool WaitingLevelContinueSelect { get; set; }
 
-		// Token: 0x170033FF RID: 13311
-		// (get) Token: 0x0600C1BD RID: 49597 RVA: 0x00296DE8 File Offset: 0x00294FE8
-		// (set) Token: 0x0600C1BE RID: 49598 RVA: 0x00296DF0 File Offset: 0x00294FF0
 		public bool IsFastLevelFinish { get; set; }
 
-		// Token: 0x17003400 RID: 13312
-		// (get) Token: 0x0600C1BF RID: 49599 RVA: 0x00296DF9 File Offset: 0x00294FF9
-		// (set) Token: 0x0600C1C0 RID: 49600 RVA: 0x00296E01 File Offset: 0x00295001
 		public bool IsReturnClicked { get; set; }
 
-		// Token: 0x17003401 RID: 13313
-		// (get) Token: 0x0600C1C1 RID: 49601 RVA: 0x00296E0A File Offset: 0x0029500A
-		// (set) Token: 0x0600C1C2 RID: 49602 RVA: 0x00296E12 File Offset: 0x00295012
 		public int KeyNpcID { get; set; }
 
-		// Token: 0x0600C1C3 RID: 49603 RVA: 0x00296E1C File Offset: 0x0029501C
 		public override bool Init()
 		{
 			return true;
 		}
 
-		// Token: 0x0600C1C4 RID: 49604 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public override void Uninit()
 		{
 		}
 
-		// Token: 0x0600C1C5 RID: 49605 RVA: 0x00296E30 File Offset: 0x00295030
 		public void OnSceneLoaded(uint sceneID)
 		{
 			this._current_scene_id = sceneID;
@@ -121,7 +86,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C1C6 RID: 49606 RVA: 0x00296FC3 File Offset: 0x002951C3
 		public void OnLeaveScene()
 		{
 			this.NeedUpdate = false;
@@ -129,7 +93,6 @@ namespace XMainClient
 			this.IsFastLevelFinish = false;
 		}
 
-		// Token: 0x0600C1C7 RID: 49607 RVA: 0x00296FE0 File Offset: 0x002951E0
 		public void CanLevelFinished(XLevelState ls)
 		{
 			bool isCurrentLevelFinished = this.IsCurrentLevelFinished;
@@ -311,7 +274,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C1C8 RID: 49608 RVA: 0x002973EC File Offset: 0x002955EC
 		public void ForceLevelFinish(bool win)
 		{
 			this.IsCurrentLevelFinished = true;
@@ -327,7 +289,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C1C9 RID: 49609 RVA: 0x00297468 File Offset: 0x00295668
 		public void OnLevelFailed()
 		{
 			XSingleton<XPandoraSDKDocument>.singleton.SetLastFailSceneID(this._current_scene_id);
@@ -357,7 +318,6 @@ namespace XMainClient
 			XSingleton<XGameSysMgr>.singleton.bStopBlockRedPoint = true;
 		}
 
-		// Token: 0x0600C1CA RID: 49610 RVA: 0x00297538 File Offset: 0x00295738
 		public void OnLevelFinish(Vector3 dropInitPos, Vector3 dropGounrdPos, uint money, uint itemCount, bool bKillOpponent)
 		{
 			bool flag = DlgBase<ReviveDlg, ReviveDlgBehaviour>.singleton.IsLoaded();
@@ -389,7 +349,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C1CB RID: 49611 RVA: 0x00297634 File Offset: 0x00295834
 		private void PlayCutScene(object o)
 		{
 			string str = (string)o;
@@ -397,7 +356,6 @@ namespace XMainClient
 			XSingleton<XCutScene>.singleton.Start("CutScene/" + str, true, true);
 		}
 
-		// Token: 0x0600C1CC RID: 49612 RVA: 0x0029766C File Offset: 0x0029586C
 		public void KillAllOpponent()
 		{
 			XSingleton<XLevelStatistics>.singleton.OnBeforeKillMonster();
@@ -413,7 +371,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C1CD RID: 49613 RVA: 0x00297700 File Offset: 0x00295900
 		public void StopPlayerAllysAI()
 		{
 			XAIStopEventArgs @event = XEventPool<XAIStopEventArgs>.GetEvent();
@@ -428,13 +385,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C1CE RID: 49614 RVA: 0x00160161 File Offset: 0x0015E361
 		protected void ForceReturnHall(object o)
 		{
 			XSingleton<XScene>.singleton.ReqLeaveScene();
 		}
 
-		// Token: 0x0600C1CF RID: 49615 RVA: 0x00297780 File Offset: 0x00295980
 		public void Update(float deltaT)
 		{
 			bool needCheckLevelfinishScript = this.NeedCheckLevelfinishScript;
@@ -467,7 +422,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C1D0 RID: 49616 RVA: 0x0029780C File Offset: 0x00295A0C
 		public void SendBattleReport(object o)
 		{
 			this.LastFinishScene = this._current_scene_id;
@@ -561,7 +515,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_ReportBattle);
 		}
 
-		// Token: 0x0600C1D1 RID: 49617 RVA: 0x00297D88 File Offset: 0x00295F88
 		public void SendLevelFailData()
 		{
 			bool syncMode = XSingleton<XGame>.singleton.SyncMode;
@@ -580,7 +533,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C1D2 RID: 49618 RVA: 0x00297E9C File Offset: 0x0029609C
 		public static void PlayVictory()
 		{
 			XPlayer player = XSingleton<XEntityMgr>.singleton.Player;
@@ -598,7 +550,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C1D3 RID: 49619 RVA: 0x00297F14 File Offset: 0x00296114
 		public void StartLevelFinish()
 		{
 			XAIEnableAI @event = XEventPool<XAIEnableAI>.GetEvent();
@@ -625,7 +576,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C1D4 RID: 49620 RVA: 0x00297FC0 File Offset: 0x002961C0
 		private void ShowLevelFinishUI()
 		{
 			this.IsCurrentLevelFinished = true;
@@ -659,13 +609,10 @@ namespace XMainClient
 			specificDocument.ShowBattleResultFrame();
 		}
 
-		// Token: 0x04005240 RID: 21056
 		private uint _current_scene_id;
 
-		// Token: 0x04005243 RID: 21059
 		private List<XLevelWin> _WinCondition = new List<XLevelWin>();
 
-		// Token: 0x04005244 RID: 21060
 		private List<XLevelLose> _LoseCondition = new List<XLevelLose>();
 	}
 }

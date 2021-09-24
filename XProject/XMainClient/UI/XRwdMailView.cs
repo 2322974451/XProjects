@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001848 RID: 6216
+
 	internal class XRwdMailView : DlgHandlerBase
 	{
-		// Token: 0x06010252 RID: 66130 RVA: 0x003DDD88 File Offset: 0x003DBF88
+
 		protected override void Init()
 		{
 			base.Init();
@@ -21,14 +21,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010253 RID: 66131 RVA: 0x003DDE61 File Offset: 0x003DC061
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			this.m_btnok.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnOKClick));
 		}
 
-		// Token: 0x06010254 RID: 66132 RVA: 0x003DDE84 File Offset: 0x003DC084
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -57,7 +55,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010255 RID: 66133 RVA: 0x003DE0A8 File Offset: 0x003DC2A8
 		private void OnTweenEnd(IXUITweenTool tween)
 		{
 			this.ani_time = Time.realtimeSinceStartup;
@@ -66,7 +63,6 @@ namespace XMainClient.UI
 			this.ani_sped = 6;
 		}
 
-		// Token: 0x06010256 RID: 66134 RVA: 0x003DE0D0 File Offset: 0x003DC2D0
 		public override void OnUpdate()
 		{
 			bool flag = this.ani_start;
@@ -89,7 +85,6 @@ namespace XMainClient.UI
 			base.OnUpdate();
 		}
 
-		// Token: 0x06010257 RID: 66135 RVA: 0x003DE18C File Offset: 0x003DC38C
 		private bool OnOKClick(IXUIButton btn)
 		{
 			this._doc.ReqMailOP(MailOP.Claim, this.m_item.id);
@@ -97,46 +92,32 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x04007351 RID: 29521
 		private XMailDocument _doc = null;
 
-		// Token: 0x04007352 RID: 29522
 		public GameObject[] m_objitems = new GameObject[5];
 
-		// Token: 0x04007353 RID: 29523
 		public IXUIButton m_btnok;
 
-		// Token: 0x04007354 RID: 29524
 		public IXUITweenTool m_tweenbg;
 
-		// Token: 0x04007355 RID: 29525
 		public IXUITweenTool m_tweentitle;
 
-		// Token: 0x04007356 RID: 29526
 		private MailItem m_item;
 
-		// Token: 0x04007357 RID: 29527
 		private int[] m_to_x = new int[5];
 
-		// Token: 0x04007358 RID: 29528
 		private int[] m_from_x = new int[5];
 
-		// Token: 0x04007359 RID: 29529
 		private bool ani_start = false;
 
-		// Token: 0x0400735A RID: 29530
 		private float ani_duration = 1f;
 
-		// Token: 0x0400735B RID: 29531
 		private float ani_time = 0f;
 
-		// Token: 0x0400735C RID: 29532
 		private int items_cnt = 1;
 
-		// Token: 0x0400735D RID: 29533
 		private int ani_sped = 1;
 
-		// Token: 0x0400735E RID: 29534
 		private Vector3 items_pos;
 	}
 }

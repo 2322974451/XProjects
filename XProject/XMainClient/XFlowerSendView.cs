@@ -9,11 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000CEB RID: 3307
+
 	internal class XFlowerSendView : DlgBase<XFlowerSendView, XFlowerSendBehaviour>
 	{
-		// Token: 0x1700328D RID: 12941
-		// (get) Token: 0x0600B924 RID: 47396 RVA: 0x002587AC File Offset: 0x002569AC
+
 		public override string fileName
 		{
 			get
@@ -22,8 +21,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700328E RID: 12942
-		// (get) Token: 0x0600B925 RID: 47397 RVA: 0x002587C4 File Offset: 0x002569C4
 		public override bool autoload
 		{
 			get
@@ -32,7 +29,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B926 RID: 47398 RVA: 0x002587D7 File Offset: 0x002569D7
 		protected override void Init()
 		{
 			base.Init();
@@ -40,14 +36,12 @@ namespace XMainClient
 			this.InitFlowerBtnInfo();
 		}
 
-		// Token: 0x0600B927 RID: 47399 RVA: 0x002587F8 File Offset: 0x002569F8
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			base.uiBehaviour.m_Close.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseClicked));
 		}
 
-		// Token: 0x0600B928 RID: 47400 RVA: 0x00258820 File Offset: 0x00256A20
 		private void InitFlowerBtnInfo()
 		{
 			this.flowerTab.Clear();
@@ -91,7 +85,6 @@ namespace XMainClient
 			this.SelectTab(XFlowerSendView.SendFlowerType.RED_ROSE);
 		}
 
-		// Token: 0x0600B929 RID: 47401 RVA: 0x00258AC4 File Offset: 0x00256CC4
 		private void SelectTab(XFlowerSendView.SendFlowerType type)
 		{
 			bool flag = this.currSelectTab != null;
@@ -125,13 +118,11 @@ namespace XMainClient
 			base.uiBehaviour.m_PointTip.SetText(text);
 		}
 
-		// Token: 0x0600B92A RID: 47402 RVA: 0x00258C41 File Offset: 0x00256E41
 		private void OnSendRoseTypeClicked(IXUISprite sp)
 		{
 			this.SelectTab((XFlowerSendView.SendFlowerType)sp.ID);
 		}
 
-		// Token: 0x0600B92B RID: 47403 RVA: 0x00258C54 File Offset: 0x00256E54
 		private void OnSendItemClicked(IXUISprite sp)
 		{
 			int num = (int)sp.ID;
@@ -152,7 +143,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B92C RID: 47404 RVA: 0x00258D18 File Offset: 0x00256F18
 		public void FlowerNotEnough(SendFlowerArg oArg)
 		{
 			this.sendFlowerCount = oArg.count;
@@ -191,7 +181,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B92D RID: 47405 RVA: 0x00258EB8 File Offset: 0x002570B8
 		private bool OnGotoBuy(IXUIButton button)
 		{
 			bool flag = !XSingleton<XGameSysMgr>.singleton.IsSystemOpened(XSysDefine.XSys_GameMall);
@@ -212,7 +201,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B92E RID: 47406 RVA: 0x00258F38 File Offset: 0x00257138
 		private bool OnUseMoney(IXUIButton button)
 		{
 			DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.SetVisible(false, true);
@@ -220,7 +208,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B92F RID: 47407 RVA: 0x00258F84 File Offset: 0x00257184
 		public void ShowLackMoneyError()
 		{
 			ItemEnum itemEnum = (ItemEnum)this.needCostID;
@@ -244,7 +231,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B930 RID: 47408 RVA: 0x00259000 File Offset: 0x00257200
 		public void ShowGoToMallError(SendFlowerArg oArg)
 		{
 			ItemList.RowData itemConf = XBagDocument.GetItemConf((int)oArg.sendItemID);
@@ -255,26 +241,22 @@ namespace XMainClient
 			}), "fece00");
 		}
 
-		// Token: 0x0600B931 RID: 47409 RVA: 0x0025905A File Offset: 0x0025725A
 		public void RefreshSendFlowerInfo()
 		{
 			this.RefreshRoseOwnCount();
 		}
 
-		// Token: 0x0600B932 RID: 47410 RVA: 0x00259064 File Offset: 0x00257264
 		public void OnSendFlowerError()
 		{
 			XSingleton<UiUtility>.singleton.ShowSystemTip(XStringDefineProxy.GetString("FLOWER_SEND_FAIL"), "fece00");
 		}
 
-		// Token: 0x0600B933 RID: 47411 RVA: 0x00259084 File Offset: 0x00257284
 		private void SetTabSelect(GameObject obj, bool select)
 		{
 			IXUISprite ixuisprite = obj.transform.FindChild("Select").GetComponent("XUISprite") as IXUISprite;
 			ixuisprite.SetAlpha((float)(select ? 1 : 0));
 		}
 
-		// Token: 0x0600B934 RID: 47412 RVA: 0x002590C4 File Offset: 0x002572C4
 		public void ShowBoard(ulong roleID, string roleName)
 		{
 			bool flag = !base.IsVisible();
@@ -287,7 +269,6 @@ namespace XMainClient
 			this.RefreshRoseOwnCount();
 		}
 
-		// Token: 0x0600B935 RID: 47413 RVA: 0x00259100 File Offset: 0x00257300
 		private void RefreshRoseOwnCount()
 		{
 			for (int i = 0; i < XFlowerSendView.SEND_FLOWER_TYPE_COUNT; i++)
@@ -298,63 +279,47 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B936 RID: 47414 RVA: 0x00259164 File Offset: 0x00257364
 		private bool OnCloseClicked(IXUIButton button)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x040049B0 RID: 18864
 		private XFlowerSendDocument _doc = null;
 
-		// Token: 0x040049B1 RID: 18865
 		private static readonly int SEND_FLOWER_TYPE_COUNT = 3;
 
-		// Token: 0x040049B2 RID: 18866
 		private string[] sendCountType;
 
-		// Token: 0x040049B3 RID: 18867
 		private List<IXUILabel> ownCount = new List<IXUILabel>();
 
-		// Token: 0x040049B4 RID: 18868
 		private List<GameObject> flowerTab = new List<GameObject>();
 
-		// Token: 0x040049B5 RID: 18869
 		private List<GameObject> sendItem = new List<GameObject>();
 
-		// Token: 0x040049B6 RID: 18870
 		private GameObject currSelectTab;
 
-		// Token: 0x040049B7 RID: 18871
 		private XFlowerSendView.SendFlowerType currSelectTabType;
 
-		// Token: 0x040049B8 RID: 18872
 		private ulong roleIDSendTo;
 
-		// Token: 0x040049B9 RID: 18873
 		private string roleNameSendTo;
 
-		// Token: 0x040049BA RID: 18874
 		private uint sendFlowerId;
 
-		// Token: 0x040049BB RID: 18875
 		private uint sendFlowerCount;
 
-		// Token: 0x040049BC RID: 18876
 		private uint needCostID;
 
-		// Token: 0x040049BD RID: 18877
 		private uint needCostCount;
 
-		// Token: 0x020019B3 RID: 6579
 		private enum SendFlowerType
 		{
-			// Token: 0x04007F97 RID: 32663
+
 			RED_ROSE,
-			// Token: 0x04007F98 RID: 32664
+
 			WHITE_ROSE,
-			// Token: 0x04007F99 RID: 32665
+
 			BLUE_ENCHANTRESS
 		}
 	}

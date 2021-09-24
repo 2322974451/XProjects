@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000DC0 RID: 3520
+
 	internal abstract class XEnemy : XEntity
 	{
-		// Token: 0x0600BEC5 RID: 48837 RVA: 0x0027E1A8 File Offset: 0x0027C3A8
+
 		public override bool Initilize(int flag)
 		{
 			this._eEntity_Type |= XEntity.EnitityType.Entity_Enemy;
@@ -57,13 +57,11 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600BEC6 RID: 48838 RVA: 0x0026C624 File Offset: 0x0026A824
 		public override void Uninitilize()
 		{
 			base.Uninitilize();
 		}
 
-		// Token: 0x0600BEC7 RID: 48839 RVA: 0x0027E400 File Offset: 0x0027C600
 		public override void OnCreated()
 		{
 			this._render = XRenderComponent.AddRenderComponent(this);
@@ -89,8 +87,6 @@ namespace XMainClient
 			base.OnCreated();
 		}
 
-		// Token: 0x1700336A RID: 13162
-		// (get) Token: 0x0600BEC8 RID: 48840 RVA: 0x0027E4BC File Offset: 0x0027C6BC
 		public override bool IsFighting
 		{
 			get
@@ -100,8 +96,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700336B RID: 13163
-		// (get) Token: 0x0600BEC9 RID: 48841 RVA: 0x0027E4EC File Offset: 0x0027C6EC
 		public override bool HasAI
 		{
 			get
@@ -110,22 +104,17 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BECA RID: 48842 RVA: 0x0027E508 File Offset: 0x0027C708
 		public override bool CastFakeShadow()
 		{
 			return XQualitySetting.GetQuality(EFun.EEnemyShadow);
 		}
 
-		// Token: 0x04004E08 RID: 19976
 		private Ray _rayVer = new Ray(Vector3.zero, Vector3.down);
 
-		// Token: 0x04004E09 RID: 19977
 		private Vector3 _lastSrc = Vector3.zero;
 
-		// Token: 0x04004E0A RID: 19978
 		private Vector3 _lastRes = Vector3.zero;
 
-		// Token: 0x04004E0B RID: 19979
 		protected XOthersAttributes _other_attr = null;
 	}
 }

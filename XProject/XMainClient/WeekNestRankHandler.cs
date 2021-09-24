@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C5C RID: 3164
+
 	internal class WeekNestRankHandler : DlgHandlerBase
 	{
-		// Token: 0x170031AA RID: 12714
-		// (get) Token: 0x0600B332 RID: 45874 RVA: 0x0022CBD4 File Offset: 0x0022ADD4
+
 		private XWeekNestDocument m_doc
 		{
 			get
@@ -19,8 +18,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170031AB RID: 12715
-		// (get) Token: 0x0600B333 RID: 45875 RVA: 0x0022CBEC File Offset: 0x0022ADEC
 		protected override string FileName
 		{
 			get
@@ -29,7 +26,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B334 RID: 45876 RVA: 0x0022CC04 File Offset: 0x0022AE04
 		protected override void Init()
 		{
 			base.Init();
@@ -40,14 +36,12 @@ namespace XMainClient
 			this.m_wrapContent.RegisterItemUpdateEventHandler(new WrapItemUpdateEventHandler(this.WrapContentItemUpdated));
 		}
 
-		// Token: 0x0600B335 RID: 45877 RVA: 0x0022CCB1 File Offset: 0x0022AEB1
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			this.m_closeBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnClosedClicked));
 		}
 
-		// Token: 0x0600B336 RID: 45878 RVA: 0x0022CCD3 File Offset: 0x0022AED3
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -55,32 +49,27 @@ namespace XMainClient
 			this.m_doc.ReqRankList();
 		}
 
-		// Token: 0x0600B337 RID: 45879 RVA: 0x0019EEFD File Offset: 0x0019D0FD
 		protected override void OnHide()
 		{
 			base.OnHide();
 		}
 
-		// Token: 0x0600B338 RID: 45880 RVA: 0x0022CCF0 File Offset: 0x0022AEF0
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
 		}
 
-		// Token: 0x0600B339 RID: 45881 RVA: 0x0019EF07 File Offset: 0x0019D107
 		public override void OnUnload()
 		{
 			base.OnUnload();
 		}
 
-		// Token: 0x0600B33A RID: 45882 RVA: 0x0022CCFA File Offset: 0x0022AEFA
 		private void FillDefault()
 		{
 			this.m_tipsGo.SetActive(true);
 			this.m_wrapContent.gameObject.SetActive(false);
 		}
 
-		// Token: 0x0600B33B RID: 45883 RVA: 0x0022CD1C File Offset: 0x0022AF1C
 		public void FillContent()
 		{
 			bool flag = this.m_doc.RankList == null;
@@ -106,7 +95,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B33C RID: 45884 RVA: 0x0022CDFC File Offset: 0x0022AFFC
 		private void WrapContentItemUpdated(Transform t, int index)
 		{
 			bool flag = this.m_doc.RankList.InfoList == null;
@@ -154,7 +142,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B33D RID: 45885 RVA: 0x0022CFF8 File Offset: 0x0022B1F8
 		private void SetRank(Transform tra, int rankIndex)
 		{
 			IXUILabel ixuilabel = tra.FindChild("Rank").GetComponent("XUILabel") as IXUILabel;
@@ -183,14 +170,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B33E RID: 45886 RVA: 0x0022D0C0 File Offset: 0x0022B2C0
 		private bool OnClosedClicked(IXUIButton sp)
 		{
 			base.SetVisible(false);
 			return true;
 		}
 
-		// Token: 0x0600B33F RID: 45887 RVA: 0x0022D0DC File Offset: 0x0022B2DC
 		private void OnClickName(IXUILabelSymbol iSp)
 		{
 			bool flag = this.m_doc.RankList.InfoList == null;
@@ -212,13 +197,10 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0400454F RID: 17743
 		private IXUIButton m_closeBtn;
 
-		// Token: 0x04004550 RID: 17744
 		private IXUIWrapContent m_wrapContent;
 
-		// Token: 0x04004551 RID: 17745
 		private GameObject m_tipsGo;
 	}
 }

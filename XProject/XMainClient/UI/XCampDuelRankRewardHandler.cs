@@ -6,10 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017DB RID: 6107
+
 	internal class XCampDuelRankRewardHandler : DlgHandlerBase
 	{
-		// Token: 0x0600FD1D RID: 64797 RVA: 0x003B3A84 File Offset: 0x003B1C84
+
 		protected override void Init()
 		{
 			base.Init();
@@ -22,8 +22,6 @@ namespace XMainClient.UI
 			this.m_ItemPool.SetupPool(null, transform.Find("ScrollView/Item").gameObject, 10U, false);
 		}
 
-		// Token: 0x170038AF RID: 14511
-		// (get) Token: 0x0600FD1E RID: 64798 RVA: 0x003B3B6C File Offset: 0x003B1D6C
 		protected override string FileName
 		{
 			get
@@ -32,21 +30,18 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FD1F RID: 64799 RVA: 0x003B3B83 File Offset: 0x003B1D83
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			this.m_Close.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseClicked));
 		}
 
-		// Token: 0x0600FD20 RID: 64800 RVA: 0x003B3BA8 File Offset: 0x003B1DA8
 		public bool OnCloseClicked(IXUIButton btn)
 		{
 			base.SetVisible(false);
 			return true;
 		}
 
-		// Token: 0x0600FD21 RID: 64801 RVA: 0x003B3BC4 File Offset: 0x003B1DC4
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -57,7 +52,6 @@ namespace XMainClient.UI
 			this.m_RightText.SetText(XTempActivityDocument.Doc.GetEndTime(XCampDuelDocument.Doc.ActInfo, 1).ToString(XStringDefineProxy.GetString("CAMPDUEL_END_TIME")));
 		}
 
-		// Token: 0x0600FD22 RID: 64802 RVA: 0x003B3C50 File Offset: 0x003B1E50
 		public void RefreshList(bool resetPos = true)
 		{
 			List<CampDuelRankReward.RowData> rankRewardList = XCampDuelDocument.Doc.GetRankRewardList();
@@ -97,7 +91,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FD23 RID: 64803 RVA: 0x003B3DA8 File Offset: 0x003B1FA8
 		private void RefreshOneRankItem(Transform t, CampDuelRankReward.RowData data)
 		{
 			IXUILabel ixuilabel = t.FindChild("Rank/RankNum").GetComponent("XUILabel") as IXUILabel;
@@ -123,22 +116,16 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04006F6E RID: 28526
 		public IXUIButton m_Close;
 
-		// Token: 0x04006F6F RID: 28527
 		public XUIPool m_RewardPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006F70 RID: 28528
 		public XUIPool m_ItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006F71 RID: 28529
 		public IXUILabel m_RightText;
 
-		// Token: 0x04006F72 RID: 28530
 		public IXUILabel m_BottomText;
 
-		// Token: 0x04006F73 RID: 28531
 		public IXUIScrollView m_ScrollView;
 	}
 }

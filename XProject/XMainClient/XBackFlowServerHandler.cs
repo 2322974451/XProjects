@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000A1D RID: 2589
+
 	internal class XBackFlowServerHandler : DlgHandlerBase
 	{
-		// Token: 0x17002EBC RID: 11964
-		// (get) Token: 0x06009E4B RID: 40523 RVA: 0x0019F094 File Offset: 0x0019D294
+
 		protected override string FileName
 		{
 			get
@@ -21,7 +20,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009E4C RID: 40524 RVA: 0x0019F0AC File Offset: 0x0019D2AC
 		protected override void Init()
 		{
 			base.Init();
@@ -52,7 +50,6 @@ namespace XMainClient
 			this.RefreshRewards();
 		}
 
-		// Token: 0x06009E4D RID: 40525 RVA: 0x0019F3B0 File Offset: 0x0019D5B0
 		private void UpdateDesLabel()
 		{
 			string @string = XStringDefineProxy.GetString("backMassage");
@@ -81,7 +78,6 @@ namespace XMainClient
 			}));
 		}
 
-		// Token: 0x06009E4E RID: 40526 RVA: 0x0019F578 File Offset: 0x0019D778
 		private bool OnConfirmSelect(IXUIButton button)
 		{
 			bool flag = this._selectedRoleRoleID > 0UL;
@@ -93,7 +89,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x06009E4F RID: 40527 RVA: 0x0019F5C8 File Offset: 0x0019D7C8
 		private bool ToConfirmBind(IXUIButton button)
 		{
 			XSingleton<UiUtility>.singleton.CloseModalDlg();
@@ -101,25 +96,21 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x06009E50 RID: 40528 RVA: 0x0019F5F7 File Offset: 0x0019D7F7
 		private void OnCloseServerList(IXUISprite uiSprite)
 		{
 			this._serverList.gameObject.SetActive(false);
 		}
 
-		// Token: 0x06009E51 RID: 40529 RVA: 0x0019F60C File Offset: 0x0019D80C
 		private void OnCloseRoleList(IXUISprite uiSprite)
 		{
 			this._roleList.gameObject.SetActive(false);
 		}
 
-		// Token: 0x06009E52 RID: 40530 RVA: 0x0019EEB0 File Offset: 0x0019D0B0
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 		}
 
-		// Token: 0x06009E53 RID: 40531 RVA: 0x0019F624 File Offset: 0x0019D824
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -133,26 +124,22 @@ namespace XMainClient
 			XBackFlowDocument.Doc.SendToGetNewZoneBenefit();
 		}
 
-		// Token: 0x06009E54 RID: 40532 RVA: 0x0019EEFD File Offset: 0x0019D0FD
 		protected override void OnHide()
 		{
 			base.OnHide();
 		}
 
-		// Token: 0x06009E55 RID: 40533 RVA: 0x0019EF07 File Offset: 0x0019D107
 		public override void OnUnload()
 		{
 			base.OnUnload();
 		}
 
-		// Token: 0x06009E56 RID: 40534 RVA: 0x0019F69D File Offset: 0x0019D89D
 		public override void RefreshData()
 		{
 			base.RefreshData();
 			this.RefreshUI();
 		}
 
-		// Token: 0x06009E57 RID: 40535 RVA: 0x0019F6B0 File Offset: 0x0019D8B0
 		private void RefreshUI()
 		{
 			this.UpdateDesLabel();
@@ -197,14 +184,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009E58 RID: 40536 RVA: 0x0019F834 File Offset: 0x0019DA34
 		private void OnInitRoleItem(Transform itemTransform, int index)
 		{
 			IXUISprite ixuisprite = itemTransform.GetComponent("XUISprite") as IXUISprite;
 			ixuisprite.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnSelectRoleItem));
 		}
 
-		// Token: 0x06009E59 RID: 40537 RVA: 0x0019F868 File Offset: 0x0019DA68
 		private void OnSelectRoleItem(IXUISprite uiSprite)
 		{
 			this._selectedRoleRoleID = uiSprite.ID;
@@ -225,14 +210,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009E5A RID: 40538 RVA: 0x0019F8FC File Offset: 0x0019DAFC
 		private void OnInitServerItem(Transform itemTransform, int index)
 		{
 			IXUISprite ixuisprite = itemTransform.GetComponent("XUISprite") as IXUISprite;
 			ixuisprite.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnSelectServerItem));
 		}
 
-		// Token: 0x06009E5B RID: 40539 RVA: 0x0019F930 File Offset: 0x0019DB30
 		private void OnSelectServerItem(IXUISprite uiSprite)
 		{
 			this._serverList.gameObject.SetActive(false);
@@ -255,7 +238,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009E5C RID: 40540 RVA: 0x0019F9F0 File Offset: 0x0019DBF0
 		private void OnUpdateRoleItem(Transform itemTransform, int index)
 		{
 			bool flag = index < this._roleListData.Count;
@@ -277,7 +259,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009E5D RID: 40541 RVA: 0x0019FAB4 File Offset: 0x0019DCB4
 		private void OnUpdateServerItem(Transform itemTransform, int index)
 		{
 			bool flag = index < this._ServerListData.Count;
@@ -299,7 +280,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009E5E RID: 40542 RVA: 0x0019FB7C File Offset: 0x0019DD7C
 		private void OnShowServerList(IXUISprite uiSprite)
 		{
 			bool flag = XBackFlowDocument.Doc.SelectedRoleID == 0UL;
@@ -311,7 +291,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009E5F RID: 40543 RVA: 0x0019FBD4 File Offset: 0x0019DDD4
 		private void OnShowRoleList(IXUISprite uiSprite)
 		{
 			bool flag = XBackFlowDocument.Doc.SelectedRoleID == 0UL;
@@ -332,66 +311,46 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009E60 RID: 40544 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		private void RefreshRewards()
 		{
 		}
 
-		// Token: 0x04003819 RID: 14361
 		private IXUISprite _chooseServer;
 
-		// Token: 0x0400381A RID: 14362
 		private IXUISprite _chooseRole;
 
-		// Token: 0x0400381B RID: 14363
 		private IXUISprite _serverBlock;
 
-		// Token: 0x0400381C RID: 14364
 		private IXUISprite _roleBlock;
 
-		// Token: 0x0400381D RID: 14365
 		private IXUIButton _btnGo;
 
-		// Token: 0x0400381E RID: 14366
 		private Transform _serverList;
 
-		// Token: 0x0400381F RID: 14367
 		private IXUIScrollView _serverScrollView;
 
-		// Token: 0x04003820 RID: 14368
 		private IXUIWrapContent _serverWrapContent;
 
-		// Token: 0x04003821 RID: 14369
 		private Transform _roleList;
 
-		// Token: 0x04003822 RID: 14370
 		private IXUIScrollView _roleScrollView;
 
-		// Token: 0x04003823 RID: 14371
 		private IXUIWrapContent _roleWrapContent;
 
-		// Token: 0x04003824 RID: 14372
 		private IXUILabel _serverLabel;
 
-		// Token: 0x04003825 RID: 14373
 		private IXUILabel _roleLabel;
 
-		// Token: 0x04003826 RID: 14374
 		private IXUILabel _descibleLabel;
 
-		// Token: 0x04003827 RID: 14375
 		private IXUILabel _btnLabel;
 
-		// Token: 0x04003828 RID: 14376
 		private uint _selectedServerid = 0U;
 
-		// Token: 0x04003829 RID: 14377
 		private List<uint> _ServerListData = new List<uint>();
 
-		// Token: 0x0400382A RID: 14378
 		private ulong _selectedRoleRoleID = 0UL;
 
-		// Token: 0x0400382B RID: 14379
 		private List<ulong> _roleListData = new List<ulong>();
 	}
 }

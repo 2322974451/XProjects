@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x020000DB RID: 219
+
 	public class DragonExpList : CVSReader
 	{
-		// Token: 0x060005F0 RID: 1520 RVA: 0x0001BF70 File Offset: 0x0001A170
+
 		public DragonExpList.RowData GetBySceneID(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -29,7 +29,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x060005F1 RID: 1521 RVA: 0x0001BFDC File Offset: 0x0001A1DC
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			DragonExpList.RowData rowData = new DragonExpList.RowData();
@@ -61,7 +60,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x060005F2 RID: 1522 RVA: 0x0001C144 File Offset: 0x0001A344
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -75,46 +73,33 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x04000327 RID: 807
 		public DragonExpList.RowData[] Table = null;
 
-		// Token: 0x020002DA RID: 730
 		public class RowData
 		{
-			// Token: 0x04000A0A RID: 2570
+
 			public uint SceneID;
 
-			// Token: 0x04000A0B RID: 2571
 			public string Description;
 
-			// Token: 0x04000A0C RID: 2572
 			public SeqListRef<uint> WinReward;
 
-			// Token: 0x04000A0D RID: 2573
 			public string ResName;
 
-			// Token: 0x04000A0E RID: 2574
 			public string BuffIcon;
 
-			// Token: 0x04000A0F RID: 2575
 			public string BuffDes;
 
-			// Token: 0x04000A10 RID: 2576
 			public uint BossID;
 
-			// Token: 0x04000A11 RID: 2577
 			public uint SealLevel;
 
-			// Token: 0x04000A12 RID: 2578
 			public SeqRef<uint> ChapterID;
 
-			// Token: 0x04000A13 RID: 2579
 			public string WinHit;
 
-			// Token: 0x04000A14 RID: 2580
 			public float LimitPos;
 
-			// Token: 0x04000A15 RID: 2581
 			public float[] SnapPos;
 		}
 	}

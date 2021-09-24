@@ -4,11 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000F22 RID: 3874
+
 	internal class XActionGeneratorComponent : XComponent
 	{
-		// Token: 0x170035AB RID: 13739
-		// (get) Token: 0x0600CD2F RID: 52527 RVA: 0x002F462C File Offset: 0x002F282C
+
 		public override uint ID
 		{
 			get
@@ -17,7 +16,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CD30 RID: 52528 RVA: 0x002F4644 File Offset: 0x002F2844
 		public override void PostUpdate(float fDeltaT)
 		{
 			this.UpdateGesture();
@@ -40,7 +38,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CD31 RID: 52529 RVA: 0x002F46D0 File Offset: 0x002F28D0
 		private void UpdateGesture()
 		{
 			bool feeding = XSingleton<XVirtualTab>.singleton.Feeding;
@@ -64,10 +61,8 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04005B3E RID: 23358
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("Action_Generator");
 
-		// Token: 0x04005B3F RID: 23359
 		private bool _feed = false;
 	}
 }

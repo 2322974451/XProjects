@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020018EB RID: 6379
+
 	public class XWelfareYyMallHandler : DlgHandlerBase
 	{
-		// Token: 0x17003A82 RID: 14978
-		// (get) Token: 0x060109DB RID: 68059 RVA: 0x0041ABA4 File Offset: 0x00418DA4
+
 		protected override string FileName
 		{
 			get
@@ -19,14 +18,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060109DC RID: 68060 RVA: 0x0041ABBB File Offset: 0x00418DBB
 		protected override void Init()
 		{
 			base.Init();
 			this.InitProperties();
 		}
 
-		// Token: 0x060109DD RID: 68061 RVA: 0x0041ABCC File Offset: 0x00418DCC
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -40,13 +37,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060109DE RID: 68062 RVA: 0x0019EEB0 File Offset: 0x0019D0B0
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 		}
 
-		// Token: 0x060109DF RID: 68063 RVA: 0x0041AC1D File Offset: 0x00418E1D
 		public override void RefreshData()
 		{
 			base.RefreshData();
@@ -55,7 +50,6 @@ namespace XMainClient.UI
 			this.RefreshPrivilegeCount();
 		}
 
-		// Token: 0x060109E0 RID: 68064 RVA: 0x0041AC3C File Offset: 0x00418E3C
 		public override void OnUnload()
 		{
 			bool flag = this._refreshTaskEffect != null;
@@ -67,7 +61,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x060109E1 RID: 68065 RVA: 0x0041AC7C File Offset: 0x00418E7C
 		public void PlayRefreshEffect()
 		{
 			bool flag = this._refreshTaskEffect != null;
@@ -78,7 +71,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060109E2 RID: 68066 RVA: 0x0041ACCC File Offset: 0x00418ECC
 		private void RefreshPrivilegeCount()
 		{
 			int privilegeFreeRefreshCount = XWelfareDocument.Doc.GetPrivilegeFreeRefreshCount(MemberPrivilege.KingdomPrivilege_Adventurer);
@@ -88,7 +80,6 @@ namespace XMainClient.UI
 			this._extraRefresh.SetGrey(XWelfareDocument.Doc.IsOwnMemberPrivilege(MemberPrivilege.KingdomPrivilege_Adventurer));
 		}
 
-		// Token: 0x060109E3 RID: 68067 RVA: 0x0041AD60 File Offset: 0x00418F60
 		private void RefreshBtnState()
 		{
 			XNormalShopDocument specificDocument = XDocuments.GetSpecificDocument<XNormalShopDocument>(XNormalShopDocument.uuID);
@@ -142,7 +133,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060109E4 RID: 68068 RVA: 0x0041AF68 File Offset: 0x00419168
 		private void RefreshScorllViewContent()
 		{
 			this._shopItemPool.ReturnAll(false);
@@ -267,7 +257,6 @@ namespace XMainClient.UI
 			this._scrollView.ResetPosition();
 		}
 
-		// Token: 0x060109E5 RID: 68069 RVA: 0x0041B428 File Offset: 0x00419628
 		private void OnOpenAdventurerPriviege(IXUISprite uiSprite)
 		{
 			bool flag = !XWelfareDocument.Doc.IsOwnMemberPrivilege(MemberPrivilege.KingdomPrivilege_Adventurer);
@@ -277,7 +266,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060109E6 RID: 68070 RVA: 0x0041B480 File Offset: 0x00419680
 		private bool OpenAdventurePriviege(IXUIButton button)
 		{
 			XSingleton<UiUtility>.singleton.CloseModalDlg();
@@ -285,7 +273,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x060109E7 RID: 68071 RVA: 0x0041B4B0 File Offset: 0x004196B0
 		private void OnOpenCourtPriviege(IXUISprite uiSprite)
 		{
 			bool flag = !XWelfareDocument.Doc.IsOwnMemberPrivilege(MemberPrivilege.KingdomPrivilege_Court);
@@ -295,7 +282,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060109E8 RID: 68072 RVA: 0x0041B508 File Offset: 0x00419708
 		private bool OpenCourtPriviege(IXUIButton button)
 		{
 			XSingleton<UiUtility>.singleton.CloseModalDlg();
@@ -303,7 +289,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x060109E9 RID: 68073 RVA: 0x0041B538 File Offset: 0x00419738
 		private void OnClickItemIcon(IXUISprite spr)
 		{
 			bool flag = spr.ID > 0UL;
@@ -314,7 +299,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060109EA RID: 68074 RVA: 0x0041B574 File Offset: 0x00419774
 		private bool OnBuyShopItem(IXUIButton button)
 		{
 			int index = (int)button.ID;
@@ -323,7 +307,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x060109EB RID: 68075 RVA: 0x0041B5A4 File Offset: 0x004197A4
 		private void InitProperties()
 		{
 			Transform transform = base.transform.Find("ShopItemList");
@@ -349,7 +332,6 @@ namespace XMainClient.UI
 			DlgHandlerBase.EnsureCreate<XYYMallCategoryHandler>(ref this._XYYMallCategoryHandler, base.transform, false, this);
 		}
 
-		// Token: 0x060109EC RID: 68076 RVA: 0x0041B7EC File Offset: 0x004199EC
 		private bool OnClickOnDetail(IXUIButton button)
 		{
 			bool flag = this._XYYMallCategoryHandler != null;
@@ -360,7 +342,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x060109ED RID: 68077 RVA: 0x0041B81C File Offset: 0x00419A1C
 		private bool OnRefreshShopList(IXUIButton button)
 		{
 			XNormalShopDocument specificDocument = XDocuments.GetSpecificDocument<XNormalShopDocument>(XNormalShopDocument.uuID);
@@ -376,7 +357,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x060109EE RID: 68078 RVA: 0x0041B888 File Offset: 0x00419A88
 		private bool DoRefreshShop(IXUIButton button)
 		{
 			XSingleton<UiUtility>.singleton.CloseModalDlg();
@@ -400,7 +380,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x060109EF RID: 68079 RVA: 0x0041B91C File Offset: 0x00419B1C
 		private uint GetRefreshCost()
 		{
 			XNormalShopDocument specificDocument = XDocuments.GetSpecificDocument<XNormalShopDocument>(XNormalShopDocument.uuID);
@@ -429,7 +408,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x060109F0 RID: 68080 RVA: 0x0041B9D4 File Offset: 0x00419BD4
 		private uint GetMoneyId()
 		{
 			XNormalShopDocument specificDocument = XDocuments.GetSpecificDocument<XNormalShopDocument>(XNormalShopDocument.uuID);
@@ -463,49 +441,34 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x040078D8 RID: 30936
 		private const int colNum = 5;
 
-		// Token: 0x040078D9 RID: 30937
 		private IXUIButton _refreshBtn;
 
-		// Token: 0x040078DA RID: 30938
 		private IXUIButton _detailBtn;
 
-		// Token: 0x040078DB RID: 30939
 		private IXUIScrollView _scrollView;
 
-		// Token: 0x040078DC RID: 30940
 		private IXUILabel _freeNumLabel;
 
-		// Token: 0x040078DD RID: 30941
 		private IXUILabel _privilegeFreeLabel;
 
-		// Token: 0x040078DE RID: 30942
 		private IXUILabel _dragonCoinLabel;
 
-		// Token: 0x040078DF RID: 30943
 		private IXUISprite _itemSprite;
 
-		// Token: 0x040078E0 RID: 30944
 		private Transform _noneTimesTrans;
 
-		// Token: 0x040078E1 RID: 30945
 		protected XUIPool _shopItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x040078E2 RID: 30946
 		private XFx _refreshTaskEffect;
 
-		// Token: 0x040078E3 RID: 30947
 		private Transform _effectPanel;
 
-		// Token: 0x040078E4 RID: 30948
 		private IXUISprite _extraRefresh;
 
-		// Token: 0x040078E5 RID: 30949
 		private IXUISprite _courtPrivilege;
 
-		// Token: 0x040078E6 RID: 30950
 		private XYYMallCategoryHandler _XYYMallCategoryHandler;
 	}
 }

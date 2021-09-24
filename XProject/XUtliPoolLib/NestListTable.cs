@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x0200012B RID: 299
+
 	public class NestListTable : CVSReader
 	{
-		// Token: 0x0600071D RID: 1821 RVA: 0x000238AC File Offset: 0x00021AAC
+
 		public NestListTable.RowData GetByNestID(int key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -29,7 +29,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x0600071E RID: 1822 RVA: 0x00023918 File Offset: 0x00021B18
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			NestListTable.RowData rowData = new NestListTable.RowData();
@@ -43,7 +42,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x0600071F RID: 1823 RVA: 0x00023990 File Offset: 0x00021B90
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -57,19 +55,15 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x04000377 RID: 887
 		public NestListTable.RowData[] Table = null;
 
-		// Token: 0x0200032A RID: 810
 		public class RowData
 		{
-			// Token: 0x04000C45 RID: 3141
+
 			public int NestID;
 
-			// Token: 0x04000C46 RID: 3142
 			public int Type;
 
-			// Token: 0x04000C47 RID: 3143
 			public int Difficulty;
 		}
 	}

@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020018A2 RID: 6306
+
 	internal class XGuildDragonView : DlgBase<XGuildDragonView, XGuildDragonBehaviour>
 	{
-		// Token: 0x17003A02 RID: 14850
-		// (get) Token: 0x060106AD RID: 67245 RVA: 0x00401D38 File Offset: 0x003FFF38
+
 		public override string fileName
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003A03 RID: 14851
-		// (get) Token: 0x060106AE RID: 67246 RVA: 0x00401D50 File Offset: 0x003FFF50
 		public override int layer
 		{
 			get
@@ -31,8 +28,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003A04 RID: 14852
-		// (get) Token: 0x060106AF RID: 67247 RVA: 0x00401D64 File Offset: 0x003FFF64
 		public override bool pushstack
 		{
 			get
@@ -41,8 +36,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003A05 RID: 14853
-		// (get) Token: 0x060106B0 RID: 67248 RVA: 0x00401D78 File Offset: 0x003FFF78
 		public override bool hideMainMenu
 		{
 			get
@@ -51,8 +44,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003A06 RID: 14854
-		// (get) Token: 0x060106B1 RID: 67249 RVA: 0x00401D8C File Offset: 0x003FFF8C
 		public override bool autoload
 		{
 			get
@@ -61,8 +52,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003A07 RID: 14855
-		// (get) Token: 0x060106B2 RID: 67250 RVA: 0x00401DA0 File Offset: 0x003FFFA0
 		public override bool fullscreenui
 		{
 			get
@@ -71,7 +60,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060106B3 RID: 67251 RVA: 0x00401DB4 File Offset: 0x003FFFB4
 		protected override void Init()
 		{
 			base.Init();
@@ -81,7 +69,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_WrapContent.RegisterItemUpdateEventHandler(new WrapItemUpdateEventHandler(this.GuildRankWrapContentItemUpdated));
 		}
 
-		// Token: 0x060106B4 RID: 67252 RVA: 0x00401E1C File Offset: 0x0040001C
 		public void ShowGuildBossView()
 		{
 			XGuildDocument specificDocument = XDocuments.GetSpecificDocument<XGuildDocument>(XGuildDocument.uuID);
@@ -100,7 +87,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060106B5 RID: 67253 RVA: 0x00401E90 File Offset: 0x00400090
 		private bool JoinGuild(IXUIButton btn)
 		{
 			DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.SetVisible(false, true);
@@ -108,7 +94,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x060106B6 RID: 67254 RVA: 0x00401EC0 File Offset: 0x004000C0
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -123,7 +108,6 @@ namespace XMainClient.UI
 			this.RefreshSubscribe();
 		}
 
-		// Token: 0x060106B7 RID: 67255 RVA: 0x00401F4C File Offset: 0x0040014C
 		private void RefreshPrivilegeInfo()
 		{
 			XWelfareDocument specificDocument = XDocuments.GetSpecificDocument<XWelfareDocument>(XWelfareDocument.uuID);
@@ -147,7 +131,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060106B8 RID: 67256 RVA: 0x00402030 File Offset: 0x00400230
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -162,7 +145,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_Privilege.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnPrivilegeClick));
 		}
 
-		// Token: 0x060106B9 RID: 67257 RVA: 0x00402136 File Offset: 0x00400336
 		protected override void OnUnload()
 		{
 			this.m_LeftTime = null;
@@ -170,7 +152,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x060106BA RID: 67258 RVA: 0x00402154 File Offset: 0x00400354
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
@@ -186,7 +167,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060106BB RID: 67259 RVA: 0x004021B0 File Offset: 0x004003B0
 		private void ShowTimeSection()
 		{
 			int num = 0;
@@ -197,7 +177,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_OpenTime.SetText(string.Format(XStringDefineProxy.GetString("WORLDBOSS_OPEN_TIME"), arg, arg2));
 		}
 
-		// Token: 0x060106BC RID: 67260 RVA: 0x00402252 File Offset: 0x00400452
 		public void SetLeftTime(float time, uint BossHp)
 		{
 			this.m_LeftTime.SetLeftTime(time, -1);
@@ -205,7 +184,6 @@ namespace XMainClient.UI
 			this.UpdateLeftTimeState(time, BossHp);
 		}
 
-		// Token: 0x060106BD RID: 67261 RVA: 0x00402288 File Offset: 0x00400488
 		private void UpdateLeftTimeState(float time, uint BossHp)
 		{
 			this.mBossHp = BossHp;
@@ -237,21 +215,18 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060106BE RID: 67262 RVA: 0x00402394 File Offset: 0x00400594
 		private bool OnCloseClick(IXUIButton button)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x060106BF RID: 67263 RVA: 0x004023B0 File Offset: 0x004005B0
 		private bool OnRankClick(IXUIButton button)
 		{
 			DlgBase<XRankView, XRankBehaviour>.singleton.ShowRank(XSysDefine.XSys_Rank_GuildBoss);
 			return true;
 		}
 
-		// Token: 0x060106C0 RID: 67264 RVA: 0x004023D4 File Offset: 0x004005D4
 		private bool OnRewardClick(IXUIButton button)
 		{
 			base.uiBehaviour.m_RewardPanel.SetActive(true);
@@ -259,7 +234,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x060106C1 RID: 67265 RVA: 0x00402410 File Offset: 0x00400610
 		private bool OnSubscribeClick(IXUIButton button)
 		{
 			this.SubscribebuttonID = button.ID;
@@ -268,7 +242,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x060106C2 RID: 67266 RVA: 0x00402478 File Offset: 0x00400678
 		private bool ReqSubscribeChange(IXUIButton button)
 		{
 			XSingleton<UiUtility>.singleton.CloseModalDlg();
@@ -277,7 +250,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x060106C3 RID: 67267 RVA: 0x004024B4 File Offset: 0x004006B4
 		public void RefreshSubscribe()
 		{
 			PushSubscribeTable.RowData pushSubscribe = XPushSubscribeDocument.GetPushSubscribe(PushSubscribeOptions.GuildBoss);
@@ -296,7 +268,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060106C4 RID: 67268 RVA: 0x00402574 File Offset: 0x00400774
 		private bool OnGoBattleClick(IXUIButton button)
 		{
 			bool flag = this.m_LeftTime.GetLeftTime() > 0;
@@ -340,7 +311,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x060106C5 RID: 67269 RVA: 0x00402668 File Offset: 0x00400868
 		public void RefreshGuildRoleRank()
 		{
 			List<XBaseRankInfo> rankList = this._Doc.PersonRankList.rankList;
@@ -360,7 +330,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060106C6 RID: 67270 RVA: 0x00402738 File Offset: 0x00400938
 		private void GuildRankWrapContentItemUpdated(Transform t, int index)
 		{
 			List<XBaseRankInfo> rankList = this._Doc.PersonRankList.rankList;
@@ -404,7 +373,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060106C7 RID: 67271 RVA: 0x004028B4 File Offset: 0x00400AB4
 		public void _SetMyRankFrame(XBaseRankList list)
 		{
 			bool flag = list.rankList.Count == 0;
@@ -461,7 +429,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060106C8 RID: 67272 RVA: 0x00402AE8 File Offset: 0x00400CE8
 		public void ShowDropList(int order, string title, uint listDropList0, uint listDropList1)
 		{
 			GameObject gameObject = base.uiBehaviour.transform.FindChild("Bg/Frame/DropFrame/Item" + order).gameObject;
@@ -481,7 +448,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060106C9 RID: 67273 RVA: 0x00402BB4 File Offset: 0x00400DB4
 		public void ShowCurrentBoss(AskGuildBossInfoRes oRes, string BossNamePrefix, uint BossID, uint rank)
 		{
 			string name = XSingleton<XEntityMgr>.singleton.EntityStatistics.GetByID(BossID).Name;
@@ -510,25 +476,19 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060106CA RID: 67274 RVA: 0x002548EE File Offset: 0x00252AEE
 		private void OnPrivilegeClick(IXUISprite btn)
 		{
 			DlgBase<XWelfareView, XWelfareBehaviour>.singleton.CheckActiveMemberPrivilege(MemberPrivilege.KingdomPrivilege_Commerce);
 		}
 
-		// Token: 0x0400768F RID: 30351
 		public static readonly int REWARD_COUNT = 3;
 
-		// Token: 0x04007690 RID: 30352
 		private XGuildDragonDocument _Doc;
 
-		// Token: 0x04007691 RID: 30353
 		private XLeftTimeCounter m_LeftTime;
 
-		// Token: 0x04007692 RID: 30354
 		private uint mBossHp = 0U;
 
-		// Token: 0x04007693 RID: 30355
 		private ulong SubscribebuttonID = 0UL;
 	}
 }

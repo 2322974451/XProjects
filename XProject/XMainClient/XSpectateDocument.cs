@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x0200097C RID: 2428
+
 	internal class XSpectateDocument : XDocComponent
 	{
-		// Token: 0x17002C97 RID: 11415
-		// (get) Token: 0x06009235 RID: 37429 RVA: 0x001510D8 File Offset: 0x0014F2D8
+
 		public override uint ID
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002C98 RID: 11416
-		// (get) Token: 0x06009236 RID: 37430 RVA: 0x001510F0 File Offset: 0x0014F2F0
 		public List<OneLiveRecordInfo> SpectateRecord
 		{
 			get
@@ -31,26 +28,22 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009237 RID: 37431 RVA: 0x00151108 File Offset: 0x0014F308
 		public override void OnEnterSceneFinally()
 		{
 			this.IsLoadingSpectateScene = false;
 		}
 
-		// Token: 0x06009238 RID: 37432 RVA: 0x00151112 File Offset: 0x0014F312
 		private void GetPVPInterval()
 		{
 			this.PkIntervalList = XSingleton<XGlobalConfig>.singleton.GetSequenceList("Spectate_PVP_interval", false);
 		}
 
-		// Token: 0x06009239 RID: 37433 RVA: 0x0015112B File Offset: 0x0014F32B
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
 			this.GetPVPInterval();
 		}
 
-		// Token: 0x0600923A RID: 37434 RVA: 0x00151140 File Offset: 0x0014F340
 		public void SendQuerySpectateInfo(int ID)
 		{
 			this.CurrTabs = ID;
@@ -59,7 +52,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_GetWatchInfoByID);
 		}
 
-		// Token: 0x0600923B RID: 37435 RVA: 0x00151174 File Offset: 0x0014F374
 		public void SetSpectateInfo(int currTime, List<OneLiveRecordInfo> list)
 		{
 			this.CurrTime = currTime;
@@ -78,7 +70,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600923C RID: 37436 RVA: 0x00151200 File Offset: 0x0014F400
 		public bool OnLeaveTeamSure(IXUIButton btn)
 		{
 			DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.SetVisible(false, true);
@@ -92,7 +83,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600923D RID: 37437 RVA: 0x00151258 File Offset: 0x0014F458
 		public void EnterSpectateBattle(uint liveID, LiveType type)
 		{
 			bool flag = !XSingleton<XGameSysMgr>.singleton.IsSystemOpened(XSysDefine.XSys_Spectate);
@@ -117,7 +107,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600923E RID: 37438 RVA: 0x001512FC File Offset: 0x0014F4FC
 		public void SendEnterSpectateQuery(uint liveID, LiveType type)
 		{
 			this.IsLoadingSpectateScene = true;
@@ -127,14 +116,12 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_EnterWatchBattle);
 		}
 
-		// Token: 0x0600923F RID: 37439 RVA: 0x00151340 File Offset: 0x0014F540
 		public void SendQueryMyLiveInfo()
 		{
 			RpcC2G_GetMyWatchRecord rpc = new RpcC2G_GetMyWatchRecord();
 			XSingleton<XClientNetwork>.singleton.Send(rpc);
 		}
 
-		// Token: 0x06009240 RID: 37440 RVA: 0x00151360 File Offset: 0x0014F560
 		public void SetMyLiveInfo(int watchNum, int commendNum, OneLiveRecordInfo watchMostRecord, OneLiveRecordInfo commendMostRecord, List<OneLiveRecordInfo> list, bool visSet)
 		{
 			this.TotalWatch = watchNum;
@@ -156,7 +143,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009241 RID: 37441 RVA: 0x001513EC File Offset: 0x0014F5EC
 		public void EnterLiveError(bool isOver)
 		{
 			bool flag = DlgBase<SpectateView, SpectateBehaviour>.singleton.IsVisible();
@@ -166,7 +152,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009242 RID: 37442 RVA: 0x00151418 File Offset: 0x0014F618
 		public void SetLiveCount(uint count)
 		{
 			XSingleton<XDebug>.singleton.AddLog(string.Format("Get live count = {0} by server", count), null, null, null, null, null, XDebugColor.XDebug_None);
@@ -178,7 +163,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009243 RID: 37443 RVA: 0x00151468 File Offset: 0x0014F668
 		public void SetMainInterfaceBtnState(bool state, LiveIconData data)
 		{
 			bool flag = data == null;
@@ -198,7 +182,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009244 RID: 37444 RVA: 0x001514DF File Offset: 0x0014F6DF
 		public void SetMainInterfaceBtnFalse()
 		{
 			this.MainInterfaceState = false;
@@ -206,7 +189,6 @@ namespace XMainClient
 			DlgBase<XMainInterface, XMainInterfaceBehaviour>.singleton.RefreshH5ButtonState(XSysDefine.XSys_ExcellentLive, true);
 		}
 
-		// Token: 0x06009245 RID: 37445 RVA: 0x00151500 File Offset: 0x0014F700
 		public void MainInterfaceEnterQuery()
 		{
 			bool flag = this.ClickData == null;
@@ -220,7 +202,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009246 RID: 37446 RVA: 0x00151550 File Offset: 0x0014F750
 		public string GetTitle(OneLiveRecordInfo info)
 		{
 			string text = XStringDefineProxy.GetString("Spectate_Title_" + XFastEnumIntEqualityComparer<LiveType>.ToInt(info.liveType));
@@ -253,7 +234,6 @@ namespace XMainClient
 			return text;
 		}
 
-		// Token: 0x06009247 RID: 37447 RVA: 0x00151614 File Offset: 0x0014F814
 		private string GetPVPPostfix(int pkPoint)
 		{
 			bool flag = this.PkIntervalList == null;
@@ -285,7 +265,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009248 RID: 37448 RVA: 0x001516AC File Offset: 0x0014F8AC
 		public static LiveType GetLiveTypeBySceneType(SceneType type)
 		{
 			if (type <= SceneType.SCENE_WEEK_NEST)
@@ -354,75 +333,52 @@ namespace XMainClient
 			return LiveType.LIVE_MAX;
 		}
 
-		// Token: 0x06009249 RID: 37449 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 		}
 
-		// Token: 0x040030CA RID: 12490
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("SpectateDocument");
 
-		// Token: 0x040030CB RID: 12491
 		private List<OneLiveRecordInfo> _spectateRecord = new List<OneLiveRecordInfo>();
 
-		// Token: 0x040030CC RID: 12492
 		public List<OneLiveRecordInfo> MyRecentRecord = new List<OneLiveRecordInfo>();
 
-		// Token: 0x040030CD RID: 12493
 		public OneLiveRecordInfo WatchMostRecord;
 
-		// Token: 0x040030CE RID: 12494
 		public OneLiveRecordInfo CommendMostRecord;
 
-		// Token: 0x040030CF RID: 12495
 		public SeqList<int> PkIntervalList;
 
-		// Token: 0x040030D0 RID: 12496
 		public int TotalWatch;
 
-		// Token: 0x040030D1 RID: 12497
 		public int TotalCommend;
 
-		// Token: 0x040030D2 RID: 12498
 		public int CurrPage = 0;
 
-		// Token: 0x040030D3 RID: 12499
 		public int MaxPage = 0;
 
-		// Token: 0x040030D4 RID: 12500
 		public int CurrTime = 0;
 
-		// Token: 0x040030D5 RID: 12501
 		public int CurrTabs = 0;
 
-		// Token: 0x040030D6 RID: 12502
 		public bool IsLoadingSpectateScene = false;
 
-		// Token: 0x040030D7 RID: 12503
 		public readonly int ITEMPERPAGE = 4;
 
-		// Token: 0x040030D8 RID: 12504
 		public bool MainInterfaceState = false;
 
-		// Token: 0x040030D9 RID: 12505
 		public LiveIconData MainInterfaceData;
 
-		// Token: 0x040030DA RID: 12506
 		public LiveIconData ClickData;
 
-		// Token: 0x040030DB RID: 12507
 		public uint TempliveID;
 
-		// Token: 0x040030DC RID: 12508
 		public LiveType TempLiveType;
 
-		// Token: 0x040030DD RID: 12509
 		public uint LiveCount = 0U;
 
-		// Token: 0x040030DE RID: 12510
 		public bool VisibleSetting = false;
 
-		// Token: 0x040030DF RID: 12511
 		public bool TempSetting = false;
 	}
 }

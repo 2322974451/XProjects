@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x02000240 RID: 576
+
 	public class OpenServerActivity : CVSReader
 	{
-		// Token: 0x06000CA8 RID: 3240 RVA: 0x000428D0 File Offset: 0x00040AD0
+
 		public OpenServerActivity.RowData GetByServerLevel(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -21,7 +21,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000CA9 RID: 3241 RVA: 0x00042908 File Offset: 0x00040B08
 		private OpenServerActivity.RowData BinarySearchServerLevel(uint key)
 		{
 			int num = 0;
@@ -80,7 +79,6 @@ namespace XUtliPoolLib
 			return null;
 		}
 
-		// Token: 0x06000CAA RID: 3242 RVA: 0x000429E4 File Offset: 0x00040BE4
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			OpenServerActivity.RowData rowData = new OpenServerActivity.RowData();
@@ -92,7 +90,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x06000CAB RID: 3243 RVA: 0x00042A44 File Offset: 0x00040C44
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -106,16 +103,13 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x0400078E RID: 1934
 		public OpenServerActivity.RowData[] Table = null;
 
-		// Token: 0x020003CF RID: 975
 		public class RowData
 		{
-			// Token: 0x04001125 RID: 4389
+
 			public uint ServerLevel;
 
-			// Token: 0x04001126 RID: 4390
 			public uint[] TaskIDs;
 		}
 	}

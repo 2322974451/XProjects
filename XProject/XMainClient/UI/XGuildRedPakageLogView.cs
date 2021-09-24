@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001837 RID: 6199
+
 	internal class XGuildRedPakageLogView : DlgHandlerBase
 	{
-		// Token: 0x1700393F RID: 14655
-		// (set) Token: 0x060101A9 RID: 65961 RVA: 0x003D92C7 File Offset: 0x003D74C7
+
 		public ILogSource LogSource
 		{
 			set
@@ -19,7 +18,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060101AA RID: 65962 RVA: 0x003D92D4 File Offset: 0x003D74D4
 		protected override void Init()
 		{
 			this._Doc = XDocuments.GetSpecificDocument<XGuildRedPacketDocument>(XGuildRedPacketDocument.uuID);
@@ -28,19 +26,16 @@ namespace XMainClient.UI
 			this.m_WrapContent.RegisterItemUpdateEventHandler(new WrapItemUpdateEventHandler(this._WrapContentItemUpdated));
 		}
 
-		// Token: 0x060101AB RID: 65963 RVA: 0x0019F00C File Offset: 0x0019D20C
 		protected override void OnShow()
 		{
 			base.OnShow();
 		}
 
-		// Token: 0x060101AC RID: 65964 RVA: 0x0019EEFD File Offset: 0x0019D0FD
 		protected override void OnHide()
 		{
 			base.OnHide();
 		}
 
-		// Token: 0x060101AD RID: 65965 RVA: 0x003D9360 File Offset: 0x003D7560
 		public void Refresh()
 		{
 			List<ILogData> logList = this.m_LogSource.GetLogList();
@@ -49,7 +44,6 @@ namespace XMainClient.UI
 			this.m_ScrollView.ResetPosition();
 		}
 
-		// Token: 0x060101AE RID: 65966 RVA: 0x003D939C File Offset: 0x003D759C
 		private void _WrapContentItemUpdated(Transform t, int index)
 		{
 			List<ILogData> logList = this.m_LogSource.GetLogList();
@@ -88,7 +82,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060101AF RID: 65967 RVA: 0x003D9538 File Offset: 0x003D7738
 		public override void RegisterEvent()
 		{
 			Transform transform = base.PanelObject.transform.FindChild("Close");
@@ -100,14 +93,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060101B0 RID: 65968 RVA: 0x003D9590 File Offset: 0x003D7790
 		private bool _OnCloseBtnClick(IXUIButton go)
 		{
 			base.SetVisible(false);
 			return true;
 		}
 
-		// Token: 0x060101B1 RID: 65969 RVA: 0x003D95AC File Offset: 0x003D77AC
 		private void _NameClick(string param)
 		{
 			string text = "";
@@ -123,19 +114,14 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x040072D0 RID: 29392
 		private ILogSource m_LogSource;
 
-		// Token: 0x040072D1 RID: 29393
 		private XGuildRedPacketDocument _Doc;
 
-		// Token: 0x040072D2 RID: 29394
 		private IXUIWrapContent m_WrapContent;
 
-		// Token: 0x040072D3 RID: 29395
 		private IXUIScrollView m_ScrollView;
 
-		// Token: 0x040072D4 RID: 29396
 		private Vector3 startPos = new Vector3(-96f, 0f, 0f);
 	}
 }

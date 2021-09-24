@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000B9B RID: 2971
+
 	internal class LevelRewardActivityHandler : DlgHandlerBase
 	{
-		// Token: 0x17003040 RID: 12352
-		// (get) Token: 0x0600AA7A RID: 43642 RVA: 0x001E84FC File Offset: 0x001E66FC
+
 		protected override string FileName
 		{
 			get
@@ -21,7 +20,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AA7B RID: 43643 RVA: 0x001E8513 File Offset: 0x001E6713
 		protected override void Init()
 		{
 			base.Init();
@@ -29,7 +27,6 @@ namespace XMainClient
 			this.InitUI();
 		}
 
-		// Token: 0x0600AA7C RID: 43644 RVA: 0x001E8534 File Offset: 0x001E6734
 		private void InitUI()
 		{
 			this.m_ActivityNormalFrame = base.transform.FindChild("Normal");
@@ -45,7 +42,6 @@ namespace XMainClient
 			this.m_snapshot = (base.PanelObject.transform.Find("Snapshot/Snapshot").GetComponent("UIDummy") as IUIDummy);
 		}
 
-		// Token: 0x0600AA7D RID: 43645 RVA: 0x001E8658 File Offset: 0x001E6858
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -53,26 +49,22 @@ namespace XMainClient
 			this.m_ActivityRestart.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnRestartClick));
 		}
 
-		// Token: 0x0600AA7E RID: 43646 RVA: 0x001E8692 File Offset: 0x001E6892
 		private void OnContinueClick(IXUISprite sp)
 		{
 			this._doc.SendLeaveScene();
 		}
 
-		// Token: 0x0600AA7F RID: 43647 RVA: 0x001E86A1 File Offset: 0x001E68A1
 		private void OnRestartClick(IXUISprite sp)
 		{
 			this._doc.ReEnterLevel();
 		}
 
-		// Token: 0x0600AA80 RID: 43648 RVA: 0x001E86B0 File Offset: 0x001E68B0
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.ShowActivityFrame();
 		}
 
-		// Token: 0x0600AA81 RID: 43649 RVA: 0x001E86C1 File Offset: 0x001E68C1
 		protected override void OnHide()
 		{
 			XSingleton<XTimerMgr>.singleton.KillTimer(this.m_show_time_token);
@@ -80,7 +72,6 @@ namespace XMainClient
 			base.OnHide();
 		}
 
-		// Token: 0x0600AA82 RID: 43650 RVA: 0x001E86E9 File Offset: 0x001E68E9
 		public override void OnUnload()
 		{
 			XSingleton<X3DAvatarMgr>.singleton.OnUIUnloadMainDummy(this.m_snapshot);
@@ -88,7 +79,6 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x0600AA83 RID: 43651 RVA: 0x001E8718 File Offset: 0x001E6918
 		public void ShowActivityFrame()
 		{
 			this.m_ActivityMsg[0].SetVisible(true);
@@ -178,38 +168,28 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AA84 RID: 43652 RVA: 0x001E8BB6 File Offset: 0x001E6DB6
 		private void KillDummyTimer(object sender)
 		{
 			XSingleton<XTimerMgr>.singleton.KillTimer(this.m_show_time_token);
 			XSingleton<X3DAvatarMgr>.singleton.SetMainAnimation(XSingleton<XEntityMgr>.singleton.Player.Present.PresentLib.AttackIdle);
 		}
 
-		// Token: 0x04003F38 RID: 16184
 		private XLevelRewardDocument _doc = null;
 
-		// Token: 0x04003F39 RID: 16185
 		private Transform m_ActivityNormalFrame;
 
-		// Token: 0x04003F3A RID: 16186
 		private XUIPool m_ActivityItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04003F3B RID: 16187
 		private IXUISprite m_ActivityContinue;
 
-		// Token: 0x04003F3C RID: 16188
 		private IXUISprite m_ActivityRestart;
 
-		// Token: 0x04003F3D RID: 16189
 		private Transform m_BrokeRecord;
 
-		// Token: 0x04003F3E RID: 16190
 		private IXUILabel[] m_ActivityMsg = new IXUILabel[3];
 
-		// Token: 0x04003F3F RID: 16191
 		private IUIDummy m_snapshot;
 
-		// Token: 0x04003F40 RID: 16192
 		private uint m_show_time_token = 0U;
 	}
 }

@@ -7,10 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000BB8 RID: 3000
+
 	internal class CarnivalRwdHander : DlgHandlerBase
 	{
-		// Token: 0x0600ABB9 RID: 43961 RVA: 0x001F6E98 File Offset: 0x001F5098
+
 		protected override void Init()
 		{
 			base.Init();
@@ -24,7 +24,6 @@ namespace XMainClient
 			this.present = (uint)XSingleton<XGlobalConfig>.singleton.GetInt("CarnivalPresent");
 		}
 
-		// Token: 0x0600ABBA RID: 43962 RVA: 0x001F6FD0 File Offset: 0x001F51D0
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -33,13 +32,11 @@ namespace XMainClient
 			this.m_sprRBg.RegisterSpriteDragEventHandler(new SpriteDragEventHandler(this.OnAvatarDrag));
 		}
 
-		// Token: 0x0600ABBB RID: 43963 RVA: 0x001F702D File Offset: 0x001F522D
 		private void OnIntroClick(IXUISprite sp)
 		{
 			XSingleton<XDebug>.singleton.AddLog("intro click", null, null, null, null, null, XDebugColor.XDebug_None);
 		}
 
-		// Token: 0x0600ABBC RID: 43964 RVA: 0x001F7048 File Offset: 0x001F5248
 		public void Refresh()
 		{
 			bool flag = this.m_Dummy == null;
@@ -56,7 +53,6 @@ namespace XMainClient
 			this.m_lblProgress.SetText(point + "/" + needPoint);
 		}
 
-		// Token: 0x0600ABBD RID: 43965 RVA: 0x001F714C File Offset: 0x001F534C
 		private bool OnRwdbtnClick(IXUIButton btn)
 		{
 			uint needPoint = DlgBase<CarnivalDlg, CarnivalBehavior>.singleton.doc.needPoint;
@@ -100,7 +96,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600ABBE RID: 43966 RVA: 0x001F72AC File Offset: 0x001F54AC
 		private bool OnModalDlgOK(IXUIButton btn)
 		{
 			DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.SetVisible(false, true);
@@ -120,7 +115,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600ABBF RID: 43967 RVA: 0x001F7360 File Offset: 0x001F5560
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -132,7 +126,6 @@ namespace XMainClient
 			this.m_lblProgress.SetText(point + "/" + needPoint);
 		}
 
-		// Token: 0x0600ABC0 RID: 43968 RVA: 0x001F740C File Offset: 0x001F560C
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
@@ -140,7 +133,6 @@ namespace XMainClient
 			this.m_Dummy = XSingleton<X3DAvatarMgr>.singleton.CreateCommonEntityDummy(this.m_dummPool, this.present, this.m_Snapshot, this.m_Dummy, 1f);
 		}
 
-		// Token: 0x0600ABC1 RID: 43969 RVA: 0x001F745B File Offset: 0x001F565B
 		public override void LeaveStackTop()
 		{
 			base.LeaveStackTop();
@@ -148,7 +140,6 @@ namespace XMainClient
 			this.m_Dummy = null;
 		}
 
-		// Token: 0x0600ABC2 RID: 43970 RVA: 0x001F7483 File Offset: 0x001F5683
 		protected override void OnHide()
 		{
 			base.Return3DAvatarPool();
@@ -156,7 +147,6 @@ namespace XMainClient
 			base.OnHide();
 		}
 
-		// Token: 0x0600ABC3 RID: 43971 RVA: 0x001F749B File Offset: 0x001F569B
 		public override void OnUnload()
 		{
 			base.Return3DAvatarPool();
@@ -164,7 +154,6 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x0600ABC4 RID: 43972 RVA: 0x001F74B4 File Offset: 0x001F56B4
 		protected bool OnAvatarDrag(Vector2 delta)
 		{
 			bool flag = this.m_Dummy != null;
@@ -175,31 +164,22 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x04004079 RID: 16505
 		private IXUIButton m_rwdBtn;
 
-		// Token: 0x0400407A RID: 16506
 		private IXUILabel m_rwdLbl;
 
-		// Token: 0x0400407B RID: 16507
 		private IXUISlider m_slider;
 
-		// Token: 0x0400407C RID: 16508
 		private IXUILabel m_lblProgress;
 
-		// Token: 0x0400407D RID: 16509
 		private IXUISprite m_sprIntro;
 
-		// Token: 0x0400407E RID: 16510
 		public IXUISprite m_sprRBg;
 
-		// Token: 0x0400407F RID: 16511
 		private XDummy m_Dummy;
 
-		// Token: 0x04004080 RID: 16512
 		private IUIDummy m_Snapshot;
 
-		// Token: 0x04004081 RID: 16513
 		private uint present;
 	}
 }

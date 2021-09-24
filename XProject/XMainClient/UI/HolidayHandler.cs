@@ -5,11 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017E4 RID: 6116
+
 	internal class HolidayHandler : DlgHandlerBase
 	{
-		// Token: 0x170038B8 RID: 14520
-		// (get) Token: 0x0600FD88 RID: 64904 RVA: 0x003B7398 File Offset: 0x003B5598
+
 		protected override string FileName
 		{
 			get
@@ -18,7 +17,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FD89 RID: 64905 RVA: 0x003B73B0 File Offset: 0x003B55B0
 		protected override void Init()
 		{
 			base.Init();
@@ -34,7 +32,6 @@ namespace XMainClient.UI
 			this.m_ItemPool.SetupPool(this.m_AwardRoot.gameObject, gameObject, 7U, false);
 		}
 
-		// Token: 0x0600FD8A RID: 64906 RVA: 0x003B74EF File Offset: 0x003B56EF
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -42,21 +39,18 @@ namespace XMainClient.UI
 			this.Refresh();
 		}
 
-		// Token: 0x0600FD8B RID: 64907 RVA: 0x003B750C File Offset: 0x003B570C
 		protected override void OnHide()
 		{
 			base.OnHide();
 			this.m_Bg.SetTexturePath("");
 		}
 
-		// Token: 0x0600FD8C RID: 64908 RVA: 0x003B7527 File Offset: 0x003B5727
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			this.m_Enter.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnEnterClicked));
 		}
 
-		// Token: 0x0600FD8D RID: 64909 RVA: 0x003B754C File Offset: 0x003B574C
 		public void Refresh()
 		{
 			bool flag = !base.IsVisible();
@@ -79,14 +73,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FD8E RID: 64910 RVA: 0x003B7624 File Offset: 0x003B5824
 		private bool OnEnterClicked(IXUIButton btn)
 		{
 			this.doc.EnterHolidayLevel();
 			return true;
 		}
 
-		// Token: 0x0600FD8F RID: 64911 RVA: 0x003B7644 File Offset: 0x003B5844
 		private void SetBG()
 		{
 			string festivalPicPath = this.doc.GetFestivalPicPath();
@@ -97,7 +89,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FD90 RID: 64912 RVA: 0x003B7678 File Offset: 0x003B5878
 		private void SetAwardsInfo()
 		{
 			this.m_ItemPool.ReturnAll(false);
@@ -120,35 +111,26 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FD91 RID: 64913 RVA: 0x003B778E File Offset: 0x003B598E
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
 			this.m_LeftTime.Update();
 		}
 
-		// Token: 0x04006FD3 RID: 28627
 		private XOperatingActivityDocument doc;
 
-		// Token: 0x04006FD4 RID: 28628
 		private IXUILabel m_Tip1;
 
-		// Token: 0x04006FD5 RID: 28629
 		private IXUILabel m_Tip2;
 
-		// Token: 0x04006FD6 RID: 28630
 		private IXUIButton m_Enter;
 
-		// Token: 0x04006FD7 RID: 28631
 		private IXUITexture m_Bg;
 
-		// Token: 0x04006FD8 RID: 28632
 		private Transform m_AwardRoot;
 
-		// Token: 0x04006FD9 RID: 28633
 		private XUIPool m_ItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006FDA RID: 28634
 		private XLeftTimeCounter m_LeftTime;
 	}
 }

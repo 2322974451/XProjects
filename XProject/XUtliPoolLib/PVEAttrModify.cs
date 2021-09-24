@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x02000156 RID: 342
+
 	public class PVEAttrModify : CVSReader
 	{
-		// Token: 0x060007B5 RID: 1973 RVA: 0x000271B8 File Offset: 0x000253B8
+
 		public PVEAttrModify.RowData GetBySceneID(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -21,7 +21,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x060007B6 RID: 1974 RVA: 0x000271F0 File Offset: 0x000253F0
 		private PVEAttrModify.RowData BinarySearchSceneID(uint key)
 		{
 			int num = 0;
@@ -80,7 +79,6 @@ namespace XUtliPoolLib
 			return null;
 		}
 
-		// Token: 0x060007B7 RID: 1975 RVA: 0x000272CC File Offset: 0x000254CC
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			PVEAttrModify.RowData rowData = new PVEAttrModify.RowData();
@@ -90,7 +88,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x060007B8 RID: 1976 RVA: 0x00027310 File Offset: 0x00025510
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -104,13 +101,11 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x040003A2 RID: 930
 		public PVEAttrModify.RowData[] Table = null;
 
-		// Token: 0x02000355 RID: 853
 		public class RowData
 		{
-			// Token: 0x04000D5C RID: 3420
+
 			public uint SceneID;
 		}
 	}

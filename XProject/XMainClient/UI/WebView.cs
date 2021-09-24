@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200178E RID: 6030
+
 	internal class WebView : DlgBase<WebView, WebViewBehaviour>
 	{
-		// Token: 0x1700383F RID: 14399
-		// (get) Token: 0x0600F8C5 RID: 63685 RVA: 0x0038F52C File Offset: 0x0038D72C
+
 		public override string fileName
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003840 RID: 14400
-		// (get) Token: 0x0600F8C6 RID: 63686 RVA: 0x0038F544 File Offset: 0x0038D744
 		public override int layer
 		{
 			get
@@ -31,8 +28,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003841 RID: 14401
-		// (get) Token: 0x0600F8C7 RID: 63687 RVA: 0x0038F558 File Offset: 0x0038D758
 		public override bool autoload
 		{
 			get
@@ -41,8 +36,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003842 RID: 14402
-		// (get) Token: 0x0600F8C8 RID: 63688 RVA: 0x0038F56C File Offset: 0x0038D76C
 		public override bool hideMainMenu
 		{
 			get
@@ -51,8 +44,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003843 RID: 14403
-		// (get) Token: 0x0600F8C9 RID: 63689 RVA: 0x0038F580 File Offset: 0x0038D780
 		public override bool pushstack
 		{
 			get
@@ -61,8 +52,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003844 RID: 14404
-		// (get) Token: 0x0600F8CA RID: 63690 RVA: 0x0038F594 File Offset: 0x0038D794
 		public override bool fullscreenui
 		{
 			get
@@ -71,14 +60,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F8CB RID: 63691 RVA: 0x0038F5A7 File Offset: 0x0038D7A7
 		protected override void Init()
 		{
 			base.Init();
 			this._doc = XDocuments.GetSpecificDocument<XMainInterfaceDocument>(XMainInterfaceDocument.uuID);
 		}
 
-		// Token: 0x0600F8CC RID: 63692 RVA: 0x0038F5C4 File Offset: 0x0038D7C4
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -90,13 +77,11 @@ namespace XMainClient.UI
 			base.uiBehaviour.mTryAgain.RegisterLabelClickEventHandler(new LabelClickEventHandler(this.OnRetryLabel));
 		}
 
-		// Token: 0x0600F8CD RID: 63693 RVA: 0x0038F687 File Offset: 0x0038D887
 		private void OnRedPointRefersh(bool show)
 		{
 			base.uiBehaviour.mRedPoint.SetVisible(show);
 		}
 
-		// Token: 0x0600F8CE RID: 63694 RVA: 0x0038F69C File Offset: 0x0038D89C
 		protected override void OnShow()
 		{
 			base.uiBehaviour.mVideoTitle.SetVisible(false);
@@ -112,7 +97,6 @@ namespace XMainClient.UI
 			this.SetNetWorkStatus(0);
 		}
 
-		// Token: 0x0600F8CF RID: 63695 RVA: 0x0038F764 File Offset: 0x0038D964
 		protected override void OnHide()
 		{
 			base.OnHide();
@@ -123,7 +107,6 @@ namespace XMainClient.UI
 			this._is_loading = false;
 		}
 
-		// Token: 0x0600F8D0 RID: 63696 RVA: 0x0038F7B0 File Offset: 0x0038D9B0
 		private bool OnClose(IXUIButton btn)
 		{
 			XSingleton<XChatIFlyMgr>.singleton.OnCloseWebView();
@@ -131,21 +114,18 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F8D1 RID: 63697 RVA: 0x0038F7D8 File Offset: 0x0038D9D8
 		private bool OnBack(IXUIButton btn)
 		{
 			XSingleton<XChatIFlyMgr>.singleton.OnEvalWebViewJs("DNBackClick()");
 			return true;
 		}
 
-		// Token: 0x0600F8D2 RID: 63698 RVA: 0x0038F7FC File Offset: 0x0038D9FC
 		private bool OnCollectPage(IXUIButton btn)
 		{
 			XSingleton<XChatIFlyMgr>.singleton.OnEvalWebViewJs("DNCollectClick()");
 			return true;
 		}
 
-		// Token: 0x0600F8D3 RID: 63699 RVA: 0x0038F820 File Offset: 0x0038DA20
 		public bool OnModeChanged(IXUICheckBox box)
 		{
 			bool is_loading = this._is_loading;
@@ -180,14 +160,12 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F8D4 RID: 63700 RVA: 0x0038F8C0 File Offset: 0x0038DAC0
 		public void OnRetryLabel(IXUILabel label)
 		{
 			this.StartLoading();
 			XSingleton<XChatIFlyMgr>.singleton.OnRefreshWebViewShow(true);
 		}
 
-		// Token: 0x0600F8D5 RID: 63701 RVA: 0x0038F8D8 File Offset: 0x0038DAD8
 		public void OnShowDetail(string label)
 		{
 			base.uiBehaviour.mVideoTitle.SetVisible(true);
@@ -197,7 +175,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.mCloseBtn.SetVisible(false);
 		}
 
-		// Token: 0x0600F8D6 RID: 63702 RVA: 0x0038F940 File Offset: 0x0038DB40
 		public void SetNetWorkStatus(int status)
 		{
 			bool flag = status == 0;
@@ -224,7 +201,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F8D7 RID: 63703 RVA: 0x0038FA04 File Offset: 0x0038DC04
 		public void OnRefreshNetWorkStatus(object obj)
 		{
 			int netWorkStatus = 0;
@@ -253,7 +229,6 @@ namespace XMainClient.UI
 			this._network_token = XSingleton<XTimerMgr>.singleton.SetTimer(1f, new XTimerMgr.ElapsedEventHandler(this.OnRefreshNetWorkStatus), null);
 		}
 
-		// Token: 0x0600F8D8 RID: 63704 RVA: 0x0038FA6C File Offset: 0x0038DC6C
 		public void OnTabLive()
 		{
 			bool flag = base.IsVisible();
@@ -263,7 +238,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F8D9 RID: 63705 RVA: 0x0038FA98 File Offset: 0x0038DC98
 		private void StartLoading()
 		{
 			this._is_loading = true;
@@ -272,7 +246,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.mTryAgainTip.SetVisible(false);
 		}
 
-		// Token: 0x0600F8DA RID: 63706 RVA: 0x0038FAF3 File Offset: 0x0038DCF3
 		private void OnLoadingFailed(object obj)
 		{
 			this._is_loading = false;
@@ -280,7 +253,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.mTryAgainTip.SetVisible(true);
 		}
 
-		// Token: 0x0600F8DB RID: 63707 RVA: 0x0038FB21 File Offset: 0x0038DD21
 		public void OnLoadFinished()
 		{
 			base.uiBehaviour.mLoading.SetVisible(false);
@@ -289,7 +261,6 @@ namespace XMainClient.UI
 			this._loading_token = 0U;
 		}
 
-		// Token: 0x0600F8DC RID: 63708 RVA: 0x0038FB58 File Offset: 0x0038DD58
 		public void OnSetWebViewMenu(int menutype)
 		{
 			bool flag = !base.IsLoaded() || !base.IsVisible();
@@ -312,7 +283,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F8DD RID: 63709 RVA: 0x0038FC14 File Offset: 0x0038DE14
 		public void OnWebViewBackGame(int backtype)
 		{
 			bool flag = !base.IsLoaded() || !base.IsVisible();
@@ -331,7 +301,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F8DE RID: 63710 RVA: 0x0038FC78 File Offset: 0x0038DE78
 		public void OnWebViewRefershRefPoint(string jsonstr)
 		{
 			bool flag = !base.IsLoaded() || !base.IsVisible();
@@ -360,7 +329,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F8DF RID: 63711 RVA: 0x0038FD50 File Offset: 0x0038DF50
 		public void OnWebViewSetheaderInfo(string jsonstr)
 		{
 			bool flag = !base.IsLoaded() || !base.IsVisible();
@@ -384,7 +352,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F8E0 RID: 63712 RVA: 0x0038FE00 File Offset: 0x0038E000
 		public void OnWebViewCloseLoading(int show)
 		{
 			bool flag = !base.IsLoaded() || !base.IsVisible();
@@ -408,7 +375,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F8E1 RID: 63713 RVA: 0x0038FEB8 File Offset: 0x0038E0B8
 		public void OnWebViewShowReconnect(int show)
 		{
 			bool flag = !base.IsLoaded() || !base.IsVisible();
@@ -427,7 +393,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F8E2 RID: 63714 RVA: 0x0038FF24 File Offset: 0x0038E124
 		public void OnScreenLock(bool islock)
 		{
 			bool flag = !base.IsLoaded() || !base.IsVisible();
@@ -437,7 +402,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F8E3 RID: 63715 RVA: 0x0038FF58 File Offset: 0x0038E158
 		public void HandleScreenLock(string msg)
 		{
 			bool flag = !base.IsLoaded() || !base.IsVisible();
@@ -466,16 +430,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04006C92 RID: 27794
 		private uint _network_token = 0U;
 
-		// Token: 0x04006C93 RID: 27795
 		private uint _loading_token = 0U;
 
-		// Token: 0x04006C94 RID: 27796
 		private bool _is_loading = false;
 
-		// Token: 0x04006C95 RID: 27797
 		private XMainInterfaceDocument _doc = null;
 	}
 }

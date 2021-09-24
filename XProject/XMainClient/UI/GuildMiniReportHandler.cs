@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001766 RID: 5990
+
 	internal class GuildMiniReportHandler : DlgHandlerBase
 	{
-		// Token: 0x1700380E RID: 14350
-		// (get) Token: 0x0600F73F RID: 63295 RVA: 0x00383804 File Offset: 0x00381A04
+
 		protected override string FileName
 		{
 			get
@@ -21,7 +20,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F740 RID: 63296 RVA: 0x0038381C File Offset: 0x00381A1C
 		protected override void Init()
 		{
 			base.Init();
@@ -67,7 +65,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F741 RID: 63297 RVA: 0x00383B4F File Offset: 0x00381D4F
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -75,7 +72,6 @@ namespace XMainClient.UI
 			this.m_btnHelp.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnHelpClick));
 		}
 
-		// Token: 0x0600F742 RID: 63298 RVA: 0x00383B89 File Offset: 0x00381D89
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -84,7 +80,6 @@ namespace XMainClient.UI
 			this.ShowBuffs();
 		}
 
-		// Token: 0x0600F743 RID: 63299 RVA: 0x00383BB4 File Offset: 0x00381DB4
 		public void Push(GCFG2CSynType type, GCFG2CSynPara para)
 		{
 			string text = string.Empty;
@@ -169,7 +164,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F744 RID: 63300 RVA: 0x00383DC8 File Offset: 0x00381FC8
 		public GuildTransfer.RowData GetBySceneID(uint sceneid)
 		{
 			for (int i = 0; i < XGuildTerritoryDocument.mGuildTransfer.Table.Length; i++)
@@ -183,7 +177,6 @@ namespace XMainClient.UI
 			return null;
 		}
 
-		// Token: 0x0600F745 RID: 63301 RVA: 0x00383E20 File Offset: 0x00382020
 		public void Push(string content)
 		{
 			ReportMsg reportMsg = new ReportMsg();
@@ -193,7 +186,6 @@ namespace XMainClient.UI
 			this.ShowList();
 		}
 
-		// Token: 0x0600F746 RID: 63302 RVA: 0x00383E74 File Offset: 0x00382074
 		public void ShowPrepare(bool show)
 		{
 			bool flag = this.m_objpreparing != null;
@@ -208,7 +200,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F747 RID: 63303 RVA: 0x00383EC4 File Offset: 0x003820C4
 		public void ShowBegin(bool open)
 		{
 			bool flag = this.m_tween != null;
@@ -225,7 +216,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F748 RID: 63304 RVA: 0x00383F34 File Offset: 0x00382134
 		public void ShowList()
 		{
 			bool flag = base.IsVisible();
@@ -255,7 +245,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F749 RID: 63305 RVA: 0x0038406C File Offset: 0x0038226C
 		public void ShowBuffs()
 		{
 			bool flag = this._doc == null;
@@ -295,7 +284,6 @@ namespace XMainClient.UI
 			this.m_ShowIntoPool.ActualReturnAll(false);
 		}
 
-		// Token: 0x0600F74A RID: 63306 RVA: 0x003841CC File Offset: 0x003823CC
 		private void RefreshItem(ILoopItemObject item, LoopItemData data)
 		{
 			ReportMsg reportMsg = data as ReportMsg;
@@ -320,21 +308,18 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F74B RID: 63307 RVA: 0x0038423C File Offset: 0x0038243C
 		private bool OnReportClick(IXUIButton btn)
 		{
 			DlgBase<GuildTerritoryReportDlg, GuildTerritoryBahaviour>.singleton.SetVisible(true, true);
 			return true;
 		}
 
-		// Token: 0x0600F74C RID: 63308 RVA: 0x0038425C File Offset: 0x0038245C
 		private bool OnHelpClick(IXUIButton btn)
 		{
 			DlgBase<XCommonHelpTipView, XCommonHelpTipBehaviour>.singleton.ShowHelp(XSysDefine.XSys_GuildTerritory);
 			return true;
 		}
 
-		// Token: 0x0600F74D RID: 63309 RVA: 0x00384280 File Offset: 0x00382480
 		public void RefreshMyInfo(GCFRoleBrief info)
 		{
 			bool flag = info != null;
@@ -347,64 +332,44 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04006B90 RID: 27536
 		public readonly int max_count = 40;
 
-		// Token: 0x04006B91 RID: 27537
 		public static List<ReportMsg> msgs = new List<ReportMsg>();
 
-		// Token: 0x04006B92 RID: 27538
 		public string lastCahceMsg = string.Empty;
 
-		// Token: 0x04006B93 RID: 27539
 		public ILoopScrollView loopScrool;
 
-		// Token: 0x04006B94 RID: 27540
 		public IXUIButton m_btnReport;
 
-		// Token: 0x04006B95 RID: 27541
 		public IXUIButton m_btnHelp;
 
-		// Token: 0x04006B96 RID: 27542
 		public GameObject m_objpreparing;
 
-		// Token: 0x04006B97 RID: 27543
 		public IXUITweenTool m_tween;
 
-		// Token: 0x04006B98 RID: 27544
 		private Vector3 infoDis;
 
-		// Token: 0x04006B99 RID: 27545
 		public XUIPool m_ShowIntoPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006B9A RID: 27546
 		public IXUILabel[] m_Killer = new IXUILabel[XBattleCaptainPVPDocument.GAME_INFO];
 
-		// Token: 0x04006B9B RID: 27547
 		public IXUILabel[] m_Dead = new IXUILabel[XBattleCaptainPVPDocument.GAME_INFO];
 
-		// Token: 0x04006B9C RID: 27548
 		public IXUISprite[] m_InfoIcon = new IXUISprite[XBattleCaptainPVPDocument.GAME_INFO];
 
-		// Token: 0x04006B9D RID: 27549
 		public Transform m_objMyinfo;
 
-		// Token: 0x04006B9E RID: 27550
 		public IXUILabel m_lblRank;
 
-		// Token: 0x04006B9F RID: 27551
 		public IXUILabel m_lblAttack;
 
-		// Token: 0x04006BA0 RID: 27552
 		public IXUILabel m_lblAccupy;
 
-		// Token: 0x04006BA1 RID: 27553
 		private XGuildTerritoryDocument _doc;
 
-		// Token: 0x04006BA2 RID: 27554
 		private bool isopen = true;
 
-		// Token: 0x04006BA3 RID: 27555
 		private Vector3 NoVisible = new Vector3(2000f, 0f, 0f);
 	}
 }

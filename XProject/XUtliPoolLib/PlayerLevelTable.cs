@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x0200014C RID: 332
+
 	public class PlayerLevelTable : CVSReader
 	{
-		// Token: 0x06000792 RID: 1938 RVA: 0x0002649C File Offset: 0x0002469C
+
 		public PlayerLevelTable.RowData GetByLevel(int key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -21,7 +21,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000793 RID: 1939 RVA: 0x000264D4 File Offset: 0x000246D4
 		private PlayerLevelTable.RowData BinarySearchLevel(int key)
 		{
 			int num = 0;
@@ -80,7 +79,6 @@ namespace XUtliPoolLib
 			return null;
 		}
 
-		// Token: 0x06000794 RID: 1940 RVA: 0x000265B0 File Offset: 0x000247B0
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			PlayerLevelTable.RowData rowData = new PlayerLevelTable.RowData();
@@ -98,7 +96,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x06000795 RID: 1941 RVA: 0x00026660 File Offset: 0x00024860
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -112,25 +109,19 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x04000398 RID: 920
 		public PlayerLevelTable.RowData[] Table = null;
 
-		// Token: 0x0200034B RID: 843
 		public class RowData
 		{
-			// Token: 0x04000D1C RID: 3356
+
 			public int Level;
 
-			// Token: 0x04000D1D RID: 3357
 			public long Exp;
 
-			// Token: 0x04000D1E RID: 3358
 			public int AddSkillPoint;
 
-			// Token: 0x04000D1F RID: 3359
 			public double ExpAddition;
 
-			// Token: 0x04000D20 RID: 3360
 			public uint MaxEnhanceLevel;
 		}
 	}

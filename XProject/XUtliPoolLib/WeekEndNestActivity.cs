@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x0200024B RID: 587
+
 	public class WeekEndNestActivity : CVSReader
 	{
-		// Token: 0x06000CD2 RID: 3282 RVA: 0x000436E0 File Offset: 0x000418E0
+
 		public WeekEndNestActivity.RowData GetByParentTaskId(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -29,7 +29,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000CD3 RID: 3283 RVA: 0x0004374C File Offset: 0x0004194C
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			WeekEndNestActivity.RowData rowData = new WeekEndNestActivity.RowData();
@@ -43,7 +42,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x06000CD4 RID: 3284 RVA: 0x000437C4 File Offset: 0x000419C4
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -57,19 +55,15 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x04000799 RID: 1945
 		public WeekEndNestActivity.RowData[] Table = null;
 
-		// Token: 0x020003DA RID: 986
 		public class RowData
 		{
-			// Token: 0x04001158 RID: 4440
+
 			public SeqRef<uint> OpenSvrDay;
 
-			// Token: 0x04001159 RID: 4441
 			public uint ParentTaskId;
 
-			// Token: 0x0400115A RID: 4442
 			public string BgTexName;
 		}
 	}

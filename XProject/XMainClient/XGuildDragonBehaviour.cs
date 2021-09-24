@@ -5,10 +5,10 @@ using XMainClient.UI.UICommon;
 
 namespace XMainClient
 {
-	// Token: 0x02000E3F RID: 3647
+
 	internal class XGuildDragonBehaviour : DlgBehaviourBase
 	{
-		// Token: 0x0600C3F2 RID: 50162 RVA: 0x002AA2D8 File Offset: 0x002A84D8
+
 		private void Awake()
 		{
 			this.m_BtnClose = (base.transform.FindChild("Bg/Close").GetComponent("XUIButton") as IXUIButton);
@@ -39,70 +39,48 @@ namespace XMainClient
 			this.m_Privilege = (base.transform.FindChild("Bg/tq/p").GetComponent("XUISprite") as IXUISprite);
 		}
 
-		// Token: 0x040054F4 RID: 21748
 		public IXUIButton m_BtnClose;
 
-		// Token: 0x040054F5 RID: 21749
 		public IXUIButton m_BtnRank;
 
-		// Token: 0x040054F6 RID: 21750
 		public IXUIButton m_BtnGoBattle;
 
-		// Token: 0x040054F7 RID: 21751
 		public IXUIButton m_BtnSubscribe;
 
-		// Token: 0x040054F8 RID: 21752
 		public IXUIButton m_BtnCancelSubscribe;
 
-		// Token: 0x040054F9 RID: 21753
 		public IXUILabel m_LeftTime;
 
-		// Token: 0x040054FA RID: 21754
 		public IXUILabel m_OpenTime;
 
-		// Token: 0x040054FB RID: 21755
 		public IXUILabel m_LeftTimeHint;
 
-		// Token: 0x040054FC RID: 21756
 		public IXUILabel m_BossName;
 
-		// Token: 0x040054FD RID: 21757
 		public IXUILabel m_Condition;
 
-		// Token: 0x040054FE RID: 21758
 		public IXUILabel m_ConditionTitle;
 
-		// Token: 0x040054FF RID: 21759
 		public IXUIWrapContent m_WrapContent;
 
-		// Token: 0x04005500 RID: 21760
 		public IXUIScrollView m_ScrollView;
 
-		// Token: 0x04005501 RID: 21761
 		public GameObject m_RankPanel;
 
-		// Token: 0x04005502 RID: 21762
 		public IXUILabel m_RankPanel_EmptyRank;
 
-		// Token: 0x04005503 RID: 21763
 		public IXUIButton m_BtnReward;
 
-		// Token: 0x04005504 RID: 21764
 		public GameObject m_RewardPanel;
 
-		// Token: 0x04005505 RID: 21765
 		public GameObject rankInfo;
 
-		// Token: 0x04005506 RID: 21766
 		public GameObject outofRange;
 
-		// Token: 0x04005507 RID: 21767
 		public IXUISprite m_PrivilegeIcon;
 
-		// Token: 0x04005508 RID: 21768
 		public IXUILabel m_PrivilegeName;
 
-		// Token: 0x04005509 RID: 21769
 		public IXUISprite m_Privilege;
 	}
 }

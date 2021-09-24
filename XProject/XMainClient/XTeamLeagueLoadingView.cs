@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000BF4 RID: 3060
+
 	internal class XTeamLeagueLoadingView : DlgBase<XTeamLeagueLoadingView, XTeamLeagueLoadingBehaviour>
 	{
-		// Token: 0x170030AC RID: 12460
-		// (get) Token: 0x0600AE0F RID: 44559 RVA: 0x00208BFC File Offset: 0x00206DFC
+
 		public override string fileName
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170030AD RID: 12461
-		// (get) Token: 0x0600AE10 RID: 44560 RVA: 0x00208C14 File Offset: 0x00206E14
 		public override int layer
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170030AE RID: 12462
-		// (get) Token: 0x0600AE11 RID: 44561 RVA: 0x00208C28 File Offset: 0x00206E28
 		public override bool autoload
 		{
 			get
@@ -40,8 +35,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170030AF RID: 12463
-		// (get) Token: 0x0600AE12 RID: 44562 RVA: 0x00208C3C File Offset: 0x00206E3C
 		public bool IsLoadingOver
 		{
 			get
@@ -50,8 +43,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170030B0 RID: 12464
-		// (get) Token: 0x0600AE13 RID: 44563 RVA: 0x00208C54 File Offset: 0x00206E54
 		public override bool needOnTop
 		{
 			get
@@ -60,7 +51,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AE14 RID: 44564 RVA: 0x00208C67 File Offset: 0x00206E67
 		protected override void Init()
 		{
 			base.Init();
@@ -68,13 +58,11 @@ namespace XMainClient
 			this._doc = XDocuments.GetSpecificDocument<XTeamLeagueBattleDocument>(XTeamLeagueBattleDocument.uuID);
 		}
 
-		// Token: 0x0600AE15 RID: 44565 RVA: 0x00208C88 File Offset: 0x00206E88
 		public void ShowPkLoading()
 		{
 			this.SetVisible(true, true);
 		}
 
-		// Token: 0x0600AE16 RID: 44566 RVA: 0x00208C94 File Offset: 0x00206E94
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -82,13 +70,11 @@ namespace XMainClient
 			this.SetBattleInfo();
 		}
 
-		// Token: 0x0600AE17 RID: 44567 RVA: 0x00208CAD File Offset: 0x00206EAD
 		private void LoadingOver(object o)
 		{
 			this._isLoadingOver = true;
 		}
 
-		// Token: 0x0600AE18 RID: 44568 RVA: 0x00208CB8 File Offset: 0x00206EB8
 		private void SetMemberInfo(GameObject member, LeagueBattleRoleBrief info)
 		{
 			bool flag = info == null;
@@ -107,7 +93,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AE19 RID: 44569 RVA: 0x00208DE0 File Offset: 0x00206FE0
 		private void SetTeamInfo(int index, LeagueBattleTeamData BattleTeam)
 		{
 			bool flag = BattleTeam == null;
@@ -131,14 +116,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AE1A RID: 44570 RVA: 0x00208EFB File Offset: 0x002070FB
 		private void SetBattleInfo()
 		{
 			this.SetTeamInfo(0, this._doc.LoadingInfoBlue);
 			this.SetTeamInfo(1, this._doc.LoadingInfoRed);
 		}
 
-		// Token: 0x0600AE1B RID: 44571 RVA: 0x00208F24 File Offset: 0x00207124
 		public void HidePkLoading()
 		{
 			bool flag = !base.IsVisible();
@@ -148,16 +131,13 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AE1C RID: 44572 RVA: 0x00208F4A File Offset: 0x0020714A
 		private void OnPkLoadingTweenFinish(IXUITweenTool tween)
 		{
 			this.SetVisible(false, true);
 		}
 
-		// Token: 0x040041EE RID: 16878
 		private XTeamLeagueBattleDocument _doc;
 
-		// Token: 0x040041EF RID: 16879
 		private bool _isLoadingOver = false;
 	}
 }

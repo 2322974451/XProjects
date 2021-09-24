@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001711 RID: 5905
+
 	internal class ReceiveEnergyDlg : DlgHandlerBase
 	{
-		// Token: 0x17003797 RID: 14231
-		// (get) Token: 0x0600F3BE RID: 62398 RVA: 0x003673FC File Offset: 0x003655FC
+
 		protected override string FileName
 		{
 			get
@@ -21,7 +20,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F3BF RID: 62399 RVA: 0x00367414 File Offset: 0x00365614
 		protected override void Init()
 		{
 			this.mDoc = (XSingleton<XGame>.singleton.Doc.GetXComponent(XSystemRewardDocument.uuID) as XSystemRewardDocument);
@@ -36,7 +34,6 @@ namespace XMainClient.UI
 			this.m_BtnCancelSubscribe = (base.transform.FindChild("Bg/UnSubscribe").GetComponent("XUIButton") as IXUIButton);
 		}
 
-		// Token: 0x0600F3C0 RID: 62400 RVA: 0x00367544 File Offset: 0x00365744
 		public override void RegisterEvent()
 		{
 			this.m_btnDo.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnClickButtonDo));
@@ -46,7 +43,6 @@ namespace XMainClient.UI
 			this.m_BtnCancelSubscribe.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnSubscribeClick));
 		}
 
-		// Token: 0x0600F3C1 RID: 62401 RVA: 0x003675B8 File Offset: 0x003657B8
 		public override void RefreshData()
 		{
 			bool flag = !base.IsVisible();
@@ -100,7 +96,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F3C2 RID: 62402 RVA: 0x00367778 File Offset: 0x00365978
 		private void SetItemStatue(SeqList<int> lst, ReceiveEnergyPanelModelView go)
 		{
 			bool flag = lst.Count > 1;
@@ -161,7 +156,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F3C3 RID: 62403 RVA: 0x00367938 File Offset: 0x00365B38
 		private bool OnClickButtonDo(IXUIButton go)
 		{
 			bool flag = this.SetButtonCool(this.m_fCoolTime);
@@ -205,7 +199,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F3C4 RID: 62404 RVA: 0x00367A8C File Offset: 0x00365C8C
 		private bool SetButtonCool(float time)
 		{
 			float num = Time.realtimeSinceStartup - this.m_fLastClickBtnTime;
@@ -223,7 +216,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F3C5 RID: 62405 RVA: 0x00367AC4 File Offset: 0x00365CC4
 		private bool GetFatigueSure(IXUIButton btn)
 		{
 			this.mDoc.ReqFetchReward(this.m_rewardUid);
@@ -231,7 +223,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F3C6 RID: 62406 RVA: 0x00367AF6 File Offset: 0x00365CF6
 		public override void OnUnload()
 		{
 			this.mSupperRewardInfo = null;
@@ -240,7 +231,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x0600F3C7 RID: 62407 RVA: 0x00367B15 File Offset: 0x00365D15
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -248,18 +238,15 @@ namespace XMainClient.UI
 			this.RefreshSubscribe();
 		}
 
-		// Token: 0x0600F3C8 RID: 62408 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void OnHide()
 		{
 		}
 
-		// Token: 0x0600F3C9 RID: 62409 RVA: 0x001A6C1F File Offset: 0x001A4E1F
 		protected void OnHideTweenFinished(IXUITweenTool tween)
 		{
 			base.SetVisible(false);
 		}
 
-		// Token: 0x0600F3CA RID: 62410 RVA: 0x00367B30 File Offset: 0x00365D30
 		private bool OnSubscribeClick(IXUIButton button)
 		{
 			this.SubscribebuttonID = button.ID;
@@ -268,7 +255,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F3CB RID: 62411 RVA: 0x00367B98 File Offset: 0x00365D98
 		private bool ReqSubscribeChange(IXUIButton button)
 		{
 			XSingleton<UiUtility>.singleton.CloseModalDlg();
@@ -277,7 +263,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F3CC RID: 62412 RVA: 0x00367BD4 File Offset: 0x00365DD4
 		public void RefreshSubscribe()
 		{
 			PushSubscribeTable.RowData pushSubscribe = XPushSubscribeDocument.GetPushSubscribe(PushSubscribeOptions.ReceiveEnergy);
@@ -296,52 +281,36 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x040068A8 RID: 26792
 		private SystemRewardTable.RowData mSupperRewardInfo;
 
-		// Token: 0x040068A9 RID: 26793
 		private SystemRewardTable.RowData mDinnerRewardInfo;
 
-		// Token: 0x040068AA RID: 26794
 		private XSystemRewardData mSupperRewardData;
 
-		// Token: 0x040068AB RID: 26795
 		private XSystemRewardData mDinnerRewardData;
 
-		// Token: 0x040068AC RID: 26796
 		private XSystemRewardDocument mDoc;
 
-		// Token: 0x040068AD RID: 26797
 		public IXUIButton m_btnDo;
 
-		// Token: 0x040068AE RID: 26798
 		public ReceiveEnergyPanelModelView supperPanel = new ReceiveEnergyPanelModelView();
 
-		// Token: 0x040068AF RID: 26799
 		public ReceiveEnergyPanelModelView dinnerPanel = new ReceiveEnergyPanelModelView();
 
-		// Token: 0x040068B0 RID: 26800
 		private SeqList<int> dinnerData;
 
-		// Token: 0x040068B1 RID: 26801
 		private SeqList<int> supperData;
 
-		// Token: 0x040068B2 RID: 26802
 		public IXUIButton m_BtnSubscribe;
 
-		// Token: 0x040068B3 RID: 26803
 		public IXUIButton m_BtnCancelSubscribe;
 
-		// Token: 0x040068B4 RID: 26804
 		private ulong m_rewardUid = 0UL;
 
-		// Token: 0x040068B5 RID: 26805
 		private float m_fCoolTime = 0.5f;
 
-		// Token: 0x040068B6 RID: 26806
 		private float m_fLastClickBtnTime = 0f;
 
-		// Token: 0x040068B7 RID: 26807
 		private ulong SubscribebuttonID = 0UL;
 	}
 }

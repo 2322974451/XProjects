@@ -4,10 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000DB6 RID: 3510
+
 	internal class XBuffSpecialState : BuffEffect
 	{
-		// Token: 0x0600BE38 RID: 48696 RVA: 0x0027A1B0 File Offset: 0x002783B0
+
 		static XBuffSpecialState()
 		{
 			XBuffSpecialState._buffHandler[XBuffType.XBuffType_Bati] = new XBuffSpecialState.SpecialBuffHandler(XBuffSpecialState.OnBati);
@@ -17,7 +17,6 @@ namespace XMainClient
 			XBuffSpecialState._buffHandler[XBuffType.XBuffType_Trapped] = new XBuffSpecialState.SpecialBuffHandler(XBuffSpecialState.OnTrapped);
 		}
 
-		// Token: 0x0600BE39 RID: 48697 RVA: 0x0027A250 File Offset: 0x00278450
 		public static bool TryCreate(BuffTable.RowData rowData, XBuff buff)
 		{
 			bool flag = rowData.BuffState == null || rowData.BuffState.Length == 0;
@@ -37,15 +36,12 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600BE3A RID: 48698 RVA: 0x0027A2AC File Offset: 0x002784AC
 		public XBuffSpecialState(XBuff buff, XBuffType state)
 		{
 			this._buffType = state;
 			this._buff = buff;
 		}
 
-		// Token: 0x17003354 RID: 13140
-		// (get) Token: 0x0600BE3B RID: 48699 RVA: 0x0027A2D4 File Offset: 0x002784D4
 		public override XBuffEffectPrioriy Priority
 		{
 			get
@@ -65,7 +61,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BE3C RID: 48700 RVA: 0x0027A320 File Offset: 0x00278520
 		public override void OnAdd(XEntity entity, CombatEffectHelper pEffectHelper)
 		{
 			bool isDummy = entity.IsDummy;
@@ -132,7 +127,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BE3D RID: 48701 RVA: 0x0027A4EC File Offset: 0x002786EC
 		public override void OnRemove(XEntity entity, bool IsReplaced)
 		{
 			bool isDummy = entity.IsDummy;
@@ -237,7 +231,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BE3E RID: 48702 RVA: 0x0027A708 File Offset: 0x00278908
 		public override void OnBattleEnd(XEntity entity)
 		{
 			base.OnBattleEnd(entity);
@@ -274,7 +267,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BE3F RID: 48703 RVA: 0x0027A7B8 File Offset: 0x002789B8
 		public override void OnBuffEffect(HurtInfo rawInput, ProjectDamageResult result)
 		{
 			bool flag = XBuffSpecialState._buffHandler.ContainsKey(this._buffType);
@@ -284,26 +276,22 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BE40 RID: 48704 RVA: 0x0027A7F5 File Offset: 0x002789F5
 		private static void OnBati(XBuffSpecialState buffEffect, HurtInfo rawInput, ProjectDamageResult result)
 		{
 			result.SetResult(ProjectResultType.PJRES_BATI);
 		}
 
-		// Token: 0x0600BE41 RID: 48705 RVA: 0x0027A800 File Offset: 0x00278A00
 		private static void OnImmortal(XBuffSpecialState buffEffect, HurtInfo rawInput, ProjectDamageResult result)
 		{
 			result.SetResult(ProjectResultType.PJRES_IMMORTAL);
 			result.Value = 0.0;
 		}
 
-		// Token: 0x0600BE42 RID: 48706 RVA: 0x0027A81B File Offset: 0x00278A1B
 		private static void OnCantDie(XBuffSpecialState buffEffect, HurtInfo rawInput, ProjectDamageResult result)
 		{
 			result.Value = -XBuffSpecialState.GetCantDieDamage(-result.Value, rawInput.Target.Attributes);
 		}
 
-		// Token: 0x0600BE43 RID: 48707 RVA: 0x0027A840 File Offset: 0x00278A40
 		private static void OnShield(XBuffSpecialState buffEffect, HurtInfo rawInput, ProjectDamageResult result)
 		{
 			bool flag = result.Value > 0.0;
@@ -314,7 +302,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BE44 RID: 48708 RVA: 0x0027A884 File Offset: 0x00278A84
 		private static void OnTrapped(XBuffSpecialState buffEffect, HurtInfo rawInput, ProjectDamageResult result)
 		{
 			bool flag = result.Value > 0.0;
@@ -333,7 +320,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BE45 RID: 48709 RVA: 0x0027A91C File Offset: 0x00278B1C
 		public static double GetCantDieDamage(double originalDeltaValue, XAttributes attributes)
 		{
 			double attr = attributes.GetAttr(XAttributeDefine.XAttr_CurrentHP_Basic);
@@ -350,7 +336,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600BE46 RID: 48710 RVA: 0x0027A96C File Offset: 0x00278B6C
 		public static double GetActualChangeAttr(XAttributeDefine attr, double deltaValue, XEntity entity, bool bIgnoreImmortal = false, bool bForceCantDie = false)
 		{
 			bool flag = attr == XAttributeDefine.XAttr_CurrentHP_Basic && deltaValue < 0.0;
@@ -383,7 +368,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600BE47 RID: 48711 RVA: 0x0027A9E8 File Offset: 0x00278BE8
 		public static XBuffSpecialState.SpecialStateResult TryTransform(XEntity entity, int buffID, int transformID, bool bTransform)
 		{
 			bool flag = entity == null || transformID == 0 || entity.Attributes == null;
@@ -420,7 +404,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600BE48 RID: 48712 RVA: 0x0027AA78 File Offset: 0x00278C78
 		public static XBuffSpecialState.SpecialStateResult TryScale(XEntity entity, UIBuffInfo buff, bool bScale)
 		{
 			bool flag = entity == null || buff == null || entity.Attributes == null;
@@ -457,7 +440,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600BE49 RID: 48713 RVA: 0x0027AB1C File Offset: 0x00278D1C
 		public static void TryToggleTrapUI(XEntity entity, UIBuffInfo buff, bool bOpen)
 		{
 			bool flag = entity == null || entity.Buffs == null || buff == null || buff.buffInfo == null;
@@ -483,7 +465,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BE4A RID: 48714 RVA: 0x0027ABC8 File Offset: 0x00278DC8
 		public static void TryStealth(XEntity entity, UIBuffInfo buff, bool bOpen)
 		{
 			bool flag = entity == null || entity.Buffs == null || buff == null || buff.buffInfo == null;
@@ -517,30 +498,23 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04004DB6 RID: 19894
 		private XBuffType _buffType = XBuffType.XBuffType_Max;
 
-		// Token: 0x04004DB7 RID: 19895
 		private XBuff _buff = null;
 
-		// Token: 0x04004DB8 RID: 19896
 		private long _token;
 
-		// Token: 0x04004DB9 RID: 19897
 		private static Dictionary<XBuffType, XBuffSpecialState.SpecialBuffHandler> _buffHandler = new Dictionary<XBuffType, XBuffSpecialState.SpecialBuffHandler>(default(XFastEnumIntEqualityComparer<XBuffType>));
 
-		// Token: 0x020019BE RID: 6590
-		// (Invoke) Token: 0x0601106F RID: 69743
 		private delegate void SpecialBuffHandler(XBuffSpecialState buffEffect, HurtInfo rawInput, ProjectDamageResult result);
 
-		// Token: 0x020019BF RID: 6591
 		public enum SpecialStateResult
 		{
-			// Token: 0x04007FBB RID: 32699
+
 			SSR_Success,
-			// Token: 0x04007FBC RID: 32700
+
 			SSR_Error,
-			// Token: 0x04007FBD RID: 32701
+
 			SSR_NoEffect
 		}
 	}

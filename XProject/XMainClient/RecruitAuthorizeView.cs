@@ -6,11 +6,10 @@ using XMainClient.UI.UICommon;
 
 namespace XMainClient
 {
-	// Token: 0x02000A45 RID: 2629
+
 	internal class RecruitAuthorizeView : DlgBase<RecruitAuthorizeView, RecruitAuthorizeBehaviour>
 	{
-		// Token: 0x17002EE0 RID: 12000
-		// (get) Token: 0x06009FAB RID: 40875 RVA: 0x001A794C File Offset: 0x001A5B4C
+
 		public override string fileName
 		{
 			get
@@ -19,7 +18,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009FAC RID: 40876 RVA: 0x001A7963 File Offset: 0x001A5B63
 		protected override void Init()
 		{
 			base.Init();
@@ -27,7 +25,6 @@ namespace XMainClient
 			base.uiBehaviour._MemberWrapContent.RegisterItemUpdateEventHandler(new WrapItemUpdateEventHandler(this.OnWrapContentUpdate));
 		}
 
-		// Token: 0x06009FAD RID: 40877 RVA: 0x001A799A File Offset: 0x001A5B9A
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -35,20 +32,17 @@ namespace XMainClient
 			this.StackRefresh();
 		}
 
-		// Token: 0x06009FAE RID: 40878 RVA: 0x001A79B8 File Offset: 0x001A5BB8
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
 			this._doc.SendGroupChatLeaderReviewList();
 		}
 
-		// Token: 0x06009FAF RID: 40879 RVA: 0x001A79CE File Offset: 0x001A5BCE
 		public override void RegisterEvent()
 		{
 			base.uiBehaviour._Close.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseHandler));
 		}
 
-		// Token: 0x06009FB0 RID: 40880 RVA: 0x001A79F0 File Offset: 0x001A5BF0
 		protected override void OnUnload()
 		{
 			bool flag = this._memberDisplay != null;
@@ -60,7 +54,6 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x06009FB1 RID: 40881 RVA: 0x001A7A28 File Offset: 0x001A5C28
 		public void RefreshData()
 		{
 			List<GroupMember> leaderReviewList = this._doc.LeaderReviewList;
@@ -77,14 +70,12 @@ namespace XMainClient
 			base.uiBehaviour._MemberScrollView.ResetPosition();
 		}
 
-		// Token: 0x06009FB2 RID: 40882 RVA: 0x001A7AB4 File Offset: 0x001A5CB4
 		private bool OnCloseHandler(IXUIButton btn)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x06009FB3 RID: 40883 RVA: 0x001A7AD0 File Offset: 0x001A5CD0
 		private void OnWrapContentUpdate(Transform t, int index)
 		{
 			bool flag = index < 0 || index >= this._doc.LeaderReviewList.Count;
@@ -112,7 +103,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009FB4 RID: 40884 RVA: 0x001A7C04 File Offset: 0x001A5E04
 		private void OnPlayerClick(IXUISprite sprite)
 		{
 			int num = (int)sprite.ID;
@@ -126,7 +116,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009FB5 RID: 40885 RVA: 0x001A7C80 File Offset: 0x001A5E80
 		private bool OnApplyClick(IXUIButton btn)
 		{
 			this._doc.SendGroupChatLeaderReview((int)btn.ID, true);
@@ -134,7 +123,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x06009FB6 RID: 40886 RVA: 0x001A7CB0 File Offset: 0x001A5EB0
 		private bool OnDenyClick(IXUIButton btn)
 		{
 			this._doc.SendGroupChatLeaderReview((int)btn.ID, false);
@@ -142,10 +130,8 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x04003906 RID: 14598
 		private GroupChatDocument _doc;
 
-		// Token: 0x04003907 RID: 14599
 		private GroupMemberDisplay _memberDisplay;
 	}
 }

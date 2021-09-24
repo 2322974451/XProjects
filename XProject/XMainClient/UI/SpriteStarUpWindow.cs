@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200185B RID: 6235
+
 	internal class SpriteStarUpWindow : DlgHandlerBase
 	{
-		// Token: 0x17003989 RID: 14729
-		// (get) Token: 0x060103B7 RID: 66487 RVA: 0x003EADA8 File Offset: 0x003E8FA8
+
 		protected override string FileName
 		{
 			get
@@ -21,7 +20,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060103B8 RID: 66488 RVA: 0x003EADC0 File Offset: 0x003E8FC0
 		protected override void Init()
 		{
 			base.Init();
@@ -55,7 +53,6 @@ namespace XMainClient.UI
 			this._lockMaxNum = XSingleton<XGlobalConfig>.singleton.GetInt("SpriteTrainNoToChooseMaxNum");
 		}
 
-		// Token: 0x060103B9 RID: 66489 RVA: 0x003EB0E4 File Offset: 0x003E92E4
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -70,7 +67,6 @@ namespace XMainClient.UI
 			this.SetInfo(DlgBase<SpriteSystemDlg, TabDlgBehaviour>.singleton._SpriteMainFrame.CurrentClick);
 		}
 
-		// Token: 0x060103BA RID: 66490 RVA: 0x003EB17C File Offset: 0x003E937C
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -80,7 +76,6 @@ namespace XMainClient.UI
 			this.m_Close.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseClicked));
 		}
 
-		// Token: 0x060103BB RID: 66491 RVA: 0x003EB1F4 File Offset: 0x003E93F4
 		protected override void OnHide()
 		{
 			base.OnHide();
@@ -95,7 +90,6 @@ namespace XMainClient.UI
 			this._SpriteAvatarHandler.SetVisible(false);
 		}
 
-		// Token: 0x060103BC RID: 66492 RVA: 0x003EB25C File Offset: 0x003E945C
 		public override void OnUnload()
 		{
 			DlgHandlerBase.EnsureUnload<XSpriteAvatarHandler>(ref this._SpriteAvatarHandler);
@@ -108,7 +102,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x060103BD RID: 66493 RVA: 0x003EB2A8 File Offset: 0x003E94A8
 		public void OnServerReturn(SpriteType type)
 		{
 			this.SetInfo(this.CurrentClick);
@@ -126,13 +119,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060103BE RID: 66494 RVA: 0x003EB2FE File Offset: 0x003E94FE
 		public void SetAvatar()
 		{
 			this._SpriteAvatarHandler.SetSpriteInfoByIndex(this.CurrentClick, 0, false, true);
 		}
 
-		// Token: 0x060103BF RID: 66495 RVA: 0x003EB318 File Offset: 0x003E9518
 		private void SetInfo(int index)
 		{
 			this.CurrentClick = index;
@@ -243,7 +234,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060103C0 RID: 66496 RVA: 0x003EB98C File Offset: 0x003E9B8C
 		private void OnLockClick(IXUISprite iSp)
 		{
 			bool flag = this._lockList[(int)iSp.ID] && this.GetUnLockNum() >= this._lockMaxNum;
@@ -274,7 +264,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060103C1 RID: 66497 RVA: 0x003EBBD4 File Offset: 0x003E9DD4
 		private bool CanStarUp(SpriteEvolution.RowData cost)
 		{
 			bool flag = cost == null;
@@ -286,7 +275,6 @@ namespace XMainClient.UI
 			return !flag2;
 		}
 
-		// Token: 0x060103C2 RID: 66498 RVA: 0x003EBC30 File Offset: 0x003E9E30
 		private bool CostEnough(SpriteEvolution.RowData cost, SpriteTable.RowData data)
 		{
 			bool flag = cost == null;
@@ -308,7 +296,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x060103C3 RID: 66499 RVA: 0x003EBCD4 File Offset: 0x003E9ED4
 		private void SetSkillIcon(GameObject go, uint skillID, bool mainSkill = false, uint evolutionLevel = 0U)
 		{
 			IXUISprite ixuisprite = go.transform.FindChild("Icon").GetComponent("XUISprite") as IXUISprite;
@@ -335,7 +322,6 @@ namespace XMainClient.UI
 			ixuilabel2.SetVisible(mainSkill);
 		}
 
-		// Token: 0x060103C4 RID: 66500 RVA: 0x003EBE10 File Offset: 0x003EA010
 		private void OnSkillIconClicked(IXUISprite obj)
 		{
 			SpriteInfo spriteInfo = this._doc.SpriteList[this.CurrentClick];
@@ -344,7 +330,6 @@ namespace XMainClient.UI
 			DlgBase<XSpriteSkillTipDlg, XSpriteSkillTipBehaviour>.singleton.ShowSpriteSkill(spriteInfo.SkillID, true, level);
 		}
 
-		// Token: 0x060103C5 RID: 66501 RVA: 0x003EBE64 File Offset: 0x003EA064
 		private int GetUnLockNum()
 		{
 			int num = 0;
@@ -359,7 +344,6 @@ namespace XMainClient.UI
 			return num;
 		}
 
-		// Token: 0x060103C6 RID: 66502 RVA: 0x003EBEAC File Offset: 0x003EA0AC
 		public void OnStarUpBtnClick(IXUISprite btn)
 		{
 			bool flag = this._doc.SpriteList[this.CurrentClick].EvolutionLevel >= XSpriteSystemDocument.MAXSTARLEVEL[(int)this._doc.GetSpriteQuality(this.CurrentClick)];
@@ -437,7 +421,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060103C7 RID: 66503 RVA: 0x003EC210 File Offset: 0x003EA410
 		private bool OnStarUpSure(IXUIButton btn)
 		{
 			DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.SetVisible(false, true);
@@ -446,7 +429,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x060103C8 RID: 66504 RVA: 0x003EC258 File Offset: 0x003EA458
 		private bool OnTrainSure(IXUIButton btn)
 		{
 			DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.SetVisible(false, true);
@@ -471,7 +453,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x060103C9 RID: 66505 RVA: 0x003EC318 File Offset: 0x003EA518
 		private void OnRebornBtnClick(IXUISprite iSp)
 		{
 			bool flag = this.CurrentClick >= this._doc.SpriteList.Count;
@@ -497,7 +478,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060103CA RID: 66506 RVA: 0x003EC4BC File Offset: 0x003EA6BC
 		private bool OnRebornSure1(IXUIButton btn)
 		{
 			XSingleton<XDebug>.singleton.AddLog("ResetTrain1!", null, null, null, null, null, XDebugColor.XDebug_None);
@@ -505,7 +485,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x060103CB RID: 66507 RVA: 0x003EC4FC File Offset: 0x003EA6FC
 		private bool OnRebornSure2(IXUIButton btn)
 		{
 			XSingleton<XDebug>.singleton.AddLog("ResetTrain2!", null, null, null, null, null, XDebugColor.XDebug_None);
@@ -513,7 +492,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x060103CC RID: 66508 RVA: 0x003EC53C File Offset: 0x003EA73C
 		private bool OnRebornToZeroSure(IXUIButton btn)
 		{
 			DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.SetVisible(false, true);
@@ -522,7 +500,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x060103CD RID: 66509 RVA: 0x003EC588 File Offset: 0x003EA788
 		private void OnHelpBtnPress(IXUIButton btn, bool state)
 		{
 			bool flag = this.m_HelpTips.activeInHierarchy != state;
@@ -532,14 +509,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060103CE RID: 66510 RVA: 0x003EC5B8 File Offset: 0x003EA7B8
 		public bool OnCloseClicked(IXUIButton btn)
 		{
 			base.SetVisible(false);
 			return true;
 		}
 
-		// Token: 0x060103CF RID: 66511 RVA: 0x003EC5D4 File Offset: 0x003EA7D4
 		public void ShowStarUpSuccessEffect()
 		{
 			bool flag = this._fxFirework != null;
@@ -550,7 +525,6 @@ namespace XMainClient.UI
 			this._fxFirework = XSingleton<XFxMgr>.singleton.CreateAndPlay("Effects/FX_Particle/UIfx/UI_jl_level", this.m_EffectParent, Vector3.zero, Vector3.one, 1f, false, 3f, true);
 		}
 
-		// Token: 0x060103D0 RID: 66512 RVA: 0x003EC634 File Offset: 0x003EA834
 		private string GetAttrName(uint AttrID)
 		{
 			bool flag = AttrID == 11U;
@@ -567,85 +541,58 @@ namespace XMainClient.UI
 			return @string;
 		}
 
-		// Token: 0x04007486 RID: 29830
 		private XSpriteSystemDocument _doc;
 
-		// Token: 0x04007487 RID: 29831
 		public XUIPool m_CurrAttrPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04007488 RID: 29832
 		public XUIPool m_LastAttrPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04007489 RID: 29833
 		public XSpriteAvatarHandler _SpriteAvatarHandler;
 
-		// Token: 0x0400748A RID: 29834
 		public IXUISprite m_StarUpBtn;
 
-		// Token: 0x0400748B RID: 29835
 		public IXUILabel m_StarUpText;
 
-		// Token: 0x0400748C RID: 29836
 		public IXUILabelSymbol m_Cost;
 
-		// Token: 0x0400748D RID: 29837
 		public IXUIButton m_Close;
 
-		// Token: 0x0400748E RID: 29838
 		public GameObject m_CurrSkill;
 
-		// Token: 0x0400748F RID: 29839
 		private Transform m_EffectParent;
 
-		// Token: 0x04007490 RID: 29840
 		private XFx _fxFirework;
 
-		// Token: 0x04007491 RID: 29841
 		public int CurrentClick;
 
-		// Token: 0x04007492 RID: 29842
 		public List<int> LastAttrList = new List<int>();
 
-		// Token: 0x04007493 RID: 29843
 		public List<int> LastValueList = new List<int>();
 
-		// Token: 0x04007494 RID: 29844
 		private List<bool> _lockList = new List<bool>();
 
-		// Token: 0x04007495 RID: 29845
 		private SeqList<int> _lockCost;
 
-		// Token: 0x04007496 RID: 29846
 		private int _lockMaxNum;
 
-		// Token: 0x04007497 RID: 29847
 		private GameObject m_LastEmpty;
 
-		// Token: 0x04007498 RID: 29848
 		private IXUIProgress m_Progress;
 
-		// Token: 0x04007499 RID: 29849
 		private IXUILabel m_ProgressValue;
 
-		// Token: 0x0400749A RID: 29850
 		private IXUIButton m_HelpBtn;
 
-		// Token: 0x0400749B RID: 29851
 		private GameObject m_HelpTips;
 
-		// Token: 0x0400749C RID: 29852
 		public IXUISprite m_RebornBtn;
 
-		// Token: 0x0400749D RID: 29853
 		private GameObject m_TrainFx;
 
-		// Token: 0x0400749E RID: 29854
 		private GameObject m_MaxFx;
 
-		// Token: 0x0400749F RID: 29855
 		private uint _currProcess;
 
-		// Token: 0x040074A0 RID: 29856
 		private uint _needProcess;
 	}
 }

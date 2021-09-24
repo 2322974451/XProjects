@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001862 RID: 6242
+
 	internal class XTeamBattleConfirmView : DlgBase<XTeamBattleConfirmView, XTeamBattleConfirmBehaviour>
 	{
-		// Token: 0x17003990 RID: 14736
-		// (get) Token: 0x06010400 RID: 66560 RVA: 0x003EDB8C File Offset: 0x003EBD8C
+
 		public override string fileName
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003991 RID: 14737
-		// (get) Token: 0x06010401 RID: 66561 RVA: 0x003EDBA4 File Offset: 0x003EBDA4
 		public override int layer
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003992 RID: 14738
-		// (get) Token: 0x06010402 RID: 66562 RVA: 0x003EDBB8 File Offset: 0x003EBDB8
 		public override int group
 		{
 			get
@@ -40,8 +35,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003993 RID: 14739
-		// (get) Token: 0x06010403 RID: 66563 RVA: 0x003EDBCC File Offset: 0x003EBDCC
 		public override bool autoload
 		{
 			get
@@ -50,8 +43,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003994 RID: 14740
-		// (get) Token: 0x06010404 RID: 66564 RVA: 0x003EDBE0 File Offset: 0x003EBDE0
 		public override bool isPopup
 		{
 			get
@@ -60,21 +51,18 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010405 RID: 66565 RVA: 0x003EDBF3 File Offset: 0x003EBDF3
 		protected override void Init()
 		{
 			this.doc = XDocuments.GetSpecificDocument<XTeamDocument>(XTeamDocument.uuID);
 			this.FIGHT_VOTE_TIME = (float)XSingleton<XGlobalConfig>.singleton.GetInt("TeamVoteTime");
 		}
 
-		// Token: 0x06010406 RID: 66566 RVA: 0x003EDC1C File Offset: 0x003EBE1C
 		public override void RegisterEvent()
 		{
 			base.uiBehaviour.m_OK.RegisterClickEventHandler(new ButtonClickEventHandler(this._OnOKBtnClick));
 			base.uiBehaviour.m_Cancel.RegisterClickEventHandler(new ButtonClickEventHandler(this._OnCancelBtnClick));
 		}
 
-		// Token: 0x06010407 RID: 66567 RVA: 0x003EDC5C File Offset: 0x003EBE5C
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
@@ -98,7 +86,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010408 RID: 66568 RVA: 0x003EDCEC File Offset: 0x003EBEEC
 		public void StartFightVote()
 		{
 			bool flag = !base.IsVisible();
@@ -115,7 +102,6 @@ namespace XMainClient.UI
 			this.RefreshFightVote();
 		}
 
-		// Token: 0x06010409 RID: 66569 RVA: 0x003EDD7C File Offset: 0x003EBF7C
 		public void RefreshFightVote()
 		{
 			bool flag = !base.IsVisible() || !this.doc.bInTeam;
@@ -199,26 +185,22 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601040A RID: 66570 RVA: 0x003EE244 File Offset: 0x003EC444
 		private bool _OnOKBtnClick(IXUIButton go)
 		{
 			return this.m_OKHandler(go);
 		}
 
-		// Token: 0x0601040B RID: 66571 RVA: 0x003EE264 File Offset: 0x003EC464
 		private bool _OnCancelBtnClick(IXUIButton go)
 		{
 			return this.m_CancelHandler(go);
 		}
 
-		// Token: 0x0601040C RID: 66572 RVA: 0x003EE284 File Offset: 0x003EC484
 		private bool _OnFightAgreeBtnClick(IXUIButton go)
 		{
 			this.doc.ReqTeamOp(TeamOperate.TEAM_START_BATTLE_AGREE, 0UL, null, TeamMemberType.TMT_NORMAL, null);
 			return true;
 		}
 
-		// Token: 0x0601040D RID: 66573 RVA: 0x003EE2AC File Offset: 0x003EC4AC
 		private bool _OnFightRejectBtnClick(IXUIButton go)
 		{
 			this.SetVisibleWithAnimation(false, null);
@@ -226,13 +208,11 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0601040E RID: 66574 RVA: 0x003EE2DB File Offset: 0x003EC4DB
 		protected override void OnPopupBlocked()
 		{
 			this.doc.ReqTeamOp(TeamOperate.TEAM_START_BATTLE_DISAGREE, 0UL, null, TeamMemberType.TMT_NORMAL, null);
 		}
 
-		// Token: 0x0601040F RID: 66575 RVA: 0x003EE2F4 File Offset: 0x003EC4F4
 		private void _SetRift(XTeamRift data)
 		{
 			bool flag = data == null;
@@ -287,7 +267,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010410 RID: 66576 RVA: 0x003EE568 File Offset: 0x003EC768
 		private void _RefreshRiftBuff(GameObject go, string atlas, string sp, string text)
 		{
 			IXUILabel ixuilabel = go.transform.FindChild("value").GetComponent("XUILabel") as IXUILabel;
@@ -304,22 +283,16 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x040074D3 RID: 29907
 		private XTeamDocument doc;
 
-		// Token: 0x040074D4 RID: 29908
 		private ButtonClickEventHandler m_OKHandler;
 
-		// Token: 0x040074D5 RID: 29909
 		private ButtonClickEventHandler m_CancelHandler;
 
-		// Token: 0x040074D6 RID: 29910
 		private float FIGHT_VOTE_TIME = 5f;
 
-		// Token: 0x040074D7 RID: 29911
 		private float m_TargetTime;
 
-		// Token: 0x040074D8 RID: 29912
 		private float m_CurrentTime;
 	}
 }

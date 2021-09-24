@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020018ED RID: 6381
+
 	internal class XWelfareGiftBagHandler : DlgHandlerBase
 	{
-		// Token: 0x17003A84 RID: 14980
-		// (get) Token: 0x06010A00 RID: 68096 RVA: 0x0041C030 File Offset: 0x0041A230
+
 		protected override string FileName
 		{
 			get
@@ -21,7 +20,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010A01 RID: 68097 RVA: 0x0041C048 File Offset: 0x0041A248
 		protected override void Init()
 		{
 			base.Init();
@@ -39,7 +37,6 @@ namespace XMainClient.UI
 			this.m_BackFlowBg = base.PanelObject.transform.Find("Bg1").gameObject;
 		}
 
-		// Token: 0x06010A02 RID: 68098 RVA: 0x0041C1F9 File Offset: 0x0041A3F9
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -47,20 +44,17 @@ namespace XMainClient.UI
 			this.m_GiftBoxOpened.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnOpenedBoxClicked));
 		}
 
-		// Token: 0x06010A03 RID: 68099 RVA: 0x0041C234 File Offset: 0x0041A434
 		private void OnClosedBoxClicked(IXUISprite sp)
 		{
 			XWelfareDocument specificDocument = XDocuments.GetSpecificDocument<XWelfareDocument>(XWelfareDocument.uuID);
 			specificDocument.GetLittleGiftBag();
 		}
 
-		// Token: 0x06010A04 RID: 68100 RVA: 0x0041C254 File Offset: 0x0041A454
 		private void OnOpenedBoxClicked(IXUISprite sp)
 		{
 			XSingleton<UiUtility>.singleton.ShowSystemTip(XSingleton<XStringTable>.singleton.GetString("PAY_GIFTBAG_GIFT_HAVE_GOT"), "fece00");
 		}
 
-		// Token: 0x06010A05 RID: 68101 RVA: 0x0041C278 File Offset: 0x0041A478
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -69,14 +63,12 @@ namespace XMainClient.UI
 			this.m_BackFlowBg.SetActive(flag);
 		}
 
-		// Token: 0x06010A06 RID: 68102 RVA: 0x0041C2BA File Offset: 0x0041A4BA
 		protected override void OnHide()
 		{
 			base.OnHide();
 			XSingleton<XTimerMgr>.singleton.KillTimer(this._CDToken);
 		}
 
-		// Token: 0x06010A07 RID: 68103 RVA: 0x0041C2D8 File Offset: 0x0041A4D8
 		public override void RefreshData()
 		{
 			XSingleton<XDebug>.singleton.AddLog("Pay GiftBagHandler [RefreshData]", null, null, null, null, null, XDebugColor.XDebug_None);
@@ -114,7 +106,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010A08 RID: 68104 RVA: 0x0041C4B0 File Offset: 0x0041A6B0
 		private static int GiftInfoCompare(PayAileenInfo info1, PayAileenInfo info2)
 		{
 			XWelfareDocument specificDocument = XDocuments.GetSpecificDocument<XWelfareDocument>(XWelfareDocument.uuID);
@@ -133,7 +124,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x06010A09 RID: 68105 RVA: 0x0041C520 File Offset: 0x0041A720
 		private void LeftTimeUpdate(object o)
 		{
 			this.currLeftTime--;
@@ -151,7 +141,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010A0A RID: 68106 RVA: 0x0041C5C4 File Offset: 0x0041A7C4
 		private void SetGiftBagInfo(GameObject item, PayAileenInfo info)
 		{
 			XSingleton<XDebug>.singleton.AddLog("Pay GiftBagHandler [SetGiftBagInfo]", null, null, null, null, null, XDebugColor.XDebug_None);
@@ -225,7 +214,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010A0B RID: 68107 RVA: 0x0041C970 File Offset: 0x0041AB70
 		private bool OnGiftBagIconClicked(IXUIButton btn)
 		{
 			int itemID = (int)btn.ID;
@@ -233,7 +221,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x06010A0C RID: 68108 RVA: 0x0041C998 File Offset: 0x0041AB98
 		private bool OnGiftBagBtnClicked(IXUIButton btn)
 		{
 			int num = (int)btn.ID;
@@ -282,7 +269,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x06010A0D RID: 68109 RVA: 0x0041CB00 File Offset: 0x0041AD00
 		private bool GoToKingdomPrivilege(IXUIButton btn)
 		{
 			DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.SetVisible(false, true);
@@ -302,7 +288,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x06010A0E RID: 68110 RVA: 0x0041CB74 File Offset: 0x0041AD74
 		private int GetGiftBagID(PayAileenTable.RowData info, uint sealType)
 		{
 			int[] levelSealGiftID = info.LevelSealGiftID;
@@ -320,7 +305,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x06010A0F RID: 68111 RVA: 0x0041CBB0 File Offset: 0x0041ADB0
 		public void ResetGiftBagBtnCD(int interval)
 		{
 			bool flag = !base.IsVisible();
@@ -335,37 +319,26 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x040078EE RID: 30958
 		private XUIPool m_GiftBagPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x040078EF RID: 30959
 		private XUIPool m_ItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x040078F0 RID: 30960
 		private IXUIList m_GiftList;
 
-		// Token: 0x040078F1 RID: 30961
 		private IXUILabel m_LeftTime;
 
-		// Token: 0x040078F2 RID: 30962
 		private IXUILabel m_LeftTimeName;
 
-		// Token: 0x040078F3 RID: 30963
 		private int currLeftTime;
 
-		// Token: 0x040078F4 RID: 30964
 		private uint _CDToken;
 
-		// Token: 0x040078F5 RID: 30965
 		private IXUISprite m_GiftBoxClosed;
 
-		// Token: 0x040078F6 RID: 30966
 		private IXUISprite m_GiftBoxOpened;
 
-		// Token: 0x040078F7 RID: 30967
 		private GameObject m_DefaultBg;
 
-		// Token: 0x040078F8 RID: 30968
 		private GameObject m_BackFlowBg;
 	}
 }

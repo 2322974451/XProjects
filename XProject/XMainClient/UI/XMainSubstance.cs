@@ -6,16 +6,15 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200178C RID: 6028
+
 	public class XMainSubstance
 	{
-		// Token: 0x0600F8B4 RID: 63668 RVA: 0x0038E727 File Offset: 0x0038C927
+
 		public void Setup(GameObject go)
 		{
 			this.gameObject = go;
 		}
 
-		// Token: 0x0600F8B5 RID: 63669 RVA: 0x0038E731 File Offset: 0x0038C931
 		public void SetupSubstance(XSysDefine define, int showCount, int index = 0)
 		{
 			this._systemID = define;
@@ -24,13 +23,11 @@ namespace XMainClient.UI
 			this.Refresh();
 		}
 
-		// Token: 0x0600F8B6 RID: 63670 RVA: 0x0038E750 File Offset: 0x0038C950
 		public void Release()
 		{
 			this.DeleteXFX();
 		}
 
-		// Token: 0x0600F8B7 RID: 63671 RVA: 0x0038E75A File Offset: 0x0038C95A
 		public void Recycle()
 		{
 			this._count = 0;
@@ -39,7 +36,6 @@ namespace XMainClient.UI
 			this.gameObject.SetActive(false);
 		}
 
-		// Token: 0x0600F8B8 RID: 63672 RVA: 0x0038E780 File Offset: 0x0038C980
 		private void Refresh()
 		{
 			this.gameObject.SetActive(true);
@@ -93,7 +89,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F8B9 RID: 63673 RVA: 0x0038E9BC File Offset: 0x0038CBBC
 		private void CreateXFX(string effectStr)
 		{
 			bool flag = this._xfx != null && this._xfx.FxName != effectStr;
@@ -108,7 +103,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F8BA RID: 63674 RVA: 0x0038EA34 File Offset: 0x0038CC34
 		private void DeleteXFX()
 		{
 			bool flag = this._xfx != null;
@@ -119,19 +113,14 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04006C89 RID: 27785
 		private XSysDefine _systemID = XSysDefine.XSys_None;
 
-		// Token: 0x04006C8A RID: 27786
 		private int _count = 0;
 
-		// Token: 0x04006C8B RID: 27787
 		private int _index;
 
-		// Token: 0x04006C8C RID: 27788
 		private XFx _xfx;
 
-		// Token: 0x04006C8D RID: 27789
 		public GameObject gameObject;
 	}
 }

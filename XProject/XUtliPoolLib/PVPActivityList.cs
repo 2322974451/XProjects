@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x02000158 RID: 344
+
 	public class PVPActivityList : CVSReader
 	{
-		// Token: 0x060007BD RID: 1981 RVA: 0x000273F0 File Offset: 0x000255F0
+
 		public PVPActivityList.RowData GetBySysID(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -29,7 +29,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x060007BE RID: 1982 RVA: 0x0002745C File Offset: 0x0002565C
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			PVPActivityList.RowData rowData = new PVPActivityList.RowData();
@@ -43,7 +42,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x060007BF RID: 1983 RVA: 0x000274D4 File Offset: 0x000256D4
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -57,19 +55,15 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x040003A4 RID: 932
 		public PVPActivityList.RowData[] Table = null;
 
-		// Token: 0x02000357 RID: 855
 		public class RowData
 		{
-			// Token: 0x04000D5F RID: 3423
+
 			public uint SysID;
 
-			// Token: 0x04000D60 RID: 3424
 			public string Description;
 
-			// Token: 0x04000D61 RID: 3425
 			public string Icon;
 		}
 	}

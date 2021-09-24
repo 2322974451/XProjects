@@ -10,11 +10,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C86 RID: 3206
+
 	internal class XQQVipDesView : DlgBase<XQQVipDesView, XQQVipDesBehaviour>
 	{
-		// Token: 0x1700320E RID: 12814
-		// (get) Token: 0x0600B51A RID: 46362 RVA: 0x00239F40 File Offset: 0x00238140
+
 		public override string fileName
 		{
 			get
@@ -23,8 +22,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700320F RID: 12815
-		// (get) Token: 0x0600B51B RID: 46363 RVA: 0x00239F58 File Offset: 0x00238158
 		public override bool autoload
 		{
 			get
@@ -33,7 +30,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B51C RID: 46364 RVA: 0x00239F6C File Offset: 0x0023816C
 		protected override void Init()
 		{
 			base.Init();
@@ -47,7 +43,6 @@ namespace XMainClient
 			base.uiBehaviour.m_ItemPool.ActualReturnAll(false);
 		}
 
-		// Token: 0x0600B51D RID: 46365 RVA: 0x0023A028 File Offset: 0x00238228
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -56,14 +51,12 @@ namespace XMainClient
 			base.uiBehaviour.m_SVipBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnSVipBtnClicked));
 		}
 
-		// Token: 0x0600B51E RID: 46366 RVA: 0x0023A094 File Offset: 0x00238294
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.RefreshBtnsState();
 		}
 
-		// Token: 0x0600B51F RID: 46367 RVA: 0x0023A0A8 File Offset: 0x002382A8
 		public void RefreshBtnsState()
 		{
 			bool flag = this._doc.QQVipInfo == null;
@@ -139,7 +132,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B520 RID: 46368 RVA: 0x0023A31C File Offset: 0x0023851C
 		private void SetVipGiftInfo(Transform vip, SeqList<int> giftList)
 		{
 			IXUIList ixuilist = vip.Find("ItemList").GetComponent("XUIList") as IXUIList;
@@ -155,7 +147,6 @@ namespace XMainClient
 			ixuilist.Refresh();
 		}
 
-		// Token: 0x0600B521 RID: 46369 RVA: 0x0023A400 File Offset: 0x00238600
 		private bool OnVipBtnClicked(IXUIButton btn)
 		{
 			bool flag = this._doc.QQVipInfo == null;
@@ -224,7 +215,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B522 RID: 46370 RVA: 0x0023A534 File Offset: 0x00238734
 		private bool OnSVipBtnClicked(IXUIButton btn)
 		{
 			bool flag = this._doc.QQVipInfo == null;
@@ -293,7 +283,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B523 RID: 46371 RVA: 0x0023A668 File Offset: 0x00238868
 		private void QQVipPurchase(string ServiceCode, int ServiceType)
 		{
 			Dictionary<string, object> dictionary = new Dictionary<string, object>();
@@ -307,30 +296,27 @@ namespace XMainClient
 			XSingleton<XUpdater.XUpdater>.singleton.XPlatform.SendGameExData("pay_for_qq_club", text);
 		}
 
-		// Token: 0x0600B524 RID: 46372 RVA: 0x0023A750 File Offset: 0x00238950
 		private bool OnCloseBtnClicked(IXUIButton btn)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x040046A4 RID: 18084
 		private XPlatformAbilityDocument _doc = null;
 
-		// Token: 0x020019AB RID: 6571
 		public enum VipButtonType
 		{
-			// Token: 0x04007F74 RID: 32628
+
 			None,
-			// Token: 0x04007F75 RID: 32629
+
 			OpenVip,
-			// Token: 0x04007F76 RID: 32630
+
 			OpenSVip,
-			// Token: 0x04007F77 RID: 32631
+
 			RenewVip,
-			// Token: 0x04007F78 RID: 32632
+
 			RenewSVip,
-			// Token: 0x04007F79 RID: 32633
+
 			UpgradeSVip
 		}
 	}

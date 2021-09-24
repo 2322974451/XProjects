@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000F08 RID: 3848
+
 	internal class XItemDrawer
 	{
-		// Token: 0x17003590 RID: 13712
-		// (get) Token: 0x0600CC41 RID: 52289 RVA: 0x002EF5E0 File Offset: 0x002ED7E0
+
 		protected virtual string LeftDownCornerName
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003591 RID: 13713
-		// (get) Token: 0x0600CC42 RID: 52290 RVA: 0x002EF5F8 File Offset: 0x002ED7F8
 		protected virtual string LeftUpCornerName
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003592 RID: 13714
-		// (get) Token: 0x0600CC43 RID: 52291 RVA: 0x002EF610 File Offset: 0x002ED810
 		protected virtual string RightDownCornerName
 		{
 			get
@@ -40,8 +35,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003593 RID: 13715
-		// (get) Token: 0x0600CC44 RID: 52292 RVA: 0x002EF628 File Offset: 0x002ED828
 		protected virtual string RightUpCornerName
 		{
 			get
@@ -50,8 +43,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003594 RID: 13716
-		// (get) Token: 0x0600CC45 RID: 52293 RVA: 0x002EF640 File Offset: 0x002ED840
 		private Dictionary<int, string> ProfNameDic
 		{
 			get
@@ -87,7 +78,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC46 RID: 52294 RVA: 0x002EF718 File Offset: 0x002ED918
 		protected virtual void _GetUI(GameObject uiGo)
 		{
 			this.m_uiTransform = uiGo.transform;
@@ -223,7 +213,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC47 RID: 52295 RVA: 0x002EFA48 File Offset: 0x002EDC48
 		public virtual void DrawItem(GameObject go, XItem realItem, bool bForceShowNum = false)
 		{
 			this._GetUI(go);
@@ -251,25 +240,21 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC48 RID: 52296 RVA: 0x002EFAF4 File Offset: 0x002EDCF4
 		protected virtual void _SetupName(XItem item)
 		{
 			this._SetNameUI();
 		}
 
-		// Token: 0x0600CC49 RID: 52297 RVA: 0x002EFAFE File Offset: 0x002EDCFE
 		protected virtual void _SetupNum(XItem item)
 		{
 			this._SetupNum(item.itemCount, false);
 		}
 
-		// Token: 0x0600CC4A RID: 52298 RVA: 0x002EFB0F File Offset: 0x002EDD0F
 		protected virtual void _SetupNumTop(XItem item)
 		{
 			this._SetNumTopUI(null);
 		}
 
-		// Token: 0x0600CC4B RID: 52299 RVA: 0x002EFB1C File Offset: 0x002EDD1C
 		protected void _SetupLeftDownCorner(bool flag)
 		{
 			bool flag2 = flag && this.m_leftDownCorner == null;
@@ -293,7 +278,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC4C RID: 52300 RVA: 0x002EFB98 File Offset: 0x002EDD98
 		protected void _SetupLeftUpCorner(bool flag, string cornerName = "")
 		{
 			bool flag2 = flag && this.m_leftUpCorner == null;
@@ -325,7 +309,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC4D RID: 52301 RVA: 0x002EFC30 File Offset: 0x002EDE30
 		protected void _SetupRightDownCorner(bool flag)
 		{
 			bool flag2 = flag && this.m_rightDownCorner == null;
@@ -349,7 +332,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC4E RID: 52302 RVA: 0x002EFCAC File Offset: 0x002EDEAC
 		protected void _SetupRightUpCorner(bool flag)
 		{
 			bool flag2 = flag && this.m_rightUpCorner == null;
@@ -373,7 +355,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC4F RID: 52303 RVA: 0x002EFD28 File Offset: 0x002EDF28
 		protected void _SetUpProf(bool flag)
 		{
 			bool flag2 = flag && this.m_prof == null;
@@ -397,7 +378,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC50 RID: 52304 RVA: 0x002EFDA4 File Offset: 0x002EDFA4
 		protected void _SetupMask()
 		{
 			bool bShowMask = XItemDrawerMgr.Param.bShowMask;
@@ -439,7 +419,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC51 RID: 52305 RVA: 0x002EFE30 File Offset: 0x002EE030
 		private void _SetupMaskUI(bool flag)
 		{
 			bool flag2 = flag && this.m_mask == null;
@@ -470,7 +449,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC52 RID: 52306 RVA: 0x002EFF18 File Offset: 0x002EE118
 		private IXUISprite GetCornerSpr(string name, ItemCornerType type)
 		{
 			GameObject go = XSingleton<XItemDrawerMgr>.singleton.GetGo(type);
@@ -493,7 +471,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CC53 RID: 52307 RVA: 0x002EFFB0 File Offset: 0x002EE1B0
 		protected bool _SetupLevelMask()
 		{
 			XPlayer player = XSingleton<XEntityMgr>.singleton.Player;
@@ -517,7 +494,6 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x0600CC54 RID: 52308 RVA: 0x002F0038 File Offset: 0x002EE238
 		protected bool _SetupProfMask()
 		{
 			bool bShowProfReq = XItemDrawerMgr.Param.bShowProfReq;
@@ -539,7 +515,6 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x0600CC55 RID: 52309 RVA: 0x002F00A0 File Offset: 0x002EE2A0
 		private string GetProfIconName()
 		{
 			bool flag = XSingleton<XEntityMgr>.singleton.Player == null;
@@ -557,13 +532,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CC56 RID: 52310 RVA: 0x002F00EF File Offset: 0x002EE2EF
 		protected void _GetItemData(int id)
 		{
 			this.itemdata = XBagDocument.GetItemConf(id);
 		}
 
-		// Token: 0x0600CC57 RID: 52311 RVA: 0x002F0100 File Offset: 0x002EE300
 		protected bool _GetBindingState(XItem item)
 		{
 			bool flag = item == null;
@@ -579,7 +552,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CC58 RID: 52312 RVA: 0x002F0140 File Offset: 0x002EE340
 		protected virtual void _SetupIcon()
 		{
 			bool flag = this.itemdata == null;
@@ -611,13 +583,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC59 RID: 52313 RVA: 0x002F0275 File Offset: 0x002EE475
 		protected virtual void _SetupAttrIcon(XItem item)
 		{
 			this._SetAttrIcon(null, null);
 		}
 
-		// Token: 0x0600CC5A RID: 52314 RVA: 0x002F0284 File Offset: 0x002EE484
 		protected void _SetIconBgUI(string icon, string atlas)
 		{
 			bool flag = this.m_iconBg != null;
@@ -644,7 +614,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC5B RID: 52315 RVA: 0x002F02FC File Offset: 0x002EE4FC
 		protected void _SetAttrIcon(string icon, string atlas)
 		{
 			bool flag = this.m_attrType != null;
@@ -663,7 +632,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC5C RID: 52316 RVA: 0x002F0360 File Offset: 0x002EE560
 		protected void _SetIconUI(string icon, string atlas, int quality, int type)
 		{
 			bool flag = icon == null || atlas == null;
@@ -711,7 +679,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC5D RID: 52317 RVA: 0x002F0584 File Offset: 0x002EE784
 		protected void _SetLargeMaskUI(string sprite, string atlas)
 		{
 			bool flag = this.m_largeMask == null && sprite != null;
@@ -752,7 +719,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC5E RID: 52318 RVA: 0x002F0700 File Offset: 0x002EE900
 		protected void _SetNameUI()
 		{
 			bool flag = this.itemdata == null;
@@ -766,7 +732,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC5F RID: 52319 RVA: 0x002F0750 File Offset: 0x002EE950
 		protected void _SetNameUI(string name, int quality)
 		{
 			bool flag = this.m_name != null;
@@ -786,7 +751,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC60 RID: 52320 RVA: 0x002F07B8 File Offset: 0x002EE9B8
 		protected void _SetNumUI(string num)
 		{
 			bool flag = this.m_num != null;
@@ -810,7 +774,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC61 RID: 52321 RVA: 0x002F084C File Offset: 0x002EEA4C
 		protected void _SetNumTopUI(string num)
 		{
 			bool flag = this.m_numTop != null;
@@ -829,7 +792,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC62 RID: 52322 RVA: 0x002F089C File Offset: 0x002EEA9C
 		protected void _SetupNum(int count, bool bForceShowNum = false)
 		{
 			bool flag = XItemDrawerMgr.Param.MaxItemCount < 0;
@@ -859,7 +821,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC63 RID: 52323 RVA: 0x002F096C File Offset: 0x002EEB6C
 		protected void _SetupNum(int useCount, bool bForceShowNum, int itemCount)
 		{
 			bool flag = !bForceShowNum;
@@ -881,7 +842,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC64 RID: 52324 RVA: 0x002F09DC File Offset: 0x002EEBDC
 		protected virtual void DrawEmpty()
 		{
 			this.itemdata = null;
@@ -899,7 +859,6 @@ namespace XMainClient
 			this._SetUpProf(false);
 		}
 
-		// Token: 0x0600CC65 RID: 52325 RVA: 0x002F0A5C File Offset: 0x002EEC5C
 		protected virtual void _ClearVariables()
 		{
 			this.m_icon = null;
@@ -920,61 +879,42 @@ namespace XMainClient
 			XItemDrawerMgr.Param.Reset();
 		}
 
-		// Token: 0x04005AD8 RID: 23256
 		protected Transform m_uiTransform;
 
-		// Token: 0x04005AD9 RID: 23257
 		protected IXUISprite m_quality;
 
-		// Token: 0x04005ADA RID: 23258
 		protected IXUISprite m_icon;
 
-		// Token: 0x04005ADB RID: 23259
 		protected IXUISprite m_iconBg;
 
-		// Token: 0x04005ADC RID: 23260
 		protected IXUISprite m_maskOld;
 
-		// Token: 0x04005ADD RID: 23261
 		protected IXUISprite m_largeMask;
 
-		// Token: 0x04005ADE RID: 23262
 		protected IXUILabel m_name;
 
-		// Token: 0x04005ADF RID: 23263
 		protected IXUILabel m_num;
 
-		// Token: 0x04005AE0 RID: 23264
 		protected IXUILabel m_numTop;
 
-		// Token: 0x04005AE1 RID: 23265
 		protected ItemList.RowData itemdata;
 
-		// Token: 0x04005AE2 RID: 23266
 		protected IXUISprite m_leftDownCorner;
 
-		// Token: 0x04005AE3 RID: 23267
 		protected IXUISprite m_leftUpCorner;
 
-		// Token: 0x04005AE4 RID: 23268
 		protected IXUISprite m_rightDownCorner;
 
-		// Token: 0x04005AE5 RID: 23269
 		protected IXUISprite m_rightUpCorner;
 
-		// Token: 0x04005AE6 RID: 23270
 		protected IXUISprite m_mask;
 
-		// Token: 0x04005AE7 RID: 23271
 		protected IXUISprite m_prof;
 
-		// Token: 0x04005AE8 RID: 23272
 		protected IXUISprite m_attrType;
 
-		// Token: 0x04005AE9 RID: 23273
 		protected string m_maskName = "kuang_35";
 
-		// Token: 0x04005AEA RID: 23274
 		private Dictionary<int, string> m_profNameDic;
 	}
 }

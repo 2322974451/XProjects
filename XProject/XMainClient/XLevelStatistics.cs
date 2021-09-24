@@ -7,12 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000B17 RID: 2839
+
 	internal class XLevelStatistics : XSingleton<XLevelStatistics>
 	{
-		// Token: 0x17002FFE RID: 12286
-		// (get) Token: 0x0600A701 RID: 42753 RVA: 0x001D7390 File Offset: 0x001D5590
-		// (set) Token: 0x0600A702 RID: 42754 RVA: 0x001D73A8 File Offset: 0x001D55A8
+
 		public uint ComboCount
 		{
 			get
@@ -25,14 +23,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A703 RID: 42755 RVA: 0x001D73B2 File Offset: 0x001D55B2
 		public void Clear()
 		{
 			this._comboCount = 0U;
 			this._lastHitTime = 0f;
 		}
 
-		// Token: 0x0600A704 RID: 42756 RVA: 0x001D73C8 File Offset: 0x001D55C8
 		public void OnEnterScene(uint sceneID)
 		{
 			this.ls.Reset();
@@ -42,12 +38,10 @@ namespace XMainClient
 			this._combo_interval = float.Parse(XSingleton<XGlobalConfig>.singleton.GetValue("ComboInterval"));
 		}
 
-		// Token: 0x0600A705 RID: 42757 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public void OnLeaveScene()
 		{
 		}
 
-		// Token: 0x0600A706 RID: 42758 RVA: 0x001D7444 File Offset: 0x001D5644
 		public void OnMonsterDie(XEntity entity)
 		{
 			Vector3 lastDieEntityPos = entity.EngineObject.Position + new Vector3(0f, entity.Height / 2f, 0f);
@@ -129,7 +123,6 @@ namespace XMainClient
 			XSingleton<XLevelSpawnMgr>.singleton.OnMonsterDie(entity);
 		}
 
-		// Token: 0x0600A707 RID: 42759 RVA: 0x001D7740 File Offset: 0x001D5940
 		public void OnPlayerDie()
 		{
 			this.ls._death_count += 1U;
@@ -156,7 +149,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A708 RID: 42760 RVA: 0x001D7818 File Offset: 0x001D5A18
 		public void OnPlayerRevive()
 		{
 			this.ls._revive_count += 1U;
@@ -190,13 +182,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A709 RID: 42761 RVA: 0x001D7944 File Offset: 0x001D5B44
 		public void OnPlayerRefuseRevive()
 		{
 			this.ls._refuseRevive = true;
 		}
 
-		// Token: 0x0600A70A RID: 42762 RVA: 0x001D7954 File Offset: 0x001D5B54
 		public void OnHitEnemy(int comboCount = -1)
 		{
 			float realtimeSinceStartup = Time.realtimeSinceStartup;
@@ -223,7 +213,6 @@ namespace XMainClient
 			this._SendComboCountEvent();
 		}
 
-		// Token: 0x0600A70B RID: 42763 RVA: 0x001D79DC File Offset: 0x001D5BDC
 		public void OnEnemyHitEnemy(XEntity entity)
 		{
 			bool flag = entity == null || entity.Attributes == null || entity.Attributes.HostID != XSingleton<XAttributeMgr>.singleton.XPlayerData.RoleID;
@@ -238,13 +227,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A70C RID: 42764 RVA: 0x001D7A44 File Offset: 0x001D5C44
 		public void OnPlayerBeHit()
 		{
 			this.ls._player_behit += 1U;
 		}
 
-		// Token: 0x0600A70D RID: 42765 RVA: 0x001D7A5C File Offset: 0x001D5C5C
 		public void OnAIinFight(XEntity entity)
 		{
 			bool isEnemy = entity.IsEnemy;
@@ -254,7 +241,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A70E RID: 42766 RVA: 0x001D7A88 File Offset: 0x001D5C88
 		public void SetPlayerContineIndex(int index)
 		{
 			this.ls._player_continue_index = index;
@@ -262,7 +248,6 @@ namespace XMainClient
 			XSingleton<XLevelScriptMgr>.singleton.SetExternalString("playercontinue" + this.ls._player_continue_index.ToString(), false);
 		}
 
-		// Token: 0x0600A70F RID: 42767 RVA: 0x001D7AD8 File Offset: 0x001D5CD8
 		public void AddPlayerContinueIndex()
 		{
 			this.ls._player_continue_index++;
@@ -270,7 +255,6 @@ namespace XMainClient
 			XSingleton<XLevelScriptMgr>.singleton.SetExternalString("playercontinue" + this.ls._player_continue_index.ToString(), false);
 		}
 
-		// Token: 0x0600A710 RID: 42768 RVA: 0x001D7B30 File Offset: 0x001D5D30
 		public void Update()
 		{
 			float realtimeSinceStartup = Time.realtimeSinceStartup;
@@ -305,19 +289,16 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A711 RID: 42769 RVA: 0x001D7BFB File Offset: 0x001D5DFB
 		public void OnSetBattleResult()
 		{
 			this.ls._remain_monster = XSingleton<XEntityMgr>.singleton.GetOpponent(XSingleton<XEntityMgr>.singleton.Player).Count;
 		}
 
-		// Token: 0x0600A712 RID: 42770 RVA: 0x001D7C22 File Offset: 0x001D5E22
 		public void OnBeforeKillMonster()
 		{
 			this.ls._before_force_kill = this.ls._total_kill;
 		}
 
-		// Token: 0x0600A713 RID: 42771 RVA: 0x001D7C3C File Offset: 0x001D5E3C
 		private void _SendComboCountEvent()
 		{
 			bool flag = XSingleton<XGame>.singleton.SyncMode || XSingleton<XEntityMgr>.singleton.Player == null;
@@ -330,7 +311,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A714 RID: 42772 RVA: 0x001D7C9C File Offset: 0x001D5E9C
 		public void SendData()
 		{
 			XStaticSecurityStatistics.Append("PlayerDeadCount", this.ls._death_count);
@@ -347,19 +327,14 @@ namespace XMainClient
 			XStaticSecurityStatistics.Append("RoundTimeUse", (this.ls._end_time > this.ls._start_time) ? ((this.ls._end_time - this.ls._start_time) * 1000f) : 0f);
 		}
 
-		// Token: 0x04003D90 RID: 15760
 		public XLevelState ls = new XLevelState();
 
-		// Token: 0x04003D91 RID: 15761
 		public static readonly int BOX_ENEMY_ID = 5011;
 
-		// Token: 0x04003D92 RID: 15762
 		private uint _comboCount;
 
-		// Token: 0x04003D93 RID: 15763
 		private float _lastHitTime;
 
-		// Token: 0x04003D94 RID: 15764
 		private float _combo_interval = 2f;
 	}
 }

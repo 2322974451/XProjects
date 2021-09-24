@@ -4,10 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000FB9 RID: 4025
+
 	internal class XActionSender : XSingleton<XActionSender>
 	{
-		// Token: 0x0600D131 RID: 53553 RVA: 0x00306478 File Offset: 0x00304678
+
 		public void SendMoveAction(XEntity entity, float face, float speed, bool inertia)
 		{
 			bool flag = !entity.IsPlayer || XSingleton<XInput>.singleton.Freezed;
@@ -34,7 +34,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D132 RID: 53554 RVA: 0x00306594 File Offset: 0x00304794
 		public void SendMoveAction(XEntity entity, Vector3 des, float speed, bool inertia, bool force2server = false)
 		{
 			bool flag = !entity.IsPlayer || (!force2server && XSingleton<XInput>.singleton.Freezed);
@@ -66,14 +65,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D133 RID: 53555 RVA: 0x0030676C File Offset: 0x0030496C
 		public void Empty()
 		{
 			this._des_tick = 0L;
 			this._dir_tick = 0L;
 		}
 
-		// Token: 0x0600D134 RID: 53556 RVA: 0x00306780 File Offset: 0x00304980
 		public void Flush(bool immediately = false)
 		{
 			bool flag = immediately || this.SyncPass();
@@ -111,7 +108,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D135 RID: 53557 RVA: 0x00306868 File Offset: 0x00304A68
 		public void SendSkillAction(XEntity entity, XEntity target, uint id, int slot)
 		{
 			bool flag = !entity.IsPlayer;
@@ -135,7 +131,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D136 RID: 53558 RVA: 0x0030693C File Offset: 0x00304B3C
 		public void SendSkillAction(XEntity entity, XEntity target, int slot)
 		{
 			bool flag = !entity.IsPlayer;
@@ -153,13 +148,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D137 RID: 53559 RVA: 0x003069E4 File Offset: 0x00304BE4
 		private bool SyncPass()
 		{
 			return XSingleton<XScene>.singleton.IsViewGridScene ? (Time.frameCount % (Application.targetFrameRate / 10) == 0) : ((Time.frameCount & 1) == 0);
 		}
 
-		// Token: 0x0600D138 RID: 53560 RVA: 0x00306A20 File Offset: 0x00304C20
 		private void ResetSkillPtc()
 		{
 			this.skillPtc.Data.SkillIDSpecified = false;
@@ -168,22 +161,16 @@ namespace XMainClient
 			this.skillPtc.Data.ManualFaceSpecified = false;
 		}
 
-		// Token: 0x04005EAB RID: 24235
 		private PtcC2G_MoveOperationReq _dir_movePtc = new PtcC2G_MoveOperationReq();
 
-		// Token: 0x04005EAC RID: 24236
 		private PtcC2G_MoveOperationReq _des_movePtc = new PtcC2G_MoveOperationReq();
 
-		// Token: 0x04005EAD RID: 24237
 		private PtcC2G_CastSkill skillPtc = new PtcC2G_CastSkill();
 
-		// Token: 0x04005EAE RID: 24238
 		private long _dir_tick = 0L;
 
-		// Token: 0x04005EAF RID: 24239
 		private long _des_tick = 0L;
 
-		// Token: 0x04005EB0 RID: 24240
 		private long _stub = 0L;
 	}
 }

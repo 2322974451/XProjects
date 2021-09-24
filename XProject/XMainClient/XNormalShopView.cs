@@ -8,10 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000EF8 RID: 3832
+
 	internal class XNormalShopView : DlgHandlerBase
 	{
-		// Token: 0x0600CB57 RID: 52055 RVA: 0x002E514C File Offset: 0x002E334C
+
 		protected override void Init()
 		{
 			base.Init();
@@ -30,14 +30,12 @@ namespace XMainClient
 			DlgHandlerBase.EnsureCreate<DragonGuildShopRecordsHandler>(ref this.m_dragonguildShopRecordsHandler, base.PanelObject.transform, false, this);
 		}
 
-		// Token: 0x0600CB58 RID: 52056 RVA: 0x002E5322 File Offset: 0x002E3522
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.OnRefreshData();
 		}
 
-		// Token: 0x0600CB59 RID: 52057 RVA: 0x002E5333 File Offset: 0x002E3533
 		public override void OnUnload()
 		{
 			DlgHandlerBase.EnsureUnload<PartnerShopRecordsHandler>(ref this.m_partnerShopRecordsHandler);
@@ -45,7 +43,6 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x0600CB5A RID: 52058 RVA: 0x002E5358 File Offset: 0x002E3558
 		public override void StackRefresh()
 		{
 			bool flag = this._doc != null;
@@ -55,19 +52,16 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CB5B RID: 52059 RVA: 0x002E5385 File Offset: 0x002E3585
 		public override void LeaveStackTop()
 		{
 			base.LeaveStackTop();
 		}
 
-		// Token: 0x0600CB5C RID: 52060 RVA: 0x002E538F File Offset: 0x002E358F
 		public void SetShopType(XSysDefine sys)
 		{
 			this.m_SysShop = sys;
 		}
 
-		// Token: 0x0600CB5D RID: 52061 RVA: 0x002E539C File Offset: 0x002E359C
 		public void OnRefreshData()
 		{
 			this._doc.ReqGoodsList(this.m_SysShop);
@@ -77,13 +71,11 @@ namespace XMainClient
 			this.RefreshShopInfo();
 		}
 
-		// Token: 0x0600CB5E RID: 52062 RVA: 0x002E541F File Offset: 0x002E361F
 		public void SetRefreshedTime(int times)
 		{
 			this.m_RefreshedTime = times;
 		}
 
-		// Token: 0x0600CB5F RID: 52063 RVA: 0x002E542C File Offset: 0x002E362C
 		private void RefreshShopInfo()
 		{
 			ShopTypeTable.RowData shopTypeData = this._doc.GetShopTypeData(this.m_SysShop);
@@ -142,7 +134,6 @@ namespace XMainClient
 			specificDocument.OnTopUIRefreshed(DlgBase<MallSystemDlg, MallSystemBehaviour>.singleton);
 		}
 
-		// Token: 0x0600CB60 RID: 52064 RVA: 0x002E55F0 File Offset: 0x002E37F0
 		public void RefreshGoodsList()
 		{
 			List<XNormalShopGoods> goodsList = this._doc.GoodsList;
@@ -172,7 +163,6 @@ namespace XMainClient
 			this.m_ScrollView.ResetPosition();
 		}
 
-		// Token: 0x0600CB61 RID: 52065 RVA: 0x002E5788 File Offset: 0x002E3988
 		protected virtual bool CheckGoodsShowing(ShopTable.RowData shopGoods)
 		{
 			bool flag = shopGoods == null;
@@ -201,7 +191,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CB62 RID: 52066 RVA: 0x002E5830 File Offset: 0x002E3A30
 		private GameObject GetShowProductGo()
 		{
 			GameObject gameObject = this.m_ShopItemPool.FetchGameObject(false);
@@ -209,7 +198,6 @@ namespace XMainClient
 			return gameObject;
 		}
 
-		// Token: 0x0600CB63 RID: 52067 RVA: 0x002E5860 File Offset: 0x002E3A60
 		private void UpdateGoodsInfo(XNormalShopGoods goods, GameObject shopItem)
 		{
 			XSingleton<XItemDrawerMgr>.singleton.DrawItem(shopItem.transform.FindChild("Item").gameObject, goods.item);
@@ -364,7 +352,6 @@ namespace XMainClient
 			ixuisprite.SetSprite(itemSmallIcon);
 		}
 
-		// Token: 0x0600CB64 RID: 52068 RVA: 0x002E5E38 File Offset: 0x002E4038
 		private void OnItemIconClicked(IXUISprite iSp)
 		{
 			List<XNormalShopGoods> goodsList = this._doc.GoodsList;
@@ -381,7 +368,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CB65 RID: 52069 RVA: 0x002E5EB0 File Offset: 0x002E40B0
 		public void UpdateShopItemInfo(XNormalShopGoods item)
 		{
 			for (int i = 0; i < this.m_ShopItemList.Count; i++)
@@ -396,14 +382,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CB66 RID: 52070 RVA: 0x002E5F2C File Offset: 0x002E412C
 		private bool OnItemBuyClicked(IXUIButton btn)
 		{
 			this._doc.ReqBuyPanel((int)btn.ID);
 			return true;
 		}
 
-		// Token: 0x0600CB67 RID: 52071 RVA: 0x002E5F54 File Offset: 0x002E4154
 		private uint GetRefreshCost()
 		{
 			ShopTypeTable.RowData shopTypeData = this._doc.GetShopTypeData(this.m_SysShop);
@@ -430,7 +414,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CB68 RID: 52072 RVA: 0x002E5FF8 File Offset: 0x002E41F8
 		private string GetMoneyName()
 		{
 			ShopTypeTable.RowData shopTypeData = this._doc.GetShopTypeData(this.m_SysShop);
@@ -459,7 +442,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CB69 RID: 52073 RVA: 0x002E60BC File Offset: 0x002E42BC
 		private bool OnRefreshShop(IXUIButton btn)
 		{
 			string label = string.Format(XStringDefineProxy.GetString("NORMALSHOP_REFRESH"), this.GetRefreshCost().ToString(), this.GetMoneyName());
@@ -467,7 +449,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600CB6A RID: 52074 RVA: 0x002E6120 File Offset: 0x002E4320
 		private bool OnClickrRecordBtn(IXUIButton btn)
 		{
 			XSysDefine xsysDefine = (XSysDefine)btn.ID;
@@ -494,7 +475,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CB6B RID: 52075 RVA: 0x002E6188 File Offset: 0x002E4388
 		private bool DoRefreshShop(IXUIButton btn)
 		{
 			bool flag = !this._doc.IsMoneyOrItemEnough(7, (int)this.GetRefreshCost());
@@ -516,7 +496,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CB6C RID: 52076 RVA: 0x002E6210 File Offset: 0x002E4410
 		protected override void OnHide()
 		{
 			bool flag = DlgBase<HomeFishingDlg, HomeFishingBehaviour>.singleton.IsVisible();
@@ -529,43 +508,30 @@ namespace XMainClient
 			base.OnHide();
 		}
 
-		// Token: 0x040059EE RID: 23022
 		protected XUIPool m_ShopItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x040059EF RID: 23023
 		protected List<GameObject> m_ShopItemList = new List<GameObject>();
 
-		// Token: 0x040059F0 RID: 23024
 		private XNormalShopDocument _doc = null;
 
-		// Token: 0x040059F1 RID: 23025
 		public XSysDefine m_SysShop = XSysDefine.XSys_Mall_Mall;
 
-		// Token: 0x040059F2 RID: 23026
 		public IXUIScrollView m_ScrollView;
 
-		// Token: 0x040059F3 RID: 23027
 		private IXUIButton m_RefreshBtn;
 
-		// Token: 0x040059F4 RID: 23028
 		private int m_RefreshedTime = 0;
 
-		// Token: 0x040059F5 RID: 23029
 		private IXUILabel m_RefreshLabel;
 
-		// Token: 0x040059F6 RID: 23030
 		private GameObject m_partnerInfoGo;
 
-		// Token: 0x040059F7 RID: 23031
 		private IXUIButton m_refreshBtn;
 
-		// Token: 0x040059F8 RID: 23032
 		private IXUILabel m_refreshTipLab;
 
-		// Token: 0x040059F9 RID: 23033
 		private PartnerShopRecordsHandler m_partnerShopRecordsHandler;
 
-		// Token: 0x040059FA RID: 23034
 		private DragonGuildShopRecordsHandler m_dragonguildShopRecordsHandler;
 	}
 }

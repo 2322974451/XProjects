@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000E9A RID: 3738
+
 	internal class XForbidWordMgr : XSingleton<XForbidWordMgr>
 	{
-		// Token: 0x0600C764 RID: 51044 RVA: 0x002C7894 File Offset: 0x002C5A94
+
 		public override bool Init()
 		{
 			bool flag = this._async_loader == null;
@@ -21,14 +21,12 @@ namespace XMainClient
 			return this._async_loader.IsDone;
 		}
 
-		// Token: 0x0600C765 RID: 51045 RVA: 0x002C78FB File Offset: 0x002C5AFB
 		public override void Uninit()
 		{
 			this.DelTree(this.m_root);
 			this._async_loader = null;
 		}
 
-		// Token: 0x0600C766 RID: 51046 RVA: 0x002C7914 File Offset: 0x002C5B14
 		private void BuildTree()
 		{
 			bool flag = this.m_root != null;
@@ -42,7 +40,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C767 RID: 51047 RVA: 0x002C7974 File Offset: 0x002C5B74
 		private void AddWord(string word)
 		{
 			bool flag = this.m_root == null;
@@ -118,7 +115,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C768 RID: 51048 RVA: 0x002C7B3C File Offset: 0x002C5D3C
 		private void DelTree(FWnode cur)
 		{
 			bool flag = cur != null;
@@ -134,7 +130,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C769 RID: 51049 RVA: 0x002C7B9C File Offset: 0x002C5D9C
 		public bool HaveForbidWord(string word)
 		{
 			StringBuilder s = new StringBuilder(word);
@@ -150,7 +145,6 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x0600C76A RID: 51050 RVA: 0x002C7BEC File Offset: 0x002C5DEC
 		public string FilterForbidWord(string word)
 		{
 			StringBuilder stringBuilder = new StringBuilder(word);
@@ -183,7 +177,6 @@ namespace XMainClient
 			return stringBuilder.ToString();
 		}
 
-		// Token: 0x0600C76B RID: 51051 RVA: 0x002C7CDC File Offset: 0x002C5EDC
 		private int MatchLength(StringBuilder s, int start, int size)
 		{
 			int result = 0;
@@ -222,7 +215,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C76C RID: 51052 RVA: 0x002C7DB0 File Offset: 0x002C5FB0
 		public string FilterIllegalCode(string word)
 		{
 			byte[] bytes = Encoding.UTF8.GetBytes(word);
@@ -272,7 +264,6 @@ namespace XMainClient
 			return Encoding.UTF8.GetString(list.ToArray());
 		}
 
-		// Token: 0x0600C76D RID: 51053 RVA: 0x002C7ECC File Offset: 0x002C60CC
 		public int EncodeLength(byte c)
 		{
 			int num = 0;
@@ -288,13 +279,11 @@ namespace XMainClient
 			return num;
 		}
 
-		// Token: 0x0600C76E RID: 51054 RVA: 0x002C7F0C File Offset: 0x002C610C
 		public bool IsLegalChar(byte c)
 		{
 			return (48 <= c && c <= 57) || (65 <= c && c <= 90) || (97 <= c && c <= 122);
 		}
 
-		// Token: 0x0600C76F RID: 51055 RVA: 0x002C7F50 File Offset: 0x002C6150
 		public bool IsLegalChinese(string word)
 		{
 			bool flag = word.Length != 3;
@@ -325,13 +314,10 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0400579A RID: 22426
 		private FWnode m_root = null;
 
-		// Token: 0x0400579B RID: 22427
 		private XTableAsyncLoader _async_loader = null;
 
-		// Token: 0x0400579C RID: 22428
 		private ForbidWord m_table = new ForbidWord();
 	}
 }

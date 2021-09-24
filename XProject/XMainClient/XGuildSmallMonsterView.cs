@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000E3E RID: 3646
+
 	internal class XGuildSmallMonsterView : DlgBase<XGuildSmallMonsterView, XGuildSmallMonsterBehaviour>
 	{
-		// Token: 0x17003446 RID: 13382
-		// (get) Token: 0x0600C3DE RID: 50142 RVA: 0x002A9A9C File Offset: 0x002A7C9C
+
 		public override string fileName
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003447 RID: 13383
-		// (get) Token: 0x0600C3DF RID: 50143 RVA: 0x002A9AB4 File Offset: 0x002A7CB4
 		public override int layer
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003448 RID: 13384
-		// (get) Token: 0x0600C3E0 RID: 50144 RVA: 0x002A9AC8 File Offset: 0x002A7CC8
 		public override int group
 		{
 			get
@@ -40,8 +35,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003449 RID: 13385
-		// (get) Token: 0x0600C3E1 RID: 50145 RVA: 0x002A9ADC File Offset: 0x002A7CDC
 		public override bool autoload
 		{
 			get
@@ -50,8 +43,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700344A RID: 13386
-		// (get) Token: 0x0600C3E2 RID: 50146 RVA: 0x002A9AF0 File Offset: 0x002A7CF0
 		public override bool hideMainMenu
 		{
 			get
@@ -60,8 +51,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700344B RID: 13387
-		// (get) Token: 0x0600C3E3 RID: 50147 RVA: 0x002A9B04 File Offset: 0x002A7D04
 		public override bool pushstack
 		{
 			get
@@ -70,14 +59,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C3E4 RID: 50148 RVA: 0x002A9B17 File Offset: 0x002A7D17
 		protected override void Init()
 		{
 			base.Init();
 			this._doc = XDocuments.GetSpecificDocument<XGuildSmallMonsterDocument>(XGuildSmallMonsterDocument.uuID);
 		}
 
-		// Token: 0x0600C3E5 RID: 50149 RVA: 0x002A9B34 File Offset: 0x002A7D34
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -87,56 +74,48 @@ namespace XMainClient
 			base.uiBehaviour.m_btnHelp.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnHelpClick));
 		}
 
-		// Token: 0x0600C3E6 RID: 50150 RVA: 0x002A9BBD File Offset: 0x002A7DBD
 		protected override void OnLoad()
 		{
 			base.OnLoad();
 			DlgHandlerBase.EnsureCreate<GuildCampRankHandler>(ref this._rankHandler, base.uiBehaviour.gameObject.transform, false, this);
 		}
 
-		// Token: 0x0600C3E7 RID: 50151 RVA: 0x002A9BE5 File Offset: 0x002A7DE5
 		protected override void OnUnload()
 		{
 			DlgHandlerBase.EnsureUnload<GuildCampRankHandler>(ref this._rankHandler);
 			base.OnUnload();
 		}
 
-		// Token: 0x0600C3E8 RID: 50152 RVA: 0x002A9BFC File Offset: 0x002A7DFC
 		private bool OnCloseClicked(IXUIButton button)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x0600C3E9 RID: 50153 RVA: 0x002A9C18 File Offset: 0x002A7E18
 		private bool OnBeginGameClicked(IXUIButton button)
 		{
 			this._doc.OpenTeamView();
 			return true;
 		}
 
-		// Token: 0x0600C3EA RID: 50154 RVA: 0x002A9C38 File Offset: 0x002A7E38
 		private bool OnRwdRankClick(IXUIButton button)
 		{
 			this._rankHandler.SetVisible(true);
 			return true;
 		}
 
-		// Token: 0x0600C3EB RID: 50155 RVA: 0x002A9C58 File Offset: 0x002A7E58
 		private bool OnHelpClick(IXUIButton button)
 		{
 			DlgBase<XCommonHelpTipView, XCommonHelpTipBehaviour>.singleton.ShowHelp(this._doc.currCamp.Name, this._doc.currCamp.Description);
 			return true;
 		}
 
-		// Token: 0x0600C3EC RID: 50156 RVA: 0x002A9C98 File Offset: 0x002A7E98
 		public bool CloseRankHandler(IXUIButton btn)
 		{
 			this._rankHandler.SetVisible(false);
 			return true;
 		}
 
-		// Token: 0x0600C3ED RID: 50157 RVA: 0x002A9CB8 File Offset: 0x002A7EB8
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -146,7 +125,6 @@ namespace XMainClient
 			this.SetupRankFrame();
 		}
 
-		// Token: 0x0600C3EE RID: 50158 RVA: 0x002A9CE4 File Offset: 0x002A7EE4
 		public void SetupDetailFrame()
 		{
 			base.uiBehaviour.m_RemainTime.SetText(string.Format("{0}/{1}", this._doc.LeftEnterCount, this._doc.DayLimit));
@@ -173,7 +151,6 @@ namespace XMainClient
 			base.uiBehaviour.m_DropItemPool.ActualReturnAll(false);
 		}
 
-		// Token: 0x0600C3EF RID: 50159 RVA: 0x002A9EF0 File Offset: 0x002A80F0
 		public void SetupRankFrame()
 		{
 			base.uiBehaviour.m_KillRankPool.FakeReturnAll();
@@ -220,7 +197,6 @@ namespace XMainClient
 			base.uiBehaviour.m_KillRankPool.ActualReturnAll(false);
 		}
 
-		// Token: 0x0600C3F0 RID: 50160 RVA: 0x002AA238 File Offset: 0x002A8438
 		public void RefreshRedp()
 		{
 			bool flag = this._doc == null;
@@ -234,10 +210,8 @@ namespace XMainClient
 			XSingleton<XGameSysMgr>.singleton.RecalculateRedPointState(XSysDefine.XSys_GuildDungeon_SmallMonter, true);
 		}
 
-		// Token: 0x040054F2 RID: 21746
 		private XGuildSmallMonsterDocument _doc = null;
 
-		// Token: 0x040054F3 RID: 21747
 		private GuildCampRankHandler _rankHandler;
 	}
 }

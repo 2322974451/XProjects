@@ -7,12 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017A1 RID: 6049
+
 	internal class HomeCropInfoHandler : DlgHandlerBase
 	{
-		// Token: 0x1700385A RID: 14426
-		// (get) Token: 0x0600F9F0 RID: 63984 RVA: 0x0039A198 File Offset: 0x00398398
-		// (set) Token: 0x0600F9F1 RID: 63985 RVA: 0x0039A1B4 File Offset: 0x003983B4
+
 		private bool m_bIsPlayingAction
 		{
 			get
@@ -25,8 +23,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700385B RID: 14427
-		// (get) Token: 0x0600F9F2 RID: 63986 RVA: 0x0039A1C4 File Offset: 0x003983C4
 		protected override string FileName
 		{
 			get
@@ -35,7 +31,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F9F3 RID: 63987 RVA: 0x0039A1DC File Offset: 0x003983DC
 		protected override void Init()
 		{
 			this.m_tittleLab = (base.PanelObject.transform.FindChild("Title").GetComponent("XUILabel") as IXUILabel);
@@ -67,7 +62,6 @@ namespace XMainClient.UI
 			base.Init();
 		}
 
-		// Token: 0x0600F9F4 RID: 63988 RVA: 0x0039A4F8 File Offset: 0x003986F8
 		public override void RegisterEvent()
 		{
 			this.m_harvestBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnClickHarvestBtn));
@@ -79,7 +73,6 @@ namespace XMainClient.UI
 			base.RegisterEvent();
 		}
 
-		// Token: 0x0600F9F5 RID: 63989 RVA: 0x0039A59D File Offset: 0x0039879D
 		protected override void OnShow()
 		{
 			this.m_bIsPlayingAction = false;
@@ -87,7 +80,6 @@ namespace XMainClient.UI
 			base.OnShow();
 		}
 
-		// Token: 0x0600F9F6 RID: 63990 RVA: 0x0039A5B8 File Offset: 0x003987B8
 		protected override void OnHide()
 		{
 			XSingleton<XTimerMgr>.singleton.KillTimer(this.m_token);
@@ -100,25 +92,21 @@ namespace XMainClient.UI
 			base.OnHide();
 		}
 
-		// Token: 0x0600F9F7 RID: 63991 RVA: 0x0022CCF0 File Offset: 0x0022AEF0
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
 		}
 
-		// Token: 0x0600F9F8 RID: 63992 RVA: 0x0019EF07 File Offset: 0x0019D107
 		public override void OnUnload()
 		{
 			base.OnUnload();
 		}
 
-		// Token: 0x0600F9F9 RID: 63993 RVA: 0x0039A610 File Offset: 0x00398810
 		public void RefreshUI()
 		{
 			this.Fillcontent();
 		}
 
-		// Token: 0x0600F9FA RID: 63994 RVA: 0x0039A61C File Offset: 0x0039881C
 		private void Fillcontent()
 		{
 			this.m_cancleBtn.gameObject.SetActive(false);
@@ -226,7 +214,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F9FB RID: 63995 RVA: 0x0039AAA8 File Offset: 0x00398CA8
 		private void SetLogInfos(Farmland farm)
 		{
 			float num = 0f;
@@ -248,7 +235,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F9FC RID: 63996 RVA: 0x0039AB98 File Offset: 0x00398D98
 		public void QequestInfo(object o = null)
 		{
 			XSingleton<XTimerMgr>.singleton.KillTimer(this.m_token);
@@ -257,7 +243,6 @@ namespace XMainClient.UI
 			this.m_token = XSingleton<XTimerMgr>.singleton.SetTimer(5f, new XTimerMgr.ElapsedEventHandler(this.QequestInfo), null);
 		}
 
-		// Token: 0x0600F9FD RID: 63997 RVA: 0x0039ABEC File Offset: 0x00398DEC
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
@@ -287,7 +272,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F9FE RID: 63998 RVA: 0x0039ACF8 File Offset: 0x00398EF8
 		private string GetTimeString(ulong ti, string str)
 		{
 			bool flag = ti < 60UL;
@@ -322,7 +306,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F9FF RID: 63999 RVA: 0x0039ADBC File Offset: 0x00398FBC
 		private bool OnClickHarvestBtn(IXUIButton btn)
 		{
 			bool flag = this.SetButtonCool(this.m_fCoolTime);
@@ -379,7 +362,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FA00 RID: 64000 RVA: 0x0039AEBC File Offset: 0x003990BC
 		private bool PlayHarvestAction(IXUIButton btn)
 		{
 			this.PlayHarvestAction();
@@ -387,7 +369,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FA01 RID: 64001 RVA: 0x0039AEE4 File Offset: 0x003990E4
 		private void PlayHarvestAction()
 		{
 			bool flag = XSingleton<XEntityMgr>.singleton.Player == null;
@@ -406,7 +387,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FA02 RID: 64002 RVA: 0x0039AFB4 File Offset: 0x003991B4
 		private bool OnClickStealBtn(IXUIButton btn)
 		{
 			bool flag = this.SetButtonCool(this.m_fCoolTime);
@@ -495,7 +475,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FA03 RID: 64003 RVA: 0x0039B1B0 File Offset: 0x003993B0
 		private bool OnClickFertilizerBtn(IXUIButton btn)
 		{
 			bool flag = this.SetButtonCool(this.m_fCoolTime);
@@ -549,7 +528,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FA04 RID: 64004 RVA: 0x0039B2E4 File Offset: 0x003994E4
 		private bool OnClickDisinsectionBtn(IXUIButton btn)
 		{
 			bool flag = this.SetButtonCool(this.m_fCoolTime);
@@ -603,7 +581,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FA05 RID: 64005 RVA: 0x0039B418 File Offset: 0x00399618
 		private bool OnClickWateringBtn(IXUIButton btn)
 		{
 			bool flag = this.SetButtonCool(this.m_fCoolTime);
@@ -657,7 +634,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FA06 RID: 64006 RVA: 0x0039B54C File Offset: 0x0039974C
 		private bool OnClickCancleBtn(IXUIButton btn)
 		{
 			bool flag = this.SetButtonCool(this.m_fCoolTime);
@@ -682,7 +658,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FA07 RID: 64007 RVA: 0x0039B5A8 File Offset: 0x003997A8
 		private bool SetButtonCool(float time)
 		{
 			float num = Time.realtimeSinceStartup - this.m_fLastClickBtnTime;
@@ -700,7 +675,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FA08 RID: 64008 RVA: 0x0039B5E0 File Offset: 0x003997E0
 		public void QequestHarvest(object o = null)
 		{
 			bool flag = XSingleton<XEntityMgr>.singleton.Player != null;
@@ -712,7 +686,6 @@ namespace XMainClient.UI
 			this.m_bIsPlayingAction = false;
 		}
 
-		// Token: 0x0600FA09 RID: 64009 RVA: 0x0039B630 File Offset: 0x00399830
 		public void QequestSteal(object o = null)
 		{
 			bool flag = XSingleton<XEntityMgr>.singleton.Player != null;
@@ -724,7 +697,6 @@ namespace XMainClient.UI
 			this.m_bIsPlayingAction = false;
 		}
 
-		// Token: 0x0600FA0A RID: 64010 RVA: 0x0039B680 File Offset: 0x00399880
 		public void QequestPlantCultivation(object o = null)
 		{
 			bool flag = XSingleton<XEntityMgr>.singleton.Player != null;
@@ -740,85 +712,58 @@ namespace XMainClient.UI
 			this.m_bIsPlayingAction = false;
 		}
 
-		// Token: 0x04006D6B RID: 28011
 		private GameObject m_itemGo;
 
-		// Token: 0x04006D6C RID: 28012
 		private GameObject m_operateBtnGo;
 
-		// Token: 0x04006D6D RID: 28013
 		private IXUILabel m_tittleLab;
 
-		// Token: 0x04006D6E RID: 28014
 		private IXUILabel m_cdLab;
 
-		// Token: 0x04006D6F RID: 28015
 		private IXUILabel m_harvestNeedTimeLab;
 
-		// Token: 0x04006D70 RID: 28016
 		private IXUILabel m_statueLab;
 
-		// Token: 0x04006D71 RID: 28017
 		private IXUILabel m_harvestLab;
 
-		// Token: 0x04006D72 RID: 28018
 		private IXUILabel m_growUpLab;
 
-		// Token: 0x04006D73 RID: 28019
 		private IXUILabel m_growUpStateLab;
 
-		// Token: 0x04006D74 RID: 28020
 		private IXUISlider m_growthSlider;
 
-		// Token: 0x04006D75 RID: 28021
 		private List<IXUILabel> m_homeLogs = new List<IXUILabel>();
 
-		// Token: 0x04006D76 RID: 28022
 		private IXUIButton m_harvestBtn;
 
-		// Token: 0x04006D77 RID: 28023
 		private IXUIButton m_stealBtn;
 
-		// Token: 0x04006D78 RID: 28024
 		private IXUIButton m_fertilizerBtn;
 
-		// Token: 0x04006D79 RID: 28025
 		private IXUIButton m_disinsectionBtn;
 
-		// Token: 0x04006D7A RID: 28026
 		private IXUIButton m_wateringBtn;
 
-		// Token: 0x04006D7B RID: 28027
 		private IXUIButton m_cancleBtn;
 
-		// Token: 0x04006D7C RID: 28028
 		private HomePlantDocument m_doc;
 
-		// Token: 0x04006D7D RID: 28029
 		private Farmland m_farmLand;
 
-		// Token: 0x04006D7E RID: 28030
 		private uint m_token;
 
-		// Token: 0x04006D7F RID: 28031
 		private uint m_token1;
 
-		// Token: 0x04006D80 RID: 28032
 		private float m_fCoolTime = 3.5f;
 
-		// Token: 0x04006D81 RID: 28033
 		private float m_fLastClickBtnTime = 0f;
 
-		// Token: 0x04006D82 RID: 28034
 		private float m_harvestActionTime = 2.5f;
 
-		// Token: 0x04006D83 RID: 28035
 		private float m_waterActionTime = 2.5f;
 
-		// Token: 0x04006D84 RID: 28036
 		private readonly string m_waterFxPath = "Effects/FX_Particle/UIfx/UI_jy_ss";
 
-		// Token: 0x04006D85 RID: 28037
 		private readonly string m_harvestFxPath = "Effects/FX_Particle/UIfx/UI_jy_sh";
 	}
 }

@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000941 RID: 2369
+
 	internal class XHomeFishingDocument : XDocComponent
 	{
-		// Token: 0x17002C17 RID: 11287
-		// (get) Token: 0x06008F2A RID: 36650 RVA: 0x001402A0 File Offset: 0x0013E4A0
+
 		public override uint ID
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002C18 RID: 11288
-		// (get) Token: 0x06008F2B RID: 36651 RVA: 0x001402B8 File Offset: 0x0013E4B8
 		public GardenFishConfig _HomeFishTable
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002C19 RID: 11289
-		// (get) Token: 0x06008F2C RID: 36652 RVA: 0x001402D0 File Offset: 0x0013E4D0
 		public FishInfo FishInfoTable
 		{
 			get
@@ -40,13 +35,8 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002C1A RID: 11290
-		// (get) Token: 0x06008F2D RID: 36653 RVA: 0x001402E7 File Offset: 0x0013E4E7
-		// (set) Token: 0x06008F2E RID: 36654 RVA: 0x001402EF File Offset: 0x0013E4EF
 		public bool isSweep { get; set; }
 
-		// Token: 0x17002C1B RID: 11291
-		// (get) Token: 0x06008F2F RID: 36655 RVA: 0x001402F8 File Offset: 0x0013E4F8
 		public List<ItemBrief> FishList
 		{
 			get
@@ -55,8 +45,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002C1C RID: 11292
-		// (get) Token: 0x06008F30 RID: 36656 RVA: 0x00140310 File Offset: 0x0013E510
 		public uint TimerToken
 		{
 			get
@@ -65,7 +53,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008F31 RID: 36657 RVA: 0x00140328 File Offset: 0x0013E528
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			XHomeFishingDocument.AsyncLoader.AddTask("Table/GardenFishing", XHomeFishingDocument._homeFishTable, false);
@@ -73,28 +60,24 @@ namespace XMainClient
 			XHomeFishingDocument.AsyncLoader.Execute(callback);
 		}
 
-		// Token: 0x06008F32 RID: 36658 RVA: 0x00140363 File Offset: 0x0013E563
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
 			this._fishingRodPresentation = XSingleton<XEntityMgr>.singleton.EntityInfo.GetByPresentID(50001U);
 		}
 
-		// Token: 0x06008F33 RID: 36659 RVA: 0x00140388 File Offset: 0x0013E588
 		protected override void EventSubscribe()
 		{
 			base.EventSubscribe();
 			base.RegisterEvent(XEventDefine.XEvent_AddItem, new XComponent.XEventHandler(this.OnAddItem));
 		}
 
-		// Token: 0x06008F34 RID: 36660 RVA: 0x001403A7 File Offset: 0x0013E5A7
 		public override void OnLeaveScene()
 		{
 			base.OnLeaveScene();
 			this._nearFishPoolState = false;
 		}
 
-		// Token: 0x06008F35 RID: 36661 RVA: 0x001403B8 File Offset: 0x0013E5B8
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 			bool flag = this.IsFishing && this._currState == HomeFishingState.WAITSERVER;
@@ -122,7 +105,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008F36 RID: 36662 RVA: 0x0014045C File Offset: 0x0013E65C
 		public void SendLevelExpQuery()
 		{
 			RpcC2M_GardenFishInfo rpcC2M_GardenFishInfo = new RpcC2M_GardenFishInfo();
@@ -131,7 +113,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_GardenFishInfo);
 		}
 
-		// Token: 0x06008F37 RID: 36663 RVA: 0x0014049C File Offset: 0x0013E69C
 		private void SendFishingQuery()
 		{
 			XCharacterItemDocument specificDocument = XDocuments.GetSpecificDocument<XCharacterItemDocument>(XCharacterItemDocument.uuID);
@@ -162,7 +143,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_TryFish);
 		}
 
-		// Token: 0x06008F38 RID: 36664 RVA: 0x00140560 File Offset: 0x0013E760
 		public void SetLevelExpInfo(uint level, uint exp)
 		{
 			this.FishingLevel = level;
@@ -174,7 +154,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008F39 RID: 36665 RVA: 0x00140598 File Offset: 0x0013E798
 		public void OnFishingResultGet(List<ItemBrief> list, uint level, uint exp)
 		{
 			bool flag = !this.IsFishing;
@@ -218,7 +197,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008F3A RID: 36666 RVA: 0x00140714 File Offset: 0x0013E914
 		public void StartFishing()
 		{
 			XDanceDocument.Doc.ReqStopJustDance();
@@ -230,7 +208,6 @@ namespace XMainClient
 			DlgBase<HomeFishingDlg, HomeFishingBehaviour>.singleton.SetFishingTipsState(true);
 		}
 
-		// Token: 0x06008F3B RID: 36667 RVA: 0x00140778 File Offset: 0x0013E978
 		public void StopFishing()
 		{
 			XSingleton<XEntityMgr>.singleton.Player.PlaySpecifiedAnimation(this._entity.Present.PresentLib.FishingIdle);
@@ -238,14 +215,12 @@ namespace XMainClient
 			DlgBase<HomeFishingDlg, HomeFishingBehaviour>.singleton.SetFishingTipsState(false);
 		}
 
-		// Token: 0x06008F3C RID: 36668 RVA: 0x001407D3 File Offset: 0x0013E9D3
 		public void ContinueFishing()
 		{
 			this._timerToken = XSingleton<XTimerMgr>.singleton.SetTimer(1f, new XTimerMgr.ElapsedEventHandler(this.OnFishingStateChange), null);
 			DlgBase<HomeFishingDlg, HomeFishingBehaviour>.singleton.SetFishingTipsState(true);
 		}
 
-		// Token: 0x06008F3D RID: 36669 RVA: 0x00140804 File Offset: 0x0013EA04
 		public void LeaveFishing()
 		{
 			bool serverStopFishing = this.ServerStopFishing;
@@ -271,7 +246,6 @@ namespace XMainClient
 			DlgBase<HomeFishingDlg, HomeFishingBehaviour>.singleton.SetFishingTipsState(false);
 		}
 
-		// Token: 0x06008F3E RID: 36670 RVA: 0x001408B8 File Offset: 0x0013EAB8
 		private void SetStartFishingState()
 		{
 			this.m_first_cast = true;
@@ -281,7 +255,6 @@ namespace XMainClient
 			this._timerToken = XSingleton<XTimerMgr>.singleton.SetTimer(1f, new XTimerMgr.ElapsedEventHandler(this.OnFishingStateChange), null);
 		}
 
-		// Token: 0x06008F3F RID: 36671 RVA: 0x00140938 File Offset: 0x0013EB38
 		private void OnFishingStateChange(object o = null)
 		{
 			bool flag = !this.IsFishing || XSingleton<XEntityMgr>.singleton.Player == null || this._entity == null;
@@ -414,7 +387,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008F40 RID: 36672 RVA: 0x00140DD4 File Offset: 0x0013EFD4
 		public void SetFishingUIState(bool state)
 		{
 			bool flag = XSingleton<XScene>.singleton.SceneType != SceneType.SCENE_FAMILYGARDEN;
@@ -429,7 +401,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008F41 RID: 36673 RVA: 0x00140E1C File Offset: 0x0013F01C
 		public void ErrorLeaveFishing()
 		{
 			bool flag = DlgBase<HomeFishingDlg, HomeFishingBehaviour>.singleton.IsVisible();
@@ -443,7 +414,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008F42 RID: 36674 RVA: 0x00140E50 File Offset: 0x0013F050
 		protected bool OnAddItem(XEventArgs args)
 		{
 			bool flag = !this._nearFishPoolState;
@@ -476,7 +446,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008F43 RID: 36675 RVA: 0x00140F20 File Offset: 0x0013F120
 		public static void OnFishingStateStop(OutLookStateType newType, XEntity entity)
 		{
 			bool flag = newType == OutLookStateType.OutLook_Fish;
@@ -503,61 +472,42 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04002EF9 RID: 12025
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("HomeFishingDocument");
 
-		// Token: 0x04002EFA RID: 12026
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x04002EFB RID: 12027
 		private static GardenFishConfig _homeFishTable = new GardenFishConfig();
 
-		// Token: 0x04002EFC RID: 12028
 		private static FishInfo _fishInfo = new FishInfo();
 
-		// Token: 0x04002EFE RID: 12030
 		private bool _nearFishPoolState = false;
 
-		// Token: 0x04002EFF RID: 12031
 		public uint FishingLevel = 1U;
 
-		// Token: 0x04002F00 RID: 12032
 		public uint CurrentExp = 0U;
 
-		// Token: 0x04002F01 RID: 12033
 		private List<ItemBrief> _fishList = new List<ItemBrief>();
 
-		// Token: 0x04002F02 RID: 12034
 		public bool LastFishingHasFish = true;
 
-		// Token: 0x04002F03 RID: 12035
 		private uint _timerToken;
 
-		// Token: 0x04002F04 RID: 12036
 		private HomeFishingState _currState;
 
-		// Token: 0x04002F05 RID: 12037
 		private bool m_first_cast = false;
 
-		// Token: 0x04002F06 RID: 12038
 		public bool LastLevelUp = false;
 
-		// Token: 0x04002F07 RID: 12039
 		private ulong _reconnectSign;
 
-		// Token: 0x04002F08 RID: 12040
 		public bool IsFishing = false;
 
-		// Token: 0x04002F09 RID: 12041
 		public bool ServerStopFishing = false;
 
-		// Token: 0x04002F0A RID: 12042
 		private XEntityPresentation.RowData _fishingRodPresentation;
 
-		// Token: 0x04002F0B RID: 12043
 		public static readonly int stoshID = 5500;
 
-		// Token: 0x04002F0C RID: 12044
 		public static readonly string LEVELUPFX = "Effects/FX_Particle/UIfx/UI_jy_dy_sj";
 	}
 }

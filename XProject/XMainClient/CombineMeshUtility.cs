@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000FD6 RID: 4054
+
 	internal class CombineMeshUtility
 	{
-		// Token: 0x0600D268 RID: 53864 RVA: 0x00311A40 File Offset: 0x0030FC40
+
 		public CombineMeshUtility()
 		{
 			for (int i = 0; i < CombineMeshUtility.MaxPartCount; i++)
@@ -17,7 +17,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D269 RID: 53865 RVA: 0x00311A8C File Offset: 0x0030FC8C
 		private CombineInstance[] GetMatCombineInstanceArray(int partCount)
 		{
 			int num = partCount - 1;
@@ -42,7 +41,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600D26A RID: 53866 RVA: 0x00311AE0 File Offset: 0x0030FCE0
 		public bool Combine(CombineMeshTask combineTask)
 		{
 			int num = 0;
@@ -185,10 +183,8 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x04005F97 RID: 24471
 		public static int MaxPartCount = 8;
 
-		// Token: 0x04005F98 RID: 24472
 		private List<CombineInstance[]> matCombineInstanceArrayCache = new List<CombineInstance[]>();
 	}
 }

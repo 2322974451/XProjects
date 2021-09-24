@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000A20 RID: 2592
+
 	internal class XBackFlowWelfareHandler : DlgHandlerBase
 	{
-		// Token: 0x17002EBF RID: 11967
-		// (get) Token: 0x06009E7C RID: 40572 RVA: 0x001A0B20 File Offset: 0x0019ED20
+
 		protected override string FileName
 		{
 			get
@@ -19,7 +18,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009E7D RID: 40573 RVA: 0x001A0B38 File Offset: 0x0019ED38
 		protected override void Init()
 		{
 			base.Init();
@@ -38,26 +36,22 @@ namespace XMainClient
 			this._effect.SetActive(false);
 		}
 
-		// Token: 0x06009E7E RID: 40574 RVA: 0x0019EEB0 File Offset: 0x0019D0B0
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 		}
 
-		// Token: 0x06009E7F RID: 40575 RVA: 0x001A0CB4 File Offset: 0x0019EEB4
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.RefreshUI();
 		}
 
-		// Token: 0x06009E80 RID: 40576 RVA: 0x0019EEFD File Offset: 0x0019D0FD
 		protected override void OnHide()
 		{
 			base.OnHide();
 		}
 
-		// Token: 0x06009E81 RID: 40577 RVA: 0x001A0CC8 File Offset: 0x0019EEC8
 		public override void OnUnload()
 		{
 			bool flag = this._effect != null;
@@ -69,14 +63,12 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x06009E82 RID: 40578 RVA: 0x001A0D03 File Offset: 0x0019EF03
 		public override void RefreshData()
 		{
 			base.RefreshData();
 			this.RefreshUI();
 		}
 
-		// Token: 0x06009E83 RID: 40579 RVA: 0x001A0D14 File Offset: 0x0019EF14
 		public void PlayDogEffect()
 		{
 			bool flag = this._effect != null;
@@ -87,7 +79,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009E84 RID: 40580 RVA: 0x001A0D4C File Offset: 0x0019EF4C
 		private void RefreshUI()
 		{
 			bool flag = this._effect != null;
@@ -169,7 +160,6 @@ namespace XMainClient
 			this._dayProgress.value = num / this._totalDays;
 		}
 
-		// Token: 0x06009E85 RID: 40581 RVA: 0x001A108C File Offset: 0x0019F28C
 		private void OnGetDog(IXUISprite uiSprite)
 		{
 			bool flag = this._taskID > 0U;
@@ -179,34 +169,24 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04003840 RID: 14400
 		private IXUITexture _bgTexture;
 
-		// Token: 0x04003841 RID: 14401
 		protected XUIPool _dayPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04003842 RID: 14402
 		private uint _totalDays;
 
-		// Token: 0x04003843 RID: 14403
 		private uint _taskID;
 
-		// Token: 0x04003844 RID: 14404
 		private IXUIProgress _dayProgress;
 
-		// Token: 0x04003845 RID: 14405
 		private IXUISprite _dayProgressSprite;
 
-		// Token: 0x04003846 RID: 14406
 		private GameObject _ChestObj;
 
-		// Token: 0x04003847 RID: 14407
 		private GameObject _gettedObj;
 
-		// Token: 0x04003848 RID: 14408
 		private Color _labelColor;
 
-		// Token: 0x04003849 RID: 14409
 		private XFx _effect;
 	}
 }

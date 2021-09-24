@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200189C RID: 6300
+
 	internal class XGuildRedPacketDetailView : DlgBase<XGuildRedPacketDetailView, GuildRedPackageDetailBehaviour>
 	{
-		// Token: 0x170039F2 RID: 14834
-		// (get) Token: 0x0601066C RID: 67180 RVA: 0x003FFFF4 File Offset: 0x003FE1F4
+
 		public override string fileName
 		{
 			get
@@ -19,8 +18,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170039F3 RID: 14835
-		// (get) Token: 0x0601066D RID: 67181 RVA: 0x0040000C File Offset: 0x003FE20C
 		public override int layer
 		{
 			get
@@ -29,8 +26,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170039F4 RID: 14836
-		// (get) Token: 0x0601066E RID: 67182 RVA: 0x00400020 File Offset: 0x003FE220
 		public override bool pushstack
 		{
 			get
@@ -39,8 +34,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170039F5 RID: 14837
-		// (get) Token: 0x0601066F RID: 67183 RVA: 0x00400034 File Offset: 0x003FE234
 		public override bool autoload
 		{
 			get
@@ -49,7 +42,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010670 RID: 67184 RVA: 0x00400048 File Offset: 0x003FE248
 		protected override void Init()
 		{
 			this._Doc = XDocuments.GetSpecificDocument<XGuildRedPacketDocument>(XGuildRedPacketDocument.uuID);
@@ -58,7 +50,6 @@ namespace XMainClient.UI
 			this.m_LogView.LogSource = this._Doc;
 		}
 
-		// Token: 0x06010671 RID: 67185 RVA: 0x004000A4 File Offset: 0x003FE2A4
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -66,7 +57,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_Reply.RegisterClickEventHandler(new ButtonClickEventHandler(this._OnReplyBtnClick));
 		}
 
-		// Token: 0x06010672 RID: 67186 RVA: 0x004000F3 File Offset: 0x003FE2F3
 		public void ShowEffect(bool state, uint id = 0U)
 		{
 			this.m_ShowEffect = state;
@@ -74,7 +64,6 @@ namespace XMainClient.UI
 			this.SetVisibleWithAnimation(true, null);
 		}
 
-		// Token: 0x06010673 RID: 67187 RVA: 0x00400110 File Offset: 0x003FE310
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -89,7 +78,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_playTween.PlayTween(true, -1f);
 		}
 
-		// Token: 0x06010674 RID: 67188 RVA: 0x004001C0 File Offset: 0x003FE3C0
 		protected override void OnHide()
 		{
 			base.OnHide();
@@ -107,7 +95,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_sendHeadTexture.SetTexturePath("");
 		}
 
-		// Token: 0x06010675 RID: 67189 RVA: 0x0040023C File Offset: 0x003FE43C
 		protected override void OnUnload()
 		{
 			bool flag = this.m_maskXfx != null;
@@ -120,7 +107,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x06010676 RID: 67190 RVA: 0x00400288 File Offset: 0x003FE488
 		public void Refresh()
 		{
 			XGuildRedPacketDetail packetDetail = this._Doc.PacketDetail;
@@ -130,14 +116,12 @@ namespace XMainClient.UI
 			this._RefreshReply(packetDetail);
 		}
 
-		// Token: 0x06010677 RID: 67191 RVA: 0x004002C8 File Offset: 0x003FE4C8
 		public void _RefreshReply(XGuildRedPacketDetail detailData)
 		{
 			bool flag = detailData.canThank && Time.time < detailData.brif.endTime && detailData.brif.fetchState != FetchState.FS_CANNOT_FETCH;
 			base.uiBehaviour.m_ReplyLabel.SetText(flag ? XStringDefineProxy.GetString("QUICK_REPLY_1") : XStringDefineProxy.GetString("GUILD_REDPACKET_DETAIL_EXIT"));
 		}
 
-		// Token: 0x06010678 RID: 67192 RVA: 0x00400330 File Offset: 0x003FE530
 		public void _RefreshReason(XGuildRedPacketDetail data)
 		{
 			GuildBonusTable.RowData redPacketConfig = XGuildRedPacketDocument.GetRedPacketConfig(data.brif.typeid);
@@ -161,7 +145,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010679 RID: 67193 RVA: 0x004003BC File Offset: 0x003FE5BC
 		private void _RefreshContent(XGuildRedPacketDetail data)
 		{
 			base.uiBehaviour.m_Count.SetText(string.Format("{0}/{1}", data.getCount, data.brif.maxCount));
@@ -232,7 +215,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601067A RID: 67194 RVA: 0x004006B0 File Offset: 0x003FE8B0
 		private bool _OnReplyBtnClick(IXUIButton go)
 		{
 			XGuildRedPacketDetail packetDetail = this._Doc.PacketDetail;
@@ -248,7 +230,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0601067B RID: 67195 RVA: 0x0040072C File Offset: 0x003FE92C
 		private void CloseRedPackageDetail(bool statu)
 		{
 			if (statu)
@@ -259,28 +240,21 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601067C RID: 67196 RVA: 0x00400770 File Offset: 0x003FE970
 		private void _OnCloseBtnClick(IXUISprite go)
 		{
 			this.SetVisibleWithAnimation(false, null);
 		}
 
-		// Token: 0x04007662 RID: 30306
 		private XGuildRedPacketDocument _Doc;
 
-		// Token: 0x04007663 RID: 30307
 		private XGuildDocument _GuildDoc;
 
-		// Token: 0x04007664 RID: 30308
 		private XGuildRedPakageLogView m_LogView;
 
-		// Token: 0x04007665 RID: 30309
 		private uint m_selectID = 0U;
 
-		// Token: 0x04007666 RID: 30310
 		private bool m_ShowEffect = false;
 
-		// Token: 0x04007667 RID: 30311
 		private XFx m_maskXfx = null;
 	}
 }

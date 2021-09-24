@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x020000A9 RID: 169
+
 	public class AchievementV2Table : CVSReader
 	{
-		// Token: 0x0600051A RID: 1306 RVA: 0x0001635C File Offset: 0x0001455C
+
 		public AchievementV2Table.RowData GetByID(int key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -21,7 +21,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x0600051B RID: 1307 RVA: 0x00016394 File Offset: 0x00014594
 		private AchievementV2Table.RowData BinarySearchID(int key)
 		{
 			int num = 0;
@@ -80,7 +79,6 @@ namespace XUtliPoolLib
 			return null;
 		}
 
-		// Token: 0x0600051C RID: 1308 RVA: 0x00016470 File Offset: 0x00014670
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			AchievementV2Table.RowData rowData = new AchievementV2Table.RowData();
@@ -106,7 +104,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x0600051D RID: 1309 RVA: 0x00016588 File Offset: 0x00014788
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -120,37 +117,27 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x040002CF RID: 719
 		public AchievementV2Table.RowData[] Table = null;
 
-		// Token: 0x020002A7 RID: 679
 		public class RowData
 		{
-			// Token: 0x040008AC RID: 2220
+
 			public int ID;
 
-			// Token: 0x040008AD RID: 2221
 			public string Achievement;
 
-			// Token: 0x040008AE RID: 2222
 			public int Type;
 
-			// Token: 0x040008AF RID: 2223
 			public string Explanation;
 
-			// Token: 0x040008B0 RID: 2224
 			public SeqListRef<int> Reward;
 
-			// Token: 0x040008B1 RID: 2225
 			public string ICON;
 
-			// Token: 0x040008B2 RID: 2226
 			public string DesignationName;
 
-			// Token: 0x040008B3 RID: 2227
 			public int GainShowIcon;
 
-			// Token: 0x040008B4 RID: 2228
 			public int SortID;
 		}
 	}

@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020018F1 RID: 6385
+
 	internal class XWorldBossEndRankView : DlgBase<XWorldBossEndRankView, XWorldBossEndRankBehaviour>
 	{
-		// Token: 0x17003A87 RID: 14983
-		// (get) Token: 0x06010A3A RID: 68154 RVA: 0x00420174 File Offset: 0x0041E374
+
 		public override string fileName
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003A88 RID: 14984
-		// (get) Token: 0x06010A3B RID: 68155 RVA: 0x0042018C File Offset: 0x0041E38C
 		public override int sysid
 		{
 			get
@@ -31,8 +28,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003A89 RID: 14985
-		// (get) Token: 0x06010A3C RID: 68156 RVA: 0x004201A8 File Offset: 0x0041E3A8
 		public override bool autoload
 		{
 			get
@@ -41,7 +36,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010A3D RID: 68157 RVA: 0x004201BB File Offset: 0x0041E3BB
 		protected override void Init()
 		{
 			base.Init();
@@ -49,14 +43,12 @@ namespace XMainClient.UI
 			this._Doc.WorldBossEndRankView = this;
 		}
 
-		// Token: 0x06010A3E RID: 68158 RVA: 0x004201E1 File Offset: 0x0041E3E1
 		protected override void OnShow()
 		{
 			base.OnShow();
 			base.uiBehaviour.m_DamageRankTab.bChecked = true;
 		}
 
-		// Token: 0x06010A3F RID: 68159 RVA: 0x00420200 File Offset: 0x0041E400
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -69,7 +61,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_WrapContent.RegisterItemUpdateEventHandler(new WrapItemUpdateEventHandler(this.DamageRankWrapContentItemUpdated));
 		}
 
-		// Token: 0x06010A40 RID: 68160 RVA: 0x004202D8 File Offset: 0x0041E4D8
 		private bool OnRankTabClicked(IXUICheckBox checkbox)
 		{
 			bool flag = !checkbox.bChecked;
@@ -99,21 +90,18 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x06010A41 RID: 68161 RVA: 0x00420340 File Offset: 0x0041E540
 		protected override void OnUnload()
 		{
 			this._Doc.WorldBossDescView = null;
 			base.OnUnload();
 		}
 
-		// Token: 0x06010A42 RID: 68162 RVA: 0x00420358 File Offset: 0x0041E558
 		private bool OnCloseClick(IXUIButton button)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x06010A43 RID: 68163 RVA: 0x00420374 File Offset: 0x0041E574
 		private bool OnGoRewardClick(IXUIButton button)
 		{
 			XSingleton<XGameSysMgr>.singleton.OpenSystem(XSysDefine.XSys_Mail, 0UL);
@@ -121,7 +109,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x06010A44 RID: 68164 RVA: 0x004203A0 File Offset: 0x0041E5A0
 		public void RefreshDamageRank()
 		{
 			bool flag = !base.IsVisible();
@@ -147,7 +134,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010A45 RID: 68165 RVA: 0x004204A4 File Offset: 0x0041E6A4
 		public void RefreshGuildRank()
 		{
 			bool flag = !base.IsVisible();
@@ -173,7 +159,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010A46 RID: 68166 RVA: 0x004205B4 File Offset: 0x0041E7B4
 		private void DamageRankWrapContentItemUpdated(Transform t, int index)
 		{
 			bool flag = !base.IsVisible();
@@ -253,7 +238,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010A47 RID: 68167 RVA: 0x004207E8 File Offset: 0x0041E9E8
 		public void SetMyRankFrame()
 		{
 			GameObject myRank = base.uiBehaviour.m_MyRank;
@@ -310,7 +294,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010A48 RID: 68168 RVA: 0x00420A28 File Offset: 0x0041EC28
 		public void SetMyRankFrame(WorldBossDamageInfo myInfo)
 		{
 			XWorldBossDocument specificDocument = XDocuments.GetSpecificDocument<XWorldBossDocument>(XWorldBossDocument.uuID);
@@ -355,10 +338,8 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0400792F RID: 31023
 		private XWorldBossDocument _Doc;
 
-		// Token: 0x04007930 RID: 31024
 		private RankeType m_CurrRankType;
 	}
 }

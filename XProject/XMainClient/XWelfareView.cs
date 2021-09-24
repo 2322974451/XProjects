@@ -9,11 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000E8E RID: 3726
+
 	internal class XWelfareView : DlgBase<XWelfareView, XWelfareBehaviour>
 	{
-		// Token: 0x170034AD RID: 13485
-		// (get) Token: 0x0600C6F9 RID: 50937 RVA: 0x002C1370 File Offset: 0x002BF570
+
 		public override string fileName
 		{
 			get
@@ -22,8 +21,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170034AE RID: 13486
-		// (get) Token: 0x0600C6FA RID: 50938 RVA: 0x002C1388 File Offset: 0x002BF588
 		public override bool autoload
 		{
 			get
@@ -32,8 +29,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170034AF RID: 13487
-		// (get) Token: 0x0600C6FB RID: 50939 RVA: 0x002C139C File Offset: 0x002BF59C
 		public override bool hideMainMenu
 		{
 			get
@@ -42,8 +37,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170034B0 RID: 13488
-		// (get) Token: 0x0600C6FC RID: 50940 RVA: 0x002C13B0 File Offset: 0x002BF5B0
 		public override bool pushstack
 		{
 			get
@@ -52,14 +45,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C6FE RID: 50942 RVA: 0x002C13F8 File Offset: 0x002BF5F8
 		protected override void OnLoad()
 		{
 			base.OnLoad();
 			this.m_InitTab = true;
 		}
 
-		// Token: 0x0600C6FF RID: 50943 RVA: 0x002C140C File Offset: 0x002BF60C
 		private void RegisterHandler<T>(XSysDefine define) where T : DlgHandlerBase, new()
 		{
 			bool flag = !this.m_AllHandlers.ContainsKey(define);
@@ -71,7 +62,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C700 RID: 50944 RVA: 0x002C1460 File Offset: 0x002BF660
 		private void RemoveHandler(XSysDefine define)
 		{
 			DlgHandlerBase dlgHandlerBase;
@@ -83,7 +73,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C701 RID: 50945 RVA: 0x002C1498 File Offset: 0x002BF698
 		protected override void OnUnload()
 		{
 			this.RemoveHandler(XSysDefine.XSys_Welfare_GiftBag);
@@ -102,7 +91,6 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x0600C702 RID: 50946 RVA: 0x002C1548 File Offset: 0x002BF748
 		protected override void Init()
 		{
 			base.Init();
@@ -120,14 +108,12 @@ namespace XMainClient
 			this.RegisterHandler<XWelfareYyMallHandler>(XSysDefine.XSys_Welfare_YyMall);
 		}
 
-		// Token: 0x0600C703 RID: 50947 RVA: 0x002C15EF File Offset: 0x002BF7EF
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			base.uiBehaviour.m_Close.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseClicked));
 		}
 
-		// Token: 0x0600C704 RID: 50948 RVA: 0x002C1618 File Offset: 0x002BF818
 		public void Show(XSysDefine define = XSysDefine.XSys_None)
 		{
 			bool flag = define == XSysDefine.XSys_Welfare_KingdomPrivilege_Court || define == XSysDefine.XSys_Welfare_KingdomPrivilege_Commerce || define == XSysDefine.XSys_Welfare_KingdomPrivilege_Adventurer;
@@ -147,7 +133,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C705 RID: 50949 RVA: 0x002C1678 File Offset: 0x002BF878
 		public void RefershRewardBack()
 		{
 			bool flag = this.m_AllHandlers.ContainsKey(XSysDefine.XSyS_Welfare_RewardBack) && this.m_AllTabs.ContainsKey(XSysDefine.XSyS_Welfare_RewardBack);
@@ -163,7 +148,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C706 RID: 50950 RVA: 0x002C16F4 File Offset: 0x002BF8F4
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -181,7 +165,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C707 RID: 50951 RVA: 0x002C1774 File Offset: 0x002BF974
 		protected override void OnHide()
 		{
 			base.OnHide();
@@ -192,7 +175,6 @@ namespace XMainClient
 			this.m_InitTab = true;
 		}
 
-		// Token: 0x0600C708 RID: 50952 RVA: 0x002C17E4 File Offset: 0x002BF9E4
 		private void InitTabs()
 		{
 			this.m_AllTabs.Clear();
@@ -220,7 +202,6 @@ namespace XMainClient
 			this.SelectDefaultTab(list);
 		}
 
-		// Token: 0x0600C709 RID: 50953 RVA: 0x002C1944 File Offset: 0x002BFB44
 		private void InitTabInfo(GameObject tab, PayWelfareTable.RowData data)
 		{
 			IXUILabel ixuilabel = tab.transform.Find("Title").GetComponent("XUILabel") as IXUILabel;
@@ -235,7 +216,6 @@ namespace XMainClient
 			ixuisprite3.SetSprite(data.TabIcon);
 		}
 
-		// Token: 0x0600C70A RID: 50954 RVA: 0x002C1A34 File Offset: 0x002BFC34
 		private void SelectDefaultTab(List<XSysDefine> listOpen)
 		{
 			List<XSysDefine> list = new List<XSysDefine>();
@@ -299,7 +279,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C70B RID: 50955 RVA: 0x002C1C18 File Offset: 0x002BFE18
 		public void RefreshRedpoint()
 		{
 			foreach (KeyValuePair<XSysDefine, IXUICheckBox> keyValuePair in this.m_AllTabs)
@@ -360,7 +339,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C70C RID: 50956 RVA: 0x002C1F34 File Offset: 0x002C0134
 		public bool HadRewardBackRedPoint()
 		{
 			bool serverPushRewardBack = this._Doc.ServerPushRewardBack;
@@ -385,7 +363,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C70D RID: 50957 RVA: 0x002C1F90 File Offset: 0x002C0190
 		public bool HasMoneyTreeRedPoint()
 		{
 			bool serverPushMoneyTree = this._Doc.ServerPushMoneyTree;
@@ -402,7 +379,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C70E RID: 50958 RVA: 0x002C206C File Offset: 0x002C026C
 		private void SetHandlerVisible(XSysDefine define, bool isVisble)
 		{
 			DlgHandlerBase dlgHandlerBase;
@@ -417,7 +393,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C70F RID: 50959 RVA: 0x002C20A4 File Offset: 0x002C02A4
 		public DlgHandlerBase GetHandler(XSysDefine define)
 		{
 			DlgHandlerBase dlgHandlerBase;
@@ -434,7 +409,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C710 RID: 50960 RVA: 0x002C20D0 File Offset: 0x002C02D0
 		public bool OnTabClicked(IXUICheckBox checkbox)
 		{
 			bool flag = !checkbox.bChecked;
@@ -486,7 +460,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C711 RID: 50961 RVA: 0x002C2218 File Offset: 0x002C0418
 		public void RefreshData()
 		{
 			bool flag = !base.IsVisible();
@@ -514,7 +487,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C712 RID: 50962 RVA: 0x002C22BC File Offset: 0x002C04BC
 		public void SelectTab(XSysDefine tab)
 		{
 			bool flag = !base.IsVisible() || this.m_InitTab;
@@ -539,7 +511,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C713 RID: 50963 RVA: 0x002C2354 File Offset: 0x002C0554
 		public void RefreshRewardBackData()
 		{
 			DlgHandlerBase dlgHandlerBase;
@@ -550,7 +521,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C714 RID: 50964 RVA: 0x002C2384 File Offset: 0x002C0584
 		public void OnGetRewardInfo(ItemFindBackInfoRes oRes)
 		{
 			bool flag = this.m_currentDefine == XSysDefine.XSyS_Welfare_RewardBack;
@@ -565,7 +535,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C715 RID: 50965 RVA: 0x002C23D0 File Offset: 0x002C05D0
 		public void OnGetMoneyTreeInfo(uint type, uint count, GoldClickRes clickres)
 		{
 			this.RefreshRedpoint();
@@ -583,14 +552,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C716 RID: 50966 RVA: 0x002C2444 File Offset: 0x002C0644
 		public bool OnCloseClicked(IXUIButton sp)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x0600C717 RID: 50967 RVA: 0x002C2460 File Offset: 0x002C0660
 		public bool CheckActiveMemberPrivilege(MemberPrivilege type)
 		{
 			XWelfareDocument specificDocument = XDocuments.GetSpecificDocument<XWelfareDocument>(XWelfareDocument.uuID);
@@ -626,7 +593,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C718 RID: 50968 RVA: 0x002C2524 File Offset: 0x002C0724
 		private bool OnActiveMemberPrivilege(IXUIButton btn)
 		{
 			DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.SetVisible(false, true);
@@ -634,22 +600,16 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0400574C RID: 22348
 		private Dictionary<XSysDefine, IXUICheckBox> m_AllTabs = new Dictionary<XSysDefine, IXUICheckBox>();
 
-		// Token: 0x0400574D RID: 22349
 		public Dictionary<XSysDefine, DlgHandlerBase> m_AllHandlers = new Dictionary<XSysDefine, DlgHandlerBase>();
 
-		// Token: 0x0400574E RID: 22350
 		private XSysDefine m_currentDefine = XSysDefine.XSys_None;
 
-		// Token: 0x0400574F RID: 22351
 		private XSysDefine m_normalDefine = XSysDefine.XSys_None;
 
-		// Token: 0x04005750 RID: 22352
 		private XWelfareDocument _Doc;
 
-		// Token: 0x04005751 RID: 22353
 		private bool m_InitTab = true;
 	}
 }

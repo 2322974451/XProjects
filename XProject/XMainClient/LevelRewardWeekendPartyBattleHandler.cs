@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000BAE RID: 2990
+
 	internal class LevelRewardWeekendPartyBattleHandler : DlgHandlerBase
 	{
-		// Token: 0x17003053 RID: 12371
-		// (get) Token: 0x0600AB69 RID: 43881 RVA: 0x001F3F2C File Offset: 0x001F212C
+
 		protected override string FileName
 		{
 			get
@@ -21,7 +20,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AB6A RID: 43882 RVA: 0x001F3F44 File Offset: 0x001F2144
 		protected override void Init()
 		{
 			base.Init();
@@ -46,14 +44,12 @@ namespace XMainClient
 			this.m_TypeOnlyScore = base.PanelObject.transform.Find("Bg/Board/Game_OnlyScore").gameObject;
 		}
 
-		// Token: 0x0600AB6B RID: 43883 RVA: 0x001F41B1 File Offset: 0x001F23B1
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			this.m_BackBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnBackBtnClick));
 		}
 
-		// Token: 0x0600AB6C RID: 43884 RVA: 0x001F41D4 File Offset: 0x001F23D4
 		private bool OnBackBtnClick(IXUIButton btn)
 		{
 			bool flag = Time.time - this.m_leaveTime < 5f;
@@ -71,7 +67,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600AB6D RID: 43885 RVA: 0x001F4218 File Offset: 0x001F2418
 		private bool OnShareBtnClick(IXUIButton btn)
 		{
 			XSingleton<PDatabase>.singleton.shareCallbackType = ShareCallBackType.WeekShare;
@@ -80,14 +75,12 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600AB6E RID: 43886 RVA: 0x001F424F File Offset: 0x001F244F
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.ShowUI();
 		}
 
-		// Token: 0x0600AB6F RID: 43887 RVA: 0x001F4260 File Offset: 0x001F2460
 		public void ShowUI()
 		{
 			DlgBase<XLevelRewardView, XLevelRewardBehaviour>.singleton.SetVisible(true, true);
@@ -187,7 +180,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AB70 RID: 43888 RVA: 0x001F481C File Offset: 0x001F2A1C
 		private void SetupData(GameObject go, WeekendPartyBattleRoleInfo data, int index, bool isLeft, bool isMVP)
 		{
 			Vector3 tplPos = this.m_PlayerPool_L.TplPos;
@@ -233,55 +225,38 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04004029 RID: 16425
 		private XLevelRewardDocument _doc = null;
 
-		// Token: 0x0400402A RID: 16426
 		private XUIPool m_PlayerPool_L = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x0400402B RID: 16427
 		private XUIPool m_PlayerPool_R = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x0400402C RID: 16428
 		private XUIPool m_ItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x0400402D RID: 16429
 		private GameObject m_Win;
 
-		// Token: 0x0400402E RID: 16430
 		private GameObject m_Lose;
 
-		// Token: 0x0400402F RID: 16431
 		private GameObject m_Draw;
 
-		// Token: 0x04004030 RID: 16432
 		private IXUIButton m_BackBtn;
 
-		// Token: 0x04004031 RID: 16433
 		private IXUILabel m_Time;
 
-		// Token: 0x04004032 RID: 16434
 		private IXUILabel m_Score1;
 
-		// Token: 0x04004033 RID: 16435
 		private IXUILabel m_Score2;
 
-		// Token: 0x04004034 RID: 16436
 		private GameObject m_TypeKill;
 
-		// Token: 0x04004035 RID: 16437
 		private GameObject m_TypeDeath;
 
-		// Token: 0x04004036 RID: 16438
 		private GameObject m_TypeTime;
 
-		// Token: 0x04004037 RID: 16439
 		private GameObject m_TypeRank;
 
-		// Token: 0x04004038 RID: 16440
 		private GameObject m_TypeOnlyScore;
 
-		// Token: 0x04004039 RID: 16441
 		private float m_leaveTime;
 	}
 }

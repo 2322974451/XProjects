@@ -5,16 +5,15 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000E7F RID: 3711
+
 	internal class TooltipButtonOperatePutOn : TooltipButtonOperateBase
 	{
-		// Token: 0x0600C683 RID: 50819 RVA: 0x002BF068 File Offset: 0x002BD268
+
 		public override string GetButtonText()
 		{
 			return XStringDefineProxy.GetString("PUTON");
 		}
 
-		// Token: 0x0600C684 RID: 50820 RVA: 0x002BF084 File Offset: 0x002BD284
 		public override bool HasRedPoint(XItem item)
 		{
 			XCharacterEquipDocument specificDocument = XDocuments.GetSpecificDocument<XCharacterEquipDocument>(XCharacterEquipDocument.uuID);
@@ -23,13 +22,11 @@ namespace XMainClient
 			return final == EquipCompare.EC_MORE_POWERFUL;
 		}
 
-		// Token: 0x0600C685 RID: 50821 RVA: 0x002BF0BC File Offset: 0x002BD2BC
 		public override bool IsButtonVisible(XItem item)
 		{
 			return true;
 		}
 
-		// Token: 0x0600C686 RID: 50822 RVA: 0x002BF0D0 File Offset: 0x002BD2D0
 		public override void OnButtonClick(ulong mainUID, ulong compareUID)
 		{
 			base.OnButtonClick(mainUID, compareUID);
@@ -55,7 +52,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C687 RID: 50823 RVA: 0x002BF1A0 File Offset: 0x002BD3A0
 		private bool _Equip(IXUIButton btn)
 		{
 			XItem itemByUID = XSingleton<XGame>.singleton.Doc.XBagDoc.GetItemByUID(this.mainItemUID);
@@ -73,7 +69,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600C688 RID: 50824 RVA: 0x002BF210 File Offset: 0x002BD410
 		private bool _Equip0(IXUIButton btn)
 		{
 			XItem itemByUID = XSingleton<XGame>.singleton.Doc.XBagDoc.GetItemByUID(this.mainItemUID);
@@ -86,7 +81,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600C689 RID: 50825 RVA: 0x002BF26C File Offset: 0x002BD46C
 		private bool _Equip1(IXUIButton btn)
 		{
 			XItem itemByUID = XSingleton<XGame>.singleton.Doc.XBagDoc.GetItemByUID(this.mainItemUID);
@@ -99,7 +93,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600C68A RID: 50826 RVA: 0x002BF2C8 File Offset: 0x002BD4C8
 		private bool IsNeedJadeTip(XEquipItem equip, XEquipItem equipedEquip)
 		{
 			bool flag = equip == null || equip.itemID == 0 || equipedEquip == null || equipedEquip.itemID == 0;

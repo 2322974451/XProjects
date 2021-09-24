@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C35 RID: 3125
+
 	internal class HomeMainDocument : XDocComponent
 	{
-		// Token: 0x17003144 RID: 12612
-		// (get) Token: 0x0600B115 RID: 45333 RVA: 0x0021E48C File Offset: 0x0021C68C
+
 		public override uint ID
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003145 RID: 12613
-		// (get) Token: 0x0600B116 RID: 45334 RVA: 0x0021E4A4 File Offset: 0x0021C6A4
 		public static HomeMainDocument Doc
 		{
 			get
@@ -31,9 +28,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003146 RID: 12614
-		// (get) Token: 0x0600B117 RID: 45335 RVA: 0x0021E4D0 File Offset: 0x0021C6D0
-		// (set) Token: 0x0600B118 RID: 45336 RVA: 0x0021E4E8 File Offset: 0x0021C6E8
 		public bool HomeMainRedDot
 		{
 			get
@@ -51,36 +45,30 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B119 RID: 45337 RVA: 0x0021E520 File Offset: 0x0021C720
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			HomeMainDocument.AsyncLoader.Execute(callback);
 		}
 
-		// Token: 0x0600B11A RID: 45338 RVA: 0x00114ACA File Offset: 0x00112CCA
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
 		}
 
-		// Token: 0x0600B11B RID: 45339 RVA: 0x00114AD5 File Offset: 0x00112CD5
 		protected override void EventSubscribe()
 		{
 			base.EventSubscribe();
 		}
 
-		// Token: 0x0600B11C RID: 45340 RVA: 0x00114ADF File Offset: 0x00112CDF
 		public override void OnDetachFromHost()
 		{
 			base.OnDetachFromHost();
 		}
 
-		// Token: 0x0600B11D RID: 45341 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 		}
 
-		// Token: 0x0600B11E RID: 45342 RVA: 0x0021E530 File Offset: 0x0021C730
 		public override void OnEnterSceneFinally()
 		{
 			bool flag = XSingleton<XScene>.singleton.SceneType == SceneType.SCENE_FAMILYGARDEN;
@@ -94,7 +82,6 @@ namespace XMainClient
 			base.OnEnterSceneFinally();
 		}
 
-		// Token: 0x0600B11F RID: 45343 RVA: 0x0021E580 File Offset: 0x0021C780
 		public void ReqEnterHomeScene(ulong roleId, string name = "")
 		{
 			HomePlantDocument.Doc.GardenId = roleId;
@@ -106,7 +93,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B120 RID: 45344 RVA: 0x0021E5C4 File Offset: 0x0021C7C4
 		public void ReqEnterHomeScene()
 		{
 			PtcC2G_EnterSceneReq ptcC2G_EnterSceneReq = new PtcC2G_EnterSceneReq();
@@ -115,7 +101,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(ptcC2G_EnterSceneReq);
 		}
 
-		// Token: 0x0600B121 RID: 45345 RVA: 0x0021E618 File Offset: 0x0021C818
 		public void ReqLeaveHome()
 		{
 			XSingleton<XScene>.singleton.ReqLeaveScene();
@@ -125,21 +110,18 @@ namespace XMainClient
 			doc.GardenId = 0UL;
 		}
 
-		// Token: 0x0600B122 RID: 45346 RVA: 0x0021E654 File Offset: 0x0021C854
 		public void ReqGardenOverview()
 		{
 			RpcC2M_GardenOverview rpc = new RpcC2M_GardenOverview();
 			XSingleton<XClientNetwork>.singleton.Send(rpc);
 		}
 
-		// Token: 0x0600B123 RID: 45347 RVA: 0x0021E674 File Offset: 0x0021C874
 		public void ReqPlantFriendList()
 		{
 			RpcC2M_FriendGardenPlantLog rpc = new RpcC2M_FriendGardenPlantLog();
 			XSingleton<XClientNetwork>.singleton.Send(rpc);
 		}
 
-		// Token: 0x0600B124 RID: 45348 RVA: 0x0021E694 File Offset: 0x0021C894
 		public void RefreshCookingInfo(uint foodID, GardenCookingFoodRes res)
 		{
 			this._cookingLevel = res.cooking_level;
@@ -164,7 +146,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B125 RID: 45349 RVA: 0x0021E758 File Offset: 0x0021C958
 		public bool IsInMyOwnHomeGarden()
 		{
 			SceneType sceneType = XSingleton<XScene>.singleton.SceneType;
@@ -181,7 +162,6 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x0600B126 RID: 45350 RVA: 0x0021E79C File Offset: 0x0021C99C
 		public void OnGetGardenOverview(GardenOverviewRes oRes)
 		{
 			this._cookingLevel = oRes.cooking_level;
@@ -220,7 +200,6 @@ namespace XMainClient
 			this.RefreshUI();
 		}
 
-		// Token: 0x0600B127 RID: 45351 RVA: 0x0021E974 File Offset: 0x0021CB74
 		private int FriendListCompare(FriendPlantLog left, FriendPlantLog right)
 		{
 			bool flag = left.abnormal_state | left.exist_sprite | left.mature;
@@ -252,7 +231,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B128 RID: 45352 RVA: 0x0021E9E0 File Offset: 0x0021CBE0
 		public void OnGetPlantFriendList(FriendGardenPlantLogRes oRes)
 		{
 			bool flag = oRes.result == ErrorCode.ERR_INVALID_REQUEST;
@@ -281,7 +259,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B129 RID: 45353 RVA: 0x0021EA90 File Offset: 0x0021CC90
 		private void RefreshUI()
 		{
 			bool flag = DlgBase<HomeMainDlg, TabDlgBehaviour>.singleton.CurrentSysIs(XSysDefine.XSys_Home_MyHome);
@@ -331,19 +308,16 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B12A RID: 45354 RVA: 0x0021EBC0 File Offset: 0x0021CDC0
 		public uint GetCookingLevel()
 		{
 			return this._cookingLevel;
 		}
 
-		// Token: 0x0600B12B RID: 45355 RVA: 0x0021EBD8 File Offset: 0x0021CDD8
 		public uint GetCookingExp()
 		{
 			return this._cookingExp;
 		}
 
-		// Token: 0x0600B12C RID: 45356 RVA: 0x0021EBF0 File Offset: 0x0021CDF0
 		public bool IsFoodIDActive(uint foodId)
 		{
 			bool flag = XHomeCookAndPartyDocument.Doc.IsFoodIdActiveInTable(foodId);
@@ -367,7 +341,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B12D RID: 45357 RVA: 0x0021EC54 File Offset: 0x0021CE54
 		public uint GetFoodMakedTimes(uint foodId)
 		{
 			for (int i = 0; i < this._foodCookedInfoList.Count; i++)
@@ -381,8 +354,6 @@ namespace XMainClient
 			return 0U;
 		}
 
-		// Token: 0x17003147 RID: 12615
-		// (get) Token: 0x0600B12E RID: 45358 RVA: 0x0021ECB0 File Offset: 0x0021CEB0
 		public bool IsHadRedDot
 		{
 			get
@@ -391,8 +362,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003148 RID: 12616
-		// (get) Token: 0x0600B12F RID: 45359 RVA: 0x0021ECD0 File Offset: 0x0021CED0
 		public uint VisitedTimes
 		{
 			get
@@ -401,8 +370,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003149 RID: 12617
-		// (get) Token: 0x0600B130 RID: 45360 RVA: 0x0021ECE8 File Offset: 0x0021CEE8
 		public uint FishLevel
 		{
 			get
@@ -411,8 +378,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700314A RID: 12618
-		// (get) Token: 0x0600B131 RID: 45361 RVA: 0x0021ED00 File Offset: 0x0021CF00
 		public uint PlantAmount
 		{
 			get
@@ -421,8 +386,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700314B RID: 12619
-		// (get) Token: 0x0600B132 RID: 45362 RVA: 0x0021ED18 File Offset: 0x0021CF18
 		public uint MaxCanPlantAmount
 		{
 			get
@@ -431,8 +394,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700314C RID: 12620
-		// (get) Token: 0x0600B133 RID: 45363 RVA: 0x0021ED30 File Offset: 0x0021CF30
 		public List<HomeEventLog> HomeLogList
 		{
 			get
@@ -441,8 +402,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700314D RID: 12621
-		// (get) Token: 0x0600B134 RID: 45364 RVA: 0x0021ED48 File Offset: 0x0021CF48
 		public List<FriendPlantLog> PlantFriendList
 		{
 			get
@@ -451,8 +410,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700314E RID: 12622
-		// (get) Token: 0x0600B135 RID: 45365 RVA: 0x0021ED60 File Offset: 0x0021CF60
 		public uint FishBaitNum
 		{
 			get
@@ -461,8 +418,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700314F RID: 12623
-		// (get) Token: 0x0600B136 RID: 45366 RVA: 0x0021ED78 File Offset: 0x0021CF78
 		public bool HadTroublemaker
 		{
 			get
@@ -471,8 +426,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003150 RID: 12624
-		// (get) Token: 0x0600B137 RID: 45367 RVA: 0x0021ED90 File Offset: 0x0021CF90
 		public bool HadHarvest
 		{
 			get
@@ -481,8 +434,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003151 RID: 12625
-		// (get) Token: 0x0600B138 RID: 45368 RVA: 0x0021EDA8 File Offset: 0x0021CFA8
 		public bool HadSpecificState
 		{
 			get
@@ -491,8 +442,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003152 RID: 12626
-		// (get) Token: 0x0600B139 RID: 45369 RVA: 0x0021EDC0 File Offset: 0x0021CFC0
 		public Farmland ShowFarm
 		{
 			get
@@ -501,7 +450,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B13A RID: 45370 RVA: 0x0021EDD8 File Offset: 0x0021CFD8
 		private void SetHomeLog(List<GardenEventLog> lst, uint severTime)
 		{
 			this.m_homeLogList.Clear();
@@ -512,7 +460,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B13B RID: 45371 RVA: 0x0021EE24 File Offset: 0x0021D024
 		private void SetHomeState(List<PlantInfo> lst)
 		{
 			this.m_bHadHarvest = false;
@@ -535,7 +482,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B13C RID: 45372 RVA: 0x0021EE90 File Offset: 0x0021D090
 		private void SetHarvestTimeFarm(List<PlantInfo> lst, uint severTime)
 		{
 			this.m_showFarm = null;
@@ -571,7 +517,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B13D RID: 45373 RVA: 0x0021EFAC File Offset: 0x0021D1AC
 		public override void Update(float fDeltaT)
 		{
 			base.Update(fDeltaT);
@@ -588,73 +533,51 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0400441F RID: 17439
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("HomeMainDocument");
 
-		// Token: 0x04004420 RID: 17440
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x04004421 RID: 17441
 		private bool m_homeMainRedDot = false;
 
-		// Token: 0x04004422 RID: 17442
 		private uint _cookingLevel = 0U;
 
-		// Token: 0x04004423 RID: 17443
 		private uint _cookingExp = 0U;
 
-		// Token: 0x04004424 RID: 17444
 		private List<HomeMainDocument.FoodCookedInfo> _foodCookedInfoList = new List<HomeMainDocument.FoodCookedInfo>();
 
-		// Token: 0x04004425 RID: 17445
 		private bool m_bHadHarvest = false;
 
-		// Token: 0x04004426 RID: 17446
 		private bool m_bHadSpecificState = false;
 
-		// Token: 0x04004427 RID: 17447
 		private uint m_visitedTimes = 0U;
 
-		// Token: 0x04004428 RID: 17448
 		private uint m_fishLevel = 0U;
 
-		// Token: 0x04004429 RID: 17449
 		private uint m_plantAmount = 0U;
 
-		// Token: 0x0400442A RID: 17450
 		private uint m_fishBaitNum = 0U;
 
-		// Token: 0x0400442B RID: 17451
 		private uint m_maxCanPlantAmount = 0U;
 
-		// Token: 0x0400442C RID: 17452
 		private bool m_hadTroublemaker = false;
 
-		// Token: 0x0400442D RID: 17453
 		private Farmland m_showFarm;
 
-		// Token: 0x0400442E RID: 17454
 		private List<HomeEventLog> m_homeLogList = new List<HomeEventLog>();
 
-		// Token: 0x0400442F RID: 17455
 		private List<FriendPlantLog> m_plantFriendList = new List<FriendPlantLog>();
 
-		// Token: 0x04004430 RID: 17456
 		public MyHomeHandler HomeHandler;
 
-		// Token: 0x04004431 RID: 17457
 		public HomeFriendHandler HomeFriend;
 
-		// Token: 0x04004432 RID: 17458
 		private float m_gapTime = 0f;
 
-		// Token: 0x020019A5 RID: 6565
 		public class FoodCookedInfo
 		{
-			// Token: 0x04007F5B RID: 32603
+
 			public ulong food_id = 0UL;
 
-			// Token: 0x04007F5C RID: 32604
 			public uint cookedTimes = 0U;
 		}
 	}

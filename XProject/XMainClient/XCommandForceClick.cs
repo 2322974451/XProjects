@@ -8,10 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000DF7 RID: 3575
+
 	internal class XCommandForceClick : XBaseCommand
 	{
-		// Token: 0x0600C14E RID: 49486 RVA: 0x002919E8 File Offset: 0x0028FBE8
+
 		public override bool Execute()
 		{
 			bool flag = this._cmd.param2 == "_canvas/SkillFrame/Skill1";
@@ -41,12 +41,10 @@ namespace XMainClient
 			return this._execute(this._cmd.param1, this._cmd.param2, true);
 		}
 
-		// Token: 0x0600C14F RID: 49487 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public override void Update()
 		{
 		}
 
-		// Token: 0x0600C150 RID: 49488 RVA: 0x00291AC8 File Offset: 0x0028FCC8
 		public override void OnFinish()
 		{
 			this._execute(this._cmd.param1, this._cmd.param2, false);
@@ -63,7 +61,6 @@ namespace XMainClient
 			base.OnFinish();
 		}
 
-		// Token: 0x0600C151 RID: 49489 RVA: 0x00291BB0 File Offset: 0x0028FDB0
 		protected bool _execute(string param1, string param2, bool bExculsive)
 		{
 			Transform transform = XSingleton<XGameUI>.singleton.UIRoot.FindChild(this._cmd.param1 + "(Clone)");
@@ -119,7 +116,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C152 RID: 49490 RVA: 0x00291D58 File Offset: 0x0028FF58
 		public override void Stop()
 		{
 			bool flag = this._time > 0U;
@@ -174,7 +170,6 @@ namespace XMainClient
 			XSingleton<XTutorialMgr>.singleton.Exculsive = false;
 		}
 
-		// Token: 0x0600C153 RID: 49491 RVA: 0x00291F18 File Offset: 0x00290118
 		protected void ShowFinger(object o)
 		{
 			bool flag = this._finger == null;
@@ -224,7 +219,6 @@ namespace XMainClient
 			XSingleton<XTutorialMgr>.singleton.Exculsive = true;
 		}
 
-		// Token: 0x0600C154 RID: 49492 RVA: 0x0029212C File Offset: 0x0029032C
 		protected void SetupCloneButton(GameObject targetGo, GameObject cloneGo)
 		{
 			XSingleton<UiUtility>.singleton.AddChild(cloneGo.transform, this._finger.transform);
@@ -306,28 +300,20 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04005175 RID: 20853
 		private GameObject _finger;
 
-		// Token: 0x04005176 RID: 20854
 		private GameObject _clickGo;
 
-		// Token: 0x04005177 RID: 20855
 		private GameObject _cloneGo;
 
-		// Token: 0x04005178 RID: 20856
 		private int orgWidth1;
 
-		// Token: 0x04005179 RID: 20857
 		private int orgHeight1;
 
-		// Token: 0x0400517A RID: 20858
 		private int orgWidth2;
 
-		// Token: 0x0400517B RID: 20859
 		private int orgHeight2;
 
-		// Token: 0x0400517C RID: 20860
 		private uint _time = 0U;
 	}
 }

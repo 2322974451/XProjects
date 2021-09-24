@@ -9,11 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000953 RID: 2387
+
 	internal class XMentorshipDocument : XDocComponent
 	{
-		// Token: 0x17002C2A RID: 11306
-		// (get) Token: 0x06008F97 RID: 36759 RVA: 0x00142434 File Offset: 0x00140634
+
 		public override uint ID
 		{
 			get
@@ -22,8 +21,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002C2B RID: 11307
-		// (get) Token: 0x06008F98 RID: 36760 RVA: 0x0014244C File Offset: 0x0014064C
 		public static XMentorshipDocument Doc
 		{
 			get
@@ -32,7 +29,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008F99 RID: 36761 RVA: 0x00142477 File Offset: 0x00140677
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			XMentorshipDocument.AsyncLoader.AddTask("Table/MentorCompleteReward", XMentorshipDocument._mentorCompleteReward, false);
@@ -40,39 +36,31 @@ namespace XMainClient
 			XMentorshipDocument.AsyncLoader.Execute(callback);
 		}
 
-		// Token: 0x06008F9A RID: 36762 RVA: 0x001424B2 File Offset: 0x001406B2
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
 			this._gettedData = false;
 		}
 
-		// Token: 0x06008F9B RID: 36763 RVA: 0x00114AD5 File Offset: 0x00112CD5
 		protected override void EventSubscribe()
 		{
 			base.EventSubscribe();
 		}
 
-		// Token: 0x06008F9C RID: 36764 RVA: 0x00114ADF File Offset: 0x00112CDF
 		public override void OnDetachFromHost()
 		{
 			base.OnDetachFromHost();
 		}
 
-		// Token: 0x06008F9D RID: 36765 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 		}
 
-		// Token: 0x06008F9E RID: 36766 RVA: 0x00114AE9 File Offset: 0x00112CE9
 		public override void OnEnterSceneFinally()
 		{
 			base.OnEnterSceneFinally();
 		}
 
-		// Token: 0x17002C2C RID: 11308
-		// (get) Token: 0x06008F9F RID: 36767 RVA: 0x001424C4 File Offset: 0x001406C4
-		// (set) Token: 0x06008FA0 RID: 36768 RVA: 0x001424DC File Offset: 0x001406DC
 		public bool HasRedPointOnTasks
 		{
 			get
@@ -88,14 +76,8 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002C2D RID: 11309
-		// (get) Token: 0x06008FA1 RID: 36769 RVA: 0x0014250D File Offset: 0x0014070D
-		// (set) Token: 0x06008FA2 RID: 36770 RVA: 0x00142515 File Offset: 0x00140715
 		public bool LeaveFootprint { get; set; }
 
-		// Token: 0x17002C2E RID: 11310
-		// (get) Token: 0x06008FA3 RID: 36771 RVA: 0x00142520 File Offset: 0x00140720
-		// (set) Token: 0x06008FA4 RID: 36772 RVA: 0x00142538 File Offset: 0x00140738
 		public string MentorshipApplyWords
 		{
 			get
@@ -108,8 +90,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002C2F RID: 11311
-		// (get) Token: 0x06008FA5 RID: 36773 RVA: 0x00142544 File Offset: 0x00140744
 		public bool TipIconHasRedPoint
 		{
 			get
@@ -118,8 +98,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002C30 RID: 11312
-		// (get) Token: 0x06008FA6 RID: 36774 RVA: 0x0014255C File Offset: 0x0014075C
 		public bool HasApplyMsg
 		{
 			get
@@ -128,9 +106,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002C31 RID: 11313
-		// (get) Token: 0x06008FA7 RID: 36775 RVA: 0x00142574 File Offset: 0x00140774
-		// (set) Token: 0x06008FA8 RID: 36776 RVA: 0x0014258B File Offset: 0x0014078B
 		public static MentorCompleteRewardTable MentorCompleteReward
 		{
 			get
@@ -143,19 +118,16 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008FA9 RID: 36777 RVA: 0x00142594 File Offset: 0x00140794
 		public MentorTaskTable.RowData GetTableTaskInfoByTaskID(uint taskID)
 		{
 			return XMentorshipDocument._mentorTaskTable.GetByTaskID(taskID);
 		}
 
-		// Token: 0x06008FAA RID: 36778 RVA: 0x001425B4 File Offset: 0x001407B4
 		public MyMentorship GetMyMentorShip()
 		{
 			return this._myMentorship;
 		}
 
-		// Token: 0x06008FAB RID: 36779 RVA: 0x001425CC File Offset: 0x001407CC
 		public void OnRecordExplanationStart()
 		{
 			bool useApollo = XChatDocument.UseApollo;
@@ -169,14 +141,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008FAC RID: 36780 RVA: 0x00142600 File Offset: 0x00140800
 		public void SendMentorshipInfoReq()
 		{
 			RpcC2M_GetMyMentorInfo rpc = new RpcC2M_GetMyMentorInfo();
 			XSingleton<XClientNetwork>.singleton.Send(rpc);
 		}
 
-		// Token: 0x06008FAD RID: 36781 RVA: 0x00142620 File Offset: 0x00140820
 		public void OnGetMyMentorInfo(GetMyMentorInfoRes ores)
 		{
 			this._gettedData = true;
@@ -262,7 +232,6 @@ namespace XMainClient
 			this.RefreshMainUIRedPoint();
 		}
 
-		// Token: 0x06008FAE RID: 36782 RVA: 0x001428B4 File Offset: 0x00140AB4
 		public bool IsHasRedDot()
 		{
 			bool flag = XSingleton<XAttributeMgr>.singleton.XPlayerData == null;
@@ -297,7 +266,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008FAF RID: 36783 RVA: 0x00142928 File Offset: 0x00140B28
 		public bool GetOneRedStausByIndex(int mentorShipIndex)
 		{
 			bool flag = this._myMentorship == MyMentorship.Mentorship_Pupil;
@@ -333,7 +301,6 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x06008FB0 RID: 36784 RVA: 0x00142A1C File Offset: 0x00140C1C
 		public ulong GetMentorShipInTime(ulong currentRoleID)
 		{
 			ulong result = 0UL;
@@ -354,7 +321,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008FB1 RID: 36785 RVA: 0x00142A94 File Offset: 0x00140C94
 		public bool IsAllAgreed(ulong roleID)
 		{
 			List<MentorshipTaskInfo> taskListWithRoleID = this.GetTaskListWithRoleID(roleID);
@@ -383,7 +349,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008FB2 RID: 36786 RVA: 0x00142B1C File Offset: 0x00140D1C
 		public bool IsAllReported(ulong roleID)
 		{
 			ulong mentorShipInTime = this.GetMentorShipInTime(roleID);
@@ -402,13 +367,11 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x06008FB3 RID: 36787 RVA: 0x00142BB0 File Offset: 0x00140DB0
 		public int GetRelationTargetsCount()
 		{
 			return this._relationList.Count;
 		}
 
-		// Token: 0x06008FB4 RID: 36788 RVA: 0x00142BD0 File Offset: 0x00140DD0
 		public MentorRelationInfo GetRelationTargetInfo(int index)
 		{
 			bool flag = index < this._relationList.Count;
@@ -424,7 +387,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008FB5 RID: 36789 RVA: 0x00142C04 File Offset: 0x00140E04
 		public int GetRelationIndexByRoleID(ulong roleID)
 		{
 			int result = -1;
@@ -440,7 +402,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008FB6 RID: 36790 RVA: 0x00142C5C File Offset: 0x00140E5C
 		public MentorRelationInfo GetRelationTargetInfoByRoleID(ulong roleID)
 		{
 			for (int i = 0; i < this._relationList.Count; i++)
@@ -455,7 +416,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x06008FB7 RID: 36791 RVA: 0x00142CB0 File Offset: 0x00140EB0
 		public MentorRelationInfo GetInheritStatusByRoleID(ulong roleID)
 		{
 			for (int i = 0; i < this._relationList.Count; i++)
@@ -469,7 +429,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x06008FB8 RID: 36792 RVA: 0x00142D0C File Offset: 0x00140F0C
 		public void SendToGetMyApplyPupilsInfo(bool refreh = false)
 		{
 			RpcC2M_GetMyApplyStudentInfo rpcC2M_GetMyApplyStudentInfo = new RpcC2M_GetMyApplyStudentInfo();
@@ -477,7 +436,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_GetMyApplyStudentInfo);
 		}
 
-		// Token: 0x06008FB9 RID: 36793 RVA: 0x00142D3C File Offset: 0x00140F3C
 		public void OnGetMyApplyPupilsInfo(GetMyApplyStudentInfoRes oRes)
 		{
 			this._pupilApplyInfo.applyTargetInfoList.Clear();
@@ -501,7 +459,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008FBA RID: 36794 RVA: 0x00142E14 File Offset: 0x00141014
 		public void SendToGetMyApplyMasterInfo(bool refresh = false)
 		{
 			RpcC2M_GetMyApplyMasterInfo rpcC2M_GetMyApplyMasterInfo = new RpcC2M_GetMyApplyMasterInfo();
@@ -509,7 +466,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_GetMyApplyMasterInfo);
 		}
 
-		// Token: 0x06008FBB RID: 36795 RVA: 0x00142E44 File Offset: 0x00141044
 		public void OnGetMyApplyMasterInfo(GetMyApplyMasterInfoRes oRes)
 		{
 			this._masterApplyInfoList.Clear();
@@ -533,7 +489,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008FBC RID: 36796 RVA: 0x00142EF0 File Offset: 0x001410F0
 		public void SendCandidatesOpReq(EMentorMsgOpType opType, ulong roleID = 0UL, MentorMsgApplyType type = MentorMsgApplyType.MentorMsgApplyMax, int taskID = 0, bool isAll = false)
 		{
 			RpcC2M_MentorMyBeAppliedMsg rpcC2M_MentorMyBeAppliedMsg = new RpcC2M_MentorMyBeAppliedMsg();
@@ -545,7 +500,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_MentorMyBeAppliedMsg);
 		}
 
-		// Token: 0x06008FBD RID: 36797 RVA: 0x00142F54 File Offset: 0x00141154
 		public void OnGetMyBeenApplyedMsg(MentorMyBeAppliedMsgArg oArg, MentorMyBeAppliedMsgRes oRes)
 		{
 			bool flag = oArg.operation != EMentorMsgOpType.EMentorMsgOp_Get;
@@ -782,7 +736,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008FBE RID: 36798 RVA: 0x001435A0 File Offset: 0x001417A0
 		private void RefreshRedPointWithoutData()
 		{
 			this._hasRedPointOnTasks = false;
@@ -797,7 +750,6 @@ namespace XMainClient
 			this.RefreshMainUIRedPoint();
 		}
 
-		// Token: 0x06008FBF RID: 36799 RVA: 0x00143610 File Offset: 0x00141810
 		private void RefreshMainUIRedPoint()
 		{
 			this._hasRedPointOnTasks = this.IsHasRedDot();
@@ -810,7 +762,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008FC0 RID: 36800 RVA: 0x00143664 File Offset: 0x00141864
 		private void RefreshMsgMainSceneIcon()
 		{
 			bool flag = this._beenApplyedInfoList.Count == 0;
@@ -821,7 +772,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008FC1 RID: 36801 RVA: 0x001436A0 File Offset: 0x001418A0
 		private void RemoveApplyNewsButInheritReport(MentorMyBeAppliedMsgArg oArg)
 		{
 			for (int i = this._beenApplyedInfoList.Count - 1; i >= 0; i--)
@@ -834,7 +784,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008FC2 RID: 36802 RVA: 0x0014370C File Offset: 0x0014190C
 		public MentorBeenApplyedInfo GetMentorshipCandidateInfoByIndex(int index)
 		{
 			bool flag = index < this._beenApplyedInfoList.Count;
@@ -850,7 +799,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008FC3 RID: 36803 RVA: 0x00143740 File Offset: 0x00141940
 		private void AddTaskInfoUtil(List<OneMentorTaskInfo> src, List<MentorshipTaskInfo> des)
 		{
 			for (int i = 0; i < src.Count; i++)
@@ -927,7 +875,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008FC4 RID: 36804 RVA: 0x001439B8 File Offset: 0x00141BB8
 		public MessageShowInfoItem GetCandidateMsgShowInfo(int index)
 		{
 			bool flag = this.CurViewType == CandidatesViewType.Application;
@@ -984,7 +931,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x06008FC5 RID: 36805 RVA: 0x00143BB8 File Offset: 0x00141DB8
 		public int GetMyPupilTaskTotalNumber(ulong roleID)
 		{
 			List<MentorshipTaskInfo> taskListWithRoleID = this.GetTaskListWithRoleID(roleID);
@@ -1001,7 +947,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008FC6 RID: 36806 RVA: 0x00143BE4 File Offset: 0x00141DE4
 		public List<MentorshipTaskInfo> GetTaskListWithRoleID(ulong roleID)
 		{
 			for (int i = 0; i < this._relationList.Count; i++)
@@ -1015,7 +960,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x06008FC7 RID: 36807 RVA: 0x00143C44 File Offset: 0x00141E44
 		public int GetRelationPassedDays(ulong _currentRoleID, MentorRelationStatus status)
 		{
 			for (int i = 0; i < this._relationList.Count; i++)
@@ -1039,7 +983,6 @@ namespace XMainClient
 			return 0;
 		}
 
-		// Token: 0x06008FC8 RID: 36808 RVA: 0x00143D18 File Offset: 0x00141F18
 		public bool IsMentorshipInDaysEnough(ulong roleID)
 		{
 			int @int = XSingleton<XGlobalConfig>.singleton.GetInt("Mentor_NormalCompleteDay");
@@ -1058,7 +1001,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008FC9 RID: 36809 RVA: 0x00143D78 File Offset: 0x00141F78
 		public bool IsCompletedTaskEnough(ulong roleID)
 		{
 			int completedTaskCount = XMentorshipDocument.Doc.GetCompletedTaskCount(roleID);
@@ -1077,7 +1019,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008FCA RID: 36810 RVA: 0x00143DD8 File Offset: 0x00141FD8
 		public MentorshipTaskInfo GetTaskInfoWithIndexAndRoleID(int index, ulong roleID)
 		{
 			List<MentorshipTaskInfo> taskListWithRoleID = this.GetTaskListWithRoleID(roleID);
@@ -1094,7 +1035,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008FCB RID: 36811 RVA: 0x00143E10 File Offset: 0x00142010
 		public int GetCanidatesShowMsgCount()
 		{
 			bool flag = this.CurViewType == CandidatesViewType.Application;
@@ -1135,13 +1075,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008FCC RID: 36812 RVA: 0x00143ED0 File Offset: 0x001420D0
 		public int GetBeenApplyMsgCount()
 		{
 			return this._beenApplyedInfoList.Count;
 		}
 
-		// Token: 0x06008FCD RID: 36813 RVA: 0x00143EF0 File Offset: 0x001420F0
 		public int GetBeenApplyReportsMsgCount()
 		{
 			int num = 0;
@@ -1156,7 +1094,6 @@ namespace XMainClient
 			return num;
 		}
 
-		// Token: 0x06008FCE RID: 36814 RVA: 0x00143F44 File Offset: 0x00142144
 		public MentorBeenApplyedInfo GetBeenApplyInfoByIndex(int index)
 		{
 			bool flag = index < this._beenApplyedInfoList.Count;
@@ -1172,13 +1109,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008FCF RID: 36815 RVA: 0x00143F78 File Offset: 0x00142178
 		public int GetMyMentorshipTaskCount()
 		{
 			return this._myMentorshipTaskList.Count;
 		}
 
-		// Token: 0x06008FD0 RID: 36816 RVA: 0x00143F98 File Offset: 0x00142198
 		public MentorshipTaskInfo GetMyMentorshipTaskInfoByIndex(int index)
 		{
 			bool flag = index < this._myMentorshipTaskList.Count;
@@ -1194,7 +1129,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008FD1 RID: 36817 RVA: 0x00143FCC File Offset: 0x001421CC
 		public MessageShowInfoItem GetApplicationViewMsgInfoByIndex(int index)
 		{
 			bool flag = index < this._myMentorshipTaskList.Count;
@@ -1220,7 +1154,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008FD2 RID: 36818 RVA: 0x00144035 File Offset: 0x00142235
 		public void SetCandidatesViewVisible(CandidatesViewType viewType, CandidatesViewRecommendType recommendType = CandidatesViewRecommendType.None)
 		{
 			this.CurViewType = viewType;
@@ -1228,14 +1161,12 @@ namespace XMainClient
 			DlgBase<XMentorshipCandidatesView, XMentorshipCandidatesBehavior>.singleton.SetVisibleWithAnimation(true, null);
 		}
 
-		// Token: 0x06008FD3 RID: 36819 RVA: 0x00144053 File Offset: 0x00142253
 		public void ResetCandidatesView()
 		{
 			this.CurViewType = CandidatesViewType.None;
 			this.CurRecommendType = CandidatesViewRecommendType.None;
 		}
 
-		// Token: 0x06008FD4 RID: 36820 RVA: 0x00144064 File Offset: 0x00142264
 		public void SendMentorRelationOp(MentorRelationOpType opType, ulong roleID, int taskID = 0)
 		{
 			RpcC2M_MentorRelationOp rpcC2M_MentorRelationOp = new RpcC2M_MentorRelationOp();
@@ -1245,7 +1176,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_MentorRelationOp);
 		}
 
-		// Token: 0x06008FD5 RID: 36821 RVA: 0x001440AC File Offset: 0x001422AC
 		public void OnGetMentorshipOpReply(MentorRelationOpArg oArg, MentorRelationOpRes oRes)
 		{
 			bool flag = oRes.error == ErrorCode.ERR_FAILED;
@@ -1491,7 +1421,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008FD6 RID: 36822 RVA: 0x001447AC File Offset: 0x001429AC
 		public int GetCompletedTaskCount(ulong roleID)
 		{
 			int num = 0;
@@ -1516,14 +1445,12 @@ namespace XMainClient
 			return num;
 		}
 
-		// Token: 0x06008FD7 RID: 36823 RVA: 0x00144884 File Offset: 0x00142A84
 		public int GetTotalTaskNum(ulong roleID)
 		{
 			List<MentorshipTaskInfo> taskList = this.GetTaskList(roleID);
 			return (taskList != null) ? taskList.Count : 0;
 		}
 
-		// Token: 0x06008FD8 RID: 36824 RVA: 0x001448AC File Offset: 0x00142AAC
 		private List<MentorshipTaskInfo> GetTaskList(ulong roleID)
 		{
 			List<MentorshipTaskInfo> result = null;
@@ -1550,7 +1477,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008FD9 RID: 36825 RVA: 0x0014493C File Offset: 0x00142B3C
 		private void RefreshTaskItems()
 		{
 			bool flag = DlgBase<XFriendsView, XFriendsBehaviour>.singleton.IsVisible();
@@ -1566,7 +1492,6 @@ namespace XMainClient
 			this.RefreshMainUIRedPoint();
 		}
 
-		// Token: 0x06008FDA RID: 36826 RVA: 0x00144988 File Offset: 0x00142B88
 		public void SendUpdateMentorshopSetting(string words, bool isChecked)
 		{
 			RpcC2M_UpdateMentorApplyStudentInfo rpcC2M_UpdateMentorApplyStudentInfo = new RpcC2M_UpdateMentorApplyStudentInfo();
@@ -1575,7 +1500,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_UpdateMentorApplyStudentInfo);
 		}
 
-		// Token: 0x06008FDB RID: 36827 RVA: 0x001449C8 File Offset: 0x00142BC8
 		public void OnGetMentorshipSetting(UpdateMentorApplyStudentInfoArg oArg, UpdateMentorApplyStudentInfoRes oRes)
 		{
 			this.MentorshipApplyWords = oArg.applyWords;
@@ -1593,7 +1517,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008FDC RID: 36828 RVA: 0x00144A44 File Offset: 0x00142C44
 		public void SendGetOtherMentorStatus(ulong roleID)
 		{
 			RpcC2M_GetOtherMentorStatus rpcC2M_GetOtherMentorStatus = new RpcC2M_GetOtherMentorStatus();
@@ -1601,7 +1524,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_GetOtherMentorStatus);
 		}
 
-		// Token: 0x06008FDD RID: 36829 RVA: 0x00144A74 File Offset: 0x00142C74
 		public void OnGetOtherMentorStatus(GetOtherMentorStatusArg oArg, GetOtherMentorStatusRes oRes)
 		{
 			bool flag = oArg.roleid == this.ClickedMainSceneRoleID;
@@ -1616,7 +1538,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008FDE RID: 36830 RVA: 0x00144ABC File Offset: 0x00142CBC
 		public void OnGetMentorshipNotify(PtcM2C_NotifyMentorApply roPtc)
 		{
 			EMentorRelationPosition pos = roPtc.Data.pos;
@@ -1656,7 +1577,6 @@ namespace XMainClient
 			DlgBase<XMainInterface, XMainInterfaceBehaviour>.singleton.RefreshH5ButtonState(XSysDefine.XSys_MentorshipMsg_Tip, true);
 		}
 
-		// Token: 0x06008FDF RID: 36831 RVA: 0x00144C7C File Offset: 0x00142E7C
 		private bool ToNoShowing(IXUIButton button)
 		{
 			XSingleton<UiUtility>.singleton.CloseModalDlg();
@@ -1664,7 +1584,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x06008FE0 RID: 36832 RVA: 0x00144CA8 File Offset: 0x00142EA8
 		private bool ToOpenNews(IXUIButton button)
 		{
 			XSingleton<UiUtility>.singleton.CloseModalDlg();
@@ -1682,7 +1601,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x06008FE1 RID: 36833 RVA: 0x00144D10 File Offset: 0x00142F10
 		public MyMentorship GetMyPossibleMentorship()
 		{
 			uint level = XSingleton<XAttributeMgr>.singleton.XPlayerData.Level;
@@ -1710,7 +1628,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008FE2 RID: 36834 RVA: 0x00144D78 File Offset: 0x00142F78
 		private void FireMentorOperationEvent(MentorRelationOpArg oArg, MentorRelationOpRes oRes)
 		{
 			XMentorRelationOpArgs @event = XEventPool<XMentorRelationOpArgs>.GetEvent();
@@ -1720,7 +1637,6 @@ namespace XMainClient
 			XSingleton<XEventMgr>.singleton.FireEvent(@event);
 		}
 
-		// Token: 0x06008FE3 RID: 36835 RVA: 0x00144DB8 File Offset: 0x00142FB8
 		private void StartCountDown()
 		{
 			bool flag = this._countDownTimerID > 0U;
@@ -1731,7 +1647,6 @@ namespace XMainClient
 			this._countDownTimerID = XSingleton<XTimerMgr>.singleton.SetTimerAccurate(1f, new XTimerMgr.AccurateElapsedEventHandler(this.TimerCD), null);
 		}
 
-		// Token: 0x06008FE4 RID: 36836 RVA: 0x00144E08 File Offset: 0x00143008
 		private void TimerCD(object param, float delay)
 		{
 			bool flag = this._myApplyMasterRefreshTime > 0;
@@ -1757,7 +1672,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008FE5 RID: 36837 RVA: 0x00144E94 File Offset: 0x00143094
 		private void RefreshViewCD()
 		{
 			bool flag = this.CurViewType == CandidatesViewType.Recommend && DlgBase<XMentorshipCandidatesView, XMentorshipCandidatesBehavior>.singleton.IsVisible();
@@ -1775,82 +1689,56 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04002F5E RID: 12126
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("MentorshipDocument");
 
-		// Token: 0x04002F5F RID: 12127
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x04002F60 RID: 12128
 		private static MentorCompleteRewardTable _mentorCompleteReward = new MentorCompleteRewardTable();
 
-		// Token: 0x04002F61 RID: 12129
 		private static MentorTaskTable _mentorTaskTable = new MentorTaskTable();
 
-		// Token: 0x04002F62 RID: 12130
 		public readonly int MaxRelationCount = 2;
 
-		// Token: 0x04002F63 RID: 12131
 		private bool _gettedData = false;
 
-		// Token: 0x04002F64 RID: 12132
 		private MyMentorship _myMentorship = MyMentorship.None;
 
-		// Token: 0x04002F65 RID: 12133
 		private List<MentorRelationInfo> _relationList = new List<MentorRelationInfo>();
 
-		// Token: 0x04002F66 RID: 12134
 		private List<MentorshipTaskInfo> _myMentorshipTaskList = new List<MentorshipTaskInfo>();
 
-		// Token: 0x04002F67 RID: 12135
 		private PupilApplyInfo _pupilApplyInfo = new PupilApplyInfo();
 
-		// Token: 0x04002F68 RID: 12136
 		private List<MasterApplyInfoItem> _masterApplyInfoList = new List<MasterApplyInfoItem>();
 
-		// Token: 0x04002F69 RID: 12137
 		private List<MentorBeenApplyedInfo> _beenApplyedInfoList = new List<MentorBeenApplyedInfo>();
 
-		// Token: 0x04002F6A RID: 12138
 		private MessageShowInfoItem _tempShowInfo = new MessageShowInfoItem();
 
-		// Token: 0x04002F6B RID: 12139
 		public CandidatesViewType CurViewType = CandidatesViewType.None;
 
-		// Token: 0x04002F6C RID: 12140
 		public CandidatesViewRecommendType CurRecommendType = CandidatesViewRecommendType.None;
 
-		// Token: 0x04002F6D RID: 12141
 		private string _mentorshipApplyWords = string.Empty;
 
-		// Token: 0x04002F6E RID: 12142
 		public int ReceiveingProtocolTime = 0;
 
-		// Token: 0x04002F6F RID: 12143
 		public ulong ClickedMainSceneRoleID = 0UL;
 
-		// Token: 0x04002F70 RID: 12144
 		public MentorApplyStatus ClickedRoleMentorshipStatus;
 
-		// Token: 0x04002F71 RID: 12145
 		private bool _hasRedPointOnTasks = false;
 
-		// Token: 0x04002F72 RID: 12146
 		private bool _tipIconHasRedPoint;
 
-		// Token: 0x04002F73 RID: 12147
 		private bool _hasApplyMsg;
 
-		// Token: 0x04002F74 RID: 12148
 		private int timeForReceive;
 
-		// Token: 0x04002F75 RID: 12149
 		private int _myApplyPupilRefreshTime = 0;
 
-		// Token: 0x04002F76 RID: 12150
 		private int _myApplyMasterRefreshTime = 0;
 
-		// Token: 0x04002F77 RID: 12151
 		private uint _countDownTimerID = 0U;
 	}
 }

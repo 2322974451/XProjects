@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x020000EF RID: 239
+
 	public class FightGroupTable : CVSReader
 	{
-		// Token: 0x0600063B RID: 1595 RVA: 0x0001E278 File Offset: 0x0001C478
+
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			FightGroupTable.RowData rowData = new FightGroupTable.RowData();
@@ -29,7 +29,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x0600063C RID: 1596 RVA: 0x0001E374 File Offset: 0x0001C574
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -43,34 +42,25 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x0400033B RID: 827
 		public FightGroupTable.RowData[] Table = null;
 
-		// Token: 0x020002EE RID: 750
 		public class RowData
 		{
-			// Token: 0x04000AC4 RID: 2756
+
 			public string group;
 
-			// Token: 0x04000AC5 RID: 2757
 			public string enemy;
 
-			// Token: 0x04000AC6 RID: 2758
 			public string role;
 
-			// Token: 0x04000AC7 RID: 2759
 			public string neutral;
 
-			// Token: 0x04000AC8 RID: 2760
 			public string hostility;
 
-			// Token: 0x04000AC9 RID: 2761
 			public string enemygod;
 
-			// Token: 0x04000ACA RID: 2762
 			public string rolegod;
 
-			// Token: 0x04000ACB RID: 2763
 			public string other;
 		}
 	}

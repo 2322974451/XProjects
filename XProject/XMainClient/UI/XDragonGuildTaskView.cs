@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020016DC RID: 5852
+
 	public class XDragonGuildTaskView : DlgBase<XDragonGuildTaskView, XDragonGuildTaskBehaviour>
 	{
-		// Token: 0x1700374C RID: 14156
-		// (get) Token: 0x0600F156 RID: 61782 RVA: 0x00354068 File Offset: 0x00352268
+
 		public uint CurFrame
 		{
 			get
@@ -20,7 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F157 RID: 61783 RVA: 0x00354080 File Offset: 0x00352280
 		protected override void Init()
 		{
 			base.Init();
@@ -34,8 +32,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_achieve.RegisterOnCheckEventHandler(new CheckBoxOnCheckEventHandler(this.OnTabStateChange));
 		}
 
-		// Token: 0x1700374D RID: 14157
-		// (get) Token: 0x0600F158 RID: 61784 RVA: 0x00354138 File Offset: 0x00352338
 		public override string fileName
 		{
 			get
@@ -44,8 +40,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700374E RID: 14158
-		// (get) Token: 0x0600F159 RID: 61785 RVA: 0x00354150 File Offset: 0x00352350
 		public override int layer
 		{
 			get
@@ -54,8 +48,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700374F RID: 14159
-		// (get) Token: 0x0600F15A RID: 61786 RVA: 0x00354164 File Offset: 0x00352364
 		public override bool autoload
 		{
 			get
@@ -64,8 +56,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003750 RID: 14160
-		// (get) Token: 0x0600F15B RID: 61787 RVA: 0x00354178 File Offset: 0x00352378
 		public override bool fullscreenui
 		{
 			get
@@ -74,46 +64,39 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F15C RID: 61788 RVA: 0x0035418B File Offset: 0x0035238B
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this._doc.ReqInfo();
 		}
 
-		// Token: 0x0600F15D RID: 61789 RVA: 0x003541A1 File Offset: 0x003523A1
 		protected override void OnHide()
 		{
 			base.OnHide();
 		}
 
-		// Token: 0x0600F15E RID: 61790 RVA: 0x003541AB File Offset: 0x003523AB
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			base.uiBehaviour.m_close.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseClick));
 		}
 
-		// Token: 0x0600F15F RID: 61791 RVA: 0x003541D2 File Offset: 0x003523D2
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
 		}
 
-		// Token: 0x0600F160 RID: 61792 RVA: 0x003541DC File Offset: 0x003523DC
 		protected override void OnUnload()
 		{
 			base.OnUnload();
 			this._doc.View = null;
 		}
 
-		// Token: 0x0600F161 RID: 61793 RVA: 0x003541F3 File Offset: 0x003523F3
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
 		}
 
-		// Token: 0x0600F162 RID: 61794 RVA: 0x00354200 File Offset: 0x00352400
 		public bool OnTabStateChange(IXUICheckBox check)
 		{
 			bool bChecked = check.bChecked;
@@ -124,14 +107,12 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F163 RID: 61795 RVA: 0x0035422D File Offset: 0x0035242D
 		private void OnTabClicked(int index)
 		{
 			this._curframe = (uint)index;
 			this._doc.ReqInfo();
 		}
 
-		// Token: 0x0600F164 RID: 61796 RVA: 0x00354244 File Offset: 0x00352444
 		public void RefreshUI()
 		{
 			this.UpdateProgress();
@@ -152,21 +133,18 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_GuildLevel.SetText("Lv." + XDragonGuildDocument.Doc.BaseData.level.ToString());
 		}
 
-		// Token: 0x0600F165 RID: 61797 RVA: 0x003542C0 File Offset: 0x003524C0
 		private void UpdateRedPoint()
 		{
 			base.uiBehaviour.m_taskrep.gameObject.SetActive(this._doc.HadTaskRedPoint());
 			base.uiBehaviour.m_acieverep.gameObject.SetActive(this._doc.HadAchieveRedPoint());
 		}
 
-		// Token: 0x0600F166 RID: 61798 RVA: 0x00354310 File Offset: 0x00352510
 		private bool OnCloseClick(IXUIButton btn)
 		{
 			this.SetVisible(false, true);
 			return true;
 		}
 
-		// Token: 0x0600F167 RID: 61799 RVA: 0x0035432C File Offset: 0x0035252C
 		private void UpdateDailyTask(Transform t, int index)
 		{
 			XDragonGuildTpl dataByindex = this._doc.GetDataByindex(index, this._curframe);
@@ -233,7 +211,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F168 RID: 61800 RVA: 0x003546A4 File Offset: 0x003528A4
 		private bool OnTaskOrAchieveClick(IXUIButton btn)
 		{
 			int id = (int)btn.ID;
@@ -253,7 +230,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F169 RID: 61801 RVA: 0x003546FC File Offset: 0x003528FC
 		public void OnTaskFetch(uint id)
 		{
 			for (int i = 0; i < this._doc.m_tasklist.Count; i++)
@@ -267,7 +243,6 @@ namespace XMainClient.UI
 			this.RefreshUI();
 		}
 
-		// Token: 0x0600F16A RID: 61802 RVA: 0x00354768 File Offset: 0x00352968
 		private void UpdateProgress()
 		{
 			base.uiBehaviour.m_GuildExpCur.SetText(XDragonGuildDocument.Doc.BaseData.curexp.ToString());
@@ -275,7 +250,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_progress.value = XDragonGuildDocument.Doc.BaseData.curexp / XDragonGuildDocument.Doc.GetMaxExp();
 		}
 
-		// Token: 0x0600F16B RID: 61803 RVA: 0x003547F8 File Offset: 0x003529F8
 		private void RefreshTaskUI()
 		{
 			base.uiBehaviour.m_cdrewards.SetText(this._doc.m_taskresettime);
@@ -285,7 +259,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_Topachieve.gameObject.SetActive(false);
 		}
 
-		// Token: 0x0600F16C RID: 61804 RVA: 0x00354884 File Offset: 0x00352A84
 		private void RefreshAchieveUI()
 		{
 			base.uiBehaviour.m_wrapcontent.SetContentCount(this._doc.m_achievelist.Count, false);
@@ -294,10 +267,8 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_Topachieve.gameObject.SetActive(true);
 		}
 
-		// Token: 0x04006723 RID: 26403
 		private uint _curframe;
 
-		// Token: 0x04006724 RID: 26404
 		private XDragonGuildTaskDocument _doc = null;
 	}
 }

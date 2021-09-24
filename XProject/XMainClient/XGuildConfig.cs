@@ -4,11 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000E3C RID: 3644
+
 	internal class XGuildConfig
 	{
-		// Token: 0x17003445 RID: 13381
-		// (get) Token: 0x0600C3D2 RID: 50130 RVA: 0x002A9384 File Offset: 0x002A7584
+
 		public uint MaxLevel
 		{
 			get
@@ -17,7 +16,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C3D4 RID: 50132 RVA: 0x002A9464 File Offset: 0x002A7664
 		public void Init(GuildConfigTable configTable)
 		{
 			this.m_BaseExp.Clear();
@@ -51,7 +49,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C3D5 RID: 50133 RVA: 0x002A9584 File Offset: 0x002A7784
 		public GuildConfigTable.RowData GetDataByLevel(uint level)
 		{
 			bool flag = level > this._MaxLevel || level == 0U;
@@ -67,7 +64,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C3D6 RID: 50134 RVA: 0x002A95C0 File Offset: 0x002A77C0
 		public static int GetValue(GuildConfigTable.RowData data, XSysDefine sys)
 		{
 			if (sys <= XSysDefine.XSys_GuildRelax_Joker)
@@ -138,7 +134,6 @@ namespace XMainClient
 			return 0;
 		}
 
-		// Token: 0x0600C3D7 RID: 50135 RVA: 0x002A96F0 File Offset: 0x002A78F0
 		public bool IsSysUnlock(XSysDefine sys, uint level)
 		{
 			uint num = 0U;
@@ -156,7 +151,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C3D8 RID: 50136 RVA: 0x002A972C File Offset: 0x002A792C
 		public uint GetUnlockLevel(XSysDefine sys)
 		{
 			uint num = 1U;
@@ -173,7 +167,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C3D9 RID: 50137 RVA: 0x002A9758 File Offset: 0x002A7958
 		public uint GetBaseExp(uint level)
 		{
 			bool flag = (ulong)level > (ulong)((long)this.m_BaseExp.Count) || level == 0U;
@@ -189,7 +182,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C3DA RID: 50138 RVA: 0x002A9798 File Offset: 0x002A7998
 		public uint GetTotalStudyCount(int startLevel, int endLevel)
 		{
 			uint num = 0U;
@@ -206,7 +198,6 @@ namespace XMainClient
 			return num;
 		}
 
-		// Token: 0x0600C3DB RID: 50139 RVA: 0x002A97F4 File Offset: 0x002A79F4
 		public uint GetTotalExp(uint level)
 		{
 			bool flag = (ulong)level > (ulong)((long)this.m_BaseExp.Count) || level == 0U;
@@ -222,13 +213,10 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x040054DC RID: 21724
 		private GuildConfigTable m_ConfigTable;
 
-		// Token: 0x040054DD RID: 21725
 		private Dictionary<XSysDefine, uint> m_UnlockLevel = new Dictionary<XSysDefine, uint>(default(XFastEnumIntEqualityComparer<XSysDefine>));
 
-		// Token: 0x040054DE RID: 21726
 		private XSysDefine[] _LockedSys = new XSysDefine[]
 		{
 			XSysDefine.XSys_GuildHall_SignIn,
@@ -247,16 +235,12 @@ namespace XMainClient
 			XSysDefine.XSys_CrossGVG
 		};
 
-		// Token: 0x040054DF RID: 21727
 		private uint _MaxLevel;
 
-		// Token: 0x040054E0 RID: 21728
 		private List<uint> m_TotalExp = new List<uint>();
 
-		// Token: 0x040054E1 RID: 21729
 		private List<uint> m_BaseExp = new List<uint>();
 
-		// Token: 0x040054E2 RID: 21730
 		private List<uint> m_SkillCount = new List<uint>();
 	}
 }

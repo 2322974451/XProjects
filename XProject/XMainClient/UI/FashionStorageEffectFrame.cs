@@ -6,10 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017F5 RID: 6133
+
 	internal class FashionStorageEffectFrame : DlgHandlerBase
 	{
-		// Token: 0x0600FE57 RID: 65111 RVA: 0x003BCA40 File Offset: 0x003BAC40
+
 		protected override void Init()
 		{
 			base.Init();
@@ -25,14 +25,12 @@ namespace XMainClient.UI
 			this._EditPortrait.RegisterClickEventHandler(new ButtonClickEventHandler(this._OnEditPortrait));
 		}
 
-		// Token: 0x0600FE58 RID: 65112 RVA: 0x001F8A12 File Offset: 0x001F6C12
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.RefreshData();
 		}
 
-		// Token: 0x0600FE59 RID: 65113 RVA: 0x003BCB8C File Offset: 0x003BAD8C
 		protected override void OnHide()
 		{
 			bool flag = this._doc.preview == FashionStoragePreview.Effect;
@@ -45,7 +43,6 @@ namespace XMainClient.UI
 			base.OnHide();
 		}
 
-		// Token: 0x0600FE5A RID: 65114 RVA: 0x003BCBD8 File Offset: 0x003BADD8
 		public override void RefreshData()
 		{
 			this._ActivateSuits = this._doc.GetActivateSuits();
@@ -54,7 +51,6 @@ namespace XMainClient.UI
 			this.ShowActivateSuitPortrait();
 		}
 
-		// Token: 0x0600FE5B RID: 65115 RVA: 0x003BCC30 File Offset: 0x003BAE30
 		private void _EffectWrapContent(Transform tr, int index)
 		{
 			Transform transform = tr.Find("detal");
@@ -120,21 +116,18 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FE5C RID: 65116 RVA: 0x003BCEB4 File Offset: 0x003BB0B4
 		private bool _CloseClick(IXUIButton btn)
 		{
 			DlgBase<FashionStorageDlg, FashionStorageBehaviour>.singleton.Switch(FashionStoragePreview.None);
 			return true;
 		}
 
-		// Token: 0x0600FE5D RID: 65117 RVA: 0x003BCED4 File Offset: 0x003BB0D4
 		private bool _OnEditPortrait(IXUIButton btn)
 		{
 			this._doc.GetActiveSuitEffect(this._SelectEffectID);
 			return true;
 		}
 
-		// Token: 0x0600FE5E RID: 65118 RVA: 0x003BCEFC File Offset: 0x003BB0FC
 		private void _OnSelectEffect(IXUISprite sprite)
 		{
 			this._SelectEffectID = (uint)sprite.ID;
@@ -160,7 +153,6 @@ namespace XMainClient.UI
 			this.ShowActivateSuitPortrait();
 		}
 
-		// Token: 0x0600FE5F RID: 65119 RVA: 0x003BCFBC File Offset: 0x003BB1BC
 		private void ShowActivateSuitPortrait()
 		{
 			this._activateSuit = this._doc.GetActivateSuit(this._SelectEffectID);
@@ -179,7 +171,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FE60 RID: 65120 RVA: 0x003BD05C File Offset: 0x003BB25C
 		public override void OnUnload()
 		{
 			bool flag = this._doc.preview == FashionStoragePreview.Effect;
@@ -191,34 +182,24 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x04007057 RID: 28759
 		private IXUIButton _Close;
 
-		// Token: 0x04007058 RID: 28760
 		private IXUIButton _EditPortrait;
 
-		// Token: 0x04007059 RID: 28761
 		private IXUILabel _Message;
 
-		// Token: 0x0400705A RID: 28762
 		private IXUIScrollView _ScrollView;
 
-		// Token: 0x0400705B RID: 28763
 		private IXUIWrapContent _WrapContent;
 
-		// Token: 0x0400705C RID: 28764
 		private XBetterList<IFashionStorageSelect> _ActivateSuits;
 
-		// Token: 0x0400705D RID: 28765
 		private uint _SelectEffectID = 0U;
 
-		// Token: 0x0400705E RID: 28766
 		private XFashionStorageDocument _doc;
 
-		// Token: 0x0400705F RID: 28767
 		private IFashionStorageSelect _activateSuit;
 
-		// Token: 0x04007060 RID: 28768
 		private IXUILabel _Content;
 	}
 }

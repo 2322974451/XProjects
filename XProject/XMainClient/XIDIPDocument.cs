@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000942 RID: 2370
+
 	internal class XIDIPDocument : XDocComponent
 	{
-		// Token: 0x17002C1D RID: 11293
-		// (get) Token: 0x06008F46 RID: 36678 RVA: 0x0014106C File Offset: 0x0013F26C
+
 		public override uint ID
 		{
 			get
@@ -19,18 +18,15 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008F47 RID: 36679 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 		}
 
-		// Token: 0x06008F48 RID: 36680 RVA: 0x00141083 File Offset: 0x0013F283
 		public void DealWithIDIPMessage(IdipMessage info)
 		{
 			DlgBase<XCommonHelpTipView, XCommonHelpTipBehaviour>.singleton.ShowHelp(XStringDefineProxy.GetString("IDIPTitle"), info.message);
 		}
 
-		// Token: 0x06008F49 RID: 36681 RVA: 0x001410A4 File Offset: 0x0013F2A4
 		public void DealWithIDIPTips(IdipPunishInfo info)
 		{
 			string text = XSingleton<UiUtility>.singleton.TimeFormatSince1970(info.endTime, XStringDefineProxy.GetString("IDIP_TIPS_TIME"), true);
@@ -87,13 +83,11 @@ namespace XMainClient
 			XSingleton<UiUtility>.singleton.ShowModalDialog(label, XStringDefineProxy.GetString("COMMON_OK"));
 		}
 
-		// Token: 0x06008F4A RID: 36682 RVA: 0x00141260 File Offset: 0x0013F460
 		private double GetNowTime()
 		{
 			return (double)(DateTime.Now.Ticks / 10000000L);
 		}
 
-		// Token: 0x06008F4B RID: 36683 RVA: 0x00141288 File Offset: 0x0013F488
 		public string GetLeftTimeString()
 		{
 			int num = (int)(this.ZeroRewardEndTime - this.GetNowTime());
@@ -110,13 +104,10 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x04002F0D RID: 12045
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("IDIPDocument");
 
-		// Token: 0x04002F0E RID: 12046
 		public bool ZeroRewardBtnState = false;
 
-		// Token: 0x04002F0F RID: 12047
 		public double ZeroRewardEndTime = 0.0;
 	}
 }

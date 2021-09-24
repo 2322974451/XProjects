@@ -6,10 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02001525 RID: 5413
+
 	internal class Process_RpcC2T_UpLoadAudioToGate
 	{
-		// Token: 0x0600E9AD RID: 59821 RVA: 0x003430D0 File Offset: 0x003412D0
+
 		public static void OnReply(UpLoadAudioReq oArg, UpLoadAudioRes oRes)
 		{
 			bool flag = oRes == null;
@@ -44,7 +44,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600E9AE RID: 59822 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public static void OnTimeout(UpLoadAudioReq oArg)
 		{
 		}

@@ -10,11 +10,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020018E5 RID: 6373
+
 	internal class XWelfareKingdomPrivilegeHandler : DlgHandlerBase
 	{
-		// Token: 0x17003A7D RID: 14973
-		// (get) Token: 0x060109A2 RID: 68002 RVA: 0x004180EC File Offset: 0x004162EC
+
 		protected override string FileName
 		{
 			get
@@ -23,7 +22,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060109A3 RID: 68003 RVA: 0x00418104 File Offset: 0x00416304
 		protected override void Init()
 		{
 			base.Init();
@@ -32,7 +30,6 @@ namespace XMainClient.UI
 			this.m_PrivilegeTypeList = (base.PanelObject.transform.Find("ListType/Grid").GetComponent("XUIList") as IXUIList);
 		}
 
-		// Token: 0x060109A4 RID: 68004 RVA: 0x0041817D File Offset: 0x0041637D
 		protected override void OnHide()
 		{
 			base.OnHide();
@@ -40,7 +37,6 @@ namespace XMainClient.UI
 			XSingleton<UiUtility>.singleton.DestroyTextureInActivePool(this.m_PrivilegeTypePool, "Icon");
 		}
 
-		// Token: 0x060109A5 RID: 68005 RVA: 0x004181B0 File Offset: 0x004163B0
 		public override void RefreshData()
 		{
 			XWelfareDocument specificDocument = XDocuments.GetSpecificDocument<XWelfareDocument>(XWelfareDocument.uuID);
@@ -86,7 +82,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060109A6 RID: 68006 RVA: 0x00418360 File Offset: 0x00416560
 		private void SetBaseInfo(GameObject item, PayMemberTable.RowData baseInfo, PayMember info)
 		{
 			float num = (float)baseInfo.Price / 100f;
@@ -161,7 +156,6 @@ namespace XMainClient.UI
 			ixuisprite2.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnDetailBtnClicked));
 		}
 
-		// Token: 0x060109A7 RID: 68007 RVA: 0x004186E8 File Offset: 0x004168E8
 		private void SetLeftTime(IXUILabel leftTime, int time)
 		{
 			leftTime.SetVisible(time > 0);
@@ -183,7 +177,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060109A8 RID: 68008 RVA: 0x00418780 File Offset: 0x00416980
 		private void LeftTimeUpdate(object o)
 		{
 			for (int i = 0; i < this.m_LeftTime.Count; i++)
@@ -213,7 +206,6 @@ namespace XMainClient.UI
 			this._CDToken = XSingleton<XTimerMgr>.singleton.SetTimer(1f, new XTimerMgr.ElapsedEventHandler(this.LeftTimeUpdate), null);
 		}
 
-		// Token: 0x060109A9 RID: 68009 RVA: 0x004188A0 File Offset: 0x00416AA0
 		private bool OnBuyBtnClicked(IXUIButton btn)
 		{
 			int num = (int)btn.ID;
@@ -269,7 +261,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x060109AA RID: 68010 RVA: 0x00418A70 File Offset: 0x00416C70
 		private void OnDetailBtnClicked(IXUISprite sp)
 		{
 			int num = (int)sp.ID;
@@ -286,19 +277,14 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04007893 RID: 30867
 		private XUIPool m_PrivilegeTypePool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04007894 RID: 30868
 		private IXUIList m_PrivilegeTypeList;
 
-		// Token: 0x04007895 RID: 30869
 		private List<IXUILabel> m_LeftTimeLabel = new List<IXUILabel>();
 
-		// Token: 0x04007896 RID: 30870
 		private List<int> m_LeftTime = new List<int>();
 
-		// Token: 0x04007897 RID: 30871
 		private uint _CDToken = 0U;
 	}
 }

@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x02000153 RID: 339
+
 	public class PushMessageTable : CVSReader
 	{
-		// Token: 0x060007AB RID: 1963 RVA: 0x00026E68 File Offset: 0x00025068
+
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			PushMessageTable.RowData rowData = new PushMessageTable.RowData();
@@ -25,7 +25,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x060007AC RID: 1964 RVA: 0x00026F30 File Offset: 0x00025130
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -39,28 +38,21 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x0400039F RID: 927
 		public PushMessageTable.RowData[] Table = null;
 
-		// Token: 0x02000352 RID: 850
 		public class RowData
 		{
-			// Token: 0x04000D4C RID: 3404
+
 			public uint Type;
 
-			// Token: 0x04000D4D RID: 3405
 			public string Title;
 
-			// Token: 0x04000D4E RID: 3406
 			public string Content;
 
-			// Token: 0x04000D4F RID: 3407
 			public uint IsCommonGlobal;
 
-			// Token: 0x04000D50 RID: 3408
 			public uint[] Time;
 
-			// Token: 0x04000D51 RID: 3409
 			public uint[] WeekDay;
 		}
 	}

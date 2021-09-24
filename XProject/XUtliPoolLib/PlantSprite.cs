@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x0200014B RID: 331
+
 	public class PlantSprite : CVSReader
 	{
-		// Token: 0x0600078E RID: 1934 RVA: 0x0002635C File Offset: 0x0002455C
+
 		public PlantSprite.RowData GetBySpriteID(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -29,7 +29,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x0600078F RID: 1935 RVA: 0x000263C8 File Offset: 0x000245C8
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			PlantSprite.RowData rowData = new PlantSprite.RowData();
@@ -45,7 +44,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x06000790 RID: 1936 RVA: 0x0002645C File Offset: 0x0002465C
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -59,22 +57,17 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x04000397 RID: 919
 		public PlantSprite.RowData[] Table = null;
 
-		// Token: 0x0200034A RID: 842
 		public class RowData
 		{
-			// Token: 0x04000D18 RID: 3352
+
 			public uint SpriteID;
 
-			// Token: 0x04000D19 RID: 3353
 			public uint ReduceGrowth;
 
-			// Token: 0x04000D1A RID: 3354
 			public uint EffectGrowRate;
 
-			// Token: 0x04000D1B RID: 3355
 			public string[] Dialogues;
 		}
 	}

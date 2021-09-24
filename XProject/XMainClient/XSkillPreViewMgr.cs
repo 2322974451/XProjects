@@ -4,10 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000B2E RID: 2862
+
 	internal class XSkillPreViewMgr : XSingleton<XSkillPreViewMgr>
 	{
-		// Token: 0x0600A798 RID: 42904 RVA: 0x001DAD68 File Offset: 0x001D8F68
+
 		public void GetSkillBlackHouse(ref GameObject blackHouse, ref Camera blackHouseCamera)
 		{
 			bool flag = this.BlackHouse == null;
@@ -21,7 +21,6 @@ namespace XMainClient
 			blackHouseCamera = this.BlackHouseCamera;
 		}
 
-		// Token: 0x0600A799 RID: 42905 RVA: 0x001DADE4 File Offset: 0x001D8FE4
 		public void ResetDummyPos(XDummy dummy)
 		{
 			bool flag = dummy == null;
@@ -54,7 +53,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A79A RID: 42906 RVA: 0x001DAED8 File Offset: 0x001D90D8
 		public void ShowSkill(XDummy dummy, uint skillID, uint statisticsID = 0U)
 		{
 			this.ResetDummyPos(dummy);
@@ -71,7 +69,6 @@ namespace XMainClient
 			XSingleton<XEventMgr>.singleton.FireEvent(@event);
 		}
 
-		// Token: 0x0600A79B RID: 42907 RVA: 0x001DAF6C File Offset: 0x001D916C
 		public void SkillShowBegin(XDummy dummy, Camera camera)
 		{
 			bool flag = dummy == null;
@@ -90,7 +87,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A79C RID: 42908 RVA: 0x001DAFE4 File Offset: 0x001D91E4
 		public void SkillShowEnd(XDummy dummy)
 		{
 			XAttackShowEndArgs @event = XEventPool<XAttackShowEndArgs>.GetEvent();
@@ -99,10 +95,8 @@ namespace XMainClient
 			XSingleton<XEventMgr>.singleton.FireEvent(@event);
 		}
 
-		// Token: 0x04003DFF RID: 15871
 		public Camera BlackHouseCamera;
 
-		// Token: 0x04003E00 RID: 15872
 		public GameObject BlackHouse;
 	}
 }

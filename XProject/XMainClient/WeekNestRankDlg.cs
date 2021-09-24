@@ -6,11 +6,10 @@ using XMainClient.UI.UICommon;
 
 namespace XMainClient
 {
-	// Token: 0x02000C5B RID: 3163
+
 	internal class WeekNestRankDlg : DlgBase<WeekNestRankDlg, WeekNestRankBehavior>
 	{
-		// Token: 0x170031A8 RID: 12712
-		// (get) Token: 0x0600B325 RID: 45861 RVA: 0x0022C840 File Offset: 0x0022AA40
+
 		public override string fileName
 		{
 			get
@@ -19,8 +18,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170031A9 RID: 12713
-		// (get) Token: 0x0600B326 RID: 45862 RVA: 0x0022C858 File Offset: 0x0022AA58
 		public override bool autoload
 		{
 			get
@@ -29,25 +26,21 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B327 RID: 45863 RVA: 0x0022C86B File Offset: 0x0022AA6B
 		protected override void OnLoad()
 		{
 			base.OnLoad();
 		}
 
-		// Token: 0x0600B328 RID: 45864 RVA: 0x0022C875 File Offset: 0x0022AA75
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 		}
 
-		// Token: 0x0600B329 RID: 45865 RVA: 0x0022C87F File Offset: 0x0022AA7F
 		protected override void OnUnload()
 		{
 			base.OnUnload();
 		}
 
-		// Token: 0x0600B32A RID: 45866 RVA: 0x0022C88C File Offset: 0x0022AA8C
 		protected override void Init()
 		{
 			base.Init();
@@ -55,19 +48,16 @@ namespace XMainClient
 			base.uiBehaviour.m_CloseBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseDlg));
 		}
 
-		// Token: 0x0600B32B RID: 45867 RVA: 0x0022C8DB File Offset: 0x0022AADB
 		protected override void OnHide()
 		{
 			base.OnHide();
 		}
 
-		// Token: 0x0600B32C RID: 45868 RVA: 0x0022C8E5 File Offset: 0x0022AAE5
 		protected override void OnShow()
 		{
 			base.OnShow();
 		}
 
-		// Token: 0x0600B32D RID: 45869 RVA: 0x0022C8F0 File Offset: 0x0022AAF0
 		public void Refresh()
 		{
 			bool flag = XWeekNestDocument.Doc.LastWeekRankList.InfoList == null;
@@ -80,7 +70,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B32E RID: 45870 RVA: 0x0022C968 File Offset: 0x0022AB68
 		private void WrapContentItemUpdated(Transform t, int index)
 		{
 			List<FirstPassRankInfo> infoList = XWeekNestDocument.Doc.LastWeekRankList.InfoList;
@@ -116,14 +105,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B32F RID: 45871 RVA: 0x0022CAE8 File Offset: 0x0022ACE8
 		private bool OnCloseDlg(IXUIButton button)
 		{
 			this.SetVisible(false, true);
 			return true;
 		}
 
-		// Token: 0x0600B330 RID: 45872 RVA: 0x0022CB04 File Offset: 0x0022AD04
 		private void SetRank(Transform tra, int rankIndex)
 		{
 			IXUILabel ixuilabel = tra.FindChild("Rank").GetComponent("XUILabel") as IXUILabel;

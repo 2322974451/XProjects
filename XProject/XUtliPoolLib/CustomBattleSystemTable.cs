@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x02000222 RID: 546
+
 	public class CustomBattleSystemTable : CVSReader
 	{
-		// Token: 0x06000C3A RID: 3130 RVA: 0x00040350 File Offset: 0x0003E550
+
 		public CustomBattleSystemTable.RowData GetByid(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -29,7 +29,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000C3B RID: 3131 RVA: 0x000403BC File Offset: 0x0003E5BC
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			CustomBattleSystemTable.RowData rowData = new CustomBattleSystemTable.RowData();
@@ -55,7 +54,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x06000C3C RID: 3132 RVA: 0x000404D0 File Offset: 0x0003E6D0
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -69,37 +67,27 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x04000770 RID: 1904
 		public CustomBattleSystemTable.RowData[] Table = null;
 
-		// Token: 0x020003B1 RID: 945
 		public class RowData
 		{
-			// Token: 0x04001087 RID: 4231
+
 			public uint id;
 
-			// Token: 0x04001088 RID: 4232
 			public uint type;
 
-			// Token: 0x04001089 RID: 4233
 			public SeqRef<uint> end;
 
-			// Token: 0x0400108A RID: 4234
 			public SeqRef<uint> ticket;
 
-			// Token: 0x0400108B RID: 4235
 			public uint levellimit;
 
-			// Token: 0x0400108C RID: 4236
 			public string desc;
 
-			// Token: 0x0400108D RID: 4237
 			public string TitleSpriteName;
 
-			// Token: 0x0400108E RID: 4238
 			public string IconSpritePath;
 
-			// Token: 0x0400108F RID: 4239
 			public int ExpID;
 		}
 	}

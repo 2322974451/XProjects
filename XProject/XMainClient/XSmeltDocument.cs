@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C45 RID: 3141
+
 	internal class XSmeltDocument : XDocComponent
 	{
-		// Token: 0x17003177 RID: 12663
-		// (get) Token: 0x0600B215 RID: 45589 RVA: 0x00224848 File Offset: 0x00222A48
+
 		public override uint ID
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003178 RID: 12664
-		// (get) Token: 0x0600B216 RID: 45590 RVA: 0x00224860 File Offset: 0x00222A60
 		public static XSmeltDocument Doc
 		{
 			get
@@ -30,19 +27,16 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B217 RID: 45591 RVA: 0x0022488B File Offset: 0x00222A8B
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			XSmeltDocument.AsyncLoader.Execute(callback);
 		}
 
-		// Token: 0x0600B218 RID: 45592 RVA: 0x00114ACA File Offset: 0x00112CCA
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
 		}
 
-		// Token: 0x0600B219 RID: 45593 RVA: 0x0022489C File Offset: 0x00222A9C
 		protected override void EventSubscribe()
 		{
 			base.RegisterEvent(XEventDefine.XEvent_UpdateItem, new XComponent.XEventHandler(this.OnUpdateItem));
@@ -56,7 +50,6 @@ namespace XMainClient
 			base.EventSubscribe();
 		}
 
-		// Token: 0x0600B21A RID: 45594 RVA: 0x00224959 File Offset: 0x00222B59
 		public override void OnDetachFromHost()
 		{
 			base.OnDetachFromHost();
@@ -64,7 +57,6 @@ namespace XMainClient
 			this.View = null;
 		}
 
-		// Token: 0x0600B21B RID: 45595 RVA: 0x00224974 File Offset: 0x00222B74
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 			this.MesIsBack = true;
@@ -75,13 +67,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B21C RID: 45596 RVA: 0x00114AE9 File Offset: 0x00112CE9
 		public override void OnEnterSceneFinally()
 		{
 			base.OnEnterSceneFinally();
 		}
 
-		// Token: 0x0600B21D RID: 45597 RVA: 0x002249B4 File Offset: 0x00222BB4
 		public bool OnUpdateItem(XEventArgs args)
 		{
 			XUpdateItemEventArgs xupdateItemEventArgs = args as XUpdateItemEventArgs;
@@ -93,7 +83,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B21E RID: 45598 RVA: 0x002249F8 File Offset: 0x00222BF8
 		public bool OnVirtualItemChanged(XEventArgs args)
 		{
 			XVirtualItemChangedEventArgs xvirtualItemChangedEventArgs = args as XVirtualItemChangedEventArgs;
@@ -108,7 +97,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B21F RID: 45599 RVA: 0x00224A50 File Offset: 0x00222C50
 		public bool OnSwapItem(XEventArgs args)
 		{
 			XSwapItemEventArgs xswapItemEventArgs = args as XSwapItemEventArgs;
@@ -128,7 +116,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B220 RID: 45600 RVA: 0x00224AA0 File Offset: 0x00222CA0
 		public bool OnLoadEquip(XEventArgs args)
 		{
 			XLoadEquipEventArgs xloadEquipEventArgs = args as XLoadEquipEventArgs;
@@ -148,7 +135,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B221 RID: 45601 RVA: 0x00224AF0 File Offset: 0x00222CF0
 		public bool OnUnloadEquip(XEventArgs args)
 		{
 			XUnloadEquipEventArgs xunloadEquipEventArgs = args as XUnloadEquipEventArgs;
@@ -168,7 +154,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B222 RID: 45602 RVA: 0x00224B40 File Offset: 0x00222D40
 		public bool OnAddItem(XEventArgs args)
 		{
 			XAddItemEventArgs xaddItemEventArgs = args as XAddItemEventArgs;
@@ -192,7 +177,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B223 RID: 45603 RVA: 0x00224BC4 File Offset: 0x00222DC4
 		public bool OnRemoveItem(XEventArgs args)
 		{
 			XRemoveItemEventArgs xremoveItemEventArgs = args as XRemoveItemEventArgs;
@@ -221,7 +205,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B224 RID: 45604 RVA: 0x00224C58 File Offset: 0x00222E58
 		public bool OnItemChangedFinished(XEventArgs args)
 		{
 			this.m_emblemRedDotDataIsDirty = true;
@@ -248,7 +231,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B225 RID: 45605 RVA: 0x00224CEC File Offset: 0x00222EEC
 		public void ReqSmelt()
 		{
 			uint num = 0U;
@@ -266,7 +248,6 @@ namespace XMainClient
 			this.MesIsBack = false;
 		}
 
-		// Token: 0x0600B226 RID: 45606 RVA: 0x00224D9C File Offset: 0x00222F9C
 		public void ReqSmeltReturn(ulong uid)
 		{
 			RpcC2G_ReturnSmeltStone rpcC2G_ReturnSmeltStone = new RpcC2G_ReturnSmeltStone();
@@ -274,7 +255,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_ReturnSmeltStone);
 		}
 
-		// Token: 0x0600B227 RID: 45607 RVA: 0x00224DCC File Offset: 0x00222FCC
 		public void OnSmeltBack(SmeltItemRes oRes)
 		{
 			bool flag = oRes.errorcode > ErrorCode.ERR_SUCCESS;
@@ -311,7 +291,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B228 RID: 45608 RVA: 0x00224F18 File Offset: 0x00223118
 		public void SmeltReturnBack(ReturnSmeltStoneRes oRes)
 		{
 			bool flag = oRes.errorcode > ErrorCode.ERR_SUCCESS;
@@ -321,8 +300,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003179 RID: 12665
-		// (get) Token: 0x0600B229 RID: 45609 RVA: 0x00224F4C File Offset: 0x0022314C
 		public List<int> MorePowerfulEquips
 		{
 			get
@@ -331,8 +308,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700317A RID: 12666
-		// (get) Token: 0x0600B22A RID: 45610 RVA: 0x00224F64 File Offset: 0x00223164
 		private List<int> EquipAttackSmeltExchanged
 		{
 			get
@@ -346,8 +321,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700317B RID: 12667
-		// (get) Token: 0x0600B22B RID: 45611 RVA: 0x00224FA0 File Offset: 0x002231A0
 		private List<int> EquipDefenseSmeltExchanged
 		{
 			get
@@ -361,8 +334,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700317C RID: 12668
-		// (get) Token: 0x0600B22C RID: 45612 RVA: 0x00224FDC File Offset: 0x002231DC
 		private List<int> EmblemSmeltExchanged
 		{
 			get
@@ -376,9 +347,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700317D RID: 12669
-		// (get) Token: 0x0600B22E RID: 45614 RVA: 0x00225050 File Offset: 0x00223250
-		// (set) Token: 0x0600B22D RID: 45613 RVA: 0x00225018 File Offset: 0x00223218
 		public bool EmblemCanBePower
 		{
 			get
@@ -396,7 +364,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B22F RID: 45615 RVA: 0x00225078 File Offset: 0x00223278
 		public List<XTuple<int, int>> GetShouldShowItems(int baseItemId, int needCount, ref int totalNum)
 		{
 			totalNum = 0;
@@ -443,7 +410,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B230 RID: 45616 RVA: 0x00225170 File Offset: 0x00223370
 		private bool ExchangedDataDispose(List<int> sourceList, int baseItemId, int needCount, ref List<XTuple<int, int>> lst, ref int totalNum)
 		{
 			bool flag = false;
@@ -487,9 +453,6 @@ namespace XMainClient
 			return flag;
 		}
 
-		// Token: 0x1700317E RID: 12670
-		// (get) Token: 0x0600B232 RID: 45618 RVA: 0x00225260 File Offset: 0x00223460
-		// (set) Token: 0x0600B231 RID: 45617 RVA: 0x00225228 File Offset: 0x00223428
 		public bool EquipCanBePower
 		{
 			get
@@ -507,9 +470,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700317F RID: 12671
-		// (get) Token: 0x0600B234 RID: 45620 RVA: 0x002252B4 File Offset: 0x002234B4
-		// (set) Token: 0x0600B233 RID: 45619 RVA: 0x00225288 File Offset: 0x00223488
 		public ulong CurUid
 		{
 			get
@@ -527,7 +487,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B235 RID: 45621 RVA: 0x002252CC File Offset: 0x002234CC
 		private void Init()
 		{
 			XItem itemByUID = XBagDocument.BagDoc.GetItemByUID(this.m_curUid);
@@ -557,7 +516,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B236 RID: 45622 RVA: 0x00225364 File Offset: 0x00223564
 		private void GetEquipSmeltAttr(XEquipItem item)
 		{
 			EquipSlotAttrDatas attrData = XCharacterEquipDocument.RandomAttrMgr.GetAttrData((uint)item.itemID);
@@ -616,7 +574,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B237 RID: 45623 RVA: 0x00225578 File Offset: 0x00223778
 		private void GetEmblemSmeltAttr(XAttrItem item)
 		{
 			int num;
@@ -649,7 +606,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B238 RID: 45624 RVA: 0x0022568C File Offset: 0x0022388C
 		private void RefreshData()
 		{
 			SmeltAttr smeltAttr = this.GetSmeltAttr(this.SelectIndex);
@@ -707,8 +663,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003180 RID: 12672
-		// (get) Token: 0x0600B239 RID: 45625 RVA: 0x002257F8 File Offset: 0x002239F8
 		public List<SmeltAttr> SmeltAttrList
 		{
 			get
@@ -717,7 +671,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B23A RID: 45626 RVA: 0x00225810 File Offset: 0x00223A10
 		public SmeltAttr GetSmeltAttr(int index)
 		{
 			bool flag = this.m_smeltAttrList == null || this.m_smeltAttrList.Count == 0;
@@ -742,7 +695,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B23B RID: 45627 RVA: 0x0022587B File Offset: 0x00223A7B
 		public void Clear()
 		{
 			this.SelectIndex = 0;
@@ -751,7 +703,6 @@ namespace XMainClient
 			this.MesIsBack = true;
 		}
 
-		// Token: 0x0600B23C RID: 45628 RVA: 0x0022589C File Offset: 0x00223A9C
 		public void SelectEquip(ulong uid)
 		{
 			bool flag = uid == 0UL;
@@ -846,7 +797,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B23D RID: 45629 RVA: 0x00225B88 File Offset: 0x00223D88
 		public void SetLastAttr(int index)
 		{
 			bool flag = this.m_smeltAttrList == null || index >= this.m_smeltAttrList.Count;
@@ -856,7 +806,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B23E RID: 45630 RVA: 0x00225BDC File Offset: 0x00223DDC
 		public SeqListRef<uint> GetNeedItem()
 		{
 			XItem itemByUID = XBagDocument.BagDoc.GetItemByUID(this.m_curUid);
@@ -874,7 +823,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B23F RID: 45631 RVA: 0x00225C3C File Offset: 0x00223E3C
 		public uint GetNeedGold()
 		{
 			XItem itemByUID = XBagDocument.BagDoc.GetItemByUID(this.m_curUid);
@@ -892,7 +840,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B240 RID: 45632 RVA: 0x00225C94 File Offset: 0x00223E94
 		private SeqListRef<uint> NeedItem(XItem item)
 		{
 			bool flag = item.Type == ItemType.EQUIP;
@@ -919,7 +866,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B241 RID: 45633 RVA: 0x00225D10 File Offset: 0x00223F10
 		private uint NeedGold(XItem item)
 		{
 			bool flag = item.Type == ItemType.EQUIP;
@@ -946,14 +892,12 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B242 RID: 45634 RVA: 0x00225D81 File Offset: 0x00223F81
 		public void InitEquipAndEmblemRedDot()
 		{
 			this.IsHadCanSmeltBodyEquip();
 			this.IsHadCanSmeltBodyEmblem();
 		}
 
-		// Token: 0x0600B243 RID: 45635 RVA: 0x00225D94 File Offset: 0x00223F94
 		public void IsHadCanSmeltBodyEquip()
 		{
 			this.MorePowerfulEquips.Clear();
@@ -973,7 +917,6 @@ namespace XMainClient
 			this.EquipCanBePower = false;
 		}
 
-		// Token: 0x0600B244 RID: 45636 RVA: 0x00225E0C File Offset: 0x0022400C
 		public void GetRedDotEquips()
 		{
 			this.MorePowerfulEquips.Clear();
@@ -991,7 +934,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B245 RID: 45637 RVA: 0x00225E80 File Offset: 0x00224080
 		public void IsHadCanSmeltBodyEmblem()
 		{
 			for (int i = 0; i < XBagDocument.EmblemMax; i++)
@@ -1010,7 +952,6 @@ namespace XMainClient
 			this.EmblemCanBePower = false;
 		}
 
-		// Token: 0x0600B246 RID: 45638 RVA: 0x00225EEC File Offset: 0x002240EC
 		public bool IsHadRedDot(XItem item)
 		{
 			bool flag = item == null;
@@ -1158,7 +1099,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B247 RID: 45639 RVA: 0x002262A8 File Offset: 0x002244A8
 		public bool IsShowRedDot(SmeltAttr attr)
 		{
 			XItem itemByUID = XBagDocument.BagDoc.GetItemByUID(this.CurUid);
@@ -1212,13 +1152,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B248 RID: 45640 RVA: 0x002263B0 File Offset: 0x002245B0
 		private bool QuantityIsNeedRemind(string color)
 		{
 			return color == XSingleton<XGlobalConfig>.singleton.GetValue("Quality0Color") || color == XSingleton<XGlobalConfig>.singleton.GetValue("Quality1Color") || color == XSingleton<XGlobalConfig>.singleton.GetValue("Quality2Color");
 		}
 
-		// Token: 0x0600B249 RID: 45641 RVA: 0x00226414 File Offset: 0x00224614
 		public void ResetSetting()
 		{
 			DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.ForceSetTipsValue(XTempTipDefine.OD_SMELTSTONE_EXCHANGED, false);
@@ -1226,52 +1164,36 @@ namespace XMainClient
 			specificDocument.SetValue(XOptionsDefine.OD_NO_SMELTSTONE_EXCHANGED_CONFIRM, 0, true);
 		}
 
-		// Token: 0x04004498 RID: 17560
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("XSmeltDocument");
 
-		// Token: 0x04004499 RID: 17561
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x0400449A RID: 17562
 		public bool MesIsBack = true;
 
-		// Token: 0x0400449B RID: 17563
 		private bool m_emblemRedDotDataIsDirty = false;
 
-		// Token: 0x0400449C RID: 17564
 		private bool m_equipRedDotDataIsDirty = false;
 
-		// Token: 0x0400449D RID: 17565
 		private bool emblemCanBePower = false;
 
-		// Token: 0x0400449E RID: 17566
 		private bool equipCanBePower = false;
 
-		// Token: 0x0400449F RID: 17567
 		private List<int> m_morePowerfulEquips = new List<int>();
 
-		// Token: 0x040044A0 RID: 17568
 		private List<int> m_equipAttackSmeltExchanged;
 
-		// Token: 0x040044A1 RID: 17569
 		private List<int> m_equipDefenseSmeltExchanged;
 
-		// Token: 0x040044A2 RID: 17570
 		private List<int> m_emblemSmeltExchanged;
 
-		// Token: 0x040044A3 RID: 17571
 		private ulong m_curUid = 0UL;
 
-		// Token: 0x040044A4 RID: 17572
 		private List<SmeltAttr> m_smeltAttrList;
 
-		// Token: 0x040044A5 RID: 17573
 		public SmeltMainHandler View = null;
 
-		// Token: 0x040044A6 RID: 17574
 		public int SelectIndex = 0;
 
-		// Token: 0x040044A7 RID: 17575
 		public uint[] SmeltResult = null;
 	}
 }

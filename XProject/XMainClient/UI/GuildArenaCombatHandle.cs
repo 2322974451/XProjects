@@ -9,11 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001830 RID: 6192
+
 	internal class GuildArenaCombatHandle : DlgHandlerBase
 	{
-		// Token: 0x1700392B RID: 14635
-		// (get) Token: 0x06010134 RID: 65844 RVA: 0x003D6624 File Offset: 0x003D4824
+
 		protected override string FileName
 		{
 			get
@@ -22,7 +21,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010135 RID: 65845 RVA: 0x003D663C File Offset: 0x003D483C
 		public override void RefreshData()
 		{
 			base.RefreshData();
@@ -68,7 +66,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010136 RID: 65846 RVA: 0x003D675C File Offset: 0x003D495C
 		protected override void Init()
 		{
 			base.Init();
@@ -90,7 +87,6 @@ namespace XMainClient.UI
 			this.InitCombatHandle();
 		}
 
-		// Token: 0x06010137 RID: 65847 RVA: 0x003D693A File Offset: 0x003D4B3A
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -98,14 +94,12 @@ namespace XMainClient.UI
 			this.m_showRank.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnShowRankClick));
 		}
 
-		// Token: 0x06010138 RID: 65848 RVA: 0x003D6974 File Offset: 0x003D4B74
 		private bool OnShowRankClick(IXUIButton btn)
 		{
 			DlgBase<GuildArenaRankDlg, GuildArenaRankBehaviour>.singleton.SetVisibleWithAnimation(true, null);
 			return true;
 		}
 
-		// Token: 0x06010139 RID: 65849 RVA: 0x003D6994 File Offset: 0x003D4B94
 		private bool OnEnterBattleClick(IXUIButton btn)
 		{
 			bool flag = this._Doc.CanEnterBattle != 1U && this._Doc.CanEnterBattle != 2U;
@@ -123,7 +117,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0601013A RID: 65850 RVA: 0x003D69F8 File Offset: 0x003D4BF8
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -135,7 +128,6 @@ namespace XMainClient.UI
 			this._Doc.SendGuildArenaInfo();
 		}
 
-		// Token: 0x0601013B RID: 65851 RVA: 0x003D6A50 File Offset: 0x003D4C50
 		public override void OnUnload()
 		{
 			this.UnLoadCombatHandle(ref this.m_GuildCombat);
@@ -148,7 +140,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x0601013C RID: 65852 RVA: 0x003D6A94 File Offset: 0x003D4C94
 		private void InitCombatHandle()
 		{
 			this.CreateCombatHandle(0, 4);
@@ -156,7 +147,6 @@ namespace XMainClient.UI
 			this.CreateCombatHandle(2, 1);
 		}
 
-		// Token: 0x0601013D RID: 65853 RVA: 0x003D6AB4 File Offset: 0x003D4CB4
 		private void UnLoadCombatHandle(ref List<GuildArenaCombatInfo> guildCombats)
 		{
 			bool flag = guildCombats == null;
@@ -179,7 +169,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601013E RID: 65854 RVA: 0x003D6B20 File Offset: 0x003D4D20
 		private void CreateCombatHandle(int combat, int size)
 		{
 			for (int i = 0; i < size; i++)
@@ -192,7 +181,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601013F RID: 65855 RVA: 0x003D6B90 File Offset: 0x003D4D90
 		private void RefreshCombatHandle()
 		{
 			this.RefreshTitleHandle();
@@ -208,7 +196,6 @@ namespace XMainClient.UI
 			this.m_GuildCup.SetGuildMember(arenaWinnerGuildID, arenaWinnerGuildID, true);
 		}
 
-		// Token: 0x06010140 RID: 65856 RVA: 0x003D6C0C File Offset: 0x003D4E0C
 		private void RefreshTitleHandle()
 		{
 			string sprite = string.Empty;
@@ -228,7 +215,6 @@ namespace XMainClient.UI
 			this.m_honorSprite.MakePixelPerfect();
 		}
 
-		// Token: 0x06010141 RID: 65857 RVA: 0x003D6C74 File Offset: 0x003D4E74
 		private void RefreshMessage()
 		{
 			GuildArenaState timeState = this._Doc.TimeState;
@@ -253,40 +239,28 @@ namespace XMainClient.UI
 			this.m_combatTips.SetText(text);
 		}
 
-		// Token: 0x040072A6 RID: 29350
 		private Transform m_CombatPanel;
 
-		// Token: 0x040072A7 RID: 29351
 		private Transform m_NaPanel;
 
-		// Token: 0x040072A8 RID: 29352
 		private XUITabControl m_tabControl = new XUITabControl();
 
-		// Token: 0x040072A9 RID: 29353
 		private List<GuildArenaCombatInfo> m_GuildCombat = new List<GuildArenaCombatInfo>();
 
-		// Token: 0x040072AA RID: 29354
 		private GuildArenaGuildInfo m_GuildCup;
 
-		// Token: 0x040072AB RID: 29355
 		private IXUILabel m_combatTips;
 
-		// Token: 0x040072AC RID: 29356
 		private XGuildArenaDocument _Doc = null;
 
-		// Token: 0x040072AD RID: 29357
 		private IXUISprite m_honorSprite;
 
-		// Token: 0x040072AE RID: 29358
 		private IXUILabel m_naLabel;
 
-		// Token: 0x040072AF RID: 29359
 		private IXUIButton m_enterBattle;
 
-		// Token: 0x040072B0 RID: 29360
 		private IXUIButton m_showRank;
 
-		// Token: 0x040072B1 RID: 29361
 		private IXUILabel m_RegistrationCount;
 	}
 }

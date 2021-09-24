@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001825 RID: 6181
+
 	internal class FashionCollectionDlg : DlgBase<FashionCollectionDlg, FashionCollectionDlgBehaviour>
 	{
-		// Token: 0x1700391D RID: 14621
-		// (get) Token: 0x060100C1 RID: 65729 RVA: 0x003D3108 File Offset: 0x003D1308
+
 		public override bool autoload
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700391E RID: 14622
-		// (get) Token: 0x060100C2 RID: 65730 RVA: 0x003D311C File Offset: 0x003D131C
 		public override string fileName
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700391F RID: 14623
-		// (get) Token: 0x060100C3 RID: 65731 RVA: 0x003D3134 File Offset: 0x003D1334
 		public override bool pushstack
 		{
 			get
@@ -40,8 +35,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003920 RID: 14624
-		// (get) Token: 0x060100C4 RID: 65732 RVA: 0x003D3148 File Offset: 0x003D1348
 		public override bool fullscreenui
 		{
 			get
@@ -50,8 +43,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003921 RID: 14625
-		// (get) Token: 0x060100C5 RID: 65733 RVA: 0x003D315C File Offset: 0x003D135C
 		public override bool hideMainMenu
 		{
 			get
@@ -60,7 +51,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060100C6 RID: 65734 RVA: 0x003D3170 File Offset: 0x003D1370
 		protected override void Init()
 		{
 			base.Init();
@@ -69,7 +59,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_WrapContent.RegisterItemUpdateEventHandler(new WrapItemUpdateEventHandler(this.WrapContentItemUpdated));
 		}
 
-		// Token: 0x060100C7 RID: 65735 RVA: 0x003D31DC File Offset: 0x003D13DC
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -77,7 +66,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_ShopBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnShopClick));
 		}
 
-		// Token: 0x060100C8 RID: 65736 RVA: 0x003D322C File Offset: 0x003D142C
 		protected bool OnCloseClick(IXUIButton button)
 		{
 			XSingleton<X3DAvatarMgr>.singleton.OnFashionChanged(XSingleton<XEntityMgr>.singleton.Player);
@@ -86,21 +74,18 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x060100C9 RID: 65737 RVA: 0x003D326A File Offset: 0x003D146A
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.RefreshData();
 		}
 
-		// Token: 0x060100CA RID: 65738 RVA: 0x003D327B File Offset: 0x003D147B
 		public override void StackRefresh()
 		{
 			this._InfoView.StackRefresh();
 			this.RefreshData();
 		}
 
-		// Token: 0x060100CB RID: 65739 RVA: 0x003D3294 File Offset: 0x003D1494
 		private void RefreshData()
 		{
 			bool flag = this.m_uiBehaviour.m_SnapShot != null;
@@ -111,7 +96,6 @@ namespace XMainClient.UI
 			this.ShowSuitList();
 		}
 
-		// Token: 0x060100CC RID: 65740 RVA: 0x003D32D2 File Offset: 0x003D14D2
 		protected override void OnUnload()
 		{
 			XSingleton<X3DAvatarMgr>.singleton.OnUIUnloadMainDummy(this.m_uiBehaviour.m_SnapShot);
@@ -120,7 +104,6 @@ namespace XMainClient.UI
 			DlgHandlerBase.EnsureUnload<XCharacterInfoView>(ref this._InfoView);
 		}
 
-		// Token: 0x060100CD RID: 65741 RVA: 0x003D330C File Offset: 0x003D150C
 		private void WrapContentItemUpdated(Transform t, int index)
 		{
 			bool flag = index < this.allSuit.Count && index >= 0;
@@ -174,7 +157,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060100CE RID: 65742 RVA: 0x003D3570 File Offset: 0x003D1770
 		protected void ShowSuitList()
 		{
 			bool flag = this.allSuit.Count == 0;
@@ -187,7 +169,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_TotalCollection.SetText(this._doc.GetFullCollectionSuitCount() + "/" + this.allSuit.Count);
 		}
 
-		// Token: 0x060100CF RID: 65743 RVA: 0x003D360C File Offset: 0x003D180C
 		protected bool OnSuitClick(IXUICheckBox box)
 		{
 			bool flag = !box.bChecked;
@@ -207,13 +188,11 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x060100D0 RID: 65744 RVA: 0x003D365F File Offset: 0x003D185F
 		protected void EquipSuit(FashionSuitTable.RowData suitData)
 		{
 			XSingleton<X3DAvatarMgr>.singleton.OnFashionSuitChanged(XSingleton<XEntityMgr>.singleton.Player, suitData);
 		}
 
-		// Token: 0x060100D1 RID: 65745 RVA: 0x003D3678 File Offset: 0x003D1878
 		protected void SetSuitInfo(FashionSuitTable.RowData suitData)
 		{
 			base.uiBehaviour.m_SuitName.SetText(suitData.SuitName);
@@ -261,7 +240,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060100D2 RID: 65746 RVA: 0x003D3920 File Offset: 0x003D1B20
 		private void _OnItemClicked(IXUISprite sp)
 		{
 			int itemID = (int)sp.ID;
@@ -269,23 +247,18 @@ namespace XMainClient.UI
 			XSingleton<UiUtility>.singleton.ShowTooltipDialog(mainItem, null, sp, false, 0U);
 		}
 
-		// Token: 0x060100D3 RID: 65747 RVA: 0x003D3950 File Offset: 0x003D1B50
 		private bool OnShopClick(IXUIButton go)
 		{
 			DlgBase<GameMallDlg, TabDlgBehaviour>.singleton.ShowMall(XSysDefine.XSys_GameMall_Diamond, MallType.FASHION, 0UL);
 			return true;
 		}
 
-		// Token: 0x04007251 RID: 29265
 		public XCharacterInfoView _InfoView;
 
-		// Token: 0x04007252 RID: 29266
 		private XFashionDocument _doc;
 
-		// Token: 0x04007253 RID: 29267
 		private int _selectedSuit = 0;
 
-		// Token: 0x04007254 RID: 29268
 		private List<int> allSuit = new List<int>();
 	}
 }

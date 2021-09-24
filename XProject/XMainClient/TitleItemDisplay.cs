@@ -6,16 +6,11 @@ using XMainClient.UI;
 using XMainClient.UI.UICommon;
 using XUtliPoolLib;
 
-// Token: 0x02000002 RID: 2
 public class TitleItemDisplay
 {
-	// Token: 0x17000001 RID: 1
-	// (get) Token: 0x06000001 RID: 1 RVA: 0x00002050 File Offset: 0x00000250
-	// (set) Token: 0x06000002 RID: 2 RVA: 0x00002058 File Offset: 0x00000258
+
 	public Transform transform { get; private set; }
 
-	// Token: 0x17000002 RID: 2
-	// (get) Token: 0x06000003 RID: 3 RVA: 0x00002064 File Offset: 0x00000264
 	public GameObject gameObject
 	{
 		get
@@ -24,7 +19,6 @@ public class TitleItemDisplay
 		}
 	}
 
-	// Token: 0x06000004 RID: 4 RVA: 0x00002084 File Offset: 0x00000284
 	public void Init(Transform go)
 	{
 		this.transform = go;
@@ -37,7 +31,6 @@ public class TitleItemDisplay
 		this.m_RunLabel.RegisterLabelClickEventHandler(new LabelClickEventHandler(this.OnClickLableHandler));
 	}
 
-	// Token: 0x06000005 RID: 5 RVA: 0x00002174 File Offset: 0x00000374
 	private void OnClickLableHandler(IXUILabel label)
 	{
 		bool flag = label.ID == 0UL;
@@ -52,13 +45,11 @@ public class TitleItemDisplay
 		DlgBase<TitleDlg, TitleDlgBehaviour>.singleton.SetVisibleWithAnimation(false, null);
 	}
 
-	// Token: 0x06000006 RID: 6 RVA: 0x000021C2 File Offset: 0x000003C2
 	public void SetVisible(bool visible)
 	{
 		this.gameObject.SetActive(visible);
 	}
 
-	// Token: 0x06000007 RID: 7 RVA: 0x000021D4 File Offset: 0x000003D4
 	public void Set(uint data0, uint data1, string desc)
 	{
 		this.m_RunLabel.ID = (ulong)data0;
@@ -73,7 +64,6 @@ public class TitleItemDisplay
 		}
 	}
 
-	// Token: 0x06000008 RID: 8 RVA: 0x0000220C File Offset: 0x0000040C
 	private void SetFightValue(uint value)
 	{
 		this.m_ItemGo.gameObject.SetActive(false);
@@ -102,7 +92,6 @@ public class TitleItemDisplay
 		}
 	}
 
-	// Token: 0x06000009 RID: 9 RVA: 0x00002304 File Offset: 0x00000504
 	private void ShowTooltipDialog(IXUISprite sprite)
 	{
 		bool flag = sprite.ID > 0UL;
@@ -112,7 +101,6 @@ public class TitleItemDisplay
 		}
 	}
 
-	// Token: 0x0600000A RID: 10 RVA: 0x00002338 File Offset: 0x00000538
 	private void SetItemValue(uint itemID, uint value, string desc)
 	{
 		this.m_ItemGo.gameObject.SetActive(true);
@@ -147,21 +135,15 @@ public class TitleItemDisplay
 		}
 	}
 
-	// Token: 0x04000002 RID: 2
 	private Transform m_ItemGo;
 
-	// Token: 0x04000003 RID: 3
 	private IXUILabel m_PPTLabel;
 
-	// Token: 0x04000004 RID: 4
 	private IXUILabel m_RunLabel;
 
-	// Token: 0x04000005 RID: 5
 	private IXUILabel m_itemNum;
 
-	// Token: 0x04000006 RID: 6
 	private IXUILabel m_itemName;
 
-	// Token: 0x04000007 RID: 7
 	private Transform m_ItemIcon;
 }

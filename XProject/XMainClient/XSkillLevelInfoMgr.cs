@@ -5,11 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000DCD RID: 3533
+
 	internal class XSkillLevelInfoMgr
 	{
-		// Token: 0x170033CE RID: 13262
-		// (get) Token: 0x0600C066 RID: 49254 RVA: 0x0028AF34 File Offset: 0x00289134
+
 		public XSkillFlags Flags
 		{
 			get
@@ -18,14 +17,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C067 RID: 49255 RVA: 0x0028AF4C File Offset: 0x0028914C
 		public void SetDefaultLevel(uint level)
 		{
 			this._DefaultLevel = level;
 		}
 
-		// Token: 0x170033CF RID: 13263
-		// (get) Token: 0x0600C068 RID: 49256 RVA: 0x0028AF58 File Offset: 0x00289158
 		public Dictionary<uint, uint> LearnedSkills
 		{
 			get
@@ -34,13 +30,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C069 RID: 49257 RVA: 0x0028AF70 File Offset: 0x00289170
 		public void RemoveSkill(uint skillHash)
 		{
 			this._SkillDicts.Remove(skillHash);
 		}
 
-		// Token: 0x0600C06A RID: 49258 RVA: 0x0028AF80 File Offset: 0x00289180
 		public uint GetSkillLevel(uint skillHash)
 		{
 			uint num = 0U;
@@ -81,7 +75,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C06B RID: 49259 RVA: 0x0028B004 File Offset: 0x00289204
 		public uint GetSkillOriginalLevel(uint skillHash)
 		{
 			uint defaultLevel = this._DefaultLevel;
@@ -98,7 +91,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C06C RID: 49260 RVA: 0x0028B03C File Offset: 0x0028923C
 		public void SetSkillLevel(uint skillHash, uint skillLevel)
 		{
 			bool flag = this._SkillDicts.ContainsKey(skillHash);
@@ -112,7 +104,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C06D RID: 49261 RVA: 0x0028B07C File Offset: 0x0028927C
 		public void RefreshSkillFlags()
 		{
 			this._Flags.Reset();
@@ -127,7 +118,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C06E RID: 49262 RVA: 0x0028B110 File Offset: 0x00289310
 		public void Init(List<SkillInfo> skills)
 		{
 			this._SkillDicts.Clear();
@@ -138,7 +128,6 @@ namespace XMainClient
 			this.RefreshSkillFlags();
 		}
 
-		// Token: 0x0600C06F RID: 49263 RVA: 0x0028B168 File Offset: 0x00289368
 		public void CaskAuraSkills(XEntity entity)
 		{
 			Dictionary<uint, uint>.Enumerator enumerator = this._SkillDicts.GetEnumerator();
@@ -176,7 +165,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C070 RID: 49264 RVA: 0x0028B280 File Offset: 0x00289480
 		public void RefreshSelfLinkedLevels(XEntity entity)
 		{
 			this._entity = entity;
@@ -201,7 +189,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C071 RID: 49265 RVA: 0x0028B374 File Offset: 0x00289574
 		public void RefreshMobLinkedLevels(XEntity entity, XEntity hoster)
 		{
 			this._entity = entity;
@@ -256,7 +243,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C072 RID: 49266 RVA: 0x0028B560 File Offset: 0x00289760
 		private void SetLinkedLevel(uint skillID, SkillList.RowData rowData, XSkillLevelInfoMgr hosterSkillLevelMgr, uint enemyTempID)
 		{
 			bool flag = rowData == null || hosterSkillLevelMgr == null || string.IsNullOrEmpty(rowData.LinkedSkill);
@@ -283,25 +269,18 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04005062 RID: 20578
 		public static int AuraSkillType = 4;
 
-		// Token: 0x04005063 RID: 20579
 		private Dictionary<uint, uint> _SkillDicts = new Dictionary<uint, uint>();
 
-		// Token: 0x04005064 RID: 20580
 		private Dictionary<uint, uint> _LinkedLevels = new Dictionary<uint, uint>();
 
-		// Token: 0x04005065 RID: 20581
 		private uint _DefaultLevel = 1U;
 
-		// Token: 0x04005066 RID: 20582
 		private XEntity _entity = null;
 
-		// Token: 0x04005067 RID: 20583
 		private XSkillFlags _Flags = new XSkillFlags();
 
-		// Token: 0x04005068 RID: 20584
 		private static List<SkillList.RowData> g_SkillsHavingEx = new List<SkillList.RowData>();
 	}
 }

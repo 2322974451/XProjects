@@ -7,10 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020018AE RID: 6318
+
 	internal class XGuildCreateView : DlgHandlerBase
 	{
-		// Token: 0x06010773 RID: 67443 RVA: 0x00407AF8 File Offset: 0x00405CF8
+
 		protected override void Init()
 		{
 			this.m_CreatePanel = base.PanelObject.transform.FindChild("CreateMenu").gameObject;
@@ -47,7 +47,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010774 RID: 67444 RVA: 0x00407D4C File Offset: 0x00405F4C
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -67,7 +66,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010775 RID: 67445 RVA: 0x00407EDC File Offset: 0x004060DC
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -85,7 +83,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010776 RID: 67446 RVA: 0x00407F94 File Offset: 0x00406194
 		public override void OnUnload()
 		{
 			bool flag = this.m_helpList != null;
@@ -97,13 +94,11 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x06010777 RID: 67447 RVA: 0x0019EEFD File Offset: 0x0019D0FD
 		protected override void OnHide()
 		{
 			base.OnHide();
 		}
 
-		// Token: 0x06010778 RID: 67448 RVA: 0x00407FCC File Offset: 0x004061CC
 		private bool _ShowCreateHelpClick(IXUIButton button)
 		{
 			string helpName;
@@ -127,7 +122,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x06010779 RID: 67449 RVA: 0x00408038 File Offset: 0x00406238
 		private bool _OnCreateBtnClicked(IXUIButton btn)
 		{
 			string text = this.m_NameInput.GetText();
@@ -143,7 +137,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0601077A RID: 67450 RVA: 0x00408094 File Offset: 0x00406294
 		private bool _OnVipBtnClicked(IXUIButton btn)
 		{
 			XSingleton<XGameSysMgr>.singleton.OpenSystem(XSysDefine.XSys_Money, 0UL);
@@ -151,21 +144,18 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0601077B RID: 67451 RVA: 0x004080C0 File Offset: 0x004062C0
 		private bool _OnCloseBtnClick(IXUIButton go)
 		{
 			base.SetVisible(false);
 			return true;
 		}
 
-		// Token: 0x0601077C RID: 67452 RVA: 0x004080DC File Offset: 0x004062DC
 		private bool _OnEditPortraitClicked(IXUIButton btn)
 		{
 			DlgBase<XGuildPortraitView, XGuildPortraitBehaviour>.singleton.Open(this.m_PortraitIndex, new ButtonClickEventHandler(this._OnPortraitChanged));
 			return true;
 		}
 
-		// Token: 0x0601077D RID: 67453 RVA: 0x0040810C File Offset: 0x0040630C
 		private bool _OnPortraitChanged(IXUIButton go)
 		{
 			this.m_PortraitIndex = DlgBase<XGuildPortraitView, XGuildPortraitBehaviour>.singleton.PortraitIndex;
@@ -173,37 +163,26 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x040076FB RID: 30459
 		private IXUIInput m_NameInput;
 
-		// Token: 0x040076FC RID: 30460
 		private IXUILabel m_Cost;
 
-		// Token: 0x040076FD RID: 30461
 		private IXUISprite m_Portrait;
 
-		// Token: 0x040076FE RID: 30462
 		private GameObject m_CreatePanel;
 
-		// Token: 0x040076FF RID: 30463
 		private GameObject m_VipPanel;
 
-		// Token: 0x04007700 RID: 30464
 		private int m_PortraitIndex;
 
-		// Token: 0x04007701 RID: 30465
 		private int m_CostNum;
 
-		// Token: 0x04007702 RID: 30466
 		private GameObject m_CreateHighlight;
 
-		// Token: 0x04007703 RID: 30467
 		private Dictionary<IXUIButton, string> m_helpList = new Dictionary<IXUIButton, string>();
 
-		// Token: 0x04007704 RID: 30468
 		private XGuildListDocument _doc;
 
-		// Token: 0x04007705 RID: 30469
 		private XGuildDocument m_GuildDoc;
 	}
 }

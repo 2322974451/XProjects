@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x02000241 RID: 577
+
 	public class SpritePreviewTable : CVSReader
 	{
-		// Token: 0x06000CAD RID: 3245 RVA: 0x00042A84 File Offset: 0x00040C84
+
 		public SpritePreviewTable.RowData GetByItemID(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -21,7 +21,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000CAE RID: 3246 RVA: 0x00042ABC File Offset: 0x00040CBC
 		private SpritePreviewTable.RowData BinarySearchItemID(uint key)
 		{
 			int num = 0;
@@ -80,7 +79,6 @@ namespace XUtliPoolLib
 			return null;
 		}
 
-		// Token: 0x06000CAF RID: 3247 RVA: 0x00042B98 File Offset: 0x00040D98
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			SpritePreviewTable.RowData rowData = new SpritePreviewTable.RowData();
@@ -94,7 +92,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x06000CB0 RID: 3248 RVA: 0x00042C10 File Offset: 0x00040E10
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -108,19 +105,15 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x0400078F RID: 1935
 		public SpritePreviewTable.RowData[] Table = null;
 
-		// Token: 0x020003D0 RID: 976
 		public class RowData
 		{
-			// Token: 0x04001127 RID: 4391
+
 			public uint ItemID;
 
-			// Token: 0x04001128 RID: 4392
 			public int[] SpriteShow;
 
-			// Token: 0x04001129 RID: 4393
 			public int ItemQuality;
 		}
 	}

@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x020000AE RID: 174
+
 	public class ActivityTable : CVSReader
 	{
-		// Token: 0x0600052E RID: 1326 RVA: 0x00016BE8 File Offset: 0x00014DE8
+
 		public ActivityTable.RowData GetBysortid(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -29,7 +29,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x0600052F RID: 1327 RVA: 0x00016C54 File Offset: 0x00014E54
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			ActivityTable.RowData rowData = new ActivityTable.RowData();
@@ -55,7 +54,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x06000530 RID: 1328 RVA: 0x00016D6C File Offset: 0x00014F6C
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -69,37 +67,27 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x040002D4 RID: 724
 		public ActivityTable.RowData[] Table = null;
 
-		// Token: 0x020002AC RID: 684
 		public class RowData
 		{
-			// Token: 0x040008D7 RID: 2263
+
 			public uint id;
 
-			// Token: 0x040008D8 RID: 2264
 			public uint value;
 
-			// Token: 0x040008D9 RID: 2265
 			public string name;
 
-			// Token: 0x040008DA RID: 2266
 			public string icon;
 
-			// Token: 0x040008DB RID: 2267
 			public string description;
 
-			// Token: 0x040008DC RID: 2268
 			public SeqListRef<int> item;
 
-			// Token: 0x040008DD RID: 2269
 			public uint sortid;
 
-			// Token: 0x040008DE RID: 2270
 			public uint random;
 
-			// Token: 0x040008DF RID: 2271
 			public string title;
 		}
 	}

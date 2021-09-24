@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017D2 RID: 6098
+
 	internal class XNPCFavorDlg : DlgBase<XNPCFavorDlg, XNPCFavorBehaviour>
 	{
-		// Token: 0x170038A3 RID: 14499
-		// (get) Token: 0x0600FC91 RID: 64657 RVA: 0x003AF028 File Offset: 0x003AD228
+
 		public override string fileName
 		{
 			get
@@ -19,8 +18,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170038A4 RID: 14500
-		// (get) Token: 0x0600FC92 RID: 64658 RVA: 0x003AF040 File Offset: 0x003AD240
 		public override int sysid
 		{
 			get
@@ -29,8 +26,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170038A5 RID: 14501
-		// (get) Token: 0x0600FC93 RID: 64659 RVA: 0x003AF05C File Offset: 0x003AD25C
 		public override bool fullscreenui
 		{
 			get
@@ -39,7 +34,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FC94 RID: 64660 RVA: 0x003AF070 File Offset: 0x003AD270
 		protected override void Init()
 		{
 			base.Init();
@@ -56,7 +50,6 @@ namespace XMainClient.UI
 			DlgHandlerBase.EnsureCreate<XNpcAttrHandler>(ref this.m_attrHandler, this.m_uiBehaviour.m_handlersTra, false, this);
 		}
 
-		// Token: 0x0600FC95 RID: 64661 RVA: 0x003AF17C File Offset: 0x003AD37C
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -67,7 +60,6 @@ namespace XMainClient.UI
 			this._ApplyTabData(this.m_CurrentTabIndex);
 		}
 
-		// Token: 0x0600FC96 RID: 64662 RVA: 0x003AF1CC File Offset: 0x003AD3CC
 		public override void RegisterEvent()
 		{
 			base.uiBehaviour.m_Help.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnClickHelp));
@@ -76,7 +68,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_SendTimesBtn.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnClickSendTimes));
 		}
 
-		// Token: 0x0600FC97 RID: 64663 RVA: 0x003AF250 File Offset: 0x003AD450
 		protected override void OnUnload()
 		{
 			DlgHandlerBase.EnsureUnload<XNPCFavorHandler>(ref this.m_favorHandler);
@@ -90,7 +81,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x0600FC98 RID: 64664 RVA: 0x003AF2A4 File Offset: 0x003AD4A4
 		protected override void OnHide()
 		{
 			bool flag = this.m_doc != null;
@@ -101,7 +91,6 @@ namespace XMainClient.UI
 			base.OnHide();
 		}
 
-		// Token: 0x0600FC99 RID: 64665 RVA: 0x003AF2D4 File Offset: 0x003AD4D4
 		private void CheckPlayFx()
 		{
 			bool hasNewNpcActive = this.m_doc.HasNewNpcActive;
@@ -116,7 +105,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FC9A RID: 64666 RVA: 0x003AF330 File Offset: 0x003AD530
 		public void Close(bool bWithAnim = true)
 		{
 			if (bWithAnim)
@@ -135,34 +123,29 @@ namespace XMainClient.UI
 			this.uiFx = null;
 		}
 
-		// Token: 0x0600FC9B RID: 64667 RVA: 0x003AF380 File Offset: 0x003AD580
 		protected bool OnCloseClick(IXUIButton go)
 		{
 			this.Close(true);
 			return true;
 		}
 
-		// Token: 0x0600FC9C RID: 64668 RVA: 0x003AF39C File Offset: 0x003AD59C
 		protected bool OnClickHelp(IXUIButton go)
 		{
 			DlgBase<XCommonHelpTipView, XCommonHelpTipBehaviour>.singleton.ShowHelp(XSysDefine.XSys_NPCFavor);
 			return true;
 		}
 
-		// Token: 0x0600FC9D RID: 64669 RVA: 0x003AF3C0 File Offset: 0x003AD5C0
 		protected bool OnClickAddBtn(IXUIButton go)
 		{
 			this.ShowPurchase();
 			return true;
 		}
 
-		// Token: 0x0600FC9E RID: 64670 RVA: 0x003AF3DA File Offset: 0x003AD5DA
 		protected void OnClickSendTimes(IXUISprite go)
 		{
 			XSingleton<UiUtility>.singleton.ShowModalDialog(XStringDefineProxy.GetString("NPCPrivilegeHint"), new ButtonClickEventHandler(this.OnClickConfirm));
 		}
 
-		// Token: 0x0600FC9F RID: 64671 RVA: 0x003AF400 File Offset: 0x003AD600
 		private bool OnClickConfirm(IXUIButton button)
 		{
 			DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.SetVisible(false, true);
@@ -176,7 +159,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FCA0 RID: 64672 RVA: 0x003AF458 File Offset: 0x003AD658
 		private bool OnClickTab(IXUICheckBox cbx)
 		{
 			bool bChecked = cbx.bChecked;
@@ -188,7 +170,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FCA1 RID: 64673 RVA: 0x003AF494 File Offset: 0x003AD694
 		private void _ApplyTabData(XNPCFavorDlg.TabIndex tab)
 		{
 			bool flag = base.IsVisible();
@@ -216,7 +197,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FCA2 RID: 64674 RVA: 0x003AF554 File Offset: 0x003AD754
 		public void RefreshData()
 		{
 			this.RefreshRedPoint();
@@ -239,20 +219,17 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FCA3 RID: 64675 RVA: 0x003AF5C8 File Offset: 0x003AD7C8
 		public void RefreshPrivilege()
 		{
 			XWelfareDocument specificDocument = XDocuments.GetSpecificDocument<XWelfareDocument>(XWelfareDocument.uuID);
 			this.m_uiBehaviour.m_PrivilegeSpr.SetColor(specificDocument.IsOwnMemberPrivilege(MemberPrivilege.KingdomPrivilege_Court) ? Color.white : Color.black);
 		}
 
-		// Token: 0x0600FCA4 RID: 64676 RVA: 0x003AF608 File Offset: 0x003AD808
 		public void RefreshGiftTimesInfo()
 		{
 			base.uiBehaviour.m_SendTimesLabel.SetText(this.m_doc.GiveLeftCount.ToString());
 		}
 
-		// Token: 0x0600FCA5 RID: 64677 RVA: 0x003AF63C File Offset: 0x003AD83C
 		public void RefreshRedPoint()
 		{
 			this.m_uiBehaviour.m_Tab0_Redpoint.SetActive(this.m_doc.HasNewNpcActive || this.m_doc.HasCanLevelUpNpc);
@@ -260,7 +237,6 @@ namespace XMainClient.UI
 			this.m_uiBehaviour.m_Tab2_Redpoint.SetActive(false);
 		}
 
-		// Token: 0x0600FCA6 RID: 64678 RVA: 0x003AF6A4 File Offset: 0x003AD8A4
 		public void SetTabRedpoint(XNPCFavorDlg.TabIndex tabIndex, bool flag)
 		{
 			switch (tabIndex)
@@ -277,7 +253,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FCA7 RID: 64679 RVA: 0x003AF704 File Offset: 0x003AD904
 		public void SkipToNpc(uint npcId)
 		{
 			this.m_uiBehaviour.m_Tab0.ForceSetFlag(true);
@@ -290,7 +265,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FCA8 RID: 64680 RVA: 0x003AF754 File Offset: 0x003AD954
 		public void ShowPurchase()
 		{
 			XSingleton<UiUtility>.singleton.ShowModalDialog(XStringDefineProxy.GetString("NPCBuyCountHintTitle"), XStringDefineProxy.GetReplaceString("NPCBuyCountHint", new object[]
@@ -300,7 +274,6 @@ namespace XMainClient.UI
 			}), XStringDefineProxy.GetString("COMMON_OK"), XStringDefineProxy.GetString("COMMON_CANCEL"), new ButtonClickEventHandler(this.ConfirmBuyGiftCount), new ButtonClickEventHandler(this.CancelBuy), false, XTempTipDefine.OD_START, 50);
 		}
 
-		// Token: 0x0600FCA9 RID: 64681 RVA: 0x003AF7E4 File Offset: 0x003AD9E4
 		private bool ConfirmBuyGiftCount(IXUIButton btn)
 		{
 			bool flag = this.m_doc.BuyLeftCount <= 0U;
@@ -316,42 +289,33 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FCAA RID: 64682 RVA: 0x003AF848 File Offset: 0x003ADA48
 		private bool CancelBuy(IXUIButton btn)
 		{
 			DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.SetVisible(false, true);
 			return true;
 		}
 
-		// Token: 0x04006F11 RID: 28433
 		private XNPCFavorDocument m_doc;
 
-		// Token: 0x04006F12 RID: 28434
 		private XNPCFavorDlg.TabIndex m_CurrentTabIndex = XNPCFavorDlg.TabIndex.Relics;
 
-		// Token: 0x04006F13 RID: 28435
 		private XNPCFavorHandler m_favorHandler = null;
 
-		// Token: 0x04006F14 RID: 28436
 		private XNPCUnionHandler m_unionHandler = null;
 
-		// Token: 0x04006F15 RID: 28437
 		private XNpcAttrHandler m_attrHandler = null;
 
-		// Token: 0x04006F16 RID: 28438
 		private XFx uiFx = null;
 
-		// Token: 0x04006F17 RID: 28439
 		private const string FX_HasNewActiveNPC = "Effects/FX_Particle/UIfx/UI_swjs_Clip01";
 
-		// Token: 0x02001A0C RID: 6668
 		public enum TabIndex
 		{
-			// Token: 0x04008216 RID: 33302
+
 			Relics,
-			// Token: 0x04008217 RID: 33303
+
 			Union,
-			// Token: 0x04008218 RID: 33304
+
 			Addition
 		}
 	}

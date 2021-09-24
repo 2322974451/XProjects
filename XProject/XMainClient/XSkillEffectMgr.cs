@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000EA3 RID: 3747
+
 	internal class XSkillEffectMgr : XSingleton<XSkillEffectMgr>
 	{
-		// Token: 0x0600C798 RID: 51096 RVA: 0x002C9230 File Offset: 0x002C7430
+
 		public void TestSkillTable()
 		{
 			for (int i = 0; i < this._skillTable.Table.Length; i++)
@@ -25,7 +25,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C799 RID: 51097 RVA: 0x002C92B0 File Offset: 0x002C74B0
 		public override bool Init()
 		{
 			bool flag = this._async_loader == null;
@@ -66,13 +65,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C79A RID: 51098 RVA: 0x002C93E7 File Offset: 0x002C75E7
 		public override void Uninit()
 		{
 			this._async_loader = null;
 		}
 
-		// Token: 0x0600C79B RID: 51099 RVA: 0x002C93F4 File Offset: 0x002C75F4
 		public SkillList.RowData GetSkillConfig(uint skillHash, uint skillLevel, uint entityTempID)
 		{
 			bool flag = entityTempID == 0U;
@@ -88,7 +85,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C79C RID: 51100 RVA: 0x002C9424 File Offset: 0x002C7624
 		public SkillList.RowData GetEnemySpecialSkillConfig(uint skillHash, uint skillLevel, uint entityTempID)
 		{
 			bool flag = this.EmptySkillHash == skillHash;
@@ -141,13 +137,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C79D RID: 51101 RVA: 0x002C9550 File Offset: 0x002C7750
 		private static int SkillDataCompare(SkillList.RowData rowData, uint skillHash)
 		{
 			return skillHash.CompareTo(rowData.SkillScriptHash);
 		}
 
-		// Token: 0x0600C79E RID: 51102 RVA: 0x002C9570 File Offset: 0x002C7770
 		public SkillList.RowData GetSkillConfig(uint skillHash, uint skillLevel)
 		{
 			bool flag = this.EmptySkillHash == skillHash;
@@ -191,7 +185,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C79F RID: 51103 RVA: 0x002C964C File Offset: 0x002C784C
 		public int GetSkillMaxLevel(uint skillHash, uint entityTempID = 0U)
 		{
 			bool flag = this.EmptySkillHash == skillHash;
@@ -251,7 +244,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C7A0 RID: 51104 RVA: 0x002C9774 File Offset: 0x002C7974
 		public int GetSkillHpMaxLimit(string skillName, uint level, uint entityTempID)
 		{
 			uint skillHash = XSingleton<XCommon>.singleton.XHash(skillName);
@@ -269,7 +261,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C7A1 RID: 51105 RVA: 0x002C97B0 File Offset: 0x002C79B0
 		public int GetSkillHpMinLimit(string skillName, uint level, uint entityTempID)
 		{
 			uint skillHash = XSingleton<XCommon>.singleton.XHash(skillName);
@@ -287,7 +278,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C7A2 RID: 51106 RVA: 0x002C97EC File Offset: 0x002C79EC
 		public bool GetSkillDescriptValue(uint skillhash, uint level, XBodyBag EmblemBag, out float Ratio, out float Fixed)
 		{
 			float num = 0f;
@@ -327,7 +317,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C7A3 RID: 51107 RVA: 0x002C9924 File Offset: 0x002C7B24
 		public SkillLevelupRequest GetLevelupRequest(uint skillHash, uint level)
 		{
 			SkillList.RowData skillConfig = this.GetSkillConfig(skillHash, level);
@@ -395,13 +384,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C7A4 RID: 51108 RVA: 0x002C9AA8 File Offset: 0x002C7CA8
 		public double GetAttackSpeedRatio(XAttributes attr)
 		{
 			return (double)attr.AttackSpeed;
 		}
 
-		// Token: 0x0600C7A5 RID: 51109 RVA: 0x002C9AC4 File Offset: 0x002C7CC4
 		public float GetSkillInitCDRatio(uint skillHash, uint level, uint entityTempID, bool IsPVP, XAttributes attr)
 		{
 			SkillList.RowData skillConfig = this.GetSkillConfig(skillHash, level, entityTempID);
@@ -436,19 +423,16 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C7A6 RID: 51110 RVA: 0x002C9B6C File Offset: 0x002C7D6C
 		public float GetSkillCDDynamicRatio(XAttributes attr)
 		{
 			return (float)(attr.GetAttr(XAttributeDefine.XATTR_SKILL_CD_Total) / XSingleton<XGlobalConfig>.singleton.GeneralCombatParam);
 		}
 
-		// Token: 0x0600C7A7 RID: 51111 RVA: 0x002C9B98 File Offset: 0x002C7D98
 		public float GetSkillCDDynamicRatio(XAttributes attr, uint skillHash)
 		{
 			return this.CalcDynamicRatio(this.GetSkillCDDynamicRatio(attr), this.GetSkillCDSemiDynamicRatio(attr, skillHash));
 		}
 
-		// Token: 0x0600C7A8 RID: 51112 RVA: 0x002C9BC0 File Offset: 0x002C7DC0
 		public float GetSkillCDSemiDynamicRatio(XAttributes attr, uint skillHash)
 		{
 			float num = 0f;
@@ -464,7 +448,6 @@ namespace XMainClient
 			return num;
 		}
 
-		// Token: 0x0600C7A9 RID: 51113 RVA: 0x002C9C20 File Offset: 0x002C7E20
 		public double GetXULIPower(XEntity entity)
 		{
 			bool flag = entity == null || entity.Attributes == null;
@@ -480,14 +463,12 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C7AA RID: 51114 RVA: 0x002C9C6C File Offset: 0x002C7E6C
 		public float CalcDynamicRatio(float dynamicCDRatio, float semiDynamicCDRatio)
 		{
 			float num = dynamicCDRatio + semiDynamicCDRatio;
 			return Mathf.Clamp(num, XSingleton<XGlobalConfig>.singleton.CDChangeLowerBound, XSingleton<XGlobalConfig>.singleton.CDChangeUpperBound);
 		}
 
-		// Token: 0x0600C7AB RID: 51115 RVA: 0x002C9C9C File Offset: 0x002C7E9C
 		public float GetSkillCDStaticRatio(uint skillHash, uint level, uint entityTempID, bool IsPVP)
 		{
 			SkillList.RowData skillConfig = this.GetSkillConfig(skillHash, level, entityTempID);
@@ -524,7 +505,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C7AC RID: 51116 RVA: 0x002C9D84 File Offset: 0x002C7F84
 		public float GetSkillCostMP(uint skillHash, uint level, uint entityTempID)
 		{
 			SkillList.RowData skillConfig = this.GetSkillConfig(skillHash, level, entityTempID);
@@ -541,14 +521,12 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C7AD RID: 51117 RVA: 0x002C9DD0 File Offset: 0x002C7FD0
 		public float GetSkillCostMP(string skillName, uint level, uint entityTempID)
 		{
 			uint skillHash = XSingleton<XCommon>.singleton.XHash(skillName);
 			return this.GetSkillCostMP(skillHash, level, entityTempID);
 		}
 
-		// Token: 0x0600C7AE RID: 51118 RVA: 0x002C9DF8 File Offset: 0x002C7FF8
 		public SkillStartEffect GetSkillStartEffect(uint skillHash, uint level, XSkillFlags skillFlags, uint entityTempID, bool IsPVP)
 		{
 			SkillStartEffect skillStartEffect = default(SkillStartEffect);
@@ -598,7 +576,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C7AF RID: 51119 RVA: 0x002C9F9C File Offset: 0x002C819C
 		public SkillEffect GetSkillEffect(uint skillHash, int hitpoint, uint level, XSkillFlags skillFlags, uint entityTempID, bool IsPVP)
 		{
 			SkillEffect skillEffect = this.m_SkillEffect;
@@ -707,7 +684,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C7B0 RID: 51120 RVA: 0x002CA4E4 File Offset: 0x002C86E4
 		public List<uint> GetProfSkillID(int profID)
 		{
 			bool flag = this.ret == null;
@@ -739,7 +715,6 @@ namespace XMainClient
 			return this.ret;
 		}
 
-		// Token: 0x0600C7B1 RID: 51121 RVA: 0x002CA5D8 File Offset: 0x002C87D8
 		public int GetSkillType(uint skillID)
 		{
 			SkillList.RowData skillConfig = this.GetSkillConfig(skillID, 0U);
@@ -756,7 +731,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C7B2 RID: 51122 RVA: 0x002CA608 File Offset: 0x002C8808
 		public uint GetSkillID(string skillName, uint statisticsID = 0U)
 		{
 			uint num = XSingleton<XCommon>.singleton.XHash(skillName);
@@ -774,7 +748,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C7B3 RID: 51123 RVA: 0x002CA640 File Offset: 0x002C8840
 		public void SetMobProperty(XEntity mobEntity, XEntity caster, uint skillID)
 		{
 			bool flag = mobEntity == null || caster == null || mobEntity.Attributes == null || caster.Attributes == null;
@@ -855,7 +828,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C7B4 RID: 51124 RVA: 0x002CA978 File Offset: 0x002C8B78
 		public uint GetPreSkill(uint skillID, uint entityTempID)
 		{
 			uint num = 0U;
@@ -882,7 +854,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C7B5 RID: 51125 RVA: 0x002CA9D4 File Offset: 0x002C8BD4
 		public bool CanChangeCD(uint skillHash, uint skillLevel, uint entityTempID)
 		{
 			SkillList.RowData skillConfig = this.GetSkillConfig(skillHash, skillLevel, entityTempID);
@@ -890,7 +861,6 @@ namespace XMainClient
 			return !flag && skillConfig.UnchangableCD == 0;
 		}
 
-		// Token: 0x0600C7B6 RID: 51126 RVA: 0x002CAA08 File Offset: 0x002C8C08
 		public bool AICantCast(uint skillHash, uint skillLevel, uint entityTempID)
 		{
 			SkillList.RowData skillConfig = this.GetSkillConfig(skillHash, skillLevel, entityTempID);
@@ -898,7 +868,6 @@ namespace XMainClient
 			return !flag && skillConfig.LinkType == 1;
 		}
 
-		// Token: 0x0600C7B7 RID: 51127 RVA: 0x002CAA3C File Offset: 0x002C8C3C
 		public float GetRemainingCDNotify(uint skillHash, uint skillLevel, uint entityTempID)
 		{
 			SkillList.RowData skillConfig = this.GetSkillConfig(skillHash, skillLevel, entityTempID);
@@ -915,7 +884,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C7B8 RID: 51128 RVA: 0x002CAA70 File Offset: 0x002C8C70
 		public int GetStrengthValue(uint skillHash, uint skillLevel, uint entityTempID)
 		{
 			SkillList.RowData skillConfig = this.GetSkillConfig(skillHash, skillLevel, entityTempID);
@@ -932,7 +900,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C7B9 RID: 51129 RVA: 0x002CAAA0 File Offset: 0x002C8CA0
 		public int GetUsageCount(uint skillHash, uint skillLevel, uint entityTempID)
 		{
 			SkillList.RowData skillConfig = this.GetSkillConfig(skillHash, skillLevel, entityTempID);
@@ -949,34 +916,24 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x040057E9 RID: 22505
 		private XTableAsyncLoader _async_loader = null;
 
-		// Token: 0x040057EA RID: 22506
 		private SkillList _skillTable = new SkillList();
 
-		// Token: 0x040057EB RID: 22507
 		public Dictionary<uint, uint> PreSkillDict = new Dictionary<uint, uint>(200);
 
-		// Token: 0x040057EC RID: 22508
 		private Dictionary<ulong, uint> _specialEnemyPreSkillDict = new Dictionary<ulong, uint>();
 
-		// Token: 0x040057ED RID: 22509
 		public uint EmptySkillHash = XSingleton<XCommon>.singleton.XHash("E");
 
-		// Token: 0x040057EE RID: 22510
 		private static CVSReader.RowDataCompare<SkillList.RowData, uint> comp = new CVSReader.RowDataCompare<SkillList.RowData, uint>(XSkillEffectMgr.SkillDataCompare);
 
-		// Token: 0x040057EF RID: 22511
 		private SkillLevelupRequest req = null;
 
-		// Token: 0x040057F0 RID: 22512
 		private SkillEffect m_SkillEffect = new SkillEffect();
 
-		// Token: 0x040057F1 RID: 22513
 		private List<uint> ret = null;
 
-		// Token: 0x040057F2 RID: 22514
 		private HashSet<uint> repeatHash = null;
 	}
 }

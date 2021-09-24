@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000A00 RID: 2560
+
 	internal class XExpeditionDocument : XDocComponent
 	{
-		// Token: 0x17002E72 RID: 11890
-		// (get) Token: 0x06009C9A RID: 40090 RVA: 0x00195858 File Offset: 0x00193A58
+
 		public override uint ID
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002E73 RID: 11891
-		// (get) Token: 0x06009C9B RID: 40091 RVA: 0x00195870 File Offset: 0x00193A70
 		public static ExpeditionTable ExpTable
 		{
 			get
@@ -31,13 +28,8 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002E74 RID: 11892
-		// (get) Token: 0x06009C9C RID: 40092 RVA: 0x00195887 File Offset: 0x00193A87
-		// (set) Token: 0x06009C9D RID: 40093 RVA: 0x0019588F File Offset: 0x00193A8F
 		public bool EnlargeMatch { get; set; }
 
-		// Token: 0x17002E75 RID: 11893
-		// (get) Token: 0x06009C9E RID: 40094 RVA: 0x00195898 File Offset: 0x00193A98
 		public TeamTowerData SingleTowerData
 		{
 			get
@@ -46,9 +38,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002E76 RID: 11894
-		// (get) Token: 0x06009C9F RID: 40095 RVA: 0x001958B0 File Offset: 0x00193AB0
-		// (set) Token: 0x06009CA0 RID: 40096 RVA: 0x001958C8 File Offset: 0x00193AC8
 		public int ExpeditionId
 		{
 			get
@@ -61,8 +50,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002E77 RID: 11895
-		// (get) Token: 0x06009CA1 RID: 40097 RVA: 0x001958D4 File Offset: 0x00193AD4
 		public int GoddessRewardsCanGetTimes
 		{
 			get
@@ -71,7 +58,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009CA2 RID: 40098 RVA: 0x001958EC File Offset: 0x00193AEC
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			XExpeditionDocument.AsyncLoader.AddTask("Table/DNExpedition", XExpeditionDocument._ExpeditionReader, false);
@@ -82,12 +68,10 @@ namespace XMainClient
 			XExpeditionDocument.AsyncLoader.Execute(callback);
 		}
 
-		// Token: 0x06009CA3 RID: 40099 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public static void OnTableLoaded()
 		{
 		}
 
-		// Token: 0x06009CA4 RID: 40100 RVA: 0x00195974 File Offset: 0x00193B74
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
@@ -97,7 +81,6 @@ namespace XMainClient
 			this.currentBuyCount.Clear();
 		}
 
-		// Token: 0x06009CA5 RID: 40101 RVA: 0x001959AA File Offset: 0x00193BAA
 		protected override void EventSubscribe()
 		{
 			base.EventSubscribe();
@@ -105,14 +88,12 @@ namespace XMainClient
 			base.RegisterEvent(XEventDefine.XEvent_LeaveTeam, new XComponent.XEventHandler(this.OnLeaveTeam));
 		}
 
-		// Token: 0x06009CA6 RID: 40102 RVA: 0x001959DE File Offset: 0x00193BDE
 		public override void OnEnterScene()
 		{
 			base.OnEnterScene();
 			this.TeamCategoryMgr.RefreshAbyssStates();
 		}
 
-		// Token: 0x06009CA7 RID: 40103 RVA: 0x001959F4 File Offset: 0x00193BF4
 		public override void OnEnterSceneFinally()
 		{
 			base.OnEnterSceneFinally();
@@ -139,7 +120,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009CA8 RID: 40104 RVA: 0x00195AB4 File Offset: 0x00193CB4
 		public override void OnLeaveScene()
 		{
 			base.OnLeaveScene();
@@ -150,7 +130,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009CA9 RID: 40105 RVA: 0x00195AE8 File Offset: 0x00193CE8
 		public static string GetFullName(ExpeditionTable.RowData rowData)
 		{
 			bool flag = rowData == null;
@@ -191,7 +170,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009CAA RID: 40106 RVA: 0x00195BD4 File Offset: 0x00193DD4
 		public ExpeditionTable.RowData GetExpeditionDataByIndex(int index)
 		{
 			bool flag = index >= XExpeditionDocument._ExpeditionReader.Table.Length;
@@ -207,13 +185,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009CAB RID: 40107 RVA: 0x00195C0C File Offset: 0x00193E0C
 		public RandomSceneTable.RowData[] GetRandomSceneTable()
 		{
 			return XExpeditionDocument._RandomSceneReader.Table;
 		}
 
-		// Token: 0x06009CAC RID: 40108 RVA: 0x00195C28 File Offset: 0x00193E28
 		public RandomSceneTable.RowData GetRandomSceneRowDataBySceneId(int sceneId)
 		{
 			for (int i = 0; i < XExpeditionDocument._RandomSceneReader.Table.Length; i++)
@@ -227,7 +203,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x06009CAD RID: 40109 RVA: 0x00195C84 File Offset: 0x00193E84
 		public TeamTowerRewardTable.RowData GetTeamTowerRewardData(int index)
 		{
 			bool flag = XExpeditionDocument._TeamTowerRewardTable.Table.Length > index;
@@ -243,13 +218,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009CAE RID: 40110 RVA: 0x00195CBC File Offset: 0x00193EBC
 		public TeamTowerRewardTable.RowData[] GetTeamTowerTable()
 		{
 			return XExpeditionDocument._TeamTowerRewardTable.Table;
 		}
 
-		// Token: 0x06009CAF RID: 40111 RVA: 0x00195CD8 File Offset: 0x00193ED8
 		public List<uint> GetRandomSceneList(uint RandomID)
 		{
 			List<uint> list = new List<uint>();
@@ -264,13 +237,11 @@ namespace XMainClient
 			return list;
 		}
 
-		// Token: 0x06009CB0 RID: 40112 RVA: 0x00195D44 File Offset: 0x00193F44
 		public ExpeditionTable.RowData GetExpeditionDataByID(int id)
 		{
 			return XExpeditionDocument._ExpeditionReader.GetByDNExpeditionID(id);
 		}
 
-		// Token: 0x06009CB1 RID: 40113 RVA: 0x00195D64 File Offset: 0x00193F64
 		public List<ExpeditionTable.RowData> GetExpeditionList(TeamLevelType type)
 		{
 			this._TempExpList.Clear();
@@ -285,7 +256,6 @@ namespace XMainClient
 			return this._TempExpList;
 		}
 
-		// Token: 0x06009CB2 RID: 40114 RVA: 0x00195DD8 File Offset: 0x00193FD8
 		public string GetExpNameByHardLevel(int hardlevel)
 		{
 			for (int i = 0; i < XExpeditionDocument._TeamTowerRewardTable.Table.Length; i++)
@@ -299,7 +269,6 @@ namespace XMainClient
 			return "";
 		}
 
-		// Token: 0x06009CB3 RID: 40115 RVA: 0x00195E38 File Offset: 0x00194038
 		public TeamTowerData GetTeamTowerDataByExpid(int expid)
 		{
 			TeamTowerData teamTowerData = null;
@@ -316,7 +285,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009CB4 RID: 40116 RVA: 0x00195E64 File Offset: 0x00194064
 		private void InitTeamTowerData()
 		{
 			this._TowerData.Clear();
@@ -341,7 +309,6 @@ namespace XMainClient
 			this.EnlargeMatch = false;
 		}
 
-		// Token: 0x06009CB5 RID: 40117 RVA: 0x00195F38 File Offset: 0x00194138
 		public bool OnJoinTeam(XEventArgs args)
 		{
 			bool flag = this.ExpeditionView == null || !this.ExpeditionView.active;
@@ -363,7 +330,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009CB6 RID: 40118 RVA: 0x00195F94 File Offset: 0x00194194
 		public bool OnLeaveTeam(XEventArgs args)
 		{
 			bool flag = this.ExpeditionView == null || !this.ExpeditionView.active;
@@ -385,7 +351,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009CB7 RID: 40119 RVA: 0x00195FF0 File Offset: 0x001941F0
 		public void SetTeamCount(TeamOPRes oRes)
 		{
 			bool flag = oRes == null;
@@ -415,7 +380,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009CB8 RID: 40120 RVA: 0x0019614C File Offset: 0x0019434C
 		private void _GeneralRefreshLeftCount()
 		{
 			bool flag = DlgBase<TheExpView, TheExpBehaviour>.singleton.IsVisible();
@@ -446,7 +410,6 @@ namespace XMainClient
 			XWeekNestDocument.Doc.RefreshUi();
 		}
 
-		// Token: 0x06009CB9 RID: 40121 RVA: 0x001961F4 File Offset: 0x001943F4
 		public void SetGoddessRewardsCanGetTimes(GetGoddessTrialRewardsRes oRes)
 		{
 			this.m_GoddessRewardsCanGetTimes = (int)oRes.leftGoddessReward;
@@ -457,7 +420,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009CBA RID: 40122 RVA: 0x00196228 File Offset: 0x00194428
 		public int GetDayMaxCount(TeamLevelType dungeonType, SceneTable.RowData sceneData = null)
 		{
 			bool flag = dungeonType == TeamLevelType.TeamLevelDragonNest;
@@ -481,13 +443,11 @@ namespace XMainClient
 			return 0;
 		}
 
-		// Token: 0x06009CBB RID: 40123 RVA: 0x00196278 File Offset: 0x00194478
 		public int GetTotalCount(TeamLevelType dungeonType, SceneTable.RowData sceneData = null)
 		{
 			return this.GetDayMaxCount(dungeonType, sceneData) + this.GetBuyCount(dungeonType);
 		}
 
-		// Token: 0x06009CBC RID: 40124 RVA: 0x0019629C File Offset: 0x0019449C
 		public int GetBuyLimit(TeamLevelType dungeonType)
 		{
 			int result;
@@ -509,7 +469,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009CBD RID: 40125 RVA: 0x001962E4 File Offset: 0x001944E4
 		public CostInfo GetBuyCost(TeamLevelType dungeonType)
 		{
 			CostInfo result;
@@ -531,7 +490,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009CBE RID: 40126 RVA: 0x00196340 File Offset: 0x00194540
 		public bool CanBuy(TeamLevelType dungeonType, out int buyCount, out int buyLimit)
 		{
 			buyCount = this.GetBuyCount(dungeonType);
@@ -539,7 +497,6 @@ namespace XMainClient
 			return buyCount < buyLimit;
 		}
 
-		// Token: 0x06009CBF RID: 40127 RVA: 0x0019636C File Offset: 0x0019456C
 		public int GetBuyCount(TeamLevelType dungeonType)
 		{
 			int num;
@@ -556,7 +513,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009CC0 RID: 40128 RVA: 0x00196398 File Offset: 0x00194598
 		public int GetDayCount(TeamLevelType dungeonType, SceneTable.RowData sceneData = null)
 		{
 			bool flag = dungeonType == TeamLevelType.TeamLevelTeamTower;
@@ -592,7 +548,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009CC1 RID: 40129 RVA: 0x00196420 File Offset: 0x00194620
 		public void ReqBuyCount(TeamLevelType type)
 		{
 			RpcC2G_BuyTeamSceneCount rpcC2G_BuyTeamSceneCount = new RpcC2G_BuyTeamSceneCount();
@@ -600,7 +555,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_BuyTeamSceneCount);
 		}
 
-		// Token: 0x06009CC2 RID: 40130 RVA: 0x00196454 File Offset: 0x00194654
 		public void OnBuyCount(BuyTeamSceneCountP oArg, BuyTeamSceneCountRet oRes)
 		{
 			bool flag = oRes.errcode > ErrorCode.ERR_SUCCESS;
@@ -620,13 +574,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009CC3 RID: 40131 RVA: 0x001964F7 File Offset: 0x001946F7
 		public void OnRefreshTeamLevelAbyss(int hadCount)
 		{
 			this.currentDayCount[TeamLevelType.TeamLevelAbyss] = hadCount;
 		}
 
-		// Token: 0x06009CC4 RID: 40132 RVA: 0x00196508 File Offset: 0x00194708
 		public void OnRefreshDayCount(TeamLevelType type, int count)
 		{
 			bool flag = this.currentDayCount.ContainsKey(type);
@@ -636,7 +588,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009CC5 RID: 40133 RVA: 0x00196534 File Offset: 0x00194734
 		public bool CheckCountAndBuy(int expid, SceneTable.RowData sceneData = null)
 		{
 			ExpeditionTable.RowData expeditionDataByID = this.GetExpeditionDataByID(expid);
@@ -665,13 +616,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009CC6 RID: 40134 RVA: 0x001965B0 File Offset: 0x001947B0
 		private bool IsLastTeamFinished(int expid)
 		{
 			return expid <= 3010;
 		}
 
-		// Token: 0x06009CC7 RID: 40135 RVA: 0x001965D8 File Offset: 0x001947D8
 		public void UpdateTowerActivtyTop(GetTowerActivityTopRes oRes)
 		{
 			List<int> list = new List<int>(this._TowerData.Keys);
@@ -752,7 +701,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009CC8 RID: 40136 RVA: 0x0019697C File Offset: 0x00194B7C
 		public void OnRefreshShowTeam()
 		{
 			for (int i = 0; i < 3; i++)
@@ -765,7 +713,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009CC9 RID: 40137 RVA: 0x001969BC File Offset: 0x00194BBC
 		public int GetTeamTowerTopLevel(int hardlevel)
 		{
 			int num = 1;
@@ -780,21 +727,18 @@ namespace XMainClient
 			return num;
 		}
 
-		// Token: 0x06009CCA RID: 40138 RVA: 0x00196A34 File Offset: 0x00194C34
 		public bool IsTeamTowerOpen(int expid)
 		{
 			bool flag = this._TowerData.ContainsKey(expid);
 			return flag && this._TowerData[expid].showteam;
 		}
 
-		// Token: 0x06009CCB RID: 40139 RVA: 0x00196A6C File Offset: 0x00194C6C
 		public bool IsNestOpen(int expid)
 		{
 			ExpeditionTable.RowData expeditionDataByID = this.GetExpeditionDataByID(expid);
 			return this.IsNestOpen(expeditionDataByID);
 		}
 
-		// Token: 0x06009CCC RID: 40140 RVA: 0x00196A90 File Offset: 0x00194C90
 		public bool IsNestOpen(ExpeditionTable.RowData rowData)
 		{
 			bool flag = rowData == null;
@@ -820,7 +764,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009CCD RID: 40141 RVA: 0x00196AEC File Offset: 0x00194CEC
 		public uint GetSceneIDByExpID(int expID)
 		{
 			ExpeditionTable.RowData expeditionDataByID = this.GetExpeditionDataByID(expID);
@@ -855,7 +798,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009CCE RID: 40142 RVA: 0x00196B74 File Offset: 0x00194D74
 		public int GetExpIDBySceneID(uint sceneID)
 		{
 			XExpeditionDocument specificDocument = XDocuments.GetSpecificDocument<XExpeditionDocument>(XExpeditionDocument.uuID);
@@ -882,7 +824,6 @@ namespace XMainClient
 			return 0;
 		}
 
-		// Token: 0x06009CCF RID: 40143 RVA: 0x00196C48 File Offset: 0x00194E48
 		public void RefreshRedPoints()
 		{
 			XSingleton<XGameSysMgr>.singleton.SetSysRedPointState(XSysDefine.XSys_Level_Elite, this.GetDayCount(TeamLevelType.TeamLevelAbyss, null) > 0);
@@ -892,14 +833,12 @@ namespace XMainClient
 			XSingleton<XGameSysMgr>.singleton.SetSysRedPointState(XSysDefine.XSys_WeekNest, this.GetDayCount(TeamLevelType.TeamLevelWeekNest, null) > 0);
 		}
 
-		// Token: 0x06009CD0 RID: 40144 RVA: 0x00196CD4 File Offset: 0x00194ED4
 		public void GetSingleTowerActivityTop()
 		{
 			RpcC2G_GetTowerActivityTop rpc = new RpcC2G_GetTowerActivityTop();
 			XSingleton<XClientNetwork>.singleton.Send(rpc);
 		}
 
-		// Token: 0x06009CD1 RID: 40145 RVA: 0x00196CF4 File Offset: 0x00194EF4
 		public void GetSingleTowerActivityTopRes(GetTowerActivityTopRes oRes)
 		{
 			this._SingleTowerData.sweepreqtime = Time.time;
@@ -940,7 +879,6 @@ namespace XMainClient
 			XActivityDocument.Doc.OnGetDayCount();
 		}
 
-		// Token: 0x06009CD2 RID: 40146 RVA: 0x00196F04 File Offset: 0x00195104
 		public void SweepSingleTower()
 		{
 			RpcC2G_SweepTower rpcC2G_SweepTower = new RpcC2G_SweepTower();
@@ -948,7 +886,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_SweepTower);
 		}
 
-		// Token: 0x06009CD3 RID: 40147 RVA: 0x00196F34 File Offset: 0x00195134
 		public void SweepSingleTowerRes(SweepTowerArg oArg, SweepTowerRes oRes)
 		{
 			bool flag = this.TeamTowerSingleView != null && this.TeamTowerSingleView.IsVisible();
@@ -958,7 +895,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009CD4 RID: 40148 RVA: 0x00196F70 File Offset: 0x00195170
 		public void ResetSingleTower()
 		{
 			RpcC2G_ResetTower rpcC2G_ResetTower = new RpcC2G_ResetTower();
@@ -967,7 +903,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_ResetTower);
 		}
 
-		// Token: 0x06009CD5 RID: 40149 RVA: 0x00196FAC File Offset: 0x001951AC
 		public void ResetSingleTowerRes()
 		{
 			bool flag = this.TeamTowerSingleView != null && this.TeamTowerSingleView.IsVisible();
@@ -977,14 +912,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009CD6 RID: 40150 RVA: 0x00196FE0 File Offset: 0x001951E0
 		public void RefreshSingleSweepReward()
 		{
 			RpcC2G_RefreshSweepReward rpc = new RpcC2G_RefreshSweepReward();
 			XSingleton<XClientNetwork>.singleton.Send(rpc);
 		}
 
-		// Token: 0x06009CD7 RID: 40151 RVA: 0x00197000 File Offset: 0x00195200
 		public void RefreshSingleSweepRewardRes(ErrorCode code, int result)
 		{
 			bool flag = this.TeamTowerSingleView != null && this.TeamTowerSingleView.IsVisible();
@@ -994,14 +927,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009CD8 RID: 40152 RVA: 0x00197038 File Offset: 0x00195238
 		public void GetSweepSingleTowerReward()
 		{
 			RpcC2G_GetSweepTowerReward rpc = new RpcC2G_GetSweepTowerReward();
 			XSingleton<XClientNetwork>.singleton.Send(rpc);
 		}
 
-		// Token: 0x06009CD9 RID: 40153 RVA: 0x00197058 File Offset: 0x00195258
 		public void GetSweepSingleTowerRewardRes()
 		{
 			bool flag = this.TeamTowerSingleView != null && this.TeamTowerSingleView.IsVisible();
@@ -1011,7 +942,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009CDA RID: 40154 RVA: 0x0019708C File Offset: 0x0019528C
 		public void GetFirstPassReward(int floor)
 		{
 			RpcC2G_GetTowerFirstPassReward rpcC2G_GetTowerFirstPassReward = new RpcC2G_GetTowerFirstPassReward();
@@ -1019,7 +949,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_GetTowerFirstPassReward);
 		}
 
-		// Token: 0x06009CDB RID: 40155 RVA: 0x001970BC File Offset: 0x001952BC
 		public void GetFirstPassRewardRes(ErrorCode error)
 		{
 			bool flag = this.TeamTowerSingleView != null && this.TeamTowerSingleView.IsVisible();
@@ -1029,7 +958,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009CDC RID: 40156 RVA: 0x001970F4 File Offset: 0x001952F4
 		public void OnAppPaused()
 		{
 			bool flag = this.TeamTowerSingleView != null && this.TeamTowerSingleView.IsVisible();
@@ -1039,13 +967,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009CDD RID: 40157 RVA: 0x00197128 File Offset: 0x00195328
 		public bool IsPveAttrModifyScene(uint sceneID)
 		{
 			return XExpeditionDocument._PveAttrTable.GetBySceneID(sceneID) != null;
 		}
 
-		// Token: 0x06009CDE RID: 40158 RVA: 0x00197148 File Offset: 0x00195348
 		public void TryShowPveAttrTips(uint expID)
 		{
 			uint sceneIDByExpID = this.GetSceneIDByExpID((int)expID);
@@ -1056,72 +982,50 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009CDF RID: 40159 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 		}
 
-		// Token: 0x04003710 RID: 14096
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("ExpeditionDocument");
 
-		// Token: 0x04003711 RID: 14097
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x04003712 RID: 14098
 		public ActivityExpeditionHandler ExpeditionView;
 
-		// Token: 0x04003713 RID: 14099
 		public ActivityNestHandler NestView;
 
-		// Token: 0x04003714 RID: 14100
 		public ActivityTeamTowerSingleDlg TeamTowerSingleView;
 
-		// Token: 0x04003715 RID: 14101
 		public ActivityRiftDlg TeamMysteriourView;
 
-		// Token: 0x04003716 RID: 14102
 		public ActivityGoddessTrialDlg GoddessTrialView;
 
-		// Token: 0x04003717 RID: 14103
 		private static ExpeditionTable _ExpeditionReader = new ExpeditionTable();
 
-		// Token: 0x04003718 RID: 14104
 		private static RandomSceneTable _RandomSceneReader = new RandomSceneTable();
 
-		// Token: 0x04003719 RID: 14105
 		private static TeamTowerRewardTable _TeamTowerRewardTable = new TeamTowerRewardTable();
 
-		// Token: 0x0400371A RID: 14106
 		private static PkProfessionTable _PkProfTable = new PkProfessionTable();
 
-		// Token: 0x0400371B RID: 14107
 		private static PVEAttrModify _PveAttrTable = new PVEAttrModify();
 
-		// Token: 0x0400371C RID: 14108
 		private int SelectExpId;
 
-		// Token: 0x0400371E RID: 14110
 		private int m_GoddessRewardsCanGetTimes = 0;
 
-		// Token: 0x0400371F RID: 14111
 		public XTeamCategoryMgr TeamCategoryMgr = new XTeamCategoryMgr();
 
-		// Token: 0x04003720 RID: 14112
 		public Dictionary<TeamLevelType, int> currentDayCount = new Dictionary<TeamLevelType, int>(default(XFastEnumIntEqualityComparer<TeamLevelType>));
 
-		// Token: 0x04003721 RID: 14113
 		public Dictionary<TeamLevelType, int> currentBuyCount = new Dictionary<TeamLevelType, int>(default(XFastEnumIntEqualityComparer<TeamLevelType>));
 
-		// Token: 0x04003722 RID: 14114
 		public Dictionary<TeamLevelType, int> maxCount = new Dictionary<TeamLevelType, int>(default(XFastEnumIntEqualityComparer<TeamLevelType>));
 
-		// Token: 0x04003723 RID: 14115
 		private Dictionary<int, TeamTowerData> _TowerData = new Dictionary<int, TeamTowerData>();
 
-		// Token: 0x04003724 RID: 14116
 		private TeamTowerData _SingleTowerData = new TeamTowerData();
 
-		// Token: 0x04003725 RID: 14117
 		private List<ExpeditionTable.RowData> _TempExpList = new List<ExpeditionTable.RowData>();
 	}
 }

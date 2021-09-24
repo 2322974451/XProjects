@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020016EC RID: 5868
+
 	internal class GVGBattlePrepareBase<T, V> : DlgBase<T, V>, IGVGBattlePrepare, IXUIDlg where T : IXUIDlg, new() where V : GVGBattlePrepareBehaviour
 	{
-		// Token: 0x17003756 RID: 14166
-		// (get) Token: 0x0600F205 RID: 61957 RVA: 0x00359A58 File Offset: 0x00357C58
+
 		public override int layer
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003757 RID: 14167
-		// (get) Token: 0x0600F206 RID: 61958 RVA: 0x00359A6C File Offset: 0x00357C6C
 		public override bool autoload
 		{
 			get
@@ -31,7 +28,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F207 RID: 61959 RVA: 0x00359A80 File Offset: 0x00357C80
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -48,7 +44,6 @@ namespace XMainClient.UI
 			this.OnInitInspire();
 		}
 
-		// Token: 0x0600F208 RID: 61960 RVA: 0x00359AE8 File Offset: 0x00357CE8
 		private void OnInitInspire()
 		{
 			int num = 0;
@@ -67,7 +62,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F209 RID: 61961 RVA: 0x00359BB4 File Offset: 0x00357DB4
 		protected override void OnHide()
 		{
 			base.OnHide();
@@ -75,7 +69,6 @@ namespace XMainClient.UI
 			this.ResetCommonUI();
 		}
 
-		// Token: 0x0600F20A RID: 61962 RVA: 0x00359BD0 File Offset: 0x00357DD0
 		protected override void OnUnload()
 		{
 			bool flag = base.uiBehaviour.mBluePanel != null;
@@ -88,7 +81,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x0600F20B RID: 61963 RVA: 0x00359C2C File Offset: 0x00357E2C
 		public override void OnUpdate()
 		{
 			this.UpdateCountTime();
@@ -113,7 +105,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F20C RID: 61964 RVA: 0x00359CB0 File Offset: 0x00357EB0
 		protected override void OnLoad()
 		{
 			base.uiBehaviour.mInspireCD = new GuildArenaInspireCD(base.uiBehaviour.mEncourageButton.transform);
@@ -121,7 +112,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.mBattleDuelInfo.Init(base.uiBehaviour.mCombatInfo);
 		}
 
-		// Token: 0x0600F20D RID: 61965 RVA: 0x00359D24 File Offset: 0x00357F24
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -132,13 +122,11 @@ namespace XMainClient.UI
 			base.uiBehaviour.mLeftCloseSpr.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnLeftToogle));
 		}
 
-		// Token: 0x0600F20E RID: 61966 RVA: 0x00359DE3 File Offset: 0x00357FE3
 		public override void OnXNGUIClick(GameObject obj, string path)
 		{
 			base.OnXNGUIClick(obj, path);
 		}
 
-		// Token: 0x0600F20F RID: 61967 RVA: 0x00359DF0 File Offset: 0x00357FF0
 		private void OnLeftToogle(IXUISprite spr)
 		{
 			bool flag = this.blueState;
@@ -162,7 +150,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F210 RID: 61968 RVA: 0x00359FF8 File Offset: 0x003581F8
 		public void OnEnterSceneFinally()
 		{
 			bool flag = !base.IsLoaded();
@@ -172,7 +159,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F211 RID: 61969 RVA: 0x0035A01C File Offset: 0x0035821C
 		private void RefreshCommonUI()
 		{
 			bool bSpectator = XSingleton<XScene>.singleton.bSpectator;
@@ -197,7 +183,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F212 RID: 61970 RVA: 0x0035A0C4 File Offset: 0x003582C4
 		private void ResetCommonUI()
 		{
 			bool flag = DlgBase<BattleMain, BattleMainBehaviour>.singleton.IsLoaded() && DlgBase<BattleMain, BattleMainBehaviour>.singleton.IsVisible();
@@ -219,7 +204,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F213 RID: 61971 RVA: 0x0035A164 File Offset: 0x00358364
 		public void RefreshSection()
 		{
 			this.RefreshCommonUI();
@@ -248,7 +232,6 @@ namespace XMainClient.UI
 			this.OnSectionShow();
 		}
 
-		// Token: 0x0600F214 RID: 61972 RVA: 0x0035A290 File Offset: 0x00358490
 		private void ShowOrHideLetmedie(bool isActive)
 		{
 			base.uiBehaviour.mDownSprite.SetVisible(isActive);
@@ -257,7 +240,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.mDownTips.SetActive(isActive);
 		}
 
-		// Token: 0x0600F215 RID: 61973 RVA: 0x0035A2FC File Offset: 0x003584FC
 		private void InPlayerLetmedie(bool isActive)
 		{
 			base.uiBehaviour.mDownSprite.SetVisible(!isActive);
@@ -266,7 +248,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.mUpTips.SetActive(isActive);
 		}
 
-		// Token: 0x0600F216 RID: 61974 RVA: 0x0035A36C File Offset: 0x0035856C
 		public void OnSectionShow()
 		{
 			bool bSpectator = XSingleton<XScene>.singleton.bSpectator;
@@ -295,12 +276,10 @@ namespace XMainClient.UI
 			this.ReFreshGroup();
 		}
 
-		// Token: 0x0600F217 RID: 61975 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected virtual void SelectionPattern()
 		{
 		}
 
-		// Token: 0x0600F218 RID: 61976 RVA: 0x0035A408 File Offset: 0x00358608
 		protected virtual void SectionShowReady()
 		{
 			this.RefreshCommonUI();
@@ -320,7 +299,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F219 RID: 61977 RVA: 0x0035A490 File Offset: 0x00358690
 		protected virtual void SectionShowBattle()
 		{
 			base.uiBehaviour.mGoBg.SetActive(false);
@@ -351,13 +329,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F21A RID: 61978 RVA: 0x0035A5C0 File Offset: 0x003587C0
 		private void OnHelp(IXUISprite spr)
 		{
 			DlgBase<XCommonHelpTipView, XCommonHelpTipBehaviour>.singleton.ShowHelp(XSysDefine.XSys_Arena);
 		}
 
-		// Token: 0x0600F21B RID: 61979 RVA: 0x0035A5D0 File Offset: 0x003587D0
 		public void RefreahCountTime(float time)
 		{
 			this.m_lastTime.LeftTime = time;
@@ -368,7 +344,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F21C RID: 61980 RVA: 0x0035A614 File Offset: 0x00358814
 		private void UpdateCountTime()
 		{
 			this.m_lastTime.Update();
@@ -379,7 +354,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F21D RID: 61981 RVA: 0x0035A66C File Offset: 0x0035886C
 		private void OnUp(IXUISprite spr)
 		{
 			bool bCantUpForKicked = this._Doc.bCantUpForKicked;
@@ -408,13 +382,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F21E RID: 61982 RVA: 0x0035A754 File Offset: 0x00358954
 		private void OnDown(IXUISprite spr)
 		{
 			this._Doc.ReadyReq(XSingleton<XAttributeMgr>.singleton.XPlayerData.RoleID, GMFReadyType.GMF_READY_DOWN);
 		}
 
-		// Token: 0x0600F21F RID: 61983 RVA: 0x0035A774 File Offset: 0x00358974
 		public void UpdateDownUp()
 		{
 			switch (this._Doc.MyReadyType)
@@ -436,7 +408,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.mDownSprite.SetGrey(!this._Doc.bCantUpForKicked);
 		}
 
-		// Token: 0x0600F220 RID: 61984 RVA: 0x0035A850 File Offset: 0x00358A50
 		public virtual void ReFreshGroup()
 		{
 			XSingleton<XDebug>.singleton.AddGreenLog("targetBlueCourage:", this._Doc.BlueInfo.Inspire.ToString(), "   targetRedCourage", this._Doc.RedInfo.Inspire.ToString(), null, null);
@@ -457,7 +428,6 @@ namespace XMainClient.UI
 			this.UpdateDownUp();
 		}
 
-		// Token: 0x0600F221 RID: 61985 RVA: 0x0035AA1C File Offset: 0x00358C1C
 		private void UpdateInspireTime()
 		{
 			bool flag = base.uiBehaviour.mInspireCD != null;
@@ -467,7 +437,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F222 RID: 61986 RVA: 0x0035AA64 File Offset: 0x00358C64
 		private void OnInspireReq(IXUISprite spr)
 		{
 			bool flag = this._Doc.InspireCDTime > 0.0;
@@ -485,7 +454,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F223 RID: 61987 RVA: 0x0035AAD8 File Offset: 0x00358CD8
 		public void RefreshInspire()
 		{
 			bool flag = this._Doc.fxEncourageButton != null;
@@ -500,7 +468,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F224 RID: 61988 RVA: 0x0035AB78 File Offset: 0x00358D78
 		private bool GetProgress(float spiritCount, out int label, out float progress)
 		{
 			label = 0;
@@ -546,7 +513,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F225 RID: 61989 RVA: 0x0035AC6C File Offset: 0x00358E6C
 		private void SetProgress(float cour, IXUISlider progress, ref int cur_label_num, string labelName, GameObject labelTween, GameObject effectParent, string effectName)
 		{
 			int num = 0;
@@ -579,14 +545,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F226 RID: 61990 RVA: 0x0035AD86 File Offset: 0x00358F86
 		public void SetResurgence(int leftTime)
 		{
 			this.m_leftTime = leftTime;
 			this.SetResurgenceTime(this.m_leftTime);
 		}
 
-		// Token: 0x0600F227 RID: 61991 RVA: 0x0035ADA0 File Offset: 0x00358FA0
 		private void SetResurgenceTime(int time)
 		{
 			bool flag = time > 0;
@@ -608,40 +572,30 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F228 RID: 61992 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected virtual void SetupOtherResurgence()
 		{
 		}
 
-		// Token: 0x0600F229 RID: 61993 RVA: 0x0035AE39 File Offset: 0x00359039
 		private void UpdateTimeFrame(object o)
 		{
 			this.m_leftTime--;
 			this.SetResurgence(this.m_leftTime);
 		}
 
-		// Token: 0x040067A5 RID: 26533
 		protected XGuildArenaBattleDocument _Doc;
 
-		// Token: 0x040067A6 RID: 26534
 		private int m_leftTime = 0;
 
-		// Token: 0x040067A7 RID: 26535
 		private uint m_leftTimerID = 0U;
 
-		// Token: 0x040067A8 RID: 26536
 		private int blue_label_num = 0;
 
-		// Token: 0x040067A9 RID: 26537
 		private int red_label_num = 0;
 
-		// Token: 0x040067AA RID: 26538
 		private bool blueState = true;
 
-		// Token: 0x040067AB RID: 26539
 		private XElapseTimer m_lastTime = new XElapseTimer();
 
-		// Token: 0x040067AC RID: 26540
 		private List<int> inspires = null;
 	}
 }

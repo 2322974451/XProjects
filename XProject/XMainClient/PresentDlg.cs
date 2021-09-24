@@ -9,11 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C03 RID: 3075
+
 	internal class PresentDlg : DlgBase<PresentDlg, PresentBehaviour>
 	{
-		// Token: 0x170030D3 RID: 12499
-		// (get) Token: 0x0600AEC4 RID: 44740 RVA: 0x0020EC2C File Offset: 0x0020CE2C
+
 		private XGameMallDocument doc
 		{
 			get
@@ -22,8 +21,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170030D4 RID: 12500
-		// (get) Token: 0x0600AEC5 RID: 44741 RVA: 0x0020EC48 File Offset: 0x0020CE48
 		public override int layer
 		{
 			get
@@ -32,8 +29,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170030D5 RID: 12501
-		// (get) Token: 0x0600AEC6 RID: 44742 RVA: 0x0020EC5C File Offset: 0x0020CE5C
 		public override int group
 		{
 			get
@@ -42,8 +37,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170030D6 RID: 12502
-		// (get) Token: 0x0600AEC7 RID: 44743 RVA: 0x0020EC70 File Offset: 0x0020CE70
 		public override bool autoload
 		{
 			get
@@ -52,8 +45,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170030D7 RID: 12503
-		// (get) Token: 0x0600AEC8 RID: 44744 RVA: 0x0020EC84 File Offset: 0x0020CE84
 		public override bool fullscreenui
 		{
 			get
@@ -62,8 +53,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170030D8 RID: 12504
-		// (get) Token: 0x0600AEC9 RID: 44745 RVA: 0x0020EC98 File Offset: 0x0020CE98
 		public override bool hideMainMenu
 		{
 			get
@@ -72,8 +61,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170030D9 RID: 12505
-		// (get) Token: 0x0600AECA RID: 44746 RVA: 0x0020ECAC File Offset: 0x0020CEAC
 		public override string fileName
 		{
 			get
@@ -82,13 +69,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AECB RID: 44747 RVA: 0x0020ECC3 File Offset: 0x0020CEC3
 		protected override void Init()
 		{
 			base.Init();
 		}
 
-		// Token: 0x0600AECC RID: 44748 RVA: 0x0020ECD0 File Offset: 0x0020CED0
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -96,7 +81,6 @@ namespace XMainClient
 			base.uiBehaviour.m_btnCancel.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCancelClick));
 		}
 
-		// Token: 0x0600AECD RID: 44749 RVA: 0x0020ED20 File Offset: 0x0020CF20
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -116,14 +100,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AECE RID: 44750 RVA: 0x0020EE26 File Offset: 0x0020D026
 		public void Show(ulong roleid)
 		{
 			this.mRoleid = roleid;
 			this.SetVisible(true, true);
 		}
 
-		// Token: 0x0600AECF RID: 44751 RVA: 0x0020EE3C File Offset: 0x0020D03C
 		private bool OnPayClick(IXUIButton btn)
 		{
 			string text = base.uiBehaviour.m_input.GetText();
@@ -140,14 +122,12 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600AED0 RID: 44752 RVA: 0x0020EEDC File Offset: 0x0020D0DC
 		private bool OnCancelClick(IXUIButton btn)
 		{
 			this.SetVisible(false, true);
 			return true;
 		}
 
-		// Token: 0x0600AED1 RID: 44753 RVA: 0x0020EEF8 File Offset: 0x0020D0F8
 		public void OnResPresent(string openid, string name)
 		{
 			this.mOpenid = openid;
@@ -172,7 +152,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AED2 RID: 44754 RVA: 0x0020EFE4 File Offset: 0x0020D1E4
 		private bool OnOKClick(IXUIButton btn)
 		{
 			DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.SetVisible(false, true);
@@ -201,14 +180,12 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600AED3 RID: 44755 RVA: 0x0020F090 File Offset: 0x0020D290
 		private bool OnCancalClick(IXUIButton btn)
 		{
 			DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.SetVisible(false, true);
 			return true;
 		}
 
-		// Token: 0x0600AED4 RID: 44756 RVA: 0x0020F0B0 File Offset: 0x0020D2B0
 		private void ShareToQQFriend(string openID, string desc)
 		{
 			Dictionary<string, object> dictionary = new Dictionary<string, object>();
@@ -225,7 +202,6 @@ namespace XMainClient
 			XSingleton<XUpdater.XUpdater>.singleton.XPlatform.SendExtDara("share_send_to_friend_qq", text);
 		}
 
-		// Token: 0x0600AED5 RID: 44757 RVA: 0x0020F1A0 File Offset: 0x0020D3A0
 		private void ShareToWXFriend(string openID, string desc)
 		{
 			Dictionary<string, object> dictionary = new Dictionary<string, object>();
@@ -240,13 +216,10 @@ namespace XMainClient
 			XSingleton<XUpdater.XUpdater>.singleton.XPlatform.SendExtDara("share_send_to_friend_wx", text);
 		}
 
-		// Token: 0x04004277 RID: 17015
 		private ulong mRoleid = 0UL;
 
-		// Token: 0x04004278 RID: 17016
 		private string mOpenid = string.Empty;
 
-		// Token: 0x04004279 RID: 17017
 		private string mRoleName = string.Empty;
 	}
 }

@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000A88 RID: 2696
+
 	internal class XTeamInviteDocument : XDocComponent
 	{
-		// Token: 0x17002FB5 RID: 12213
-		// (get) Token: 0x0600A413 RID: 42003 RVA: 0x001C4A30 File Offset: 0x001C2C30
+
 		public override uint ID
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002FB6 RID: 12214
-		// (get) Token: 0x0600A414 RID: 42004 RVA: 0x001C4A48 File Offset: 0x001C2C48
 		public List<XTeamInviteListData>[] InviteLists
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002FB7 RID: 12215
-		// (get) Token: 0x0600A415 RID: 42005 RVA: 0x001C4A60 File Offset: 0x001C2C60
 		public List<XTeamInviteData> InvitedList
 		{
 			get
@@ -40,9 +35,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002FB8 RID: 12216
-		// (get) Token: 0x0600A416 RID: 42006 RVA: 0x001C4A78 File Offset: 0x001C2C78
-		// (set) Token: 0x0600A417 RID: 42007 RVA: 0x001C4A90 File Offset: 0x001C2C90
 		public int InvitedCount
 		{
 			get
@@ -61,7 +53,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A418 RID: 42008 RVA: 0x001C4ACC File Offset: 0x001C2CCC
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
@@ -72,7 +63,6 @@ namespace XMainClient
 			this.InvitedCount = 0;
 		}
 
-		// Token: 0x0600A419 RID: 42009 RVA: 0x001C4B10 File Offset: 0x001C2D10
 		public override void OnDetachFromHost()
 		{
 			base.OnDetachFromHost();
@@ -86,7 +76,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A41A RID: 42010 RVA: 0x001C4B7C File Offset: 0x001C2D7C
 		public override void OnEnterSceneFinally()
 		{
 			base.OnEnterSceneFinally();
@@ -97,14 +86,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A41B RID: 42011 RVA: 0x001C4BBA File Offset: 0x001C2DBA
 		protected override void EventSubscribe()
 		{
 			base.EventSubscribe();
 			base.RegisterEvent(XEventDefine.XEvent_JoinTeam, new XComponent.XEventHandler(this._OnJoinTeam));
 		}
 
-		// Token: 0x0600A41C RID: 42012 RVA: 0x001C4BDC File Offset: 0x001C2DDC
 		private bool _OnJoinTeam(XEventArgs e)
 		{
 			this._ClearInvitedList();
@@ -112,7 +99,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600A41D RID: 42013 RVA: 0x001C4C00 File Offset: 0x001C2E00
 		public void ReqInviteList()
 		{
 			XTeamDocument specificDocument = XDocuments.GetSpecificDocument<XTeamDocument>(XTeamDocument.uuID);
@@ -121,7 +107,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_TeamInviteListReq);
 		}
 
-		// Token: 0x0600A41E RID: 42014 RVA: 0x001C4C40 File Offset: 0x001C2E40
 		public void OnGetInviteList(TeamInviteRes oRes)
 		{
 			XPartnerDocument specificDocument = XDocuments.GetSpecificDocument<XPartnerDocument>(XPartnerDocument.uuID);
@@ -217,7 +202,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A41F RID: 42015 RVA: 0x001C5020 File Offset: 0x001C3220
 		public bool OnGetInvitePlatList(ReqPlatFriendRankListRes oRes)
 		{
 			bool flag = this.InviteHandler != null && this.InviteHandler.IsVisible();
@@ -250,7 +234,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A420 RID: 42016 RVA: 0x001C5148 File Offset: 0x001C3348
 		public void ReqIgnoreAll()
 		{
 			RpcC2M_InvHistoryC2MReq rpcC2M_InvHistoryC2MReq = new RpcC2M_InvHistoryC2MReq();
@@ -258,7 +241,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_InvHistoryC2MReq);
 		}
 
-		// Token: 0x0600A421 RID: 42017 RVA: 0x001C5178 File Offset: 0x001C3378
 		public void ReqDeny()
 		{
 			RpcC2M_InvHistoryC2MReq rpcC2M_InvHistoryC2MReq = new RpcC2M_InvHistoryC2MReq();
@@ -266,7 +248,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_InvHistoryC2MReq);
 		}
 
-		// Token: 0x0600A422 RID: 42018 RVA: 0x001C51A8 File Offset: 0x001C33A8
 		public void ReqInvitedList()
 		{
 			RpcC2M_InvHistoryC2MReq rpcC2M_InvHistoryC2MReq = new RpcC2M_InvHistoryC2MReq();
@@ -274,7 +255,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_InvHistoryC2MReq);
 		}
 
-		// Token: 0x0600A423 RID: 42019 RVA: 0x001C51D8 File Offset: 0x001C33D8
 		public void OnInvHistoryReq(InvHistoryArg oArg, InvHistoryRes oRes)
 		{
 			bool flag = oRes.ret > ErrorCode.ERR_SUCCESS;
@@ -311,7 +291,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A424 RID: 42020 RVA: 0x001C52C0 File Offset: 0x001C34C0
 		private void _ClearInvitedList()
 		{
 			for (int i = 0; i < this.m_InvitedList.Count; i++)
@@ -321,7 +300,6 @@ namespace XMainClient
 			this.m_InvitedList.Clear();
 		}
 
-		// Token: 0x0600A425 RID: 42021 RVA: 0x001C5308 File Offset: 0x001C3508
 		public void ReqTeamInviteAck(bool bAgree, uint id)
 		{
 			PtcC2M_TeamInviteAckC2M ptcC2M_TeamInviteAckC2M = new PtcC2M_TeamInviteAckC2M();
@@ -330,37 +308,28 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(ptcC2M_TeamInviteAckC2M);
 		}
 
-		// Token: 0x0600A426 RID: 42022 RVA: 0x001C5344 File Offset: 0x001C3544
 		public void OnInviteComing(TeamInvite inviteData)
 		{
 			int invitedCount = this.InvitedCount + 1;
 			this.InvitedCount = invitedCount;
 		}
 
-		// Token: 0x0600A427 RID: 42023 RVA: 0x001C5366 File Offset: 0x001C3566
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 		}
 
-		// Token: 0x04003B90 RID: 15248
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("TeamInviteDocument");
 
-		// Token: 0x04003B91 RID: 15249
 		private static readonly int INVITE_TYPE_COUNT = 4;
 
-		// Token: 0x04003B92 RID: 15250
 		private List<XTeamInviteListData>[] m_InviteLists = new List<XTeamInviteListData>[XTeamInviteDocument.INVITE_TYPE_COUNT];
 
-		// Token: 0x04003B93 RID: 15251
 		private List<XTeamInviteData> m_InvitedList = new List<XTeamInviteData>();
 
-		// Token: 0x04003B94 RID: 15252
 		public int m_InvitedCount;
 
-		// Token: 0x04003B95 RID: 15253
 		public XTeamInviteView InviteHandler = null;
 
-		// Token: 0x04003B96 RID: 15254
 		public XTeamInvitedListView InvitedView = null;
 	}
 }

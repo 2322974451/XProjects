@@ -5,11 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020016F7 RID: 5879
+
 	internal class CrossGVGHallHandle : GVGHallBase
 	{
-		// Token: 0x17003766 RID: 14182
-		// (get) Token: 0x0600F287 RID: 62087 RVA: 0x0035CB3C File Offset: 0x0035AD3C
+
 		protected override string FileName
 		{
 			get
@@ -18,7 +17,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F288 RID: 62088 RVA: 0x0035CB54 File Offset: 0x0035AD54
 		protected override void Init()
 		{
 			base.Init();
@@ -27,13 +25,11 @@ namespace XMainClient.UI
 			this.m_HelpText.SetText(XSingleton<UiUtility>.singleton.ReplaceReturn(XStringDefineProxy.GetString("CrossGVG_hall_message")));
 		}
 
-		// Token: 0x0600F289 RID: 62089 RVA: 0x0035CBB4 File Offset: 0x0035ADB4
 		protected override int GetContentSize()
 		{
 			return this._doc.GVGRanks.Count;
 		}
 
-		// Token: 0x0600F28A RID: 62090 RVA: 0x0035CBD8 File Offset: 0x0035ADD8
 		protected override void OnItemWrapUpdate(Transform t, int index)
 		{
 			IXUILabel ixuilabel = t.FindChild("Rank").GetComponent("XUILabel") as IXUILabel;
@@ -70,7 +66,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x040067EF RID: 26607
 		private XCrossGVGDocument _doc;
 	}
 }

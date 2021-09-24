@@ -3,16 +3,15 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x020008E1 RID: 2273
+
 	internal class ForgeAttrDataMgr : EquipAttrDataMgr
 	{
-		// Token: 0x060089B6 RID: 35254 RVA: 0x001219C4 File Offset: 0x0011FBC4
+
 		public ForgeAttrDataMgr(ForgeAttributes table)
 		{
 			this.m_forgeTab = table;
 		}
 
-		// Token: 0x060089B7 RID: 35255 RVA: 0x001219DC File Offset: 0x0011FBDC
 		protected override void SetAttrByItemId(uint itemId)
 		{
 			bool flag = this.m_forgeTab == null;
@@ -40,7 +39,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04002BB5 RID: 11189
 		private ForgeAttributes m_forgeTab = null;
 	}
 }

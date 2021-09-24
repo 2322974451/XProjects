@@ -9,11 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000CFB RID: 3323
+
 	internal class XOperatingActivityView : DlgBase<XOperatingActivityView, XOperatingActivityBehaviour>
 	{
-		// Token: 0x170032B1 RID: 12977
-		// (get) Token: 0x0600B9EF RID: 47599 RVA: 0x0025D68C File Offset: 0x0025B88C
+
 		private XOperatingActivityDocument m_doc
 		{
 			get
@@ -22,8 +21,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170032B2 RID: 12978
-		// (get) Token: 0x0600B9F0 RID: 47600 RVA: 0x0025D6A4 File Offset: 0x0025B8A4
 		public override string fileName
 		{
 			get
@@ -32,8 +29,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170032B3 RID: 12979
-		// (get) Token: 0x0600B9F1 RID: 47601 RVA: 0x0025D6BC File Offset: 0x0025B8BC
 		public override bool autoload
 		{
 			get
@@ -42,8 +37,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170032B4 RID: 12980
-		// (get) Token: 0x0600B9F2 RID: 47602 RVA: 0x0025D6D0 File Offset: 0x0025B8D0
 		public override bool hideMainMenu
 		{
 			get
@@ -52,8 +45,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170032B5 RID: 12981
-		// (get) Token: 0x0600B9F3 RID: 47603 RVA: 0x0025D6E4 File Offset: 0x0025B8E4
 		public override bool pushstack
 		{
 			get
@@ -62,8 +53,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170032B6 RID: 12982
-		// (get) Token: 0x0600B9F4 RID: 47604 RVA: 0x0025D6F8 File Offset: 0x0025B8F8
 		public override bool fullscreenui
 		{
 			get
@@ -72,20 +61,17 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B9F5 RID: 47605 RVA: 0x0025D70B File Offset: 0x0025B90B
 		protected override void OnLoad()
 		{
 			base.OnLoad();
 		}
 
-		// Token: 0x0600B9F6 RID: 47606 RVA: 0x0025D715 File Offset: 0x0025B915
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			base.uiBehaviour.m_Close.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseClicked));
 		}
 
-		// Token: 0x0600B9F7 RID: 47607 RVA: 0x0025D73C File Offset: 0x0025B93C
 		protected override void OnUnload()
 		{
 			DlgHandlerBase.EnsureUnload<XCampDuelMainHandler>(ref this.m_CampDuelMainHandler);
@@ -112,14 +98,12 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x0600B9F8 RID: 47608 RVA: 0x0025D831 File Offset: 0x0025BA31
 		protected override void Init()
 		{
 			base.Init();
 			this.m_doc.View = this;
 		}
 
-		// Token: 0x0600B9F9 RID: 47609 RVA: 0x0025D848 File Offset: 0x0025BA48
 		protected override void OnHide()
 		{
 			base.OnHide();
@@ -143,14 +127,12 @@ namespace XMainClient
 			this.m_selectSys = XSysDefine.XSys_None;
 		}
 
-		// Token: 0x0600B9FA RID: 47610 RVA: 0x0025D8F0 File Offset: 0x0025BAF0
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.InitTabs(this.m_selectSys);
 		}
 
-		// Token: 0x0600B9FB RID: 47611 RVA: 0x0025D908 File Offset: 0x0025BB08
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
@@ -162,7 +144,6 @@ namespace XMainClient
 			this.RefreshRedpoint();
 		}
 
-		// Token: 0x0600B9FC RID: 47612 RVA: 0x0025D940 File Offset: 0x0025BB40
 		public void Refresh()
 		{
 			bool flag = this.m_CurrHandler != null;
@@ -172,7 +153,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B9FD RID: 47613 RVA: 0x0025D968 File Offset: 0x0025BB68
 		public void RefreshUI(List<uint> removeIds = null)
 		{
 			bool flag = removeIds != null;
@@ -189,7 +169,6 @@ namespace XMainClient
 			xluaEngine.hotfixMgr.TryFixRefresh(HotfixMode.AFTER, base.luaFileName, base.uiBehaviour.gameObject);
 		}
 
-		// Token: 0x0600B9FE RID: 47614 RVA: 0x0025D9D4 File Offset: 0x0025BBD4
 		public void Show(XSysDefine sys = XSysDefine.XSys_None, bool isDebug = false)
 		{
 			bool flag = base.IsVisible();
@@ -201,7 +180,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B9FF RID: 47615 RVA: 0x0025DA08 File Offset: 0x0025BC08
 		private void InitTabs(XSysDefine system)
 		{
 			this.m_TabsDic.Clear();
@@ -275,7 +253,6 @@ namespace XMainClient
 			this.RefreshRedpoint();
 		}
 
-		// Token: 0x0600BA00 RID: 47616 RVA: 0x0025DD74 File Offset: 0x0025BF74
 		private void InitTabInfo(GameObject tab, string tabName, string tabIcon)
 		{
 			IXUILabel ixuilabel = tab.transform.Find("TextLabel").GetComponent("XUILabel") as IXUILabel;
@@ -290,7 +267,6 @@ namespace XMainClient
 			ixuisprite2.SetSprite(tabIcon);
 		}
 
-		// Token: 0x0600BA01 RID: 47617 RVA: 0x0025DE44 File Offset: 0x0025C044
 		private void SelectDefaultTab(List<XSysDefine> listOpen, XSysDefine sys)
 		{
 			bool flag = this.m_TabsDic.ContainsKey(sys);
@@ -321,7 +297,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BA02 RID: 47618 RVA: 0x0025DF00 File Offset: 0x0025C100
 		public void RefreshRedpoint()
 		{
 			foreach (KeyValuePair<XSysDefine, IXUICheckBox> keyValuePair in this.m_TabsDic)
@@ -335,7 +310,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BA03 RID: 47619 RVA: 0x0025DFA0 File Offset: 0x0025C1A0
 		private void SetupHandlers(XSysDefine sys)
 		{
 			this.m_selectSys = sys;
@@ -419,14 +393,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BA04 RID: 47620 RVA: 0x0025E27C File Offset: 0x0025C47C
 		public bool OnTabClicked(IXUICheckBox checkbox)
 		{
 			bool flag = !checkbox.bChecked;
 			return !flag && this.RefreshUi((XSysDefine)checkbox.ID);
 		}
 
-		// Token: 0x0600BA05 RID: 47621 RVA: 0x0025E2AC File Offset: 0x0025C4AC
 		private bool RefreshUi(XSysDefine sys)
 		{
 			bool flag = this.m_CurrHandler != null;
@@ -443,14 +415,12 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600BA06 RID: 47622 RVA: 0x0025E300 File Offset: 0x0025C500
 		public bool OnCloseClicked(IXUIButton sp)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x0600BA07 RID: 47623 RVA: 0x0025E31C File Offset: 0x0025C51C
 		public void OnFsTaskStateUpdated(uint taskId, ActivityTaskState state)
 		{
 			bool flag = this.m_firstpassFsHandler != null && this.m_firstpassFsHandler.IsVisible();
@@ -460,7 +430,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BA08 RID: 47624 RVA: 0x0025E354 File Offset: 0x0025C554
 		public void PlayCrushingSealFx()
 		{
 			XSingleton<XAudioMgr>.singleton.PlayUISound("Audio/UI/zhuanzhi", true, AudioChannel.Action);
@@ -473,12 +442,10 @@ namespace XMainClient
 			this._FxFirework.Play(DlgBase<XMainInterface, XMainInterfaceBehaviour>.singleton.uiBehaviour.m_FxFirework.transform, Vector3.zero, Vector3.one, 1f, true, false);
 		}
 
-		// Token: 0x0600BA09 RID: 47625 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public void UpdateTab()
 		{
 		}
 
-		// Token: 0x0600BA0A RID: 47626 RVA: 0x0025E3E0 File Offset: 0x0025C5E0
 		public void UpdateSealTime()
 		{
 			bool flag = this.m_firstpassFsHandler != null && this.m_firstpassFsHandler.IsVisible();
@@ -488,61 +455,42 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04004A53 RID: 19027
 		private XSysDefine m_selectSys = XSysDefine.XSys_None;
 
-		// Token: 0x04004A54 RID: 19028
 		private bool m_isDebug;
 
-		// Token: 0x04004A55 RID: 19029
 		private DlgHandlerBase m_CurrHandler;
 
-		// Token: 0x04004A56 RID: 19030
 		public AnnouncementHandler m_AnnouncementHandler;
 
-		// Token: 0x04004A57 RID: 19031
 		public HolidayHandler m_HolidayHandler;
 
-		// Token: 0x04004A58 RID: 19032
 		private XCampDuelMainHandler m_CampDuelMainHandler;
 
-		// Token: 0x04004A59 RID: 19033
 		private FirstPassMainHandler m_FirstPassMainHandler;
 
-		// Token: 0x04004A5A RID: 19034
 		private FirstPassMwcxHandler m_firstpassMwcxHandler;
 
-		// Token: 0x04004A5B RID: 19035
 		private FirstPassGhjcHandler m_firstpassGhjcHandler;
 
-		// Token: 0x04004A5C RID: 19036
 		private FirstPassGuindRankHandler m_firstpassGuildRankHandler;
 
-		// Token: 0x04004A5D RID: 19037
 		private FrozenSealHandler m_firstpassFsHandler;
 
-		// Token: 0x04004A5E RID: 19038
 		private FlowerActivityHandler m_flowerActivityHandler;
 
-		// Token: 0x04004A5F RID: 19039
 		public XLevelSealView m_LevelSealHandler;
 
-		// Token: 0x04004A60 RID: 19040
 		public OldFriendsReplayHandler m_oldFriendsBackHandler;
 
-		// Token: 0x04004A61 RID: 19041
 		private PandoraSDKHandler m_pandoraSDKHandler;
 
-		// Token: 0x04004A62 RID: 19042
 		public AncientHandler m_bigPrizeHandler;
 
-		// Token: 0x04004A63 RID: 19043
 		public LuckyTurntableFrameHandler m_luckyTurntableFrameHandler;
 
-		// Token: 0x04004A64 RID: 19044
 		private Dictionary<XSysDefine, IXUICheckBox> m_TabsDic = new Dictionary<XSysDefine, IXUICheckBox>();
 
-		// Token: 0x04004A65 RID: 19045
 		private XFx _FxFirework;
 	}
 }

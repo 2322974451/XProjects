@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200190F RID: 6415
+
 	internal class EnhanceView : DlgHandlerBase
 	{
-		// Token: 0x17003AD3 RID: 15059
-		// (get) Token: 0x06010C40 RID: 68672 RVA: 0x004340FC File Offset: 0x004322FC
+
 		private XEnhanceDocument m_doc
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003AD4 RID: 15060
-		// (get) Token: 0x06010C41 RID: 68673 RVA: 0x00434114 File Offset: 0x00432314
 		protected override string FileName
 		{
 			get
@@ -31,7 +28,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010C42 RID: 68674 RVA: 0x0043412C File Offset: 0x0043232C
 		protected override void Init()
 		{
 			base.Init();
@@ -74,7 +70,6 @@ namespace XMainClient.UI
 			this.m_doc.enhanceView = this;
 		}
 
-		// Token: 0x06010C43 RID: 68675 RVA: 0x00434448 File Offset: 0x00432648
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -83,28 +78,24 @@ namespace XMainClient.UI
 			this.m_Help.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnHelpClicked));
 		}
 
-		// Token: 0x06010C44 RID: 68676 RVA: 0x004344A8 File Offset: 0x004326A8
 		public bool OnHelpClicked(IXUIButton button)
 		{
 			DlgBase<XCommonHelpTipView, XCommonHelpTipBehaviour>.singleton.ShowHelp(XSysDefine.XSys_Item_Enhance);
 			return true;
 		}
 
-		// Token: 0x06010C45 RID: 68677 RVA: 0x001F8A12 File Offset: 0x001F6C12
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.RefreshData();
 		}
 
-		// Token: 0x06010C46 RID: 68678 RVA: 0x00358051 File Offset: 0x00356251
 		public override void StackRefresh()
 		{
 			this.RefreshData();
 			base.StackRefresh();
 		}
 
-		// Token: 0x06010C47 RID: 68679 RVA: 0x004344C8 File Offset: 0x004326C8
 		protected override void OnHide()
 		{
 			this.m_BeforeAttrPool.ReturnAll(false);
@@ -123,7 +114,6 @@ namespace XMainClient.UI
 			base.OnHide();
 		}
 
-		// Token: 0x06010C48 RID: 68680 RVA: 0x00434570 File Offset: 0x00432770
 		public override void OnUnload()
 		{
 			this.m_doc.enhanceView = null;
@@ -148,7 +138,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x06010C49 RID: 68681 RVA: 0x0043460C File Offset: 0x0043280C
 		public override void RefreshData()
 		{
 			base.RefreshData();
@@ -166,7 +155,6 @@ namespace XMainClient.UI
 			this.ChangeEquip();
 		}
 
-		// Token: 0x06010C4A RID: 68682 RVA: 0x00434698 File Offset: 0x00432898
 		public void ChangeEquip()
 		{
 			this.DeActiveEffect();
@@ -174,7 +162,6 @@ namespace XMainClient.UI
 			this.m_doc.ReqEnhanceAttr();
 		}
 
-		// Token: 0x06010C4B RID: 68683 RVA: 0x00434698 File Offset: 0x00432898
 		public void RefreshPage()
 		{
 			this.DeActiveEffect();
@@ -182,7 +169,6 @@ namespace XMainClient.UI
 			this.m_doc.ReqEnhanceAttr();
 		}
 
-		// Token: 0x06010C4C RID: 68684 RVA: 0x004346B8 File Offset: 0x004328B8
 		public void PlayEffect()
 		{
 			this.m_bIsCanClick = false;
@@ -222,7 +208,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010C4D RID: 68685 RVA: 0x00434858 File Offset: 0x00432A58
 		public void FillAttrUi()
 		{
 			XEquipItem xequipItem = XBagDocument.BagDoc.GetItemByUID(this.m_doc.selectedEquip) as XEquipItem;
@@ -243,8 +228,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003AD5 RID: 15061
-		// (get) Token: 0x06010C4E RID: 68686 RVA: 0x004348D4 File Offset: 0x00432AD4
 		public string EnhanceSucPath
 		{
 			get
@@ -258,8 +241,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003AD6 RID: 15062
-		// (get) Token: 0x06010C4F RID: 68687 RVA: 0x00434910 File Offset: 0x00432B10
 		public string BreakSucPath
 		{
 			get
@@ -273,8 +254,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003AD7 RID: 15063
-		// (get) Token: 0x06010C50 RID: 68688 RVA: 0x0043494C File Offset: 0x00432B4C
 		public string EnhanceLostPath
 		{
 			get
@@ -288,7 +267,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010C51 RID: 68689 RVA: 0x00434988 File Offset: 0x00432B88
 		private void PlayEnhanceSucceedEffect()
 		{
 			bool flag = this.m_EnhanceSucceedEffect == null;
@@ -305,7 +283,6 @@ namespace XMainClient.UI
 			this.m_effectToken = XSingleton<XTimerMgr>.singleton.SetTimer(this.m_delayTime, new XTimerMgr.ElapsedEventHandler(this.DelayRefresh), null);
 		}
 
-		// Token: 0x06010C52 RID: 68690 RVA: 0x00434A24 File Offset: 0x00432C24
 		private void PlayBreakSucceedEffect()
 		{
 			bool flag = this.m_BreakSucceedEffect == null;
@@ -322,7 +299,6 @@ namespace XMainClient.UI
 			this.m_effectToken = XSingleton<XTimerMgr>.singleton.SetTimer(this.m_delayTime, new XTimerMgr.ElapsedEventHandler(this.DelayRefresh), null);
 		}
 
-		// Token: 0x06010C53 RID: 68691 RVA: 0x00434AC0 File Offset: 0x00432CC0
 		private void PlayEnhanceLostEffect()
 		{
 			bool flag = this.m_EnhanceLostEffect == null;
@@ -339,7 +315,6 @@ namespace XMainClient.UI
 			this.m_effectToken = XSingleton<XTimerMgr>.singleton.SetTimer(this.m_delayTime, new XTimerMgr.ElapsedEventHandler(this.DelayRefresh), null);
 		}
 
-		// Token: 0x06010C54 RID: 68692 RVA: 0x00434B5C File Offset: 0x00432D5C
 		private void DeActiveEffect()
 		{
 			bool flag = this.m_EnhanceSucceedEffect != null;
@@ -359,7 +334,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010C55 RID: 68693 RVA: 0x00434BC0 File Offset: 0x00432DC0
 		private void FillContent()
 		{
 			bool flag = this.m_doc.rpcState == XEnhanceRpcState.ERS_RECEIVING;
@@ -381,7 +355,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010C56 RID: 68694 RVA: 0x00434C40 File Offset: 0x00432E40
 		private void FillTopInfo()
 		{
 			XEquipItem xequipItem = XBagDocument.BagDoc.GetItemByUID(this.m_doc.selectedEquip) as XEquipItem;
@@ -433,7 +406,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010C57 RID: 68695 RVA: 0x00434E84 File Offset: 0x00433084
 		private void FillEnhanceInfo()
 		{
 			this.m_BeforeAttrPool.ReturnAll(false);
@@ -482,7 +454,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010C58 RID: 68696 RVA: 0x0043511C File Offset: 0x0043331C
 		private void FillMaxEnhanceInfo()
 		{
 			this.m_BeforeAttrPool.ReturnAll(false);
@@ -511,7 +482,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010C59 RID: 68697 RVA: 0x00435298 File Offset: 0x00433498
 		private void FillAttrWithName(GameObject go, EnhanceAttr attr)
 		{
 			IXUILabel ixuilabel = go.transform.GetComponent("XUILabel") as IXUILabel;
@@ -520,7 +490,6 @@ namespace XMainClient.UI
 			ixuilabel.SetText(attr.BeforeAttrNum.ToString());
 		}
 
-		// Token: 0x06010C5A RID: 68698 RVA: 0x00435300 File Offset: 0x00433500
 		private void FillAttrNoName(GameObject go, EnhanceAttr attr)
 		{
 			IXUILabel ixuilabel = go.transform.GetComponent("XUILabel") as IXUILabel;
@@ -551,7 +520,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010C5B RID: 68699 RVA: 0x00435464 File Offset: 0x00433664
 		private void FillCostItem(EnhanceTable.RowData rowData)
 		{
 			for (int i = 0; i < this.m_costItemTras.Count; i++)
@@ -598,7 +566,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010C5C RID: 68700 RVA: 0x00435684 File Offset: 0x00433884
 		private void DelayPlayEffect(object o = null)
 		{
 			bool flag = this.m_doc.rpcState == XEnhanceRpcState.ERS_ENHANCESUCCEED;
@@ -629,21 +596,18 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010C5D RID: 68701 RVA: 0x004356F9 File Offset: 0x004338F9
 		private void DelayRefresh(object o = null)
 		{
 			this.FillContent();
 			this.FillAttrUi();
 		}
 
-		// Token: 0x06010C5E RID: 68702 RVA: 0x0043570C File Offset: 0x0043390C
 		private bool _OnCloseClicked(IXUIButton btn)
 		{
 			base.SetVisible(false);
 			return true;
 		}
 
-		// Token: 0x06010C5F RID: 68703 RVA: 0x00435728 File Offset: 0x00433928
 		private bool OnGetItemAccess(IXUIButton btn)
 		{
 			int itemid = (int)btn.ID;
@@ -652,20 +616,17 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x06010C60 RID: 68704 RVA: 0x00435758 File Offset: 0x00433958
 		private void OnSelectedItemClicked(IXUISprite iSp)
 		{
 			ulong id = iSp.ID;
 			XSingleton<UiUtility>.singleton.ShowTooltipDialog(XSingleton<XGame>.singleton.Doc.XBagDoc.GetItemByUID(id), null, iSp, false, 0U);
 		}
 
-		// Token: 0x06010C61 RID: 68705 RVA: 0x00435791 File Offset: 0x00433991
 		public void OnEquipClicked(IXUISprite iSp)
 		{
 			this.m_doc.SelectEquip(iSp.ID);
 		}
 
-		// Token: 0x06010C62 RID: 68706 RVA: 0x004357A8 File Offset: 0x004339A8
 		private bool OnEnhanceClicked(IXUIButton btn)
 		{
 			bool flag = !this.m_bIsCanClick;
@@ -727,7 +688,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x06010C63 RID: 68707 RVA: 0x0043591C File Offset: 0x00433B1C
 		private bool SetButtonCool(float time)
 		{
 			float num = Time.realtimeSinceStartup - this.m_fLastClickBtnTime;
@@ -745,103 +705,70 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x04007AD0 RID: 31440
 		private XUIPool m_BeforeAttrPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04007AD1 RID: 31441
 		private XUIPool m_AfterAttrPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04007AD2 RID: 31442
 		private IXUIButton m_Help;
 
-		// Token: 0x04007AD3 RID: 31443
 		private IXUIButton m_CloseBtn;
 
-		// Token: 0x04007AD4 RID: 31444
 		private IXUIButton m_EnhanceBtn;
 
-		// Token: 0x04007AD5 RID: 31445
 		private IXUILabel m_SuccessRateLab;
 
-		// Token: 0x04007AD6 RID: 31446
 		private IXUILabel m_AddRateLab;
 
-		// Token: 0x04007AD7 RID: 31447
 		private IXUILabel m_TipsLab;
 
-		// Token: 0x04007AD8 RID: 31448
 		private IXUILabel m_TittleLab;
 
-		// Token: 0x04007AD9 RID: 31449
 		private IXUILabel m_EnhanceBtnLab;
 
-		// Token: 0x04007ADA RID: 31450
 		private IXUILabel m_MaxTipsLab;
 
-		// Token: 0x04007ADB RID: 31451
 		private IXUILabel m_BreakRateLab;
 
-		// Token: 0x04007ADC RID: 31452
 		private GameObject m_topItemGo;
 
-		// Token: 0x04007ADD RID: 31453
 		private GameObject m_EnhanceGo;
 
-		// Token: 0x04007ADE RID: 31454
 		private GameObject m_EnhanceMaxGo;
 
-		// Token: 0x04007ADF RID: 31455
 		private GameObject m_BeforeEnhanceGo;
 
-		// Token: 0x04007AE0 RID: 31456
 		private GameObject m_AfterEnhanceGo;
 
-		// Token: 0x04007AE1 RID: 31457
 		private GameObject m_MaxAttrListGo;
 
-		// Token: 0x04007AE2 RID: 31458
 		private List<GameObject> m_effectGoList = new List<GameObject>();
 
-		// Token: 0x04007AE3 RID: 31459
 		private Transform m_effectsTra;
 
-		// Token: 0x04007AE4 RID: 31460
 		private XFx m_EnhanceSucceedEffect;
 
-		// Token: 0x04007AE5 RID: 31461
 		private XFx m_BreakSucceedEffect;
 
-		// Token: 0x04007AE6 RID: 31462
 		private XFx m_EnhanceLostEffect;
 
-		// Token: 0x04007AE7 RID: 31463
 		private List<Transform> m_costItemTras;
 
-		// Token: 0x04007AE8 RID: 31464
 		private uint m_token = 0U;
 
-		// Token: 0x04007AE9 RID: 31465
 		private uint m_effectToken;
 
-		// Token: 0x04007AEA RID: 31466
 		private readonly int m_gap = 30;
 
-		// Token: 0x04007AEB RID: 31467
 		private bool m_bIsCanClick = true;
 
-		// Token: 0x04007AEC RID: 31468
 		private float m_delayTime = 0.5f;
 
-		// Token: 0x04007AED RID: 31469
 		private float m_fLastClickBtnTime = 0f;
 
-		// Token: 0x04007AEE RID: 31470
 		private string m_enhanceSucPath = string.Empty;
 
-		// Token: 0x04007AEF RID: 31471
 		private string m_breakSucPath = string.Empty;
 
-		// Token: 0x04007AF0 RID: 31472
 		private string m_enhanceLostPath = string.Empty;
 	}
 }

@@ -5,10 +5,10 @@ using UnityEngine;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200174C RID: 5964
+
 	public class GuildArenaBattleDuelTeamInfo
 	{
-		// Token: 0x0600F68C RID: 63116 RVA: 0x0037F180 File Offset: 0x0037D380
+
 		public void Init(Transform t)
 		{
 			this.transform = t;
@@ -26,19 +26,16 @@ namespace XMainClient.UI
 			this.Reset();
 		}
 
-		// Token: 0x0600F68D RID: 63117 RVA: 0x0037F26F File Offset: 0x0037D46F
 		public void Set(GVGCombatInfo info)
 		{
 			this.Set(info.DamageString, info.KillCountString, info.Score);
 		}
 
-		// Token: 0x0600F68E RID: 63118 RVA: 0x0037F28B File Offset: 0x0037D48B
 		public void Reset()
 		{
 			this.Set("0", "0", 0);
 		}
 
-		// Token: 0x0600F68F RID: 63119 RVA: 0x0037F2A0 File Offset: 0x0037D4A0
 		private void Set(string damage, string kill, int score)
 		{
 			this.m_damageLabel.SetText(damage);
@@ -52,16 +49,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04006B06 RID: 27398
 		private Transform transform;
 
-		// Token: 0x04006B07 RID: 27399
 		private IXUILabel m_damageLabel;
 
-		// Token: 0x04006B08 RID: 27400
 		private IXUILabel m_killLabel;
 
-		// Token: 0x04006B09 RID: 27401
 		private List<IXUISprite> m_scoreSprites = new List<IXUISprite>();
 	}
 }

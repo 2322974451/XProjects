@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x0200010F RID: 271
+
 	public class GuildMineralBattleReward : CVSReader
 	{
-		// Token: 0x060006B1 RID: 1713 RVA: 0x00020B6C File Offset: 0x0001ED6C
+
 		public GuildMineralBattleReward.RowData GetByRank(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -29,7 +29,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x060006B2 RID: 1714 RVA: 0x00020BD8 File Offset: 0x0001EDD8
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			GuildMineralBattleReward.RowData rowData = new GuildMineralBattleReward.RowData();
@@ -43,7 +42,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x060006B3 RID: 1715 RVA: 0x00020C50 File Offset: 0x0001EE50
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -57,19 +55,15 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x0400035B RID: 859
 		public GuildMineralBattleReward.RowData[] Table = null;
 
-		// Token: 0x0200030E RID: 782
 		public class RowData
 		{
-			// Token: 0x04000B6D RID: 2925
+
 			public uint Rank;
 
-			// Token: 0x04000B6E RID: 2926
 			public SeqListRef<int> RewardShow;
 
-			// Token: 0x04000B6F RID: 2927
 			public uint LevelSeal;
 		}
 	}

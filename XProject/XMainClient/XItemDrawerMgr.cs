@@ -4,10 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000F07 RID: 3847
+
 	internal class XItemDrawerMgr : XSingleton<XItemDrawerMgr>
 	{
-		// Token: 0x0600CC3A RID: 52282 RVA: 0x002EF310 File Offset: 0x002ED510
+
 		public void DrawItem(GameObject go, XItem item)
 		{
 			bool flag = item == null;
@@ -21,14 +21,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC3B RID: 52283 RVA: 0x002EF34D File Offset: 0x002ED54D
 		public void Init(uint profession)
 		{
 			XItemDrawerParam.DefaultProfession = profession % 10U;
 			XItemDrawerMgr.Param.Reset();
 		}
 
-		// Token: 0x0600CC3C RID: 52284 RVA: 0x002EF364 File Offset: 0x002ED564
 		public GameObject GetGo(ItemCornerType type)
 		{
 			GameObject result;
@@ -102,7 +100,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CC3D RID: 52285 RVA: 0x002EF4C0 File Offset: 0x002ED6C0
 		private GameObject Load(string perfabName)
 		{
 			string location = XSingleton<XCommon>.singleton.StringCombine("UI/Common/", perfabName);
@@ -115,7 +112,6 @@ namespace XMainClient
 			return gameObject;
 		}
 
-		// Token: 0x0600CC3E RID: 52286 RVA: 0x002EF520 File Offset: 0x002ED720
 		public void OnleaveScene()
 		{
 			XResourceLoaderMgr.SafeDestroy(ref this.LeftDownCornerGo, true);
@@ -126,43 +122,30 @@ namespace XMainClient
 			XResourceLoaderMgr.SafeDestroy(ref this.ProfGo, true);
 		}
 
-		// Token: 0x04005ACB RID: 23243
 		public GameObject LeftDownCornerGo;
 
-		// Token: 0x04005ACC RID: 23244
 		public GameObject LeftUpCornerGo;
 
-		// Token: 0x04005ACD RID: 23245
 		public GameObject RightDownCornerGo;
 
-		// Token: 0x04005ACE RID: 23246
 		public GameObject RightUpCornerGo;
 
-		// Token: 0x04005ACF RID: 23247
 		public GameObject MaskGo;
 
-		// Token: 0x04005AD0 RID: 23248
 		public GameObject ProfGo;
 
-		// Token: 0x04005AD1 RID: 23249
 		public XNormalItemDrawer normalItemDrawer = new XNormalItemDrawer();
 
-		// Token: 0x04005AD2 RID: 23250
 		public XEquipItemDrawer equipItemDrawer = new XEquipItemDrawer();
 
-		// Token: 0x04005AD3 RID: 23251
 		public XJadeSlotDrawer jadeSlotDrawer = new XJadeSlotDrawer();
 
-		// Token: 0x04005AD4 RID: 23252
 		public XJadeItemDrawer jadeItemDrawer = new XJadeItemDrawer();
 
-		// Token: 0x04005AD5 RID: 23253
 		public XEmblemItemDrawer emblemItemDrawer = new XEmblemItemDrawer();
 
-		// Token: 0x04005AD6 RID: 23254
 		public XFashionDrawer fashionDrawer = new XFashionDrawer();
 
-		// Token: 0x04005AD7 RID: 23255
 		public static XItemDrawerParam Param = new XItemDrawerParam();
 	}
 }

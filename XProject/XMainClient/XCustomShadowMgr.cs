@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x020008B9 RID: 2233
+
 	public class XCustomShadowMgr : XSingleton<XCustomShadowMgr>
 	{
-		// Token: 0x06008714 RID: 34580 RVA: 0x00113980 File Offset: 0x00111B80
+
 		public override bool Init()
 		{
 			XCustomShadowMgr.texMatrix[0, 0] = 0.5f;
@@ -20,7 +20,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x06008715 RID: 34581 RVA: 0x00113A00 File Offset: 0x00111C00
 		private ShadowMapInfo GetShadowMap(out int channel)
 		{
 			channel = 0;
@@ -47,7 +46,6 @@ namespace XMainClient
 			return shadowMapInfo2;
 		}
 
-		// Token: 0x06008716 RID: 34582 RVA: 0x00113A9C File Offset: 0x00111C9C
 		public XCustomShadow AddShadowProjector(Transform mainCamera)
 		{
 			int num = 0;
@@ -83,13 +81,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008717 RID: 34583 RVA: 0x00113B5B File Offset: 0x00111D5B
 		public void RemoveShadowProjector(XCustomShadow cs)
 		{
 			cs.Clear(false);
 		}
 
-		// Token: 0x06008718 RID: 34584 RVA: 0x00113B68 File Offset: 0x00111D68
 		public void SetCullLayer(bool enable)
 		{
 			bool flag = this.m_shadowInfos != null;
@@ -107,7 +103,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008719 RID: 34585 RVA: 0x00113BC8 File Offset: 0x00111DC8
 		public void SetShadowScale(float scale)
 		{
 			bool flag = this.m_shadowInfos != null;
@@ -127,7 +122,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600871A RID: 34586 RVA: 0x00113C60 File Offset: 0x00111E60
 		public void Clear()
 		{
 			XCustomShadow.scale = 0.33f;
@@ -154,19 +148,14 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04002A87 RID: 10887
 		private const int m_MaxShadowCount = 4;
 
-		// Token: 0x04002A88 RID: 10888
 		private const int m_CurrentShadowCount = 0;
 
-		// Token: 0x04002A89 RID: 10889
 		private List<ShadowMapInfo> m_shadowGroups = null;
 
-		// Token: 0x04002A8A RID: 10890
 		private List<XCustomShadow> m_shadowInfos = null;
 
-		// Token: 0x04002A8B RID: 10891
 		public static Matrix4x4 texMatrix = Matrix4x4.identity;
 	}
 }

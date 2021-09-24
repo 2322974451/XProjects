@@ -7,10 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200187F RID: 6271
+
 	internal class XWorldBossDamageRankHandler : DlgHandlerBase, IRankView
 	{
-		// Token: 0x0601050A RID: 66826 RVA: 0x003F2FCC File Offset: 0x003F11CC
+
 		protected override void Init()
 		{
 			Transform transform = base.PanelObject.transform.FindChild("Bg/ScrollView");
@@ -37,7 +37,6 @@ namespace XMainClient.UI
 			this.showMaxCount = int.Parse(XSingleton<XGlobalConfig>.singleton.GetValue("WorldBossBattleDamageRankCount"));
 		}
 
-		// Token: 0x0601050B RID: 66827 RVA: 0x003F31CC File Offset: 0x003F13CC
 		public override void RegisterEvent()
 		{
 			Transform transform = base.PanelObject.transform.FindChild("Bg/Close");
@@ -49,7 +48,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601050C RID: 66828 RVA: 0x003F3224 File Offset: 0x003F1424
 		public void SetupRanks(List<RankeType> rankTypes, bool inBattle)
 		{
 			this.bInBattle = inBattle;
@@ -93,7 +91,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601050D RID: 66829 RVA: 0x003F3428 File Offset: 0x003F1628
 		private bool OnTabSelectionChanged(IXUICheckBox ckb)
 		{
 			bool flag = !ckb.bChecked;
@@ -150,7 +147,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0601050E RID: 66830 RVA: 0x003F35DC File Offset: 0x003F17DC
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -164,7 +160,6 @@ namespace XMainClient.UI
 			this.m_MyGuildInfo.SetActive(false);
 		}
 
-		// Token: 0x0601050F RID: 66831 RVA: 0x003F362C File Offset: 0x003F182C
 		private void _ReqInfo(object param)
 		{
 			bool flag = this.RankSource != null;
@@ -190,7 +185,6 @@ namespace XMainClient.UI
 			this.timerToken = XSingleton<XTimerMgr>.singleton.SetTimer(2f, new XTimerMgr.ElapsedEventHandler(this._ReqInfo), null);
 		}
 
-		// Token: 0x06010510 RID: 66832 RVA: 0x003F36D7 File Offset: 0x003F18D7
 		protected override void OnHide()
 		{
 			base.OnHide();
@@ -198,7 +192,6 @@ namespace XMainClient.UI
 			this._KillTimer();
 		}
 
-		// Token: 0x06010511 RID: 66833 RVA: 0x003F36F0 File Offset: 0x003F18F0
 		private void _KillTimer()
 		{
 			bool flag = this.timerToken > 0U;
@@ -209,27 +202,23 @@ namespace XMainClient.UI
 			this.timerToken = 0U;
 		}
 
-		// Token: 0x06010512 RID: 66834 RVA: 0x003F3723 File Offset: 0x003F1923
 		public override void OnUnload()
 		{
 			this._KillTimer();
 			base.OnUnload();
 		}
 
-		// Token: 0x06010513 RID: 66835 RVA: 0x001E669E File Offset: 0x001E489E
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
 		}
 
-		// Token: 0x06010514 RID: 66836 RVA: 0x003F3734 File Offset: 0x003F1934
 		protected bool OnCloseClicked(IXUIButton go)
 		{
 			base.SetVisible(false);
 			return true;
 		}
 
-		// Token: 0x06010515 RID: 66837 RVA: 0x003F3750 File Offset: 0x003F1950
 		public void RefreshPage()
 		{
 			this.rankMap.Clear();
@@ -264,7 +253,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010516 RID: 66838 RVA: 0x003F38B8 File Offset: 0x003F1AB8
 		private void RankWrapContentItemUpdated(Transform t, int index)
 		{
 			List<XBaseRankInfo> rankList = this.RankSource.GetRankList(this.m_SelectedType).rankList;
@@ -316,7 +304,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010517 RID: 66839 RVA: 0x003F3A7C File Offset: 0x003F1C7C
 		public void SetMyInfo(XBaseRankList rankData)
 		{
 			bool flag = rankData.myRankInfo == null;
@@ -357,7 +344,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010518 RID: 66840 RVA: 0x003F3BA4 File Offset: 0x003F1DA4
 		public void SetMyGuildInfo(XBaseRankList guildList)
 		{
 			IXUILabel ixuilabel = this.m_MyGuildInfo.transform.FindChild("Rank").GetComponent("XUILabel") as IXUILabel;
@@ -402,7 +388,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010519 RID: 66841 RVA: 0x003F3D0D File Offset: 0x003F1F0D
 		public void SetGuildMemberCount(uint count)
 		{
 			this.m_GuildMemberNum.SetText(XStringDefineProxy.GetString("WORLDBOSS_GUILD_MEMBER_NUM", new object[]
@@ -411,12 +396,10 @@ namespace XMainClient.UI
 			}));
 		}
 
-		// Token: 0x0601051A RID: 66842 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public void RefreshVoice(ulong[] roles, int[] states)
 		{
 		}
 
-		// Token: 0x0601051B RID: 66843 RVA: 0x003F3D38 File Offset: 0x003F1F38
 		public void HideVoice()
 		{
 			List<XBaseRankInfo> rankList = this.RankSource.GetRankList(this.m_SelectedType).rankList;
@@ -437,67 +420,46 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0400755B RID: 30043
 		private XUIPool m_RankItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x0400755C RID: 30044
 		public IXUIWrapContent m_WrapContent;
 
-		// Token: 0x0400755D RID: 30045
 		public IXUIScrollView m_ScrollView;
 
-		// Token: 0x0400755E RID: 30046
 		private GameObject m_MyInfo;
 
-		// Token: 0x0400755F RID: 30047
 		private GameObject m_MyGuildInfo;
 
-		// Token: 0x04007560 RID: 30048
 		private IXUILabel m_MyRank;
 
-		// Token: 0x04007561 RID: 30049
 		private IXUILabel m_MyDamage;
 
-		// Token: 0x04007562 RID: 30050
 		private IXUILabel m_MyName;
 
-		// Token: 0x04007563 RID: 30051
 		private IXUILabel m_MyGuildName;
 
-		// Token: 0x04007564 RID: 30052
 		private IXUILabel m_GuildMemberNum;
 
-		// Token: 0x04007565 RID: 30053
 		private ulong m_MyID;
 
-		// Token: 0x04007566 RID: 30054
 		private uint timerToken = 0U;
 
-		// Token: 0x04007567 RID: 30055
 		public bool bInBattle = false;
 
-		// Token: 0x04007568 RID: 30056
 		private int showMaxCount;
 
-		// Token: 0x04007569 RID: 30057
 		private static readonly string NORMAL_BG = "kuang_xd";
 
-		// Token: 0x0400756A RID: 30058
 		private static readonly string MY_BG = "button_xd1";
 
-		// Token: 0x0400756B RID: 30059
 		public IRankSource RankSource;
 
-		// Token: 0x0400756C RID: 30060
 		private RankeType m_SelectedType = RankeType.WorldBossDamageRank;
 
-		// Token: 0x0400756D RID: 30061
 		private List<RankeType> m_RankTypes;
 
-		// Token: 0x0400756E RID: 30062
 		private XUIPool m_TabPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x0400756F RID: 30063
 		private Dictionary<int, Transform> rankMap = new Dictionary<int, Transform>();
 	}
 }

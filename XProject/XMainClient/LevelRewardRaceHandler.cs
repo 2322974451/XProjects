@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000BA3 RID: 2979
+
 	internal class LevelRewardRaceHandler : DlgHandlerBase
 	{
-		// Token: 0x17003048 RID: 12360
-		// (get) Token: 0x0600AAEA RID: 43754 RVA: 0x001EEBFC File Offset: 0x001ECDFC
+
 		protected override string FileName
 		{
 			get
@@ -20,7 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AAEB RID: 43755 RVA: 0x001EEC14 File Offset: 0x001ECE14
 		protected override void Init()
 		{
 			base.Init();
@@ -30,33 +28,28 @@ namespace XMainClient
 			this.m_InfoPool.SetupPool(null, transform.gameObject, LevelRewardRaceHandler.RACE_PLAYER_COUNT_MAX, false);
 		}
 
-		// Token: 0x0600AAEC RID: 43756 RVA: 0x001EEC92 File Offset: 0x001ECE92
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			this.m_Return.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnReturnButtonClicked));
 		}
 
-		// Token: 0x0600AAED RID: 43757 RVA: 0x001EECB4 File Offset: 0x001ECEB4
 		private void OnReturnButtonClicked(IXUISprite iSp)
 		{
 			this.doc.SendLeaveScene();
 		}
 
-		// Token: 0x0600AAEE RID: 43758 RVA: 0x001EECC3 File Offset: 0x001ECEC3
 		private void _OnItemClick(IXUISprite iSp)
 		{
 			XSingleton<UiUtility>.singleton.ShowTooltipDialog((int)iSp.ID, null);
 		}
 
-		// Token: 0x0600AAEF RID: 43759 RVA: 0x001EECD9 File Offset: 0x001ECED9
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.OnShowUI();
 		}
 
-		// Token: 0x0600AAF0 RID: 43760 RVA: 0x001EECEC File Offset: 0x001ECEEC
 		private void OnShowUI()
 		{
 			XLevelRewardDocument.RaceData raceBattleData = this.doc.RaceBattleData;
@@ -147,16 +140,12 @@ namespace XMainClient
 			this.m_InfoPool.ActualReturnAll(false);
 		}
 
-		// Token: 0x04003FBD RID: 16317
 		private XLevelRewardDocument doc = null;
 
-		// Token: 0x04003FBE RID: 16318
 		public static readonly uint RACE_PLAYER_COUNT_MAX = 8U;
 
-		// Token: 0x04003FBF RID: 16319
 		private IXUISprite m_Return;
 
-		// Token: 0x04003FC0 RID: 16320
 		private XUIPool m_InfoPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 	}
 }

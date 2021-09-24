@@ -5,11 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001836 RID: 6198
+
 	internal class XGuildSignRedPackageView : DlgBase<XGuildSignRedPackageView, XGuildSignRedPackageBehaviour>
 	{
-		// Token: 0x17003939 RID: 14649
-		// (get) Token: 0x06010189 RID: 65929 RVA: 0x003D8430 File Offset: 0x003D6630
+
 		public override string fileName
 		{
 			get
@@ -18,8 +17,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700393A RID: 14650
-		// (get) Token: 0x0601018A RID: 65930 RVA: 0x003D8448 File Offset: 0x003D6648
 		public override int layer
 		{
 			get
@@ -28,8 +25,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700393B RID: 14651
-		// (get) Token: 0x0601018B RID: 65931 RVA: 0x003D845C File Offset: 0x003D665C
 		public override bool pushstack
 		{
 			get
@@ -38,8 +33,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700393C RID: 14652
-		// (get) Token: 0x0601018C RID: 65932 RVA: 0x003D8470 File Offset: 0x003D6670
 		public override bool hideMainMenu
 		{
 			get
@@ -48,8 +41,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700393D RID: 14653
-		// (get) Token: 0x0601018D RID: 65933 RVA: 0x003D8484 File Offset: 0x003D6684
 		public override bool autoload
 		{
 			get
@@ -58,8 +49,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700393E RID: 14654
-		// (get) Token: 0x0601018E RID: 65934 RVA: 0x003D8498 File Offset: 0x003D6698
 		public override bool fullscreenui
 		{
 			get
@@ -68,7 +57,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601018F RID: 65935 RVA: 0x003D84AC File Offset: 0x003D66AC
 		protected override void Init()
 		{
 			this._Doc = XDocuments.GetSpecificDocument<XGuildRedPacketDocument>(XGuildRedPacketDocument.uuID);
@@ -88,14 +76,12 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_AakLabel.SetText(XStringDefineProxy.GetString("QUICK_REPLY_2"));
 		}
 
-		// Token: 0x06010190 RID: 65936 RVA: 0x003D8628 File Offset: 0x003D6828
 		public void RefreshRedPoint()
 		{
 			base.uiBehaviour.m_redPoint.gameObject.SetActive(XSingleton<XGameSysMgr>.singleton.GetSysRedPointState(XSysDefine.XSys_GuildRedPacket));
 			base.uiBehaviour.m_fixedRedPoint.gameObject.SetActive(XSingleton<XGameSysMgr>.singleton.GetSysRedPointState(XSysDefine.XSys_GuildBoon_FixedRedPacket));
 		}
 
-		// Token: 0x06010191 RID: 65937 RVA: 0x003D867D File Offset: 0x003D687D
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -104,7 +90,6 @@ namespace XMainClient.UI
 			this.RefreshRedPoint();
 		}
 
-		// Token: 0x06010192 RID: 65938 RVA: 0x003D86A1 File Offset: 0x003D68A1
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
@@ -112,7 +97,6 @@ namespace XMainClient.UI
 			this._Doc.GetGuildCheckInBonusInfo();
 		}
 
-		// Token: 0x06010193 RID: 65939 RVA: 0x003D86C0 File Offset: 0x003D68C0
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
@@ -147,7 +131,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010194 RID: 65940 RVA: 0x003D87FC File Offset: 0x003D69FC
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -166,7 +149,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010195 RID: 65941 RVA: 0x003D8904 File Offset: 0x003D6B04
 		public void RefreshSignInfo()
 		{
 			XGuildCheckInBonusInfo guildBonus = this._Doc.GuildBonus;
@@ -178,7 +160,6 @@ namespace XMainClient.UI
 			this.RefreshSignStatu();
 		}
 
-		// Token: 0x06010196 RID: 65942 RVA: 0x003D8968 File Offset: 0x003D6B68
 		public void SetActiveCount(int activeCount)
 		{
 			int i = 0;
@@ -199,14 +180,12 @@ namespace XMainClient.UI
 			this.m_uiBehaviour.m_redNumber.SetText(string.Format("{0}/4", activeCount));
 		}
 
-		// Token: 0x06010197 RID: 65943 RVA: 0x003D89F0 File Offset: 0x003D6BF0
 		public void SetOnLineNum(int cur, int total)
 		{
 			this.m_uiBehaviour.m_OnlineValue.SetText(string.Format("{0}", cur));
 			this.m_uiBehaviour.m_BufferValue.SetText(string.Format("{0}%", this._Doc.GuildBonus.GetAddPercent(cur)));
 		}
 
-		// Token: 0x06010198 RID: 65944 RVA: 0x003D8A50 File Offset: 0x003D6C50
 		public void SetSignValue(int signValue, int guildMemberNum)
 		{
 			string @string = XStringDefineProxy.GetString("GUILDRED_SIGN_VALUE", new object[]
@@ -217,14 +196,12 @@ namespace XMainClient.UI
 			this.m_uiBehaviour.m_CurSignValue.SetText(signValue.ToString());
 		}
 
-		// Token: 0x06010199 RID: 65945 RVA: 0x003D8AAC File Offset: 0x003D6CAC
 		private void RefreshSignStatu()
 		{
 			bool isCheckIn = this._Doc.GuildBonus.isCheckIn;
 			this.m_uiBehaviour.m_sign.SetVisible(!isCheckIn);
 		}
 
-		// Token: 0x0601019A RID: 65946 RVA: 0x003D8AE0 File Offset: 0x003D6CE0
 		private void OnCircleClick(IXUISprite uiSprite)
 		{
 			XGuildCheckInBonusInfo guildBonus = this._Doc.GuildBonus;
@@ -291,7 +268,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601019B RID: 65947 RVA: 0x003D8CF4 File Offset: 0x003D6EF4
 		private void SetBonusBrief(XGuildCheckInBonusInfo bonusInfo)
 		{
 			XGuildCheckInBonusBrief[] bonusBriefs = bonusInfo.BonusBriefs;
@@ -333,7 +309,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601019C RID: 65948 RVA: 0x003D8DF0 File Offset: 0x003D6FF0
 		private void RefreshGuildLeader(bool state)
 		{
 			bool flag = this.InActive && this._Doc.GuildBonus.HasActive();
@@ -347,7 +322,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601019D RID: 65949 RVA: 0x003D8E44 File Offset: 0x003D7044
 		private void RefreshGuildMember(bool state)
 		{
 			bool flag = this._Doc.GuildBonus.AllActived();
@@ -362,7 +336,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601019E RID: 65950 RVA: 0x003D8E9C File Offset: 0x003D709C
 		private void RefreshPermission()
 		{
 			XGuildDocument specificDocument = XDocuments.GetSpecificDocument<XGuildDocument>(XGuildDocument.uuID);
@@ -385,35 +358,30 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601019F RID: 65951 RVA: 0x003D8F35 File Offset: 0x003D7135
 		private void ResetPermission()
 		{
 			base.uiBehaviour.m_Send.SetVisible(false);
 			base.uiBehaviour.m_Ask.SetVisible(false);
 		}
 
-		// Token: 0x060101A0 RID: 65952 RVA: 0x003D8F5C File Offset: 0x003D715C
 		private bool OnCloseClick(IXUIButton btn)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x060101A1 RID: 65953 RVA: 0x003D8F78 File Offset: 0x003D7178
 		private bool OnFiexdClick(IXUIButton btn)
 		{
 			DlgBase<GuildFiexdRedPackageView, GuildFiexdRedPackageBehaviour>.singleton.SetVisibleWithAnimation(true, null);
 			return false;
 		}
 
-		// Token: 0x060101A2 RID: 65954 RVA: 0x003D8F98 File Offset: 0x003D7198
 		private bool OnHistoryClick(IXUIButton btn)
 		{
 			DlgBase<XGuildRedPacketView, XGuildRedPacketBehaviour>.singleton.SetVisibleWithAnimation(true, null);
 			return true;
 		}
 
-		// Token: 0x060101A3 RID: 65955 RVA: 0x003D8FB8 File Offset: 0x003D71B8
 		private bool OnSignClick(IXUIButton btn)
 		{
 			bool flag = !this._GuildDoc.CheckInGuild();
@@ -438,7 +406,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x060101A4 RID: 65956 RVA: 0x003D900C File Offset: 0x003D720C
 		private bool OnSendClick(IXUIButton btn)
 		{
 			bool flag = !this.InActive;
@@ -472,7 +439,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x060101A5 RID: 65957 RVA: 0x003D9154 File Offset: 0x003D7354
 		private bool OnSureSendGuildBonus(IXUIButton btn)
 		{
 			XSingleton<UiUtility>.singleton.CloseModalDlg();
@@ -480,7 +446,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x060101A6 RID: 65958 RVA: 0x003D9180 File Offset: 0x003D7380
 		private bool OnAskClick(IXUIButton btn)
 		{
 			bool flag = !this.InActive;
@@ -518,7 +483,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x060101A7 RID: 65959 RVA: 0x003D9270 File Offset: 0x003D7470
 		private void ShowAskForCheckInBonues(bool state)
 		{
 			if (state)
@@ -529,22 +493,16 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x040072CA RID: 29386
 		private XGuildRedPacketDocument _Doc;
 
-		// Token: 0x040072CB RID: 29387
 		private XGuildDocument _GuildDoc;
 
-		// Token: 0x040072CC RID: 29388
 		private bool InActive = false;
 
-		// Token: 0x040072CD RID: 29389
 		private int m_startTime;
 
-		// Token: 0x040072CE RID: 29390
 		private int m_overTime;
 
-		// Token: 0x040072CF RID: 29391
 		private Action<bool> m_updateAction;
 	}
 }

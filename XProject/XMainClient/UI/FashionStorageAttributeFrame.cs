@@ -6,10 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017FE RID: 6142
+
 	public class FashionStorageAttributeFrame : DlgHandlerBase
 	{
-		// Token: 0x0600FED0 RID: 65232 RVA: 0x003C00D4 File Offset: 0x003BE2D4
+
 		protected override void Init()
 		{
 			base.Init();
@@ -26,7 +26,6 @@ namespace XMainClient.UI
 			this.m_fightLabel = (base.transform.Find("T2").GetComponent("XUILabel") as IXUILabel);
 		}
 
-		// Token: 0x0600FED1 RID: 65233 RVA: 0x003C0244 File Offset: 0x003BE444
 		private bool ClickEditPortrait(IXUIButton btn)
 		{
 			bool flag = btn.ID == 0UL || this.m_select == null;
@@ -51,7 +50,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FED2 RID: 65234 RVA: 0x003C02B4 File Offset: 0x003BE4B4
 		private void OnWrapContentUpdate(Transform t, int index)
 		{
 			bool flag = this.m_select == null;
@@ -74,7 +72,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FED3 RID: 65235 RVA: 0x003C0380 File Offset: 0x003BE580
 		private int GetPPT(List<AttributeCharm> charms)
 		{
 			double num = 0.0;
@@ -88,7 +85,6 @@ namespace XMainClient.UI
 			return (int)num;
 		}
 
-		// Token: 0x0600FED4 RID: 65236 RVA: 0x003C03E0 File Offset: 0x003BE5E0
 		internal void SetFashionCharm(IFashionStorageSelect select = null)
 		{
 			this.m_select = select;
@@ -152,37 +148,26 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x040070AC RID: 28844
 		private IXUIScrollView m_scrollView;
 
-		// Token: 0x040070AD RID: 28845
 		private IXUIWrapContent m_wrapContent;
 
-		// Token: 0x040070AE RID: 28846
 		private IXUILabel m_titleLabel;
 
-		// Token: 0x040070AF RID: 28847
 		private IXUIButton m_editPortrait;
 
-		// Token: 0x040070B0 RID: 28848
 		private IXUISprite m_redPoint;
 
-		// Token: 0x040070B1 RID: 28849
 		private IFashionStorageSelect m_select;
 
-		// Token: 0x040070B2 RID: 28850
 		private XFashionStorageDocument m_doc;
 
-		// Token: 0x040070B3 RID: 28851
 		private Color m_normaColor = new Color(225f, 145f, 65f);
 
-		// Token: 0x040070B4 RID: 28852
 		private IXUILabel m_descLabel;
 
-		// Token: 0x040070B5 RID: 28853
 		private Transform m_getAll;
 
-		// Token: 0x040070B6 RID: 28854
 		private IXUILabel m_fightLabel;
 	}
 }

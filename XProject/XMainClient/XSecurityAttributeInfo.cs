@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000B12 RID: 2834
+
 	internal class XSecurityAttributeInfo
 	{
-		// Token: 0x0600A6CE RID: 42702 RVA: 0x001D6044 File Offset: 0x001D4244
+
 		public void OnAttributeChange(XAttributeDefine attr, double delta)
 		{
 			bool flag = attr == XAttributeDefine.XAttr_CurrentHP_Basic;
@@ -26,14 +26,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A6CF RID: 42703 RVA: 0x001D6080 File Offset: 0x001D4280
 		public void Reset()
 		{
 			this._Hp.Reset();
 			this._Mp.Reset();
 		}
 
-		// Token: 0x0600A6D0 RID: 42704 RVA: 0x001D609C File Offset: 0x001D429C
 		public void OnAttach(XEntity entity)
 		{
 			bool flag = entity == null || !entity.IsPlayer || entity.Attributes == null;
@@ -55,13 +53,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A6D1 RID: 42705 RVA: 0x001D611C File Offset: 0x001D431C
 		public bool IsUsefulAttr(XAttributeDefine attr)
 		{
 			return attr == XAttributeDefine.XAttr_CurrentMP_Basic || attr == XAttributeDefine.XAttr_CurrentHP_Basic;
 		}
 
-		// Token: 0x0600A6D2 RID: 42706 RVA: 0x001D613B File Offset: 0x001D433B
 		public void SendData()
 		{
 			this._SendData(ref this._Hp, "HP");
@@ -69,7 +65,6 @@ namespace XMainClient
 			this.SendPlayerInitData();
 		}
 
-		// Token: 0x0600A6D3 RID: 42707 RVA: 0x001D616C File Offset: 0x001D436C
 		private void _SendData(ref XSecurityAttributeInfo.AttrInfo info, string keywords)
 		{
 			XStaticSecurityStatistics.Append(string.Format("PlayerHeal{0}Count", keywords), info._IncCount);
@@ -82,7 +77,6 @@ namespace XMainClient
 			XStaticSecurityStatistics.Append(string.Format("PlayerDamage{0}Total", keywords), info._DecTotal);
 		}
 
-		// Token: 0x0600A6D4 RID: 42708 RVA: 0x001D6234 File Offset: 0x001D4434
 		public void SendPlayerInitData()
 		{
 			bool flag = this._PlayerInitAttrKeyList == null || this._PlayerInitAttrValueList == null;
@@ -103,7 +97,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A6D5 RID: 42709 RVA: 0x001D62FC File Offset: 0x001D44FC
 		private void _PreserveBasicAttrs(XAttributes attributes)
 		{
 			XStaticSecurityStatistics.Append("RoleAtk", attributes.GetAttr(XAttributeDefine.XAttr_PhysicalAtkMod_Total), this._PlayerInitAttrKeyList, this._PlayerInitAttrValueList);
@@ -141,7 +134,6 @@ namespace XMainClient
 			XStaticSecurityStatistics.Append("Roleinf3", XSecurityAttributeInfo._GetMergeAttrs(attributes, list), this._PlayerInitAttrKeyList, this._PlayerInitAttrValueList);
 		}
 
-		// Token: 0x0600A6D6 RID: 42710 RVA: 0x001D653C File Offset: 0x001D473C
 		private static string _GetMergeAttrs(XAttributes attributes, List<XAttributeDefine> attrs)
 		{
 			StringBuilder shareSB = XSingleton<XCommon>.singleton.shareSB;
@@ -158,22 +150,17 @@ namespace XMainClient
 			return shareSB.ToString();
 		}
 
-		// Token: 0x04003D5E RID: 15710
 		private XSecurityAttributeInfo.AttrInfo _Hp = default(XSecurityAttributeInfo.AttrInfo);
 
-		// Token: 0x04003D5F RID: 15711
 		private XSecurityAttributeInfo.AttrInfo _Mp = default(XSecurityAttributeInfo.AttrInfo);
 
-		// Token: 0x04003D60 RID: 15712
 		private List<string> _PlayerInitAttrKeyList;
 
-		// Token: 0x04003D61 RID: 15713
 		private List<string> _PlayerInitAttrValueList;
 
-		// Token: 0x02001998 RID: 6552
 		private struct AttrInfo
 		{
-			// Token: 0x0601102B RID: 69675 RVA: 0x00453960 File Offset: 0x00451B60
+
 			public void Reset()
 			{
 				this._IncCount = 0f;
@@ -186,7 +173,6 @@ namespace XMainClient
 				this._DecTotal = 0f;
 			}
 
-			// Token: 0x0601102C RID: 69676 RVA: 0x004539C8 File Offset: 0x00451BC8
 			public void OnChange(double delta)
 			{
 				bool flag = delta > 0.0;
@@ -206,28 +192,20 @@ namespace XMainClient
 				}
 			}
 
-			// Token: 0x04007F1E RID: 32542
 			public float _IncCount;
 
-			// Token: 0x04007F1F RID: 32543
 			public float _IncMax;
 
-			// Token: 0x04007F20 RID: 32544
 			public float _IncMin;
 
-			// Token: 0x04007F21 RID: 32545
 			public float _IncTotal;
 
-			// Token: 0x04007F22 RID: 32546
 			public float _DecCount;
 
-			// Token: 0x04007F23 RID: 32547
 			public float _DecMax;
 
-			// Token: 0x04007F24 RID: 32548
 			public float _DecMin;
 
-			// Token: 0x04007F25 RID: 32549
 			public float _DecTotal;
 		}
 	}

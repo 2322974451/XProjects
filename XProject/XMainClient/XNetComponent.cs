@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000FDB RID: 4059
+
 	internal class XNetComponent : XComponent
 	{
-		// Token: 0x170036CD RID: 14029
-		// (get) Token: 0x0600D2CA RID: 53962 RVA: 0x00315420 File Offset: 0x00313620
+
 		public override uint ID
 		{
 			get
@@ -19,8 +18,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170036CE RID: 14030
-		// (get) Token: 0x0600D2CB RID: 53963 RVA: 0x00315438 File Offset: 0x00313638
 		public uint SyncSequence
 		{
 			get
@@ -29,15 +26,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D2CC RID: 53964 RVA: 0x00315450 File Offset: 0x00313650
 		public XNetComponent()
 		{
 			this._IdledCb = new XTimerMgr.ElapsedEventHandler(this.Idled);
 		}
 
-		// Token: 0x170036CF RID: 14031
-		// (get) Token: 0x0600D2CD RID: 53965 RVA: 0x003154E8 File Offset: 0x003136E8
-		// (set) Token: 0x0600D2CE RID: 53966 RVA: 0x00315500 File Offset: 0x00313700
 		public uint LastReqSkill
 		{
 			get
@@ -50,9 +43,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170036D0 RID: 14032
-		// (get) Token: 0x0600D2CF RID: 53967 RVA: 0x0031550C File Offset: 0x0031370C
-		// (set) Token: 0x0600D2D0 RID: 53968 RVA: 0x00315524 File Offset: 0x00313724
 		public bool Pause
 		{
 			get
@@ -65,14 +55,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D2D1 RID: 53969 RVA: 0x0031552E File Offset: 0x0031372E
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
 			this._sync_sequence = 0U;
 		}
 
-		// Token: 0x0600D2D2 RID: 53970 RVA: 0x00315540 File Offset: 0x00313740
 		public override void Attached()
 		{
 			bool flag = !this._entity.IsPlayer;
@@ -84,14 +72,12 @@ namespace XMainClient
 			this._move = (this._entity.GetXComponent(XMoveComponent.uuID) as XMoveComponent);
 		}
 
-		// Token: 0x0600D2D3 RID: 53971 RVA: 0x003155CF File Offset: 0x003137CF
 		public override void OnDetachFromHost()
 		{
 			this.KillIdle();
 			base.OnDetachFromHost();
 		}
 
-		// Token: 0x0600D2D4 RID: 53972 RVA: 0x003155E0 File Offset: 0x003137E0
 		public override void Update(float fDeltaT)
 		{
 			bool flag = !XSingleton<XGame>.singleton.SyncMode || this._entity.IsCopilotMounted;
@@ -192,7 +178,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D2D5 RID: 53973 RVA: 0x003159B0 File Offset: 0x00313BB0
 		public override void PostUpdate(float fDeltaT)
 		{
 			bool flag = !XSingleton<XGame>.singleton.SyncMode;
@@ -215,14 +200,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D2D6 RID: 53974 RVA: 0x00315A68 File Offset: 0x00313C68
 		public bool OnDeathNotify(DeathInfo data)
 		{
 			XSingleton<XDeath>.singleton.DeathDetect(this._entity, XSingleton<XEntityMgr>.singleton.GetEntity(data.Killer), true);
 			return true;
 		}
 
-		// Token: 0x0600D2D7 RID: 53975 RVA: 0x00315AA0 File Offset: 0x00313CA0
 		public void OnAttributeChangedNotify(ChangedAttribute changedAttribute)
 		{
 			for (int i = 0; i < changedAttribute.AttrID.Count; i++)
@@ -258,7 +241,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D2D8 RID: 53976 RVA: 0x00315C34 File Offset: 0x00313E34
 		public void OnIdle()
 		{
 			this.KillIdle();
@@ -278,32 +260,27 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D2D9 RID: 53977 RVA: 0x00315CC3 File Offset: 0x00313EC3
 		public void KillIdle()
 		{
 			XSingleton<XTimerMgr>.singleton.KillTimer(this._idle_timer_token);
 			this._idle_timer_token = 0U;
 		}
 
-		// Token: 0x0600D2DA RID: 53978 RVA: 0x00315CDE File Offset: 0x00313EDE
 		private void Idled(object o)
 		{
 			this._entity.Machine.ForceToDefaultState(true);
 		}
 
-		// Token: 0x0600D2DB RID: 53979 RVA: 0x00315CF3 File Offset: 0x00313EF3
 		public void CorrectMoveSpeed(float speed)
 		{
 			this._move_anim_speed_target = speed;
 		}
 
-		// Token: 0x0600D2DC RID: 53980 RVA: 0x00315CFD File Offset: 0x00313EFD
 		public void SetHallSequence()
 		{
 			this._sync_sequence = 2U;
 		}
 
-		// Token: 0x0600D2DD RID: 53981 RVA: 0x00315D08 File Offset: 0x00313F08
 		public void CorrectNet(Vector3 pos, Vector3 face, uint sequence, bool updatesequence = true)
 		{
 			bool flag = sequence == 0U;
@@ -324,7 +301,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D2DE RID: 53982 RVA: 0x00315D64 File Offset: 0x00313F64
 		public void CorrectNet(Vector3 pos)
 		{
 			bool syncMode = XSingleton<XGame>.singleton.SyncMode;
@@ -334,13 +310,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D2DF RID: 53983 RVA: 0x00315D89 File Offset: 0x00313F89
 		public void ReportRotateAction(Vector3 dir)
 		{
 			this.ReportRotateAction(dir, this._entity.Attributes.RotateSpeed, 0L);
 		}
 
-		// Token: 0x0600D2E0 RID: 53984 RVA: 0x00315DA8 File Offset: 0x00313FA8
 		public void ReportRotateAction(Vector3 dir, float palstance, long token = 0L)
 		{
 			XRotationEventArgs @event = XEventPool<XRotationEventArgs>.GetEvent();
@@ -351,7 +325,6 @@ namespace XMainClient
 			XSingleton<XEventMgr>.singleton.FireEvent(@event);
 		}
 
-		// Token: 0x0600D2E1 RID: 53985 RVA: 0x00315DEC File Offset: 0x00313FEC
 		public void ReportNavAction(Vector3 dir, bool inertia, float speedratio = 1f)
 		{
 			bool flag = dir.sqrMagnitude > 0f;
@@ -365,7 +338,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D2E2 RID: 53986 RVA: 0x00315E50 File Offset: 0x00314050
 		public void ReportMoveAction(Vector3 des, float speed, bool inertia = false, bool nav = false, bool force2server = false, float stopage_dir = 0f)
 		{
 			bool flag = !nav && this._entity.Nav != null;
@@ -387,7 +359,6 @@ namespace XMainClient
 			XSingleton<XEventMgr>.singleton.FireEvent(@event);
 		}
 
-		// Token: 0x0600D2E3 RID: 53987 RVA: 0x00315F04 File Offset: 0x00314104
 		public void ReportMoveAction(Vector3 dir, double stopage_dir = 0.0)
 		{
 			bool flag = dir.sqrMagnitude > 0f;
@@ -401,7 +372,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D2E4 RID: 53988 RVA: 0x00315F60 File Offset: 0x00314160
 		private void ReportMoveAction(Vector3 dir, float speed, bool inertia)
 		{
 			bool syncMode = XSingleton<XGame>.singleton.SyncMode;
@@ -417,7 +387,6 @@ namespace XMainClient
 			XSingleton<XEventMgr>.singleton.FireEvent(@event);
 		}
 
-		// Token: 0x0600D2E5 RID: 53989 RVA: 0x00315FF0 File Offset: 0x003141F0
 		public void ReportSkillAction(XEntity target, int slot)
 		{
 			bool flag = this._locate != null && target == null;
@@ -428,7 +397,6 @@ namespace XMainClient
 			XSingleton<XActionSender>.singleton.SendSkillAction(this._entity, target, slot);
 		}
 
-		// Token: 0x0600D2E6 RID: 53990 RVA: 0x00316054 File Offset: 0x00314254
 		public bool ReportSkillAction(XEntity target, uint skillid, int slot = -1)
 		{
 			bool flag = this._entity.Nav != null;
@@ -472,49 +440,34 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x04005FC8 RID: 24520
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("Net_Component");
 
-		// Token: 0x04005FC9 RID: 24521
 		private static List<ulong> _targets = new List<ulong>();
 
-		// Token: 0x04005FCA RID: 24522
 		private bool _pause = false;
 
-		// Token: 0x04005FCB RID: 24523
 		private bool _force_sync = false;
 
-		// Token: 0x04005FCC RID: 24524
 		private uint _sync_sequence = 0U;
 
-		// Token: 0x04005FCD RID: 24525
 		private uint _idle_timer_token = 0U;
 
-		// Token: 0x04005FCE RID: 24526
 		private uint _last_req_skill = 0U;
 
-		// Token: 0x04005FCF RID: 24527
 		private XLocateTargetComponent _locate = null;
 
-		// Token: 0x04005FD0 RID: 24528
 		private XMoveComponent _move = null;
 
-		// Token: 0x04005FD1 RID: 24529
 		private Vector3 _pos_target = Vector3.zero;
 
-		// Token: 0x04005FD2 RID: 24530
 		private Vector3 _magic = Vector3.zero;
 
-		// Token: 0x04005FD3 RID: 24531
 		private Vector3 _face_target = Vector3.forward;
 
-		// Token: 0x04005FD4 RID: 24532
 		private float _move_anim_speed_target = 0f;
 
-		// Token: 0x04005FD5 RID: 24533
 		private float _move_anim_speed = 0f;
 
-		// Token: 0x04005FD6 RID: 24534
 		private XTimerMgr.ElapsedEventHandler _IdledCb = null;
 	}
 }

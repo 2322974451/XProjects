@@ -5,23 +5,21 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000DB8 RID: 3512
+
 	internal class XBuffTemplateManager : XSingleton<XBuffTemplateManager>
 	{
-		// Token: 0x0600BE55 RID: 48725 RVA: 0x0027AEE0 File Offset: 0x002790E0
+
 		public int GetBuffKey(int buffID, int buffLevel)
 		{
 			return buffID << 8 | buffLevel;
 		}
 
-		// Token: 0x0600BE56 RID: 48726 RVA: 0x0027AEF7 File Offset: 0x002790F7
 		public void GetBuffIdentity(int buffKey, out int buffID, out int buffLevel)
 		{
 			buffID = buffKey >> 8;
 			buffLevel = (buffKey & 15);
 		}
 
-		// Token: 0x0600BE57 RID: 48727 RVA: 0x0027AF08 File Offset: 0x00279108
 		public override bool Init()
 		{
 			bool flag = this._async_loader == null;
@@ -59,7 +57,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600BE58 RID: 48728 RVA: 0x0027B052 File Offset: 0x00279252
 		public override void Uninit()
 		{
 			this.m_BuffIndex.Clear();
@@ -67,7 +64,6 @@ namespace XMainClient
 			this._async_loader = null;
 		}
 
-		// Token: 0x0600BE59 RID: 48729 RVA: 0x0027B074 File Offset: 0x00279274
 		private bool CanUseBuff(int sceneType, BuffTable.RowData row)
 		{
 			bool flag = false;
@@ -115,7 +111,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600BE5A RID: 48730 RVA: 0x0027B138 File Offset: 0x00279338
 		public XBuff CreateBuff(BuffDesc buffDesc, CombatEffectHelper pEffectHelper)
 		{
 			int sceneType = XFastEnumIntEqualityComparer<SceneType>.ToInt(XSingleton<XScene>.singleton.SceneType);
@@ -147,7 +142,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600BE5B RID: 48731 RVA: 0x0027B1D8 File Offset: 0x002793D8
 		public int GetBuffTargetType(int BuffID)
 		{
 			BuffTable.RowData buffData = this.GetBuffData(BuffID, 1);
@@ -164,7 +158,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600BE5C RID: 48732 RVA: 0x0027B208 File Offset: 0x00279408
 		public BuffTable.RowData GetBuffData(int BuffID, int BuffLevel)
 		{
 			BuffTable.RowData rowData = null;
@@ -187,29 +180,23 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x04004DBC RID: 19900
 		private XTableAsyncLoader _async_loader = null;
 
-		// Token: 0x04004DBD RID: 19901
 		private BuffTable m_BuffConfig = new BuffTable();
 
-		// Token: 0x04004DBE RID: 19902
 		private BuffTable m_BuffConfigPVP = new BuffTable();
 
-		// Token: 0x04004DBF RID: 19903
 		private Dictionary<int, BuffTable.RowData> m_BuffIndex = new Dictionary<int, BuffTable.RowData>();
 
-		// Token: 0x04004DC0 RID: 19904
 		private Dictionary<int, BuffTable.RowData> m_BuffIndexPVP = new Dictionary<int, BuffTable.RowData>();
 
-		// Token: 0x020019C0 RID: 6592
 		private enum BuffTypeEM
 		{
-			// Token: 0x04007FBF RID: 32703
+
 			BUFFTYPE_CHANGE_ATTRIBUTE = 1,
-			// Token: 0x04007FC0 RID: 32704
+
 			BUFFTYPE_CHANGE_STATUS,
-			// Token: 0x04007FC1 RID: 32705
+
 			BUFFTYPE_STUN
 		}
 	}

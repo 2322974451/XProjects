@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001840 RID: 6208
+
 	internal class FashionBagHandler : DlgHandlerBase
 	{
-		// Token: 0x1700394A RID: 14666
-		// (get) Token: 0x060101FE RID: 66046 RVA: 0x003DB728 File Offset: 0x003D9928
+
 		protected override string FileName
 		{
 			get
@@ -19,7 +18,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060101FF RID: 66047 RVA: 0x003DB740 File Offset: 0x003D9940
 		protected override void Init()
 		{
 			base.Init();
@@ -55,7 +53,6 @@ namespace XMainClient.UI
 			this._attrHandler.ShowCharm = true;
 		}
 
-		// Token: 0x06010200 RID: 66048 RVA: 0x003DBA74 File Offset: 0x003D9C74
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -71,7 +68,6 @@ namespace XMainClient.UI
 			this.m_Help.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnHelpClicked));
 		}
 
-		// Token: 0x06010201 RID: 66049 RVA: 0x003DBB54 File Offset: 0x003D9D54
 		public void RefreshOutLookRedPoint()
 		{
 			this.m_BtnClothes.SetVisible(XSingleton<XGameSysMgr>.singleton.IsSystemOpened(XSysDefine.XSys_Fashion_OutLook));
@@ -79,14 +75,12 @@ namespace XMainClient.UI
 			this.m_OutLookRedPoint.SetVisible(specificDocument.RedPoint);
 		}
 
-		// Token: 0x06010202 RID: 66050 RVA: 0x003DBB9C File Offset: 0x003D9D9C
 		public bool OnHelpClicked(IXUIButton button)
 		{
 			DlgBase<XCommonHelpTipView, XCommonHelpTipBehaviour>.singleton.ShowHelp(XSysDefine.XSys_Fashion_Fashion);
 			return true;
 		}
 
-		// Token: 0x06010203 RID: 66051 RVA: 0x003DBBC0 File Offset: 0x003D9DC0
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -97,7 +91,6 @@ namespace XMainClient.UI
 			this._timer = XSingleton<XTimerMgr>.singleton.SetTimer(this.update_interval, new XTimerMgr.ElapsedEventHandler(this.UpdateFahionCD), null);
 		}
 
-		// Token: 0x06010204 RID: 66052 RVA: 0x003DBC3C File Offset: 0x003D9E3C
 		protected override void OnHide()
 		{
 			this.bagWindow.OnHide();
@@ -110,7 +103,6 @@ namespace XMainClient.UI
 			base.OnHide();
 		}
 
-		// Token: 0x06010205 RID: 66053 RVA: 0x003DBC84 File Offset: 0x003D9E84
 		public override void OnUnload()
 		{
 			bool flag = this._timer > 0U;
@@ -125,7 +117,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x06010206 RID: 66054 RVA: 0x003DBCE0 File Offset: 0x003D9EE0
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
@@ -141,7 +132,6 @@ namespace XMainClient.UI
 			this._timer = XSingleton<XTimerMgr>.singleton.SetTimer(this.update_interval, new XTimerMgr.ElapsedEventHandler(this.UpdateFahionCD), null);
 		}
 
-		// Token: 0x06010207 RID: 66055 RVA: 0x003DBD5C File Offset: 0x003D9F5C
 		public void ShowFashions()
 		{
 			for (int i = XBagDocument.BodyPosition<FashionPosition>(FashionPosition.FASHION_START); i < XBagDocument.BodyPosition<FashionPosition>(FashionPosition.FASHION_END); i++)
@@ -159,13 +149,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010208 RID: 66056 RVA: 0x003DBE32 File Offset: 0x003DA032
 		public void UpdateBag()
 		{
 			this.bagWindow.UpdateBag();
 		}
 
-		// Token: 0x06010209 RID: 66057 RVA: 0x003DBE44 File Offset: 0x003DA044
 		private void UpdateFahionCD(object o)
 		{
 			bool flag = base.IsVisible();
@@ -185,7 +173,6 @@ namespace XMainClient.UI
 			this._timer = XSingleton<XTimerMgr>.singleton.SetTimer(this.update_interval, new XTimerMgr.ElapsedEventHandler(this.UpdateFahionCD), null);
 		}
 
-		// Token: 0x0601020A RID: 66058 RVA: 0x003DBEEC File Offset: 0x003DA0EC
 		private void SetFashionCD(GameObject item, ClientFashionData d)
 		{
 			Transform transform = item.transform.FindChild("Icon/TimeBg/cd");
@@ -231,7 +218,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601020B RID: 66059 RVA: 0x003DBFF8 File Offset: 0x003DA1F8
 		private void WrapContentItemUpdated(Transform t, int index)
 		{
 			IXUISprite ixuisprite = t.FindChild("Icon").GetComponent("XUISprite") as IXUISprite;
@@ -275,14 +261,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601020C RID: 66060 RVA: 0x003DC184 File Offset: 0x003DA384
 		private bool OnClothClick(IXUIButton btn)
 		{
 			DlgBase<FashionStorageDlg, FashionStorageBehaviour>.singleton.SetVisibleWithAnimation(true, null);
 			return true;
 		}
 
-		// Token: 0x0601020D RID: 66061 RVA: 0x003DC1A4 File Offset: 0x003DA3A4
 		private void _OnItemClicked(IXUISprite sp)
 		{
 			ulong id = sp.ID;
@@ -295,42 +279,36 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601020E RID: 66062 RVA: 0x003DC1F0 File Offset: 0x003DA3F0
 		private void _OnBgClicked(IXUISprite sp)
 		{
 			int part = (int)sp.ID;
 			XSingleton<UiUtility>.singleton.ShowSystemTip(string.Format(XStringDefineProxy.GetString("FASHION_EQUIP_HINT"), XSingleton<UiUtility>.singleton.GetFashionPartName((FashionPosition)part, false)), "fece00");
 		}
 
-		// Token: 0x0601020F RID: 66063 RVA: 0x003DC234 File Offset: 0x003DA434
 		private bool OnTotalAttrClick(IXUIButton button)
 		{
 			this._attrHandler.SetVisible(true);
 			return true;
 		}
 
-		// Token: 0x06010210 RID: 66064 RVA: 0x003DC254 File Offset: 0x003DA454
 		private void OnSelectPart(int value)
 		{
 			this._doc.fashion_filter = value;
 			this.bagWindow.UpdateBag();
 		}
 
-		// Token: 0x06010211 RID: 66065 RVA: 0x003DC270 File Offset: 0x003DA470
 		private bool OnCollectionClick(IXUIButton button)
 		{
 			DlgBase<FashionCollectionDlg, FashionCollectionDlgBehaviour>.singleton.SetVisible(true, true);
 			return true;
 		}
 
-		// Token: 0x06010212 RID: 66066 RVA: 0x003DC290 File Offset: 0x003DA490
 		private bool OnShopClick(IXUIButton button)
 		{
 			XSingleton<UiUtility>.singleton.ShowItemAccess(199, null);
 			return true;
 		}
 
-		// Token: 0x06010213 RID: 66067 RVA: 0x003DC2B4 File Offset: 0x003DA4B4
 		public void OnBodyFashionDisappear(int pos)
 		{
 			ClientFashionData partFashion = this._doc.GetPartFashion(pos);
@@ -338,61 +316,43 @@ namespace XMainClient.UI
 			this.SetFashionCD(this.m_Fashion[pos].gameObject.transform.parent.gameObject, partFashion);
 		}
 
-		// Token: 0x06010214 RID: 66068 RVA: 0x003DBE32 File Offset: 0x003DA032
 		public void OnBagFashionDisappear(ulong uid)
 		{
 			this.bagWindow.UpdateBag();
 		}
 
-		// Token: 0x0400730C RID: 29452
 		public GameObject m_ComboBox;
 
-		// Token: 0x0400730D RID: 29453
 		public GameObject m_ItemBagPanel;
 
-		// Token: 0x0400730E RID: 29454
 		public IXUIButton m_ShopButton;
 
-		// Token: 0x0400730F RID: 29455
 		public IXUIButton m_BtnClothes;
 
-		// Token: 0x04007310 RID: 29456
 		public IXUISprite m_OutLookRedPoint;
 
-		// Token: 0x04007311 RID: 29457
 		public IXUIButton m_CollectionButton;
 
-		// Token: 0x04007312 RID: 29458
 		public IXUIButton m_TotalAttrButton;
 
-		// Token: 0x04007313 RID: 29459
 		public GameObject m_TotalAttrPanel;
 
-		// Token: 0x04007314 RID: 29460
 		public IXUIButton m_Help;
 
-		// Token: 0x04007315 RID: 29461
 		public IXUISprite[] m_Fashion = new IXUISprite[10];
 
-		// Token: 0x04007316 RID: 29462
 		public IXUISprite[] m_FashionBg = new IXUISprite[10];
 
-		// Token: 0x04007317 RID: 29463
 		private FashionAttrTotalHandler _attrHandler;
 
-		// Token: 0x04007318 RID: 29464
 		private XFashionDocument _doc;
 
-		// Token: 0x04007319 RID: 29465
 		private FashionComboBox _comboBox;
 
-		// Token: 0x0400731A RID: 29466
 		private XBagWindow bagWindow;
 
-		// Token: 0x0400731B RID: 29467
 		private uint _timer;
 
-		// Token: 0x0400731C RID: 29468
 		private float update_interval = 180f;
 	}
 }

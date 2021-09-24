@@ -4,11 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x0200089E RID: 2206
+
 	internal class XBuffTriggerByHit : XBuffTrigger
 	{
-		// Token: 0x17002A2D RID: 10797
-		// (get) Token: 0x06008603 RID: 34307 RVA: 0x0010CED4 File Offset: 0x0010B0D4
+
 		public override XBuffEffectPrioriy Priority
 		{
 			get
@@ -27,7 +26,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008604 RID: 34308 RVA: 0x0010CEFC File Offset: 0x0010B0FC
 		public XBuffTriggerByHit(XBuff buff) : base(buff)
 		{
 			this.m_Type = base._GetTriggerParamInt(buff.BuffInfo, 0);
@@ -46,7 +44,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008605 RID: 34309 RVA: 0x0010CFA0 File Offset: 0x0010B1A0
 		public override bool CheckTriggerCondition()
 		{
 			bool flag = this.m_SpecifiedSkillsSet != null && (this.m_RawInput == null || !this.m_SpecifiedSkillsSet.Contains(this.m_RawInput.SkillID));
@@ -114,7 +111,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008606 RID: 34310 RVA: 0x0010D198 File Offset: 0x0010B398
 		public override void OnCastDamage(HurtInfo rawInput, ProjectDamageResult result)
 		{
 			bool flag = rawInput.SkillID == 0U;
@@ -126,7 +122,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008607 RID: 34311 RVA: 0x0010D1CC File Offset: 0x0010B3CC
 		protected override void OnTrigger()
 		{
 			base.OnTrigger();
@@ -141,22 +136,16 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x040029BB RID: 10683
 		private int m_Type;
 
-		// Token: 0x040029BC RID: 10684
 		private HurtInfo m_RawInput;
 
-		// Token: 0x040029BD RID: 10685
 		private ProjectDamageResult m_Result;
 
-		// Token: 0x040029BE RID: 10686
 		private HashSet<uint> m_SpecifiedSkillsSet;
 
-		// Token: 0x040029BF RID: 10687
 		private int m_SpecifiedBuffID;
 
-		// Token: 0x040029C0 RID: 10688
 		private double m_CriticalChangeRatio = 0.0;
 	}
 }

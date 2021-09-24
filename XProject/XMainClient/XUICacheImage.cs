@@ -8,22 +8,20 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000E7A RID: 3706
+
 	public class XUICacheImage : XSingleton<XUICacheImage>
 	{
-		// Token: 0x0600C665 RID: 50789 RVA: 0x002BEA44 File Offset: 0x002BCC44
+
 		private ulong mHashURL(string url)
 		{
 			return (ulong)((long)Mathf.Abs(url.GetHashCode() + DateTime.Now.Month + DateTime.Now.Day));
 		}
 
-		// Token: 0x0600C666 RID: 50790 RVA: 0x002BEA7E File Offset: 0x002BCC7E
 		public void SetMainIcon(string url)
 		{
 			this.m_mainHash = this.mHashURL(url);
 		}
 
-		// Token: 0x0600C667 RID: 50791 RVA: 0x002BEA90 File Offset: 0x002BCC90
 		private void CheckCleanOldRes()
 		{
 			int num = DateTime.Now.Year + DateTime.Now.Month + DateTime.Now.Day;
@@ -46,7 +44,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C668 RID: 50792 RVA: 0x002BEB28 File Offset: 0x002BCD28
 		private bool OnLoad(string url, IXUITexture texture, Action<bool> cb)
 		{
 			bool flag = this.callbacks == null;
@@ -85,7 +82,6 @@ namespace XMainClient
 			return flag5;
 		}
 
-		// Token: 0x0600C669 RID: 50793 RVA: 0x002BEC20 File Offset: 0x002BCE20
 		private void Dispacher(string url, bool succ, Texture2D img, ulong oldTexID)
 		{
 			ulong num = this.mHashURL(url);
@@ -127,13 +123,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C66A RID: 50794 RVA: 0x002BED91 File Offset: 0x002BCF91
 		public void Load(string url, IXUITexture texture, MonoBehaviour mono)
 		{
 			this.Load(url, texture, mono, null);
 		}
 
-		// Token: 0x0600C66B RID: 50795 RVA: 0x002BEDA0 File Offset: 0x002BCFA0
 		public void Load(string url, IXUITexture texture, MonoBehaviour mono, Action<bool> cb)
 		{
 			bool flag = mono == null || string.IsNullOrEmpty(url);
@@ -167,7 +161,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C66C RID: 50796 RVA: 0x002BEE6D File Offset: 0x002BD06D
 		private IEnumerator DownloadImage(string url, ulong oldTexID)
 		{
 			bool flag = !Directory.Exists(this.path);
@@ -234,7 +227,6 @@ namespace XMainClient
 			yield break;
 		}
 
-		// Token: 0x0600C66D RID: 50797 RVA: 0x002BEE8A File Offset: 0x002BD08A
 		private IEnumerator LoadLocalImage(string url, ulong oldTexID)
 		{
 			bool flag = string.IsNullOrEmpty(url);
@@ -266,19 +258,14 @@ namespace XMainClient
 			yield break;
 		}
 
-		// Token: 0x0400570A RID: 22282
 		private string path = Application.temporaryCachePath + "/ImageCache/";
 
-		// Token: 0x0400570B RID: 22283
 		public string CacheKey = "CacheDate";
 
-		// Token: 0x0400570C RID: 22284
 		private ulong m_mainHash = 0UL;
 
-		// Token: 0x0400570D RID: 22285
 		private Dictionary<ulong, List<Action<bool>>> callbacks;
 
-		// Token: 0x0400570E RID: 22286
 		private Dictionary<ulong, List<IXUITexture>> textures;
 	}
 }

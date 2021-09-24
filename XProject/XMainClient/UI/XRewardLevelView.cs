@@ -6,10 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001716 RID: 5910
+
 	internal class XRewardLevelView : DlgHandlerBase
 	{
-		// Token: 0x0600F411 RID: 62481 RVA: 0x0036A33C File Offset: 0x0036853C
+
 		protected override void Init()
 		{
 			this._doc = (XSingleton<XGame>.singleton.Doc.GetXComponent(XAchievementDocument.uuID) as XAchievementDocument);
@@ -23,13 +23,11 @@ namespace XMainClient.UI
 			this.m_RewardPool.SetupPool(transform2.parent.gameObject, transform2.gameObject, 10U, false);
 		}
 
-		// Token: 0x0600F412 RID: 62482 RVA: 0x0036A433 File Offset: 0x00368633
 		public void UpdateRedPoint()
 		{
 			this._doc.HasCompleteAchivement(XSysDefine.XSys_ServerActivity);
 		}
 
-		// Token: 0x0600F413 RID: 62483 RVA: 0x0036A444 File Offset: 0x00368644
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -39,7 +37,6 @@ namespace XMainClient.UI
 			this.RefreshList();
 		}
 
-		// Token: 0x0600F414 RID: 62484 RVA: 0x0036A47C File Offset: 0x0036867C
 		public override void OnUnload()
 		{
 			this._remainTime = 0U;
@@ -52,7 +49,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x0600F415 RID: 62485 RVA: 0x0036A4C4 File Offset: 0x003686C4
 		protected string GetActivityString(string format, int catergory, int param, AchivementState state)
 		{
 			string result;
@@ -84,7 +80,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F416 RID: 62486 RVA: 0x0036A594 File Offset: 0x00368794
 		protected bool OnFetchClicked(IXUIButton button)
 		{
 			this._curID = (uint)button.ID;
@@ -103,7 +98,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F417 RID: 62487 RVA: 0x0036A628 File Offset: 0x00368828
 		protected bool SureToFetch(IXUIButton button)
 		{
 			XSingleton<UiUtility>.singleton.CloseModalDlg();
@@ -111,13 +105,11 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F418 RID: 62488 RVA: 0x0036A658 File Offset: 0x00368858
 		protected bool OnLinkToClick(IXUIButton button)
 		{
 			return true;
 		}
 
-		// Token: 0x0600F419 RID: 62489 RVA: 0x0036A66C File Offset: 0x0036886C
 		private int ActivityCompare(int act1, int act2)
 		{
 			AchivementState achivementState = this._doc.GetAchivementState((uint)act1);
@@ -143,7 +135,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F41A RID: 62490 RVA: 0x0036A6BC File Offset: 0x003688BC
 		public void RefreshList()
 		{
 			this.UpdateRedPoint();
@@ -219,21 +210,18 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F41B RID: 62491 RVA: 0x0036AAF4 File Offset: 0x00368CF4
 		private void ShowItemDialog(IXUISprite spr)
 		{
 			XItem mainItem = XBagDocument.MakeXItem((int)spr.ID, false);
 			XSingleton<UiUtility>.singleton.ShowTooltipDialogWithSearchingCompare(mainItem, spr, false, 0U);
 		}
 
-		// Token: 0x0600F41C RID: 62492 RVA: 0x0036AB1F File Offset: 0x00368D1F
 		public void SetRemainTime(uint second)
 		{
 			this._remainTime = second;
 			this._RemainTime();
 		}
 
-		// Token: 0x0600F41D RID: 62493 RVA: 0x0036AB30 File Offset: 0x00368D30
 		public void UpateRemainTime(object param)
 		{
 			bool flag = this._remainTime > 0U;
@@ -244,7 +232,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F41E RID: 62494 RVA: 0x0036AB64 File Offset: 0x00368D64
 		protected void _RemainTime()
 		{
 			bool flag = !base.IsVisible();
@@ -266,28 +253,20 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x040068F4 RID: 26868
 		public IXUIScrollView m_ScrollView;
 
-		// Token: 0x040068F5 RID: 26869
 		public XUIPool m_RewardPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x040068F6 RID: 26870
 		public XUIPool m_RewardItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x040068F7 RID: 26871
 		public IXUILabel m_RemainTime;
 
-		// Token: 0x040068F8 RID: 26872
 		protected XAchievementDocument _doc;
 
-		// Token: 0x040068F9 RID: 26873
 		protected uint _remainTime;
 
-		// Token: 0x040068FA RID: 26874
 		protected uint _timer;
 
-		// Token: 0x040068FB RID: 26875
 		private uint _curID;
 	}
 }

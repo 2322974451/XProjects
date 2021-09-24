@@ -8,10 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000BD9 RID: 3033
+
 	internal class GroupMemberDisplay
 	{
-		// Token: 0x0600AD16 RID: 44310 RVA: 0x00200C1C File Offset: 0x001FEE1C
+
 		public void Init(Transform t)
 		{
 			this.Setup(t, "Name", ref this._UserNameLabel);
@@ -24,7 +24,6 @@ namespace XMainClient
 			this.Setup(t, "Portrait", ref this._PortraitSprite);
 		}
 
-		// Token: 0x0600AD17 RID: 44311 RVA: 0x00200CC4 File Offset: 0x001FEEC4
 		private void Setup(Transform t, string targetName, ref IXUILabel label)
 		{
 			Transform transform = t.Find(targetName);
@@ -39,7 +38,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AD18 RID: 44312 RVA: 0x00200CFC File Offset: 0x001FEEFC
 		private void Setup(Transform t, string targetName, ref IXUISprite sprite)
 		{
 			Transform transform = t.Find(targetName);
@@ -54,7 +52,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AD19 RID: 44313 RVA: 0x00200D34 File Offset: 0x001FEF34
 		public void Release()
 		{
 			this._UserNameLabel = null;
@@ -67,7 +64,6 @@ namespace XMainClient
 			this._PortraitSprite = null;
 		}
 
-		// Token: 0x0600AD1A RID: 44314 RVA: 0x00200D70 File Offset: 0x001FEF70
 		public void Setup(GroupMember member)
 		{
 			bool flag = this._ProfessionSprite != null;
@@ -129,7 +125,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AD1B RID: 44315 RVA: 0x00200FCC File Offset: 0x001FF1CC
 		private void OnPlayerClick(IXUISprite label)
 		{
 			ulong id = label.ID;
@@ -147,31 +142,22 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0400412C RID: 16684
 		private IXUILabel _UserNameLabel;
 
-		// Token: 0x0400412D RID: 16685
 		private IXUILabel _StageNameLabel;
 
-		// Token: 0x0400412E RID: 16686
 		private IXUILabel _GroupNameLabel;
 
-		// Token: 0x0400412F RID: 16687
 		private IXUILabel _FightLabel;
 
-		// Token: 0x04004130 RID: 16688
 		private IXUILabel _TypeLabel;
 
-		// Token: 0x04004131 RID: 16689
 		private IXUILabel _TimeLabel;
 
-		// Token: 0x04004132 RID: 16690
 		private IXUISprite _ProfessionSprite;
 
-		// Token: 0x04004133 RID: 16691
 		private IXUISprite _PortraitSprite;
 
-		// Token: 0x04004134 RID: 16692
 		private string timeFormat = "{0} - {1}";
 	}
 }

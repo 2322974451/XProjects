@@ -10,11 +10,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000BE9 RID: 3049
+
 	internal class XFlowerRankHandler : DlgHandlerBase
 	{
-		// Token: 0x170030A5 RID: 12453
-		// (get) Token: 0x0600AD97 RID: 44439 RVA: 0x00203E78 File Offset: 0x00202078
+
 		protected override string FileName
 		{
 			get
@@ -23,7 +22,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AD98 RID: 44440 RVA: 0x00203E90 File Offset: 0x00202090
 		protected override void Init()
 		{
 			base.Init();
@@ -107,7 +105,6 @@ namespace XMainClient
 			this.m_ActivityRewardTip = (base.PanelObject.transform.FindChild("ActiveRewardPanel/T").GetComponent("XUILabel") as IXUILabel);
 		}
 
-		// Token: 0x0600AD99 RID: 44441 RVA: 0x002046B0 File Offset: 0x002028B0
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -126,7 +123,6 @@ namespace XMainClient
 			this.m_ActivityRewardContent.RegisterItemUpdateEventHandler(new WrapItemUpdateEventHandler(this.OnActivityRewardWrapContentItemUpdated));
 		}
 
-		// Token: 0x0600AD9A RID: 44442 RVA: 0x00204804 File Offset: 0x00202A04
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -143,7 +139,6 @@ namespace XMainClient
 			this.ShowRank();
 		}
 
-		// Token: 0x0600AD9B RID: 44443 RVA: 0x002048DD File Offset: 0x00202ADD
 		public void ShowRank()
 		{
 			this._tabs = this.m_TabControl.SetupTabs(this.DefaultTab, new XUITabControl.UITabControlCallback(this.OnTabSelectionChanged), true, 1f);
@@ -151,7 +146,6 @@ namespace XMainClient
 			this.RefreshRedPoint();
 		}
 
-		// Token: 0x0600AD9C RID: 44444 RVA: 0x0020491D File Offset: 0x00202B1D
 		protected override void OnHide()
 		{
 			base.Return3DAvatarPool();
@@ -161,7 +155,6 @@ namespace XMainClient
 			this.ClearPreTabTextures();
 		}
 
-		// Token: 0x0600AD9D RID: 44445 RVA: 0x00204947 File Offset: 0x00202B47
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
@@ -169,7 +162,6 @@ namespace XMainClient
 			XSingleton<X3DAvatarMgr>.singleton.EnableCommonDummy(this._PlayerDummy, this.m_PlayerSnapshot, true);
 		}
 
-		// Token: 0x0600AD9E RID: 44446 RVA: 0x00204976 File Offset: 0x00202B76
 		public override void OnUnload()
 		{
 			base.Return3DAvatarPool();
@@ -178,13 +170,11 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x0600AD9F RID: 44447 RVA: 0x0020499B File Offset: 0x00202B9B
 		private void ShowDefaultTabUI(XSysDefine sys)
 		{
 			this.OnTabSelectionChanged((ulong)((long)sys));
 		}
 
-		// Token: 0x0600ADA0 RID: 44448 RVA: 0x002049A8 File Offset: 0x00202BA8
 		public void RefreshRedPoint()
 		{
 			bool flag = !base.IsVisible();
@@ -221,7 +211,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600ADA1 RID: 44449 RVA: 0x00204B30 File Offset: 0x00202D30
 		public void ClearPreTabTextures()
 		{
 			foreach (KeyValuePair<GameObject, IXUITexture> keyValuePair in this._WrapTextureList)
@@ -233,7 +222,6 @@ namespace XMainClient
 			this._WrapTextureList.Clear();
 		}
 
-		// Token: 0x0600ADA2 RID: 44450 RVA: 0x00204BA8 File Offset: 0x00202DA8
 		public void OnTabSelectionChanged(ulong id)
 		{
 			this.ClearPreTabTextures();
@@ -266,7 +254,6 @@ namespace XMainClient
 			this._doc.ReqRankList(this._doc.currentSelectRankTab);
 		}
 
-		// Token: 0x0600ADA3 RID: 44451 RVA: 0x00204CAC File Offset: 0x00202EAC
 		private void OnRankWrapContentItemUpdated(Transform t, int index)
 		{
 			XRankType currentSelectRankTab = this._doc.currentSelectRankTab;
@@ -297,7 +284,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600ADA4 RID: 44452 RVA: 0x00204DE4 File Offset: 0x00202FE4
 		private void OnActivityRewardWrapContentItemUpdated(Transform t, int index)
 		{
 			bool flag = index >= this._doc.GetActivityAwardCount() + 1;
@@ -311,7 +297,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600ADA5 RID: 44453 RVA: 0x00204E30 File Offset: 0x00203030
 		private void SetActivityAwardItem(GameObject go, int rankIndex)
 		{
 			IXUILabel ixuilabel = go.transform.FindChild("T1").GetComponent("XUILabel") as IXUILabel;
@@ -387,7 +372,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600ADA6 RID: 44454 RVA: 0x002050B8 File Offset: 0x002032B8
 		private void SetAwardInfo(Transform t, int itemID, int itemCount)
 		{
 			XSingleton<XItemDrawerMgr>.singleton.normalItemDrawer.DrawItem(t.gameObject, itemID, itemCount, false);
@@ -396,7 +380,6 @@ namespace XMainClient
 			ixuisprite.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(XSingleton<UiUtility>.singleton.OnItemClick));
 		}
 
-		// Token: 0x0600ADA7 RID: 44455 RVA: 0x0020511C File Offset: 0x0020331C
 		private void OnAwardWrapContentItemUpdated(Transform t, int index)
 		{
 			bool flag = index >= this._doc.AwardListInfo.listCount;
@@ -410,7 +393,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600ADA8 RID: 44456 RVA: 0x0020516C File Offset: 0x0020336C
 		private void SetAwardItem(GameObject go, int rankIndex)
 		{
 			IXUILabel ixuilabel = go.transform.FindChild("Rank").GetComponent("XUILabel") as IXUILabel;
@@ -475,7 +457,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600ADA9 RID: 44457 RVA: 0x00205450 File Offset: 0x00203650
 		private void OnRankItemClicked(IXUISprite sp)
 		{
 			bool flag = this.m_LastSelect != null;
@@ -488,14 +469,12 @@ namespace XMainClient
 			this._doc.SelectItem((uint)sp.ID, false);
 		}
 
-		// Token: 0x0600ADAA RID: 44458 RVA: 0x002054AC File Offset: 0x002036AC
 		private bool OnGetAwardBtnClicked(IXUIButton sp)
 		{
 			this._doc.ReqAward();
 			return true;
 		}
 
-		// Token: 0x0600ADAB RID: 44459 RVA: 0x002054CC File Offset: 0x002036CC
 		private void RankListToggleSelection(GameObject go, bool bSelect)
 		{
 			IXUISprite ixuisprite = go.transform.FindChild("SelectBg").GetComponent("XUISprite") as IXUISprite;
@@ -513,13 +492,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600ADAC RID: 44460 RVA: 0x00205523 File Offset: 0x00203723
 		public void UpdateCharacterInfo(GetUnitAppearanceRes oRes)
 		{
 			this.FillCharacterInfoFrame(oRes.UnitAppearance);
 		}
 
-		// Token: 0x0600ADAD RID: 44461 RVA: 0x00205534 File Offset: 0x00203734
 		private void FillCharacterInfoFrame(UnitAppearance data)
 		{
 			this.m_CharName.SetText(data.unitName);
@@ -536,7 +513,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600ADAE RID: 44462 RVA: 0x002055C8 File Offset: 0x002037C8
 		private void ShowTabUI()
 		{
 			this.m_CharGulidName.SetText("");
@@ -563,14 +539,12 @@ namespace XMainClient
 			this.m_Designation.gameObject.SetActive(false);
 		}
 
-		// Token: 0x0600ADAF RID: 44463 RVA: 0x0020578A File Offset: 0x0020398A
 		public void RefreshAwardInfo()
 		{
 			this.m_AwardContent.SetContentCount(this._doc.AwardListInfo.listCount, false);
 			this.m_AwardScrollView.ResetPosition();
 		}
 
-		// Token: 0x0600ADB0 RID: 44464 RVA: 0x002057B8 File Offset: 0x002039B8
 		public void ReReqRank()
 		{
 			bool flag = !base.IsVisible() || this._doc == null;
@@ -580,7 +554,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600ADB1 RID: 44465 RVA: 0x002057F8 File Offset: 0x002039F8
 		public void RefreshRankWindow()
 		{
 			bool flag = !base.IsVisible();
@@ -633,7 +606,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600ADB2 RID: 44466 RVA: 0x00205A14 File Offset: 0x00203C14
 		public void RefreshCharacterInfo(XBaseRankInfo info, uint index)
 		{
 			this.m_CharGulidName.SetText(info.guildname);
@@ -665,14 +637,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600ADB3 RID: 44467 RVA: 0x00205B58 File Offset: 0x00203D58
 		public void RefreshRankContent()
 		{
 			IXUIWrapContent ixuiwrapContent = (this._doc.currentSelectRankTab == XRankType.FlowerActivityRank) ? this.m_ActivityRankContetn : this.m_NormalRankContent;
 			ixuiwrapContent.RefreshAllVisibleContents();
 		}
 
-		// Token: 0x0600ADB4 RID: 44468 RVA: 0x00205B8C File Offset: 0x00203D8C
 		private void SetWrapRankItem(GameObject go, XBaseRankInfo info, int index)
 		{
 			IXUILabel ixuilabel = go.transform.FindChild("Name").GetComponent("XUILabel") as IXUILabel;
@@ -705,7 +675,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600ADB5 RID: 44469 RVA: 0x00205CCC File Offset: 0x00203ECC
 		private void SetBaseRankItem(GameObject go, XBaseRankInfo info, int index)
 		{
 			IXUILabel ixuilabel = go.transform.FindChild("Name").GetComponent("XUILabel") as IXUILabel;
@@ -781,7 +750,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600ADB6 RID: 44470 RVA: 0x002060C8 File Offset: 0x002042C8
 		private void SetMyRankFrame(GameObject go, XBaseRankInfo info)
 		{
 			IXUILabel ixuilabel = go.transform.FindChild("Name").GetComponent("XUILabel") as IXUILabel;
@@ -825,7 +793,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600ADB7 RID: 44471 RVA: 0x002062C8 File Offset: 0x002044C8
 		private void SetDesignation(Transform go, string name, uint desID)
 		{
 			IXUILabelSymbol ixuilabelSymbol = go.GetComponent("XUILabelSymbol") as IXUILabelSymbol;
@@ -848,7 +815,6 @@ namespace XMainClient
 			ixuilabelSymbol.InputText = inputText;
 		}
 
-		// Token: 0x0600ADB8 RID: 44472 RVA: 0x00206374 File Offset: 0x00204574
 		private string FormatFlowerCount(uint count)
 		{
 			bool flag = count >= 100000000U;
@@ -876,7 +842,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600ADB9 RID: 44473 RVA: 0x00206400 File Offset: 0x00204600
 		private void SetRank(GameObject go, uint rankIndex)
 		{
 			IXUILabel ixuilabel = go.transform.FindChild("Rank").GetComponent("XUILabel") as IXUILabel;
@@ -911,7 +876,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600ADBA RID: 44474 RVA: 0x002064E0 File Offset: 0x002046E0
 		private bool OnSendFlowerClicked(IXUIButton btn)
 		{
 			int num = (int)btn.ID;
@@ -931,7 +895,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600ADBB RID: 44475 RVA: 0x002065BC File Offset: 0x002047BC
 		private bool OnMyFlowerClicked(IXUIButton btn)
 		{
 			this.m_MyFlowersPanel.gameObject.SetActive(true);
@@ -940,7 +903,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600ADBC RID: 44476 RVA: 0x00206610 File Offset: 0x00204810
 		private bool OnActivityRewardPreviewClicked(IXUIButton btn)
 		{
 			this.m_ActivityRewardPreviewPanel.gameObject.SetActive(true);
@@ -949,14 +911,12 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600ADBD RID: 44477 RVA: 0x0020665C File Offset: 0x0020485C
 		private bool OnActivityRewardCloseClicked(IXUIButton btn)
 		{
 			this.m_ActivityRewardPreviewPanel.gameObject.SetActive(false);
 			return true;
 		}
 
-		// Token: 0x0600ADBE RID: 44478 RVA: 0x00206684 File Offset: 0x00204884
 		private bool OnActivityRewardGetClicked(IXUIButton btn)
 		{
 			XFlowerRankDocument specificDocument = XDocuments.GetSpecificDocument<XFlowerRankDocument>(XFlowerRankDocument.uuID);
@@ -964,7 +924,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600ADBF RID: 44479 RVA: 0x002066AC File Offset: 0x002048AC
 		private void OnFlowerTabSelectionChanged(ulong id)
 		{
 			XSysDefine myFlowersTab = (XSysDefine)id;
@@ -976,13 +935,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600ADC0 RID: 44480 RVA: 0x002066E0 File Offset: 0x002048E0
 		private void OnLogPanelClosed(IXUISprite spr)
 		{
 			this.m_MyFlowersPanel.gameObject.SetActive(false);
 		}
 
-		// Token: 0x0600ADC1 RID: 44481 RVA: 0x002066F8 File Offset: 0x002048F8
 		private void OnRankItemRoleClicked(IXUISprite iSp)
 		{
 			this._doc.SelectItem((uint)iSp.ID, false);
@@ -995,7 +952,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600ADC2 RID: 44482 RVA: 0x0020676C File Offset: 0x0020496C
 		private void OnRankItemRoleClicked(IXUITexture iSp)
 		{
 			this._doc.SelectItem((uint)iSp.ID, false);
@@ -1008,7 +964,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600ADC3 RID: 44483 RVA: 0x002067E0 File Offset: 0x002049E0
 		public void RefreshMyFlowersPage()
 		{
 			IXUIWrapContent ixuiwrapContent = null;
@@ -1065,7 +1020,6 @@ namespace XMainClient
 			this.m_MyFlowersScrollView[1].ResetPosition();
 		}
 
-		// Token: 0x0600ADC4 RID: 44484 RVA: 0x00206A84 File Offset: 0x00204C84
 		private void OnMyFlowersSendLogWrapContentItemUpdated(Transform t, int index)
 		{
 			bool flag = index >= this._doc.FlowerPageData.sendLog.Count || index < 0;
@@ -1084,7 +1038,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600ADC5 RID: 44485 RVA: 0x00206BCC File Offset: 0x00204DCC
 		private void OnMyFlowersReceivedLogWrapContentItemUpdated(Transform t, int index)
 		{
 			bool flag = index >= this._doc.FlowerPageData.receiveRank.Count || index < 0;
@@ -1112,7 +1065,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600ADC6 RID: 44486 RVA: 0x00206D14 File Offset: 0x00204F14
 		private bool OnYesterdayRewardClicked(IXUIButton btn)
 		{
 			this._doc.ReqAwardList();
@@ -1120,158 +1072,108 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600ADC7 RID: 44487 RVA: 0x00206D48 File Offset: 0x00204F48
 		private bool OnYesterdayRewardClose(IXUIButton btn)
 		{
 			this.m_YesterdayRewardPanel.gameObject.SetActive(false);
 			return true;
 		}
 
-		// Token: 0x0400417B RID: 16763
 		public XUITabControl m_TabControl = new XUITabControl();
 
-		// Token: 0x0400417C RID: 16764
 		public XUITabControl m_FlowerTabControl = new XUITabControl();
 
-		// Token: 0x0400417D RID: 16765
 		public IXUIWrapContent m_NormalRankContent = null;
 
-		// Token: 0x0400417E RID: 16766
 		public IXUIWrapContent m_ActivityRankContetn = null;
 
-		// Token: 0x0400417F RID: 16767
 		public GameObject m_MyRankFrameNormal = null;
 
-		// Token: 0x04004180 RID: 16768
 		public GameObject m_MyRankFrameActivity = null;
 
-		// Token: 0x04004181 RID: 16769
 		private GameObject m_LastSelect;
 
-		// Token: 0x04004182 RID: 16770
 		public IXUIWrapContent m_AwardContent = null;
 
-		// Token: 0x04004183 RID: 16771
 		public Transform m_YesterdayRewardPanel;
 
-		// Token: 0x04004184 RID: 16772
 		public GameObject m_CharacterInfoFrame;
 
-		// Token: 0x04004185 RID: 16773
 		public IXUILabel m_CharName;
 
-		// Token: 0x04004186 RID: 16774
 		public IXUISprite m_CharProfession;
 
-		// Token: 0x04004187 RID: 16775
 		public IXUISprite m_CharGulid;
 
-		// Token: 0x04004188 RID: 16776
 		public IXUILabel m_CharGulidName;
 
-		// Token: 0x04004189 RID: 16777
 		public IXUISpriteAnimation m_Designation;
 
-		// Token: 0x0400418A RID: 16778
 		public IXUIScrollView m_RankScrollView;
 
-		// Token: 0x0400418B RID: 16779
 		public IXUIScrollView m_AwardScrollView;
 
-		// Token: 0x0400418C RID: 16780
 		public Transform m_NoRankTip;
 
-		// Token: 0x0400418D RID: 16781
 		public IXUILabel m_NoRankTipLabel;
 
-		// Token: 0x0400418E RID: 16782
 		public IXUIButton m_YesterdayReward;
 
-		// Token: 0x0400418F RID: 16783
 		public IXUIButton m_YesterdayRewardClose;
 
-		// Token: 0x04004190 RID: 16784
 		public Dictionary<ulong, IXUILabel> m_DicFlowerCount = new Dictionary<ulong, IXUILabel>();
 
-		// Token: 0x04004191 RID: 16785
 		public IXUIWrapContent[] m_MyFlowerLogContent = new IXUIWrapContent[2];
 
-		// Token: 0x04004192 RID: 16786
 		public IXUISprite m_MyFlowersPanel = null;
 
-		// Token: 0x04004193 RID: 16787
 		public IXUILabel m_MyFlowersSendTitle;
 
-		// Token: 0x04004194 RID: 16788
 		public IXUILabel m_MyFlowersReceiveTitle;
 
-		// Token: 0x04004195 RID: 16789
 		public IXUIScrollView[] m_MyFlowersScrollView = new IXUIScrollView[2];
 
-		// Token: 0x04004196 RID: 16790
 		public IUIDummy m_PlayerSnapshot = null;
 
-		// Token: 0x04004197 RID: 16791
 		public IXUILabel m_CommonTip;
 
-		// Token: 0x04004198 RID: 16792
 		public IXUILabel m_WeekTip1;
 
-		// Token: 0x04004199 RID: 16793
 		public IXUILabel m_WeekTip2;
 
-		// Token: 0x0400419A RID: 16794
 		public IXUILabel m_ActivityTip;
 
-		// Token: 0x0400419B RID: 16795
 		public IXUILabel m_ActivityRewardTip;
 
-		// Token: 0x0400419C RID: 16796
 		private XFlowerRankDocument _doc = null;
 
-		// Token: 0x0400419D RID: 16797
 		private XDummy _PlayerDummy = null;
 
-		// Token: 0x0400419E RID: 16798
 		private XSysDefine _myFlowersTab = XSysDefine.XSys_Flower_Log_Send;
 
-		// Token: 0x0400419F RID: 16799
 		private XBaseRankList rankDataList = null;
 
-		// Token: 0x040041A0 RID: 16800
 		private IXUICheckBox[] _tabs;
 
-		// Token: 0x040041A1 RID: 16801
 		public XSysDefine DefaultTab = XSysDefine.XSys_Flower_Rank_Today;
 
-		// Token: 0x040041A2 RID: 16802
 		private UnitAppearance emptyUA = new UnitAppearance();
 
-		// Token: 0x040041A3 RID: 16803
 		public Dictionary<GameObject, IXUITexture> _WrapTextureList = new Dictionary<GameObject, IXUITexture>();
 
-		// Token: 0x040041A4 RID: 16804
 		public IXUIButton m_ActivityRewardPreviewBtn;
 
-		// Token: 0x040041A5 RID: 16805
 		public IXUIButton m_ActivityGetRewardBtn;
 
-		// Token: 0x040041A6 RID: 16806
 		public IXUIButton m_FlowerLogBtn;
 
-		// Token: 0x040041A7 RID: 16807
 		public Transform m_ActivityRewardPreviewPanel;
 
-		// Token: 0x040041A8 RID: 16808
 		public IXUIButton m_ActivityRewardPreviewClose;
 
-		// Token: 0x040041A9 RID: 16809
 		public IXUIWrapContent m_ActivityRewardContent;
 
-		// Token: 0x040041AA RID: 16810
 		public IXUIScrollView m_ActivityRewardScrollview;
 
-		// Token: 0x040041AB RID: 16811
 		private ulong m_SendRoleID = 0UL;
 	}
 }

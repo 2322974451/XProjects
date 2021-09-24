@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020016E2 RID: 5858
+
 	internal class EquipUpgradeHandler : DlgHandlerBase
 	{
-		// Token: 0x17003755 RID: 14165
-		// (get) Token: 0x0600F1BF RID: 61887 RVA: 0x00357D20 File Offset: 0x00355F20
+
 		protected override string FileName
 		{
 			get
@@ -19,7 +18,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F1C0 RID: 61888 RVA: 0x00357D38 File Offset: 0x00355F38
 		protected override void Init()
 		{
 			base.Init();
@@ -42,7 +40,6 @@ namespace XMainClient.UI
 			this.m_AfterAttrPool.SetupPool(this.m_afterUpgradeGo, transform.Find("AfterAttrTpl").gameObject, 2U, false);
 		}
 
-		// Token: 0x0600F1C1 RID: 61889 RVA: 0x00357EF0 File Offset: 0x003560F0
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -51,14 +48,12 @@ namespace XMainClient.UI
 			this.m_upgradeBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnUpgrade));
 		}
 
-		// Token: 0x0600F1C2 RID: 61890 RVA: 0x001F8A12 File Offset: 0x001F6C12
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.RefreshData();
 		}
 
-		// Token: 0x0600F1C3 RID: 61891 RVA: 0x00357F50 File Offset: 0x00356150
 		protected override void OnHide()
 		{
 			base.OnHide();
@@ -72,13 +67,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F1C4 RID: 61892 RVA: 0x0019EF07 File Offset: 0x0019D107
 		public override void OnUnload()
 		{
 			base.OnUnload();
 		}
 
-		// Token: 0x0600F1C5 RID: 61893 RVA: 0x00357FB4 File Offset: 0x003561B4
 		public override void RefreshData()
 		{
 			base.RefreshData();
@@ -100,20 +93,17 @@ namespace XMainClient.UI
 			this.FillContent();
 		}
 
-		// Token: 0x0600F1C6 RID: 61894 RVA: 0x00358051 File Offset: 0x00356251
 		public override void StackRefresh()
 		{
 			this.RefreshData();
 			base.StackRefresh();
 		}
 
-		// Token: 0x0600F1C7 RID: 61895 RVA: 0x00358062 File Offset: 0x00356262
 		public void ShowUI()
 		{
 			this.FillContent();
 		}
 
-		// Token: 0x0600F1C8 RID: 61896 RVA: 0x0035806C File Offset: 0x0035626C
 		private void FillContent()
 		{
 			XItem itemByUID = XBagDocument.BagDoc.GetItemByUID(this.m_doc.SelectUid);
@@ -143,7 +133,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F1C9 RID: 61897 RVA: 0x003581A4 File Offset: 0x003563A4
 		private void FillAttribute(EquipList.RowData row, EquipList.RowData targetRow)
 		{
 			bool flag = targetRow == null;
@@ -173,7 +162,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F1CA RID: 61898 RVA: 0x0035833C File Offset: 0x0035653C
 		private void FillAttrWithName(GameObject go, int attrId, int num)
 		{
 			IXUILabel ixuilabel = go.transform.GetComponent("XUILabel") as IXUILabel;
@@ -182,7 +170,6 @@ namespace XMainClient.UI
 			ixuilabel.SetText(num.ToString());
 		}
 
-		// Token: 0x0600F1CB RID: 61899 RVA: 0x0035839C File Offset: 0x0035659C
 		private void FillAttrNoName(GameObject go, int num, int dvalue)
 		{
 			IXUILabel ixuilabel = go.transform.GetComponent("XUILabel") as IXUILabel;
@@ -200,7 +187,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F1CC RID: 61900 RVA: 0x0035843C File Offset: 0x0035663C
 		private int GetData(int id, SeqListRef<int> seq)
 		{
 			for (int i = 0; i < (int)seq.count; i++)
@@ -214,7 +200,6 @@ namespace XMainClient.UI
 			return 0;
 		}
 
-		// Token: 0x0600F1CD RID: 61901 RVA: 0x00358484 File Offset: 0x00356684
 		private void FillNeedItem(SeqListRef<uint> items)
 		{
 			this.m_needItemPool.ReturnAll(false);
@@ -244,21 +229,18 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F1CE RID: 61902 RVA: 0x0035861C File Offset: 0x0035681C
 		private bool OnClosed(IXUIButton btn)
 		{
 			base.SetVisible(false);
 			return true;
 		}
 
-		// Token: 0x0600F1CF RID: 61903 RVA: 0x00358638 File Offset: 0x00356838
 		private bool OnHelp(IXUIButton btn)
 		{
 			DlgBase<XCommonHelpTipView, XCommonHelpTipBehaviour>.singleton.ShowHelp(XSysDefine.XSys_EquipUpgrade);
 			return true;
 		}
 
-		// Token: 0x0600F1D0 RID: 61904 RVA: 0x0035865C File Offset: 0x0035685C
 		private bool OnUpgrade(IXUIButton btn)
 		{
 			bool flag = this.SetButtonCool(this.m_delayTime);
@@ -275,7 +257,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F1D1 RID: 61905 RVA: 0x00358690 File Offset: 0x00356890
 		private void OnClickItem(IXUISprite iSp)
 		{
 			ulong id = iSp.ID;
@@ -292,20 +273,17 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F1D2 RID: 61906 RVA: 0x003586DE File Offset: 0x003568DE
 		public void OnEquipClicked(IXUISprite iSp)
 		{
 			this.m_doc.SelectEquip(iSp.ID);
 		}
 
-		// Token: 0x0600F1D3 RID: 61907 RVA: 0x003586F4 File Offset: 0x003568F4
 		private void OnGetItemAccess(IXUISprite iSp)
 		{
 			int itemid = (int)iSp.ID;
 			XSingleton<UiUtility>.singleton.ShowItemAccess(itemid, null);
 		}
 
-		// Token: 0x0600F1D4 RID: 61908 RVA: 0x00358718 File Offset: 0x00356918
 		private bool SetButtonCool(float time)
 		{
 			float num = Time.realtimeSinceStartup - this.m_fLastClickBtnTime;
@@ -323,46 +301,32 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x04006762 RID: 26466
 		private EquipUpgradeDocument m_doc;
 
-		// Token: 0x04006763 RID: 26467
 		private GameObject m_beforeItem;
 
-		// Token: 0x04006764 RID: 26468
 		private GameObject m_afterItem;
 
-		// Token: 0x04006765 RID: 26469
 		private GameObject m_beforeUpgradeGo;
 
-		// Token: 0x04006766 RID: 26470
 		private GameObject m_afterUpgradeGo;
 
-		// Token: 0x04006767 RID: 26471
 		private IXUIButton m_helpBtn;
 
-		// Token: 0x04006768 RID: 26472
 		private IXUIButton m_closeBtn;
 
-		// Token: 0x04006769 RID: 26473
 		private IXUIButton m_upgradeBtn;
 
-		// Token: 0x0400676A RID: 26474
 		private XUIPool m_needItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x0400676B RID: 26475
 		private XUIPool m_BeforeAttrPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x0400676C RID: 26476
 		private XUIPool m_AfterAttrPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x0400676D RID: 26477
 		private readonly int m_gap = 30;
 
-		// Token: 0x0400676E RID: 26478
 		private float m_delayTime = 0.5f;
 
-		// Token: 0x0400676F RID: 26479
 		private float m_fLastClickBtnTime = 0f;
 	}
 }

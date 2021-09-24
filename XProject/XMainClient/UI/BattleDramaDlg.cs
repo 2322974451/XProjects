@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001885 RID: 6277
+
 	internal class BattleDramaDlg : DlgBase<BattleDramaDlg, BattleDramaDlgBehaviour>
 	{
-		// Token: 0x170039CD RID: 14797
-		// (get) Token: 0x06010540 RID: 66880 RVA: 0x003F4DB0 File Offset: 0x003F2FB0
+
 		public override string fileName
 		{
 			get
@@ -19,8 +18,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170039CE RID: 14798
-		// (get) Token: 0x06010541 RID: 66881 RVA: 0x003F4DC8 File Offset: 0x003F2FC8
 		public override int layer
 		{
 			get
@@ -29,8 +26,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170039CF RID: 14799
-		// (get) Token: 0x06010542 RID: 66882 RVA: 0x003F4DDC File Offset: 0x003F2FDC
 		public override bool exclusive
 		{
 			get
@@ -39,8 +34,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170039D0 RID: 14800
-		// (get) Token: 0x06010543 RID: 66883 RVA: 0x003F4DF0 File Offset: 0x003F2FF0
 		public override bool autoload
 		{
 			get
@@ -49,14 +42,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010544 RID: 66884 RVA: 0x003F4E04 File Offset: 0x003F3004
 		public override void RegisterEvent()
 		{
 			IXUISprite ixuisprite = base.uiBehaviour.m_TaskArea.GetComponent("XUISprite") as IXUISprite;
 			ixuisprite.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.GotoNextTalk));
 		}
 
-		// Token: 0x06010545 RID: 66885 RVA: 0x003F4E40 File Offset: 0x003F3040
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -70,7 +61,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010546 RID: 66886 RVA: 0x003F4EBC File Offset: 0x003F30BC
 		protected override void OnHide()
 		{
 			base.OnHide();
@@ -100,7 +90,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010547 RID: 66887 RVA: 0x003F4F9C File Offset: 0x003F319C
 		protected override void OnUnload()
 		{
 			XSingleton<XShell>.singleton.Pause = false;
@@ -112,7 +101,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x06010548 RID: 66888 RVA: 0x003F4FE8 File Offset: 0x003F31E8
 		private void AutoClose(object obj)
 		{
 			bool flag = base.IsVisible();
@@ -123,13 +111,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010549 RID: 66889 RVA: 0x003F502C File Offset: 0x003F322C
 		protected void GotoNextTalk(IXUISprite sp)
 		{
 			XSingleton<XLevelScriptMgr>.singleton.ExecuteNextCmd();
 		}
 
-		// Token: 0x0601054A RID: 66890 RVA: 0x003F503C File Offset: 0x003F323C
 		public void SetRightAvatar(string talker, string content, string voice)
 		{
 			bool onReconnect = XSingleton<XClientNetwork>.singleton.XConnect.OnReconnect;
@@ -186,7 +172,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601054B RID: 66891 RVA: 0x003F52C0 File Offset: 0x003F34C0
 		public void SetLeftAvatar(string talker, string content, string voice)
 		{
 			bool onReconnect = XSingleton<XClientNetwork>.singleton.XConnect.OnReconnect;
@@ -243,7 +228,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601054C RID: 66892 RVA: 0x003F5544 File Offset: 0x003F3744
 		protected string GetProfVoice(string voice)
 		{
 			string[] array = voice.Split(new char[]
@@ -264,19 +248,14 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x04007598 RID: 30104
 		private string leftTalker = "";
 
-		// Token: 0x04007599 RID: 30105
 		private string rightTalker = "";
 
-		// Token: 0x0400759A RID: 30106
 		private XDummy m_rightDummy;
 
-		// Token: 0x0400759B RID: 30107
 		private XDummy m_leftDummy;
 
-		// Token: 0x0400759C RID: 30108
 		private uint _close_timer = 0U;
 	}
 }

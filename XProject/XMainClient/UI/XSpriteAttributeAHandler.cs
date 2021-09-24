@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001810 RID: 6160
+
 	internal class XSpriteAttributeAHandler : DlgHandlerBase
 	{
-		// Token: 0x170038FE RID: 14590
-		// (get) Token: 0x0600FF91 RID: 65425 RVA: 0x003C6A74 File Offset: 0x003C4C74
+
 		protected override string FileName
 		{
 			get
@@ -20,7 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FF92 RID: 65426 RVA: 0x003C6A8C File Offset: 0x003C4C8C
 		protected override void Init()
 		{
 			base.Init();
@@ -29,7 +27,6 @@ namespace XMainClient.UI
 			this.m_AptitudePool.SetupPool(transform.parent.gameObject, transform.gameObject, 5U, false);
 		}
 
-		// Token: 0x0600FF93 RID: 65427 RVA: 0x003C6B00 File Offset: 0x003C4D00
 		public void SetSpriteAttributeInfo(SpriteInfo spriteData, XAttributes attributes, SpriteInfo compareData = null)
 		{
 			bool flag = spriteData == null;
@@ -44,7 +41,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FF94 RID: 65428 RVA: 0x003C6B4C File Offset: 0x003C4D4C
 		public void SetSpriteAttributeInfo(uint spriteID)
 		{
 			this.aptitudeCompareData.Clear();
@@ -61,7 +57,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FF95 RID: 65429 RVA: 0x003C6BB8 File Offset: 0x003C4DB8
 		private void PreProcessComparedData(SpriteInfo compareData, XAttributes attributes = null)
 		{
 			this.aptitudeCompareData.Clear();
@@ -84,7 +79,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FF96 RID: 65430 RVA: 0x003C6C6C File Offset: 0x003C4E6C
 		private void CreateSpriteAptitude(List<double> addValue, List<uint> attrID, uint spriteID, XAttributes attributes, bool readTable = false)
 		{
 			XSpriteSystemDocument specificDocument = XDocuments.GetSpecificDocument<XSpriteSystemDocument>(XSpriteSystemDocument.uuID);
@@ -116,7 +110,6 @@ namespace XMainClient.UI
 			this.m_AptitudePool.ActualReturnAll(false);
 		}
 
-		// Token: 0x0600FF97 RID: 65431 RVA: 0x003C6D5C File Offset: 0x003C4F5C
 		private uint GetMinAttr(uint spriteID, int index)
 		{
 			XSpriteSystemDocument specificDocument = XDocuments.GetSpecificDocument<XSpriteSystemDocument>(XSpriteSystemDocument.uuID);
@@ -147,7 +140,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FF98 RID: 65432 RVA: 0x003C6E10 File Offset: 0x003C5010
 		private void SetAptitudeInfo(GameObject obj, uint attrID, uint minAttr, uint attrValue, uint attrMax)
 		{
 			IXUILabel ixuilabel = obj.transform.Find("Name").GetComponent("XUILabel") as IXUILabel;
@@ -204,13 +196,10 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04007126 RID: 28966
 		private XUIPool m_AptitudePool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04007127 RID: 28967
 		private IXUIList m_AptitudeList;
 
-		// Token: 0x04007128 RID: 28968
 		private Dictionary<uint, double> aptitudeCompareData = new Dictionary<uint, double>();
 	}
 }

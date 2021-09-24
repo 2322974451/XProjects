@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000B33 RID: 2867
+
 	public static class PublicExt
 	{
-		// Token: 0x0600A7C8 RID: 42952 RVA: 0x001DCC88 File Offset: 0x001DAE88
+
 		public static List<Type[]> CastNumberParameters(object[] param, Type[] paramTypes)
 		{
 			PublicExt.ChangeToUlong(param, paramTypes);
@@ -91,7 +91,6 @@ namespace XMainClient
 			return list;
 		}
 
-		// Token: 0x0600A7C9 RID: 42953 RVA: 0x001DCE78 File Offset: 0x001DB078
 		public static void ChangeToUlong(object[] param, Type[] paramTypes)
 		{
 			for (int i = 0; i < paramTypes.Length; i++)
@@ -105,7 +104,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A7CA RID: 42954 RVA: 0x001DCEDC File Offset: 0x001DB0DC
 		public static T CallPublicMethodGeneric<T>(this object obj, string name, params object[] param)
 		{
 			BindingFlags bindingAttr = BindingFlags.Instance | BindingFlags.Public | BindingFlags.FlattenHierarchy;
@@ -168,7 +166,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A7CB RID: 42955 RVA: 0x001DD05C File Offset: 0x001DB25C
 		public static object CallPublicMethod(this object obj, string name, params object[] param)
 		{
 			BindingFlags bindingAttr = BindingFlags.Instance | BindingFlags.Public | BindingFlags.FlattenHierarchy;
@@ -239,7 +236,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A7CC RID: 42956 RVA: 0x001DD1F0 File Offset: 0x001DB3F0
 		public static object CallStaticPublicMethod(string typeName, string name, params object[] param)
 		{
 			BindingFlags bindingAttr = BindingFlags.Static | BindingFlags.Public | BindingFlags.FlattenHierarchy;
@@ -302,7 +298,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A7CD RID: 42957 RVA: 0x001DD360 File Offset: 0x001DB560
 		public static T GetPublicFieldGeneric<T>(this object obj, string name)
 		{
 			BindingFlags flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.FlattenHierarchy;
@@ -321,7 +316,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A7CE RID: 42958 RVA: 0x001DD3AC File Offset: 0x001DB5AC
 		public static object GetPublicField(this object obj, string name)
 		{
 			BindingFlags flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.FlattenHierarchy;
@@ -340,7 +334,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A7CF RID: 42959 RVA: 0x001DD3E8 File Offset: 0x001DB5E8
 		public static object GetStaticPublicField(string typeName, string name)
 		{
 			BindingFlags flags = BindingFlags.Static | BindingFlags.Public;
@@ -359,7 +352,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A7D0 RID: 42960 RVA: 0x001DD424 File Offset: 0x001DB624
 		public static FieldInfo GetFieldInfo(Type type, string name, BindingFlags flags)
 		{
 			bool flag = type == null;
@@ -384,7 +376,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A7D1 RID: 42961 RVA: 0x001DD470 File Offset: 0x001DB670
 		public static T GetPublicPropertyGeneric<T>(this object obj, string name)
 		{
 			BindingFlags flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.FlattenHierarchy;
@@ -403,7 +394,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A7D2 RID: 42962 RVA: 0x001DD4C0 File Offset: 0x001DB6C0
 		public static object GetPublicProperty(this object obj, string name)
 		{
 			BindingFlags flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.FlattenHierarchy;
@@ -422,7 +412,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A7D3 RID: 42963 RVA: 0x001DD504 File Offset: 0x001DB704
 		public static object GetStaticPublicProperty(string typeName, string name)
 		{
 			BindingFlags flags = BindingFlags.Static | BindingFlags.Public | BindingFlags.FlattenHierarchy;
@@ -441,7 +430,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A7D4 RID: 42964 RVA: 0x001DD540 File Offset: 0x001DB740
 		public static PropertyInfo GetPropertyInfo(Type type, string name, BindingFlags flags)
 		{
 			bool flag = type == null;
@@ -466,7 +454,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A7D5 RID: 42965 RVA: 0x001DD58C File Offset: 0x001DB78C
 		public static void SetPublicField(this object obj, string name, object value)
 		{
 			BindingFlags flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.FlattenHierarchy;
@@ -515,7 +502,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A7D6 RID: 42966 RVA: 0x001DD690 File Offset: 0x001DB890
 		public static void SetStaticPublicField(string typeName, string name, object value)
 		{
 			BindingFlags flags = BindingFlags.Static | BindingFlags.Public | BindingFlags.FlattenHierarchy;
@@ -564,7 +550,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A7D7 RID: 42967 RVA: 0x001DD794 File Offset: 0x001DB994
 		public static void SetPublicProperty(this object obj, string name, object value)
 		{
 			BindingFlags flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.FlattenHierarchy;
@@ -613,7 +598,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A7D8 RID: 42968 RVA: 0x001DD89C File Offset: 0x001DBA9C
 		public static void SetStaticPublicProperty(string typeName, string name, object value)
 		{
 			BindingFlags flags = BindingFlags.Static | BindingFlags.Public;

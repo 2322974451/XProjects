@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C3E RID: 3134
+
 	internal class GuildRelaxJokerMatchHandler : GuildRelaxChildHandler
 	{
-		// Token: 0x0600B18F RID: 45455 RVA: 0x00221384 File Offset: 0x0021F584
+
 		protected override void Init()
 		{
 			base.Init();
@@ -27,7 +27,6 @@ namespace XMainClient
 			this.m_centerLabel = (base.transform.Find("QA/center").GetComponent("XUILabel") as IXUILabel);
 		}
 
-		// Token: 0x0600B190 RID: 45456 RVA: 0x0022151A File Offset: 0x0021F71A
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -35,35 +34,30 @@ namespace XMainClient
 			this.m_openButton.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnOpenGameClick));
 		}
 
-		// Token: 0x0600B191 RID: 45457 RVA: 0x00221554 File Offset: 0x0021F754
 		private bool OnOpenGameClick(IXUIButton btn)
 		{
 			this._Doc.SendJokerMatchBegion();
 			return false;
 		}
 
-		// Token: 0x0600B192 RID: 45458 RVA: 0x00221574 File Offset: 0x0021F774
 		private bool OnEnterGameClick(IXUIButton btn)
 		{
 			this._Doc.SendJokerMatchJoin();
 			return false;
 		}
 
-		// Token: 0x0600B193 RID: 45459 RVA: 0x00221593 File Offset: 0x0021F793
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this._Doc.SendJokerMatchQuery();
 		}
 
-		// Token: 0x0600B194 RID: 45460 RVA: 0x002215A9 File Offset: 0x0021F7A9
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
 			this._Doc.SendJokerMatchQuery();
 		}
 
-		// Token: 0x0600B195 RID: 45461 RVA: 0x002215C0 File Offset: 0x0021F7C0
 		public override void SetUnLockLevel()
 		{
 			base.SetUnLockLevel();
@@ -103,7 +97,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B196 RID: 45462 RVA: 0x00221714 File Offset: 0x0021F914
 		private void SetUnEnable()
 		{
 			this.m_enterButton.SetVisible(false);
@@ -115,13 +108,11 @@ namespace XMainClient
 			this.m_repositionNow = false;
 		}
 
-		// Token: 0x0600B197 RID: 45463 RVA: 0x00221777 File Offset: 0x0021F977
 		public override void RefreshRedPoint()
 		{
 			this.m_redPoint.SetActive(this._Doc.bAvaiableIconWhenShow);
 		}
 
-		// Token: 0x0600B198 RID: 45464 RVA: 0x00221794 File Offset: 0x0021F994
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
@@ -140,34 +131,24 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0400446A RID: 17514
 		private XGuildJockerMatchDocument _Doc;
 
-		// Token: 0x0400446B RID: 17515
 		private IXUIButton m_enterButton;
 
-		// Token: 0x0400446C RID: 17516
 		private IXUIButton m_openButton;
 
-		// Token: 0x0400446D RID: 17517
 		private IXUILabel m_timeLabel;
 
-		// Token: 0x0400446E RID: 17518
 		private IXUILabel m_timeTips;
 
-		// Token: 0x0400446F RID: 17519
 		private IXUILabel m_topLabel;
 
-		// Token: 0x04004470 RID: 17520
 		private IXUILabel m_centerLabel;
 
-		// Token: 0x04004471 RID: 17521
 		private IXUILabel m_enterLabel;
 
-		// Token: 0x04004472 RID: 17522
 		private IXUILabel m_openLabel;
 
-		// Token: 0x04004473 RID: 17523
 		private bool m_repositionNow = false;
 	}
 }

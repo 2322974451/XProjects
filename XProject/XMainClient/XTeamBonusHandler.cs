@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000D17 RID: 3351
+
 	internal class XTeamBonusHandler : DlgHandlerBase
 	{
-		// Token: 0x0600BAFC RID: 47868 RVA: 0x002654C8 File Offset: 0x002636C8
+
 		protected override void Init()
 		{
 			base.Init();
@@ -42,7 +42,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BAFD RID: 47869 RVA: 0x002656AC File Offset: 0x002638AC
 		public void Refresh()
 		{
 			bool flag = !this._TeamDoc.bInTeam;
@@ -84,7 +83,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BAFE RID: 47870 RVA: 0x00265793 File Offset: 0x00263993
 		private void _Enable(bool bEnable)
 		{
 			this.m_TitleActive.SetActive(bEnable);
@@ -93,25 +91,18 @@ namespace XMainClient
 			this.m_AttrDisactive.SetActive(!bEnable);
 		}
 
-		// Token: 0x04004B5C RID: 19292
 		private XUIPool m_AttrPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04004B5D RID: 19293
 		private XTeamDocument _TeamDoc;
 
-		// Token: 0x04004B5E RID: 19294
 		private IXUIButton m_Root;
 
-		// Token: 0x04004B5F RID: 19295
 		private GameObject m_TitleActive;
 
-		// Token: 0x04004B60 RID: 19296
 		private GameObject m_TitleDisactive;
 
-		// Token: 0x04004B61 RID: 19297
 		private GameObject m_AttrActive;
 
-		// Token: 0x04004B62 RID: 19298
 		private GameObject m_AttrDisactive;
 	}
 }

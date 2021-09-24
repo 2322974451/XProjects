@@ -9,10 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000DA9 RID: 3497
+
 	internal class XAudioMgr : XSingleton<XAudioMgr>
 	{
-		// Token: 0x0600BDB2 RID: 48562 RVA: 0x0027701C File Offset: 0x0027521C
+
 		public override bool Init()
 		{
 			GameObject gameObject = GameObject.Find("XGamePoint");
@@ -52,18 +52,15 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600BDB3 RID: 48563 RVA: 0x002771CC File Offset: 0x002753CC
 		public override void Uninit()
 		{
 			this._async_loader = null;
 		}
 
-		// Token: 0x0600BDB4 RID: 48564 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public void OnLeaveScene()
 		{
 		}
 
-		// Token: 0x0600BDB5 RID: 48565 RVA: 0x002771D8 File Offset: 0x002753D8
 		public void SetSystemMute(bool mute)
 		{
 			bool flag = this._fModBus != null;
@@ -73,7 +70,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BDB6 RID: 48566 RVA: 0x00277208 File Offset: 0x00275408
 		public void SetSystemVolume(float volume)
 		{
 			bool flag = this._fModBus != null;
@@ -83,7 +79,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BDB7 RID: 48567 RVA: 0x00277230 File Offset: 0x00275430
 		public void SetBGMVolume(bool state)
 		{
 			bool flag = this._fModBus != null;
@@ -93,14 +88,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BDB8 RID: 48568 RVA: 0x00277260 File Offset: 0x00275460
 		public string GetFullSoundName(string strPrefab, string strValueInTable)
 		{
 			this._sound.Remove(6, this._sound.Length - 6);
 			return this._sound.Append(strValueInTable).ToString();
 		}
 
-		// Token: 0x0600BDB9 RID: 48569 RVA: 0x002772A0 File Offset: 0x002754A0
 		public void StopSound(IXFmod iFmod)
 		{
 			bool flag = iFmod != null;
@@ -110,7 +103,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BDBA RID: 48570 RVA: 0x002772C0 File Offset: 0x002754C0
 		public void PlaySound(IXFmod iFmod, AudioChannel channel, string eventname)
 		{
 			bool flag = iFmod != null;
@@ -120,13 +112,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BDBB RID: 48571 RVA: 0x002772F4 File Offset: 0x002754F4
 		public void PlaySound(XObject entity, AudioChannel channel, string eventname, Vector3 correctTo)
 		{
 			this.PlaySound(entity, channel, eventname, false, new XAudioExParam(correctTo));
 		}
 
-		// Token: 0x0600BDBC RID: 48572 RVA: 0x0027730C File Offset: 0x0027550C
 		public void StopSound(XObject entity, AudioChannel channel)
 		{
 			bool flag = !this.hasSound;
@@ -140,13 +130,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BDBD RID: 48573 RVA: 0x00277353 File Offset: 0x00275553
 		public void PlaySound(XObject entity, AudioChannel channel, string eventname)
 		{
 			this.PlaySound(entity, channel, eventname, false, null);
 		}
 
-		// Token: 0x0600BDBE RID: 48574 RVA: 0x00277364 File Offset: 0x00275564
 		public void PlaySound(XObject entity, AudioChannel channel, string eventname, bool bDepracatedPass, XAudioExParam param)
 		{
 			bool flag = !this.hasSound;
@@ -163,13 +151,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BDBF RID: 48575 RVA: 0x002773C5 File Offset: 0x002755C5
 		public void PlaySound(XEntity entity, AudioChannel channel, XAudioStateDefine state)
 		{
 			this.PlaySound(entity, channel, state, false, null);
 		}
 
-		// Token: 0x0600BDC0 RID: 48576 RVA: 0x002773D4 File Offset: 0x002755D4
 		public void PlaySound(XEntity entity, AudioChannel channel, XAudioStateDefine state, bool bDepracatedPass, XAudioExParam param)
 		{
 			bool flag = !this.hasSound;
@@ -208,7 +194,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BDC1 RID: 48577 RVA: 0x002774DC File Offset: 0x002756DC
 		protected AudioChannel GetAnotherChannel(AudioChannel inChannel)
 		{
 			switch (inChannel)
@@ -223,14 +208,12 @@ namespace XMainClient
 			return AudioChannel.Motion;
 		}
 
-		// Token: 0x0600BDC2 RID: 48578 RVA: 0x00277518 File Offset: 0x00275718
 		public bool IsPlayingSound(XEntity entity, AudioChannel channel)
 		{
 			bool flag = entity.Audio != null;
 			return flag && entity.Audio.IsPlaying(channel);
 		}
 
-		// Token: 0x0600BDC3 RID: 48579 RVA: 0x00277548 File Offset: 0x00275748
 		public string[] GetAudioTagByState(XEntity entity, XAudioStateDefine state, out float t)
 		{
 			string[] array = null;
@@ -311,7 +294,6 @@ namespace XMainClient
 			return array;
 		}
 
-		// Token: 0x0600BDC4 RID: 48580 RVA: 0x002776C8 File Offset: 0x002758C8
 		private void InnerInit(string prefab, string[] clips)
 		{
 			bool flag = clips != null;
@@ -335,19 +317,16 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BDC5 RID: 48581 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public void StoreAudioSource(GameObject go)
 		{
 		}
 
-		// Token: 0x0600BDC6 RID: 48582 RVA: 0x0027773C File Offset: 0x0027593C
 		public void StopUISound()
 		{
 			IXFmod fmodComponent = this.GetFmodComponent(XSingleton<XGameUI>.singleton.UIAudio);
 			fmodComponent.Stop(AudioChannel.Action);
 		}
 
-		// Token: 0x0600BDC7 RID: 48583 RVA: 0x00277764 File Offset: 0x00275964
 		public void PlayUISound(string name, bool stopall = true, AudioChannel channel = AudioChannel.Action)
 		{
 			bool flag = !this.hasSound;
@@ -366,7 +345,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BDC8 RID: 48584 RVA: 0x002777D0 File Offset: 0x002759D0
 		public void PlayBGM(string bgm)
 		{
 			bool flag = !this.hasSound;
@@ -390,7 +368,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BDC9 RID: 48585 RVA: 0x0027784C File Offset: 0x00275A4C
 		public void ResumeBGM()
 		{
 			bool flag = !this.hasSound;
@@ -410,7 +387,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BDCA RID: 48586 RVA: 0x002778A4 File Offset: 0x00275AA4
 		public void PauseBGM()
 		{
 			bool flag = !this.hasSound;
@@ -430,7 +406,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BDCB RID: 48587 RVA: 0x002778FC File Offset: 0x00275AFC
 		public IXFmod GetFmodComponent(GameObject go)
 		{
 			IXFmod ixfmod = go.GetComponent("XFmod") as IXFmod;
@@ -442,7 +417,6 @@ namespace XMainClient
 			return ixfmod;
 		}
 
-		// Token: 0x0600BDCC RID: 48588 RVA: 0x00277940 File Offset: 0x00275B40
 		public void PlaySoundAt(Vector3 position, string bgm)
 		{
 			bool flag = !this.hasSound;
@@ -460,7 +434,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BDCD RID: 48589 RVA: 0x00277990 File Offset: 0x00275B90
 		public void SetBGMVolme(float vol)
 		{
 			bool flag = this._fModBus != null;
@@ -470,7 +443,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BDCE RID: 48590 RVA: 0x002779B8 File Offset: 0x00275BB8
 		public void SetMscVolme(float vol)
 		{
 			bool flag = this._fModBus != null;
@@ -480,13 +452,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BDCF RID: 48591 RVA: 0x002779E0 File Offset: 0x00275BE0
 		public void SetMainBusVolume(float volume)
 		{
 			this.SetBusStatuMute("bus:/MainGroupControl", volume);
 		}
 
-		// Token: 0x0600BDD0 RID: 48592 RVA: 0x002779F0 File Offset: 0x00275BF0
 		public void SetBusStatuMute(string bus, float volume)
 		{
 			bool flag = !this.hasSound;
@@ -500,7 +470,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BDD1 RID: 48593 RVA: 0x00277A28 File Offset: 0x00275C28
 		public void StopSoundForCutscene()
 		{
 			bool flag = DlgBase<DramaDlg, DramaDlgBehaviour>.singleton.IsLoaded();
@@ -511,22 +480,16 @@ namespace XMainClient
 			this.StopUISound();
 		}
 
-		// Token: 0x04004D56 RID: 19798
 		private XTableAsyncLoader _async_loader = null;
 
-		// Token: 0x04004D57 RID: 19799
 		private ActionAudio _reader = new ActionAudio();
 
-		// Token: 0x04004D58 RID: 19800
 		private StringBuilder _sound = new StringBuilder("Audio/", 128);
 
-		// Token: 0x04004D59 RID: 19801
 		private IXFmodBus _fModBus = null;
 
-		// Token: 0x04004D5A RID: 19802
 		public bool bUseFMOD = true;
 
-		// Token: 0x04004D5B RID: 19803
 		public bool hasSound = true;
 	}
 }

@@ -9,11 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000BA9 RID: 2985
+
 	internal class LevelRewardSelectChestHandler : DlgHandlerBase
 	{
-		// Token: 0x1700304D RID: 12365
-		// (get) Token: 0x0600AB23 RID: 43811 RVA: 0x001F0FCC File Offset: 0x001EF1CC
+
 		public LevelRewardSelectChestHandler.SelectChestStatus CurrentStatus
 		{
 			get
@@ -22,8 +21,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700304E RID: 12366
-		// (get) Token: 0x0600AB24 RID: 43812 RVA: 0x001F0FE4 File Offset: 0x001EF1E4
 		protected override string FileName
 		{
 			get
@@ -32,7 +29,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AB25 RID: 43813 RVA: 0x001F0FFB File Offset: 0x001EF1FB
 		protected override void Init()
 		{
 			base.Init();
@@ -40,7 +36,6 @@ namespace XMainClient
 			this.InitUI();
 		}
 
-		// Token: 0x0600AB26 RID: 43814 RVA: 0x001F101C File Offset: 0x001EF21C
 		private void InitUI()
 		{
 			this.m_button_frame = base.PanelObject.transform.Find("Bg/Button");
@@ -72,7 +67,6 @@ namespace XMainClient
 			this.m_noneReward_tip = base.PanelObject.transform.Find("Bg/Player/NoneRewardTip");
 		}
 
-		// Token: 0x0600AB27 RID: 43815 RVA: 0x001F13A4 File Offset: 0x001EF5A4
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -81,14 +75,12 @@ namespace XMainClient
 			this.m_return_button.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnReturnButtonClicked));
 		}
 
-		// Token: 0x0600AB28 RID: 43816 RVA: 0x001F1404 File Offset: 0x001EF604
 		private bool OnBattleDataButtonClicked(IXUIButton button)
 		{
 			DlgBase<XLevelRewardView, XLevelRewardBehaviour>.singleton.ShowBattleDataFrame();
 			return true;
 		}
 
-		// Token: 0x0600AB29 RID: 43817 RVA: 0x001F1424 File Offset: 0x001EF624
 		private bool OnReStartCkicked(IXUIButton btn)
 		{
 			XTeamDocument specificDocument = XDocuments.GetSpecificDocument<XTeamDocument>(XTeamDocument.uuID);
@@ -96,7 +88,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600AB2A RID: 43818 RVA: 0x001F1450 File Offset: 0x001EF650
 		private bool OnReturnButtonClicked(IXUIButton button)
 		{
 			bool flag = this.doc.CurrentStage == SceneType.SCENE_DRAGON && !this.doc.IsEndLevel;
@@ -118,7 +109,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600AB2B RID: 43819 RVA: 0x001F14DC File Offset: 0x001EF6DC
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -151,7 +141,6 @@ namespace XMainClient
 			this.m_button_frame.gameObject.SetActive(false);
 		}
 
-		// Token: 0x0600AB2C RID: 43820 RVA: 0x001F1630 File Offset: 0x001EF830
 		private void ClearTexture(string path)
 		{
 			for (int i = 0; i < 4; i++)
@@ -170,7 +159,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AB2D RID: 43821 RVA: 0x001F16B8 File Offset: 0x001EF8B8
 		public override void OnUnload()
 		{
 			XSingleton<XTimerMgr>.singleton.KillTimer(this._token);
@@ -183,7 +171,6 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x0600AB2E RID: 43822 RVA: 0x001F1754 File Offset: 0x001EF954
 		public void ShowAllChest()
 		{
 			bool flag = !DlgBase<XLevelRewardView, XLevelRewardBehaviour>.singleton.IsVisible();
@@ -207,7 +194,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AB2F RID: 43823 RVA: 0x001F18E8 File Offset: 0x001EFAE8
 		private void SetupChestList(List<BattleRewardChest> list, int boxid, string path)
 		{
 			boxid = ((boxid == 0) ? 1 : boxid);
@@ -246,7 +232,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AB30 RID: 43824 RVA: 0x001F1A8C File Offset: 0x001EFC8C
 		private void ShowAllItem(object o = null)
 		{
 			bool flag = !DlgBase<XLevelRewardView, XLevelRewardBehaviour>.singleton.IsVisible();
@@ -307,7 +292,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AB31 RID: 43825 RVA: 0x001F1CD4 File Offset: 0x001EFED4
 		private void SetupChestItem(List<BattleRewardChest> list, int boxid, string path)
 		{
 			boxid = ((boxid == 0) ? 1 : boxid);
@@ -352,7 +336,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AB32 RID: 43826 RVA: 0x001F1EA8 File Offset: 0x001F00A8
 		private void OnChestClicked(IXUISprite sp)
 		{
 			bool flag = this.doc.SelectChestFrameData.Player.BoxID != 0;
@@ -363,25 +346,21 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AB33 RID: 43827 RVA: 0x001F1EF9 File Offset: 0x001F00F9
 		private void OnMagnifierClicked(IXUISprite sp)
 		{
 			this.doc.SendPeerChest((uint)sp.ID);
 		}
 
-		// Token: 0x0600AB34 RID: 43828 RVA: 0x001EA11D File Offset: 0x001E831D
 		private void OnAddFriendClick(IXUISprite sp)
 		{
 			DlgBase<XFriendsView, XFriendsBehaviour>.singleton.AddFriendById(sp.ID);
 		}
 
-		// Token: 0x0600AB35 RID: 43829 RVA: 0x001EA131 File Offset: 0x001E8331
 		private void OnAddOtherServerFriendClick(IXUISprite sp)
 		{
 			XSingleton<UiUtility>.singleton.ShowSystemTip(XSingleton<XStringTable>.singleton.GetString("ADD_OTHER_SERVER_FRIEND"), "fece00");
 		}
 
-		// Token: 0x0600AB36 RID: 43830 RVA: 0x001F1F10 File Offset: 0x001F0110
 		public void RefreshSelectChest()
 		{
 			bool flag = false;
@@ -408,7 +387,6 @@ namespace XMainClient
 			this._token = XSingleton<XTimerMgr>.singleton.SetTimer(1f, new XTimerMgr.ElapsedEventHandler(this.ShowOthersChest), null);
 		}
 
-		// Token: 0x0600AB37 RID: 43831 RVA: 0x001F2030 File Offset: 0x001F0230
 		private void ShowPlayerChest()
 		{
 			this.m_player_name.SetText(this.doc.SelectChestFrameData.Player.Name);
@@ -469,7 +447,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AB38 RID: 43832 RVA: 0x001F2478 File Offset: 0x001F0678
 		private void ShowOthersChest(object o = null)
 		{
 			bool flag = !DlgBase<XLevelRewardView, XLevelRewardBehaviour>.singleton.IsVisible();
@@ -560,7 +537,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AB39 RID: 43833 RVA: 0x001F2AC0 File Offset: 0x001F0CC0
 		public void ShowPlayerChestGlow(int index)
 		{
 			Transform transform = base.PanelObject.transform.Find(string.Format("Bg/Player/ItemList/Box{0}/glow", index));
@@ -572,7 +548,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AB3A RID: 43834 RVA: 0x001F2B10 File Offset: 0x001F0D10
 		public void ShowOthersChestGlow(ulong roleid, int index)
 		{
 			Transform transform = base.PanelObject.transform.Find(string.Format("Bg/TeamPanel/{0}/ItemList/Box{1}/glow", roleid, index));
@@ -583,7 +558,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AB3B RID: 43835 RVA: 0x001F2B60 File Offset: 0x001F0D60
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
@@ -607,13 +581,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AB3C RID: 43836 RVA: 0x001F2C0C File Offset: 0x001F0E0C
 		public void RefreshLeftTime()
 		{
 			this._target_time = Time.time + (float)this.doc.SelectChestFrameData.SelectLeftTime;
 		}
 
-		// Token: 0x0600AB3D RID: 43837 RVA: 0x001F2C2C File Offset: 0x001F0E2C
 		public void SetPeerResult()
 		{
 			this.HideMagnifier();
@@ -634,7 +606,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AB3E RID: 43838 RVA: 0x001F2D24 File Offset: 0x001F0F24
 		private void HideMagnifier()
 		{
 			for (int i = 0; i < 4; i++)
@@ -644,96 +615,67 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04003FEB RID: 16363
 		private XLevelRewardDocument doc = null;
 
-		// Token: 0x04003FEC RID: 16364
 		private Transform m_button_frame;
 
-		// Token: 0x04003FED RID: 16365
 		private IXUIButton m_battle_data_button;
 
-		// Token: 0x04003FEE RID: 16366
 		private IXUIButton m_reStartBtn;
 
-		// Token: 0x04003FEF RID: 16367
 		private IXUIButton m_return_button;
 
-		// Token: 0x04003FF0 RID: 16368
 		private IXUILabel m_return_label;
 
-		// Token: 0x04003FF1 RID: 16369
 		private IXUITweenTool m_player_tween;
 
-		// Token: 0x04003FF2 RID: 16370
 		private IXUITweenTool m_team_tween;
 
-		// Token: 0x04003FF3 RID: 16371
 		private IXUISprite m_player_avatar;
 
-		// Token: 0x04003FF4 RID: 16372
 		private IXUILabel m_player_name;
 
-		// Token: 0x04003FF5 RID: 16373
 		private IXUILabel m_player_level;
 
-		// Token: 0x04003FF6 RID: 16374
 		private IXUISprite m_player_leader;
 
-		// Token: 0x04003FF7 RID: 16375
 		private Transform m_player_helper;
 
-		// Token: 0x04003FF8 RID: 16376
 		private Transform[] m_player_stars = new Transform[3];
 
-		// Token: 0x04003FF9 RID: 16377
 		private Transform m_player_chest_list;
 
-		// Token: 0x04003FFA RID: 16378
 		private XUIPool m_player_chest_pool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04003FFB RID: 16379
 		private IXUILabel m_left_time;
 
-		// Token: 0x04003FFC RID: 16380
 		private IXUILabel m_select_chest_tip;
 
-		// Token: 0x04003FFD RID: 16381
 		private Transform m_helper_tip;
 
-		// Token: 0x04003FFE RID: 16382
 		private Transform m_noneReward_tip;
 
-		// Token: 0x04003FFF RID: 16383
 		private XUIPool m_others_pool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04004000 RID: 16384
 		private IXUILabel m_watch;
 
-		// Token: 0x04004001 RID: 16385
 		private IXUILabel m_like;
 
-		// Token: 0x04004002 RID: 16386
 		private uint _token = 0U;
 
-		// Token: 0x04004003 RID: 16387
 		private uint _show_item_token = 0U;
 
-		// Token: 0x04004004 RID: 16388
 		private float _target_time = 0f;
 
-		// Token: 0x04004005 RID: 16389
 		private bool _has_show_others = false;
 
-		// Token: 0x04004006 RID: 16390
 		private LevelRewardSelectChestHandler.SelectChestStatus _select_chest_status = LevelRewardSelectChestHandler.SelectChestStatus.Begin;
 
-		// Token: 0x0200199D RID: 6557
 		public enum SelectChestStatus
 		{
-			// Token: 0x04007F45 RID: 32581
+
 			Begin,
-			// Token: 0x04007F46 RID: 32582
+
 			SelectFinish
 		}
 	}

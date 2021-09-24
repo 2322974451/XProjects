@@ -4,11 +4,10 @@ using UnityEngine;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020016DE RID: 5854
+
 	internal class XDragonPartnerHandler : DlgHandlerBase
 	{
-		// Token: 0x17003751 RID: 14161
-		// (get) Token: 0x0600F17A RID: 61818 RVA: 0x00355330 File Offset: 0x00353530
+
 		protected override string FileName
 		{
 			get
@@ -17,7 +16,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F17B RID: 61819 RVA: 0x00355348 File Offset: 0x00353548
 		protected override void Init()
 		{
 			base.Init();
@@ -35,26 +33,22 @@ namespace XMainClient.UI
 			DlgHandlerBase.EnsureCreate<XDragonHistoryHandler>(ref this.m_DragonHistoryHandler, this.m_HistoryFrame, this, false);
 		}
 
-		// Token: 0x0600F17C RID: 61820 RVA: 0x0019EEB0 File Offset: 0x0019D0B0
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 		}
 
-		// Token: 0x0600F17D RID: 61821 RVA: 0x00355481 File Offset: 0x00353681
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this._ApplyTabData(this.m_CurrentTabIndex);
 		}
 
-		// Token: 0x0600F17E RID: 61822 RVA: 0x0019EEFD File Offset: 0x0019D0FD
 		protected override void OnHide()
 		{
 			base.OnHide();
 		}
 
-		// Token: 0x0600F17F RID: 61823 RVA: 0x00355498 File Offset: 0x00353698
 		public override void OnUnload()
 		{
 			DlgHandlerBase.EnsureUnload<XDragonHistoryHandler>(ref this.m_DragonHistoryHandler);
@@ -67,7 +61,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x0600F180 RID: 61824 RVA: 0x003554E0 File Offset: 0x003536E0
 		private bool OnClickTab(IXUICheckBox cbx)
 		{
 			bool bChecked = cbx.bChecked;
@@ -79,7 +72,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F181 RID: 61825 RVA: 0x0035551C File Offset: 0x0035371C
 		private void _ApplyTabData(XDragonPartnerHandler.TabIndex tab)
 		{
 			bool flag = base.IsVisible();
@@ -103,7 +95,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F182 RID: 61826 RVA: 0x00355588 File Offset: 0x00353788
 		public override void RefreshData()
 		{
 			bool flag = !base.IsVisible();
@@ -132,38 +123,29 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04006731 RID: 26417
 		private XDragonPartnerDocument m_doc;
 
-		// Token: 0x04006732 RID: 26418
 		private XDragonPartnerHandler.TabIndex m_CurrentTabIndex = XDragonPartnerHandler.TabIndex.Record;
 
-		// Token: 0x04006733 RID: 26419
 		private XDragonRecordHandler m_DragonRecordHandler;
 
-		// Token: 0x04006734 RID: 26420
 		private XDragonHistoryHandler m_DragonHistoryHandler;
 
-		// Token: 0x04006735 RID: 26421
 		private IXUICheckBox m_Tab0;
 
-		// Token: 0x04006736 RID: 26422
 		private IXUICheckBox m_Tab1;
 
-		// Token: 0x04006737 RID: 26423
 		private GameObject m_RecordFrame;
 
-		// Token: 0x04006738 RID: 26424
 		private GameObject m_HistoryFrame;
 
-		// Token: 0x02001A02 RID: 6658
 		private enum TabIndex
 		{
-			// Token: 0x040081F2 RID: 33266
+
 			Record,
-			// Token: 0x040081F3 RID: 33267
+
 			History,
-			// Token: 0x040081F4 RID: 33268
+
 			Max
 		}
 	}

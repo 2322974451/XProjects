@@ -4,11 +4,10 @@ using ProtoBuf.Meta;
 
 namespace ProtoBuf.Serializers
 {
-	// Token: 0x02000873 RID: 2163
+
 	internal sealed class PropertyDecorator : ProtoDecoratorBase
 	{
-		// Token: 0x170029B3 RID: 10675
-		// (get) Token: 0x060083F8 RID: 33784 RVA: 0x001012EC File Offset: 0x000FF4EC
+
 		public override Type ExpectedType
 		{
 			get
@@ -17,8 +16,6 @@ namespace ProtoBuf.Serializers
 			}
 		}
 
-		// Token: 0x170029B4 RID: 10676
-		// (get) Token: 0x060083F9 RID: 33785 RVA: 0x00101304 File Offset: 0x000FF504
 		public override bool RequiresOldValue
 		{
 			get
@@ -27,8 +24,6 @@ namespace ProtoBuf.Serializers
 			}
 		}
 
-		// Token: 0x170029B5 RID: 10677
-		// (get) Token: 0x060083FA RID: 33786 RVA: 0x00101318 File Offset: 0x000FF518
 		public override bool ReturnsValue
 		{
 			get
@@ -37,7 +32,6 @@ namespace ProtoBuf.Serializers
 			}
 		}
 
-		// Token: 0x060083FB RID: 33787 RVA: 0x0010132C File Offset: 0x000FF52C
 		public PropertyDecorator(TypeModel model, Type forType, PropertyInfo property, IProtoSerializer tail) : base(tail)
 		{
 			Helpers.DebugAssert(forType != null);
@@ -48,7 +42,6 @@ namespace ProtoBuf.Serializers
 			this.shadowSetter = PropertyDecorator.GetShadowSetter(model, property);
 		}
 
-		// Token: 0x060083FC RID: 33788 RVA: 0x00101384 File Offset: 0x000FF584
 		private static void SanityCheck(TypeModel model, PropertyInfo property, IProtoSerializer tail, out bool writeValue, bool nonPublic, bool allowInternal)
 		{
 			bool flag = property == null;
@@ -69,7 +62,6 @@ namespace ProtoBuf.Serializers
 			}
 		}
 
-		// Token: 0x060083FD RID: 33789 RVA: 0x00101448 File Offset: 0x000FF648
 		private static MethodInfo GetShadowSetter(TypeModel model, PropertyInfo property)
 		{
 			Type reflectedType = property.ReflectedType;
@@ -88,7 +80,6 @@ namespace ProtoBuf.Serializers
 			return result;
 		}
 
-		// Token: 0x060083FE RID: 33790 RVA: 0x001014BC File Offset: 0x000FF6BC
 		public override void Write(object value, ProtoWriter dest)
 		{
 			Helpers.DebugAssert(value != null);
@@ -100,7 +91,6 @@ namespace ProtoBuf.Serializers
 			}
 		}
 
-		// Token: 0x060083FF RID: 33791 RVA: 0x001014FC File Offset: 0x000FF6FC
 		public override object Read(object value, ProtoReader source)
 		{
 			Helpers.DebugAssert(value != null);
@@ -123,7 +113,6 @@ namespace ProtoBuf.Serializers
 			return null;
 		}
 
-		// Token: 0x06008400 RID: 33792 RVA: 0x00101598 File Offset: 0x000FF798
 		internal static bool CanWrite(TypeModel model, MemberInfo member)
 		{
 			bool flag = member == null;
@@ -145,16 +134,12 @@ namespace ProtoBuf.Serializers
 			return result;
 		}
 
-		// Token: 0x04002905 RID: 10501
 		private readonly PropertyInfo property;
 
-		// Token: 0x04002906 RID: 10502
 		private readonly Type forType;
 
-		// Token: 0x04002907 RID: 10503
 		private readonly bool readOptionsWriteValue;
 
-		// Token: 0x04002908 RID: 10504
 		private readonly MethodInfo shadowSetter;
 	}
 }

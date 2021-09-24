@@ -9,11 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000A1E RID: 2590
+
 	internal class XBackFlowTargetHandler : DlgHandlerBase
 	{
-		// Token: 0x17002EBD RID: 11965
-		// (get) Token: 0x06009E62 RID: 40546 RVA: 0x0019FCA8 File Offset: 0x0019DEA8
+
 		protected override string FileName
 		{
 			get
@@ -22,7 +21,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009E63 RID: 40547 RVA: 0x0019FCC0 File Offset: 0x0019DEC0
 		protected override void Init()
 		{
 			base.Init();
@@ -59,27 +57,23 @@ namespace XMainClient
 			this._dragonBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnGotoDragon));
 		}
 
-		// Token: 0x06009E64 RID: 40548 RVA: 0x001A0024 File Offset: 0x0019E224
 		private bool OnGotoNest(IXUIButton button)
 		{
 			XSingleton<XGameSysMgr>.singleton.OpenSystem(XSysDefine.XSys_Activity_Nest, 0UL);
 			return true;
 		}
 
-		// Token: 0x06009E65 RID: 40549 RVA: 0x001A004C File Offset: 0x0019E24C
 		private bool OnGotoDragon(IXUIButton button)
 		{
 			DlgBase<XDragonNestView, XDragonNestBehaviour>.singleton.ShowDragonNestByTypeAndDiff(1U, 0U);
 			return true;
 		}
 
-		// Token: 0x06009E66 RID: 40550 RVA: 0x0019EEB0 File Offset: 0x0019D0B0
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 		}
 
-		// Token: 0x06009E67 RID: 40551 RVA: 0x001A006C File Offset: 0x0019E26C
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -88,14 +82,12 @@ namespace XMainClient
 			XBackFlowDocument.Doc.SendBackFlowActivityOperation(BackFlowActOp.BackFlowAct_TreasureData, 0U);
 		}
 
-		// Token: 0x06009E68 RID: 40552 RVA: 0x001A0097 File Offset: 0x0019E297
 		protected override void OnHide()
 		{
 			this.DiscardOutlook();
 			base.OnHide();
 		}
 
-		// Token: 0x06009E69 RID: 40553 RVA: 0x001A00A8 File Offset: 0x0019E2A8
 		private void DiscardOutlook()
 		{
 			this._outLook = null;
@@ -107,21 +99,18 @@ namespace XMainClient
 			base.Return3DAvatarPool();
 		}
 
-		// Token: 0x06009E6A RID: 40554 RVA: 0x001A00EB File Offset: 0x0019E2EB
 		public override void OnUnload()
 		{
 			this.DiscardOutlook();
 			base.OnUnload();
 		}
 
-		// Token: 0x06009E6B RID: 40555 RVA: 0x001A00FC File Offset: 0x0019E2FC
 		public override void RefreshData()
 		{
 			base.RefreshData();
 			this.RefreshUI();
 		}
 
-		// Token: 0x06009E6C RID: 40556 RVA: 0x001A0110 File Offset: 0x0019E310
 		private void RefreshUI()
 		{
 			XPlayerAttributes xplayerData = XSingleton<XAttributeMgr>.singleton.XPlayerData;
@@ -160,7 +149,6 @@ namespace XMainClient
 			this._nestLeftTimes.SetText(XBackFlowDocument.Doc.NestLeftTimes + "/" + XSingleton<XGlobalConfig>.singleton.GetInt("BackFlowNestFinishCountLimit"));
 		}
 
-		// Token: 0x06009E6D RID: 40557 RVA: 0x001A03EC File Offset: 0x0019E5EC
 		private void InitOutlook()
 		{
 			this._outLook = new OutLook();
@@ -170,7 +158,6 @@ namespace XMainClient
 			this._outLook.display_fashion.special_effects_id = 0U;
 		}
 
-		// Token: 0x06009E6E RID: 40558 RVA: 0x001A0458 File Offset: 0x0019E658
 		private void OnItemIconClicked(IXUISprite iSp)
 		{
 			int num = (int)iSp.ID;
@@ -193,58 +180,40 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0400382C RID: 14380
 		private IUIDummy _playerDummy;
 
-		// Token: 0x0400382D RID: 14381
 		private Transform _itemsRoot;
 
-		// Token: 0x0400382E RID: 14382
 		private SeqList<int> _itemDataList;
 
-		// Token: 0x0400382F RID: 14383
 		private IXUIProgress _progress;
 
-		// Token: 0x04003830 RID: 14384
 		private IXUISprite _proSpite;
 
-		// Token: 0x04003831 RID: 14385
 		protected XUIPool _itemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04003832 RID: 14386
 		private OutLook _outLook = new OutLook();
 
-		// Token: 0x04003833 RID: 14387
 		private List<uint> _fashionList = new List<uint>();
 
-		// Token: 0x04003834 RID: 14388
 		private XDummy _dummy;
 
-		// Token: 0x04003835 RID: 14389
 		private IXUIButton _nestBtn;
 
-		// Token: 0x04003836 RID: 14390
 		private IXUIButton _dragonBtn;
 
-		// Token: 0x04003837 RID: 14391
 		private IXUILabel _pointLabel;
 
-		// Token: 0x04003838 RID: 14392
 		private IXUILabel _dragonDescLabel;
 
-		// Token: 0x04003839 RID: 14393
 		private IXUILabel _dragonPointLabel;
 
-		// Token: 0x0400383A RID: 14394
 		private IXUILabel _nestDescLabel;
 
-		// Token: 0x0400383B RID: 14395
 		private IXUILabel _nestPointLabel;
 
-		// Token: 0x0400383C RID: 14396
 		private IXUILabel _nestLeftTimes;
 
-		// Token: 0x0400383D RID: 14397
 		private IXUILabel _dragonLeftTimes;
 	}
 }

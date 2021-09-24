@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x020009D4 RID: 2516
+
 	internal class XAchievementDocument : XDocComponent
 	{
-		// Token: 0x17002DC2 RID: 11714
-		// (get) Token: 0x060098FC RID: 39164 RVA: 0x0017C9F8 File Offset: 0x0017ABF8
+
 		public override uint ID
 		{
 			get
@@ -19,9 +18,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002DC3 RID: 11715
-		// (get) Token: 0x060098FD RID: 39165 RVA: 0x0017CA10 File Offset: 0x0017AC10
-		// (set) Token: 0x060098FE RID: 39166 RVA: 0x0017CA28 File Offset: 0x0017AC28
 		public XAchievementView AchievementView
 		{
 			get
@@ -34,9 +30,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002DC4 RID: 11716
-		// (get) Token: 0x060098FF RID: 39167 RVA: 0x0017CA34 File Offset: 0x0017AC34
-		// (set) Token: 0x06009900 RID: 39168 RVA: 0x0017CA4C File Offset: 0x0017AC4C
 		public XLifeTargetView LifeTargetView
 		{
 			get
@@ -49,9 +42,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002DC5 RID: 11717
-		// (get) Token: 0x06009901 RID: 39169 RVA: 0x0017CA58 File Offset: 0x0017AC58
-		// (set) Token: 0x06009902 RID: 39170 RVA: 0x0017CA70 File Offset: 0x0017AC70
 		public XMainInterface HallMainView
 		{
 			get
@@ -64,9 +54,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002DC6 RID: 11718
-		// (get) Token: 0x06009903 RID: 39171 RVA: 0x0017CA7C File Offset: 0x0017AC7C
-		// (set) Token: 0x06009904 RID: 39172 RVA: 0x0017CA94 File Offset: 0x0017AC94
 		public XServerActivityView ServerActivityView
 		{
 			get
@@ -79,9 +66,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002DC7 RID: 11719
-		// (get) Token: 0x06009905 RID: 39173 RVA: 0x0017CAA0 File Offset: 0x0017ACA0
-		// (set) Token: 0x06009906 RID: 39174 RVA: 0x0017CAB8 File Offset: 0x0017ACB8
 		public XRewardLevelView RewardLevelView
 		{
 			get
@@ -94,9 +78,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002DC8 RID: 11720
-		// (get) Token: 0x06009907 RID: 39175 RVA: 0x0017CAC4 File Offset: 0x0017ACC4
-		// (set) Token: 0x06009908 RID: 39176 RVA: 0x0017CADC File Offset: 0x0017ACDC
 		public WeekShareRewardHandler ShareHandler
 		{
 			get
@@ -109,9 +90,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002DC9 RID: 11721
-		// (get) Token: 0x06009909 RID: 39177 RVA: 0x0017CAE8 File Offset: 0x0017ACE8
-		// (set) Token: 0x0600990A RID: 39178 RVA: 0x0017CB00 File Offset: 0x0017AD00
 		public uint FirstPassSceneID
 		{
 			get
@@ -124,9 +102,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002DCA RID: 11722
-		// (get) Token: 0x0600990B RID: 39179 RVA: 0x0017CB0C File Offset: 0x0017AD0C
-		// (set) Token: 0x0600990C RID: 39180 RVA: 0x0017CB24 File Offset: 0x0017AD24
 		public bool HasWeekReward
 		{
 			get
@@ -139,19 +114,14 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002DCB RID: 11723
-		// (get) Token: 0x0600990D RID: 39181 RVA: 0x0017CB2E File Offset: 0x0017AD2E
-		// (set) Token: 0x0600990E RID: 39182 RVA: 0x0017CB36 File Offset: 0x0017AD36
 		public bool Monday { get; private set; }
 
-		// Token: 0x0600990F RID: 39183 RVA: 0x0017CB3F File Offset: 0x0017AD3F
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			XAchievementDocument.AsyncLoader.AddTask("Table/AchivementList", XAchievementDocument._reader, false);
 			XAchievementDocument.AsyncLoader.Execute(callback);
 		}
 
-		// Token: 0x06009910 RID: 39184 RVA: 0x0017CB64 File Offset: 0x0017AD64
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
@@ -190,7 +160,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009911 RID: 39185 RVA: 0x0017CCA4 File Offset: 0x0017AEA4
 		public void InitAchivement(List<StcAchieveInfo> list)
 		{
 			this.achivement.Clear();
@@ -204,7 +173,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009912 RID: 39186 RVA: 0x0017CD04 File Offset: 0x0017AF04
 		public void SetAchivementState(uint aid, uint state)
 		{
 			this.achivement[aid] = state;
@@ -230,7 +198,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009913 RID: 39187 RVA: 0x0017CDB8 File Offset: 0x0017AFB8
 		public AchivementState GetAchivementState(uint aid)
 		{
 			uint num;
@@ -247,13 +214,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009914 RID: 39188 RVA: 0x0017CDE4 File Offset: 0x0017AFE4
 		public AchivementTable.RowData GetAchivementData(uint aid)
 		{
 			return XAchievementDocument._reader.GetByAchievementID((int)aid);
 		}
 
-		// Token: 0x06009915 RID: 39189 RVA: 0x0017CE04 File Offset: 0x0017B004
 		public int GetAchivementFatigue(uint aid)
 		{
 			int num = 0;
@@ -273,7 +238,6 @@ namespace XMainClient
 			return num;
 		}
 
-		// Token: 0x06009916 RID: 39190 RVA: 0x0017CE7C File Offset: 0x0017B07C
 		public bool HasCompleteAchivement(XSysDefine sys = XSysDefine.XSys_Reward_Achivement)
 		{
 			bool flag = sys == XSysDefine.XSys_LevelReward;
@@ -319,7 +283,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009917 RID: 39191 RVA: 0x0017CF9C File Offset: 0x0017B19C
 		public bool HasCompleteAchivement(int catergory)
 		{
 			foreach (KeyValuePair<uint, uint> keyValuePair in this.achivement)
@@ -334,7 +297,6 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x06009918 RID: 39192 RVA: 0x0017D02C File Offset: 0x0017B22C
 		public void FetchAchivement(uint achivementID)
 		{
 			RpcC2G_FetchAchivementReward rpcC2G_FetchAchivementReward = new RpcC2G_FetchAchivementReward();
@@ -342,7 +304,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_FetchAchivementReward);
 		}
 
-		// Token: 0x06009919 RID: 39193 RVA: 0x0017D05C File Offset: 0x0017B25C
 		public void UpdateShowingAchivementList(ref List<uint> Achived, ref List<uint> NotAchived)
 		{
 			uint level = XSingleton<XAttributeMgr>.singleton.XPlayerData.Level;
@@ -398,7 +359,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600991A RID: 39194 RVA: 0x0017D20C File Offset: 0x0017B40C
 		public void UpdateShowingAchivementListWithoutMergeType(ref List<uint> Achived, ref List<uint> NotAchived)
 		{
 			uint level = XSingleton<XAttributeMgr>.singleton.XPlayerData.Level;
@@ -431,7 +391,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600991B RID: 39195 RVA: 0x0017D2DC File Offset: 0x0017B4DC
 		public AchivementTable.RowData GetFirstLifeTarget(out AchivementState ltState)
 		{
 			AchivementTable.RowData rowData = null;
@@ -469,7 +428,6 @@ namespace XMainClient
 			return rowData;
 		}
 
-		// Token: 0x0600991C RID: 39196 RVA: 0x0017D3B0 File Offset: 0x0017B5B0
 		public List<int> GetCatergoryActivity(int catergoryID)
 		{
 			List<int> list = new List<int>();
@@ -486,7 +444,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600991D RID: 39197 RVA: 0x0017D3E0 File Offset: 0x0017B5E0
 		public void GetAllCatergory(ref List<int> CatergoryIDs, ref List<string> CatergoryStrings)
 		{
 			foreach (KeyValuePair<int, List<int>> keyValuePair in this._ServerActivitys)
@@ -500,7 +457,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600991E RID: 39198 RVA: 0x0017D484 File Offset: 0x0017B684
 		public void GetLevelRewardCatergory(ref List<int> CatergoryIDs, ref List<string> CatergoryStrings)
 		{
 			foreach (KeyValuePair<int, List<int>> keyValuePair in this._ServerActivitys)
@@ -515,7 +471,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600991F RID: 39199 RVA: 0x0017D514 File Offset: 0x0017B714
 		public void SetOpenServerActivityTime(uint second)
 		{
 			bool flag = this._serverActivityView != null && this._serverActivityView.IsVisible();
@@ -530,7 +485,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009920 RID: 39200 RVA: 0x0017D570 File Offset: 0x0017B770
 		public void UpdateShareRewardsInfo(PlatformShareAwardPara data)
 		{
 			bool flag = data != null;
@@ -548,7 +502,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009921 RID: 39201 RVA: 0x0017D5E4 File Offset: 0x0017B7E4
 		public void SendWeekShareSuccess(uint sceneID)
 		{
 			XSingleton<XDebug>.singleton.AddLog("SendWeekShareSuccess", null, null, null, null, null, XDebugColor.XDebug_None);
@@ -557,7 +510,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(ptcC2G_NotifyPlatShareResult);
 		}
 
-		// Token: 0x06009922 RID: 39202 RVA: 0x0017D62C File Offset: 0x0017B82C
 		public void DisappearMonday()
 		{
 			this.Monday = true;
@@ -567,14 +519,12 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(ptcC2G_NotifyPlatShareResult);
 		}
 
-		// Token: 0x06009923 RID: 39203 RVA: 0x0017D670 File Offset: 0x0017B870
 		public void SendToGetWeekShareReward()
 		{
 			RpcC2G_GetPlatShareAward rpc = new RpcC2G_GetPlatShareAward();
 			XSingleton<XClientNetwork>.singleton.Send(rpc);
 		}
 
-		// Token: 0x06009924 RID: 39204 RVA: 0x0017D690 File Offset: 0x0017B890
 		public void OnGetPlatShareAward()
 		{
 			this._hasWeekReward = false;
@@ -586,57 +536,40 @@ namespace XMainClient
 			XSingleton<XGameSysMgr>.singleton.RecalculateRedPointState(XSysDefine.XSys_WeekShareReward, true);
 		}
 
-		// Token: 0x06009925 RID: 39205 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 		}
 
-		// Token: 0x04003470 RID: 13424
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("AchievementDocument");
 
-		// Token: 0x04003471 RID: 13425
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x04003472 RID: 13426
 		private static AchivementTable _reader = new AchivementTable();
 
-		// Token: 0x04003473 RID: 13427
 		public Dictionary<uint, uint> achivement = new Dictionary<uint, uint>();
 
-		// Token: 0x04003474 RID: 13428
 		private XAchievementView _AchievementView = null;
 
-		// Token: 0x04003475 RID: 13429
 		private XLifeTargetView _LifeTargetView = null;
 
-		// Token: 0x04003476 RID: 13430
 		private XMainInterface _HallMainView = null;
 
-		// Token: 0x04003477 RID: 13431
 		private XServerActivityView _serverActivityView = null;
 
-		// Token: 0x04003478 RID: 13432
 		private XRewardLevelView _rewardLevelView = null;
 
-		// Token: 0x04003479 RID: 13433
 		private WeekShareRewardHandler _shareHandler = null;
 
-		// Token: 0x0400347A RID: 13434
 		private uint _firstPassSceneID = 0U;
 
-		// Token: 0x0400347C RID: 13436
 		public static int ServerActivityCatergoryBound = 500;
 
-		// Token: 0x0400347D RID: 13437
 		public Dictionary<int, List<int>> _ServerActivitys = new Dictionary<int, List<int>>();
 
-		// Token: 0x0400347E RID: 13438
 		public Dictionary<int, string> _CatergoryStrings = new Dictionary<int, string>();
 
-		// Token: 0x0400347F RID: 13439
 		private int _levelRewardPacksCatergory = 0;
 
-		// Token: 0x04003480 RID: 13440
 		private bool _hasWeekReward = false;
 	}
 }

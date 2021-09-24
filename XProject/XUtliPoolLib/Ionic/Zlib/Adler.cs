@@ -2,10 +2,10 @@
 
 namespace Ionic.Zlib
 {
-	// Token: 0x0200003A RID: 58
+
 	public sealed class Adler
 	{
-		// Token: 0x0600019E RID: 414 RVA: 0x0000EE24 File Offset: 0x0000D024
+
 		public static uint Adler32(uint adler, byte[] buf, int index, int len)
 		{
 			bool flag = buf == null;
@@ -76,10 +76,8 @@ namespace Ionic.Zlib
 			return result;
 		}
 
-		// Token: 0x040001CA RID: 458
 		private static readonly uint BASE = 65521U;
 
-		// Token: 0x040001CB RID: 459
 		private static readonly int NMAX = 5552;
 	}
 }

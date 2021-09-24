@@ -4,16 +4,14 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C2E RID: 3118
+
 	internal class GuildFarmland : Farmland
 	{
-		// Token: 0x0600B0AF RID: 45231 RVA: 0x0021C2AD File Offset: 0x0021A4AD
+
 		public GuildFarmland(uint farmlandId) : base(farmlandId)
 		{
 		}
 
-		// Token: 0x17003132 RID: 12594
-		// (get) Token: 0x0600B0B0 RID: 45232 RVA: 0x0021C2B8 File Offset: 0x0021A4B8
 		public override int BreakLevel
 		{
 			get
@@ -37,8 +35,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003133 RID: 12595
-		// (get) Token: 0x0600B0B1 RID: 45233 RVA: 0x0021C33C File Offset: 0x0021A53C
 		protected override Vector3 BoardRotation
 		{
 			get
@@ -47,7 +43,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B0B2 RID: 45234 RVA: 0x0021C364 File Offset: 0x0021A564
 		protected override void SetPerfab()
 		{
 			base.DestroyPerfab();

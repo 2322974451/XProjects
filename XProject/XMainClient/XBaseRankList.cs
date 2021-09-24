@@ -4,23 +4,20 @@ using KKSG;
 
 namespace XMainClient
 {
-	// Token: 0x02000D82 RID: 3458
+
 	public class XBaseRankList
 	{
-		// Token: 0x0600BCBC RID: 48316 RVA: 0x0026E8A8 File Offset: 0x0026CAA8
+
 		public virtual XBaseRankInfo CreateNewInfo()
 		{
 			return new XBaseRankInfo();
 		}
 
-		// Token: 0x0600BCBD RID: 48317 RVA: 0x0026E8C0 File Offset: 0x0026CAC0
 		public virtual XBaseRankInfo GetLatestMyRankInfo()
 		{
 			return this.myRankInfo;
 		}
 
-		// Token: 0x1700331A RID: 13082
-		// (get) Token: 0x0600BCBE RID: 48318 RVA: 0x0026E8D8 File Offset: 0x0026CAD8
 		public RankeType KKSGType
 		{
 			get
@@ -29,7 +26,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BCBF RID: 48319 RVA: 0x0026E8F8 File Offset: 0x0026CAF8
 		public static RankeType GetKKSGType(XRankType type)
 		{
 			switch (type)
@@ -90,7 +86,6 @@ namespace XMainClient
 			return RankeType.PowerPointRank;
 		}
 
-		// Token: 0x0600BCC0 RID: 48320 RVA: 0x0026EA08 File Offset: 0x0026CC08
 		public static XRankType GetXType(RankeType type)
 		{
 			switch (type)
@@ -153,19 +148,14 @@ namespace XMainClient
 			return XRankType.InValid;
 		}
 
-		// Token: 0x04004CA4 RID: 19620
 		public List<XBaseRankInfo> rankList = new List<XBaseRankInfo>();
 
-		// Token: 0x04004CA5 RID: 19621
 		public XBaseRankInfo myRankInfo;
 
-		// Token: 0x04004CA6 RID: 19622
 		public uint upperBound = 1000U;
 
-		// Token: 0x04004CA7 RID: 19623
 		public uint timeStamp = 0U;
 
-		// Token: 0x04004CA8 RID: 19624
 		public XRankType type = XRankType.PPTRank;
 	}
 }

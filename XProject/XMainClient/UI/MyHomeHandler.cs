@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017A6 RID: 6054
+
 	internal class MyHomeHandler : DlgHandlerBase
 	{
-		// Token: 0x1700386A RID: 14442
-		// (get) Token: 0x0600FA4D RID: 64077 RVA: 0x0039D0DC File Offset: 0x0039B2DC
+
 		protected override string FileName
 		{
 			get
@@ -20,7 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FA4E RID: 64078 RVA: 0x0039D0F4 File Offset: 0x0039B2F4
 		protected override void Init()
 		{
 			base.Init();
@@ -48,40 +46,34 @@ namespace XMainClient.UI
 			this.m_doc.HomeHandler = this;
 		}
 
-		// Token: 0x0600FA4F RID: 64079 RVA: 0x0039D30F File Offset: 0x0039B50F
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			this.m_gotoMyHome.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnGotoHome));
 		}
 
-		// Token: 0x0600FA50 RID: 64080 RVA: 0x0039D331 File Offset: 0x0039B531
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.FillContent();
 		}
 
-		// Token: 0x0600FA51 RID: 64081 RVA: 0x0039D342 File Offset: 0x0039B542
 		protected override void OnHide()
 		{
 			this.m_LogItemPool.ReturnAll(false);
 			base.OnHide();
 		}
 
-		// Token: 0x0600FA52 RID: 64082 RVA: 0x0019EF07 File Offset: 0x0019D107
 		public override void OnUnload()
 		{
 			base.OnUnload();
 		}
 
-		// Token: 0x0600FA53 RID: 64083 RVA: 0x0039D359 File Offset: 0x0039B559
 		public void RefreshUi()
 		{
 			this.FillContent();
 		}
 
-		// Token: 0x0600FA54 RID: 64084 RVA: 0x0039D364 File Offset: 0x0039B564
 		private void FillContent()
 		{
 			this.m_redDotGo.SetActive(this.m_doc.IsHadRedDot);
@@ -166,7 +158,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FA55 RID: 64085 RVA: 0x0039D774 File Offset: 0x0039B974
 		private void SetHomeLog()
 		{
 			this.m_LogItemPool.ReturnAll(false);
@@ -186,7 +177,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FA56 RID: 64086 RVA: 0x0039D86C File Offset: 0x0039BA6C
 		private void FriendsRankWrapItemUpdated(Transform t, int index)
 		{
 			bool flag = this.m_doc.PlantFriendList == null;
@@ -223,7 +213,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FA57 RID: 64087 RVA: 0x0039D9F0 File Offset: 0x0039BBF0
 		private void SetRank(Transform tra, int rankIndex)
 		{
 			IXUILabel ixuilabel = tra.FindChild("Rank").GetComponent("XUILabel") as IXUILabel;
@@ -252,7 +241,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FA58 RID: 64088 RVA: 0x0039DAB0 File Offset: 0x0039BCB0
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
@@ -276,7 +264,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FA59 RID: 64089 RVA: 0x0039DB64 File Offset: 0x0039BD64
 		private string GetTimeString(long ti)
 		{
 			bool flag = ti < 60L;
@@ -311,7 +298,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FA5A RID: 64090 RVA: 0x0039DC1C File Offset: 0x0039BE1C
 		private bool OnGotoHome(IXUIButton btn)
 		{
 			SceneType sceneType = XSingleton<XScene>.singleton.SceneType;
@@ -331,7 +317,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FA5B RID: 64091 RVA: 0x0039DCB4 File Offset: 0x0039BEB4
 		private bool OnGotoOtherHome(IXUIButton btn)
 		{
 			FriendPlantLog friendPlantLog = this.m_doc.PlantFriendList[(int)btn.ID];
@@ -362,52 +347,36 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x04006DAB RID: 28075
 		private XUIPool m_ItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006DAC RID: 28076
 		private XUIPool m_LogItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006DAD RID: 28077
 		private IXUIButton m_gotoMyHome;
 
-		// Token: 0x04006DAE RID: 28078
 		private Transform m_visitedTimesTra;
 
-		// Token: 0x04006DAF RID: 28079
 		private Transform m_fishingLevelTra;
 
-		// Token: 0x04006DB0 RID: 28080
 		private Transform m_baitNumTra;
 
-		// Token: 0x04006DB1 RID: 28081
 		private Transform m_plantNumTra;
 
-		// Token: 0x04006DB2 RID: 28082
 		private Transform m_harvestTimeTra;
 
-		// Token: 0x04006DB3 RID: 28083
 		private Transform m_homeStatusTra;
 
-		// Token: 0x04006DB4 RID: 28084
 		private GameObject m_hadFriendsGo;
 
-		// Token: 0x04006DB5 RID: 28085
 		private GameObject m_noFriendsGo;
 
-		// Token: 0x04006DB6 RID: 28086
 		private GameObject m_hadInfoGo;
 
-		// Token: 0x04006DB7 RID: 28087
 		private GameObject m_noInfoGo;
 
-		// Token: 0x04006DB8 RID: 28088
 		private GameObject m_redDotGo;
 
-		// Token: 0x04006DB9 RID: 28089
 		private IXUIWrapContent m_friendsRankWrap;
 
-		// Token: 0x04006DBA RID: 28090
 		private HomeMainDocument m_doc;
 	}
 }

@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017A9 RID: 6057
+
 	internal class TitanbarView : DlgBase<TitanbarView, TitanBarBehaviour>
 	{
-		// Token: 0x1700386D RID: 14445
-		// (get) Token: 0x0600FA6A RID: 64106 RVA: 0x0039E1CC File Offset: 0x0039C3CC
+
 		public override string fileName
 		{
 			get
@@ -19,8 +18,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700386E RID: 14446
-		// (get) Token: 0x0600FA6B RID: 64107 RVA: 0x0039E1E4 File Offset: 0x0039C3E4
 		public override int layer
 		{
 			get
@@ -29,8 +26,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700386F RID: 14447
-		// (get) Token: 0x0600FA6C RID: 64108 RVA: 0x0039E1F8 File Offset: 0x0039C3F8
 		public override bool autoload
 		{
 			get
@@ -39,7 +34,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FA6D RID: 64109 RVA: 0x0039E20C File Offset: 0x0039C40C
 		protected override void Init()
 		{
 			base.Init();
@@ -51,14 +45,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FA6E RID: 64110 RVA: 0x0039E270 File Offset: 0x0039C470
 		public void SetTitanItems(XSysDefine sys)
 		{
 			int[] titanItems = this._GetItemIDs(sys);
 			this.SetTitanItems(titanItems);
 		}
 
-		// Token: 0x0600FA6F RID: 64111 RVA: 0x0039E290 File Offset: 0x0039C490
 		public void SetTitanItems(int[] itemids)
 		{
 			base.uiBehaviour.m_ItemPool.FakeReturnAll();
@@ -83,7 +75,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_ItemPool.ActualReturnAll(false);
 		}
 
-		// Token: 0x0600FA70 RID: 64112 RVA: 0x0039E3C4 File Offset: 0x0039C5C4
 		public void TryRefresh(List<int> itemids)
 		{
 			bool flag = !base.IsVisible();
@@ -96,7 +87,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FA71 RID: 64113 RVA: 0x0039E408 File Offset: 0x0039C608
 		public void TryRefresh(int itemid)
 		{
 			bool flag = !base.IsVisible();
@@ -114,7 +104,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FA72 RID: 64114 RVA: 0x0039E480 File Offset: 0x0039C680
 		private int[] _GetItemIDs(XSysDefine sys)
 		{
 			OpenSystemTable.RowData sysData = XSingleton<XGameSysMgr>.singleton.GetSysData(XFastEnumIntEqualityComparer<XSysDefine>.ToInt(sys));
@@ -131,7 +120,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x04006DC4 RID: 28100
 		private int[] m_DefaultItemID;
 	}
 }

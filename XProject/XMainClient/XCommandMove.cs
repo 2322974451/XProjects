@@ -6,10 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000DD1 RID: 3537
+
 	internal class XCommandMove : XBaseCommand
 	{
-		// Token: 0x0600C0B0 RID: 49328 RVA: 0x0028CE64 File Offset: 0x0028B064
+
 		public override bool Execute()
 		{
 			this._time = XSingleton<XTimerMgr>.singleton.SetTimer(this._cmd.interalDelay, new XTimerMgr.ElapsedEventHandler(this.ShowVT), null);
@@ -17,7 +17,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600C0B1 RID: 49329 RVA: 0x0028CEA8 File Offset: 0x0028B0A8
 		protected void ShowVT(object o)
 		{
 			this._startTime = Time.time;
@@ -30,7 +29,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C0B2 RID: 49330 RVA: 0x0028CF00 File Offset: 0x0028B100
 		public override void Stop()
 		{
 			DlgBase<VirtualJoystick, VirtualJoystickBehaviour>.singleton.ShowPanel(false, Vector2.zero);
@@ -46,7 +44,6 @@ namespace XMainClient
 			XSingleton<XTutorialMgr>.singleton.Exculsive = false;
 		}
 
-		// Token: 0x04005075 RID: 20597
 		private uint _time = 0U;
 	}
 }

@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000A61 RID: 2657
+
 	internal class XShowSameQualityItemsView : DlgBase<XShowSameQualityItemsView, XShowSameQualityItemsBehavior>
 	{
-		// Token: 0x17002F17 RID: 12055
-		// (get) Token: 0x0600A127 RID: 41255 RVA: 0x001B2F18 File Offset: 0x001B1118
+
 		public override string fileName
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002F18 RID: 12056
-		// (get) Token: 0x0600A128 RID: 41256 RVA: 0x001B2F30 File Offset: 0x001B1130
 		public override bool autoload
 		{
 			get
@@ -31,26 +28,22 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A129 RID: 41257 RVA: 0x001B2F43 File Offset: 0x001B1143
 		protected override void OnLoad()
 		{
 			base.OnLoad();
 		}
 
-		// Token: 0x0600A12A RID: 41258 RVA: 0x001B2F4D File Offset: 0x001B114D
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 		}
 
-		// Token: 0x0600A12B RID: 41259 RVA: 0x001B2F57 File Offset: 0x001B1157
 		protected override void OnUnload()
 		{
 			this._handler = null;
 			base.OnUnload();
 		}
 
-		// Token: 0x0600A12C RID: 41260 RVA: 0x001B2F68 File Offset: 0x001B1168
 		protected override void Init()
 		{
 			base.Init();
@@ -60,20 +53,17 @@ namespace XMainClient
 			base.uiBehaviour.CloseBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseView));
 		}
 
-		// Token: 0x0600A12D RID: 41261 RVA: 0x001B2FF1 File Offset: 0x001B11F1
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.RefreshUI();
 		}
 
-		// Token: 0x0600A12E RID: 41262 RVA: 0x001B3002 File Offset: 0x001B1202
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
 		}
 
-		// Token: 0x0600A12F RID: 41263 RVA: 0x001B300C File Offset: 0x001B120C
 		private void OnWrapContentInit(Transform itemTransform, int index)
 		{
 			IXUISprite ixuisprite = itemTransform.Find("Item1/Count/Add").GetComponent("XUISprite") as IXUISprite;
@@ -86,7 +76,6 @@ namespace XMainClient
 			ixuisprite4.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnSubItem));
 		}
 
-		// Token: 0x0600A130 RID: 41264 RVA: 0x001B30D4 File Offset: 0x001B12D4
 		private void OnSubItem(IXUISprite uiSprite)
 		{
 			int num = (int)uiSprite.ID;
@@ -117,7 +106,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A131 RID: 41265 RVA: 0x001B323C File Offset: 0x001B143C
 		private void OnAddItem(IXUISprite uiSprite)
 		{
 			int num = (int)uiSprite.ID;
@@ -172,7 +160,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A132 RID: 41266 RVA: 0x001B34C4 File Offset: 0x001B16C4
 		private void OnUpdateWrapContentItem(Transform itemTransform, int index)
 		{
 			bool flag = index * 2 >= this._itemList.Count;
@@ -199,7 +186,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A133 RID: 41267 RVA: 0x001B3588 File Offset: 0x001B1788
 		private void UpdateSubItem(Transform item, XItem info, int index)
 		{
 			IXUISprite ixuisprite = item.Find("Count/Add").GetComponent("XUISprite") as IXUISprite;
@@ -216,7 +202,6 @@ namespace XMainClient
 			ixuisprite3.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnClickItemIcon));
 		}
 
-		// Token: 0x0600A134 RID: 41268 RVA: 0x001B3690 File Offset: 0x001B1890
 		private void OnClickItemIcon(IXUISprite spr)
 		{
 			XItem xitem = null;
@@ -236,14 +221,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A135 RID: 41269 RVA: 0x001B3702 File Offset: 0x001B1902
 		protected override void OnHide()
 		{
 			this.ClearData();
 			base.OnHide();
 		}
 
-		// Token: 0x0600A136 RID: 41270 RVA: 0x001B3713 File Offset: 0x001B1913
 		private void ClearData()
 		{
 			this._handler = null;
@@ -254,7 +237,6 @@ namespace XMainClient
 			this._maxNeeded = 0;
 		}
 
-		// Token: 0x0600A137 RID: 41271 RVA: 0x001B374C File Offset: 0x001B194C
 		public void ShowView(XShowSameQualityItemsView.SelectItemsHandler handler, ItemType type, ItemQuality quality, string tip, int maxNeeded, int current = 0)
 		{
 			this._handler = handler;
@@ -267,7 +249,6 @@ namespace XMainClient
 			this.SetVisibleWithAnimation(true, null);
 		}
 
-		// Token: 0x0600A138 RID: 41272 RVA: 0x001B37B2 File Offset: 0x001B19B2
 		public void ShowView(XShowSameQualityItemsView.SelectItemsHandler handler, List<XItem> itemList, string tip, int maxNeeded, int current = 0)
 		{
 			this._handler = handler;
@@ -278,7 +259,6 @@ namespace XMainClient
 			this.SetVisibleWithAnimation(true, null);
 		}
 
-		// Token: 0x0600A139 RID: 41273 RVA: 0x001B37E4 File Offset: 0x001B19E4
 		private void RefreshUI()
 		{
 			this._itemIDAndNumber.Clear();
@@ -290,7 +270,6 @@ namespace XMainClient
 			base.uiBehaviour.TipStr.SetText(this._tip);
 		}
 
-		// Token: 0x0600A13A RID: 41274 RVA: 0x001B3898 File Offset: 0x001B1A98
 		private int SortItemList(XItem x, XItem y)
 		{
 			bool flag = x.itemConf.ReqLevel != y.itemConf.ReqLevel;
@@ -306,7 +285,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A13B RID: 41275 RVA: 0x001B38F0 File Offset: 0x001B1AF0
 		private bool OnOkBtnClicked(IXUIButton button)
 		{
 			List<ulong> list = new List<ulong>();
@@ -331,7 +309,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600A13C RID: 41276 RVA: 0x001B39AC File Offset: 0x001B1BAC
 		private void Close()
 		{
 			this._itemList.Clear();
@@ -340,42 +317,30 @@ namespace XMainClient
 			this.SetVisible(false, true);
 		}
 
-		// Token: 0x0600A13D RID: 41277 RVA: 0x001B39D8 File Offset: 0x001B1BD8
 		private bool OnCloseView(IXUIButton button)
 		{
 			this.Close();
 			return true;
 		}
 
-		// Token: 0x040039F6 RID: 14838
 		private XShowSameQualityItemsView.SelectItemsHandler _handler = null;
 
-		// Token: 0x040039F7 RID: 14839
 		private List<XItem> _itemList = new List<XItem>();
 
-		// Token: 0x040039F8 RID: 14840
 		private ItemType _itemType;
 
-		// Token: 0x040039F9 RID: 14841
 		private ItemQuality _itemQuality;
 
-		// Token: 0x040039FA RID: 14842
 		private string _tip;
 
-		// Token: 0x040039FB RID: 14843
 		private Dictionary<int, List<ulong>> _itemIDAndNumber = new Dictionary<int, List<ulong>>();
 
-		// Token: 0x040039FC RID: 14844
 		private int _totalNumber = 0;
 
-		// Token: 0x040039FD RID: 14845
 		private int _maxNeeded;
 
-		// Token: 0x040039FE RID: 14846
 		private int _curProgress = 0;
 
-		// Token: 0x0200198C RID: 6540
-		// (Invoke) Token: 0x0601101B RID: 69659
 		public delegate void SelectItemsHandler(List<ulong> itemList);
 	}
 }

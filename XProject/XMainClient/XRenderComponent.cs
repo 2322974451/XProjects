@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000FE0 RID: 4064
+
 	internal class XRenderComponent : XComponent
 	{
-		// Token: 0x170036DB RID: 14043
-		// (get) Token: 0x0600D317 RID: 54039 RVA: 0x00316C70 File Offset: 0x00314E70
+
 		public override uint ID
 		{
 			get
@@ -19,19 +18,16 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D318 RID: 54040 RVA: 0x00316C88 File Offset: 0x00314E88
 		public XRenderComponent()
 		{
 			this._onHitBackCb = new XTimerMgr.ElapsedEventHandler(this.OnHitBack);
 		}
 
-		// Token: 0x0600D319 RID: 54041 RVA: 0x00316D40 File Offset: 0x00314F40
 		public static bool HasRenderComponent(XEntity e, bool hasFadeEffect)
 		{
 			return (e.IsRole && !e.IsPlayer && XSingleton<XGame>.singleton.CurrentStage.Stage == EXStage.Hall) || (XSingleton<XGame>.singleton.CurrentStage.Stage == EXStage.World && hasFadeEffect);
 		}
 
-		// Token: 0x0600D31A RID: 54042 RVA: 0x00316D98 File Offset: 0x00314F98
 		public static XRenderComponent AddRenderComponent(XEntity e)
 		{
 			bool flag = XSingleton<XScene>.singleton.CanFadeOnCreate && !e.IsRole && !e.IsPuppet && (e.SkillMgr == null || e.Present.PresentLib.Appear == "");
@@ -71,13 +67,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600D31B RID: 54043 RVA: 0x00316EB6 File Offset: 0x003150B6
 		public void SetEntityLayer(int initLayer)
 		{
 			this._currentLayer = initLayer;
 		}
 
-		// Token: 0x0600D31C RID: 54044 RVA: 0x00316EC0 File Offset: 0x003150C0
 		public void PostCreateComponent()
 		{
 			bool flag = this._entity.IsRole && XSingleton<XGame>.singleton.CurrentStage.Stage == EXStage.Hall;
@@ -97,7 +91,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D31D RID: 54045 RVA: 0x00316F4C File Offset: 0x0031514C
 		private void AddObject(GameObject mainGo, Renderer render)
 		{
 			bool flag = render != null;
@@ -128,7 +121,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D31E RID: 54046 RVA: 0x00317038 File Offset: 0x00315238
 		private void RemoveObject(int instanceID)
 		{
 			for (int i = this.renderObjs.Count - 1; i >= 0; i--)
@@ -144,7 +136,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D31F RID: 54047 RVA: 0x003170A8 File Offset: 0x003152A8
 		public static void AddEquipObj(XEntity e, GameObject mainGo, Renderer render)
 		{
 			bool flag = e != null && mainGo != null && render != null;
@@ -160,7 +151,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D320 RID: 54048 RVA: 0x00317100 File Offset: 0x00315300
 		public static void AddFx(XEntity e, XFx fx)
 		{
 			bool flag = e != null && fx != null;
@@ -182,7 +172,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D321 RID: 54049 RVA: 0x00317170 File Offset: 0x00315370
 		public static void RemoveObj(XEntity e, GameObject go)
 		{
 			bool flag = e != null && go != null;
@@ -197,7 +186,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D322 RID: 54050 RVA: 0x003171B0 File Offset: 0x003153B0
 		public static void RemoveFx(XEntity e, XFx fx)
 		{
 			bool flag = e != null && fx != null;
@@ -212,7 +200,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D323 RID: 54051 RVA: 0x003171EC File Offset: 0x003153EC
 		public static void AddShadowObj(XEntity e, GameObject mainGo, Renderer render)
 		{
 			bool flag = XSingleton<XGame>.singleton.CurrentStage.Stage == EXStage.Hall && e != null;
@@ -228,7 +215,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D324 RID: 54052 RVA: 0x00317248 File Offset: 0x00315448
 		public static void AddMountObj(XEntity e, GameObject mainGo, Renderer render)
 		{
 			bool flag = e != null;
@@ -249,7 +235,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D325 RID: 54053 RVA: 0x003172BC File Offset: 0x003154BC
 		public static void OnHit(XEntity e)
 		{
 			bool flag = e != null;
@@ -270,7 +255,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D326 RID: 54054 RVA: 0x00317330 File Offset: 0x00315530
 		private static XRenderComponent DynamicAddRenderComp(XEntity e, bool hide)
 		{
 			XRenderComponent xrenderComponent = XSingleton<XComponentMgr>.singleton.CreateComponent(e, XRenderComponent.uuID) as XRenderComponent;
@@ -294,7 +278,6 @@ namespace XMainClient
 			return xrenderComponent;
 		}
 
-		// Token: 0x0600D327 RID: 54055 RVA: 0x003173BC File Offset: 0x003155BC
 		public static void OnFade(XEntity e, bool fadeIn, float time, bool isVisibleAfterFadeout)
 		{
 			bool flag = e != null;
@@ -315,7 +298,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D328 RID: 54056 RVA: 0x00317418 File Offset: 0x00315618
 		public static void OnHide(XEntity e, bool hide)
 		{
 			bool flag = e != null;
@@ -338,7 +320,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D329 RID: 54057 RVA: 0x00317484 File Offset: 0x00315684
 		private void OnFade()
 		{
 			Color32 color = XRenderComponent.fadeColor;
@@ -349,7 +330,6 @@ namespace XMainClient
 			this.SetLayer(layer);
 		}
 
-		// Token: 0x0600D32A RID: 54058 RVA: 0x003174D4 File Offset: 0x003156D4
 		public static void OnTransform(XEntity src, XEntity target, bool to)
 		{
 			XRenderComponent renderer = src.Renderer;
@@ -385,7 +365,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D32B RID: 54059 RVA: 0x0031756C File Offset: 0x0031576C
 		private void InitFade(XRenderComponent.FadeType fadeType, float time, int targetColor)
 		{
 			this._type = fadeType;
@@ -400,7 +379,6 @@ namespace XMainClient
 			this.SetShader(XRenderComponent.RenderAction.Fade, XRenderComponent.fadeColor);
 		}
 
-		// Token: 0x0600D32C RID: 54060 RVA: 0x003175C4 File Offset: 0x003157C4
 		private void SetLayer(int layer)
 		{
 			for (int i = 0; i < this.renderObjs.Count; i++)
@@ -410,7 +388,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D32D RID: 54061 RVA: 0x00317603 File Offset: 0x00315803
 		public void FadeInImmediately()
 		{
 			this._action = XRenderComponent.RenderAction.None;
@@ -420,7 +397,6 @@ namespace XMainClient
 			this.ResetShader();
 		}
 
-		// Token: 0x0600D32E RID: 54062 RVA: 0x00317634 File Offset: 0x00315834
 		private void OnHitBack(object o)
 		{
 			bool flag = this._action == XRenderComponent.RenderAction.HitRender;
@@ -431,7 +407,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D32F RID: 54063 RVA: 0x00317660 File Offset: 0x00315860
 		private void SetFade(Color32 c, byte a)
 		{
 			for (int i = 0; i < this.renderObjs.Count; i++)
@@ -441,7 +416,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D330 RID: 54064 RVA: 0x003176B4 File Offset: 0x003158B4
 		private void SetShader(XRenderComponent.RenderAction action, Color32 color)
 		{
 			this._action = action;
@@ -466,7 +440,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D331 RID: 54065 RVA: 0x0031772C File Offset: 0x0031592C
 		private void ResetShader()
 		{
 			for (int i = 0; i < this.renderObjs.Count; i++)
@@ -476,7 +449,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D332 RID: 54066 RVA: 0x0031776C File Offset: 0x0031596C
 		private void DistanceFade()
 		{
 			switch (this._fadeState)
@@ -547,7 +519,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D333 RID: 54067 RVA: 0x00317A38 File Offset: 0x00315C38
 		public override void OnDetachFromHost()
 		{
 			bool flag = this._timerToken > 0U;
@@ -581,7 +552,6 @@ namespace XMainClient
 			base.OnDetachFromHost();
 		}
 
-		// Token: 0x0600D334 RID: 54068 RVA: 0x00317B40 File Offset: 0x00315D40
 		protected override void EventSubscribe()
 		{
 			base.RegisterEvent(XEventDefine.XEvent_FadeIn, new XComponent.XEventHandler(this.OnIn));
@@ -589,7 +559,6 @@ namespace XMainClient
 			base.RegisterEvent(XEventDefine.XEvent_Highlight, new XComponent.XEventHandler(this.HighlightSelf));
 		}
 
-		// Token: 0x0600D335 RID: 54069 RVA: 0x00317B90 File Offset: 0x00315D90
 		private static void _Init(XGameObject gameObject, object o, int commandID)
 		{
 			XRenderComponent xrenderComponent = o as XRenderComponent;
@@ -632,7 +601,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D336 RID: 54070 RVA: 0x00317C88 File Offset: 0x00315E88
 		public override void Attached()
 		{
 			bool flag = this._entity.Equipment == null && (this._fadeEffect || this._fadeOnCreate);
@@ -642,7 +610,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D337 RID: 54071 RVA: 0x00317CD8 File Offset: 0x00315ED8
 		public override void PostUpdate(float fDeltaT)
 		{
 			bool isTransform = this._entity.IsTransform;
@@ -748,7 +715,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D338 RID: 54072 RVA: 0x00317F88 File Offset: 0x00316188
 		protected bool OnIn(XEventArgs e)
 		{
 			XFadeInEventArgs xfadeInEventArgs = e as XFadeInEventArgs;
@@ -760,7 +726,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600D339 RID: 54073 RVA: 0x00317FDC File Offset: 0x003161DC
 		protected bool OnOut(XEventArgs e)
 		{
 			for (int i = 0; i < this.renderObjs.Count; i++)
@@ -771,7 +736,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600D33A RID: 54074 RVA: 0x00318024 File Offset: 0x00316224
 		private bool HighlightSelf(XEventArgs e)
 		{
 			this._blinkValue = 0.2f;
@@ -780,117 +744,91 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x04005FF2 RID: 24562
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("Renderer");
 
-		// Token: 0x04005FF3 RID: 24563
 		private List<IRenderObject> renderObjs = new List<IRenderObject>();
 
-		// Token: 0x04005FF4 RID: 24564
 		private int _load_part_flag = 0;
 
-		// Token: 0x04005FF5 RID: 24565
 		private int _target_part_flag = 0;
 
-		// Token: 0x04005FF6 RID: 24566
 		private int _currentLayer = XRole.RoleLayer;
 
-		// Token: 0x04005FF7 RID: 24567
 		private bool _fadeOnCreate = false;
 
-		// Token: 0x04005FF8 RID: 24568
 		private bool _fadeEffect = false;
 
-		// Token: 0x04005FF9 RID: 24569
 		private bool _InFadeState = false;
 
-		// Token: 0x04005FFA RID: 24570
 		private XRenderComponent.FadeType _type = XRenderComponent.FadeType.FadeIn;
 
-		// Token: 0x04005FFB RID: 24571
 		private XRenderComponent.FadeState _fadeState = XRenderComponent.FadeState.Visible;
 
-		// Token: 0x04005FFC RID: 24572
 		private float _elapsed = 0f;
 
-		// Token: 0x04005FFD RID: 24573
 		private float _time = 0f;
 
-		// Token: 0x04005FFE RID: 24574
 		private int _targetFadeColor = 0;
 
-		// Token: 0x04005FFF RID: 24575
 		private uint _timerToken = 0U;
 
-		// Token: 0x04006000 RID: 24576
 		private float _blinkValue = 0.01f;
 
-		// Token: 0x04006001 RID: 24577
 		private float _blinkDelta = 0.01f;
 
-		// Token: 0x04006002 RID: 24578
 		private XTimerMgr.ElapsedEventHandler _onHitBackCb = null;
 
-		// Token: 0x04006003 RID: 24579
 		private XRenderComponent.RenderAction _action = XRenderComponent.RenderAction.None;
 
-		// Token: 0x04006004 RID: 24580
 		private static CommandCallback _initCb = new CommandCallback(XRenderComponent._Init);
 
-		// Token: 0x04006005 RID: 24581
 		private static Color32 hitColor = new Color32(byte.MaxValue, byte.MaxValue, byte.MaxValue, 204);
 
-		// Token: 0x04006006 RID: 24582
 		private static Color32 fadeColor = new Color32(192, 192, 192, byte.MaxValue);
 
-		// Token: 0x04006007 RID: 24583
 		private static Color32 highlightColor = new Color32(133, 121, 91, 51);
 
-		// Token: 0x020019FC RID: 6652
 		private enum FadeType
 		{
-			// Token: 0x040081D9 RID: 33241
+
 			NotFade,
-			// Token: 0x040081DA RID: 33242
+
 			FadeIn,
-			// Token: 0x040081DB RID: 33243
+
 			FadeOut
 		}
 
-		// Token: 0x020019FD RID: 6653
 		private enum FadeState
 		{
-			// Token: 0x040081DD RID: 33245
+
 			Visible,
-			// Token: 0x040081DE RID: 33246
+
 			Fading,
-			// Token: 0x040081DF RID: 33247
+
 			InVisible
 		}
 
-		// Token: 0x020019FE RID: 6654
 		public enum LoadPart
 		{
-			// Token: 0x040081E1 RID: 33249
+
 			Equip = 1,
-			// Token: 0x040081E2 RID: 33250
+
 			Shadow,
-			// Token: 0x040081E3 RID: 33251
+
 			Mount = 4
 		}
 
-		// Token: 0x020019FF RID: 6655
 		private enum RenderAction
 		{
-			// Token: 0x040081E5 RID: 33253
+
 			None,
-			// Token: 0x040081E6 RID: 33254
+
 			HitRender,
-			// Token: 0x040081E7 RID: 33255
+
 			Blink,
-			// Token: 0x040081E8 RID: 33256
+
 			Fade,
-			// Token: 0x040081E9 RID: 33257
+
 			DistanceFade
 		}
 	}

@@ -4,11 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000FC6 RID: 4038
+
 	internal class XSuperArmorComponent : XComponent
 	{
-		// Token: 0x170036B7 RID: 14007
-		// (get) Token: 0x0600D1F3 RID: 53747 RVA: 0x0030DB48 File Offset: 0x0030BD48
+
 		public override uint ID
 		{
 			get
@@ -17,19 +16,16 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D1F4 RID: 53748 RVA: 0x0030DB5F File Offset: 0x0030BD5F
 		public override void Attached()
 		{
 			this.SetRecoveryTimeLimit(this._entity.Attributes.SuperArmorRecoveryTimeLimit);
 		}
 
-		// Token: 0x0600D1F5 RID: 53749 RVA: 0x0030DB79 File Offset: 0x0030BD79
 		public void SetRecoveryTimeLimit(double second)
 		{
 			this._recoveryTimeLimit = (float)second;
 		}
 
-		// Token: 0x0600D1F6 RID: 53750 RVA: 0x0030DB84 File Offset: 0x0030BD84
 		public override void Update(float fDeltaT)
 		{
 			bool syncMode = XSingleton<XGame>.singleton.SyncMode;
@@ -47,7 +43,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D1F7 RID: 53751 RVA: 0x0030DBCC File Offset: 0x0030BDCC
 		private void OnTimer(object o)
 		{
 			XAttrChangeEventArgs @event = XEventPool<XAttrChangeEventArgs>.GetEvent();
@@ -66,7 +61,6 @@ namespace XMainClient
 			XSingleton<XEventMgr>.singleton.FireEvent(event3);
 		}
 
-		// Token: 0x0600D1F8 RID: 53752 RVA: 0x0030DCA0 File Offset: 0x0030BEA0
 		private void CheckSuperArmorBroken()
 		{
 			bool flag = this._entity.Attributes.GetAttr(XAttributeDefine.XAttr_CurrentSuperArmor_Basic) <= 0.0 && this._entity.Attributes.GetAttr(XAttributeDefine.XAttr_CurrentHP_Basic) > 0.0;
@@ -108,7 +102,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D1F9 RID: 53753 RVA: 0x0030DE6C File Offset: 0x0030C06C
 		private double GetRateByState()
 		{
 			XQTEState qtespecificPhase = this._entity.GetQTESpecificPhase();
@@ -144,7 +137,6 @@ namespace XMainClient
 			return 1.0;
 		}
 
-		// Token: 0x0600D1FA RID: 53754 RVA: 0x0030DF64 File Offset: 0x0030C164
 		private void RecoverySuperArmor(float fDeltaT)
 		{
 			bool woozyOn = this._woozyOn;
@@ -179,14 +171,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D1FB RID: 53755 RVA: 0x0030E0D0 File Offset: 0x0030C2D0
 		protected override void EventSubscribe()
 		{
 			base.RegisterEvent(XEventDefine.XEvent_WoozyOn, new XComponent.XEventHandler(this.OnWoozyEvent));
 			base.RegisterEvent(XEventDefine.XEvent_WoozyOff, new XComponent.XEventHandler(this.OnWoozyOffEvent));
 		}
 
-		// Token: 0x0600D1FC RID: 53756 RVA: 0x0030E104 File Offset: 0x0030C304
 		protected bool OnWoozyOffEvent(XEventArgs e)
 		{
 			bool flag = !XSingleton<XGame>.singleton.SyncMode;
@@ -206,36 +196,28 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600D1FD RID: 53757 RVA: 0x0030E1A8 File Offset: 0x0030C3A8
 		protected bool OnWoozyEvent(XEventArgs e)
 		{
 			this._woozyOn = true;
 			return true;
 		}
 
-		// Token: 0x0600D1FE RID: 53758 RVA: 0x0030E1C2 File Offset: 0x0030C3C2
 		public override void OnDetachFromHost()
 		{
 			XSingleton<XTimerMgr>.singleton.KillTimer(this._timeToken);
 			base.OnDetachFromHost();
 		}
 
-		// Token: 0x04005F40 RID: 24384
 		private bool _woozyOn = false;
 
-		// Token: 0x04005F41 RID: 24385
 		private float _recoveryTimeLimit = 0f;
 
-		// Token: 0x04005F42 RID: 24386
 		private uint _timeToken = 0U;
 
-		// Token: 0x04005F43 RID: 24387
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("XSuperArmorComponent");
 
-		// Token: 0x04005F44 RID: 24388
 		private static readonly int BossType = 1;
 
-		// Token: 0x04005F45 RID: 24389
 		private static readonly int EliteType = 6;
 	}
 }

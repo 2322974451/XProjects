@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x020000C1 RID: 193
+
 	public class CardsList : CVSReader
 	{
-		// Token: 0x06000574 RID: 1396 RVA: 0x00018A78 File Offset: 0x00016C78
+
 		public CardsList.RowData GetByCardId(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -21,7 +21,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000575 RID: 1397 RVA: 0x00018AB0 File Offset: 0x00016CB0
 		private CardsList.RowData BinarySearchCardId(uint key)
 		{
 			int num = 0;
@@ -80,7 +79,6 @@ namespace XUtliPoolLib
 			return null;
 		}
 
-		// Token: 0x06000576 RID: 1398 RVA: 0x00018B8C File Offset: 0x00016D8C
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			CardsList.RowData rowData = new CardsList.RowData();
@@ -100,7 +98,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x06000577 RID: 1399 RVA: 0x00018C54 File Offset: 0x00016E54
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -114,28 +111,21 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x040002E7 RID: 743
 		public CardsList.RowData[] Table = null;
 
-		// Token: 0x020002BF RID: 703
 		public class RowData
 		{
-			// Token: 0x04000974 RID: 2420
+
 			public uint CardId;
 
-			// Token: 0x04000975 RID: 2421
 			public string CardName;
 
-			// Token: 0x04000976 RID: 2422
 			public uint GroupId;
 
-			// Token: 0x04000977 RID: 2423
 			public string Description;
 
-			// Token: 0x04000978 RID: 2424
 			public uint Avatar;
 
-			// Token: 0x04000979 RID: 2425
 			public uint MapID;
 		}
 	}

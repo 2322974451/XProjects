@@ -9,11 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C81 RID: 3201
+
 	internal class PetExpTransferHandler : DlgHandlerBase
 	{
-		// Token: 0x17003204 RID: 12804
-		// (get) Token: 0x0600B4D2 RID: 46290 RVA: 0x00237A10 File Offset: 0x00235C10
+
 		public int ExpTransferPetCount
 		{
 			get
@@ -22,8 +21,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003205 RID: 12805
-		// (get) Token: 0x0600B4D3 RID: 46291 RVA: 0x00237A34 File Offset: 0x00235C34
 		private bool CanPlayExpUp
 		{
 			get
@@ -32,9 +29,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003206 RID: 12806
-		// (get) Token: 0x0600B4D4 RID: 46292 RVA: 0x00237A70 File Offset: 0x00235C70
-		// (set) Token: 0x0600B4D5 RID: 46293 RVA: 0x00237AC8 File Offset: 0x00235CC8
 		public bool HasGetSkillUI
 		{
 			get
@@ -67,8 +61,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003207 RID: 12807
-		// (get) Token: 0x0600B4D6 RID: 46294 RVA: 0x00237B10 File Offset: 0x00235D10
 		public int DefaultPet
 		{
 			get
@@ -87,7 +79,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B4D7 RID: 46295 RVA: 0x00237B3C File Offset: 0x00235D3C
 		protected override void Init()
 		{
 			base.Init();
@@ -116,8 +107,6 @@ namespace XMainClient
 			DlgHandlerBase.EnsureCreate<XPetSkillHandler>(ref this.SkillHandler[1], this.m_Skill[1].gameObject, null, true);
 		}
 
-		// Token: 0x17003208 RID: 12808
-		// (get) Token: 0x0600B4D8 RID: 46296 RVA: 0x00237DF8 File Offset: 0x00235FF8
 		protected override string FileName
 		{
 			get
@@ -126,8 +115,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003209 RID: 12809
-		// (get) Token: 0x0600B4D9 RID: 46297 RVA: 0x00237E10 File Offset: 0x00236010
 		public int CurExpTransferSelectedIndex
 		{
 			get
@@ -136,8 +123,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700320A RID: 12810
-		// (get) Token: 0x0600B4DA RID: 46298 RVA: 0x00237E28 File Offset: 0x00236028
 		public XPet CurExpTransferSelectedPet
 		{
 			get
@@ -156,7 +141,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B4DB RID: 46299 RVA: 0x00237E7C File Offset: 0x0023607C
 		public override void RegisterEvent()
 		{
 			this.m_Close.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseClicked));
@@ -164,14 +148,12 @@ namespace XMainClient
 			this.m_WrapContent.RegisterItemUpdateEventHandler(new WrapItemUpdateEventHandler(this.OnPetListItemUpdated));
 		}
 
-		// Token: 0x0600B4DC RID: 46300 RVA: 0x00237ED4 File Offset: 0x002360D4
 		public bool OnCloseClicked(IXUIButton btn)
 		{
 			base.SetVisible(false);
 			return true;
 		}
 
-		// Token: 0x0600B4DD RID: 46301 RVA: 0x00237EF0 File Offset: 0x002360F0
 		public bool OnExpTransferClicked(IXUIButton btn)
 		{
 			bool canTransfer = this.m_CanTransfer;
@@ -191,7 +173,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B4DE RID: 46302 RVA: 0x00237F83 File Offset: 0x00236183
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -201,7 +182,6 @@ namespace XMainClient
 			this.RefreshPetModel(1);
 		}
 
-		// Token: 0x0600B4DF RID: 46303 RVA: 0x00237FB8 File Offset: 0x002361B8
 		protected override void OnHide()
 		{
 			DlgBase<XPetMainView, XPetMainBehaviour>.singleton.UnloadFx(DlgBase<XPetMainView, XPetMainBehaviour>.singleton._LevelUpFx);
@@ -223,7 +203,6 @@ namespace XMainClient
 			base.OnHide();
 		}
 
-		// Token: 0x0600B4E0 RID: 46304 RVA: 0x00238044 File Offset: 0x00236244
 		public override void OnUnload()
 		{
 			for (int i = 0; i < 2; i++)
@@ -243,14 +222,12 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x0600B4E1 RID: 46305 RVA: 0x002380CF File Offset: 0x002362CF
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
 			base.Alloc3DAvatarPool("PetExpTransferHandler", 1);
 		}
 
-		// Token: 0x0600B4E2 RID: 46306 RVA: 0x002380E8 File Offset: 0x002362E8
 		public void RefreshList(bool bResetPosition = true)
 		{
 			int num = Math.Min(this.doc.PetCountMax, this.ExpTransferPetCount);
@@ -265,7 +242,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B4E3 RID: 46307 RVA: 0x0023813C File Offset: 0x0023633C
 		private void OnPetListItemUpdated(Transform t, int index)
 		{
 			bool flag = index < 0;
@@ -318,14 +294,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B4E4 RID: 46308 RVA: 0x00238370 File Offset: 0x00236570
 		private void _OnPetClicked(IXUISprite iSp)
 		{
 			int index = (int)iSp.ID;
 			this.Select(index, false);
 		}
 
-		// Token: 0x0600B4E5 RID: 46309 RVA: 0x00238390 File Offset: 0x00236590
 		public void Select(int index, bool bResetPosition = false)
 		{
 			this.ClearPetAnimation();
@@ -351,7 +325,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B4E6 RID: 46310 RVA: 0x00238440 File Offset: 0x00236640
 		public void ShowCurPet(int index)
 		{
 			bool flag = this.TransferPet[index] != null;
@@ -363,7 +336,6 @@ namespace XMainClient
 			this.doc.petGetSkill.Clear();
 		}
 
-		// Token: 0x0600B4E7 RID: 46311 RVA: 0x00238488 File Offset: 0x00236688
 		public void Transfer(ulong uid1, ulong uid2)
 		{
 			bool flag = (uid1 == this.doc.CurSelectedPet.UID && uid2 == this.CurExpTransferSelectedPet.UID) || (uid2 == this.doc.CurSelectedPet.UID && uid1 == this.CurExpTransferSelectedPet.UID);
@@ -373,7 +345,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B4E8 RID: 46312 RVA: 0x002384EC File Offset: 0x002366EC
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
@@ -404,7 +375,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B4E9 RID: 46313 RVA: 0x002385F8 File Offset: 0x002367F8
 		private void PlayExpUpAnim(int index)
 		{
 			bool flag = !this.InPlayExpUp[index];
@@ -465,7 +435,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B4EA RID: 46314 RVA: 0x00238858 File Offset: 0x00236A58
 		private void PlayEnd(int index)
 		{
 			this.TransferPet[index].showExp = this.TransferPet[index].Exp;
@@ -480,7 +449,6 @@ namespace XMainClient
 			this.RefreshPage(false);
 		}
 
-		// Token: 0x0600B4EB RID: 46315 RVA: 0x002388D0 File Offset: 0x00236AD0
 		public void ClearPetAnimation()
 		{
 			this.ChangeExp = false;
@@ -501,7 +469,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B4EC RID: 46316 RVA: 0x00238989 File Offset: 0x00236B89
 		public void RefreshPage(bool bResetPosition = false)
 		{
 			this.RefreshList(bResetPosition);
@@ -510,7 +477,6 @@ namespace XMainClient
 			this.RefreshCost();
 		}
 
-		// Token: 0x0600B4ED RID: 46317 RVA: 0x002389AC File Offset: 0x00236BAC
 		public void RefreshContent(int index)
 		{
 			bool flag = this.TransferPet[index] == null;
@@ -526,7 +492,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B4EE RID: 46318 RVA: 0x00238A18 File Offset: 0x00236C18
 		public void RefreshStatus(PetExpTransferStatus status)
 		{
 			this.m_Ready.gameObject.SetActive(status == PetExpTransferStatus.Ready);
@@ -555,13 +520,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B4EF RID: 46319 RVA: 0x00238B10 File Offset: 0x00236D10
 		public void RefreshHistoryLevelMAX(int index)
 		{
 			this.m_HistoryLevelMAX[index].SetText("");
 		}
 
-		// Token: 0x0600B4F0 RID: 46320 RVA: 0x00238B28 File Offset: 0x00236D28
 		public void RefreshExp(int index)
 		{
 			XPet xpet = this.TransferPet[index];
@@ -586,7 +549,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B4F1 RID: 46321 RVA: 0x00238C04 File Offset: 0x00236E04
 		public void RefreshCost()
 		{
 			int num = int.Parse(this.PetExpTransferCost[0]);
@@ -600,7 +562,6 @@ namespace XMainClient
 			ixuisprite.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this._OnItemClick));
 		}
 
-		// Token: 0x0600B4F2 RID: 46322 RVA: 0x00238CDC File Offset: 0x00236EDC
 		private void _OnItemClick(IXUISprite iSp)
 		{
 			bool flag = XSingleton<XGame>.singleton.Doc.XBagDoc.GetItemCount((int)iSp.ID) < ulong.Parse(this.PetExpTransferCost[1]);
@@ -614,7 +575,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B4F3 RID: 46323 RVA: 0x00238D44 File Offset: 0x00236F44
 		public int GetNewSkill(XPet pet)
 		{
 			for (int i = 0; i < this.doc.petGetSkill.Count; i++)
@@ -650,7 +610,6 @@ namespace XMainClient
 			return -1;
 		}
 
-		// Token: 0x0600B4F4 RID: 46324 RVA: 0x00238ED0 File Offset: 0x002370D0
 		public void RefreshPetModel(int index)
 		{
 			bool flag = this.TransferPet[index] == null;
@@ -661,89 +620,62 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04004670 RID: 18032
 		private XPetDocument doc;
 
-		// Token: 0x04004671 RID: 18033
 		public List<XPet> petList = new List<XPet>();
 
-		// Token: 0x04004672 RID: 18034
 		public bool ChangeExp;
 
-		// Token: 0x04004673 RID: 18035
 		public bool[] InPlayExpUp = new bool[2];
 
-		// Token: 0x04004674 RID: 18036
 		private int[] AddExp = new int[2];
 
-		// Token: 0x04004675 RID: 18037
 		private XPet[] TransferPet = new XPet[2];
 
-		// Token: 0x04004676 RID: 18038
 		private XDummy[] m_Dummy = new XDummy[2];
 
-		// Token: 0x04004677 RID: 18039
 		public XPetSkillHandler[] SkillHandler = new XPetSkillHandler[2];
 
-		// Token: 0x04004678 RID: 18040
 		private string[] PetExpTransferCost = XSingleton<XGlobalConfig>.singleton.GetValue("PetExpTransferCost").Split(new char[]
 		{
 			'|',
 			'='
 		});
 
-		// Token: 0x04004679 RID: 18041
 		public bool m_CanTransfer = true;
 
-		// Token: 0x0400467A RID: 18042
 		private IXUIButton m_Close;
 
-		// Token: 0x0400467B RID: 18043
 		private IXUIButton m_BtnTransfer;
 
-		// Token: 0x0400467C RID: 18044
 		private Transform[] m_Pet = new Transform[2];
 
-		// Token: 0x0400467D RID: 18045
 		private IXUIProgress[] m_ExpBar = new IXUIProgress[2];
 
-		// Token: 0x0400467E RID: 18046
 		private IXUILabel[] m_ExpBarLevel = new IXUILabel[2];
 
-		// Token: 0x0400467F RID: 18047
 		private Transform[] m_Skill = new Transform[2];
 
-		// Token: 0x04004680 RID: 18048
 		private IXUILabel[] m_HistoryLevelMAX = new IXUILabel[2];
 
-		// Token: 0x04004681 RID: 18049
 		private IUIDummy[] m_PetSnapshot = new IUIDummy[2];
 
-		// Token: 0x04004682 RID: 18050
 		private IXUIScrollView m_PetListScrollView;
 
-		// Token: 0x04004683 RID: 18051
 		private IXUIWrapContent m_WrapContent;
 
-		// Token: 0x04004684 RID: 18052
 		private Transform m_Ready;
 
-		// Token: 0x04004685 RID: 18053
 		private Transform m_Start;
 
-		// Token: 0x04004686 RID: 18054
 		private IXUITweenTool m_End;
 
-		// Token: 0x04004687 RID: 18055
 		private IXUISprite m_Arrow;
 
-		// Token: 0x04004688 RID: 18056
 		private Transform m_CostItem;
 
-		// Token: 0x04004689 RID: 18057
 		private IXUILabel m_CostNum;
 
-		// Token: 0x0400468A RID: 18058
 		private int m_CurExpTransferSelected = -1;
 	}
 }

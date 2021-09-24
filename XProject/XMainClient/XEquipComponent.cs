@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000FD8 RID: 4056
+
 	internal class XEquipComponent : XComponent, IDelayLoad
 	{
-		// Token: 0x170036C6 RID: 14022
-		// (get) Token: 0x0600D270 RID: 53872 RVA: 0x00311F04 File Offset: 0x00310104
+
 		public override uint ID
 		{
 			get
@@ -19,8 +18,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170036C7 RID: 14023
-		// (get) Token: 0x0600D271 RID: 53873 RVA: 0x00311F1C File Offset: 0x0031011C
 		public XAffiliate Sprite
 		{
 			get
@@ -29,15 +26,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D272 RID: 53874 RVA: 0x00311F34 File Offset: 0x00310134
 		public XEquipComponent()
 		{
 			this._combineMeshTask = new CombineMeshTask(new MountLoadCallback(this.PartLoaded));
 		}
 
-		// Token: 0x170036C8 RID: 14024
-		// (get) Token: 0x0600D273 RID: 53875 RVA: 0x0031202C File Offset: 0x0031022C
-		// (set) Token: 0x0600D274 RID: 53876 RVA: 0x00312044 File Offset: 0x00310244
 		public bool IsUIAvatar
 		{
 			get
@@ -50,8 +43,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170036C9 RID: 14025
-		// (get) Token: 0x0600D275 RID: 53877 RVA: 0x00312050 File Offset: 0x00310250
 		public bool IsVisible
 		{
 			get
@@ -60,8 +51,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170036CA RID: 14026
-		// (get) Token: 0x0600D276 RID: 53878 RVA: 0x00312068 File Offset: 0x00310268
 		public bool IsRenderEnable
 		{
 			get
@@ -70,7 +59,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D277 RID: 53879 RVA: 0x00312080 File Offset: 0x00310280
 		private static void _GetSkinmesh(XGameObject gameObject, object o, int commandID)
 		{
 			XEquipComponent xequipComponent = o as XEquipComponent;
@@ -113,13 +101,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D278 RID: 53880 RVA: 0x00312168 File Offset: 0x00310368
 		private bool IsSkinmeshLoaded()
 		{
 			return this._combineMeshTask.skin != null || this._combineMeshTask.noCombine;
 		}
 
-		// Token: 0x0600D279 RID: 53881 RVA: 0x0031219C File Offset: 0x0031039C
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
@@ -160,7 +146,6 @@ namespace XMainClient
 			this._LoadFinishedCallback = null;
 		}
 
-		// Token: 0x0600D27A RID: 53882 RVA: 0x003122C4 File Offset: 0x003104C4
 		protected override void EventSubscribe()
 		{
 			base.RegisterEvent(XEventDefine.XEvent_RealDead, new XComponent.XEventHandler(this.OnPlayerDeathEvent));
@@ -169,7 +154,6 @@ namespace XMainClient
 			base.RegisterEvent(XEventDefine.XEvent_OnUnMounted, new XComponent.XEventHandler(this.OnMountEvent));
 		}
 
-		// Token: 0x0600D27B RID: 53883 RVA: 0x0031232C File Offset: 0x0031052C
 		public override void Attached()
 		{
 			bool flag = this._entity.IsPlayer && XQualitySetting._CastShadow;
@@ -218,7 +202,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D27C RID: 53884 RVA: 0x00312410 File Offset: 0x00310610
 		public override void OnDetachFromHost()
 		{
 			bool flag = this.m_CustomShadow != null;
@@ -265,14 +248,12 @@ namespace XMainClient
 			base.OnDetachFromHost();
 		}
 
-		// Token: 0x0600D27D RID: 53885 RVA: 0x00312555 File Offset: 0x00310755
 		public void Load()
 		{
 			this.EquipFromAttr();
 			this.SpriteFromAttr();
 		}
 
-		// Token: 0x0600D27E RID: 53886 RVA: 0x00312568 File Offset: 0x00310768
 		public EDelayProcessType DelayUpdate()
 		{
 			bool flag = this._combineMeshTask != null;
@@ -327,7 +308,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600D27F RID: 53887 RVA: 0x00312664 File Offset: 0x00310864
 		private void SetHairColor()
 		{
 			bool flag = this._combineMeshTask.skin != null;
@@ -339,13 +319,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D280 RID: 53888 RVA: 0x003126C8 File Offset: 0x003108C8
 		public void SetLoadFinishedCallback(LoadFinishedCallback callback)
 		{
 			this._LoadFinishedCallback = callback;
 		}
 
-		// Token: 0x0600D281 RID: 53889 RVA: 0x003126D4 File Offset: 0x003108D4
 		private void UnEquipFx()
 		{
 			this.DestroyFx(this._mainWeaponFx);
@@ -361,7 +339,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D282 RID: 53890 RVA: 0x0031273C File Offset: 0x0031093C
 		private void UnEquipAffiliateParts()
 		{
 			bool flag = this._wing != null;
@@ -390,7 +367,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D283 RID: 53891 RVA: 0x003127EC File Offset: 0x003109EC
 		private void UnEquipAffiliateParts(ref XAffiliate aff)
 		{
 			bool flag = aff != null;
@@ -401,7 +377,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D284 RID: 53892 RVA: 0x00312818 File Offset: 0x00310A18
 		private void GetEquipPoints(Transform root)
 		{
 			this._root = root;
@@ -471,13 +446,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D285 RID: 53893 RVA: 0x00312A22 File Offset: 0x00310C22
 		public void EquipFromVisibleList(FashionPositionInfo[] outlookList, uint hairID, uint effectID)
 		{
 			this.EquipAll(outlookList, hairID, effectID);
 		}
 
-		// Token: 0x0600D286 RID: 53894 RVA: 0x00312A30 File Offset: 0x00310C30
 		public void EquipFromAttr()
 		{
 			bool isDummy = this._entity.IsDummy;
@@ -498,13 +471,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D287 RID: 53895 RVA: 0x00312AED File Offset: 0x00310CED
 		public void OnEquipChange()
 		{
 			this.EquipFromAttr();
 		}
 
-		// Token: 0x0600D288 RID: 53896 RVA: 0x00312AF8 File Offset: 0x00310CF8
 		private void EquipAll(FashionPositionInfo[] fashionList, uint hairID = 0U, uint effect = 0U)
 		{
 			bool flag = !this._visible;
@@ -562,7 +533,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D289 RID: 53897 RVA: 0x00312C90 File Offset: 0x00310E90
 		private void CombineMesh()
 		{
 			bool needCombine = this._combineMeshTask.needCombine;
@@ -633,7 +603,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D28A RID: 53898 RVA: 0x00312F9C File Offset: 0x0031119C
 		private void RefreshShadow()
 		{
 			bool enableRealTimeShadow = this._enableRealTimeShadow;
@@ -661,7 +630,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D28B RID: 53899 RVA: 0x0031304C File Offset: 0x0031124C
 		private void RefreshEnable()
 		{
 			int layer = this._isUIAvatar ? XQualitySetting.UILayer : this._entity.DefaultLayer;
@@ -680,7 +648,6 @@ namespace XMainClient
 			this.RefreshFxActive(ref this._rootFx, this._enableRender);
 		}
 
-		// Token: 0x0600D28C RID: 53900 RVA: 0x00313124 File Offset: 0x00311324
 		private void RefreshRenderQueue()
 		{
 			bool flag = this._renderQueue > 0;
@@ -697,7 +664,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D28D RID: 53901 RVA: 0x003131B4 File Offset: 0x003113B4
 		private static bool HideWing(XEntity e, MountLoadTask mountPart)
 		{
 			bool flag = mountPart.part == EPartType.EWeaponEnd && e.Attributes != null && (e.Attributes.Outlook.state.type == OutLookStateType.OutLook_RidePet || e.Attributes.Outlook.state.type == OutLookStateType.OutLook_RidePetCopilot);
@@ -712,13 +678,11 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x0600D28E RID: 53902 RVA: 0x00313258 File Offset: 0x00311458
 		private static bool ForceDisableEffect(XEntity e, MountLoadTask mountPart)
 		{
 			return XSingleton<XScene>.singleton.SceneType != SceneType.SCENE_LOGIN && !XQualitySetting.GetQuality(EFun.ECommonHigh) && !e.IsPlayer && mountPart.part != EPartType.ECombinePartEnd;
 		}
 
-		// Token: 0x0600D28F RID: 53903 RVA: 0x0031329C File Offset: 0x0031149C
 		private void PartLoaded(MountLoadTask mountPart)
 		{
 			bool flag = this._entity == null || this._combineMeshTask.combineStatus != ECombineStatus.ECombined;
@@ -818,19 +782,16 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D290 RID: 53904 RVA: 0x0031353C File Offset: 0x0031173C
 		public bool IsLoadingPart()
 		{
 			return this._combineMeshTask.combineStatus == ECombineStatus.ECombineing;
 		}
 
-		// Token: 0x0600D291 RID: 53905 RVA: 0x0031355C File Offset: 0x0031175C
 		public bool IsCombineFinish()
 		{
 			return this._combineMeshTask.combineStatus == ECombineStatus.ECombined;
 		}
 
-		// Token: 0x0600D292 RID: 53906 RVA: 0x0031357C File Offset: 0x0031177C
 		public void EquipFishing(bool enabled, uint presentid = 0U)
 		{
 			if (enabled)
@@ -852,7 +813,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D293 RID: 53907 RVA: 0x00313610 File Offset: 0x00311810
 		public void PlayFishingRodAnimation(string anim)
 		{
 			bool flag = this._fishing != null;
@@ -862,12 +822,10 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D294 RID: 53908 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public void EffectFromAttr()
 		{
 		}
 
-		// Token: 0x0600D295 RID: 53909 RVA: 0x0031363C File Offset: 0x0031183C
 		public uint SpriteFromAttr()
 		{
 			bool isDummy = this._entity.IsDummy;
@@ -905,7 +863,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600D296 RID: 53910 RVA: 0x0031374C File Offset: 0x0031194C
 		public void SpriteFromData(XOutlookSprite sprite)
 		{
 			bool flag = sprite.leaderid == 0U;
@@ -930,7 +887,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D297 RID: 53911 RVA: 0x003137DC File Offset: 0x003119DC
 		public void AttachSprite(bool bAttached, uint presentid = 0U)
 		{
 			MountLoadTask mountLoadTask = this._combineMeshTask.parts[11] as MountLoadTask;
@@ -939,7 +895,6 @@ namespace XMainClient
 			mountLoadTask.Load(this._entity, -1, ref fashionPositionInfo, true, null);
 		}
 
-		// Token: 0x0600D298 RID: 53912 RVA: 0x00313828 File Offset: 0x00311A28
 		private void UpdateSpriteOffset(ESpriteStatus spriteState)
 		{
 			bool flag = this._combineMeshTask.combineStatus == ECombineStatus.ECombined && this._spritePoint != null && this._combineMeshTask.skin != null;
@@ -957,13 +912,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D299 RID: 53913 RVA: 0x003138DE File Offset: 0x00311ADE
 		public void RefreashSprite()
 		{
 			this.UpdateSpriteOffset(this._entity.IsMounted ? ESpriteStatus.EMount : ESpriteStatus.ENormal);
 		}
 
-		// Token: 0x0600D29A RID: 53914 RVA: 0x003138FC File Offset: 0x00311AFC
 		private void UpdateEnhanceLevel(XBodyBag equipBag)
 		{
 			bool flag = equipBag != null;
@@ -990,19 +943,16 @@ namespace XMainClient
 			this.enhanceLevel = 0U;
 		}
 
-		// Token: 0x0600D29B RID: 53915 RVA: 0x00313998 File Offset: 0x00311B98
 		public void SetEnhanceMaster(uint level)
 		{
 			this.enhanceLevel = level;
 		}
 
-		// Token: 0x0600D29C RID: 53916 RVA: 0x003139A2 File Offset: 0x00311BA2
 		public void SetSuitFx(uint id)
 		{
 			this._rootFxID = id;
 		}
 
-		// Token: 0x0600D29D RID: 53917 RVA: 0x003139AC File Offset: 0x00311BAC
 		private bool ShowEquipFx(bool login = true)
 		{
 			XQualitySetting.ESetting quality = (XQualitySetting.ESetting)XQualitySetting.GetQuality();
@@ -1020,7 +970,6 @@ namespace XMainClient
 			return flag;
 		}
 
-		// Token: 0x0600D29E RID: 53918 RVA: 0x00313A08 File Offset: 0x00311C08
 		private void RefreshEnhanceLevel()
 		{
 			bool isDummy = this._entity.IsDummy;
@@ -1038,7 +987,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D29F RID: 53919 RVA: 0x00313A60 File Offset: 0x00311C60
 		private void RefreshSuitFxID()
 		{
 			bool isDummy = this._entity.IsDummy;
@@ -1056,27 +1004,23 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D2A0 RID: 53920 RVA: 0x00313AB5 File Offset: 0x00311CB5
 		public void RefreshSuitFx()
 		{
 			this.RefreshSuitFxID();
 			this.SetSuitFx(this.ShowEquipFx(false));
 		}
 
-		// Token: 0x0600D2A1 RID: 53921 RVA: 0x00313ACD File Offset: 0x00311CCD
 		public void RefreshEquipFx()
 		{
 			this.RefreshEnhanceLevel();
 			this.SetWeaponFx(this.ShowEquipFx(true));
 		}
 
-		// Token: 0x0600D2A2 RID: 53922 RVA: 0x00313AE5 File Offset: 0x00311CE5
 		public void RefreshSecondWeaponFx()
 		{
 			this.SetSideWeaponFx(this.ShowEquipFx(true));
 		}
 
-		// Token: 0x0600D2A3 RID: 53923 RVA: 0x00313AF8 File Offset: 0x00311CF8
 		private void SetSideWeaponFx(bool setFx)
 		{
 			bool flag = this.sideWeaponFx == null || this.sideWeaponPoint == null;
@@ -1095,7 +1039,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D2A4 RID: 53924 RVA: 0x00313B68 File Offset: 0x00311D68
 		private void SetSuitFx(bool setFx)
 		{
 			string text = null;
@@ -1144,7 +1087,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D2A5 RID: 53925 RVA: 0x00313D58 File Offset: 0x00311F58
 		private void SetWeaponFx(ref XFx[] xfxs, ref Transform[] points, string[] strFxs)
 		{
 			bool flag = xfxs == null || points == null;
@@ -1200,7 +1142,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D2A6 RID: 53926 RVA: 0x00313EC0 File Offset: 0x003120C0
 		private bool ComparerValue(XFx[] fxs, string[] str)
 		{
 			bool flag = str == null;
@@ -1244,7 +1185,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600D2A7 RID: 53927 RVA: 0x00313F50 File Offset: 0x00312150
 		private void SetWeaponFx(bool setFx)
 		{
 			string[] strFxs = null;
@@ -1259,7 +1199,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D2A8 RID: 53928 RVA: 0x00313FBC File Offset: 0x003121BC
 		private void DestroyFx(XFx[] fxs)
 		{
 			bool flag = fxs != null && fxs.Length != 0;
@@ -1279,7 +1218,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D2A9 RID: 53929 RVA: 0x00314010 File Offset: 0x00312210
 		private void DestroyFx(ref XFx fx)
 		{
 			bool flag = fx != null;
@@ -1291,7 +1229,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D2AA RID: 53930 RVA: 0x00314048 File Offset: 0x00312248
 		private void RefreshFxActive(ref XFx[] xfxs, bool active)
 		{
 			bool flag = xfxs == null;
@@ -1304,7 +1241,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D2AB RID: 53931 RVA: 0x00314088 File Offset: 0x00312288
 		private void RefreshFxActive(ref XFx xfx, bool active)
 		{
 			bool flag = xfx != null;
@@ -1314,7 +1250,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D2AC RID: 53932 RVA: 0x003140A8 File Offset: 0x003122A8
 		private void RefreshFxQueue(ref XFx xfx, int renderQueue)
 		{
 			bool flag = xfx != null;
@@ -1324,7 +1259,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D2AD RID: 53933 RVA: 0x003140C8 File Offset: 0x003122C8
 		private void RefreshFxQueue(ref XFx[] xfxs, int renderQueue)
 		{
 			for (int i = 0; i < xfxs.Length; i++)
@@ -1333,7 +1267,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D2AE RID: 53934 RVA: 0x003140FC File Offset: 0x003122FC
 		protected bool OnPlayerDeathEvent(XEventArgs e)
 		{
 			bool flag = this._sprite == null || this._entity.Attributes.Outlook.sprite.leaderid == 0U;
@@ -1353,7 +1286,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600D2AF RID: 53935 RVA: 0x0031418C File Offset: 0x0031238C
 		protected bool OnPlayerReviveEvent(XEventArgs e)
 		{
 			bool flag = this._sprite == null || this._entity.Attributes.Outlook.sprite.leaderid == 0U;
@@ -1373,7 +1305,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600D2B0 RID: 53936 RVA: 0x0031422C File Offset: 0x0031242C
 		protected bool OnMountEvent(XEventArgs e)
 		{
 			bool flag = e is XOnMountedEventArgs;
@@ -1419,7 +1350,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600D2B1 RID: 53937 RVA: 0x003143F0 File Offset: 0x003125F0
 		public void EnableRealTimeShadow(bool enable)
 		{
 			this._enableRealTimeShadow = enable;
@@ -1430,7 +1360,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D2B2 RID: 53938 RVA: 0x00314418 File Offset: 0x00312618
 		public void EnableRender(bool enable)
 		{
 			this._enableRender = enable;
@@ -1441,7 +1370,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D2B3 RID: 53939 RVA: 0x00314440 File Offset: 0x00312640
 		public void SetRenderQueue(int renderQueue)
 		{
 			this._renderQueue = renderQueue;
@@ -1452,7 +1380,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D2B4 RID: 53940 RVA: 0x00314468 File Offset: 0x00312668
 		public void RefreshRenderObj()
 		{
 			bool flag = this.IsCombineFinish();
@@ -1504,112 +1431,76 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04005F99 RID: 24473
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("Character_Equipment");
 
-		// Token: 0x04005F9A RID: 24474
 		private uint _type_id;
 
-		// Token: 0x04005F9B RID: 24475
 		private int _prof_id = 0;
 
-		// Token: 0x04005F9C RID: 24476
 		public Transform _root = null;
 
-		// Token: 0x04005F9D RID: 24477
 		private XFx _rootFx = null;
 
-		// Token: 0x04005F9E RID: 24478
 		private uint _rootFxID = 0U;
 
-		// Token: 0x04005F9F RID: 24479
 		private Transform _rootPoint = null;
 
-		// Token: 0x04005FA0 RID: 24480
 		private int m_mainWeaponID = 0;
 
-		// Token: 0x04005FA1 RID: 24481
 		private Transform[] _mainWeaponPoint = null;
 
-		// Token: 0x04005FA2 RID: 24482
 		private XFx[] _mainWeaponFx = null;
 
-		// Token: 0x04005FA3 RID: 24483
 		private static int _mainWeapointSize = 2;
 
-		// Token: 0x04005FA4 RID: 24484
 		private int m_sideWeaponID = 0;
 
-		// Token: 0x04005FA5 RID: 24485
 		private XFx[] sideWeaponFx = null;
 
-		// Token: 0x04005FA6 RID: 24486
 		private Transform[] sideWeaponPoint = null;
 
-		// Token: 0x04005FA7 RID: 24487
 		private static int sideWeaponPointSize = 2;
 
-		// Token: 0x04005FA8 RID: 24488
 		private XAffiliate _wing = null;
 
-		// Token: 0x04005FA9 RID: 24489
 		private Transform _wingPoint = null;
 
-		// Token: 0x04005FAA RID: 24490
 		private XAffiliate _tail = null;
 
-		// Token: 0x04005FAB RID: 24491
 		private Transform _tailPoint = null;
 
-		// Token: 0x04005FAC RID: 24492
 		private XAffiliate _sprite = null;
 
-		// Token: 0x04005FAD RID: 24493
 		private Transform _spritePoint = null;
 
-		// Token: 0x04005FAE RID: 24494
 		private XAffiliate _fishing = null;
 
-		// Token: 0x04005FAF RID: 24495
 		private Transform _finshingPoint = null;
 
-		// Token: 0x04005FB0 RID: 24496
 		private DefaultEquip.RowData _defaultEquipList;
 
-		// Token: 0x04005FB1 RID: 24497
 		private CombineMeshTask _combineMeshTask = null;
 
-		// Token: 0x04005FB2 RID: 24498
 		private uint enhanceLevel = 0U;
 
-		// Token: 0x04005FB3 RID: 24499
 		private LoadFinishedCallback _LoadFinishedCallback;
 
-		// Token: 0x04005FB4 RID: 24500
 		private bool _isUIAvatar = false;
 
-		// Token: 0x04005FB5 RID: 24501
 		private bool _enableRealTimeShadow = false;
 
-		// Token: 0x04005FB6 RID: 24502
 		private bool _enableRender = true;
 
-		// Token: 0x04005FB7 RID: 24503
 		private int _renderQueue = -1;
 
-		// Token: 0x04005FB8 RID: 24504
 		private bool _visible = true;
 
-		// Token: 0x04005FB9 RID: 24505
 		private uint _hairColorID = 0U;
 
-		// Token: 0x04005FBA RID: 24506
 		private static CommandCallback _getSkinmeshCb = new CommandCallback(XEquipComponent._GetSkinmesh);
 
-		// Token: 0x04005FBB RID: 24507
 		private XCustomShadow m_CustomShadow = null;
 
-		// Token: 0x04005FBC RID: 24508
 		private int combineFinishFrame = 0;
 	}
 }

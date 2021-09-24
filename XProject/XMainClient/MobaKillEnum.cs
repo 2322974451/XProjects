@@ -2,30 +2,30 @@
 
 namespace XMainClient
 {
-	// Token: 0x02000956 RID: 2390
+
 	public enum MobaKillEnum
 	{
-		// Token: 0x04002F9A RID: 12186
+
 		KILL_START = 101,
-		// Token: 0x04002F9B RID: 12187
+
 		KILL_NORMAL = 101,
-		// Token: 0x04002F9C RID: 12188
+
 		KILL_FIRST,
-		// Token: 0x04002F9D RID: 12189
+
 		KILL_DOUBLE,
-		// Token: 0x04002F9E RID: 12190
+
 		KILL_THREE,
-		// Token: 0x04002F9F RID: 12191
+
 		KILL_FOUR,
-		// Token: 0x04002FA0 RID: 12192
+
 		KILL_SPREE,
-		// Token: 0x04002FA1 RID: 12193
+
 		KILL_UNSTOPPABLE,
-		// Token: 0x04002FA2 RID: 12194
+
 		KILL_DESTROY,
-		// Token: 0x04002FA3 RID: 12195
+
 		KILL_ENDUP,
-		// Token: 0x04002FA4 RID: 12196
+
 		KILL_END
 	}
 }

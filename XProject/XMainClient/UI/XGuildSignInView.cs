@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020018AD RID: 6317
+
 	internal class XGuildSignInView : DlgBase<XGuildSignInView, XGuildSignInBehaviour>
 	{
-		// Token: 0x17003A1F RID: 14879
-		// (get) Token: 0x0601075F RID: 67423 RVA: 0x004072CC File Offset: 0x004054CC
+
 		public XGuildLogView LogView
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003A20 RID: 14880
-		// (get) Token: 0x06010760 RID: 67424 RVA: 0x004072E4 File Offset: 0x004054E4
 		public override string fileName
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003A21 RID: 14881
-		// (get) Token: 0x06010761 RID: 67425 RVA: 0x004072FC File Offset: 0x004054FC
 		public override int layer
 		{
 			get
@@ -40,8 +35,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003A22 RID: 14882
-		// (get) Token: 0x06010762 RID: 67426 RVA: 0x00407310 File Offset: 0x00405510
 		public override int group
 		{
 			get
@@ -50,8 +43,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003A23 RID: 14883
-		// (get) Token: 0x06010763 RID: 67427 RVA: 0x00407324 File Offset: 0x00405524
 		public override bool autoload
 		{
 			get
@@ -60,8 +51,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003A24 RID: 14884
-		// (get) Token: 0x06010764 RID: 67428 RVA: 0x00407338 File Offset: 0x00405538
 		public override bool hideMainMenu
 		{
 			get
@@ -70,8 +59,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003A25 RID: 14885
-		// (get) Token: 0x06010765 RID: 67429 RVA: 0x0040734C File Offset: 0x0040554C
 		public override bool pushstack
 		{
 			get
@@ -80,7 +67,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010766 RID: 67430 RVA: 0x00407360 File Offset: 0x00405560
 		protected override void Init()
 		{
 			this._SignInDoc = XDocuments.GetSpecificDocument<XGuildSignInDocument>(XGuildSignInDocument.uuID);
@@ -128,7 +114,6 @@ namespace XMainClient.UI
 			this._LogView.LogSource = this._SignInDoc;
 		}
 
-		// Token: 0x06010767 RID: 67431 RVA: 0x004076A8 File Offset: 0x004058A8
 		protected override void OnUnload()
 		{
 			this._SignInDoc.GuildSignInView = null;
@@ -137,7 +122,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x06010768 RID: 67432 RVA: 0x004076D8 File Offset: 0x004058D8
 		public override void RegisterEvent()
 		{
 			base.uiBehaviour.m_Close.RegisterClickEventHandler(new ButtonClickEventHandler(this._OnCloseBtnClick));
@@ -154,7 +138,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010769 RID: 67433 RVA: 0x004077C8 File Offset: 0x004059C8
 		protected override void OnShow()
 		{
 			this._LogView.SetVisible(false);
@@ -162,14 +145,12 @@ namespace XMainClient.UI
 			this.RefreshProgress();
 		}
 
-		// Token: 0x0601076A RID: 67434 RVA: 0x004077EB File Offset: 0x004059EB
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
 			this.m_Progress.Update(Time.deltaTime);
 		}
 
-		// Token: 0x0601076B RID: 67435 RVA: 0x00407808 File Offset: 0x00405A08
 		public void Refresh()
 		{
 			base.uiBehaviour.m_MemberCount.SetText(string.Format("{0}/{1}", this._SignInDoc.CurrentCount, this._SignInDoc.TotalCount));
@@ -185,14 +166,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601076C RID: 67436 RVA: 0x004078F3 File Offset: 0x00405AF3
 		public void RefreshProgress()
 		{
 			this.m_Progress.TargetExp = this._SignInDoc.Progress;
 			base.uiBehaviour.m_ExpTween.SetNumberWithTween((ulong)this._SignInDoc.Progress, "", false, true);
 		}
 
-		// Token: 0x0601076D RID: 67437 RVA: 0x00407934 File Offset: 0x00405B34
 		public void OpenBox(int index)
 		{
 			for (int i = 0; i < this.CHEST_COUNT; i++)
@@ -207,7 +186,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601076E RID: 67438 RVA: 0x00407980 File Offset: 0x00405B80
 		private void OnChestClicked(IXUISprite iSp)
 		{
 			uint num = (uint)iSp.ID;
@@ -235,21 +213,18 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601076F RID: 67439 RVA: 0x00407A58 File Offset: 0x00405C58
 		private bool _OnCloseBtnClick(IXUIButton go)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x06010770 RID: 67440 RVA: 0x00407A74 File Offset: 0x00405C74
 		private bool _OnSignInBtnClick(IXUIButton go)
 		{
 			this._SignInDoc.ReqSignIn((uint)go.ID);
 			return true;
 		}
 
-		// Token: 0x06010771 RID: 67441 RVA: 0x00407A9C File Offset: 0x00405C9C
 		private bool _OnLogBtnClick(IXUIButton go)
 		{
 			this._SignInDoc.ReqLogList();
@@ -257,28 +232,20 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x040076F3 RID: 30451
 		public int BUTTON_COUNT = 3;
 
-		// Token: 0x040076F4 RID: 30452
 		public int CHEST_COUNT = 4;
 
-		// Token: 0x040076F5 RID: 30453
 		private XGuildSignInDocument _SignInDoc;
 
-		// Token: 0x040076F6 RID: 30454
 		private XGuildDocument _GuildDoc;
 
-		// Token: 0x040076F7 RID: 30455
 		private XGuildLogView _LogView;
 
-		// Token: 0x040076F8 RID: 30456
 		private XChestProgress m_Progress;
 
-		// Token: 0x040076F9 RID: 30457
 		private List<IXUIButton> m_Buttons = new List<IXUIButton>();
 
-		// Token: 0x040076FA RID: 30458
 		private List<GameObject> m_ButtonGos = new List<GameObject>();
 	}
 }

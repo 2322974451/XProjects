@@ -5,11 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017E3 RID: 6115
+
 	internal class FlowerActivityHandler : DlgHandlerBase
 	{
-		// Token: 0x170038B7 RID: 14519
-		// (get) Token: 0x0600FD81 RID: 64897 RVA: 0x003B7070 File Offset: 0x003B5270
+
 		protected override string FileName
 		{
 			get
@@ -18,7 +17,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FD82 RID: 64898 RVA: 0x003B7088 File Offset: 0x003B5288
 		protected override void Init()
 		{
 			base.Init();
@@ -31,7 +29,6 @@ namespace XMainClient.UI
 			this.m_ItemPool.SetupPool(this.m_AwardRoot.gameObject, gameObject, 7U, false);
 		}
 
-		// Token: 0x0600FD83 RID: 64899 RVA: 0x003B7198 File Offset: 0x003B5398
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -41,21 +38,18 @@ namespace XMainClient.UI
 			this.SetAwardsInfo();
 		}
 
-		// Token: 0x0600FD84 RID: 64900 RVA: 0x003B7205 File Offset: 0x003B5405
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			this.m_GoWeekRank.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnGoWeekRankClicked));
 		}
 
-		// Token: 0x0600FD85 RID: 64901 RVA: 0x003B7228 File Offset: 0x003B5428
 		private bool OnGoWeekRankClicked(IXUIButton btn)
 		{
 			XSingleton<XGameSysMgr>.singleton.OpenSystem(XSysDefine.XSys_Flower_Rank_Week, 0UL);
 			return true;
 		}
 
-		// Token: 0x0600FD86 RID: 64902 RVA: 0x003B7250 File Offset: 0x003B5450
 		private void SetAwardsInfo()
 		{
 			XFlowerRankDocument specificDocument = XDocuments.GetSpecificDocument<XFlowerRankDocument>(XFlowerRankDocument.uuID);
@@ -75,22 +69,16 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04006FCD RID: 28621
 		private IXUILabel m_Tip1;
 
-		// Token: 0x04006FCE RID: 28622
 		private IXUILabel m_Tip2;
 
-		// Token: 0x04006FCF RID: 28623
 		private IXUILabel m_AwardRankCount;
 
-		// Token: 0x04006FD0 RID: 28624
 		private IXUIButton m_GoWeekRank;
 
-		// Token: 0x04006FD1 RID: 28625
 		private Transform m_AwardRoot;
 
-		// Token: 0x04006FD2 RID: 28626
 		private XUIPool m_ItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 	}
 }

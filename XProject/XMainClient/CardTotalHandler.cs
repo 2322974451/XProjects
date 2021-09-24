@@ -8,10 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000BB1 RID: 2993
+
 	internal class CardTotalHandler : DlgHandlerBase
 	{
-		// Token: 0x0600AB7F RID: 43903 RVA: 0x001F4DFC File Offset: 0x001F2FFC
+
 		protected override void Init()
 		{
 			base.Init();
@@ -39,7 +39,6 @@ namespace XMainClient
 			this.m_qualityItemPool.ActualReturnAll(true);
 		}
 
-		// Token: 0x0600AB80 RID: 43904 RVA: 0x001F5005 File Offset: 0x001F3205
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -47,7 +46,6 @@ namespace XMainClient
 			this.m_AutoResolve.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this._OnAutoResolveClicked));
 		}
 
-		// Token: 0x0600AB81 RID: 43905 RVA: 0x001F5040 File Offset: 0x001F3240
 		private bool _OnCloseClicked(IXUIButton go)
 		{
 			base.PanelObject.SetActive(false);
@@ -59,7 +57,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600AB82 RID: 43906 RVA: 0x001F5080 File Offset: 0x001F3280
 		private void _OnAutoResolveClicked(IXUISprite iSp)
 		{
 			bool flag = !DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.GetTempTip(XTempTipDefine.OD_CARD_RESOLVE_TIP);
@@ -73,7 +70,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AB83 RID: 43907 RVA: 0x001F50F8 File Offset: 0x001F32F8
 		private bool _OpenAutoResolve(IXUIButton btn)
 		{
 			bool flag = this.doc.View != null;
@@ -85,19 +81,16 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600AB84 RID: 43908 RVA: 0x001F513F File Offset: 0x001F333F
 		public override void OnUnload()
 		{
 			base.OnUnload();
 			this.doc = null;
 		}
 
-		// Token: 0x0600AB85 RID: 43909 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void OnShow()
 		{
 		}
 
-		// Token: 0x0600AB86 RID: 43910 RVA: 0x001F5150 File Offset: 0x001F3350
 		public void ShowHandler(bool bResetPosition = false)
 		{
 			base.PanelObject.SetActive(true);
@@ -156,34 +149,24 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04004041 RID: 16449
 		public static readonly int LINE_ITEM_NUM = 7;
 
-		// Token: 0x04004042 RID: 16450
 		private XCardCollectDocument doc;
 
-		// Token: 0x04004043 RID: 16451
 		private IXUIButton m_Close;
 
-		// Token: 0x04004044 RID: 16452
 		private IXUISprite m_AutoResolve;
 
-		// Token: 0x04004045 RID: 16453
 		private Transform[] quality = new Transform[6];
 
-		// Token: 0x04004046 RID: 16454
 		private Transform item;
 
-		// Token: 0x04004047 RID: 16455
 		private XUIPool m_qualityItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04004048 RID: 16456
 		private XUIPool[] m_ItemPool = new XUIPool[6];
 
-		// Token: 0x04004049 RID: 16457
 		private Transform CardPanel;
 
-		// Token: 0x0400404A RID: 16458
 		private IXUIScrollView m_CardPanelScrollView;
 	}
 }

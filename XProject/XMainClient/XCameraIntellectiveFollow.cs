@@ -4,11 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x020008B1 RID: 2225
+
 	internal class XCameraIntellectiveFollow : XComponent
 	{
-		// Token: 0x17002A37 RID: 10807
-		// (get) Token: 0x06008678 RID: 34424 RVA: 0x0010FC10 File Offset: 0x0010DE10
+
 		public override uint ID
 		{
 			get
@@ -17,8 +16,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002A38 RID: 10808
-		// (get) Token: 0x06008679 RID: 34425 RVA: 0x0010FC28 File Offset: 0x0010DE28
 		public float TailSpeed
 		{
 			get
@@ -27,21 +24,18 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600867A RID: 34426 RVA: 0x0010FC45 File Offset: 0x0010DE45
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
 			this._camera_host = (this._host as XCameraEx);
 		}
 
-		// Token: 0x0600867B RID: 34427 RVA: 0x0010FC61 File Offset: 0x0010DE61
 		public override void OnDetachFromHost()
 		{
 			this._camera_host = null;
 			base.OnDetachFromHost();
 		}
 
-		// Token: 0x0600867C RID: 34428 RVA: 0x0010FC74 File Offset: 0x0010DE74
 		public void TailToBack()
 		{
 			this._tail_to_back = true;
@@ -53,7 +47,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600867D RID: 34429 RVA: 0x0010FD00 File Offset: 0x0010DF00
 		public void TailUpdate(float fDeltaT)
 		{
 			bool flag = (this._camera_host.Solo != null && this._camera_host.Solo.SoloState != XCameraSoloComponent.XCameraSoloState.Stop) || XSingleton<XCutScene>.singleton.IsPlaying;
@@ -167,35 +160,26 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600867E RID: 34430 RVA: 0x00110194 File Offset: 0x0010E394
 		private bool CalcReversion()
 		{
 			XEntity xentity = (XSingleton<XEntityMgr>.singleton.Player.TargetLocated == null) ? null : XSingleton<XEntityMgr>.singleton.Player.TargetLocated.Target;
 			return XEntity.ValideEntity(xentity) && !xentity.IsPuppet && XSingleton<XScene>.singleton.GameCamera.IsVisibleFromCamera(xentity, true);
 		}
 
-		// Token: 0x04002A0C RID: 10764
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("Camera_IntellectiveFollow_Component");
 
-		// Token: 0x04002A0D RID: 10765
 		private XCameraEx _camera_host = null;
 
-		// Token: 0x04002A0E RID: 10766
 		private float _move_follow_speed_basic = 0f;
 
-		// Token: 0x04002A0F RID: 10767
 		private float _move_follow_speed_target = 0f;
 
-		// Token: 0x04002A10 RID: 10768
 		private float _move_follow_speed = 0f;
 
-		// Token: 0x04002A11 RID: 10769
 		private bool _tail_to_back = false;
 
-		// Token: 0x04002A12 RID: 10770
 		private float _tail_back = 0f;
 
-		// Token: 0x04002A13 RID: 10771
 		private bool _reverse = false;
 	}
 }

@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x020009E9 RID: 2537
+
 	internal class XDailyActivitiesDocument : XDocComponent
 	{
-		// Token: 0x17002E29 RID: 11817
-		// (get) Token: 0x06009B14 RID: 39700 RVA: 0x0018A3AC File Offset: 0x001885AC
+
 		public override uint ID
 		{
 			get
@@ -20,9 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002E2A RID: 11818
-		// (get) Token: 0x06009B15 RID: 39701 RVA: 0x0018A3C4 File Offset: 0x001885C4
-		// (set) Token: 0x06009B16 RID: 39702 RVA: 0x0018A3DC File Offset: 0x001885DC
 		public XDailyActivitiesView View
 		{
 			get
@@ -35,8 +31,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002E2B RID: 11819
-		// (get) Token: 0x06009B17 RID: 39703 RVA: 0x0018A3E8 File Offset: 0x001885E8
 		public List<XDailyActivity> ActivityList
 		{
 			get
@@ -45,8 +39,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002E2C RID: 11820
-		// (get) Token: 0x06009B18 RID: 39704 RVA: 0x0018A400 File Offset: 0x00188600
 		public uint CurrentExp
 		{
 			get
@@ -55,8 +47,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002E2D RID: 11821
-		// (get) Token: 0x06009B19 RID: 39705 RVA: 0x0018A418 File Offset: 0x00188618
 		public uint WeekExp
 		{
 			get
@@ -65,7 +55,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009B1A RID: 39706 RVA: 0x0018A430 File Offset: 0x00188630
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			XDailyActivitiesDocument.AsyncLoader.AddTask("Table/ActivityChest", XDailyActivitiesDocument._ChestReader, false);
@@ -73,7 +62,6 @@ namespace XMainClient
 			XDailyActivitiesDocument.AsyncLoader.Execute(callback);
 		}
 
-		// Token: 0x06009B1B RID: 39707 RVA: 0x0018A46C File Offset: 0x0018866C
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
@@ -85,14 +73,12 @@ namespace XMainClient
 			this.WeekExps = XSingleton<XGlobalConfig>.singleton.GetUIntList("ActivityChestExpWeekly");
 		}
 
-		// Token: 0x06009B1C RID: 39708 RVA: 0x0018A4FC File Offset: 0x001886FC
 		public void QueryDailyActivityData()
 		{
 			RpcC2G_GetActivityInfo rpc = new RpcC2G_GetActivityInfo();
 			XSingleton<XClientNetwork>.singleton.Send(rpc);
 		}
 
-		// Token: 0x06009B1D RID: 39709 RVA: 0x0018A51C File Offset: 0x0018871C
 		public void GetDailyActivityData(ActivityRecord data)
 		{
 			this._ChestsInfo = data.ChestGetInfo;
@@ -125,7 +111,6 @@ namespace XMainClient
 			XSingleton<XGameSysMgr>.singleton.RecalculateRedPointState(XSysDefine.XSys_Reward_Activity, true);
 		}
 
-		// Token: 0x06009B1E RID: 39710 RVA: 0x0018A674 File Offset: 0x00188874
 		private static int CompareActivityList(XDailyActivity act1, XDailyActivity act2)
 		{
 			bool flag = act1.finish != act2.finish;
@@ -149,7 +134,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009B1F RID: 39711 RVA: 0x0018A6D4 File Offset: 0x001888D4
 		public bool IsFinishedAllActivity()
 		{
 			for (int i = 0; i < this._ActivityList.Count; i++)
@@ -163,13 +147,11 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x06009B20 RID: 39712 RVA: 0x0018A720 File Offset: 0x00188920
 		public int GetTotalActivityNum()
 		{
 			return this._ActivityList.Count;
 		}
 
-		// Token: 0x06009B21 RID: 39713 RVA: 0x0018A740 File Offset: 0x00188940
 		public int GetFinishedActivityNum()
 		{
 			int num = 0;
@@ -184,7 +166,6 @@ namespace XMainClient
 			return num;
 		}
 
-		// Token: 0x06009B22 RID: 39714 RVA: 0x0018A790 File Offset: 0x00188990
 		public ActivityTable.RowData GetActivityBasicInfo(uint sortid)
 		{
 			for (int i = 0; i < XDailyActivitiesDocument._ActivityReader.Table.Length; i++)
@@ -198,7 +179,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x06009B23 RID: 39715 RVA: 0x0018A7E8 File Offset: 0x001889E8
 		public void DealWithBuyReply()
 		{
 			bool flag = DlgBase<DailyActivityDlg, TabDlgBehaviour>.singleton._livenessActivityHandler != null && DlgBase<DailyActivityDlg, TabDlgBehaviour>.singleton._livenessActivityHandler.IsVisible();
@@ -208,7 +188,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009B24 RID: 39716 RVA: 0x0018A82C File Offset: 0x00188A2C
 		public void GetChestReward(uint chestid)
 		{
 			uint num = chestid + 1U;
@@ -230,14 +209,12 @@ namespace XMainClient
 			XSingleton<XDebug>.singleton.AddErrorLog("Can't Find This Player's ActivityChest,chest id = ", num.ToString(), "  level = ", level.ToString(), null, null);
 		}
 
-		// Token: 0x06009B25 RID: 39717 RVA: 0x0018A8F0 File Offset: 0x00188AF0
 		public bool IsChestOpend(uint index)
 		{
 			uint num = 1U << (int)index;
 			return (this._ChestsInfo & num) > 0U;
 		}
 
-		// Token: 0x06009B26 RID: 39718 RVA: 0x0018A914 File Offset: 0x00188B14
 		public void ReqFetchChest(uint id)
 		{
 			RpcC2G_GetActivityChest rpcC2G_GetActivityChest = new RpcC2G_GetActivityChest();
@@ -245,7 +222,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_GetActivityChest);
 		}
 
-		// Token: 0x06009B27 RID: 39719 RVA: 0x0018A944 File Offset: 0x00188B44
 		public void OnFetchChest(uint chestID, uint chestInfo, List<uint> itemID, List<uint> itemCount)
 		{
 			this._ChestsInfo = chestInfo;
@@ -258,7 +234,6 @@ namespace XMainClient
 			XSingleton<XGameSysMgr>.singleton.RecalculateRedPointState(XSysDefine.XSys_Reward_Activity, true);
 		}
 
-		// Token: 0x06009B28 RID: 39720 RVA: 0x0018A998 File Offset: 0x00188B98
 		public bool HasCanFetchReward()
 		{
 			bool flag = this.SeverRedPointNotify != 0;
@@ -300,7 +275,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009B29 RID: 39721 RVA: 0x0018AA84 File Offset: 0x00188C84
 		public uint FindNeed2ShowReward()
 		{
 			bool flag = this.CurrentExp >= this.MaxExp;
@@ -324,7 +298,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009B2A RID: 39722 RVA: 0x0018AADC File Offset: 0x00188CDC
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 			bool flag = DlgBase<DailyActivityDlg, TabDlgBehaviour>.singleton._livenessActivityHandler != null && DlgBase<DailyActivityDlg, TabDlgBehaviour>.singleton._livenessActivityHandler.IsVisible();
@@ -334,52 +307,36 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0400358A RID: 13706
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("DailyActivitiesDocument");
 
-		// Token: 0x0400358B RID: 13707
 		private XDailyActivitiesView _view = null;
 
-		// Token: 0x0400358C RID: 13708
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x0400358D RID: 13709
 		private static ActivityChestTable _ChestReader = new ActivityChestTable();
 
-		// Token: 0x0400358E RID: 13710
 		private static ActivityTable _ActivityReader = new ActivityTable();
 
-		// Token: 0x0400358F RID: 13711
 		private List<XDailyActivity> _ActivityList = new List<XDailyActivity>();
 
-		// Token: 0x04003590 RID: 13712
 		public uint _CurrentExp = 0U;
 
-		// Token: 0x04003591 RID: 13713
 		public uint _WeekExp = 0U;
 
-		// Token: 0x04003592 RID: 13714
 		private uint _ChestsInfo = 0U;
 
-		// Token: 0x04003593 RID: 13715
 		public List<uint> ChestExps = new List<uint>();
 
-		// Token: 0x04003594 RID: 13716
 		public List<uint> WeekExps = new List<uint>();
 
-		// Token: 0x04003595 RID: 13717
 		public List<string> SpriteName = new List<string>();
 
-		// Token: 0x04003596 RID: 13718
 		public SeqListRef<uint> Reward = default(SeqListRef<uint>);
 
-		// Token: 0x04003597 RID: 13719
 		public int ChestCount;
 
-		// Token: 0x04003598 RID: 13720
 		public uint MaxExp;
 
-		// Token: 0x04003599 RID: 13721
 		public int SeverRedPointNotify = 0;
 	}
 }

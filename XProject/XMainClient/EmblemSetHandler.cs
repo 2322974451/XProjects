@@ -8,10 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000CD3 RID: 3283
+
 	internal class EmblemSetHandler : DlgHandlerBase
 	{
-		// Token: 0x0600B835 RID: 47157 RVA: 0x0024F940 File Offset: 0x0024DB40
+
 		protected override void Init()
 		{
 			base.Init();
@@ -45,7 +45,6 @@ namespace XMainClient
 			this.itemSelector = new XItemSelector(0U);
 		}
 
-		// Token: 0x0600B836 RID: 47158 RVA: 0x0024FC0F File Offset: 0x0024DE0F
 		public override void RegisterEvent()
 		{
 			base.Init();
@@ -53,7 +52,6 @@ namespace XMainClient
 			this.btnMaterialAccess.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnClickMaterialAccessButton));
 		}
 
-		// Token: 0x0600B837 RID: 47159 RVA: 0x0024FC4C File Offset: 0x0024DE4C
 		public void RefreshItemList()
 		{
 			bool flag = !base.IsVisible();
@@ -63,14 +61,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B838 RID: 47160 RVA: 0x0024FC70 File Offset: 0x0024DE70
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
 			this.OnShow();
 		}
 
-		// Token: 0x0600B839 RID: 47161 RVA: 0x0024FC84 File Offset: 0x0024DE84
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -109,7 +105,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B83A RID: 47162 RVA: 0x0024FDE6 File Offset: 0x0024DFE6
 		protected override void OnHide()
 		{
 			this.itemSelector.Hide();
@@ -117,7 +112,6 @@ namespace XMainClient
 			base.PanelObject.SetActive(false);
 		}
 
-		// Token: 0x0600B83B RID: 47163 RVA: 0x0024FE0C File Offset: 0x0024E00C
 		public override void OnUnload()
 		{
 			this.mLastItem = null;
@@ -131,7 +125,6 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x0600B83C RID: 47164 RVA: 0x0024FE64 File Offset: 0x0024E064
 		private void _RankWrapItemListUpdated(Transform t, int index)
 		{
 			IXUISprite ixuisprite = t.Find("Icon").GetComponent("XUISprite") as IXUISprite;
@@ -156,7 +149,6 @@ namespace XMainClient
 			gameObject.SetActive(active);
 		}
 
-		// Token: 0x0600B83D RID: 47165 RVA: 0x0024FF74 File Offset: 0x0024E174
 		private bool OnClickMaterialAccessButton(IXUIButton btn)
 		{
 			int num = 184;
@@ -176,7 +168,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B83E RID: 47166 RVA: 0x0025001C File Offset: 0x0024E21C
 		private bool OnClickCreateButton(IXUIButton btn)
 		{
 			this.mDoc.CurUid = this.m_itemUid;
@@ -232,7 +223,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B83F RID: 47167 RVA: 0x002501FC File Offset: 0x0024E3FC
 		private void OnClickMainItem(IXUISprite icon)
 		{
 			XItem bagItemByUID = XBagDocument.BagDoc.GetBagItemByUID(this.m_itemUid);
@@ -245,7 +235,6 @@ namespace XMainClient
 			XSingleton<UiUtility>.singleton.ShowTooltipDialogWithSearchingCompare(XBagDocument.MakeXItem((int)icon.ID, bBinding), icon, false, 0U);
 		}
 
-		// Token: 0x0600B840 RID: 47168 RVA: 0x00250248 File Offset: 0x0024E448
 		private void OnItemClicked(IXUISprite icon)
 		{
 			XItem xitem = this.bagWindow.m_XItemList[(int)icon.ID];
@@ -336,67 +325,47 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B841 RID: 47169 RVA: 0x001AE886 File Offset: 0x001ACA86
 		private void OnClickNeedItem(IXUISprite icon)
 		{
 			XSingleton<UiUtility>.singleton.ShowItemAccess((int)icon.ID, null);
 		}
 
-		// Token: 0x040048BE RID: 18622
 		private bool mIsNeedEnough;
 
-		// Token: 0x040048BF RID: 18623
 		private XItem mLastItem;
 
-		// Token: 0x040048C0 RID: 18624
 		private XBagWindow bagWindow;
 
-		// Token: 0x040048C1 RID: 18625
 		private XItemSelector itemSelector;
 
-		// Token: 0x040048C2 RID: 18626
 		private List<Seq2<int>> mNeedList = new List<Seq2<int>>();
 
-		// Token: 0x040048C3 RID: 18627
 		private IXUIButton btnCreate;
 
-		// Token: 0x040048C4 RID: 18628
 		private IXUIButton btnMaterialAccess;
 
-		// Token: 0x040048C5 RID: 18629
 		private IXUILabel lbBtnCost;
 
-		// Token: 0x040048C6 RID: 18630
 		private IXUILabel lbLevel;
 
-		// Token: 0x040048C7 RID: 18631
 		private IXUILabel lbJob;
 
-		// Token: 0x040048C8 RID: 18632
 		private IXUILabel lbTips;
 
-		// Token: 0x040048C9 RID: 18633
 		private IXUILabel lbAttrs;
 
-		// Token: 0x040048CA RID: 18634
 		private GameObject goItem;
 
-		// Token: 0x040048CB RID: 18635
 		private GameObject goNullHint;
 
-		// Token: 0x040048CC RID: 18636
 		private NeedItemView[] goNeedItems;
 
-		// Token: 0x040048CD RID: 18637
 		private XEquipCreateDocument mDoc;
 
-		// Token: 0x040048CE RID: 18638
 		private XPurchaseDocument mPurchaseDoc;
 
-		// Token: 0x040048CF RID: 18639
 		private ItemComposeTable.RowData mComposeData;
 
-		// Token: 0x040048D0 RID: 18640
 		private ulong m_itemUid = 0UL;
 	}
 }

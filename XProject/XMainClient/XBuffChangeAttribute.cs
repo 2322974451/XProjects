@@ -4,10 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000DB3 RID: 3507
+
 	internal class XBuffChangeAttribute : BuffEffect
 	{
-		// Token: 0x0600BE28 RID: 48680 RVA: 0x00278F50 File Offset: 0x00277150
+
 		public static bool TryCreate(CombatEffectHelper helper, XBuff buff)
 		{
 			bool flag = helper.BuffInfo.BuffChangeAttribute.Count == 0 && !helper.bHasEffect(CombatEffectType.CET_Buff_ChangeAttribute);
@@ -24,13 +24,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600BE29 RID: 48681 RVA: 0x00278F98 File Offset: 0x00277198
 		public XBuffChangeAttribute(XBuff buff)
 		{
 			this._buff = buff;
 		}
 
-		// Token: 0x0600BE2A RID: 48682 RVA: 0x00278FF0 File Offset: 0x002771F0
 		private void _Convert(int attrID, double deltaValue)
 		{
 			bool flag = this.m_Entity == null || this.m_Entity.Attributes == null;
@@ -93,7 +91,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BE2B RID: 48683 RVA: 0x002791C4 File Offset: 0x002773C4
 		public override void OnAdd(XEntity entity, CombatEffectHelper pEffectHelper)
 		{
 			this.m_Entity = entity;
@@ -142,7 +139,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BE2C RID: 48684 RVA: 0x00279388 File Offset: 0x00277588
 		public override void OnRemove(XEntity entity, bool IsReplaced)
 		{
 			bool flag = entity.IsDummy || entity.IsDead;
@@ -202,7 +198,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BE2D RID: 48685 RVA: 0x00279594 File Offset: 0x00277794
 		public override void OnBattleEnd(XEntity entity)
 		{
 			base.OnBattleEnd(entity);
@@ -250,7 +245,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BE2E RID: 48686 RVA: 0x00279710 File Offset: 0x00277910
 		public override void OnAttributeChanged(XAttrChangeEventArgs e)
 		{
 			base.OnAttributeChanged(e);
@@ -301,7 +295,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BE2F RID: 48687 RVA: 0x002798A4 File Offset: 0x00277AA4
 		public static void ChangeAttribute(XAttributes attributes, XAttributeDefine attrKey, double attrValue)
 		{
 			bool flag = attributes == null || attributes.Entity == null;
@@ -323,25 +316,18 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04004DA2 RID: 19874
 		private XBuff _buff = null;
 
-		// Token: 0x04004DA3 RID: 19875
 		private HashSet<XAttributeDefine> m_SetConvertor = new HashSet<XAttributeDefine>(default(XFastEnumIntEqualityComparer<XAttributeDefine>));
 
-		// Token: 0x04004DA4 RID: 19876
 		private Dictionary<int, double> m_ConvertorDeltaValue = new Dictionary<int, double>();
 
-		// Token: 0x04004DA5 RID: 19877
 		private SequenceList<float> m_OriginalAttrs = null;
 
-		// Token: 0x04004DA6 RID: 19878
 		private List<XAttrPair> m_AdditionalAttrs = null;
 
-		// Token: 0x04004DA7 RID: 19879
 		private bool m_bChanging;
 
-		// Token: 0x04004DA8 RID: 19880
 		private XEntity m_Entity;
 	}
 }

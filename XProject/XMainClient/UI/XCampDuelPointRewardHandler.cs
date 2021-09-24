@@ -6,10 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017DC RID: 6108
+
 	internal class XCampDuelPointRewardHandler : DlgHandlerBase
 	{
-		// Token: 0x0600FD25 RID: 64805 RVA: 0x003B3F68 File Offset: 0x003B2168
+
 		protected override void Init()
 		{
 			base.Init();
@@ -22,8 +22,6 @@ namespace XMainClient.UI
 			this.m_ExItem.gameObject.SetActive(false);
 		}
 
-		// Token: 0x170038B0 RID: 14512
-		// (get) Token: 0x0600FD26 RID: 64806 RVA: 0x003B4030 File Offset: 0x003B2230
 		protected override string FileName
 		{
 			get
@@ -32,28 +30,24 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FD27 RID: 64807 RVA: 0x003B4047 File Offset: 0x003B2247
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			this.m_Close.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseClicked));
 		}
 
-		// Token: 0x0600FD28 RID: 64808 RVA: 0x003B406C File Offset: 0x003B226C
 		public bool OnCloseClicked(IXUIButton btn)
 		{
 			base.SetVisible(false);
 			return true;
 		}
 
-		// Token: 0x0600FD29 RID: 64809 RVA: 0x003B4087 File Offset: 0x003B2287
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.RefreshList(true);
 		}
 
-		// Token: 0x0600FD2A RID: 64810 RVA: 0x003B409C File Offset: 0x003B229C
 		public void RefreshList(bool resetPos = true)
 		{
 			List<CampDuelPointReward.RowData> pointRewardList = XCampDuelDocument.Doc.GetPointRewardList(this.CampID);
@@ -99,22 +93,16 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04006F74 RID: 28532
 		public int CampID;
 
-		// Token: 0x04006F75 RID: 28533
 		private IXUIButton m_Close;
 
-		// Token: 0x04006F76 RID: 28534
 		private XUIPool m_RewardPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006F77 RID: 28535
 		private XUIPool m_ItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006F78 RID: 28536
 		private Transform m_ExItem;
 
-		// Token: 0x04006F79 RID: 28537
 		private IXUIScrollView m_ScrollView;
 	}
 }

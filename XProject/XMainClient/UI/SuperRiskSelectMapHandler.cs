@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200181A RID: 6170
+
 	internal class SuperRiskSelectMapHandler : DlgHandlerBase
 	{
-		// Token: 0x1700390C RID: 14604
-		// (get) Token: 0x06010025 RID: 65573 RVA: 0x003CC390 File Offset: 0x003CA590
+
 		protected override string FileName
 		{
 			get
@@ -20,7 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010026 RID: 65574 RVA: 0x003CC3A8 File Offset: 0x003CA5A8
 		protected override void Init()
 		{
 			base.Init();
@@ -36,28 +34,24 @@ namespace XMainClient.UI
 			this.m_Help = (base.transform.Find("Bg/panel/Help").GetComponent("XUIButton") as IXUIButton);
 		}
 
-		// Token: 0x06010027 RID: 65575 RVA: 0x003CC48E File Offset: 0x003CA68E
 		public override void RegisterEvent()
 		{
 			this.m_Close.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseClick));
 			this.m_Help.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnHelpClicked));
 		}
 
-		// Token: 0x06010028 RID: 65576 RVA: 0x003CC4C4 File Offset: 0x003CA6C4
 		public bool OnHelpClicked(IXUIButton button)
 		{
 			DlgBase<XCommonHelpTipView, XCommonHelpTipBehaviour>.singleton.ShowHelp(XSysDefine.XSys_SuperRisk);
 			return true;
 		}
 
-		// Token: 0x06010029 RID: 65577 RVA: 0x003CC4E4 File Offset: 0x003CA6E4
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.FillContent();
 		}
 
-		// Token: 0x0601002A RID: 65578 RVA: 0x003CC4F8 File Offset: 0x003CA6F8
 		private void FillContent()
 		{
 			bool flag = false;
@@ -152,7 +146,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601002B RID: 65579 RVA: 0x003CC8CC File Offset: 0x003CAACC
 		private bool OnCloseClick(IXUIButton go)
 		{
 			XSuperRiskDocument specificDocument = XDocuments.GetSpecificDocument<XSuperRiskDocument>(XSuperRiskDocument.uuID);
@@ -162,7 +155,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0601002C RID: 65580 RVA: 0x003CC908 File Offset: 0x003CAB08
 		private void OnMapClick(IXUISprite button)
 		{
 			bool flag = this.SetButtonCool(this.m_fCoolTime);
@@ -177,7 +169,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601002D RID: 65581 RVA: 0x003CC958 File Offset: 0x003CAB58
 		private bool OnMapPress(IXUISprite uiSprite, bool isPressed)
 		{
 			GameObject gameObject = uiSprite.gameObject.transform.FindChild("Map").gameObject;
@@ -185,7 +176,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0601002E RID: 65582 RVA: 0x003CC990 File Offset: 0x003CAB90
 		private bool SetButtonCool(float time)
 		{
 			float num = Time.realtimeSinceStartup - this.m_fLastClickBtnTime;
@@ -203,22 +193,16 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x040071A2 RID: 29090
 		private XSuperRiskDocument _doc;
 
-		// Token: 0x040071A3 RID: 29091
 		private IXUIButton m_Close;
 
-		// Token: 0x040071A4 RID: 29092
 		private IXUIButton m_Help;
 
-		// Token: 0x040071A5 RID: 29093
 		private List<Transform> m_btnTras = new List<Transform>();
 
-		// Token: 0x040071A6 RID: 29094
 		private float m_fCoolTime = 1f;
 
-		// Token: 0x040071A7 RID: 29095
 		private float m_fLastClickBtnTime = 0f;
 	}
 }

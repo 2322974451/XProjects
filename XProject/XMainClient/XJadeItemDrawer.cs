@@ -4,10 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000F0D RID: 3853
+
 	internal class XJadeItemDrawer : XItemDrawer
 	{
-		// Token: 0x0600CC83 RID: 52355 RVA: 0x002F1434 File Offset: 0x002EF634
+
 		public void DrawItem(GameObject go, int itemid, int itemCount = 0, bool bForceShowNum = false)
 		{
 			this._GetUI(go);
@@ -35,7 +35,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC84 RID: 52356 RVA: 0x002F14D8 File Offset: 0x002EF6D8
 		public void DrawItem(GameObject go, int itemid, int itemUseCount, bool bForceShowNum, int itemCount)
 		{
 			this._GetUI(go);
@@ -63,7 +62,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC85 RID: 52357 RVA: 0x002F157C File Offset: 0x002EF77C
 		protected override void _SetupNumTop(XItem jade)
 		{
 			bool flag = this.m_numTop != null && this.itemdata != null;

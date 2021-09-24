@@ -4,11 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x020008AE RID: 2222
+
 	internal class XCameraCloseUpComponent : XComponent
 	{
-		// Token: 0x17002A32 RID: 10802
-		// (get) Token: 0x06008658 RID: 34392 RVA: 0x0010EB30 File Offset: 0x0010CD30
+
 		public override uint ID
 		{
 			get
@@ -17,8 +16,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002A33 RID: 10803
-		// (get) Token: 0x06008659 RID: 34393 RVA: 0x0010EB48 File Offset: 0x0010CD48
 		public bool Execute
 		{
 			get
@@ -27,8 +24,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002A34 RID: 10804
-		// (get) Token: 0x0600865A RID: 34394 RVA: 0x0010EB60 File Offset: 0x0010CD60
 		public bool Ending
 		{
 			get
@@ -37,14 +32,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600865B RID: 34395 RVA: 0x0010EB78 File Offset: 0x0010CD78
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
 			this._camera_host = (this._host as XCameraEx);
 		}
 
-		// Token: 0x0600865C RID: 34396 RVA: 0x0010EB94 File Offset: 0x0010CD94
 		public override void OnDetachFromHost()
 		{
 			this._execute = false;
@@ -52,14 +45,12 @@ namespace XMainClient
 			base.OnDetachFromHost();
 		}
 
-		// Token: 0x0600865D RID: 34397 RVA: 0x0010EBAC File Offset: 0x0010CDAC
 		protected override void EventSubscribe()
 		{
 			base.RegisterEvent(XEventDefine.XEvent_CameraCloseUp, new XComponent.XEventHandler(this.OnCloseUp));
 			base.RegisterEvent(XEventDefine.XEvent_CameraCloseUpEnd, new XComponent.XEventHandler(this.OnCloseUpEnd));
 		}
 
-		// Token: 0x0600865E RID: 34398 RVA: 0x0010EBDC File Offset: 0x0010CDDC
 		protected bool OnCloseUp(XEventArgs e)
 		{
 			bool flag = XSingleton<XEntityMgr>.singleton.Player == null;
@@ -101,7 +92,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600865F RID: 34399 RVA: 0x0010EDC0 File Offset: 0x0010CFC0
 		protected bool OnCloseUpEnd(XEventArgs e)
 		{
 			XCameraActionEventArgs @event = XEventPool<XCameraActionEventArgs>.GetEvent();
@@ -127,13 +117,11 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x06008660 RID: 34400 RVA: 0x0010EEAA File Offset: 0x0010D0AA
 		protected void Interrupt()
 		{
 			this._reachend = true;
 		}
 
-		// Token: 0x06008661 RID: 34401 RVA: 0x0010EEB4 File Offset: 0x0010D0B4
 		public void Stop(object o)
 		{
 			this._execute = false;
@@ -145,7 +133,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008662 RID: 34402 RVA: 0x0010EEEC File Offset: 0x0010D0EC
 		public void CloseUpdate(float fDeltaT)
 		{
 			bool execute = this._execute;
@@ -195,14 +182,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008663 RID: 34403 RVA: 0x0010F174 File Offset: 0x0010D374
 		private float ForwardY(Vector3 v)
 		{
 			v = XSingleton<XCommon>.singleton.HorizontalRotateVetor3(v, -45f, true);
 			return XSingleton<XCommon>.singleton.AngleToFloat(v);
 		}
 
-		// Token: 0x06008664 RID: 34404 RVA: 0x0010F1A4 File Offset: 0x0010D3A4
 		private float TargetH()
 		{
 			bool flag = this._target is XNpc && (this._target as XNpc).NPCType == 2U;
@@ -217,7 +202,6 @@ namespace XMainClient
 			return this._dis;
 		}
 
-		// Token: 0x06008665 RID: 34405 RVA: 0x0010F220 File Offset: 0x0010D420
 		private float TargetX()
 		{
 			bool flag = this._target is XNpc && (this._target as XNpc).NPCType == 2U;
@@ -233,49 +217,34 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x040029EF RID: 10735
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("Camera_CloseUp_Component");
 
-		// Token: 0x040029F0 RID: 10736
 		private XCameraEx _camera_host = null;
 
-		// Token: 0x040029F1 RID: 10737
 		private XCameraMotionData _motion = new XCameraMotionData();
 
-		// Token: 0x040029F2 RID: 10738
 		private Vector3 _anchor = Vector3.zero;
 
-		// Token: 0x040029F3 RID: 10739
 		private XEntity _target = null;
 
-		// Token: 0x040029F4 RID: 10740
 		private float _Half_V_Fov = 0f;
 
-		// Token: 0x040029F5 RID: 10741
 		private float _Half_H_Fov = 0f;
 
-		// Token: 0x040029F6 RID: 10742
 		private float _dis = 0f;
 
-		// Token: 0x040029F7 RID: 10743
 		private float _pre_x = 0f;
 
-		// Token: 0x040029F8 RID: 10744
 		private float _pre_y = 0f;
 
-		// Token: 0x040029F9 RID: 10745
 		private bool _ending = false;
 
-		// Token: 0x040029FA RID: 10746
 		private bool _execute = false;
 
-		// Token: 0x040029FB RID: 10747
 		private bool _reachend = false;
 
-		// Token: 0x040029FC RID: 10748
 		private Vector3 _gap = Vector3.zero;
 
-		// Token: 0x040029FD RID: 10749
 		private bool _return_with_collision = false;
 	}
 }

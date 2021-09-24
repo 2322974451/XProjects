@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001833 RID: 6195
+
 	internal class XGuildArenaDlg : DlgBase<XGuildArenaDlg, TabDlgBehaviour>
 	{
-		// Token: 0x1700392D RID: 14637
-		// (get) Token: 0x06010154 RID: 65876 RVA: 0x003D72D0 File Offset: 0x003D54D0
+
 		public override string fileName
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700392E RID: 14638
-		// (get) Token: 0x06010155 RID: 65877 RVA: 0x003D72E8 File Offset: 0x003D54E8
 		public override int layer
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700392F RID: 14639
-		// (get) Token: 0x06010156 RID: 65878 RVA: 0x003D72FC File Offset: 0x003D54FC
 		public override int group
 		{
 			get
@@ -40,8 +35,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003930 RID: 14640
-		// (get) Token: 0x06010157 RID: 65879 RVA: 0x003D7310 File Offset: 0x003D5510
 		public override bool pushstack
 		{
 			get
@@ -50,8 +43,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003931 RID: 14641
-		// (get) Token: 0x06010158 RID: 65880 RVA: 0x003D7324 File Offset: 0x003D5524
 		public override bool hideMainMenu
 		{
 			get
@@ -60,8 +51,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003932 RID: 14642
-		// (get) Token: 0x06010159 RID: 65881 RVA: 0x003D7338 File Offset: 0x003D5538
 		public override bool fullscreenui
 		{
 			get
@@ -70,8 +59,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003933 RID: 14643
-		// (get) Token: 0x0601015A RID: 65882 RVA: 0x003D734C File Offset: 0x003D554C
 		public override bool autoload
 		{
 			get
@@ -80,7 +67,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601015B RID: 65883 RVA: 0x003D7360 File Offset: 0x003D5560
 		protected override void Init()
 		{
 			base.Init();
@@ -92,7 +78,6 @@ namespace XMainClient.UI
 			this.RegisterHandler<GuildArenaCombatHandle>(GuildArenaTab.Combat);
 		}
 
-		// Token: 0x0601015C RID: 65884 RVA: 0x003D73F4 File Offset: 0x003D55F4
 		private void RegisterHandler<T>(GuildArenaTab index) where T : DlgHandlerBase, new()
 		{
 			bool flag = !this.m_handlers.ContainsKey(index);
@@ -104,7 +89,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601015D RID: 65885 RVA: 0x003D7448 File Offset: 0x003D5648
 		private void RemoveHandler(GuildArenaTab index)
 		{
 			DlgHandlerBase dlgHandlerBase;
@@ -116,7 +100,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601015E RID: 65886 RVA: 0x003D747F File Offset: 0x003D567F
 		protected override void OnUnload()
 		{
 			this.RemoveHandler(GuildArenaTab.Hall);
@@ -125,7 +108,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x0601015F RID: 65887 RVA: 0x003D74A1 File Offset: 0x003D56A1
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -133,7 +115,6 @@ namespace XMainClient.UI
 			this.m_Help.RegisterClickEventHandler(new ButtonClickEventHandler(this._OnHelpClick));
 		}
 
-		// Token: 0x06010160 RID: 65888 RVA: 0x003D74E0 File Offset: 0x003D56E0
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -141,7 +122,6 @@ namespace XMainClient.UI
 			this._Doc.SendGuildIntegralInfo();
 		}
 
-		// Token: 0x06010161 RID: 65889 RVA: 0x003D7500 File Offset: 0x003D5700
 		public void SelectTabIndex(GuildArenaTab tab)
 		{
 			bool flag = !base.IsVisible();
@@ -157,14 +137,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010162 RID: 65890 RVA: 0x003D7549 File Offset: 0x003D5749
 		protected override void OnHide()
 		{
 			this.SetHandlerVisible(this._Doc.SelectTabIndex, false);
 			base.OnHide();
 		}
 
-		// Token: 0x06010163 RID: 65891 RVA: 0x003D7568 File Offset: 0x003D5768
 		public void RefreshData()
 		{
 			DlgHandlerBase dlgHandlerBase;
@@ -175,7 +153,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010164 RID: 65892 RVA: 0x003D75A8 File Offset: 0x003D57A8
 		private void InitTabTableControl()
 		{
 			List<int> list = new List<int>
@@ -195,7 +172,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_tabcontrol.SetupTabs(list, list2, new XUITabControl.UITabControlCallback(this._OnTabControlUpdate), true, 1f, -1, true);
 		}
 
-		// Token: 0x06010165 RID: 65893 RVA: 0x003D763C File Offset: 0x003D583C
 		private void SetHandlerVisible(GuildArenaTab handlerID, bool isVisble)
 		{
 			DlgHandlerBase dlgHandlerBase;
@@ -210,7 +186,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010166 RID: 65894 RVA: 0x003D7678 File Offset: 0x003D5878
 		private void _OnTabControlUpdate(ulong handId)
 		{
 			this.SetHandlerVisible(this._Doc.SelectTabIndex, false);
@@ -218,30 +193,24 @@ namespace XMainClient.UI
 			this.m_maskSprite.SetAlpha((this._Doc.SelectTabIndex == GuildArenaTab.Hall) ? 0f : 1f);
 		}
 
-		// Token: 0x06010167 RID: 65895 RVA: 0x003D76CC File Offset: 0x003D58CC
 		private bool _OnHelpClick(IXUIButton btn)
 		{
 			DlgBase<XCommonHelpTipView, XCommonHelpTipBehaviour>.singleton.ShowHelp(XSysDefine.XSys_GuildPvp);
 			return true;
 		}
 
-		// Token: 0x06010168 RID: 65896 RVA: 0x003D76EC File Offset: 0x003D58EC
 		private bool _CloseClickHandle(IXUIButton btn)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return false;
 		}
 
-		// Token: 0x040072BD RID: 29373
 		private XGuildArenaDocument _Doc;
 
-		// Token: 0x040072BE RID: 29374
 		private Dictionary<GuildArenaTab, DlgHandlerBase> m_handlers = new Dictionary<GuildArenaTab, DlgHandlerBase>();
 
-		// Token: 0x040072BF RID: 29375
 		private IXUIButton m_Help;
 
-		// Token: 0x040072C0 RID: 29376
 		private IXUISprite m_maskSprite;
 	}
 }

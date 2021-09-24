@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001859 RID: 6233
+
 	internal class SpriteMainFrame : DlgHandlerBase
 	{
-		// Token: 0x17003987 RID: 14727
-		// (get) Token: 0x06010396 RID: 66454 RVA: 0x003E96F4 File Offset: 0x003E78F4
+
 		protected override string FileName
 		{
 			get
@@ -21,7 +20,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010397 RID: 66455 RVA: 0x003E970C File Offset: 0x003E790C
 		protected override void Init()
 		{
 			base.Init();
@@ -58,7 +56,6 @@ namespace XMainClient.UI
 			DlgHandlerBase.EnsureCreate<SpriteSelectHandler>(ref this._SpriteSelectHandler, base.PanelObject.transform.Find("SelectHandlerParent"), false, this);
 		}
 
-		// Token: 0x06010398 RID: 66456 RVA: 0x003E9A9C File Offset: 0x003E7C9C
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -75,7 +72,6 @@ namespace XMainClient.UI
 			this.RefreshAwakeBtn();
 		}
 
-		// Token: 0x06010399 RID: 66457 RVA: 0x003E9B78 File Offset: 0x003E7D78
 		private void CheckLastAwakeFinished()
 		{
 			bool flag = this._doc._AwakeSpriteData != null;
@@ -95,7 +91,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601039A RID: 66458 RVA: 0x003E9C34 File Offset: 0x003E7E34
 		protected override void OnHide()
 		{
 			base.OnHide();
@@ -115,7 +110,6 @@ namespace XMainClient.UI
 			this.AnimEnd = true;
 		}
 
-		// Token: 0x0601039B RID: 66459 RVA: 0x003E9CB8 File Offset: 0x003E7EB8
 		public override void OnUnload()
 		{
 			DlgHandlerBase.EnsureUnload<SpriteSelectHandler>(ref this._SpriteSelectHandler);
@@ -130,7 +124,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x0601039C RID: 66460 RVA: 0x003E9D19 File Offset: 0x003E7F19
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -138,13 +131,11 @@ namespace XMainClient.UI
 			this.m_AwakeBtn.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnAwakeBtnClick));
 		}
 
-		// Token: 0x0601039D RID: 66461 RVA: 0x003E9D53 File Offset: 0x003E7F53
 		private void LevelUp()
 		{
 			XSingleton<UiUtility>.singleton.ShowSystemTip(XStringDefineProxy.GetString("SpriteLevelUpTips"), "fece00");
 		}
 
-		// Token: 0x0601039E RID: 66462 RVA: 0x003E9D70 File Offset: 0x003E7F70
 		private void RefreshFoodNum()
 		{
 			for (int i = 0; i < (int)this._doc.FoodList.Count; i++)
@@ -154,13 +145,11 @@ namespace XMainClient.UI
 			this.RefreshFeedBtnRedPoint();
 		}
 
-		// Token: 0x0601039F RID: 66463 RVA: 0x003E9DD8 File Offset: 0x003E7FD8
 		private void RefreshFeedBtnRedPoint()
 		{
 			this.m_FeedBtnRedPoint.SetActive(!this._doc.isSpriteFoodEmpty() && this.CurrentClick != 10000 && this._doc.isSpriteFight(this._doc.SpriteList[this.CurrentClick].uid) && this._doc.isSpriteNeed2Feed(this._doc.SpriteList[this.CurrentClick].uid, false));
 		}
 
-		// Token: 0x060103A0 RID: 66464 RVA: 0x003E9E60 File Offset: 0x003E8060
 		public void OnStarUpBtnClick(IXUISprite btn)
 		{
 			bool flag = this.CurrentClick == 10000;
@@ -170,19 +159,16 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060103A1 RID: 66465 RVA: 0x003E9E90 File Offset: 0x003E8090
 		public bool OnFeedBtnClick(IXUICheckBox icb)
 		{
 			this.m_FoodList.SetActive(icb.bChecked);
 			return true;
 		}
 
-		// Token: 0x060103A2 RID: 66466 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public void RefreshAwakeBtn()
 		{
 		}
 
-		// Token: 0x060103A3 RID: 66467 RVA: 0x003E9EB8 File Offset: 0x003E80B8
 		private bool AwakeItemEnough(ref uint consumeCount)
 		{
 			bool flag = this.CurrentClick > this._doc.SpriteList.Count;
@@ -212,7 +198,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x060103A4 RID: 66468 RVA: 0x003E9FA8 File Offset: 0x003E81A8
 		public void OnAwakeBtnClick(IXUISprite btn)
 		{
 			bool flag = this.CurrentClick >= this._doc.SpriteList.Count;
@@ -263,7 +248,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060103A5 RID: 66469 RVA: 0x003EA164 File Offset: 0x003E8364
 		private bool OnEnsureAwakeClick(IXUIButton btn)
 		{
 			DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.SetVisible(false, true);
@@ -271,7 +255,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x060103A6 RID: 66470 RVA: 0x003EA194 File Offset: 0x003E8394
 		public void OnServerReturn(ulong uid)
 		{
 			bool flag = !base.IsVisible();
@@ -306,13 +289,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060103A7 RID: 66471 RVA: 0x003EA2C5 File Offset: 0x003E84C5
 		public void SetAvatar()
 		{
 			this._SpriteAvatarHandler.SetSpriteInfoByIndex(this.CurrentClick, 0, false, false);
 		}
 
-		// Token: 0x060103A8 RID: 66472 RVA: 0x003EA2E0 File Offset: 0x003E84E0
 		private void SetExp()
 		{
 			SpriteInfo spriteInfo = this._doc.SpriteList[this.CurrentClick];
@@ -339,7 +320,6 @@ namespace XMainClient.UI
 			this.m_Level.SetText(string.Format("Lv.{0}", this._animCurrLevel));
 		}
 
-		// Token: 0x060103A9 RID: 66473 RVA: 0x003EA438 File Offset: 0x003E8638
 		public void OnSpriteListClick(IXUISprite iSp)
 		{
 			bool flag = this.m_CurrentClickSprite != null;
@@ -367,7 +347,6 @@ namespace XMainClient.UI
 			this.RefreshAwakeBtn();
 		}
 
-		// Token: 0x060103AA RID: 66474 RVA: 0x003EA5B0 File Offset: 0x003E87B0
 		private bool OnFoodBtnPress(IXUISprite iSp, bool state)
 		{
 			this._feedState[(int)iSp.ID] = state;
@@ -383,7 +362,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x060103AB RID: 66475 RVA: 0x003EA62B File Offset: 0x003E882B
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
@@ -391,7 +369,6 @@ namespace XMainClient.UI
 			this.SetAvatar();
 		}
 
-		// Token: 0x060103AC RID: 66476 RVA: 0x003EA644 File Offset: 0x003E8844
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
@@ -419,91 +396,62 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04007465 RID: 29797
 		private XSpriteSystemDocument _doc;
 
-		// Token: 0x04007466 RID: 29798
 		public IXUISprite m_StarUpBtn;
 
-		// Token: 0x04007467 RID: 29799
 		private IXUISprite m_AwakeBtn;
 
-		// Token: 0x04007468 RID: 29800
 		private GameObject m_FeedGo;
 
-		// Token: 0x04007469 RID: 29801
 		private GameObject m_FoodList;
 
-		// Token: 0x0400746A RID: 29802
 		private IXUIProgress m_Exp;
 
-		// Token: 0x0400746B RID: 29803
 		private IXUILabel m_ExpNum;
 
-		// Token: 0x0400746C RID: 29804
 		private IXUILabel m_Level;
 
-		// Token: 0x0400746D RID: 29805
 		private Transform m_EffectParent;
 
-		// Token: 0x0400746E RID: 29806
 		private GameObject m_FeedBtnRedPoint;
 
-		// Token: 0x0400746F RID: 29807
 		private XUIPool m_FoodPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04007470 RID: 29808
 		public SpriteSelectHandler _SpriteSelectHandler;
 
-		// Token: 0x04007471 RID: 29809
 		public XSpriteAvatarHandler _SpriteAvatarHandler;
 
-		// Token: 0x04007472 RID: 29810
 		public XSpriteAttributeHandler _SpritePropertyHandler;
 
-		// Token: 0x04007473 RID: 29811
 		public int CurrentClick = 10000;
 
-		// Token: 0x04007474 RID: 29812
 		public IXUISprite m_CurrentClickSprite;
 
-		// Token: 0x04007475 RID: 29813
 		private float _lastEffectTime = 0f;
 
-		// Token: 0x04007476 RID: 29814
 		private float[] _lastFeedTime = new float[3];
 
-		// Token: 0x04007477 RID: 29815
 		private float[] _lastClickTime = new float[3];
 
-		// Token: 0x04007478 RID: 29816
 		private bool[] _feedState = new bool[3];
 
-		// Token: 0x04007479 RID: 29817
 		private IXUILabel[] m_FoodNum;
 
-		// Token: 0x0400747A RID: 29818
 		private float _feedInterval;
 
-		// Token: 0x0400747B RID: 29819
 		private float _feedStart;
 
-		// Token: 0x0400747C RID: 29820
 		public bool AnimEnd = true;
 
-		// Token: 0x0400747D RID: 29821
 		private int _animLevelTarget;
 
-		// Token: 0x0400747E RID: 29822
 		private int _animCurrLevel;
 
-		// Token: 0x0400747F RID: 29823
 		private float _AnimExpTarget;
 
-		// Token: 0x04007480 RID: 29824
 		private float _animSpeed = 0.1f;
 
-		// Token: 0x04007481 RID: 29825
 		private XFx _fxFirework;
 	}
 }

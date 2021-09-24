@@ -9,11 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000CA8 RID: 3240
+
 	internal class XThemeActivityView : DlgBase<XThemeActivityView, XThemeActivityBehaviour>
 	{
-		// Token: 0x1700323B RID: 12859
-		// (get) Token: 0x0600B673 RID: 46707 RVA: 0x00242CEC File Offset: 0x00240EEC
+
 		private XThemeActivityDocument doc
 		{
 			get
@@ -22,8 +21,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700323C RID: 12860
-		// (get) Token: 0x0600B674 RID: 46708 RVA: 0x00242D04 File Offset: 0x00240F04
 		public override string fileName
 		{
 			get
@@ -32,8 +29,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700323D RID: 12861
-		// (get) Token: 0x0600B675 RID: 46709 RVA: 0x00242D1C File Offset: 0x00240F1C
 		public override bool autoload
 		{
 			get
@@ -42,8 +37,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700323E RID: 12862
-		// (get) Token: 0x0600B676 RID: 46710 RVA: 0x00242D30 File Offset: 0x00240F30
 		public override bool hideMainMenu
 		{
 			get
@@ -52,8 +45,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700323F RID: 12863
-		// (get) Token: 0x0600B677 RID: 46711 RVA: 0x00242D44 File Offset: 0x00240F44
 		public override bool pushstack
 		{
 			get
@@ -62,8 +53,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003240 RID: 12864
-		// (get) Token: 0x0600B678 RID: 46712 RVA: 0x00242D58 File Offset: 0x00240F58
 		public override bool fullscreenui
 		{
 			get
@@ -72,20 +61,17 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B679 RID: 46713 RVA: 0x00242D6B File Offset: 0x00240F6B
 		protected override void OnLoad()
 		{
 			base.OnLoad();
 		}
 
-		// Token: 0x0600B67A RID: 46714 RVA: 0x00242D75 File Offset: 0x00240F75
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			base.uiBehaviour.m_Close.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseClicked));
 		}
 
-		// Token: 0x0600B67B RID: 46715 RVA: 0x00242D9C File Offset: 0x00240F9C
 		protected override void OnUnload()
 		{
 			DlgHandlerBase.EnsureUnload<BiochemicalHellDogFrameHandler>(ref this.m_HellDogHandler);
@@ -93,14 +79,12 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x0600B67C RID: 46716 RVA: 0x00242DBE File Offset: 0x00240FBE
 		protected override void Init()
 		{
 			base.Init();
 			this.doc.View = this;
 		}
 
-		// Token: 0x0600B67D RID: 46717 RVA: 0x00242DD8 File Offset: 0x00240FD8
 		protected override void OnHide()
 		{
 			base.OnHide();
@@ -125,20 +109,17 @@ namespace XMainClient
 			this.doc.RefreshRedPoints();
 		}
 
-		// Token: 0x0600B67E RID: 46718 RVA: 0x00242E8C File Offset: 0x0024108C
 		public override int[] GetTitanBarItems()
 		{
 			return this.GetTitan();
 		}
 
-		// Token: 0x0600B67F RID: 46719 RVA: 0x00242EA4 File Offset: 0x002410A4
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.RefreshTabs(this.m_selectSys);
 		}
 
-		// Token: 0x0600B680 RID: 46720 RVA: 0x00242EBC File Offset: 0x002410BC
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
@@ -150,7 +131,6 @@ namespace XMainClient
 			this.RefreshRedpoint();
 		}
 
-		// Token: 0x0600B681 RID: 46721 RVA: 0x00242EF4 File Offset: 0x002410F4
 		public void RefreshChangeUI(List<uint> removeIds = null)
 		{
 			bool flag = removeIds != null;
@@ -167,7 +147,6 @@ namespace XMainClient
 			xluaEngine.hotfixMgr.TryFixRefresh(HotfixMode.AFTER, base.luaFileName, base.uiBehaviour.gameObject);
 		}
 
-		// Token: 0x0600B682 RID: 46722 RVA: 0x00242F60 File Offset: 0x00241160
 		public void ShowPrefab(XSysDefine sys = XSysDefine.XSys_None)
 		{
 			bool flag = base.IsVisible();
@@ -178,7 +157,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B683 RID: 46723 RVA: 0x00242F8C File Offset: 0x0024118C
 		private void RefreshTabs(XSysDefine system)
 		{
 			this.m_TabsDic.Clear();
@@ -211,7 +189,6 @@ namespace XMainClient
 			this.RefreshRedpoint();
 		}
 
-		// Token: 0x0600B684 RID: 46724 RVA: 0x00243130 File Offset: 0x00241330
 		private void InitTabInfo(GameObject tab, string tabName, string tabIcon)
 		{
 			IXUILabel ixuilabel = tab.transform.Find("TextLabel").GetComponent("XUILabel") as IXUILabel;
@@ -226,7 +203,6 @@ namespace XMainClient
 			ixuisprite2.SetSprite(tabIcon);
 		}
 
-		// Token: 0x0600B685 RID: 46725 RVA: 0x00243200 File Offset: 0x00241400
 		private void SelectDefaultTab(List<XSysDefine> listOpen, XSysDefine sys)
 		{
 			bool flag = this.m_TabsDic.ContainsKey(sys);
@@ -257,7 +233,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B686 RID: 46726 RVA: 0x002432BC File Offset: 0x002414BC
 		public void RefreshRedpoint()
 		{
 			foreach (KeyValuePair<XSysDefine, IXUICheckBox> keyValuePair in this.m_TabsDic)
@@ -271,7 +246,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B687 RID: 46727 RVA: 0x0024335C File Offset: 0x0024155C
 		private void SetupHandlers(XSysDefine sys)
 		{
 			this.m_selectSys = sys;
@@ -299,14 +273,12 @@ namespace XMainClient
 			DlgBase<TitanbarView, TitanBarBehaviour>.singleton.SetTitanItems(this.GetTitan());
 		}
 
-		// Token: 0x0600B688 RID: 46728 RVA: 0x00243434 File Offset: 0x00241634
 		public bool OnTabClicked(IXUICheckBox checkbox)
 		{
 			bool flag = !checkbox.bChecked;
 			return !flag && this.RefreshUI((XSysDefine)checkbox.ID);
 		}
 
-		// Token: 0x0600B689 RID: 46729 RVA: 0x00243464 File Offset: 0x00241664
 		private bool RefreshUI(XSysDefine sys)
 		{
 			bool flag = this.m_CurrHandler != null;
@@ -323,14 +295,12 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B68A RID: 46730 RVA: 0x002434B8 File Offset: 0x002416B8
 		public bool OnCloseClicked(IXUIButton sp)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x0600B68B RID: 46731 RVA: 0x002434D4 File Offset: 0x002416D4
 		public int[] GetTitan()
 		{
 			int[] result = null;
@@ -345,22 +315,16 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0400476D RID: 18285
 		private XSysDefine m_selectSys = XSysDefine.XSys_None;
 
-		// Token: 0x0400476E RID: 18286
 		private DlgHandlerBase m_CurrHandler;
 
-		// Token: 0x0400476F RID: 18287
 		public BiochemicalHellDogFrameHandler m_HellDogHandler;
 
-		// Token: 0x04004770 RID: 18288
 		public MadDuckSiegeFrameHandler m_MadDuckHandler;
 
-		// Token: 0x04004771 RID: 18289
 		public bool debug = false;
 
-		// Token: 0x04004772 RID: 18290
 		private Dictionary<XSysDefine, IXUICheckBox> m_TabsDic = new Dictionary<XSysDefine, IXUICheckBox>();
 	}
 }

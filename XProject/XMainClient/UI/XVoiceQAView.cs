@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020018D2 RID: 6354
+
 	internal class XVoiceQAView : DlgBase<XVoiceQAView, XVoiceQABehaviour>
 	{
-		// Token: 0x17003A62 RID: 14946
-		// (get) Token: 0x060108DF RID: 67807 RVA: 0x004116E4 File Offset: 0x0040F8E4
+
 		public override bool autoload
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003A63 RID: 14947
-		// (get) Token: 0x060108E0 RID: 67808 RVA: 0x004116F8 File Offset: 0x0040F8F8
 		public override bool pushstack
 		{
 			get
@@ -31,8 +28,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003A64 RID: 14948
-		// (get) Token: 0x060108E1 RID: 67809 RVA: 0x0041170C File Offset: 0x0040F90C
 		public override string fileName
 		{
 			get
@@ -41,7 +36,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060108E2 RID: 67810 RVA: 0x00411724 File Offset: 0x0040F924
 		protected override void Init()
 		{
 			base.Init();
@@ -69,7 +63,6 @@ namespace XMainClient.UI
 			this.m_RankNum.Add(item);
 		}
 
-		// Token: 0x060108E3 RID: 67811 RVA: 0x004118B8 File Offset: 0x0040FAB8
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -86,13 +79,11 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_Input.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnInputBtnClick));
 		}
 
-		// Token: 0x060108E4 RID: 67812 RVA: 0x00411A0C File Offset: 0x0040FC0C
 		private void SetTimesLabel(IXUILabel label, uint times)
 		{
 			label.SetText(XStringDefineProxy.GetString(string.Format("Multiple_times_{0}", times)));
 		}
 
-		// Token: 0x060108E5 RID: 67813 RVA: 0x00411A2C File Offset: 0x0040FC2C
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -121,14 +112,12 @@ namespace XMainClient.UI
 			this.RefreshPage(this._startid, this._startindex, this._starttime);
 		}
 
-		// Token: 0x060108E6 RID: 67814 RVA: 0x00411B8C File Offset: 0x0040FD8C
 		private bool OnCloseClicked(IXUIButton btn)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x060108E7 RID: 67815 RVA: 0x00411BA8 File Offset: 0x0040FDA8
 		private bool OnInputBtnClick(IXUIButton btn)
 		{
 			DlgBase<XChatInputView, XChatInputBehaviour>.singleton.ShowChatInput(new ChatInputStringBack(this.OnInputStringGet));
@@ -137,14 +126,12 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x060108E8 RID: 67816 RVA: 0x00411BEB File Offset: 0x0040FDEB
 		public void OnInputStringGet(string str)
 		{
 			XSingleton<XDebug>.singleton.AddLog("Player input string is ", str, null, null, null, null, XDebugColor.XDebug_None);
 			this._doc.SendAnswer(str, 0UL, 0U);
 		}
 
-		// Token: 0x060108E9 RID: 67817 RVA: 0x00411C14 File Offset: 0x0040FE14
 		private bool OnAutoPlayBtnClick(IXUICheckBox iCheckBox)
 		{
 			bool flag = iCheckBox.bChecked && !XSingleton<XClientNetwork>.singleton.IsWifiEnable();
@@ -174,7 +161,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x060108EA RID: 67818 RVA: 0x00411CE4 File Offset: 0x0040FEE4
 		private void OnVoiceButtonDrag(IXUIButton sp, Vector2 delta)
 		{
 			this.m_DragDistance += delta;
@@ -189,7 +175,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060108EB RID: 67819 RVA: 0x00411D30 File Offset: 0x0040FF30
 		private void OnVoiceButton(IXUIButton sp, bool state)
 		{
 			if (state)
@@ -224,7 +209,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060108EC RID: 67820 RVA: 0x00411DEC File Offset: 0x0040FFEC
 		public void VoiceQAStart(double time)
 		{
 			base.uiBehaviour.m_Start.SetActive(true);
@@ -251,7 +235,6 @@ namespace XMainClient.UI
 			this.SetTime((double)(DateTime.Now.Ticks / 10000000L) + time, false);
 		}
 
-		// Token: 0x060108ED RID: 67821 RVA: 0x00411F38 File Offset: 0x00410138
 		public void SetQuestion(int id, uint index, bool isNew = true, double time = 0.0)
 		{
 			base.uiBehaviour.m_Start.SetActive(false);
@@ -298,7 +281,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060108EE RID: 67822 RVA: 0x0041216C File Offset: 0x0041036C
 		public void VoiceQAEnd(uint questionNum, uint rightNum, List<ItemBrief> list)
 		{
 			base.uiBehaviour.m_Start.SetActive(false);
@@ -332,7 +314,6 @@ namespace XMainClient.UI
 			this.SetTime((double)(DateTime.Now.Ticks / 10000000L + 30L), true);
 		}
 
-		// Token: 0x060108EF RID: 67823 RVA: 0x0041233C File Offset: 0x0041053C
 		private bool OnNextQuestionBtnClick(IXUIButton btn)
 		{
 			XSingleton<XAudioMgr>.singleton.StopUISound();
@@ -343,7 +324,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x060108F0 RID: 67824 RVA: 0x00412384 File Offset: 0x00410584
 		private void OnAudioButtonClick(IXUISprite iSp)
 		{
 			this.DealWithAudio(new VoiceQAAudio
@@ -354,7 +334,6 @@ namespace XMainClient.UI
 			}, QAAudioPriority.URGEN);
 		}
 
-		// Token: 0x060108F1 RID: 67825 RVA: 0x004123F0 File Offset: 0x004105F0
 		private void AudioPlayEnd(object obj)
 		{
 			this.currPlayAudioIsMy = false;
@@ -367,7 +346,6 @@ namespace XMainClient.UI
 			this.PlayAudioList();
 		}
 
-		// Token: 0x060108F2 RID: 67826 RVA: 0x00412430 File Offset: 0x00410630
 		public void SetTime(double _targetTime, bool _isEndTime = false)
 		{
 			this.isEndTime = _isEndTime;
@@ -385,13 +363,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060108F3 RID: 67827 RVA: 0x00412497 File Offset: 0x00410697
 		private void WrapListInit(Transform t, int i)
 		{
 			this.aniArr[i] = (t.Find("voice/board/sign").GetComponent("XUISpriteAnimation") as IXUISpriteAnimation);
 		}
 
-		// Token: 0x060108F4 RID: 67828 RVA: 0x004124BC File Offset: 0x004106BC
 		private void DesWrapListUpdated(Transform t, int i)
 		{
 			bool flag = this._doc.AnswerList[i].roleId == XSingleton<XAttributeMgr>.singleton.XPlayerData.RoleID;
@@ -598,7 +574,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060108F5 RID: 67829 RVA: 0x00412FB4 File Offset: 0x004111B4
 		public void RefreshRank()
 		{
 			int num = Math.Min(this._doc.ScoreList.Count, XVoiceQAView.RANKSHOWNUMBER);
@@ -615,7 +590,6 @@ namespace XMainClient.UI
 			this.m_RankNum[XVoiceQAView.RANKSHOWNUMBER].SetText(this._doc.MyScore.ToString());
 		}
 
-		// Token: 0x060108F6 RID: 67830 RVA: 0x004130FC File Offset: 0x004112FC
 		public void RefreshPage(int id, uint index, double time)
 		{
 			this._startid = id;
@@ -634,7 +608,6 @@ namespace XMainClient.UI
 			this.RefreshList();
 		}
 
-		// Token: 0x060108F7 RID: 67831 RVA: 0x00413178 File Offset: 0x00411378
 		public void RefreshList()
 		{
 			bool flag = !base.IsVisible();
@@ -672,7 +645,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060108F8 RID: 67832 RVA: 0x00413274 File Offset: 0x00411474
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
@@ -712,7 +684,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060108F9 RID: 67833 RVA: 0x0041335C File Offset: 0x0041155C
 		private bool OnSendFlowerClicked(IXUIButton btn)
 		{
 			ulong id = btn.ID;
@@ -721,7 +692,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x060108FA RID: 67834 RVA: 0x00413390 File Offset: 0x00411590
 		public void DealWithAudio(VoiceQAAudio audio, QAAudioPriority pro)
 		{
 			bool flag = pro == QAAudioPriority.URGEN;
@@ -758,7 +728,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060108FB RID: 67835 RVA: 0x00413424 File Offset: 0x00411624
 		private void PlayAudio(VoiceQAAudio audio)
 		{
 			bool flag = this.playingAni != null;
@@ -828,7 +797,6 @@ namespace XMainClient.UI
 			this._timerToken = XSingleton<XTimerMgr>.singleton.SetTimer(interval, new XTimerMgr.ElapsedEventHandler(this.AudioPlayEnd), null);
 		}
 
-		// Token: 0x060108FC RID: 67836 RVA: 0x00413620 File Offset: 0x00411820
 		private void PlayAudioList()
 		{
 			bool flag = this._audioList.Count == 0;
@@ -852,7 +820,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060108FD RID: 67837 RVA: 0x0041369D File Offset: 0x0041189D
 		protected override void OnUnload()
 		{
 			XSingleton<XTimerMgr>.singleton.KillTimer(this._timerToken);
@@ -860,7 +827,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x060108FE RID: 67838 RVA: 0x004136C4 File Offset: 0x004118C4
 		protected override void OnHide()
 		{
 			base.OnHide();
@@ -878,7 +844,6 @@ namespace XMainClient.UI
 			this.OnRemoveAllQACache();
 		}
 
-		// Token: 0x060108FF RID: 67839 RVA: 0x00413770 File Offset: 0x00411970
 		private void OnRemoveAllQACache()
 		{
 			bool flag = XChatDocument.is_delete_audio && XSingleton<XChatIFlyMgr>.singleton.NeedClear();
@@ -888,76 +853,52 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x040077FA RID: 30714
 		private XVoiceQADocument _doc = null;
 
-		// Token: 0x040077FB RID: 30715
 		private Vector2 m_DragDistance = Vector2.zero;
 
-		// Token: 0x040077FC RID: 30716
 		private bool m_CancelRecord = false;
 
-		// Token: 0x040077FD RID: 30717
 		private IXUILabel timeLabel;
 
-		// Token: 0x040077FE RID: 30718
 		private double targetTime;
 
-		// Token: 0x040077FF RID: 30719
 		private bool isGreenColor;
 
-		// Token: 0x04007800 RID: 30720
 		private bool isEndTime = false;
 
-		// Token: 0x04007801 RID: 30721
 		private static readonly ulong UNPLAY = 10001UL;
 
-		// Token: 0x04007802 RID: 30722
 		private static readonly ulong SYSTEMTIPS = 10000UL;
 
-		// Token: 0x04007803 RID: 30723
 		private ulong currPlayAudio = XVoiceQAView.UNPLAY;
 
-		// Token: 0x04007804 RID: 30724
 		private bool currPlayAudioIsMy = false;
 
-		// Token: 0x04007805 RID: 30725
 		public List<IXUILabel> m_RankName = new List<IXUILabel>();
 
-		// Token: 0x04007806 RID: 30726
 		public List<IXUILabel> m_RankNum = new List<IXUILabel>();
 
-		// Token: 0x04007807 RID: 30727
 		private LinkedList<VoiceQAAudio> _audioList = new LinkedList<VoiceQAAudio>();
 
-		// Token: 0x04007808 RID: 30728
 		private static readonly float AUDIODELAYPLAYTIME = 10f;
 
-		// Token: 0x04007809 RID: 30729
 		private static readonly int RANKSHOWNUMBER = 20;
 
-		// Token: 0x0400780A RID: 30730
 		private uint _timerToken;
 
-		// Token: 0x0400780B RID: 30731
 		private int _startid = 0;
 
-		// Token: 0x0400780C RID: 30732
 		private uint _startindex = 0U;
 
-		// Token: 0x0400780D RID: 30733
 		private double _starttime = 0.0;
 
-		// Token: 0x0400780E RID: 30734
 		private IXUISpriteAnimation playingAni;
 
-		// Token: 0x0400780F RID: 30735
 		private IXUISpriteAnimation[] aniArr = new IXUISpriteAnimation[6];
 
-		// Token: 0x04007810 RID: 30736
 		private static readonly Color greenColor = new Color32(63, 216, 51, byte.MaxValue);
 
-		// Token: 0x04007811 RID: 30737
 		private static readonly Color redColor = new Color32(byte.MaxValue, 0, 0, byte.MaxValue);
 	}
 }

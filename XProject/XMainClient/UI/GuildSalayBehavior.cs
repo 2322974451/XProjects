@@ -6,10 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200176E RID: 5998
+
 	internal class GuildSalayBehavior : DlgBehaviourBase
 	{
-		// Token: 0x0600F7A1 RID: 63393 RVA: 0x00386954 File Offset: 0x00384B54
+
 		private void Awake()
 		{
 			this.m_Root = base.transform.FindChild("Bg");
@@ -46,88 +46,60 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04006BDD RID: 27613
 		public Transform m_Root;
 
-		// Token: 0x04006BDE RID: 27614
 		public Transform m_Right;
 
-		// Token: 0x04006BDF RID: 27615
 		public Transform m_Empty;
 
-		// Token: 0x04006BE0 RID: 27616
 		public IXUIButton m_Close;
 
-		// Token: 0x04006BE1 RID: 27617
 		public IXUILabel m_thisWeekScore;
 
-		// Token: 0x04006BE2 RID: 27618
 		public IXUITexture m_thisWeekGrade;
 
-		// Token: 0x04006BE3 RID: 27619
 		public GuildScoreInfo m_BottomInfo = new GuildScoreInfo();
 
-		// Token: 0x04006BE4 RID: 27620
 		public GuildScoreInfo m_LeftInfo = new GuildScoreInfo();
 
-		// Token: 0x04006BE5 RID: 27621
 		public GuildScoreInfo m_UpInfo = new GuildScoreInfo();
 
-		// Token: 0x04006BE6 RID: 27622
 		public GuildScoreInfo m_RightInfo = new GuildScoreInfo();
 
-		// Token: 0x04006BE7 RID: 27623
 		public IXRadarMap m_radarMap;
 
-		// Token: 0x04006BE8 RID: 27624
 		public IXUILabel m_LastWeekScore;
 
-		// Token: 0x04006BE9 RID: 27625
 		public IXUITexture m_LastWeekGrade;
 
-		// Token: 0x04006BEA RID: 27626
 		public IXUILabel m_LastScoreLabel;
 
-		// Token: 0x04006BEB RID: 27627
 		public IXUILabel m_GuildLevel;
 
-		// Token: 0x04006BEC RID: 27628
 		public IXUILabel m_GuildPosition;
 
-		// Token: 0x04006BED RID: 27629
 		public IXUILabel m_TitleLabel;
 
-		// Token: 0x04006BEE RID: 27630
 		public IXUIScrollView m_RewardScrollView;
 
-		// Token: 0x04006BEF RID: 27631
 		public IXUIWrapContent m_WrapContent;
 
-		// Token: 0x04006BF0 RID: 27632
 		public IXUIButton m_GetButton;
 
-		// Token: 0x04006BF1 RID: 27633
 		public IXUILabel m_GetLabel;
 
-		// Token: 0x04006BF2 RID: 27634
 		public IXUILabel m_CanNot;
 
-		// Token: 0x04006BF3 RID: 27635
 		public IXUILabel m_ShowNextReward;
 
-		// Token: 0x04006BF4 RID: 27636
 		public Transform m_DropView;
 
-		// Token: 0x04006BF5 RID: 27637
 		public IXUIScrollView m_DropScrollView;
 
-		// Token: 0x04006BF6 RID: 27638
 		public IXUIWrapContent m_DropWrapContent;
 
-		// Token: 0x04006BF7 RID: 27639
 		public IXUISprite m_DropClose;
 
-		// Token: 0x04006BF8 RID: 27640
 		public IXUILabel[] topPlayers = new IXUILabel[5];
 	}
 }

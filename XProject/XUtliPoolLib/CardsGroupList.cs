@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x020000C0 RID: 192
+
 	public class CardsGroupList : CVSReader
 	{
-		// Token: 0x06000570 RID: 1392 RVA: 0x000188D0 File Offset: 0x00016AD0
+
 		public CardsGroupList.RowData GetByGroupId(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -29,7 +29,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000571 RID: 1393 RVA: 0x0001893C File Offset: 0x00016B3C
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			CardsGroupList.RowData rowData = new CardsGroupList.RowData();
@@ -53,7 +52,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x06000572 RID: 1394 RVA: 0x00018A38 File Offset: 0x00016C38
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -67,34 +65,25 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x040002E6 RID: 742
 		public CardsGroupList.RowData[] Table = null;
 
-		// Token: 0x020002BE RID: 702
 		public class RowData
 		{
-			// Token: 0x0400096C RID: 2412
+
 			public uint GroupId;
 
-			// Token: 0x0400096D RID: 2413
 			public uint ShowLevel;
 
-			// Token: 0x0400096E RID: 2414
 			public uint OpenLevel;
 
-			// Token: 0x0400096F RID: 2415
 			public string ShowUp;
 
-			// Token: 0x04000970 RID: 2416
 			public string Detail;
 
-			// Token: 0x04000971 RID: 2417
 			public string GroupName;
 
-			// Token: 0x04000972 RID: 2418
 			public uint MapID;
 
-			// Token: 0x04000973 RID: 2419
 			public uint[] BreakLevel;
 		}
 	}

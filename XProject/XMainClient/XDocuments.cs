@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000EF2 RID: 3826
+
 	internal sealed class XDocuments : XObject
 	{
-		// Token: 0x0600CB16 RID: 51990 RVA: 0x002E11F4 File Offset: 0x002DF3F4
+
 		public XDocuments()
 		{
 			this._async_data.Clear();
@@ -155,8 +155,6 @@ namespace XMainClient
 			this._async_data.Add(new XDocuments.AsyncLoadData(new XDocuments.AsyncLoadExecute(XGuildGrowthDocument.Execute), new OnLoadedCallback(XGuildGrowthDocument.OnTableLoaded), XGuildGrowthDocument.AsyncLoader));
 		}
 
-		// Token: 0x17003573 RID: 13683
-		// (get) Token: 0x0600CB17 RID: 51991 RVA: 0x002E2718 File Offset: 0x002E0918
 		public XBagDocument XBagDoc
 		{
 			get
@@ -165,8 +163,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003574 RID: 13684
-		// (get) Token: 0x0600CB18 RID: 51992 RVA: 0x002E2730 File Offset: 0x002E0930
 		public XBattleDocument XBattleDoc
 		{
 			get
@@ -175,8 +171,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003575 RID: 13685
-		// (get) Token: 0x0600CB19 RID: 51993 RVA: 0x002E2748 File Offset: 0x002E0948
 		public XSpectateSceneDocument XSpectateSceneDoc
 		{
 			get
@@ -185,8 +179,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003576 RID: 13686
-		// (get) Token: 0x0600CB1A RID: 51994 RVA: 0x002E2760 File Offset: 0x002E0960
 		public XSceneDamageRankDocument XSceneDamageRankDoc
 		{
 			get
@@ -195,8 +187,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003577 RID: 13687
-		// (get) Token: 0x0600CB1B RID: 51995 RVA: 0x002E2778 File Offset: 0x002E0978
 		public XCombatStatisticsDocument XCombatStatisticsDoc
 		{
 			get
@@ -205,7 +195,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CB1C RID: 51996 RVA: 0x002E2790 File Offset: 0x002E0990
 		public void CtorLoad()
 		{
 			ThreadPool.SetMaxThreads(XTableAsyncLoader.AsyncPerTime, XTableAsyncLoader.AsyncPerTime);
@@ -244,7 +233,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CB1D RID: 51997 RVA: 0x002E28DC File Offset: 0x002E0ADC
 		public override bool Initilize(int flag)
 		{
 			this._bag_doc = (XSingleton<XComponentMgr>.singleton.CreateComponent(this, XBagDocument.uuID) as XBagDocument);
@@ -452,45 +440,34 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600CB1E RID: 51998 RVA: 0x002E368C File Offset: 0x002E188C
 		public static T GetSpecificDocument<T>(uint uuID) where T : XComponent
 		{
 			return XSingleton<XGame>.singleton.Doc.GetXComponent(uuID) as T;
 		}
 
-		// Token: 0x0600CB1F RID: 51999 RVA: 0x002E36B8 File Offset: 0x002E18B8
 		public void Refresh()
 		{
 			base.Uninitilize();
 			this.Initilize(0);
 		}
 
-		// Token: 0x040059C9 RID: 22985
 		private XBagDocument _bag_doc = null;
 
-		// Token: 0x040059CA RID: 22986
 		private XBattleDocument _battle_doc = null;
 
-		// Token: 0x040059CB RID: 22987
 		private XSpectateSceneDocument _spectateScene_doc = null;
 
-		// Token: 0x040059CC RID: 22988
 		private XSceneDamageRankDocument _SceneDamageRank_doc = null;
 
-		// Token: 0x040059CD RID: 22989
 		private XCombatStatisticsDocument _CombatStatistics_doc = null;
 
-		// Token: 0x040059CE RID: 22990
 		private List<XDocuments.AsyncLoadData> _async_data = new List<XDocuments.AsyncLoadData>(64);
 
-		// Token: 0x020019E9 RID: 6633
-		// (Invoke) Token: 0x060110D6 RID: 69846
 		private delegate void AsyncLoadExecute(OnLoadedCallback notcallback = null);
 
-		// Token: 0x020019EA RID: 6634
 		private struct AsyncLoadData
 		{
-			// Token: 0x060110D9 RID: 69849 RVA: 0x00456D5A File Offset: 0x00454F5A
+
 			public AsyncLoadData(XDocuments.AsyncLoadExecute exe, OnLoadedCallback loadedcallback, XTableAsyncLoader loader)
 			{
 				this.Execute = exe;
@@ -498,13 +475,10 @@ namespace XMainClient
 				this.TableLoader = loader;
 			}
 
-			// Token: 0x04008092 RID: 32914
 			public XDocuments.AsyncLoadExecute Execute;
 
-			// Token: 0x04008093 RID: 32915
 			public OnLoadedCallback Loaded;
 
-			// Token: 0x04008094 RID: 32916
 			public XTableAsyncLoader TableLoader;
 		}
 	}

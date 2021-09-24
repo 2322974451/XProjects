@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace XUtliPoolLib
 {
-	// Token: 0x02000051 RID: 81
+
 	public class IOSAssetBundleLoader : MobileAssetBundleLoader
 	{
-		// Token: 0x060002A1 RID: 673 RVA: 0x00014B06 File Offset: 0x00012D06
+
 		protected override IEnumerator LoadFromPackage()
 		{
 			bool flag = this.state == LoadState.State_Complete;
@@ -51,7 +51,6 @@ namespace XUtliPoolLib
 			yield break;
 		}
 
-		// Token: 0x060002A2 RID: 674 RVA: 0x00014B18 File Offset: 0x00012D18
 		protected override void LoadFromPackageImm()
 		{
 			bool flag = this.state == LoadState.State_Complete;

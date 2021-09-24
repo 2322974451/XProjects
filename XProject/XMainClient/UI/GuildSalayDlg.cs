@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200176F RID: 5999
+
 	internal class GuildSalayDlg : DlgBase<GuildSalayDlg, GuildSalayBehavior>
 	{
-		// Token: 0x17003818 RID: 14360
-		// (get) Token: 0x0600F7A3 RID: 63395 RVA: 0x00386DA0 File Offset: 0x00384FA0
+
 		public override string fileName
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003819 RID: 14361
-		// (get) Token: 0x0600F7A4 RID: 63396 RVA: 0x00386DB8 File Offset: 0x00384FB8
 		public override int layer
 		{
 			get
@@ -31,8 +28,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700381A RID: 14362
-		// (get) Token: 0x0600F7A5 RID: 63397 RVA: 0x00386DCC File Offset: 0x00384FCC
 		public override int group
 		{
 			get
@@ -41,8 +36,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700381B RID: 14363
-		// (get) Token: 0x0600F7A6 RID: 63398 RVA: 0x00386DE0 File Offset: 0x00384FE0
 		public override bool pushstack
 		{
 			get
@@ -51,8 +44,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700381C RID: 14364
-		// (get) Token: 0x0600F7A7 RID: 63399 RVA: 0x00386DF4 File Offset: 0x00384FF4
 		public override bool hideMainMenu
 		{
 			get
@@ -61,8 +52,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700381D RID: 14365
-		// (get) Token: 0x0600F7A8 RID: 63400 RVA: 0x00386E08 File Offset: 0x00385008
 		public override bool fullscreenui
 		{
 			get
@@ -71,8 +60,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700381E RID: 14366
-		// (get) Token: 0x0600F7A9 RID: 63401 RVA: 0x00386E1C File Offset: 0x0038501C
 		public override bool autoload
 		{
 			get
@@ -81,7 +68,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F7AA RID: 63402 RVA: 0x00386E30 File Offset: 0x00385030
 		protected override void Init()
 		{
 			base.Init();
@@ -91,7 +77,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_CanNot.SetText(XStringDefineProxy.GetString("GuildSalaryMessage"));
 		}
 
-		// Token: 0x0600F7AB RID: 63403 RVA: 0x00386EAA File Offset: 0x003850AA
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -99,7 +84,6 @@ namespace XMainClient.UI
 			this.Refresh();
 		}
 
-		// Token: 0x0600F7AC RID: 63404 RVA: 0x00386EC8 File Offset: 0x003850C8
 		public void Refresh()
 		{
 			this.SetSalaryInfo();
@@ -115,7 +99,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F7AD RID: 63405 RVA: 0x00386F0C File Offset: 0x0038510C
 		private void SetLastWeekBaseInfo()
 		{
 			base.uiBehaviour.m_GuildLevel.SetText(this._Doc.LastLevel.ToString());
@@ -138,7 +121,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_GetButton.SetVisible(true);
 		}
 
-		// Token: 0x0600F7AE RID: 63406 RVA: 0x003870A0 File Offset: 0x003852A0
 		private void SetThisWeekInfo()
 		{
 			XGuildDocument specificDocument = XDocuments.GetSpecificDocument<XGuildDocument>(XGuildDocument.uuID);
@@ -163,7 +145,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_DropView.gameObject.SetActive(false);
 		}
 
-		// Token: 0x0600F7AF RID: 63407 RVA: 0x00387248 File Offset: 0x00385448
 		private void SetSalaryInfo()
 		{
 			bool flag = this._Doc.CurGrade < 1U;
@@ -186,7 +167,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_radarMap.SetSite(1, this._Doc.Exp.Percent);
 		}
 
-		// Token: 0x0600F7B0 RID: 63408 RVA: 0x00387424 File Offset: 0x00385624
 		private void RefreshTopPlayers()
 		{
 			List<GuildActivityRole> topPlayers = this._Doc.TopPlayers;
@@ -211,7 +191,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F7B1 RID: 63409 RVA: 0x0038751C File Offset: 0x0038571C
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -225,7 +204,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_ShowNextReward.RegisterLabelClickEventHandler(new LabelClickEventHandler(this.OnShowNextReward));
 		}
 
-		// Token: 0x0600F7B2 RID: 63410 RVA: 0x0038761C File Offset: 0x0038581C
 		private void SetNextRewardTemp(uint grade, uint mul)
 		{
 			bool flag = grade > 1U && grade <= 5U;
@@ -247,7 +225,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F7B3 RID: 63411 RVA: 0x003876C0 File Offset: 0x003858C0
 		private string GetNextGradeString(uint grade)
 		{
 			string result = "S";
@@ -269,7 +246,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F7B4 RID: 63412 RVA: 0x00387718 File Offset: 0x00385918
 		protected override void OnHide()
 		{
 			base.OnHide();
@@ -280,7 +256,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F7B5 RID: 63413 RVA: 0x00387747 File Offset: 0x00385947
 		protected override void OnUnload()
 		{
 			base.uiBehaviour.m_thisWeekGrade.SetTexturePath("");
@@ -288,7 +263,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x0600F7B6 RID: 63414 RVA: 0x00387780 File Offset: 0x00385980
 		protected override void OnLoad()
 		{
 			bool flag = this.m_DescHandler != null;
@@ -299,7 +273,6 @@ namespace XMainClient.UI
 			base.OnLoad();
 		}
 
-		// Token: 0x0600F7B7 RID: 63415 RVA: 0x003877B0 File Offset: 0x003859B0
 		private bool OnClickDescHandler(IXUIButton sprite)
 		{
 			this._Doc.SelectTabs = (int)sprite.ID;
@@ -307,21 +280,18 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F7B8 RID: 63416 RVA: 0x003877F0 File Offset: 0x003859F0
 		private bool ClickClose(IXUIButton btn)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x0600F7B9 RID: 63417 RVA: 0x0038780C File Offset: 0x00385A0C
 		private bool ClickGet(IXUIButton btn)
 		{
 			this._Doc.SendGuildWageReward();
 			return true;
 		}
 
-		// Token: 0x0600F7BA RID: 63418 RVA: 0x0038782C File Offset: 0x00385A2C
 		private void OnRewardWrapUpdate(Transform t, int index)
 		{
 			bool flag = index >= this.m_GuildSalayList.Count;
@@ -331,7 +301,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F7BB RID: 63419 RVA: 0x00387874 File Offset: 0x00385A74
 		private void OnNextRewardUpdate(Transform t, int index)
 		{
 			bool flag = index >= this.m_NextGuildSalayList.Count;
@@ -341,13 +310,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F7BC RID: 63420 RVA: 0x003878BB File Offset: 0x00385ABB
 		private void OnClickNextHandler(IXUISprite sprite)
 		{
 			base.uiBehaviour.m_DropView.gameObject.SetActive(false);
 		}
 
-		// Token: 0x0600F7BD RID: 63421 RVA: 0x003878D8 File Offset: 0x00385AD8
 		private void OnShowNextReward(IXUILabel label)
 		{
 			base.uiBehaviour.m_DropView.gameObject.SetActive(true);
@@ -365,7 +332,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_DropScrollView.ResetPosition();
 		}
 
-		// Token: 0x0600F7BE RID: 63422 RVA: 0x003879C4 File Offset: 0x00385BC4
 		private void SetWrapContent(Transform t, uint seq0, uint seq1)
 		{
 			XSingleton<XItemDrawerMgr>.singleton.normalItemDrawer.DrawItem(t.gameObject, (int)seq0, (int)seq1, false);
@@ -374,16 +340,12 @@ namespace XMainClient.UI
 			ixuisprite.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(XSingleton<UiUtility>.singleton.OnItemClick));
 		}
 
-		// Token: 0x04006BF9 RID: 27641
 		private XGuildSalaryDocument _Doc;
 
-		// Token: 0x04006BFA RID: 27642
 		private GuildSalaryDescHandler m_DescHandler;
 
-		// Token: 0x04006BFB RID: 27643
 		private SeqListRef<uint> m_GuildSalayList;
 
-		// Token: 0x04006BFC RID: 27644
 		private SeqListRef<uint> m_NextGuildSalayList;
 	}
 }

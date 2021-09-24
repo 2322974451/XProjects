@@ -2,28 +2,28 @@
 
 namespace XMainClient
 {
-	// Token: 0x02000A12 RID: 2578
+
 	internal enum DragonGuildPermission
 	{
-		// Token: 0x040037DA RID: 14298
+
 		DGEM_DONOTHING = -10,
-		// Token: 0x040037DB RID: 14299
+
 		DGEM_INVALID = -1,
-		// Token: 0x040037DC RID: 14300
+
 		DGEM_DISMISS,
-		// Token: 0x040037DD RID: 14301
+
 		DGEM_CHANGELEADER,
-		// Token: 0x040037DE RID: 14302
+
 		DGEM_SET_VICELEADER,
-		// Token: 0x040037DF RID: 14303
+
 		DGEM_SETTINGS,
-		// Token: 0x040037E0 RID: 14304
+
 		DGEM_APPROVAL,
-		// Token: 0x040037E1 RID: 14305
+
 		DGEM_FIREMEMBER,
-		// Token: 0x040037E2 RID: 14306
+
 		DGEM_ANNOUNCEMENT,
-		// Token: 0x040037E3 RID: 14307
+
 		DGEM_MAX
 	}
 }

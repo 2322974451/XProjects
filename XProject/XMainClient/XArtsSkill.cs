@@ -1,8 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: XMainClient.XArtsSkill
-// Assembly: XMainClient, Version=1.0.6733.32538, Culture=neutral, PublicKeyToken=null
-// MVID: 71510397-FE89-4B5C-BC50-B6D560866D97
-// Assembly location: F:\龙之谷\Client\Assets\Lib\XMainClient.dll
+﻿
 
 using System.Collections.Generic;
 using UnityEngine;
@@ -895,22 +891,22 @@ namespace XMainClient
             ENotSelected = 7,
             EExString = 8,
             EManipulate = 9,
-            EMob = 10, // 0x0000000A
-            ECastChain = 11, // 0x0000000B
-            EFx = 12, // 0x0000000C
-            EAudio = 13, // 0x0000000D
-            EWarning = 14, // 0x0000000E
-            ECharge = 15, // 0x0000000F
-            EShake = 16, // 0x00000010
-            ECameraMotion = 17, // 0x00000011
-            ECameraPostEffect = 18, // 0x00000012
-            ESolidBlack = 19, // 0x00000013
-            ELoopResults = 20, // 0x00000014
-            EGroupResults = 21, // 0x00000015
-            EKillManipulate = 22, // 0x00000016
-            EKillFx = 23, // 0x00000017
-            EEndCameraPostEffect = 24, // 0x00000018
-            EArtsSkillNum = 25, // 0x00000019
+            EMob = 10, 
+            ECastChain = 11, 
+            EFx = 12, 
+            EAudio = 13, 
+            EWarning = 14, 
+            ECharge = 15, 
+            EShake = 16, 
+            ECameraMotion = 17, 
+            ECameraPostEffect = 18, 
+            ESolidBlack = 19, 
+            ELoopResults = 20, 
+            EGroupResults = 21, 
+            EKillManipulate = 22, 
+            EKillFx = 23, 
+            EEndCameraPostEffect = 24, 
+            EArtsSkillNum = 25, 
         }
     }
 }

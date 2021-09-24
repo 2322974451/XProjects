@@ -4,11 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000FC7 RID: 4039
+
 	internal class XMountComponent : XComponent
 	{
-		// Token: 0x170036B8 RID: 14008
-		// (get) Token: 0x0600D201 RID: 53761 RVA: 0x0030E224 File Offset: 0x0030C424
+
 		public override uint ID
 		{
 			get
@@ -17,8 +16,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170036B9 RID: 14009
-		// (get) Token: 0x0600D202 RID: 53762 RVA: 0x0030E23C File Offset: 0x0030C43C
 		public XEntity Copilot
 		{
 			get
@@ -27,7 +24,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D203 RID: 53763 RVA: 0x0030E254 File Offset: 0x0030C454
 		public void PreMount(XEntity entity)
 		{
 			bool flag = XEntity.ValideEntity(entity);
@@ -42,7 +38,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D204 RID: 53764 RVA: 0x0030E29C File Offset: 0x0030C49C
 		public void RealMount(Transform mountPoint, Vector3 pos, ref Quaternion basic_rotation, float mountScale)
 		{
 			bool flag = mountPoint == null || !XEntity.ValideEntity(this._mountMainBody);
@@ -52,7 +47,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D205 RID: 53765 RVA: 0x0030E2DC File Offset: 0x0030C4DC
 		public bool PreMountCopilot(XEntity entity)
 		{
 			bool flag = XEntity.ValideEntity(entity);
@@ -84,7 +78,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600D206 RID: 53766 RVA: 0x0030E360 File Offset: 0x0030C560
 		public void RealMountCopilot(Transform mountPoint, Vector3 pos, ref Quaternion basic_rotation, float mountScale)
 		{
 			bool flag = mountPoint == null || !XEntity.ValideEntity(this._mount_copilotMainBody);
@@ -94,7 +87,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D207 RID: 53767 RVA: 0x0030E3A0 File Offset: 0x0030C5A0
 		public void UnMount(XEntity entity)
 		{
 			bool flag = this._mountMainBody == entity;
@@ -120,7 +112,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D208 RID: 53768 RVA: 0x0030E400 File Offset: 0x0030C600
 		public void UnMountAll()
 		{
 			bool flag = this._mount_copilotMainBody != null;
@@ -135,7 +126,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D209 RID: 53769 RVA: 0x0030E444 File Offset: 0x0030C644
 		private static void _Mount(XEntity mainBody, Transform mountPoint, Vector3 pos, ref Quaternion basic_rotation, float mountScale)
 		{
 			bool flag = mountScale > 0f;
@@ -147,7 +137,6 @@ namespace XMainClient
 			mainBody.EngineObject.SetLocalPRS(pos, true, Quaternion.Inverse(basic_rotation), true, Vector3.one * mountScale, true);
 		}
 
-		// Token: 0x0600D20A RID: 53770 RVA: 0x0030E4A0 File Offset: 0x0030C6A0
 		private void _UnMount(ref XEntity mountEntity)
 		{
 			bool flag = !mountEntity.Destroying;
@@ -164,13 +153,10 @@ namespace XMainClient
 			mountEntity = null;
 		}
 
-		// Token: 0x04005F46 RID: 24390
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("MountComponent");
 
-		// Token: 0x04005F47 RID: 24391
 		private XEntity _mountMainBody = null;
 
-		// Token: 0x04005F48 RID: 24392
 		private XEntity _mount_copilotMainBody = null;
 	}
 }

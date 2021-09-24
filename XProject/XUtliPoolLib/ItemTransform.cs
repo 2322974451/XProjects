@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x02000122 RID: 290
+
 	public class ItemTransform : CVSReader
 	{
-		// Token: 0x060006FA RID: 1786 RVA: 0x00022BA4 File Offset: 0x00020DA4
+
 		public ItemTransform.RowData GetByitemid(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -21,7 +21,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x060006FB RID: 1787 RVA: 0x00022BDC File Offset: 0x00020DDC
 		private ItemTransform.RowData BinarySearchitemid(uint key)
 		{
 			int num = 0;
@@ -80,7 +79,6 @@ namespace XUtliPoolLib
 			return null;
 		}
 
-		// Token: 0x060006FC RID: 1788 RVA: 0x00022CB8 File Offset: 0x00020EB8
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			ItemTransform.RowData rowData = new ItemTransform.RowData();
@@ -94,7 +92,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x060006FD RID: 1789 RVA: 0x00022D30 File Offset: 0x00020F30
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -108,19 +105,15 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x0400036E RID: 878
 		public ItemTransform.RowData[] Table = null;
 
-		// Token: 0x02000321 RID: 801
 		public class RowData
 		{
-			// Token: 0x04000C10 RID: 3088
+
 			public uint itemid;
 
-			// Token: 0x04000C11 RID: 3089
 			public uint type;
 
-			// Token: 0x04000C12 RID: 3090
 			public string time;
 		}
 	}

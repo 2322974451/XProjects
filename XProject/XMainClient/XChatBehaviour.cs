@@ -6,10 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000E15 RID: 3605
+
 	internal class XChatBehaviour : DlgBehaviourBase
 	{
-		// Token: 0x0600C227 RID: 49703 RVA: 0x0029AC1C File Offset: 0x00298E1C
+
 		private void Awake()
 		{
 			this.m_sprTq = (base.transform.FindChild("Bg/ChatTopText/world_times/tq").GetComponent("XUISprite") as IXUISprite);
@@ -71,169 +71,114 @@ namespace XMainClient
 			this.m_btns = base.transform.FindChild("Bg/btns").gameObject;
 		}
 
-		// Token: 0x040052A9 RID: 21161
 		public IXUISprite m_sprTq;
 
-		// Token: 0x040052AA RID: 21162
 		public IXUILabel m_lblPriviledge;
 
-		// Token: 0x040052AB RID: 21163
 		public IXUIButton m_ChangeToVoice;
 
-		// Token: 0x040052AC RID: 21164
 		public IXUILabel m_ChatTextCost;
 
-		// Token: 0x040052AD RID: 21165
 		public IXUISprite m_TextBoard;
 
-		// Token: 0x040052AE RID: 21166
 		public IXUISprite m_LimitBoard;
 
-		// Token: 0x040052AF RID: 21167
 		public IXUIButton m_DoSendChat;
 
-		// Token: 0x040052B0 RID: 21168
 		public IXUILabel m_ChatText;
 
-		// Token: 0x040052B1 RID: 21169
 		public IXUIInput m_ChatInput;
 
-		// Token: 0x040052B2 RID: 21170
 		public IXUILabelSymbol m_ChatSymbol;
 
-		// Token: 0x040052B3 RID: 21171
 		public IXUIInput m_Input;
 
-		// Token: 0x040052B4 RID: 21172
 		public IXUIButton m_Close;
 
-		// Token: 0x040052B5 RID: 21173
 		public IXUIButton m_GetFlowerBtn;
 
-		// Token: 0x040052B6 RID: 21174
 		public IXUILabel m_GetFlowerLeftTime;
 
-		// Token: 0x040052B7 RID: 21175
 		public IXUILabel m_FlowerOwnCount;
 
-		// Token: 0x040052B8 RID: 21176
 		public GameObject m_Flower;
 
-		// Token: 0x040052B9 RID: 21177
 		public GameObject m_FlowerEff;
 
-		// Token: 0x040052BA RID: 21178
 		public GameObject m_SpeakEff;
 
-		// Token: 0x040052BB RID: 21179
 		public GameObject m_objFriendBar;
 
-		// Token: 0x040052BC RID: 21180
 		public GameObject m_objGroupBar;
 
-		// Token: 0x040052BD RID: 21181
 		public IXUITweenTool m_FlowerTween;
 
-		// Token: 0x040052BE RID: 21182
 		public IXUILabel m_lblWorldTimes;
 
-		// Token: 0x040052BF RID: 21183
 		public IXUITweenTool m_worldTween;
 
-		// Token: 0x040052C0 RID: 21184
 		public IXUIButton m_btnAdd;
 
-		// Token: 0x040052C1 RID: 21185
 		public IXUISprite m_sprFriendClear;
 
-		// Token: 0x040052C2 RID: 21186
 		public IXUISprite m_sprFriendAdd;
 
-		// Token: 0x040052C3 RID: 21187
 		public IXUISprite m_sprFriendBack;
 
-		// Token: 0x040052C4 RID: 21188
 		public IXUISprite m_sprFriendChat;
 
-		// Token: 0x040052C5 RID: 21189
 		public IXUILabel m_lblFriendTip;
 
-		// Token: 0x040052C6 RID: 21190
 		public IXUISprite m_sprGroupBind;
 
-		// Token: 0x040052C7 RID: 21191
 		public IXUISprite m_sprGroupQuit;
 
-		// Token: 0x040052C8 RID: 21192
 		public IXUILabel m_lblGroupChat;
 
-		// Token: 0x040052C9 RID: 21193
 		public IXUISprite m_sprGroupClear;
 
-		// Token: 0x040052CA RID: 21194
 		public IXUISprite m_sprGroupBack;
 
-		// Token: 0x040052CB RID: 21195
 		public IXUISprite m_sprGroupCreate;
 
-		// Token: 0x040052CC RID: 21196
 		public IXUISprite m_sprMember;
 
-		// Token: 0x040052CD RID: 21197
 		public IXUISprite m_sprList;
 
-		// Token: 0x040052CE RID: 21198
 		public IXUISprite m_sprMore;
 
-		// Token: 0x040052CF RID: 21199
 		public Transform m_tranOffset;
 
-		// Token: 0x040052D0 RID: 21200
 		public IXUIPanel m_panelRoot;
 
-		// Token: 0x040052D1 RID: 21201
 		public IXUIPanel m_panelText;
 
-		// Token: 0x040052D2 RID: 21202
 		public IXUIPanel m_panelSubMenu;
 
-		// Token: 0x040052D3 RID: 21203
 		public IXUISprite m_sprSet;
 
-		// Token: 0x040052D4 RID: 21204
 		public IXUISprite m_sprMail;
 
-		// Token: 0x040052D5 RID: 21205
 		public IXUISprite m_sprMailRedpoint;
 
-		// Token: 0x040052D6 RID: 21206
 		public IXUISprite m_sprXinyue;
 
-		// Token: 0x040052D7 RID: 21207
 		public IXUISprite m_sprXinyueRed;
 
-		// Token: 0x040052D8 RID: 21208
 		public IXUISprite m_sprFriend;
 
-		// Token: 0x040052D9 RID: 21209
 		public IXUICheckBox m_chxAutoVoice;
 
-		// Token: 0x040052DA RID: 21210
 		public IXUILabel m_lblAutoVoice;
 
-		// Token: 0x040052DB RID: 21211
 		public GameObject m_btns;
 
-		// Token: 0x040052DC RID: 21212
 		public ILoopScrollView m_loopView;
 
-		// Token: 0x040052DD RID: 21213
 		public ILoopScrollView m_friendView;
 
-		// Token: 0x040052DE RID: 21214
 		public ILoopScrollView m_groupView;
 
-		// Token: 0x040052DF RID: 21215
 		public ILoopScrollView m_systemView;
 	}
 }

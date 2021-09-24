@@ -1,8 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: XMainClient.XChatIFlyMgr
-// Assembly: XMainClient, Version=1.0.6733.32538, Culture=neutral, PublicKeyToken=null
-// MVID: 71510397-FE89-4B5C-BC50-B6D560866D97
-// Assembly location: F:\龙之谷\Client\Assets\Lib\XMainClient.dll
+﻿
 
 using KKSG;
 using System;
@@ -391,13 +387,13 @@ namespace XMainClient
                 else
                 {
                     DateTime now = DateTime.Now;
-                    // ISSUE: variable of a boxed type
+
                     var hour = (ValueType)now.Hour;
                     now = DateTime.Now;
-                    // ISSUE: variable of a boxed type
+
                     var minute = (ValueType)now.Minute;
                     now = DateTime.Now;
-                    // ISSUE: variable of a boxed type
+
                     var second = (ValueType)now.Second;
                     this._translate_timer = XSingleton<XTimerMgr>.singleton.SetTimer(0.1f, new XTimerMgr.ElapsedEventHandler(this.DelayTransMp3), (object)string.Format("{0:D2}{1:D2}{2:D2}", (object)hour, (object)minute, (object)second));
                     this._try_trans_start_time = Time.time;

@@ -1,8 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: UILib.IXUITool
-// Assembly: UILib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 98636226-A9CD-4398-A93A-F8649E3E05B4
-// Assembly location: F:\龙之谷\Client\Assets\Lib\UILib.dll
+﻿
 
 using UnityEngine;
 

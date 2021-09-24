@@ -4,11 +4,10 @@ using XMainClient.UI.UICommon;
 
 namespace XMainClient.UI.CustomBattle
 {
-	// Token: 0x02001936 RID: 6454
+
 	internal class CustomBattlePasswordSettingHandler : DlgHandlerBase
 	{
-		// Token: 0x17003B2C RID: 15148
-		// (get) Token: 0x06010F7F RID: 69503 RVA: 0x00451484 File Offset: 0x0044F684
+
 		protected override string FileName
 		{
 			get
@@ -17,7 +16,6 @@ namespace XMainClient.UI.CustomBattle
 			}
 		}
 
-		// Token: 0x06010F80 RID: 69504 RVA: 0x0045149C File Offset: 0x0044F69C
 		protected override void Init()
 		{
 			base.Init();
@@ -27,7 +25,6 @@ namespace XMainClient.UI.CustomBattle
 			this._password = (base.transform.Find("Password").GetComponent("XUIInput") as IXUIInput);
 		}
 
-		// Token: 0x06010F81 RID: 69505 RVA: 0x00451530 File Offset: 0x0044F730
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -35,7 +32,6 @@ namespace XMainClient.UI.CustomBattle
 			this._cancel.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCancelButtonClicked));
 		}
 
-		// Token: 0x06010F82 RID: 69506 RVA: 0x0045156A File Offset: 0x0044F76A
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -44,7 +40,6 @@ namespace XMainClient.UI.CustomBattle
 			this.RefreshData();
 		}
 
-		// Token: 0x06010F83 RID: 69507 RVA: 0x0045159C File Offset: 0x0044F79C
 		public override void RefreshData()
 		{
 			base.RefreshData();
@@ -59,7 +54,6 @@ namespace XMainClient.UI.CustomBattle
 			}
 		}
 
-		// Token: 0x06010F84 RID: 69508 RVA: 0x00451624 File Offset: 0x0044F824
 		private bool OnOKButtonClicked(IXUIButton button)
 		{
 			bool flag = this.passwordForJoin;
@@ -112,7 +106,6 @@ namespace XMainClient.UI.CustomBattle
 			return result;
 		}
 
-		// Token: 0x06010F85 RID: 69509 RVA: 0x00451814 File Offset: 0x0044FA14
 		private bool OnCancelButtonClicked(IXUIButton button)
 		{
 			bool flag = DlgBase<CustomBattleView, TabDlgBehaviour>.singleton._CustomModeCreateHandler != null && DlgBase<CustomBattleView, TabDlgBehaviour>.singleton._CustomModeCreateHandler.IsVisible();
@@ -126,19 +119,14 @@ namespace XMainClient.UI.CustomBattle
 			return true;
 		}
 
-		// Token: 0x04007D0B RID: 32011
 		private XCustomBattleDocument _doc = null;
 
-		// Token: 0x04007D0C RID: 32012
 		private IXUIButton _ok;
 
-		// Token: 0x04007D0D RID: 32013
 		private IXUIButton _cancel;
 
-		// Token: 0x04007D0E RID: 32014
 		private IXUIInput _password;
 
-		// Token: 0x04007D0F RID: 32015
 		private bool passwordForJoin = false;
 	}
 }

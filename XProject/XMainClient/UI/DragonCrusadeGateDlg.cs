@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001739 RID: 5945
+
 	internal class DragonCrusadeGateDlg : DlgBase<DragonCrusadeGateDlg, DragonCrusadeGateBehavior>
 	{
-		// Token: 0x170037C9 RID: 14281
-		// (get) Token: 0x0600F585 RID: 62853 RVA: 0x00376FF8 File Offset: 0x003751F8
+
 		public override string fileName
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170037CA RID: 14282
-		// (get) Token: 0x0600F586 RID: 62854 RVA: 0x00377010 File Offset: 0x00375210
 		public override bool hideMainMenu
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170037CB RID: 14283
-		// (get) Token: 0x0600F587 RID: 62855 RVA: 0x00377024 File Offset: 0x00375224
 		public override int layer
 		{
 			get
@@ -40,8 +35,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170037CC RID: 14284
-		// (get) Token: 0x0600F588 RID: 62856 RVA: 0x00377038 File Offset: 0x00375238
 		public override int group
 		{
 			get
@@ -50,8 +43,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170037CD RID: 14285
-		// (get) Token: 0x0600F589 RID: 62857 RVA: 0x0037704C File Offset: 0x0037524C
 		public override bool autoload
 		{
 			get
@@ -60,8 +51,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170037CE RID: 14286
-		// (get) Token: 0x0600F58A RID: 62858 RVA: 0x00377060 File Offset: 0x00375260
 		public override bool pushstack
 		{
 			get
@@ -70,8 +59,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170037CF RID: 14287
-		// (get) Token: 0x0600F58B RID: 62859 RVA: 0x00377074 File Offset: 0x00375274
 		public override int sysid
 		{
 			get
@@ -80,7 +67,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F58C RID: 62860 RVA: 0x00377088 File Offset: 0x00375288
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -88,34 +74,29 @@ namespace XMainClient.UI
 			base.uiBehaviour.mRwdBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnChallenge));
 		}
 
-		// Token: 0x0600F58D RID: 62861 RVA: 0x003770D7 File Offset: 0x003752D7
 		public override void OnXNGUIClick(GameObject obj, string path)
 		{
 			base.OnXNGUIClick(obj, path);
 		}
 
-		// Token: 0x0600F58E RID: 62862 RVA: 0x003770E3 File Offset: 0x003752E3
 		protected override void OnShow()
 		{
 			base.Alloc3DAvatarPool("DragonCrusadeGateDlg");
 			base.OnShow();
 		}
 
-		// Token: 0x0600F58F RID: 62863 RVA: 0x003770F9 File Offset: 0x003752F9
 		protected override void OnUnload()
 		{
 			base.Return3DAvatarPool();
 			base.OnUnload();
 		}
 
-		// Token: 0x0600F590 RID: 62864 RVA: 0x0037710A File Offset: 0x0037530A
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
 			base.Alloc3DAvatarPool("DragonCrusadeGateDlg");
 		}
 
-		// Token: 0x0600F591 RID: 62865 RVA: 0x00377120 File Offset: 0x00375320
 		private bool OnClose(IXUIButton btn)
 		{
 			base.Return3DAvatarPool();
@@ -124,7 +105,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F592 RID: 62866 RVA: 0x0037714C File Offset: 0x0037534C
 		private bool OnChallenge(IXUIButton btn)
 		{
 			bool flag = this.mDragonCrusageGateData.leftcount <= 0;
@@ -164,7 +144,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F593 RID: 62867 RVA: 0x00377248 File Offset: 0x00375448
 		private DragonCrusageGateData GetAheadGate()
 		{
 			for (int i = 0; i < XDragonCrusadeDocument._DragonCrusageGateDataInfo.Count; i++)
@@ -179,7 +158,6 @@ namespace XMainClient.UI
 			return null;
 		}
 
-		// Token: 0x0600F594 RID: 62868 RVA: 0x0037729C File Offset: 0x0037549C
 		public void FreshInfo(DragonCrusageGateData data)
 		{
 			this.mDragonCrusageGateData = data;
@@ -266,10 +244,8 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04006A63 RID: 27235
 		private XDummy m_Dummy;
 
-		// Token: 0x04006A64 RID: 27236
 		private DragonCrusageGateData mDragonCrusageGateData = null;
 	}
 }

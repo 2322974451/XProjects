@@ -9,12 +9,11 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000A1A RID: 2586
+
 	[Hotfix]
 	internal class XBackFlowDlg : DlgBase<XBackFlowDlg, XBackFlowBehavior>
 	{
-		// Token: 0x17002EB5 RID: 11957
-		// (get) Token: 0x06009E20 RID: 40480 RVA: 0x0019E0B8 File Offset: 0x0019C2B8
+
 		public override string fileName
 		{
 			get
@@ -23,8 +22,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002EB6 RID: 11958
-		// (get) Token: 0x06009E21 RID: 40481 RVA: 0x0019E0D0 File Offset: 0x0019C2D0
 		public override bool autoload
 		{
 			get
@@ -33,8 +30,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002EB7 RID: 11959
-		// (get) Token: 0x06009E22 RID: 40482 RVA: 0x0019E0E4 File Offset: 0x0019C2E4
 		public override bool hideMainMenu
 		{
 			get
@@ -43,8 +38,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002EB8 RID: 11960
-		// (get) Token: 0x06009E23 RID: 40483 RVA: 0x0019E0F8 File Offset: 0x0019C2F8
 		public override int sysid
 		{
 			get
@@ -53,8 +46,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002EB9 RID: 11961
-		// (get) Token: 0x06009E24 RID: 40484 RVA: 0x0019E114 File Offset: 0x0019C314
 		public override bool pushstack
 		{
 			get
@@ -63,19 +54,16 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009E25 RID: 40485 RVA: 0x0019E127 File Offset: 0x0019C327
 		protected override void OnLoad()
 		{
 			base.OnLoad();
 		}
 
-		// Token: 0x06009E26 RID: 40486 RVA: 0x0019E131 File Offset: 0x0019C331
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 		}
 
-		// Token: 0x06009E27 RID: 40487 RVA: 0x0019E13C File Offset: 0x0019C33C
 		protected override void OnUnload()
 		{
 			this.UnloadHandlers();
@@ -96,7 +84,6 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x06009E28 RID: 40488 RVA: 0x0019E1B8 File Offset: 0x0019C3B8
 		protected override void Init()
 		{
 			base.Init();
@@ -107,7 +94,6 @@ namespace XMainClient
 			this._backflowEffect.SetActive(false);
 		}
 
-		// Token: 0x06009E29 RID: 40489 RVA: 0x0019E250 File Offset: 0x0019C450
 		protected override void OnHide()
 		{
 			this._curShowSys = XSysDefine.XSys_None;
@@ -122,7 +108,6 @@ namespace XMainClient
 			base.OnHide();
 		}
 
-		// Token: 0x06009E2A RID: 40490 RVA: 0x0019E2A4 File Offset: 0x0019C4A4
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -137,7 +122,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009E2B RID: 40491 RVA: 0x0019E2FC File Offset: 0x0019C4FC
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
@@ -146,21 +130,18 @@ namespace XMainClient
 			this.RefreshTabRedPoint(this._curShowSys, XBackFlowDocument.Doc.GetRedPointState(this._curShowSys));
 		}
 
-		// Token: 0x06009E2C RID: 40492 RVA: 0x0019E33C File Offset: 0x0019C53C
 		public void ShowHandler(XSysDefine sys)
 		{
 			this._curShowSys = sys;
 			this.SetVisibleWithAnimation(true, null);
 		}
 
-		// Token: 0x06009E2D RID: 40493 RVA: 0x0019E34F File Offset: 0x0019C54F
 		public void RefreshTabs(XSysDefine sys)
 		{
 			this._curShowSys = sys;
 			this.UpdateTabs();
 		}
 
-		// Token: 0x06009E2E RID: 40494 RVA: 0x0019E360 File Offset: 0x0019C560
 		public void RefreshTabRedPoint(XSysDefine sys, bool red)
 		{
 			for (int i = 0; i < this._tabList.Count; i++)
@@ -174,7 +155,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009E2F RID: 40495 RVA: 0x0019E3D4 File Offset: 0x0019C5D4
 		public void RefreshHandler()
 		{
 			bool flag = this._curHandler != null && this._curHandler.IsVisible();
@@ -184,7 +164,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009E30 RID: 40496 RVA: 0x0019E408 File Offset: 0x0019C608
 		public void PlayDogEffect()
 		{
 			bool flag = this._welfareHandler != null && this._welfareHandler.IsVisible();
@@ -194,7 +173,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009E31 RID: 40497 RVA: 0x0019E43C File Offset: 0x0019C63C
 		public void PlayBackFlowEffect()
 		{
 			bool flag = this._backflowEffect != null;
@@ -205,7 +183,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009E32 RID: 40498 RVA: 0x0019E490 File Offset: 0x0019C690
 		public void RefreshLeftTime(uint leftTime)
 		{
 			bool flag = leftTime >= 1U;
@@ -228,7 +205,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009E33 RID: 40499 RVA: 0x0019E524 File Offset: 0x0019C724
 		private void SetupHandlers(XSysDefine sys)
 		{
 			bool flag = this._curHandler != null;
@@ -286,7 +262,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009E34 RID: 40500 RVA: 0x0019E710 File Offset: 0x0019C910
 		private void UnloadHandlers()
 		{
 			DlgHandlerBase.EnsureUnload<XBackFlowLevelUpHandler>(ref this._levelUpHandler);
@@ -300,7 +275,6 @@ namespace XMainClient
 			XSingleton<XPandoraSDKDocument>.singleton.ClosePandoraTabPanel("callBack");
 		}
 
-		// Token: 0x06009E35 RID: 40501 RVA: 0x0019E790 File Offset: 0x0019C990
 		private void UpdateTabs()
 		{
 			this._tabList.Clear();
@@ -411,7 +385,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009E36 RID: 40502 RVA: 0x0019ED08 File Offset: 0x0019CF08
 		private bool OnTabChange(IXUICheckBox iXUICheckBox)
 		{
 			bool bChecked = iXUICheckBox.bChecked;
@@ -424,53 +397,38 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x06009E37 RID: 40503 RVA: 0x0019ED40 File Offset: 0x0019CF40
 		private bool OnCloseDlg(IXUIButton button)
 		{
 			this.SetVisible(false, true);
 			return true;
 		}
 
-		// Token: 0x04003806 RID: 14342
 		private XBackFlowLevelUpHandler _levelUpHandler;
 
-		// Token: 0x04003807 RID: 14343
 		private XBackFlowMallHandler _mallHandler;
 
-		// Token: 0x04003808 RID: 14344
 		private XBackFlowWelfareHandler _welfareHandler;
 
-		// Token: 0x04003809 RID: 14345
 		private XBackFlowTasksHandler _taskHandler;
 
-		// Token: 0x0400380A RID: 14346
 		private XBackFlowTargetHandler _targetHandler;
 
-		// Token: 0x0400380B RID: 14347
 		private XBackFlowPrivilegeHandler _privilegeHandler;
 
-		// Token: 0x0400380C RID: 14348
 		private XBackFlowServerHandler _serverHandler;
 
-		// Token: 0x0400380D RID: 14349
 		private XBackFlowPandoraSDKHandler m_pandoraSDKHandler;
 
-		// Token: 0x0400380E RID: 14350
 		private XSysDefine _curShowSys = XSysDefine.XSys_None;
 
-		// Token: 0x0400380F RID: 14351
 		private SeqList<string> _tabName2Sys;
 
-		// Token: 0x04003810 RID: 14352
 		private List<IXUICheckBox> _tabList = new List<IXUICheckBox>();
 
-		// Token: 0x04003811 RID: 14353
 		private DlgHandlerBase _curHandler;
 
-		// Token: 0x04003812 RID: 14354
 		private XFx _backflowEffect;
 
-		// Token: 0x04003813 RID: 14355
 		private IXUILabel _endTime;
 	}
 }

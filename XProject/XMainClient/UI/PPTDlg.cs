@@ -5,11 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001851 RID: 6225
+
 	internal class PPTDlg : DlgBase<PPTDlg, PPTBehaviour>
 	{
-		// Token: 0x17003969 RID: 14697
-		// (get) Token: 0x060102EE RID: 66286 RVA: 0x003E318C File Offset: 0x003E138C
+
 		public override string fileName
 		{
 			get
@@ -18,8 +17,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700396A RID: 14698
-		// (get) Token: 0x060102EF RID: 66287 RVA: 0x003E31A4 File Offset: 0x003E13A4
 		public override int group
 		{
 			get
@@ -28,8 +25,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700396B RID: 14699
-		// (get) Token: 0x060102F0 RID: 66288 RVA: 0x003E31B8 File Offset: 0x003E13B8
 		public override bool autoload
 		{
 			get
@@ -38,8 +33,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700396C RID: 14700
-		// (get) Token: 0x060102F1 RID: 66289 RVA: 0x003E31CC File Offset: 0x003E13CC
 		public override bool hideMainMenu
 		{
 			get
@@ -48,7 +41,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060102F2 RID: 66290 RVA: 0x003E31E0 File Offset: 0x003E13E0
 		public void InitDlg()
 		{
 			bool flag = !this.is_inited;
@@ -62,20 +54,17 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060102F3 RID: 66291 RVA: 0x003E323C File Offset: 0x003E143C
 		public void UnInit()
 		{
 			this.is_inited = false;
 			this._targetPPT = (this._curPPT = 0);
 		}
 
-		// Token: 0x060102F4 RID: 66292 RVA: 0x003E3261 File Offset: 0x003E1461
 		protected override void Init()
 		{
 			base.Init();
 		}
 
-		// Token: 0x060102F5 RID: 66293 RVA: 0x003E326C File Offset: 0x003E146C
 		public override void OnUpdate()
 		{
 			bool flag = this._curPPT != this._targetPPT;
@@ -105,7 +94,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060102F6 RID: 66294 RVA: 0x003E3364 File Offset: 0x003E1564
 		public void ShowPPT(int ppt)
 		{
 			this.InitDlg();
@@ -116,7 +104,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060102F7 RID: 66295 RVA: 0x003E3394 File Offset: 0x003E1594
 		private void SetPowerpoint(int ppt)
 		{
 			bool flag = ppt > this._curPPT;
@@ -141,7 +128,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060102F8 RID: 66296 RVA: 0x003E3430 File Offset: 0x003E1630
 		public void OnPowerpointChanged(int oldValue, int newValue)
 		{
 			this._curPPT = oldValue;
@@ -175,25 +161,18 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x040073EA RID: 29674
 		private int _curPPT = 0;
 
-		// Token: 0x040073EB RID: 29675
 		private int _targetPPT = 0;
 
-		// Token: 0x040073EC RID: 29676
 		private float _PPTtime = 0f;
 
-		// Token: 0x040073ED RID: 29677
 		private const float _PPTExistTime = 2.5f;
 
-		// Token: 0x040073EE RID: 29678
 		private int delta = 0;
 
-		// Token: 0x040073EF RID: 29679
 		private DateTime _last_power_sound_time = DateTime.Now;
 
-		// Token: 0x040073F0 RID: 29680
 		private bool is_inited = false;
 	}
 }

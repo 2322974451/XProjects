@@ -9,11 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000BFD RID: 3069
+
 	internal class CardCollectView : DlgBase<CardCollectView, CardCollectBehaviour>
 	{
-		// Token: 0x170030B9 RID: 12473
-		// (get) Token: 0x0600AE5E RID: 44638 RVA: 0x0020B3F0 File Offset: 0x002095F0
+
 		public CardTotalHandler TotalHandler
 		{
 			get
@@ -22,8 +21,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170030BA RID: 12474
-		// (get) Token: 0x0600AE5F RID: 44639 RVA: 0x0020B408 File Offset: 0x00209608
 		public XCardShopHandler ShopHandler
 		{
 			get
@@ -32,8 +29,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170030BB RID: 12475
-		// (get) Token: 0x0600AE60 RID: 44640 RVA: 0x0020B420 File Offset: 0x00209620
 		public CardPage CurPage
 		{
 			get
@@ -52,8 +47,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170030BC RID: 12476
-		// (get) Token: 0x0600AE61 RID: 44641 RVA: 0x0020B454 File Offset: 0x00209654
 		public override string fileName
 		{
 			get
@@ -62,8 +55,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170030BD RID: 12477
-		// (get) Token: 0x0600AE62 RID: 44642 RVA: 0x0020B46C File Offset: 0x0020966C
 		public override int layer
 		{
 			get
@@ -72,8 +63,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170030BE RID: 12478
-		// (get) Token: 0x0600AE63 RID: 44643 RVA: 0x0020B480 File Offset: 0x00209680
 		public override int group
 		{
 			get
@@ -82,8 +71,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170030BF RID: 12479
-		// (get) Token: 0x0600AE64 RID: 44644 RVA: 0x0020B494 File Offset: 0x00209694
 		public override bool autoload
 		{
 			get
@@ -92,8 +79,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170030C0 RID: 12480
-		// (get) Token: 0x0600AE65 RID: 44645 RVA: 0x0020B4A8 File Offset: 0x002096A8
 		public override bool hideMainMenu
 		{
 			get
@@ -102,8 +87,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170030C1 RID: 12481
-		// (get) Token: 0x0600AE66 RID: 44646 RVA: 0x0020B4BC File Offset: 0x002096BC
 		public override bool fullscreenui
 		{
 			get
@@ -112,8 +95,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170030C2 RID: 12482
-		// (get) Token: 0x0600AE67 RID: 44647 RVA: 0x0020B4D0 File Offset: 0x002096D0
 		public override bool pushstack
 		{
 			get
@@ -122,8 +103,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170030C3 RID: 12483
-		// (get) Token: 0x0600AE68 RID: 44648 RVA: 0x0020B4E4 File Offset: 0x002096E4
 		public override int sysid
 		{
 			get
@@ -132,7 +111,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AE69 RID: 44649 RVA: 0x0020B500 File Offset: 0x00209700
 		protected override void Init()
 		{
 			this.shopdoc = XDocuments.GetSpecificDocument<XNormalShopDocument>(XNormalShopDocument.uuID);
@@ -144,7 +122,6 @@ namespace XMainClient
 			this.qualityFilter.Set(CardCollectView.QualityMask, new QualityFilterCallback(this._OnFilterOK));
 		}
 
-		// Token: 0x0600AE6A RID: 44650 RVA: 0x0020B5B4 File Offset: 0x002097B4
 		protected void _OnFilterOK(int mask)
 		{
 			CardCollectView.QualityMask = mask;
@@ -162,7 +139,6 @@ namespace XMainClient
 			this.doc.ReqAutoBreak(list);
 		}
 
-		// Token: 0x0600AE6B RID: 44651 RVA: 0x0020B60C File Offset: 0x0020980C
 		public override void RegisterEvent()
 		{
 			base.uiBehaviour.m_CardGroupListClose.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this._OnCardGroupListCloseClick));
@@ -180,19 +156,16 @@ namespace XMainClient
 			base.uiBehaviour.m_WrapContent.RegisterItemUpdateEventHandler(new WrapItemUpdateEventHandler(this._OnGroupListItemUpdated));
 		}
 
-		// Token: 0x0600AE6C RID: 44652 RVA: 0x0020B793 File Offset: 0x00209993
 		private void _OnCardGroupListCloseClick(IXUISprite iSp)
 		{
 			this.SetVisibleWithAnimation(false, null);
 		}
 
-		// Token: 0x0600AE6D RID: 44653 RVA: 0x0020B79F File Offset: 0x0020999F
 		private void _OnOpenDeckClicked(IXUISprite iSp)
 		{
 			this.doc.Select((uint)iSp.ID);
 		}
 
-		// Token: 0x0600AE6E RID: 44654 RVA: 0x0020B7B8 File Offset: 0x002099B8
 		private bool _OnDeckCloseClick(IXUIButton go)
 		{
 			this.CloseCurPage(CardPage.Deck);
@@ -200,20 +173,17 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600AE6F RID: 44655 RVA: 0x0020B7DC File Offset: 0x002099DC
 		private void _OnOpenCardListClick(IXUISprite iSp)
 		{
 			this.ShowPage(CardPage.CardAll, true);
 		}
 
-		// Token: 0x0600AE70 RID: 44656 RVA: 0x0020B7E8 File Offset: 0x002099E8
 		public void OnOpenDetailClick(IXUISprite iSp)
 		{
 			this.CurCardID = (int)iSp.ID;
 			this.ShowPage(CardPage.CardDetail, true);
 		}
 
-		// Token: 0x0600AE71 RID: 44657 RVA: 0x0020B804 File Offset: 0x00209A04
 		private bool _OnDetailCloseClick(IXUIButton go)
 		{
 			this.CloseCurPage(CardPage.CardDetail);
@@ -221,20 +191,17 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600AE72 RID: 44658 RVA: 0x0020B838 File Offset: 0x00209A38
 		private bool _OnUpStarClick(IXUIButton go)
 		{
 			this.doc.ReqUpStar();
 			return true;
 		}
 
-		// Token: 0x0600AE73 RID: 44659 RVA: 0x0020B857 File Offset: 0x00209A57
 		private void _OnOpenCardShopClick(IXUISprite iSp)
 		{
 			this.ShowPage(CardPage.CardShop, true);
 		}
 
-		// Token: 0x0600AE74 RID: 44660 RVA: 0x0020B864 File Offset: 0x00209A64
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -249,7 +216,6 @@ namespace XMainClient
 			this.ShowPage(CardPage.Deck, true);
 		}
 
-		// Token: 0x0600AE75 RID: 44661 RVA: 0x0020B928 File Offset: 0x00209B28
 		public void UnloadFx(XFx fx)
 		{
 			bool flag = fx != null;
@@ -260,7 +226,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AE76 RID: 44662 RVA: 0x0020B950 File Offset: 0x00209B50
 		protected override void OnHide()
 		{
 			this.UnloadFx(this._StarUpFx);
@@ -269,14 +234,12 @@ namespace XMainClient
 			base.OnHide();
 		}
 
-		// Token: 0x0600AE77 RID: 44663 RVA: 0x0020B976 File Offset: 0x00209B76
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
 			base.Alloc3DAvatarPool("CardCollectView");
 		}
 
-		// Token: 0x0600AE78 RID: 44664 RVA: 0x0020B98C File Offset: 0x00209B8C
 		protected override void OnUnload()
 		{
 			base.Return3DAvatarPool();
@@ -288,7 +251,6 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x0600AE79 RID: 44665 RVA: 0x0020B9E4 File Offset: 0x00209BE4
 		public void CloseCurPage(CardPage closePage)
 		{
 			bool flag = closePage == CardPage.ALL;
@@ -345,7 +307,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AE7A RID: 44666 RVA: 0x0020BB5C File Offset: 0x00209D5C
 		public void ShowPage(CardPage page, bool IsPush = true)
 		{
 			if (IsPush)
@@ -383,7 +344,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AE7B RID: 44667 RVA: 0x0020BC74 File Offset: 0x00209E74
 		public void OldRefreshShowCardGroupList()
 		{
 			bool flag = this.CurPage != CardPage.CardGroupList;
@@ -474,7 +434,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AE7C RID: 44668 RVA: 0x0020C0BC File Offset: 0x0020A2BC
 		public void RefreshShowCardGroupList(bool bResetPosition = false)
 		{
 			this.doc.RefreshCardGroupListShow();
@@ -565,7 +524,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AE7D RID: 44669 RVA: 0x0020C5B8 File Offset: 0x0020A7B8
 		public void RefreshShowDeck(bool bResetPosition = false)
 		{
 			bool flag = this.CurPage != CardPage.Deck;
@@ -662,7 +620,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AE7E RID: 44670 RVA: 0x0020CB24 File Offset: 0x0020AD24
 		private void _OnOpenRewardTipsClick(IXUISprite iSp)
 		{
 			base.uiBehaviour.m_ActionNumRewardTips.gameObject.SetActive(true);
@@ -694,7 +651,6 @@ namespace XMainClient
 			base.uiBehaviour.m_RewardAttribute.SetText(stringBuilder.ToString());
 		}
 
-		// Token: 0x0600AE7F RID: 44671 RVA: 0x0020CD58 File Offset: 0x0020AF58
 		public void ShowGetReward(int index)
 		{
 			XSingleton<XFxMgr>.singleton.CreateAndPlay("Effects/FX_Particle/UIfx/UI_yh", DlgBase<XMainInterface, XMainInterfaceBehaviour>.singleton.uiBehaviour.m_FxFirework.transform, Vector3.zero, Vector3.one, 1f, true, 5f, true);
@@ -715,7 +671,6 @@ namespace XMainClient
 			base.uiBehaviour.m_GetRewardAttribute.SetText(stringBuilder.ToString());
 		}
 
-		// Token: 0x0600AE80 RID: 44672 RVA: 0x0020CEDC File Offset: 0x0020B0DC
 		public void RefreshList(bool bResetPosition = true)
 		{
 			int size = this.doc.CardsGroupInfo[this.doc.CurSelectGroup].combDic.size;
@@ -730,7 +685,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AE81 RID: 44673 RVA: 0x0020CF4C File Offset: 0x0020B14C
 		private void _OnGroupListItemUpdated(Transform t, int index)
 		{
 			bool flag = index < 0;
@@ -828,7 +782,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AE82 RID: 44674 RVA: 0x0020D428 File Offset: 0x0020B628
 		public void RefreshDetail()
 		{
 			bool flag = this.CurPage != CardPage.CardDetail;
@@ -933,19 +886,16 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AE83 RID: 44675 RVA: 0x0020D8CA File Offset: 0x0020BACA
 		private void _OnActiveClick(IXUISprite iSp)
 		{
 			this.doc.ReqActive((uint)iSp.ID);
 		}
 
-		// Token: 0x0600AE84 RID: 44676 RVA: 0x0020D8E0 File Offset: 0x0020BAE0
 		private void _OnNoActiveClick(IXUISprite iSp)
 		{
 			XSingleton<UiUtility>.singleton.ShowSystemTip(XSingleton<XStringTable>.singleton.GetString("ATLAS_CARD_NOT_ENOUGH"), "fece00");
 		}
 
-		// Token: 0x0600AE85 RID: 44677 RVA: 0x0020D904 File Offset: 0x0020BB04
 		public void RefreshCardNum()
 		{
 			bool flag = this.CurPage != CardPage.CardDetail;
@@ -960,25 +910,21 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AE86 RID: 44678 RVA: 0x0020D9BB File Offset: 0x0020BBBB
 		private void _OnRewardCloseClick(IXUISprite go)
 		{
 			base.uiBehaviour.m_ActionNumRewardTips.gameObject.SetActive(false);
 		}
 
-		// Token: 0x0600AE87 RID: 44679 RVA: 0x0020D9D5 File Offset: 0x0020BBD5
 		private void _OnGetRewardCloseClick(IXUISprite go)
 		{
 			base.uiBehaviour.m_GetActionNumReward.gameObject.SetActive(false);
 		}
 
-		// Token: 0x0600AE88 RID: 44680 RVA: 0x0020D9EF File Offset: 0x0020BBEF
 		private void _OnResolveCloseClick(IXUISprite go)
 		{
 			base.uiBehaviour.m_ResolvePanel.gameObject.SetActive(false);
 		}
 
-		// Token: 0x0600AE89 RID: 44681 RVA: 0x0020DA0C File Offset: 0x0020BC0C
 		private void _OnResolveClick(IXUISprite iSp)
 		{
 			int cardCount = this.doc.GetCardCount(this.CurCardID);
@@ -1001,7 +947,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AE8A RID: 44682 RVA: 0x0020DAC0 File Offset: 0x0020BCC0
 		private bool _OpenResolve(IXUIButton btn)
 		{
 			base.uiBehaviour.m_ResolvePanel.gameObject.SetActive(true);
@@ -1011,7 +956,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600AE8B RID: 44683 RVA: 0x0020DB14 File Offset: 0x0020BD14
 		private void _OnBuyClick(IXUISprite iSp)
 		{
 			XNormalShopDocument specificDocument = XDocuments.GetSpecificDocument<XNormalShopDocument>(XNormalShopDocument.uuID);
@@ -1019,7 +963,6 @@ namespace XMainClient
 			specificDocument.ReqGoodsList(sys);
 		}
 
-		// Token: 0x0600AE8C RID: 44684 RVA: 0x0020DB44 File Offset: 0x0020BD44
 		public void SingleShop(XNormalShopGoods goods)
 		{
 			this.CurGoods = goods;
@@ -1028,7 +971,6 @@ namespace XMainClient
 			XSingleton<UiUtility>.singleton.ShowModalDialog(string.Format(XSingleton<UiUtility>.singleton.ReplaceReturn(XSingleton<XStringTable>.singleton.GetString("CATD_BUY")), this.CurGoods.priceValue, itemConf.ItemName[0], this.ShopHandler.money), XStringDefineProxy.GetString("COMMON_OK"), XStringDefineProxy.GetString("COMMON_CANCEL"), new ButtonClickEventHandler(this._OnBuyOK));
 		}
 
-		// Token: 0x0600AE8D RID: 44685 RVA: 0x0020DBE4 File Offset: 0x0020BDE4
 		private bool _OnBuyOK(IXUIButton iSp)
 		{
 			ItemList.RowData itemConf = XBagDocument.GetItemConf(this.CurCardID);
@@ -1046,7 +988,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600AE8E RID: 44686 RVA: 0x0020DC6C File Offset: 0x0020BE6C
 		private void _OnResolveNumAddClick(IXUISprite iSp)
 		{
 			int num = int.Parse(base.uiBehaviour.m_ResolveNum.GetText());
@@ -1064,7 +1005,6 @@ namespace XMainClient
 			this.RefreshResolveGetItem();
 		}
 
-		// Token: 0x0600AE8F RID: 44687 RVA: 0x0020DD04 File Offset: 0x0020BF04
 		private void _OnResolveNumSubClick(IXUISprite iSp)
 		{
 			int num = int.Parse(base.uiBehaviour.m_ResolveNum.GetText());
@@ -1081,7 +1021,6 @@ namespace XMainClient
 			this.RefreshResolveGetItem();
 		}
 
-		// Token: 0x0600AE90 RID: 44688 RVA: 0x0020DD84 File Offset: 0x0020BF84
 		private void _OnResolveOKClick(IXUISprite iSp)
 		{
 			int num = int.Parse(base.uiBehaviour.m_ResolveNum.GetText());
@@ -1089,7 +1028,6 @@ namespace XMainClient
 			base.uiBehaviour.m_ResolvePanel.gameObject.SetActive(false);
 		}
 
-		// Token: 0x0600AE91 RID: 44689 RVA: 0x0020DDD4 File Offset: 0x0020BFD4
 		private void RefreshResolveGetItem()
 		{
 			int num = int.Parse(base.uiBehaviour.m_ResolveNum.GetText());
@@ -1100,20 +1038,17 @@ namespace XMainClient
 			ixuilabel.SetText(((long)((ulong)itemConf.Decompose[0, 1] * (ulong)((long)num))).ToString());
 		}
 
-		// Token: 0x0600AE92 RID: 44690 RVA: 0x0020DE90 File Offset: 0x0020C090
 		private void _OnGoRiskClick(IXUISprite iSp)
 		{
 			DlgBase<CardCollectView, CardCollectBehaviour>.singleton.SetVisible(false, true);
 			DlgBase<SuperRiskDlg, SuperRiskDlgBehaviour>.singleton.Show(true, (int)iSp.ID);
 		}
 
-		// Token: 0x0600AE93 RID: 44691 RVA: 0x0020DEB3 File Offset: 0x0020C0B3
 		private void _OnDeckBlockClick(IXUISprite iSp)
 		{
 			XSingleton<UiUtility>.singleton.ShowSystemTip(string.Format(XSingleton<XStringTable>.singleton.GetString("DECK_UNLOCK"), iSp.ID), "fece00");
 		}
 
-		// Token: 0x0600AE94 RID: 44692 RVA: 0x0020DEE8 File Offset: 0x0020C0E8
 		private string GetTexPath(int quality)
 		{
 			bool flag = quality == 1;
@@ -1162,14 +1097,12 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600AE95 RID: 44693 RVA: 0x0020DF7C File Offset: 0x0020C17C
 		private bool OnHelpBtnClicked(IXUIButton btn)
 		{
 			DlgBase<XCommonHelpTipView, XCommonHelpTipBehaviour>.singleton.ShowHelp(XSysDefine.XSys_CardCollect);
 			return true;
 		}
 
-		// Token: 0x0600AE96 RID: 44694 RVA: 0x0020DF9C File Offset: 0x0020C19C
 		public void PlayLevelUpFx()
 		{
 			bool flag = !DlgBase<CardCollectView, CardCollectBehaviour>.singleton.IsVisible();
@@ -1184,28 +1117,20 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0400424E RID: 16974
 		private XCardCollectDocument doc = null;
 
-		// Token: 0x0400424F RID: 16975
 		private XNormalShopDocument shopdoc = null;
 
-		// Token: 0x04004250 RID: 16976
 		private CardTotalHandler m_CardTotalHandler;
 
-		// Token: 0x04004251 RID: 16977
 		private XCardShopHandler m_CardShopHandler;
 
-		// Token: 0x04004252 RID: 16978
 		public static readonly uint STAR_MAX = 5U;
 
-		// Token: 0x04004253 RID: 16979
 		public QualityFilterHandler qualityFilter;
 
-		// Token: 0x04004254 RID: 16980
 		private static int QualityMask = 63;
 
-		// Token: 0x04004255 RID: 16981
 		private uint[] AttrSort = new uint[]
 		{
 			(uint)XFastEnumIntEqualityComparer<XAttributeDefine>.ToInt(XAttributeDefine.XAttr_PhysicalAtk_Basic),
@@ -1215,22 +1140,16 @@ namespace XMainClient
 			(uint)XFastEnumIntEqualityComparer<XAttributeDefine>.ToInt(XAttributeDefine.XAttr_MaxHP_Basic)
 		};
 
-		// Token: 0x04004256 RID: 16982
 		private XDummy _CardDummy = null;
 
-		// Token: 0x04004257 RID: 16983
 		private Stack<CardPage> m_uiStack = new Stack<CardPage>();
 
-		// Token: 0x04004258 RID: 16984
 		public int CurCardID = 0;
 
-		// Token: 0x04004259 RID: 16985
 		public int CurShopID = 0;
 
-		// Token: 0x0400425A RID: 16986
 		private XFx _StarUpFx;
 
-		// Token: 0x0400425B RID: 16987
 		private XNormalShopGoods CurGoods;
 	}
 }

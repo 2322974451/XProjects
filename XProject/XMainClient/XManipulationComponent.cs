@@ -5,11 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000F2C RID: 3884
+
 	internal sealed class XManipulationComponent : XComponent
 	{
-		// Token: 0x170035E0 RID: 13792
-		// (get) Token: 0x0600CDDB RID: 52699 RVA: 0x002F9270 File Offset: 0x002F7470
+
 		public override uint ID
 		{
 			get
@@ -18,27 +17,23 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CDDC RID: 52700 RVA: 0x002F9287 File Offset: 0x002F7487
 		protected override void EventSubscribe()
 		{
 			base.RegisterEvent(XEventDefine.XEvent_Manipulation_On, new XComponent.XEventHandler(this.ManipulationOn));
 			base.RegisterEvent(XEventDefine.XEvent_Manipulation_Off, new XComponent.XEventHandler(this.ManipulationOff));
 		}
 
-		// Token: 0x0600CDDD RID: 52701 RVA: 0x00114ACA File Offset: 0x00112CCA
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
 		}
 
-		// Token: 0x0600CDDE RID: 52702 RVA: 0x002F92BA File Offset: 0x002F74BA
 		public override void OnDetachFromHost()
 		{
 			this._item.Clear();
 			base.OnDetachFromHost();
 		}
 
-		// Token: 0x0600CDDF RID: 52703 RVA: 0x002F92D0 File Offset: 0x002F74D0
 		public override void Update(float fDeltaT)
 		{
 			bool flag = this._item.Count == 0;
@@ -70,7 +65,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CDE0 RID: 52704 RVA: 0x002F947C File Offset: 0x002F767C
 		private bool ManipulationOn(XEventArgs e)
 		{
 			XManipulationOnEventArgs xmanipulationOnEventArgs = e as XManipulationOnEventArgs;
@@ -82,7 +76,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600CDE1 RID: 52705 RVA: 0x002F94C8 File Offset: 0x002F76C8
 		private bool ManipulationOff(XEventArgs e)
 		{
 			XManipulationOffEventArgs xmanipulationOffEventArgs = e as XManipulationOffEventArgs;
@@ -98,10 +91,8 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x04005BB9 RID: 23481
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("XManipulation");
 
-		// Token: 0x04005BBA RID: 23482
 		private Dictionary<long, XManipulationData> _item = new Dictionary<long, XManipulationData>();
 	}
 }

@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x0200012D RID: 301
+
 	public class NoticeTable : CVSReader
 	{
-		// Token: 0x06000725 RID: 1829 RVA: 0x00023B28 File Offset: 0x00021D28
+
 		public NoticeTable.RowData GetByid(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -21,7 +21,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000726 RID: 1830 RVA: 0x00023B60 File Offset: 0x00021D60
 		private NoticeTable.RowData BinarySearchid(uint key)
 		{
 			int num = 0;
@@ -80,7 +79,6 @@ namespace XUtliPoolLib
 			return null;
 		}
 
-		// Token: 0x06000727 RID: 1831 RVA: 0x00023C3C File Offset: 0x00021E3C
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			NoticeTable.RowData rowData = new NoticeTable.RowData();
@@ -98,7 +96,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x06000728 RID: 1832 RVA: 0x00023CE8 File Offset: 0x00021EE8
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -112,25 +109,19 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x04000379 RID: 889
 		public NoticeTable.RowData[] Table = null;
 
-		// Token: 0x0200032C RID: 812
 		public class RowData
 		{
-			// Token: 0x04000C4D RID: 3149
+
 			public uint id;
 
-			// Token: 0x04000C4E RID: 3150
 			public int channel;
 
-			// Token: 0x04000C4F RID: 3151
 			public string info;
 
-			// Token: 0x04000C50 RID: 3152
 			public uint linkparam;
 
-			// Token: 0x04000C51 RID: 3153
 			public string linkcontent;
 		}
 	}

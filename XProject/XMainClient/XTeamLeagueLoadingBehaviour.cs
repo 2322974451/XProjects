@@ -7,10 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000BF3 RID: 3059
+
 	internal class XTeamLeagueLoadingBehaviour : DlgBehaviourBase
 	{
-		// Token: 0x0600AE0D RID: 44557 RVA: 0x00208A04 File Offset: 0x00206C04
+
 		private void Awake()
 		{
 			Transform transform = base.transform.FindChild("Bg/Left");
@@ -34,19 +34,14 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x040041E9 RID: 16873
 		public IXUILabel[] m_TeamName = new IXUILabel[2];
 
-		// Token: 0x040041EA RID: 16874
 		public IXUILabel[] m_TeamRegion = new IXUILabel[2];
 
-		// Token: 0x040041EB RID: 16875
 		public XUIPool[] m_MembersPool = new XUIPool[2];
 
-		// Token: 0x040041EC RID: 16876
 		public List<Transform> m_LeftMemberNode = new List<Transform>();
 
-		// Token: 0x040041ED RID: 16877
 		public List<Transform> m_RightMemberNode = new List<Transform>();
 	}
 }

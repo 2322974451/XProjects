@@ -9,10 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000E6C RID: 3692
+
 	internal class XTeamMonitorHandler : DlgHandlerBase
 	{
-		// Token: 0x0600C5BE RID: 50622 RVA: 0x002BB8B8 File Offset: 0x002B9AB8
+
 		protected override void Init()
 		{
 			base.Init();
@@ -40,7 +40,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C5BF RID: 50623 RVA: 0x002BBA04 File Offset: 0x002B9C04
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -54,7 +53,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C5C0 RID: 50624 RVA: 0x002BBA78 File Offset: 0x002B9C78
 		public override void OnUnload()
 		{
 			DlgHandlerBase.EnsureUnload<XSceneDamageRankHandler>(ref this.m_DamageRankHandler);
@@ -65,7 +63,6 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x0600C5C1 RID: 50625 RVA: 0x002BBAC8 File Offset: 0x002B9CC8
 		private bool _OnTabSelectionChanged(IXUICheckBox ckb)
 		{
 			bool flag = !ckb.bChecked;
@@ -100,7 +97,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C5C2 RID: 50626 RVA: 0x002BBB50 File Offset: 0x002B9D50
 		public override void OnUpdate()
 		{
 			bool flag = !this.active;
@@ -120,7 +116,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C5C3 RID: 50627 RVA: 0x002BBBD0 File Offset: 0x002B9DD0
 		private void _ReqQueryRoleStates()
 		{
 			bool flag = this.m_StateMgr.HasLoadingEntity();
@@ -150,7 +145,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C5C4 RID: 50628 RVA: 0x002BBCC0 File Offset: 0x002B9EC0
 		public void OnQueryRoleStates(QueryRoleStateAck data)
 		{
 			bool flag = data.roleids.Count != data.state.Count;
@@ -167,14 +161,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C5C5 RID: 50629 RVA: 0x002BBD6D File Offset: 0x002B9F6D
 		public void TemporarilyHide(bool bHide)
 		{
 			this.m_bTempHide = bHide;
 			this.OnTeamInfoChanged();
 		}
 
-		// Token: 0x0600C5C6 RID: 50630 RVA: 0x002BBD80 File Offset: 0x002B9F80
 		public void TeamInfoChangeOnBattle(XTeam team)
 		{
 			bool flag = team == null;
@@ -219,7 +211,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C5C7 RID: 50631 RVA: 0x002BBF68 File Offset: 0x002BA168
 		public void TeamInfoChangeOnSpectate(List<XTeamBloodUIData> list)
 		{
 			bool flag = list.Count != this._teamList.Count;
@@ -250,21 +241,18 @@ namespace XMainClient
 			this.OnTeamInfoChanged();
 		}
 
-		// Token: 0x0600C5C8 RID: 50632 RVA: 0x002BC04B File Offset: 0x002BA24B
 		public void InitWhenShowMainUIByTeam(XTeam team)
 		{
 			this.InitWhenShowMainUI();
 			this.TeamInfoChangeOnBattle(team);
 		}
 
-		// Token: 0x0600C5C9 RID: 50633 RVA: 0x002BC05D File Offset: 0x002BA25D
 		public void InitWhenShowMainUIByBloodList(List<XTeamBloodUIData> list)
 		{
 			this.InitWhenShowMainUI();
 			this.TeamInfoChangeOnSpectate(list);
 		}
 
-		// Token: 0x0600C5CA RID: 50634 RVA: 0x002BC070 File Offset: 0x002BA270
 		public void InitWhenShowMainUI()
 		{
 			SceneTable.RowData sceneData = XSingleton<XSceneMgr>.singleton.GetSceneData(XSingleton<XScene>.singleton.SceneID);
@@ -309,7 +297,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C5CB RID: 50635 RVA: 0x002BC154 File Offset: 0x002BA354
 		public void OnTeamInfoChanged()
 		{
 			bool flag = XSingleton<XScene>.singleton.SceneType == SceneType.SCENE_MOBA;
@@ -383,7 +370,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C5CC RID: 50636 RVA: 0x002BC4F0 File Offset: 0x002BA6F0
 		public void OnTeamMemberBuffChange(ulong memberID, List<UIBuffInfo> buff)
 		{
 			for (int i = 0; i < this.m_Members.Count; i++)
@@ -396,7 +382,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C5CD RID: 50637 RVA: 0x002BC548 File Offset: 0x002BA748
 		public void CheckToggleState()
 		{
 			for (int i = 0; i < this.m_Members.Count; i++)
@@ -405,7 +390,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C5CE RID: 50638 RVA: 0x002BC584 File Offset: 0x002BA784
 		public void RefreshVoice(ulong[] roleids, int[] states)
 		{
 			bool flag = DlgBase<BattleMain, BattleMainBehaviour>.singleton.IsLoaded();
@@ -418,7 +402,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C5CF RID: 50639 RVA: 0x002BC5C4 File Offset: 0x002BA7C4
 		public void HideVoice()
 		{
 			for (int i = 0; i < this.m_Members.Count; i++)
@@ -427,7 +410,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C5D0 RID: 50640 RVA: 0x002BC604 File Offset: 0x002BA804
 		private void Play(ulong roleid, int state)
 		{
 			for (int i = 0; i < this.m_Members.Count; i++)
@@ -441,40 +423,28 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x040056B0 RID: 22192
 		private XTeamDocument _TeamDoc;
 
-		// Token: 0x040056B1 RID: 22193
 		private XUIPool m_TeamUIPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x040056B2 RID: 22194
 		private List<XTeamMemberMonitor> m_Members = new List<XTeamMemberMonitor>();
 
-		// Token: 0x040056B3 RID: 22195
 		private XTeamMonitorStateMgr m_StateMgr = new XTeamMonitorStateMgr();
 
-		// Token: 0x040056B4 RID: 22196
 		private float m_LastStateQueryTime = 0f;
 
-		// Token: 0x040056B5 RID: 22197
 		private bool m_bShowMonitor = true;
 
-		// Token: 0x040056B6 RID: 22198
 		private bool m_bTempHide = false;
 
-		// Token: 0x040056B7 RID: 22199
 		public XSceneDamageRankHandler m_DamageRankHandler;
 
-		// Token: 0x040056B8 RID: 22200
 		private GameObject m_TeamGo;
 
-		// Token: 0x040056B9 RID: 22201
 		private IXUICheckBox m_RankCheckBox;
 
-		// Token: 0x040056BA RID: 22202
 		private IXUICheckBox m_TeamCheckBox;
 
-		// Token: 0x040056BB RID: 22203
 		private List<XTeamBloodUIData> _teamList = new List<XTeamBloodUIData>();
 	}
 }

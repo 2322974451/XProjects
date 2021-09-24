@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x020000D8 RID: 216
+
 	public class DanceConfig : CVSReader
 	{
-		// Token: 0x060005E1 RID: 1505 RVA: 0x0001B560 File Offset: 0x00019760
+
 		public DanceConfig.RowData GetByMotionID(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -21,7 +21,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x060005E2 RID: 1506 RVA: 0x0001B598 File Offset: 0x00019798
 		private DanceConfig.RowData BinarySearchMotionID(uint key)
 		{
 			int num = 0;
@@ -80,7 +79,6 @@ namespace XUtliPoolLib
 			return null;
 		}
 
-		// Token: 0x060005E3 RID: 1507 RVA: 0x0001B674 File Offset: 0x00019874
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			DanceConfig.RowData rowData = new DanceConfig.RowData();
@@ -122,7 +120,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x060005E4 RID: 1508 RVA: 0x0001B860 File Offset: 0x00019A60
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -136,61 +133,43 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x04000324 RID: 804
 		public DanceConfig.RowData[] Table = null;
 
-		// Token: 0x020002D7 RID: 727
 		public class RowData
 		{
-			// Token: 0x040009D4 RID: 2516
+
 			public uint MotionID;
 
-			// Token: 0x040009D5 RID: 2517
 			public string MotionName;
 
-			// Token: 0x040009D6 RID: 2518
 			public int PresentID;
 
-			// Token: 0x040009D7 RID: 2519
 			public string Motion;
 
-			// Token: 0x040009D8 RID: 2520
 			public string Music;
 
-			// Token: 0x040009D9 RID: 2521
 			public int LoopCount;
 
-			// Token: 0x040009DA RID: 2522
 			public string EffectPath;
 
-			// Token: 0x040009DB RID: 2523
 			public float EffectTime;
 
-			// Token: 0x040009DC RID: 2524
 			public int Type;
 
-			// Token: 0x040009DD RID: 2525
 			public string HallBtnIcon;
 
-			// Token: 0x040009DE RID: 2526
 			public bool LoverMotion;
 
-			// Token: 0x040009DF RID: 2527
 			public SeqListRef<uint> Condition;
 
-			// Token: 0x040009E0 RID: 2528
 			public string[] ConditionDesc;
 
-			// Token: 0x040009E1 RID: 2529
 			public string[] GoText;
 
-			// Token: 0x040009E2 RID: 2530
 			public int[] GoSystemID;
 
-			// Token: 0x040009E3 RID: 2531
 			public uint MotionType;
 
-			// Token: 0x040009E4 RID: 2532
 			public string IconAtlas;
 		}
 	}

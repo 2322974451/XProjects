@@ -7,10 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200172B RID: 5931
+
 	internal class XBattleTeamTowerHandler : DlgHandlerBase
 	{
-		// Token: 0x0600F4E7 RID: 62695 RVA: 0x00371E00 File Offset: 0x00370000
+
 		protected override void Init()
 		{
 			base.Init();
@@ -23,7 +23,6 @@ namespace XMainClient.UI
 			this._manao_tween = XNumberTween.Create(this._total_manao);
 		}
 
-		// Token: 0x0600F4E8 RID: 62696 RVA: 0x00371F0C File Offset: 0x0037010C
 		public void SetLeftTime(uint leftTime)
 		{
 			bool flag = DlgBase<BattleMain, BattleMainBehaviour>.singleton.IsLoaded();
@@ -38,7 +37,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F4E9 RID: 62697 RVA: 0x00371F50 File Offset: 0x00370150
 		public void OnRefreshTowerInfo(PtcG2C_TowerSceneInfoNtf infoNtf)
 		{
 			bool flag = infoNtf.Data.leftTime > 0;
@@ -118,25 +116,18 @@ namespace XMainClient.UI
 			this._difficulty.SetText("");
 		}
 
-		// Token: 0x040069BE RID: 27070
 		public IXUILabel _total_coin;
 
-		// Token: 0x040069BF RID: 27071
 		public IXUILabel _total_manao;
 
-		// Token: 0x040069C0 RID: 27072
 		public IXUILabel _req_level;
 
-		// Token: 0x040069C1 RID: 27073
 		public IXUILabel _req_fight_point;
 
-		// Token: 0x040069C2 RID: 27074
 		public IXUILabel _difficulty;
 
-		// Token: 0x040069C3 RID: 27075
 		public XNumberTween _coin_tween;
 
-		// Token: 0x040069C4 RID: 27076
 		public XNumberTween _manao_tween;
 	}
 }

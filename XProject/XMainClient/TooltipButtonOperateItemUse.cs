@@ -8,16 +8,15 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000CA1 RID: 3233
+
 	internal class TooltipButtonOperateItemUse : TooltipButtonOperateBase
 	{
-		// Token: 0x0600B62F RID: 46639 RVA: 0x00241392 File Offset: 0x0023F592
+
 		public TooltipButtonOperateItemUse()
 		{
 			this.m_EndlessabyssShopItem = XSingleton<XGlobalConfig>.singleton.GetIntList("EndlessabyssShopItem");
 		}
 
-		// Token: 0x0600B630 RID: 46640 RVA: 0x002413B4 File Offset: 0x0023F5B4
 		public override string GetButtonText()
 		{
 			bool flag = this.m_RowData != null;
@@ -33,7 +32,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B631 RID: 46641 RVA: 0x002413E8 File Offset: 0x0023F5E8
 		public override bool IsButtonVisible(XItem item)
 		{
 			this.m_biShowPutInBtn = XSingleton<TooltipParam>.singleton.bShowPutInBtn;
@@ -79,14 +77,12 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B632 RID: 46642 RVA: 0x0024151C File Offset: 0x0023F71C
 		public override bool HasRedPoint(XItem item)
 		{
 			XCharacterItemDocument specificDocument = XDocuments.GetSpecificDocument<XCharacterItemDocument>(XCharacterItemDocument.uuID);
 			return specificDocument.AvailableItems.IsNew(item.uid);
 		}
 
-		// Token: 0x0600B633 RID: 46643 RVA: 0x0024154C File Offset: 0x0023F74C
 		public override void OnButtonClick(ulong mainUID, ulong compareUID)
 		{
 			base.OnButtonClick(mainUID, compareUID);
@@ -173,7 +169,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B634 RID: 46644 RVA: 0x0024170C File Offset: 0x0023F90C
 		private void OpenOnceTip(XItem item)
 		{
 			ItemList.RowData itemConf = XBagDocument.GetItemConf(item.itemID);
@@ -188,7 +183,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B635 RID: 46645 RVA: 0x00241794 File Offset: 0x0023F994
 		private bool UseOnceItem(IXUIButton btn)
 		{
 			XItem itemByUID = XSingleton<XGame>.singleton.Doc.XBagDoc.GetItemByUID(this.mainItemUID);
@@ -201,7 +195,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B636 RID: 46646 RVA: 0x002417EC File Offset: 0x0023F9EC
 		private void UseBagExpandTicket(XItem item)
 		{
 			BagExpandItemListTable.RowData expandItemConf = XBagDocument.GetExpandItemConf((uint)item.itemID);
@@ -238,16 +231,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0400474B RID: 18251
 		private uint m_SystemID;
 
-		// Token: 0x0400474C RID: 18252
 		private ItemUseButtonList.RowData m_RowData;
 
-		// Token: 0x0400474D RID: 18253
 		private bool m_biShowPutInBtn;
 
-		// Token: 0x0400474E RID: 18254
 		private List<int> m_EndlessabyssShopItem;
 	}
 }

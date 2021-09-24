@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000A22 RID: 2594
+
 	internal class BattleFieldEntranceView : DlgBase<BattleFieldEntranceView, BattleFieldEntranceBehaviour>
 	{
-		// Token: 0x17002EC0 RID: 11968
-		// (get) Token: 0x06009E89 RID: 40585 RVA: 0x001A1248 File Offset: 0x0019F448
+
 		public override bool autoload
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002EC1 RID: 11969
-		// (get) Token: 0x06009E8A RID: 40586 RVA: 0x001A125C File Offset: 0x0019F45C
 		public override bool pushstack
 		{
 			get
@@ -31,8 +28,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002EC2 RID: 11970
-		// (get) Token: 0x06009E8B RID: 40587 RVA: 0x001A1270 File Offset: 0x0019F470
 		public override bool hideMainMenu
 		{
 			get
@@ -41,8 +36,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002EC3 RID: 11971
-		// (get) Token: 0x06009E8C RID: 40588 RVA: 0x001A1284 File Offset: 0x0019F484
 		public override bool fullscreenui
 		{
 			get
@@ -51,8 +44,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002EC4 RID: 11972
-		// (get) Token: 0x06009E8D RID: 40589 RVA: 0x001A1298 File Offset: 0x0019F498
 		public override string fileName
 		{
 			get
@@ -61,8 +52,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002EC5 RID: 11973
-		// (get) Token: 0x06009E8E RID: 40590 RVA: 0x001A12B0 File Offset: 0x0019F4B0
 		public override int sysid
 		{
 			get
@@ -71,12 +60,10 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009E8F RID: 40591 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void Init()
 		{
 		}
 
-		// Token: 0x06009E90 RID: 40592 RVA: 0x001A12CC File Offset: 0x0019F4CC
 		public override void RegisterEvent()
 		{
 			base.uiBehaviour.m_Close.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseClicked));
@@ -86,7 +73,6 @@ namespace XMainClient
 			base.uiBehaviour.m_FallBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnFallClicked));
 		}
 
-		// Token: 0x06009E91 RID: 40593 RVA: 0x001A136C File Offset: 0x0019F56C
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -95,7 +81,6 @@ namespace XMainClient
 			this.Refresh();
 		}
 
-		// Token: 0x06009E92 RID: 40594 RVA: 0x001A13D4 File Offset: 0x0019F5D4
 		public void Refresh()
 		{
 			base.uiBehaviour.m_RewardShowPool.FakeReturnAll();
@@ -113,13 +98,11 @@ namespace XMainClient
 			base.uiBehaviour.m_RewardShowPool.ActualReturnAll(false);
 		}
 
-		// Token: 0x06009E93 RID: 40595 RVA: 0x001A14F1 File Offset: 0x0019F6F1
 		protected override void OnHide()
 		{
 			base.OnHide();
 		}
 
-		// Token: 0x06009E94 RID: 40596 RVA: 0x001A14FB File Offset: 0x0019F6FB
 		protected override void OnUnload()
 		{
 			DlgHandlerBase.EnsureUnload<ItemListHandler>(ref this._ItemListHandler);
@@ -127,21 +110,18 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x06009E95 RID: 40597 RVA: 0x001A1520 File Offset: 0x0019F720
 		public bool OnCloseClicked(IXUIButton btn)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x06009E96 RID: 40598 RVA: 0x001A153C File Offset: 0x0019F73C
 		private bool OnHelpClicked(IXUIButton btn)
 		{
 			DlgBase<XCommonHelpTipView, XCommonHelpTipBehaviour>.singleton.ShowHelp(XSysDefine.XSys_Battlefield);
 			return true;
 		}
 
-		// Token: 0x06009E97 RID: 40599 RVA: 0x001A1560 File Offset: 0x0019F760
 		public bool OnJoinClicked(IXUIButton btn)
 		{
 			bool flag = XTeamDocument.GoSingleBattleBeforeNeed(new ButtonClickEventHandler(this.OnJoinClicked), btn);
@@ -158,7 +138,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009E98 RID: 40600 RVA: 0x001A1598 File Offset: 0x0019F798
 		public bool OnPointRewardClicked(IXUIButton btn)
 		{
 			XBattleFieldEntranceDocument.Doc.ReqPointRewardInfo();
@@ -186,7 +165,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x06009E99 RID: 40601 RVA: 0x001A16E0 File Offset: 0x0019F8E0
 		public bool OnFallClicked(IXUIButton btn)
 		{
 			DlgHandlerBase.EnsureCreate<ItemListHandler>(ref this._ItemListHandler, base.uiBehaviour.transform, false, null);
@@ -196,13 +174,10 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x04003853 RID: 14419
 		private ItemListHandler _ItemListHandler;
 
-		// Token: 0x04003854 RID: 14420
 		public PointRewardHandler _PointRewardHandler;
 
-		// Token: 0x04003855 RID: 14421
 		private string[] reward = XSingleton<XGlobalConfig>.singleton.GetValue("BattleFieldShowReward").Split(new char[]
 		{
 			'|'

@@ -11,11 +11,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000EFD RID: 3837
+
 	internal class XOptionsView : DlgBase<XOptionsView, XOptionsBehaviour>
 	{
-		// Token: 0x1700357C RID: 13692
-		// (get) Token: 0x0600CB7E RID: 52094 RVA: 0x002E7840 File Offset: 0x002E5A40
+
 		public OptionsTab CurrentTab
 		{
 			get
@@ -24,8 +23,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700357D RID: 13693
-		// (get) Token: 0x0600CB7F RID: 52095 RVA: 0x002E7858 File Offset: 0x002E5A58
 		public override string fileName
 		{
 			get
@@ -34,8 +31,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700357E RID: 13694
-		// (get) Token: 0x0600CB80 RID: 52096 RVA: 0x002E7870 File Offset: 0x002E5A70
 		public override bool isHideChat
 		{
 			get
@@ -44,8 +39,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700357F RID: 13695
-		// (get) Token: 0x0600CB81 RID: 52097 RVA: 0x002E7884 File Offset: 0x002E5A84
 		public override int layer
 		{
 			get
@@ -54,8 +47,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003580 RID: 13696
-		// (get) Token: 0x0600CB82 RID: 52098 RVA: 0x002E7898 File Offset: 0x002E5A98
 		public override int group
 		{
 			get
@@ -64,8 +55,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003581 RID: 13697
-		// (get) Token: 0x0600CB83 RID: 52099 RVA: 0x002E78AC File Offset: 0x002E5AAC
 		public override bool autoload
 		{
 			get
@@ -74,8 +63,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003582 RID: 13698
-		// (get) Token: 0x0600CB84 RID: 52100 RVA: 0x002E78C0 File Offset: 0x002E5AC0
 		public override bool hideMainMenu
 		{
 			get
@@ -84,8 +71,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003583 RID: 13699
-		// (get) Token: 0x0600CB85 RID: 52101 RVA: 0x002E78D4 File Offset: 0x002E5AD4
 		public override bool pushstack
 		{
 			get
@@ -94,7 +79,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CB86 RID: 52102 RVA: 0x002E78E8 File Offset: 0x002E5AE8
 		protected override void Init()
 		{
 			this._doc = XDocuments.GetSpecificDocument<XOptionsDocument>(XOptionsDocument.uuID);
@@ -104,7 +88,6 @@ namespace XMainClient
 			DlgHandlerBase.EnsureCreate<XOptionsBattleDetailHandler>(ref this.m_DetailHandler, base.uiBehaviour.m_BattlePanel, null, true);
 		}
 
-		// Token: 0x0600CB87 RID: 52103 RVA: 0x002E7968 File Offset: 0x002E5B68
 		public override void RegisterEvent()
 		{
 			base.uiBehaviour.m_close.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseClicked));
@@ -181,7 +164,6 @@ namespace XMainClient
 			base.uiBehaviour.m_PrerogativeBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnPrerogativeBtnClicked));
 		}
 
-		// Token: 0x0600CB88 RID: 52104 RVA: 0x002E8134 File Offset: 0x002E6334
 		private bool OpenGameSirClick(IXUIButton btn)
 		{
 			XSingleton<XDebug>.singleton.AddGreenLog("ClickGameSirClick", null, null, null, null, null);
@@ -189,7 +171,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600CB89 RID: 52105 RVA: 0x002E816C File Offset: 0x002E636C
 		private bool OnPrerogativeBtnClicked(IXUIButton btn)
 		{
 			DlgBase<XOptionsView, XOptionsBehaviour>.singleton.SetVisibleWithAnimation(false, null);
@@ -197,7 +178,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600CB8A RID: 52106 RVA: 0x002E819C File Offset: 0x002E639C
 		private bool OnQQOpenVipBtnClicked(IXUIButton btn)
 		{
 			DlgBase<XOptionsView, XOptionsBehaviour>.singleton.SetVisibleWithAnimation(false, null);
@@ -205,21 +185,18 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600CB8B RID: 52107 RVA: 0x002E81C7 File Offset: 0x002E63C7
 		private void OnQQGameCenterClicked(IXUISprite btn)
 		{
 			DlgBase<XOptionsView, XOptionsBehaviour>.singleton.SetVisibleWithAnimation(false, null);
 			DlgBase<XQQWXGameCenterPrivilegeView, XQQWXGameCenterPrivilegeBehaviour>.singleton.SetVisibleWithAnimation(true, null);
 		}
 
-		// Token: 0x0600CB8C RID: 52108 RVA: 0x002E81C7 File Offset: 0x002E63C7
 		private void OnWXGameCenterClicked(IXUISprite btn)
 		{
 			DlgBase<XOptionsView, XOptionsBehaviour>.singleton.SetVisibleWithAnimation(false, null);
 			DlgBase<XQQWXGameCenterPrivilegeView, XQQWXGameCenterPrivilegeBehaviour>.singleton.SetVisibleWithAnimation(true, null);
 		}
 
-		// Token: 0x0600CB8D RID: 52109 RVA: 0x002E81E4 File Offset: 0x002E63E4
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -233,7 +210,6 @@ namespace XMainClient
 			XPlatformAbilityDocument.Doc.QueryQQVipInfo();
 		}
 
-		// Token: 0x0600CB8E RID: 52110 RVA: 0x002E82B0 File Offset: 0x002E64B0
 		protected override void OnHide()
 		{
 			this.m_DetailHandler.SaveOption();
@@ -258,7 +234,6 @@ namespace XMainClient
 			base.OnHide();
 		}
 
-		// Token: 0x0600CB8F RID: 52111 RVA: 0x002E836C File Offset: 0x002E656C
 		protected override void OnUnload()
 		{
 			DlgHandlerBase.EnsureUnload<XOptionsBattleDetailHandler>(ref this.m_DetailHandler);
@@ -266,14 +241,12 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x0600CB90 RID: 52112 RVA: 0x002E8390 File Offset: 0x002E6590
 		public bool OnCloseClicked(IXUIButton sp)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x0600CB91 RID: 52113 RVA: 0x002E83AC File Offset: 0x002E65AC
 		private bool OnInfoCheckBoxClicked(IXUICheckBox box)
 		{
 			bool flag = !box.bChecked;
@@ -290,7 +263,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CB92 RID: 52114 RVA: 0x002E83D8 File Offset: 0x002E65D8
 		private bool OnOptionCheckBoxClicked(IXUICheckBox box)
 		{
 			bool flag = !box.bChecked;
@@ -307,7 +279,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CB93 RID: 52115 RVA: 0x002E8404 File Offset: 0x002E6604
 		private bool OnSystemCheckBoxClicked(IXUICheckBox box)
 		{
 			bool flag = !box.bChecked;
@@ -324,7 +295,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CB94 RID: 52116 RVA: 0x002E8430 File Offset: 0x002E6630
 		private bool OnNotifyCheckBoxClicked(IXUICheckBox box)
 		{
 			bool flag = !box.bChecked;
@@ -341,7 +311,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CB95 RID: 52117 RVA: 0x002E845C File Offset: 0x002E665C
 		private bool OnVoiceCheckBoxClicked(IXUICheckBox box)
 		{
 			bool flag = !box.bChecked;
@@ -358,7 +327,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CB96 RID: 52118 RVA: 0x002E8488 File Offset: 0x002E6688
 		private bool OnDisplayCheckBoxClicked(IXUICheckBox box)
 		{
 			bool flag = !box.bChecked;
@@ -375,7 +343,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CB97 RID: 52119 RVA: 0x002E84B4 File Offset: 0x002E66B4
 		public bool OnPushCheckboxClicked(IXUICheckBox box)
 		{
 			bool flag = !box.bChecked;
@@ -392,7 +359,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CB98 RID: 52120 RVA: 0x002E84E0 File Offset: 0x002E66E0
 		public bool OnCameraCheckboxClicked(IXUICheckBox box)
 		{
 			bool flag = !box.bChecked;
@@ -409,7 +375,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CB99 RID: 52121 RVA: 0x002E850C File Offset: 0x002E670C
 		public void OnTabChanged(OptionsTab handler)
 		{
 			bool flag = this.m_CurrentTab == OptionsTab.CameraTab;
@@ -448,7 +413,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CB9A RID: 52122 RVA: 0x002E85C0 File Offset: 0x002E67C0
 		private void CloseAllPanel()
 		{
 			base.uiBehaviour.m_UserInfoPanel.gameObject.SetActive(false);
@@ -457,7 +421,6 @@ namespace XMainClient
 			this.m_DetailHandler.CloseUI();
 		}
 
-		// Token: 0x0600CB9B RID: 52123 RVA: 0x002E8620 File Offset: 0x002E6820
 		public void ShowUserInfoPanel()
 		{
 			base.uiBehaviour.m_InfoTab.bChecked = true;
@@ -542,7 +505,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CB9C RID: 52124 RVA: 0x002E8AC8 File Offset: 0x002E6CC8
 		public void ShowQQVipInfo()
 		{
 			QQVipInfoClient qqvipInfo = XPlatformAbilityDocument.Doc.QQVipInfo;
@@ -596,7 +558,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CB9D RID: 52125 RVA: 0x002E8CA0 File Offset: 0x002E6EA0
 		public void ShowQQWXGameCenterLaunchInfo()
 		{
 			bool flag = XSingleton<XGameSysMgr>.singleton.IsSystemOpened(XSysDefine.XSys_Platform_StartPrivilege);
@@ -625,7 +586,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CB9E RID: 52126 RVA: 0x002E8D8C File Offset: 0x002E6F8C
 		public void ShowSettingPanel()
 		{
 			base.uiBehaviour.m_OptionTab.bChecked = true;
@@ -722,7 +682,6 @@ namespace XMainClient
 			base.uiBehaviour.m_VoiceBar.value = Mathf.Clamp01((float)this._doc.GetValue(XOptionsDefine.BA_VOICE) / 100f);
 		}
 
-		// Token: 0x0600CB9F RID: 52127 RVA: 0x002E920F File Offset: 0x002E740F
 		public void ShowCameraPanel()
 		{
 			base.uiBehaviour.m_CameraTab.bChecked = true;
@@ -730,7 +689,6 @@ namespace XMainClient
 			this.m_DetailHandler.ShowUI(OptionsBattleTab.CameraTab);
 		}
 
-		// Token: 0x0600CBA0 RID: 52128 RVA: 0x002E9238 File Offset: 0x002E7438
 		public void ShowPushPanel()
 		{
 			base.uiBehaviour.m_PushTab.bChecked = true;
@@ -740,7 +698,6 @@ namespace XMainClient
 			base.uiBehaviour.m_PushWrapContent2.SetContentCount(XOptionsDocument._pushSetting2.Count, false);
 		}
 
-		// Token: 0x0600CBA1 RID: 52129 RVA: 0x002E92B0 File Offset: 0x002E74B0
 		private void PushItemUpdate1(Transform t, int index)
 		{
 			IXUILabel ixuilabel = t.Find("Name").GetComponent("XUILabel") as IXUILabel;
@@ -761,7 +718,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CBA2 RID: 52130 RVA: 0x002E93DC File Offset: 0x002E75DC
 		public void PushItemUpdate2(Transform t, int index)
 		{
 			IXUILabel ixuilabel = t.Find("Label").GetComponent("XUILabel") as IXUILabel;
@@ -778,7 +734,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CBA3 RID: 52131 RVA: 0x002E9484 File Offset: 0x002E7684
 		private bool OnPushToggleClick(IXUICheckBox box)
 		{
 			PushSetting.RowData[] table = XOptionsDocument._pushSettingTable.Table;
@@ -794,49 +749,42 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600CBA4 RID: 52132 RVA: 0x002E94F8 File Offset: 0x002E76F8
 		public bool _ChangeNameClicked(IXUIButton btn)
 		{
 			DlgBase<RenameDlg, RenameBehaviour>.singleton.ShowRenameSystem(XRenameDocument.RenameType.PLAYER_NAME_COST);
 			return true;
 		}
 
-		// Token: 0x0600CBA5 RID: 52133 RVA: 0x002E9517 File Offset: 0x002E7717
 		public void ShowBasePanel()
 		{
 			this.ShowSettingPanel();
 			base.uiBehaviour.m_SettingPanelScrollView.SetPosition(0f);
 		}
 
-		// Token: 0x0600CBA6 RID: 52134 RVA: 0x002E9517 File Offset: 0x002E7717
 		public void ShowNotifyPanel()
 		{
 			this.ShowSettingPanel();
 			base.uiBehaviour.m_SettingPanelScrollView.SetPosition(0f);
 		}
 
-		// Token: 0x0600CBA7 RID: 52135 RVA: 0x002E9537 File Offset: 0x002E7737
 		public void ShowVoicePanel()
 		{
 			this.ShowSettingPanel();
 			base.uiBehaviour.m_SettingPanelScrollView.SetPosition(1f);
 		}
 
-		// Token: 0x0600CBA8 RID: 52136 RVA: 0x002E9517 File Offset: 0x002E7717
 		public void ShowDisplayPanel()
 		{
 			this.ShowSettingPanel();
 			base.uiBehaviour.m_SettingPanelScrollView.SetPosition(0f);
 		}
 
-		// Token: 0x0600CBA9 RID: 52137 RVA: 0x002E9557 File Offset: 0x002E7757
 		private void LoignType()
 		{
 			base.uiBehaviour.m_Wechat.gameObject.SetActive(false);
 			base.uiBehaviour.m_Guest.gameObject.SetActive(false);
 		}
 
-		// Token: 0x0600CBAA RID: 52138 RVA: 0x002E9588 File Offset: 0x002E7788
 		public void SetVolume(int value)
 		{
 			bool bChecked = value == 1;
@@ -883,7 +831,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CBAB RID: 52139 RVA: 0x002E96C8 File Offset: 0x002E78C8
 		private bool _SingleCheckBoxChanged(IXUICheckBox iXUICheckBox)
 		{
 			XOptionsDefine option = (XOptionsDefine)iXUICheckBox.ID;
@@ -895,7 +842,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600CBAC RID: 52140 RVA: 0x002E9708 File Offset: 0x002E7908
 		private bool _ResolutionCheckBoxChanged(IXUICheckBox iXUICheckBox)
 		{
 			bool flag = !iXUICheckBox.bChecked;
@@ -916,7 +862,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CBAD RID: 52141 RVA: 0x002E974C File Offset: 0x002E794C
 		private bool _QualityCheckBoxChanged(IXUICheckBox iXUICheckBox)
 		{
 			bool flag = !iXUICheckBox.bChecked;
@@ -937,7 +882,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CBAE RID: 52142 RVA: 0x002E9790 File Offset: 0x002E7990
 		private bool _ViewCheckBoxChanged(IXUICheckBox iXUICheckBox)
 		{
 			bool flag = !iXUICheckBox.bChecked;
@@ -958,41 +902,35 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CBAF RID: 52143 RVA: 0x002E97D8 File Offset: 0x002E79D8
 		private bool _SwitchCharClicked(IXUIButton iButton)
 		{
 			this._doc.ReqSwitchChar();
 			return true;
 		}
 
-		// Token: 0x0600CBB0 RID: 52144 RVA: 0x002E97F8 File Offset: 0x002E79F8
 		private bool _SwitchAccountClicked(IXUIButton iButton)
 		{
 			this._doc.ReqSwitchAccount();
 			return true;
 		}
 
-		// Token: 0x0600CBB1 RID: 52145 RVA: 0x002E9818 File Offset: 0x002E7A18
 		private bool _CustomerServiceClicked(IXUIButton iButton)
 		{
 			this._doc.OpenCustomerService();
 			return true;
 		}
 
-		// Token: 0x0600CBB2 RID: 52146 RVA: 0x002E9838 File Offset: 0x002E7A38
 		private bool _GameAnnouncementClicked(IXUIButton iButton)
 		{
 			return true;
 		}
 
-		// Token: 0x0600CBB3 RID: 52147 RVA: 0x002E984C File Offset: 0x002E7A4C
 		private bool _GameGuideClicked(IXUIButton iButton)
 		{
 			this._doc.OpenURL(XSingleton<XGlobalConfig>.singleton.GetValue("GameGuide"));
 			return true;
 		}
 
-		// Token: 0x0600CBB4 RID: 52148 RVA: 0x002E987C File Offset: 0x002E7A7C
 		private bool _GameForumClicked(IXUIButton iButton)
 		{
 			string openID = XSingleton<XClientNetwork>.singleton.OpenID;
@@ -1025,35 +963,30 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CBB5 RID: 52149 RVA: 0x002E9954 File Offset: 0x002E7B54
 		private bool _FeedbackClicked(IXUIButton iButton)
 		{
 			this._doc.OpenURL(XSingleton<XGlobalConfig>.singleton.GetValue("Feedback"));
 			return true;
 		}
 
-		// Token: 0x0600CBB6 RID: 52150 RVA: 0x002E9984 File Offset: 0x002E7B84
 		private bool _ServiceTermsClicked(IXUIButton iButton)
 		{
 			this._doc.OpenURL(XSingleton<XGlobalConfig>.singleton.GetValue("ServiceTerms"));
 			return true;
 		}
 
-		// Token: 0x0600CBB7 RID: 52151 RVA: 0x002E99B4 File Offset: 0x002E7BB4
 		private bool _ServiceAgreementClicked(IXUIButton iButton)
 		{
 			this._doc.OpenURL(XSingleton<XGlobalConfig>.singleton.GetValue("ServiceAgreement"));
 			return true;
 		}
 
-		// Token: 0x0600CBB8 RID: 52152 RVA: 0x002E99E4 File Offset: 0x002E7BE4
 		private bool _PrivacyTermsClicked(IXUIButton iButton)
 		{
 			this._doc.OpenURL(XSingleton<XGlobalConfig>.singleton.GetValue("PrivacyTerms"));
 			return true;
 		}
 
-		// Token: 0x0600CBB9 RID: 52153 RVA: 0x002E9A14 File Offset: 0x002E7C14
 		private bool _VipBtnClicked(IXUIButton iButton)
 		{
 			XSingleton<XGameSysMgr>.singleton.OpenSystem(XSysDefine.XSys_VIP, 0UL);
@@ -1061,7 +994,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600CBBA RID: 52154 RVA: 0x002E9A40 File Offset: 0x002E7C40
 		private bool _PersonalCareerBtnClicked(IXUIButton iButton)
 		{
 			this.SetVisibleWithAnimation(false, null);
@@ -1069,22 +1001,18 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600CBBB RID: 52155 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		private void _OnWechatPrivilegeClicked(IXUISprite iSp)
 		{
 		}
 
-		// Token: 0x0600CBBC RID: 52156 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		private void _OnQQPrivilegeClicked(IXUISprite iSp)
 		{
 		}
 
-		// Token: 0x0600CBBD RID: 52157 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		private void _OnGuestPrivilegeClicked(IXUISprite iSp)
 		{
 		}
 
-		// Token: 0x0600CBBE RID: 52158 RVA: 0x002E9A6C File Offset: 0x002E7C6C
 		private bool _RankBtnClicked(IXUIButton iButton)
 		{
 			bool flag = !XSingleton<XGameSysMgr>.singleton.IsSystemOpened(XSysDefine.XSys_Title);
@@ -1100,7 +1028,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600CBBF RID: 52159 RVA: 0x002E9ACC File Offset: 0x002E7CCC
 		private bool _TitleBtnClicked(IXUIButton iButton)
 		{
 			XSingleton<XGameSysMgr>.singleton.OpenSystem(XSysDefine.XSys_Design_Designation, 0UL);
@@ -1108,7 +1035,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600CBC0 RID: 52160 RVA: 0x002E9AFC File Offset: 0x002E7CFC
 		private bool _AchievementBtnClicked(IXUIButton iButton)
 		{
 			bool flag = XSingleton<XScene>.singleton.SceneType == SceneType.SKYCITY_WAITING;
@@ -1127,7 +1053,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CBC1 RID: 52161 RVA: 0x002E9B60 File Offset: 0x002E7D60
 		public void SameScreenNumChange(float value)
 		{
 			int num;
@@ -1140,7 +1065,6 @@ namespace XMainClient
 			this._bDirty = true;
 		}
 
-		// Token: 0x0600CBC2 RID: 52162 RVA: 0x002E9BD4 File Offset: 0x002E7DD4
 		private string DealEmptyString(string str)
 		{
 			bool flag = string.IsNullOrEmpty(str);
@@ -1151,29 +1075,22 @@ namespace XMainClient
 			return str;
 		}
 
-		// Token: 0x0600CBC3 RID: 52163 RVA: 0x002E9C04 File Offset: 0x002E7E04
 		public void SetAchievementLabel()
 		{
 			XDesignationDocument specificDocument = XDocuments.GetSpecificDocument<XDesignationDocument>(XDesignationDocument.uuID);
 			base.uiBehaviour.m_AchievementLabel.SetText(string.Format("{0}/{1}", specificDocument.achieveSurveyInfo.achievePoint, specificDocument.achieveSurveyInfo.maxAchievePoint));
 		}
 
-		// Token: 0x04005A6A RID: 23146
 		private XOptionsDocument _doc = null;
 
-		// Token: 0x04005A6B RID: 23147
 		public Action OnOptionClose;
 
-		// Token: 0x04005A6C RID: 23148
 		private OptionsTab m_CurrentTab;
 
-		// Token: 0x04005A6D RID: 23149
 		private bool _bDirty = false;
 
-		// Token: 0x04005A6E RID: 23150
 		public OptionsTab prefabTab = OptionsTab.InfoTab;
 
-		// Token: 0x04005A6F RID: 23151
 		private XOptionsBattleDetailHandler m_DetailHandler;
 	}
 }

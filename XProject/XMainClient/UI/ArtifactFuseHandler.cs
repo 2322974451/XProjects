@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017B1 RID: 6065
+
 	internal class ArtifactFuseHandler : DlgHandlerBase
 	{
-		// Token: 0x17003877 RID: 14455
-		// (get) Token: 0x0600FADE RID: 64222 RVA: 0x003A17C8 File Offset: 0x0039F9C8
+
 		private string SucEffectPath
 		{
 			get
@@ -24,8 +23,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003878 RID: 14456
-		// (get) Token: 0x0600FADF RID: 64223 RVA: 0x003A1804 File Offset: 0x0039FA04
 		private string FailEffectPath
 		{
 			get
@@ -39,8 +36,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003879 RID: 14457
-		// (get) Token: 0x0600FAE0 RID: 64224 RVA: 0x003A1840 File Offset: 0x0039FA40
 		private string EffectPath
 		{
 			get
@@ -54,8 +49,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700387A RID: 14458
-		// (get) Token: 0x0600FAE1 RID: 64225 RVA: 0x003A187C File Offset: 0x0039FA7C
 		protected override string FileName
 		{
 			get
@@ -64,7 +57,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FAE2 RID: 64226 RVA: 0x003A1894 File Offset: 0x0039FA94
 		protected override void Init()
 		{
 			base.Init();
@@ -82,7 +74,6 @@ namespace XMainClient.UI
 			this.m_effectTra = transform.FindChild("Effect");
 		}
 
-		// Token: 0x0600FAE3 RID: 64227 RVA: 0x003A19CC File Offset: 0x0039FBCC
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -94,14 +85,12 @@ namespace XMainClient.UI
 			this.m_fuseBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnClickFuseBtn));
 		}
 
-		// Token: 0x0600FAE4 RID: 64228 RVA: 0x003A1A5D File Offset: 0x0039FC5D
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.FillContent();
 		}
 
-		// Token: 0x0600FAE5 RID: 64229 RVA: 0x003A1A6E File Offset: 0x0039FC6E
 		protected override void OnHide()
 		{
 			base.OnHide();
@@ -109,13 +98,11 @@ namespace XMainClient.UI
 			this.StopEffect();
 		}
 
-		// Token: 0x0600FAE6 RID: 64230 RVA: 0x0022CCF0 File Offset: 0x0022AEF0
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
 		}
 
-		// Token: 0x0600FAE7 RID: 64231 RVA: 0x003A1A90 File Offset: 0x0039FC90
 		public override void OnUnload()
 		{
 			base.OnUnload();
@@ -141,7 +128,6 @@ namespace XMainClient.UI
 			XSingleton<XTimerMgr>.singleton.KillTimer(this.m_token);
 		}
 
-		// Token: 0x0600FAE8 RID: 64232 RVA: 0x003A1B3C File Offset: 0x0039FD3C
 		public void RefreshUi(FuseEffectType type)
 		{
 			this.FillContent();
@@ -152,7 +138,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FAE9 RID: 64233 RVA: 0x003A1B64 File Offset: 0x0039FD64
 		private void FillContent()
 		{
 			bool flag = this.m_doc.FuseUid == 0UL;
@@ -207,7 +192,6 @@ namespace XMainClient.UI
 			this.FillNeedItem();
 		}
 
-		// Token: 0x0600FAEA RID: 64234 RVA: 0x003A1D6C File Offset: 0x0039FF6C
 		private void FillNeedItem()
 		{
 			IXUILabel ixuilabel = this.m_itemGo3.transform.FindChild("Num").GetComponent("XUILabel") as IXUILabel;
@@ -272,7 +256,6 @@ namespace XMainClient.UI
 			ixuisprite.SetGrey(this.m_doc.FuseUid > 0UL);
 		}
 
-		// Token: 0x0600FAEB RID: 64235 RVA: 0x003A20BC File Offset: 0x003A02BC
 		private void PlayEffect(FuseEffectType type)
 		{
 			bool flag = type == FuseEffectType.Sucess;
@@ -312,7 +295,6 @@ namespace XMainClient.UI
 			this.m_token = XSingleton<XTimerMgr>.singleton.SetTimer(this.m_lastTime, new XTimerMgr.ElapsedEventHandler(this.OnEffectEnd), null);
 		}
 
-		// Token: 0x0600FAEC RID: 64236 RVA: 0x003A21DC File Offset: 0x003A03DC
 		private void OnEffectEnd(object o = null)
 		{
 			bool flag = this.m_sucFx != null;
@@ -328,7 +310,6 @@ namespace XMainClient.UI
 			this.m_bIsPlayingEffect = false;
 		}
 
-		// Token: 0x0600FAED RID: 64237 RVA: 0x003A2228 File Offset: 0x003A0428
 		private void StopEffect()
 		{
 			bool flag = this.m_sucFx != null;
@@ -348,7 +329,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FAEE RID: 64238 RVA: 0x003A2284 File Offset: 0x003A0484
 		private bool OnClickFuseBtn(IXUIButton btn)
 		{
 			bool bIsPlayingEffect = this.m_bIsPlayingEffect;
@@ -412,7 +392,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FAEF RID: 64239 RVA: 0x003A23E4 File Offset: 0x003A05E4
 		private bool DoOK(IXUIButton btn)
 		{
 			bool flag = DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.IsVisible();
@@ -426,7 +405,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FAF0 RID: 64240 RVA: 0x003A2448 File Offset: 0x003A0648
 		private bool DoCancel(IXUIButton btn)
 		{
 			XOptionsDocument specificDocument = XDocuments.GetSpecificDocument<XOptionsDocument>(XOptionsDocument.uuID);
@@ -435,7 +413,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FAF1 RID: 64241 RVA: 0x003A2490 File Offset: 0x003A0690
 		private void OnClickBox(IXUISprite spr)
 		{
 			bool flag = spr.ID == 1UL;
@@ -449,7 +426,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FAF2 RID: 64242 RVA: 0x003A24E4 File Offset: 0x003A06E4
 		private void OnClickTips(IXUISprite spr)
 		{
 			bool flag = spr.ID == 0UL;
@@ -474,7 +450,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FAF3 RID: 64243 RVA: 0x003A2560 File Offset: 0x003A0760
 		private bool OnClickToggle(IXUICheckBox box)
 		{
 			bool flag = box.bChecked != this.m_doc.UseFuseStone;
@@ -486,67 +461,46 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x04006E08 RID: 28168
 		private ArtifactFuseDocument m_doc;
 
-		// Token: 0x04006E09 RID: 28169
 		private bool m_bMatIsEnough = false;
 
-		// Token: 0x04006E0A RID: 28170
 		private int m_needItemId = 0;
 
-		// Token: 0x04006E0B RID: 28171
 		private GameObject m_itemGo1;
 
-		// Token: 0x04006E0C RID: 28172
 		private GameObject m_itemGo2;
 
-		// Token: 0x04006E0D RID: 28173
 		private GameObject m_itemGo3;
 
-		// Token: 0x04006E0E RID: 28174
 		private Transform m_effectTra;
 
-		// Token: 0x04006E0F RID: 28175
 		private IXUISprite m_boxSpr1;
 
-		// Token: 0x04006E10 RID: 28176
 		private IXUISprite m_boxSpr2;
 
-		// Token: 0x04006E11 RID: 28177
 		private IXUICheckBox m_checkBox;
 
-		// Token: 0x04006E12 RID: 28178
 		private IXUIButton m_fuseBtn;
 
-		// Token: 0x04006E13 RID: 28179
 		private IXUILabel m_rateLab;
 
-		// Token: 0x04006E14 RID: 28180
 		private XFx m_fx;
 
-		// Token: 0x04006E15 RID: 28181
 		private XFx m_sucFx;
 
-		// Token: 0x04006E16 RID: 28182
 		private XFx m_failFx;
 
-		// Token: 0x04006E17 RID: 28183
 		private uint m_token = 0U;
 
-		// Token: 0x04006E18 RID: 28184
 		private float m_lastTime = 1f;
 
-		// Token: 0x04006E19 RID: 28185
 		private bool m_bIsPlayingEffect = false;
 
-		// Token: 0x04006E1A RID: 28186
 		private string m_sucEffectPath = string.Empty;
 
-		// Token: 0x04006E1B RID: 28187
 		private string m_failEffectPath = string.Empty;
 
-		// Token: 0x04006E1C RID: 28188
 		private string m_effectPath = string.Empty;
 	}
 }

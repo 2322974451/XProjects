@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000A24 RID: 2596
+
 	internal class LevelRewardRiftHandler : DlgHandlerBase
 	{
-		// Token: 0x17002EC7 RID: 11975
-		// (get) Token: 0x06009EA2 RID: 40610 RVA: 0x001A1B14 File Offset: 0x0019FD14
+
 		protected override string FileName
 		{
 			get
@@ -21,7 +20,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009EA3 RID: 40611 RVA: 0x001A1B2B File Offset: 0x0019FD2B
 		protected override void Init()
 		{
 			base.Init();
@@ -30,7 +28,6 @@ namespace XMainClient
 			this.InitUI();
 		}
 
-		// Token: 0x06009EA4 RID: 40612 RVA: 0x001A1B5C File Offset: 0x0019FD5C
 		private void InitUI()
 		{
 			for (int i = 0; i < 3; i++)
@@ -52,7 +49,6 @@ namespace XMainClient
 			this.m_snapshot = (base.PanelObject.transform.Find("Bg/Snapshot/Snapshot").GetComponent("UIDummy") as IUIDummy);
 		}
 
-		// Token: 0x06009EA5 RID: 40613 RVA: 0x001A1D82 File Offset: 0x0019FF82
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -60,7 +56,6 @@ namespace XMainClient
 			this.m_ActivityReturn.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnReturnClick));
 		}
 
-		// Token: 0x06009EA6 RID: 40614 RVA: 0x001A1DBC File Offset: 0x0019FFBC
 		private void OnRestartClick(IXUISprite sp)
 		{
 			bool flag = !this._doc.IsEndLevel;
@@ -82,13 +77,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009EA7 RID: 40615 RVA: 0x001A1E3D File Offset: 0x001A003D
 		private void OnReturnClick(IXUISprite sp)
 		{
 			this._doc.SendLeaveScene();
 		}
 
-		// Token: 0x06009EA8 RID: 40616 RVA: 0x001A1E4C File Offset: 0x001A004C
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -101,7 +94,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009EA9 RID: 40617 RVA: 0x001A1E88 File Offset: 0x001A0088
 		protected override void OnHide()
 		{
 			XSingleton<XTimerMgr>.singleton.KillTimer(this.m_show_time_token);
@@ -109,7 +101,6 @@ namespace XMainClient
 			base.OnHide();
 		}
 
-		// Token: 0x06009EAA RID: 40618 RVA: 0x001A1EB0 File Offset: 0x001A00B0
 		public override void OnUnload()
 		{
 			XSingleton<X3DAvatarMgr>.singleton.OnUIUnloadMainDummy(this.m_snapshot);
@@ -117,7 +108,6 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x06009EAB RID: 40619 RVA: 0x001A1EDC File Offset: 0x001A00DC
 		public void ShowRiftFrame()
 		{
 			bool flag = this._doc.CurrentStage == SceneType.SCENE_RIFT;
@@ -226,14 +216,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009EAC RID: 40620 RVA: 0x001A23C1 File Offset: 0x001A05C1
 		private void KillDummyTimer(object sender)
 		{
 			XSingleton<XTimerMgr>.singleton.KillTimer(this.m_show_time_token);
 			XSingleton<X3DAvatarMgr>.singleton.SetMainAnimation(XSingleton<XEntityMgr>.singleton.Player.Present.PresentLib.AttackIdle);
 		}
 
-		// Token: 0x06009EAD RID: 40621 RVA: 0x001A23FC File Offset: 0x001A05FC
 		private void ShowStarReq()
 		{
 			int num = 0;
@@ -267,52 +255,36 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04003860 RID: 14432
 		private XLevelRewardDocument _doc = null;
 
-		// Token: 0x04003861 RID: 14433
 		private XRiftDocument _rift_doc = null;
 
-		// Token: 0x04003862 RID: 14434
 		private IXUILabel[] m_level_req = new IXUILabel[3];
 
-		// Token: 0x04003863 RID: 14435
 		private IXUISprite[] m_level_req_done = new IXUISprite[3];
 
-		// Token: 0x04003864 RID: 14436
 		private Transform m_star_frame;
 
-		// Token: 0x04003865 RID: 14437
 		private Transform[] m_stars = new Transform[3];
 
-		// Token: 0x04003866 RID: 14438
 		private IXUITweenTool m_star_tween;
 
-		// Token: 0x04003867 RID: 14439
 		private Transform[] m_star_fx = new Transform[3];
 
-		// Token: 0x04003868 RID: 14440
 		private XUIPool m_ActivityItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04003869 RID: 14441
 		private IXUISprite m_ActivityRestart;
 
-		// Token: 0x0400386A RID: 14442
 		private IXUISprite m_ActivityReturn;
 
-		// Token: 0x0400386B RID: 14443
 		private IXUILabel m_lblRift;
 
-		// Token: 0x0400386C RID: 14444
 		private IXUILabel m_lblBtm;
 
-		// Token: 0x0400386D RID: 14445
 		private IUIDummy m_snapshot;
 
-		// Token: 0x0400386E RID: 14446
 		private Transform m_BrokeRecord;
 
-		// Token: 0x0400386F RID: 14447
 		private uint m_show_time_token = 0U;
 	}
 }

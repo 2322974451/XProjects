@@ -8,12 +8,11 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020016CA RID: 5834
+
 	[Hotfix]
 	internal class ActivityRiftDlg : DlgBase<ActivityRiftDlg, ActivityRiftBehaviour>
 	{
-		// Token: 0x17003733 RID: 14131
-		// (get) Token: 0x0600F085 RID: 61573 RVA: 0x0034DF24 File Offset: 0x0034C124
+
 		public override string fileName
 		{
 			get
@@ -22,8 +21,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003734 RID: 14132
-		// (get) Token: 0x0600F086 RID: 61574 RVA: 0x0034DF3C File Offset: 0x0034C13C
 		public override int layer
 		{
 			get
@@ -32,8 +29,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003735 RID: 14133
-		// (get) Token: 0x0600F087 RID: 61575 RVA: 0x0034DF50 File Offset: 0x0034C150
 		public override bool autoload
 		{
 			get
@@ -42,8 +37,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003736 RID: 14134
-		// (get) Token: 0x0600F088 RID: 61576 RVA: 0x0034DF64 File Offset: 0x0034C164
 		public override bool hideMainMenu
 		{
 			get
@@ -52,8 +45,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003737 RID: 14135
-		// (get) Token: 0x0600F089 RID: 61577 RVA: 0x0034DF78 File Offset: 0x0034C178
 		public override bool pushstack
 		{
 			get
@@ -62,8 +53,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003738 RID: 14136
-		// (get) Token: 0x0600F08A RID: 61578 RVA: 0x0034DF8C File Offset: 0x0034C18C
 		public override bool fullscreenui
 		{
 			get
@@ -72,8 +61,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003739 RID: 14137
-		// (get) Token: 0x0600F08B RID: 61579 RVA: 0x0034DFA0 File Offset: 0x0034C1A0
 		public override int sysid
 		{
 			get
@@ -82,7 +69,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F08C RID: 61580 RVA: 0x0034DFBC File Offset: 0x0034C1BC
 		protected override void Init()
 		{
 			this._doc = XDocuments.GetSpecificDocument<XExpeditionDocument>(XExpeditionDocument.uuID);
@@ -90,7 +76,6 @@ namespace XMainClient.UI
 			this._mdoc = XDocuments.GetSpecificDocument<XRiftDocument>(XRiftDocument.uuID);
 		}
 
-		// Token: 0x0600F08D RID: 61581 RVA: 0x0034DFEC File Offset: 0x0034C1EC
 		protected override void OnLoad()
 		{
 			base.OnLoad();
@@ -101,7 +86,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_guildInfoPanel.SetActive(false);
 		}
 
-		// Token: 0x0600F08E RID: 61582 RVA: 0x0034E070 File Offset: 0x0034C270
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -122,7 +106,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F08F RID: 61583 RVA: 0x0034E1A4 File Offset: 0x0034C3A4
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -138,7 +121,6 @@ namespace XMainClient.UI
 			this._mdoc.ReqRankSelf();
 		}
 
-		// Token: 0x0600F090 RID: 61584 RVA: 0x0034E274 File Offset: 0x0034C474
 		public void Refresh()
 		{
 			int @int = XSingleton<XGlobalConfig>.singleton.GetInt("RiftRewardWeekLimitOpen");
@@ -184,7 +166,6 @@ namespace XMainClient.UI
 			this.RefreshRwdOpen();
 		}
 
-		// Token: 0x0600F091 RID: 61585 RVA: 0x0034E448 File Offset: 0x0034C648
 		private string TranNum2Date(int num)
 		{
 			int num2 = num / 60;
@@ -192,7 +173,6 @@ namespace XMainClient.UI
 			return num2.ToString("D2") + ":" + num3.ToString("D2");
 		}
 
-		// Token: 0x0600F092 RID: 61586 RVA: 0x0034E486 File Offset: 0x0034C686
 		protected override void OnUnload()
 		{
 			DlgHandlerBase.EnsureUnload<ActivityRiftItemsHandler>(ref this._itemListHandler);
@@ -202,14 +182,12 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x0600F093 RID: 61587 RVA: 0x0034E4B8 File Offset: 0x0034C6B8
 		private void RefreshRwdOpen()
 		{
 			bool active = XSingleton<XGlobalConfig>.singleton.GetInt("RiftGuaranteeAwardShowOpen") == 1;
 			base.uiBehaviour.m_tabs[2].gameObject.SetActive(active);
 		}
 
-		// Token: 0x0600F094 RID: 61588 RVA: 0x0034E4F4 File Offset: 0x0034C6F4
 		public void RefreshRed()
 		{
 			base.uiBehaviour.m_sprRwdRed.SetVisible(this._mdoc.hasNewFirstPass);
@@ -218,7 +196,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_reds[2].SetVisible(false);
 		}
 
-		// Token: 0x0600F095 RID: 61589 RVA: 0x0034E564 File Offset: 0x0034C764
 		private void RefreshWeekRwd(Transform t)
 		{
 			IXUIProgress ixuiprogress = t.FindChild("Icon1/Progress Bar").GetComponent("XUIProgress") as IXUIProgress;
@@ -243,7 +220,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F096 RID: 61590 RVA: 0x0034E79C File Offset: 0x0034C99C
 		private bool OnRwdTabClick(IXUICheckBox box)
 		{
 			bool bChecked = box.bChecked;
@@ -254,21 +230,18 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F097 RID: 61591 RVA: 0x0034E7C8 File Offset: 0x0034C9C8
 		public bool OnHelpClicked(IXUIButton button)
 		{
 			DlgBase<XCommonHelpTipView, XCommonHelpTipBehaviour>.singleton.ShowHelp(XSysDefine.xSys_Mysterious);
 			return true;
 		}
 
-		// Token: 0x0600F098 RID: 61592 RVA: 0x0034E7EC File Offset: 0x0034C9EC
 		private bool OnCloseDlg(IXUIButton btn)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x0600F099 RID: 61593 RVA: 0x0034E808 File Offset: 0x0034CA08
 		private bool OnFightClick(IXUIButton btn)
 		{
 			XSingleton<XDebug>.singleton.AddLog("OnFightClick", null, null, null, null, null, XDebugColor.XDebug_None);
@@ -288,28 +261,24 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F09A RID: 61594 RVA: 0x0034E8B8 File Offset: 0x0034CAB8
 		private bool OnRealEnterClicked(IXUIButton go)
 		{
 			this.OnRealEnter((int)go.ID);
 			return true;
 		}
 
-		// Token: 0x0600F09B RID: 61595 RVA: 0x0034E8DC File Offset: 0x0034CADC
 		private void OnRealEnter(int id)
 		{
 			XTeamDocument specificDocument = XDocuments.GetSpecificDocument<XTeamDocument>(XTeamDocument.uuID);
 			specificDocument.SetAndMatch(id);
 		}
 
-		// Token: 0x0600F09C RID: 61596 RVA: 0x0034E900 File Offset: 0x0034CB00
 		private bool OnShopClick(IXUIButton btn)
 		{
 			DlgBase<MallSystemDlg, MallSystemBehaviour>.singleton.ShowShopSystem(XSysDefine.XSys_Mall_Rift, 0UL);
 			return true;
 		}
 
-		// Token: 0x0600F09D RID: 61597 RVA: 0x0034E928 File Offset: 0x0034CB28
 		private bool OnMemberClick(IXUIButton btn)
 		{
 			XSingleton<XDebug>.singleton.AddLog("onguildinfo click", null, null, null, null, null, XDebugColor.XDebug_None);
@@ -317,13 +286,11 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F09E RID: 61598 RVA: 0x0034E95D File Offset: 0x0034CB5D
 		public void OpenGuildInfoHanlder()
 		{
 			DlgHandlerBase.EnsureCreate<ActivityRiftGuidInfoHandler>(ref this._guildinfoHandler, base.uiBehaviour.m_guildInfoPanel, this, true);
 		}
 
-		// Token: 0x0600F09F RID: 61599 RVA: 0x0034E97C File Offset: 0x0034CB7C
 		private bool OnIntroClick(IXUIButton btn)
 		{
 			XSingleton<XDebug>.singleton.AddLog("OnIntroClick", null, null, null, null, null, XDebugColor.XDebug_None);
@@ -335,7 +302,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F0A0 RID: 61600 RVA: 0x0034EA04 File Offset: 0x0034CC04
 		private bool OnRwdClick(IXUIButton btn)
 		{
 			base.uiBehaviour.m_tab.gameObject.SetActive(true);
@@ -344,7 +310,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F0A1 RID: 61601 RVA: 0x0034EA4C File Offset: 0x0034CC4C
 		private void OnRwdSelect(ulong index)
 		{
 			this.CloseAllRwd();
@@ -369,7 +334,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F0A2 RID: 61602 RVA: 0x0034EAC5 File Offset: 0x0034CCC5
 		private void CloseAllRwd()
 		{
 			this.m_RankRewardWindow.SetVisible(false);
@@ -377,7 +341,6 @@ namespace XMainClient.UI
 			this.m_WeekFirstPassWindow.SetVisible(false);
 		}
 
-		// Token: 0x0600F0A3 RID: 61603 RVA: 0x0034EAF0 File Offset: 0x0034CCF0
 		private void RefreshFloorRwd()
 		{
 			bool flag = this._mdoc != null && this._mdoc.currRiftRow != null;
@@ -401,7 +364,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F0A4 RID: 61604 RVA: 0x0034EC40 File Offset: 0x0034CE40
 		private void RefreshBuff()
 		{
 			Rift.RowData currRiftRow = this._mdoc.currRiftRow;
@@ -427,7 +389,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F0A5 RID: 61605 RVA: 0x0034EE18 File Offset: 0x0034D018
 		private bool OnBuffPress(IXUISprite spr, bool ispress)
 		{
 			int index = (int)spr.ID;
@@ -437,7 +398,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F0A6 RID: 61606 RVA: 0x0034EE94 File Offset: 0x0034D094
 		private void RefreshBuff(GameObject go, string atlas, string sp, string text)
 		{
 			IXUILabel ixuilabel = go.transform.FindChild("value").GetComponent("XUILabel") as IXUILabel;
@@ -454,7 +414,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F0A7 RID: 61607 RVA: 0x0034EF14 File Offset: 0x0034D114
 		private void RefreshWelfare()
 		{
 			this._mdoc.CulWelfare();
@@ -463,7 +422,6 @@ namespace XMainClient.UI
 			ixuilabel.SetText(this._mdoc.all_finish ? this._mdoc.currFloor.ToString() : (this._mdoc.currFloor - 1).ToString());
 		}
 
-		// Token: 0x0600F0A8 RID: 61608 RVA: 0x0034EFAC File Offset: 0x0034D1AC
 		public void RefreshFirstPassRift()
 		{
 			this.RefreshRwd(this.m_WeekFirstPassWindow, this._mdoc.WeekFirstPassList, true);
@@ -471,7 +429,6 @@ namespace XMainClient.UI
 			ixuilabel.SetText(this._mdoc.all_finish ? this._mdoc.currFloor.ToString() : (this._mdoc.currFloor - 1).ToString());
 		}
 
-		// Token: 0x0600F0A9 RID: 61609 RVA: 0x0034F038 File Offset: 0x0034D238
 		private void RefreshRwd(XQualifyingPointRewardWindow window, List<PointRewardStatus> list, bool resetPos)
 		{
 			window.m_Close.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnRwdCloseClicked));
@@ -544,7 +501,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F0AA RID: 61610 RVA: 0x0034F3B4 File Offset: 0x0034D5B4
 		private void RefreshRankRwd()
 		{
 			this.m_RankRewardWindow.m_Close.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnRwdCloseClicked));
@@ -594,14 +550,12 @@ namespace XMainClient.UI
 			this.m_RankRewardWindow.m_ScrollView.ResetPosition();
 		}
 
-		// Token: 0x0600F0AB RID: 61611 RVA: 0x0034F730 File Offset: 0x0034D930
 		private void OnClaimFirstpassClick(IXUILabel l)
 		{
 			ulong id = l.ID;
 			this._mdoc.ReqFirstPassRwd(RiftFirstPassOpType.Rift_FirstPass_Op_GetReward, (uint)id);
 		}
 
-		// Token: 0x0600F0AC RID: 61612 RVA: 0x0034F754 File Offset: 0x0034D954
 		private bool OnRwdCloseClicked(IXUIButton button)
 		{
 			this.CloseAllRwd();
@@ -609,25 +563,18 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0400669F RID: 26271
 		private XExpeditionDocument _doc;
 
-		// Token: 0x040066A0 RID: 26272
 		private XRiftDocument _mdoc;
 
-		// Token: 0x040066A1 RID: 26273
 		private ActivityRiftItemsHandler _itemListHandler;
 
-		// Token: 0x040066A2 RID: 26274
 		private ActivityRiftGuidInfoHandler _guildinfoHandler;
 
-		// Token: 0x040066A3 RID: 26275
 		private XQualifyingRankRewardWindow m_RankRewardWindow;
 
-		// Token: 0x040066A4 RID: 26276
 		private XQualifyingPointRewardWindow m_WeekFirstPassWindow;
 
-		// Token: 0x040066A5 RID: 26277
 		private XQualifyingPointRewardWindow m_WelfareWindow;
 	}
 }

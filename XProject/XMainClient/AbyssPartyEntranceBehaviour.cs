@@ -7,10 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C8C RID: 3212
+
 	internal class AbyssPartyEntranceBehaviour : DlgBehaviourBase
 	{
-		// Token: 0x0600B570 RID: 46448 RVA: 0x0023CA94 File Offset: 0x0023AC94
+
 		private void Awake()
 		{
 			this.m_Close = (base.transform.FindChild("Bg/Close").GetComponent("XUIButton") as IXUIButton);
@@ -40,37 +40,26 @@ namespace XMainClient
 			this.m_AbyssPool.ActualReturnAll(true);
 		}
 
-		// Token: 0x040046ED RID: 18157
 		public IXUIButton m_Close;
 
-		// Token: 0x040046EE RID: 18158
 		public IXUIButton m_Help;
 
-		// Token: 0x040046EF RID: 18159
 		public IXUIButton m_Join;
 
-		// Token: 0x040046F0 RID: 18160
 		public IXUIButton m_Fall;
 
-		// Token: 0x040046F1 RID: 18161
 		public XUIPool m_TabPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x040046F2 RID: 18162
 		public IXUILabel m_Name;
 
-		// Token: 0x040046F3 RID: 18163
 		public IXUILabel m_CurPPT;
 
-		// Token: 0x040046F4 RID: 18164
 		public IXUILabel m_SugPPT;
 
-		// Token: 0x040046F5 RID: 18165
 		public IXUILabel m_SugLevel;
 
-		// Token: 0x040046F6 RID: 18166
 		public Transform m_CostItem;
 
-		// Token: 0x040046F7 RID: 18167
 		public XUIPool m_AbyssPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 	}
 }

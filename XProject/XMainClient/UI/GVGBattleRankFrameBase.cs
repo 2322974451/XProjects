@@ -7,10 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020016E8 RID: 5864
+
 	internal class GVGBattleRankFrameBase : IGVGBattleMember
 	{
-		// Token: 0x0600F1EF RID: 61935 RVA: 0x00359138 File Offset: 0x00357338
+
 		public void ReFreshData(GVGBattleInfo battleInfo)
 		{
 			this._battleInfo = battleInfo;
@@ -32,7 +32,6 @@ namespace XMainClient.UI
 			this._wrapContent.RefreshAllVisibleContents();
 		}
 
-		// Token: 0x0600F1F0 RID: 61936 RVA: 0x003591B8 File Offset: 0x003573B8
 		public void Setup(GameObject sv, int index)
 		{
 			this._index = index;
@@ -43,7 +42,6 @@ namespace XMainClient.UI
 			this._wrapContent.RegisterItemUpdateEventHandler(new WrapItemUpdateEventHandler(this._OnWrapContentUpdate));
 		}
 
-		// Token: 0x0600F1F1 RID: 61937 RVA: 0x00359238 File Offset: 0x00357438
 		private void _OnWrapContentUpdate(Transform t, int index)
 		{
 			bool flag = this._roles.Count <= index;
@@ -87,7 +85,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F1F2 RID: 61938 RVA: 0x0035940C File Offset: 0x0035760C
 		public void OnUpdate()
 		{
 			bool flag = !this.IsActive();
@@ -97,7 +94,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F1F3 RID: 61939 RVA: 0x00359438 File Offset: 0x00357638
 		public void SetActive(bool active)
 		{
 			bool flag = this._transform != null;
@@ -107,13 +103,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F1F4 RID: 61940 RVA: 0x00359468 File Offset: 0x00357668
 		public bool IsActive()
 		{
 			return this._transform != null && this._transform.gameObject.activeSelf;
 		}
 
-		// Token: 0x0600F1F5 RID: 61941 RVA: 0x0035949C File Offset: 0x0035769C
 		public void Recycle()
 		{
 			bool flag = this._roles != null;
@@ -124,25 +118,18 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0400677A RID: 26490
 		private int _index = 0;
 
-		// Token: 0x0400677B RID: 26491
 		private IXUIScrollView _scrollView;
 
-		// Token: 0x0400677C RID: 26492
 		private IXUIWrapContent _wrapContent;
 
-		// Token: 0x0400677D RID: 26493
 		private GameObject _gameObject;
 
-		// Token: 0x0400677E RID: 26494
 		private Transform _transform;
 
-		// Token: 0x0400677F RID: 26495
 		private List<GmfRole> _roles;
 
-		// Token: 0x04006780 RID: 26496
 		private GVGBattleInfo _battleInfo;
 	}
 }

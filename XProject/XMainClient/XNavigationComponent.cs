@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000F2E RID: 3886
+
 	internal sealed class XNavigationComponent : XComponent, IEnumerable<Vector3>, IEnumerable
 	{
-		// Token: 0x170035E9 RID: 13801
-		// (get) Token: 0x0600CDFF RID: 52735 RVA: 0x002FA804 File Offset: 0x002F8A04
+
 		public override uint ID
 		{
 			get
@@ -21,14 +20,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CE00 RID: 52736 RVA: 0x002FA81B File Offset: 0x002F8A1B
 		public override void OnAttachToHost(XObject host)
 		{
 			this._bNav = false;
 			base.OnAttachToHost(host);
 		}
 
-		// Token: 0x0600CE01 RID: 52737 RVA: 0x002FA830 File Offset: 0x002F8A30
 		public override void OnDetachFromHost()
 		{
 			this.Interrupt();
@@ -40,7 +37,6 @@ namespace XMainClient
 			base.OnDetachFromHost();
 		}
 
-		// Token: 0x0600CE02 RID: 52738 RVA: 0x002FA868 File Offset: 0x002F8A68
 		private static void _ActiveNav(XGameObject gameObject, object o, int commandID)
 		{
 			XNavigationComponent xnavigationComponent = o as XNavigationComponent;
@@ -59,19 +55,16 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CE03 RID: 52739 RVA: 0x002FA95D File Offset: 0x002F8B5D
 		public void Active()
 		{
 			this._entity.EngineObject.CallCommand(XNavigationComponent._activeNavCb, this, -1, false);
 		}
 
-		// Token: 0x0600CE04 RID: 52740 RVA: 0x002FA979 File Offset: 0x002F8B79
 		protected override void EventSubscribe()
 		{
 			base.RegisterEvent(XEventDefine.XEvent_NaviMove, new XComponent.XEventHandler(this.OnNavigation));
 		}
 
-		// Token: 0x0600CE05 RID: 52741 RVA: 0x002FA994 File Offset: 0x002F8B94
 		private bool OnNavigation(XEventArgs e)
 		{
 			XNavigationEventArgs xnavigationEventArgs = e as XNavigationEventArgs;
@@ -81,7 +74,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600CE06 RID: 52742 RVA: 0x002FA9D4 File Offset: 0x002F8BD4
 		public override void Update(float fDeltaT)
 		{
 			bool isOnNav = this.IsOnNav;
@@ -131,8 +123,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170035EA RID: 13802
-		// (get) Token: 0x0600CE07 RID: 52743 RVA: 0x002FAB04 File Offset: 0x002F8D04
 		public NavMeshPath Paths
 		{
 			get
@@ -141,8 +131,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170035EB RID: 13803
-		// (get) Token: 0x0600CE08 RID: 52744 RVA: 0x002FAB1C File Offset: 0x002F8D1C
 		public bool IsOnNav
 		{
 			get
@@ -151,8 +139,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170035EC RID: 13804
-		// (get) Token: 0x0600CE09 RID: 52745 RVA: 0x002FAB34 File Offset: 0x002F8D34
 		public bool IsOnLastNode
 		{
 			get
@@ -161,14 +147,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CE0A RID: 52746 RVA: 0x002FAB4F File Offset: 0x002F8D4F
 		public void Interrupt()
 		{
 			this._path.ClearCorners();
 			this._bNav = false;
 		}
 
-		// Token: 0x0600CE0B RID: 52747 RVA: 0x002FAB68 File Offset: 0x002F8D68
 		private void Navigate(Vector3 targetPos)
 		{
 			bool flag = this._nav == null;
@@ -186,13 +170,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CE0C RID: 52748 RVA: 0x002FAC1C File Offset: 0x002F8E1C
 		private bool TooShort()
 		{
 			return this._path.corners.Length == 2 && XSingleton<XInput>.singleton.LastNpc != null && (this._path.corners[0] - this._path.corners[1]).magnitude < 2f;
 		}
 
-		// Token: 0x0600CE0D RID: 52749 RVA: 0x002FAC84 File Offset: 0x002F8E84
 		private void MoveNext()
 		{
 			bool bFoundNext = this._bFoundNext;
@@ -263,7 +245,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CE0E RID: 52750 RVA: 0x002FAEFB File Offset: 0x002F90FB
 		public IEnumerator<Vector3> GetEnumerator()
 		{
 			int num;
@@ -275,43 +256,31 @@ namespace XMainClient
 			yield break;
 		}
 
-		// Token: 0x0600CE0F RID: 52751 RVA: 0x002FAF0C File Offset: 0x002F910C
 		IEnumerator IEnumerable.GetEnumerator()
 		{
 			return this.GetEnumerator();
 		}
 
-		// Token: 0x04005BCC RID: 23500
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("Navgation_Component");
 
-		// Token: 0x04005BCD RID: 23501
 		private NavMeshAgent _nav = null;
 
-		// Token: 0x04005BCE RID: 23502
 		private NavMeshPath _path = new NavMeshPath();
 
-		// Token: 0x04005BCF RID: 23503
 		private Vector3 _destination = Vector3.zero;
 
-		// Token: 0x04005BD0 RID: 23504
 		private Vector3 _forward = Vector3.forward;
 
-		// Token: 0x04005BD1 RID: 23505
 		private IEnumerator<Vector3> _nodes = null;
 
-		// Token: 0x04005BD2 RID: 23506
 		private bool _bFoundNext = false;
 
-		// Token: 0x04005BD3 RID: 23507
 		private bool _bCameraFollow = true;
 
-		// Token: 0x04005BD4 RID: 23508
 		private bool _bNav = false;
 
-		// Token: 0x04005BD5 RID: 23509
 		private float _speed_ratio = 1f;
 
-		// Token: 0x04005BD6 RID: 23510
 		private static CommandCallback _activeNavCb = new CommandCallback(XNavigationComponent._ActiveNav);
 	}
 }

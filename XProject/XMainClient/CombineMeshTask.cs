@@ -4,10 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000FD5 RID: 4053
+
 	internal class CombineMeshTask
 	{
-		// Token: 0x0600D25F RID: 53855 RVA: 0x00311624 File Offset: 0x0030F824
+
 		public CombineMeshTask(MountLoadCallback mountLoadFinish)
 		{
 			this.mpb = new MaterialPropertyBlock();
@@ -42,7 +42,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D260 RID: 53856 RVA: 0x003117D4 File Offset: 0x0030F9D4
 		public void Reset(XEntity e)
 		{
 			for (int i = 0; i < this.parts.Length; i++)
@@ -76,7 +75,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D261 RID: 53857 RVA: 0x003118B8 File Offset: 0x0030FAB8
 		public void BeginCombine()
 		{
 			this.m_LoadStatus = 0;
@@ -89,28 +87,24 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D262 RID: 53858 RVA: 0x003118FC File Offset: 0x0030FAFC
 		public bool EndCombine()
 		{
 			this.combineStatus = ECombineStatus.ECombineing;
 			return CombineMeshTask.m_FinalLoadStatus == this.m_LoadStatus;
 		}
 
-		// Token: 0x0600D263 RID: 53859 RVA: 0x00311924 File Offset: 0x0030FB24
 		public void AddLoadPart(EPartType part)
 		{
 			int num = 1 << XFastEnumIntEqualityComparer<EPartType>.ToInt(part);
 			this.m_LoadStatus |= num;
 		}
 
-		// Token: 0x0600D264 RID: 53860 RVA: 0x0031194C File Offset: 0x0030FB4C
 		public void PartLoadFinish(EquipLoadTask part, bool combinePart)
 		{
 			this.needCombine = (this.needCombine || combinePart);
 			this.AddLoadPart(part.part);
 		}
 
-		// Token: 0x0600D265 RID: 53861 RVA: 0x0031196C File Offset: 0x0030FB6C
 		public bool Process()
 		{
 			bool result;
@@ -130,7 +124,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600D266 RID: 53862 RVA: 0x003119B0 File Offset: 0x0030FBB0
 		public static int ConvertPart(FashionPosition fp)
 		{
 			int result;
@@ -179,40 +172,28 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x04005F8B RID: 24459
 		public EquipLoadTask[] parts = new EquipLoadTask[XFastEnumIntEqualityComparer<EPartType>.ToInt(EPartType.ENum)];
 
-		// Token: 0x04005F8C RID: 24460
 		public ECombineStatus combineStatus = ECombineStatus.ENotCombine;
 
-		// Token: 0x04005F8D RID: 24461
 		private static int m_FinalLoadStatus = 0;
 
-		// Token: 0x04005F8E RID: 24462
 		private int m_LoadStatus = 0;
 
-		// Token: 0x04005F8F RID: 24463
 		private PartLoadCallback m_PartLoaded = null;
 
-		// Token: 0x04005F90 RID: 24464
 		public bool needCombine = false;
 
-		// Token: 0x04005F91 RID: 24465
 		public int roleType;
 
-		// Token: 0x04005F92 RID: 24466
 		public SkinnedMeshRenderer skin = null;
 
-		// Token: 0x04005F93 RID: 24467
 		public bool noCombine = false;
 
-		// Token: 0x04005F94 RID: 24468
 		public MaterialPropertyBlock mpb = null;
 
-		// Token: 0x04005F95 RID: 24469
 		public bool isOnepart = false;
 
-		// Token: 0x04005F96 RID: 24470
 		public static ECombineMatType s_CombineMatType = ECombineMatType.ECombined;
 	}
 }

@@ -6,10 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001914 RID: 6420
+
 	internal class EmblemEquipView : DlgHandlerBase
 	{
-		// Token: 0x06010CAF RID: 68783 RVA: 0x004378D0 File Offset: 0x00435AD0
+
 		private static int GetSlotIndex(EquipPosition pos)
 		{
 			int num = XBagDocument.BodyPosition<EquipPosition>(pos);
@@ -26,8 +26,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x17003AE2 RID: 15074
-		// (get) Token: 0x06010CB0 RID: 68784 RVA: 0x0043790C File Offset: 0x00435B0C
 		protected override string FileName
 		{
 			get
@@ -36,7 +34,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010CB1 RID: 68785 RVA: 0x00437924 File Offset: 0x00435B24
 		protected override void Init()
 		{
 			base.Init();
@@ -69,7 +66,6 @@ namespace XMainClient.UI
 			this._smeltDoc = XSmeltDocument.Doc;
 		}
 
-		// Token: 0x06010CB2 RID: 68786 RVA: 0x00437BE2 File Offset: 0x00435DE2
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -77,14 +73,12 @@ namespace XMainClient.UI
 			this.m_BuySlotTween.gameObject.SetActive(false);
 		}
 
-		// Token: 0x06010CB3 RID: 68787 RVA: 0x00437C05 File Offset: 0x00435E05
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
 			this.ShowEquipments();
 		}
 
-		// Token: 0x06010CB4 RID: 68788 RVA: 0x00437C16 File Offset: 0x00435E16
 		public override void OnUnload()
 		{
 			DlgHandlerBase.EnsureUnload<XEmbleAttrView<XAttrPlayerFile>>(ref this.embleAttrView);
@@ -92,7 +86,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x06010CB5 RID: 68789 RVA: 0x00437C38 File Offset: 0x00435E38
 		public void ShowEquipments()
 		{
 			this._doc.UpdateEquipLockState(XSingleton<XAttributeMgr>.singleton.XPlayerData.Level);
@@ -105,7 +98,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010CB6 RID: 68790 RVA: 0x00437CC0 File Offset: 0x00435EC0
 		public void SetSlot(int slot, XItem item, EmblemSlotStatus slotStatus = null)
 		{
 			int num = slot - XEmblemDocument.Position_TotalStart;
@@ -147,7 +139,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010CB7 RID: 68791 RVA: 0x00437EA8 File Offset: 0x004360A8
 		public void RegisterItemClickEvents(SpriteClickEventHandler handle = null)
 		{
 			this.m_finalHandle = handle;
@@ -168,20 +159,17 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010CB8 RID: 68792 RVA: 0x00437F2C File Offset: 0x0043612C
 		public void OnSlotBgClicked(IXUISprite iSp)
 		{
 			XSingleton<UiUtility>.singleton.ShowSystemTip(XStringDefineProxy.GetString("EMBLEM_SLOT_NO_SELECT"), "fece00");
 		}
 
-		// Token: 0x06010CB9 RID: 68793 RVA: 0x00437F4C File Offset: 0x0043614C
 		public bool OnClickEmblemAccess(IXUIButton btn)
 		{
 			XSingleton<XGameSysMgr>.singleton.OpenSystem(XSysDefine.XSys_EquipCreate_EmblemSet, 0UL);
 			return true;
 		}
 
-		// Token: 0x06010CBA RID: 68794 RVA: 0x00437F74 File Offset: 0x00436174
 		public bool OnClickAttriBtn(IXUIButton btn)
 		{
 			this.embleAttrView.SetBaseData(XSingleton<XGame>.singleton.Doc.XBagDoc.EmblemBag);
@@ -189,7 +177,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x06010CBB RID: 68795 RVA: 0x00437FB4 File Offset: 0x004361B4
 		public void OnSlotCoverClicked(IXUISprite iSp)
 		{
 			EmblemSlotStatus[] equipLock = this._doc.EquipLock;
@@ -248,7 +235,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010CBC RID: 68796 RVA: 0x0043815C File Offset: 0x0043635C
 		public void PlayBuySlotFx(int index)
 		{
 			bool flag = index >= this.m_EmblemBg.Length;
@@ -260,7 +246,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010CBD RID: 68797 RVA: 0x004381CC File Offset: 0x004363CC
 		private bool EmblemSlotting(IXUIButton btn)
 		{
 			this._doc.ReqEmbleSlotting(this.m_slottingSlot);
@@ -268,7 +253,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x06010CBE RID: 68798 RVA: 0x004381FC File Offset: 0x004363FC
 		public static void OnItemClicked(IXUISprite iSp)
 		{
 			XItem itemByUID = XSingleton<XGame>.singleton.Doc.XBagDoc.GetItemByUID(iSp.ID);
@@ -287,46 +271,32 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04007B2D RID: 31533
 		public XEmblemDocument _doc;
 
-		// Token: 0x04007B2E RID: 31534
 		public XSmeltDocument _smeltDoc;
 
-		// Token: 0x04007B2F RID: 31535
 		public static int Emblem_Slot_Count = XBagDocument.BodyPosition<EmblemPosition>(EmblemPosition.EMBLEM_END);
 
-		// Token: 0x04007B30 RID: 31536
 		public GameObject[] m_EmblemBg = new GameObject[EmblemEquipView.Emblem_Slot_Count];
 
-		// Token: 0x04007B31 RID: 31537
 		public IXUISprite[] m_EmblemSlots = new IXUISprite[EmblemEquipView.Emblem_Slot_Count];
 
-		// Token: 0x04007B32 RID: 31538
 		public IXUISprite[] m_EmblemSlotCovers = new IXUISprite[EmblemEquipView.Emblem_Slot_Count];
 
-		// Token: 0x04007B33 RID: 31539
 		public IXUISprite[] m_EmblemP = new IXUISprite[EmblemEquipView.Emblem_Slot_Count];
 
-		// Token: 0x04007B34 RID: 31540
 		public IXUISprite[] m_EmblemSlotBgs = new IXUISprite[EmblemEquipView.Emblem_Slot_Count];
 
-		// Token: 0x04007B35 RID: 31541
 		public XUIPool m_EmblemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04007B36 RID: 31542
 		private XEmbleAttrView<XAttrPlayerFile> embleAttrView;
 
-		// Token: 0x04007B37 RID: 31543
 		private Transform TotalAttriPanel;
 
-		// Token: 0x04007B38 RID: 31544
 		private IXUITweenTool m_BuySlotTween;
 
-		// Token: 0x04007B39 RID: 31545
 		private SpriteClickEventHandler m_finalHandle = null;
 
-		// Token: 0x04007B3A RID: 31546
 		private ulong m_slottingSlot = 0UL;
 	}
 }

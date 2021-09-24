@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x020009EB RID: 2539
+
 	internal class XEmblemDocument : XDocComponent
 	{
-		// Token: 0x17002E2E RID: 11822
-		// (get) Token: 0x06009B2E RID: 39726 RVA: 0x0018ABC8 File Offset: 0x00188DC8
+
 		public override uint ID
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002E2F RID: 11823
-		// (get) Token: 0x06009B2F RID: 39727 RVA: 0x0018ABE0 File Offset: 0x00188DE0
 		public EmblemSlotStatus[] EquipLock
 		{
 			get
@@ -40,9 +37,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002E30 RID: 11824
-		// (get) Token: 0x06009B30 RID: 39728 RVA: 0x0018AC48 File Offset: 0x00188E48
-		// (set) Token: 0x06009B31 RID: 39729 RVA: 0x0018AC70 File Offset: 0x00188E70
 		public bool bCanBePowerful
 		{
 			get
@@ -56,8 +50,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002E31 RID: 11825
-		// (get) Token: 0x06009B32 RID: 39730 RVA: 0x0018AC8C File Offset: 0x00188E8C
 		public XNewItemTipsMgr NewItems
 		{
 			get
@@ -66,13 +58,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009B33 RID: 39731 RVA: 0x0018ACA4 File Offset: 0x00188EA4
 		public static bool isFullLevel(uint level)
 		{
 			return (ulong)level >= (ulong)((long)(XEmblemDocument.Level_Count - 1));
 		}
 
-		// Token: 0x06009B34 RID: 39732 RVA: 0x0018ACC8 File Offset: 0x00188EC8
 		public static string GetDisplayLevel(uint level)
 		{
 			bool flag = XEmblemDocument.isFullLevel(level);
@@ -88,13 +78,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009B35 RID: 39733 RVA: 0x0018ACF8 File Offset: 0x00188EF8
 		public static SkillEmblem.RowData GetEmblemSkillConf(uint dwItemId)
 		{
 			return XEmblemDocument._emblemSkillReader.GetByEmblemID(dwItemId);
 		}
 
-		// Token: 0x06009B36 RID: 39734 RVA: 0x0018AD18 File Offset: 0x00188F18
 		public static string GetEmblemSkillAttrString(uint dwItemId)
 		{
 			bool flag = string.IsNullOrEmpty(XEmblemDocument.emblemSkillAttrFmt);
@@ -116,14 +104,12 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009B37 RID: 39735 RVA: 0x0018AD99 File Offset: 0x00188F99
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			XEmblemDocument.AsyncLoader.AddTask("Table/SkillEmblem", XEmblemDocument._emblemSkillReader, false);
 			XEmblemDocument.AsyncLoader.Execute(callback);
 		}
 
-		// Token: 0x06009B38 RID: 39736 RVA: 0x0018ADC0 File Offset: 0x00188FC0
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
@@ -160,7 +146,6 @@ namespace XMainClient
 			this._NewItems.Filter.AddItemType(ItemType.EMBLEM);
 		}
 
-		// Token: 0x06009B39 RID: 39737 RVA: 0x0018AF58 File Offset: 0x00189158
 		protected override void EventSubscribe()
 		{
 			base.EventSubscribe();
@@ -175,7 +160,6 @@ namespace XMainClient
 			base.RegisterEvent(XEventDefine.XEvent_PlayerLevelChange, new XComponent.XEventHandler(this.OnPlayerLevelChange));
 		}
 
-		// Token: 0x06009B3A RID: 39738 RVA: 0x0018B030 File Offset: 0x00189230
 		public int SlottingNeedMoney(int slot)
 		{
 			int num = slot - XEmblemDocument.Position_PaySkillStart;
@@ -192,7 +176,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009B3B RID: 39739 RVA: 0x0018B078 File Offset: 0x00189278
 		public int IsCanSlotting(int slot)
 		{
 			bool flag = XEmblemDocument.HadSlottingNum >= XEmblemDocument.Position_PaySkillEnd - XEmblemDocument.Position_PaySkillStart;
@@ -225,14 +208,12 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009B3C RID: 39740 RVA: 0x0018B0D4 File Offset: 0x001892D4
 		public void ReqEmbleSlotting(ulong slot)
 		{
 			RpcC2G_BuyExtraSkillEmblemSlot rpc = new RpcC2G_BuyExtraSkillEmblemSlot();
 			XSingleton<XClientNetwork>.singleton.Send(rpc);
 		}
 
-		// Token: 0x06009B3D RID: 39741 RVA: 0x0018B0F4 File Offset: 0x001892F4
 		public void OnEmbleSlottingBack(BuyExtraSkillEmblemSlotRes oRes)
 		{
 			bool flag = oRes.result == ErrorCode.ERR_INVALID_REQUEST;
@@ -261,7 +242,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009B3E RID: 39742 RVA: 0x0018B1A4 File Offset: 0x001893A4
 		public void InitWhenCreateRole(uint playerLevel)
 		{
 			this.UpdateEquipLockState(playerLevel);
@@ -269,7 +249,6 @@ namespace XMainClient
 			this.UpdateRedPoints(playerLevel);
 		}
 
-		// Token: 0x06009B3F RID: 39743 RVA: 0x0018B1C0 File Offset: 0x001893C0
 		public void UpdateEquipLockState(uint playerLevel)
 		{
 			for (int i = XEmblemDocument.Position_TotalStart; i < XEmblemDocument.Position_TotalEnd; i++)
@@ -286,7 +265,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009B40 RID: 39744 RVA: 0x0018B220 File Offset: 0x00189420
 		public void UpdateEquipSlottingState()
 		{
 			for (int i = XEmblemDocument.Position_TotalStart; i < XEmblemDocument.Position_NoPaySkillEnd; i++)
@@ -308,7 +286,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009B41 RID: 39745 RVA: 0x0018B2AC File Offset: 0x001894AC
 		public List<XItem> GetEmblemItems()
 		{
 			ulong typeFilter = 1UL << XFastEnumIntEqualityComparer<ItemType>.ToInt(ItemType.EMBLEM);
@@ -330,8 +307,6 @@ namespace XMainClient
 			return this.m_ItemList;
 		}
 
-		// Token: 0x17002E32 RID: 11826
-		// (get) Token: 0x06009B42 RID: 39746 RVA: 0x0018B374 File Offset: 0x00189574
 		public bool IsEquipEmblem
 		{
 			get
@@ -349,7 +324,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009B43 RID: 39747 RVA: 0x0018B3F0 File Offset: 0x001895F0
 		public bool IsEquipThisSkillEmblem(uint skillHash, ref List<SkillEmblem.RowData> row)
 		{
 			row.Clear();
@@ -404,7 +378,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009B44 RID: 39748 RVA: 0x0018B518 File Offset: 0x00189718
 		public List<ShowAttriData> AttriDataList()
 		{
 			this.ShowAttriDataLst = new List<ShowAttriData>();
@@ -449,7 +422,6 @@ namespace XMainClient
 			return this.ShowAttriDataLst;
 		}
 
-		// Token: 0x06009B45 RID: 39749 RVA: 0x0018B6B0 File Offset: 0x001898B0
 		public ShowAttriData FindTheSameAttri(uint nameId)
 		{
 			for (int i = 0; i < this.ShowAttriDataLst.Count; i++)
@@ -463,7 +435,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x06009B46 RID: 39750 RVA: 0x0018B708 File Offset: 0x00189908
 		public void RefreshBag()
 		{
 			bool flag = this._BagHandler != null && this._BagHandler.IsVisible();
@@ -473,7 +444,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009B47 RID: 39751 RVA: 0x0018B73C File Offset: 0x0018993C
 		public void ShowIdentifySucEffect()
 		{
 			bool flag = this._BagHandler != null && this._BagHandler.IsVisible();
@@ -483,7 +453,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009B48 RID: 39752 RVA: 0x0018B770 File Offset: 0x00189970
 		public bool OnLoadEquip(XEventArgs args)
 		{
 			bool flag = this._EquipHandler == null || !this._EquipHandler.active;
@@ -503,7 +472,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009B49 RID: 39753 RVA: 0x0018B7D8 File Offset: 0x001899D8
 		public bool OnAddItem(XEventArgs args)
 		{
 			XAddItemEventArgs xaddItemEventArgs = args as XAddItemEventArgs;
@@ -526,7 +494,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009B4A RID: 39754 RVA: 0x0018B850 File Offset: 0x00189A50
 		public bool OnUnloadEquip(XEventArgs args)
 		{
 			bool flag = this._EquipHandler == null || !this._EquipHandler.active;
@@ -546,7 +513,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009B4B RID: 39755 RVA: 0x0018B8B4 File Offset: 0x00189AB4
 		public bool OnRemoveItem(XEventArgs args)
 		{
 			XRemoveItemEventArgs xremoveItemEventArgs = args as XRemoveItemEventArgs;
@@ -574,7 +540,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009B4C RID: 39756 RVA: 0x0018B98C File Offset: 0x00189B8C
 		public bool OnItemNumChanged(XEventArgs args)
 		{
 			bool flag = this._BagHandler == null || !this._BagHandler.active;
@@ -592,7 +557,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009B4D RID: 39757 RVA: 0x0018B9DC File Offset: 0x00189BDC
 		public bool OnSwapItem(XEventArgs args)
 		{
 			bool flag = this._EquipHandler == null || !this._EquipHandler.active || this._BagHandler == null || !this._BagHandler.active;
@@ -614,7 +578,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009B4E RID: 39758 RVA: 0x0018BA9C File Offset: 0x00189C9C
 		public bool OnUpdateItem(XEventArgs args)
 		{
 			XUpdateItemEventArgs xupdateItemEventArgs = args as XUpdateItemEventArgs;
@@ -656,7 +619,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009B4F RID: 39759 RVA: 0x0018BB8C File Offset: 0x00189D8C
 		public bool OnItemChangedFinished(XEventArgs args)
 		{
 			bool bShouldUpdateRedPoints = this._bShouldUpdateRedPoints;
@@ -668,13 +630,11 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x06009B50 RID: 39760 RVA: 0x0018BBBC File Offset: 0x00189DBC
 		public bool IsEmblemMorePowerful(ulong uid)
 		{
 			return this.IsEmblemMorePowerful(XSingleton<XGame>.singleton.Doc.XBagDoc.GetItemByUID(uid) as XEmblemItem, XSingleton<XAttributeMgr>.singleton.XPlayerData.Level);
 		}
 
-		// Token: 0x06009B51 RID: 39761 RVA: 0x0018BC00 File Offset: 0x00189E00
 		public bool IsEmblemMorePowerful(XEmblemItem emblem, uint playerLevel)
 		{
 			bool flag = emblem == null;
@@ -799,13 +759,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009B52 RID: 39762 RVA: 0x0018BEA3 File Offset: 0x0018A0A3
 		public void UpdateRedPoints()
 		{
 			this.UpdateRedPoints(XSingleton<XAttributeMgr>.singleton.XPlayerData.Level);
 		}
 
-		// Token: 0x06009B53 RID: 39763 RVA: 0x0018BEBC File Offset: 0x0018A0BC
 		public void UpdateRedPoints(uint playerLevel)
 		{
 			this._bCanBePowerful = false;
@@ -832,7 +790,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009B54 RID: 39764 RVA: 0x0018BF3C File Offset: 0x0018A13C
 		public void RefreshTips(ulong uid)
 		{
 			bool flag = this._BagHandler != null && this._BagHandler.IsVisible();
@@ -842,7 +799,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009B55 RID: 39765 RVA: 0x0018BF74 File Offset: 0x0018A174
 		public static bool GetFirstEmptyEmblemSlot(XBodyBag bag, short emblemType, out int pos)
 		{
 			XEmblemDocument specificDocument = XDocuments.GetSpecificDocument<XEmblemDocument>(XEmblemDocument.uuID);
@@ -873,7 +829,6 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x06009B56 RID: 39766 RVA: 0x0018C02C File Offset: 0x0018A22C
 		public static XItem CheckEquipedEmblemsAttrs(XBodyBag bag, XItem newItem)
 		{
 			XEmblemItem xemblemItem = newItem as XEmblemItem;
@@ -948,19 +903,16 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009B57 RID: 39767 RVA: 0x0018C1E8 File Offset: 0x0018A3E8
 		public static float GetSkillCDRatio(XBodyBag EmblemBag, uint skillID)
 		{
 			return XEmblemDocument.GetSkillEffectRatio(EmblemBag, skillID, 2U);
 		}
 
-		// Token: 0x06009B58 RID: 39768 RVA: 0x0018C204 File Offset: 0x0018A404
 		public static float GetSkillDamageRatio(XBodyBag EmblemBag, uint skillID)
 		{
 			return XEmblemDocument.GetSkillEffectRatio(EmblemBag, skillID, 1U);
 		}
 
-		// Token: 0x06009B59 RID: 39769 RVA: 0x0018C220 File Offset: 0x0018A420
 		public static float GetSkillEffectRatio(XBodyBag EmblemBag, uint skillID, uint type)
 		{
 			bool flag = EmblemBag == null || !XSingleton<XCombatEffectManager>.singleton.IsSkillEmblemEnabled() || skillID == 0U;
@@ -1012,13 +964,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009B5A RID: 39770 RVA: 0x0018C34C File Offset: 0x0018A54C
 		public static bool IsSkillEmblem(short type)
 		{
 			return type > 1000;
 		}
 
-		// Token: 0x06009B5B RID: 39771 RVA: 0x0018C368 File Offset: 0x0018A568
 		private bool OnPlayerLevelChange(XEventArgs arg)
 		{
 			XPlayerLevelChangedEventArgs xplayerLevelChangedEventArgs = arg as XPlayerLevelChangedEventArgs;
@@ -1026,100 +976,69 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x06009B5C RID: 39772 RVA: 0x0018C38F File Offset: 0x0018A58F
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 			this.InitWhenCreateRole(arg.PlayerInfo.Brief.level);
 		}
 
-		// Token: 0x040035A1 RID: 13729
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("EmblemDocument");
 
-		// Token: 0x040035A2 RID: 13730
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x040035A3 RID: 13731
 		public static int Position_AttrStart = XBagDocument.BodyPosition<EmblemPosition>(EmblemPosition.EMBLEM_START);
 
-		// Token: 0x040035A4 RID: 13732
 		public static int Position_AttrEnd = XBagDocument.BodyPosition<EmblemPosition>(EmblemPosition.EMBLEMIX);
 
-		// Token: 0x040035A5 RID: 13733
 		public static int Position_SkillStart = XBagDocument.BodyPosition<EmblemPosition>(EmblemPosition.EMBLEMIX);
 
-		// Token: 0x040035A6 RID: 13734
 		public static int Position_SkillEnd = XBagDocument.BodyPosition<EmblemPosition>(EmblemPosition.EMBLEM_END);
 
-		// Token: 0x040035A7 RID: 13735
 		public static int Position_NoPaySkillStart = XBagDocument.BodyPosition<EmblemPosition>(EmblemPosition.EMBLEMIX);
 
-		// Token: 0x040035A8 RID: 13736
 		public static int Position_NoPaySkillEnd = XBagDocument.BodyPosition<EmblemPosition>(EmblemPosition.EMBLEMXIII);
 
-		// Token: 0x040035A9 RID: 13737
 		public static int Position_PaySkillStart = XBagDocument.BodyPosition<EmblemPosition>(EmblemPosition.EMBLEMXIII);
 
-		// Token: 0x040035AA RID: 13738
 		public static int Position_PaySkillEnd = XBagDocument.BodyPosition<EmblemPosition>(EmblemPosition.EMBLEM_END);
 
-		// Token: 0x040035AB RID: 13739
 		public static int Position_TotalStart = XBagDocument.BodyPosition<EmblemPosition>(EmblemPosition.EMBLEM_START);
 
-		// Token: 0x040035AC RID: 13740
 		public static int Position_TotalEnd = XBagDocument.BodyPosition<EmblemPosition>(EmblemPosition.EMBLEM_END);
 
-		// Token: 0x040035AD RID: 13741
 		public EmblemBagView _BagHandler = null;
 
-		// Token: 0x040035AE RID: 13742
 		public EmblemEquipView _EquipHandler = null;
 
-		// Token: 0x040035AF RID: 13743
 		private static SkillEmblem _emblemSkillReader = new SkillEmblem();
 
-		// Token: 0x040035B0 RID: 13744
 		private static string emblemSkillAttrFmt = "";
 
-		// Token: 0x040035B1 RID: 13745
 		private List<uint>[] _emblemLevels = new List<uint>[6];
 
-		// Token: 0x040035B2 RID: 13746
 		private List<int> m_needMoneyList = new List<int>();
 
-		// Token: 0x040035B3 RID: 13747
 		private EmblemSlotStatus[] m_equipLock;
 
-		// Token: 0x040035B4 RID: 13748
 		public List<uint> emblemSlotUnlockLevel = new List<uint>();
 
-		// Token: 0x040035B5 RID: 13749
 		public static int Level_Count = 0;
 
-		// Token: 0x040035B6 RID: 13750
 		public HashSet<ulong> selectedItems = new HashSet<ulong>();
 
-		// Token: 0x040035B7 RID: 13751
 		public uint selectedItemsTotalExp = 0U;
 
-		// Token: 0x040035B8 RID: 13752
 		public ulong currentEmblemUID = 0UL;
 
-		// Token: 0x040035B9 RID: 13753
 		private bool _bCanBePowerful = false;
 
-		// Token: 0x040035BA RID: 13754
 		private bool _bShouldUpdateRedPoints = false;
 
-		// Token: 0x040035BB RID: 13755
 		private XNewItemTipsMgr _NewItems = new XNewItemTipsMgr();
 
-		// Token: 0x040035BC RID: 13756
 		private List<XItem> m_ItemList = new List<XItem>();
 
-		// Token: 0x040035BD RID: 13757
 		public static int HadSlottingNum = 0;
 
-		// Token: 0x040035BE RID: 13758
 		private List<ShowAttriData> ShowAttriDataLst;
 	}
 }

@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001855 RID: 6229
+
 	internal class SpectateLevelRewardView : DlgBase<SpectateLevelRewardView, SpectateLevelRewardBehaviour>
 	{
-		// Token: 0x17003973 RID: 14707
-		// (get) Token: 0x0601031D RID: 66333 RVA: 0x003E43F4 File Offset: 0x003E25F4
+
 		public override bool autoload
 		{
 			get
@@ -19,8 +18,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003974 RID: 14708
-		// (get) Token: 0x0601031E RID: 66334 RVA: 0x003E4408 File Offset: 0x003E2608
 		public override string fileName
 		{
 			get
@@ -29,40 +26,34 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601031F RID: 66335 RVA: 0x003E441F File Offset: 0x003E261F
 		protected override void Init()
 		{
 			this._doc = XDocuments.GetSpecificDocument<XSpectateLevelRewardDocument>(XSpectateLevelRewardDocument.uuID);
 			base.uiBehaviour.m_GoOnBtnText.SetText(XStringDefineProxy.GetString("Spectate_Goon"));
 		}
 
-		// Token: 0x06010320 RID: 66336 RVA: 0x003E444D File Offset: 0x003E264D
 		public override void RegisterEvent()
 		{
 			base.uiBehaviour.m_BackToMainCityBtn.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.BackToMainCityBtnClick));
 			base.uiBehaviour.m_GoOnBtn.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnGoOnBtnClick));
 		}
 
-		// Token: 0x06010321 RID: 66337 RVA: 0x003E448A File Offset: 0x003E268A
 		public void BackToMainCityBtnClick(IXUISprite btn)
 		{
 			this._doc.LevelScene();
 		}
 
-		// Token: 0x06010322 RID: 66338 RVA: 0x003E4499 File Offset: 0x003E2699
 		public void OnGoOnBtnClick(IXUISprite iSp)
 		{
 			this.SetVisible(false, true);
 			DlgBase<SpectateView, SpectateBehaviour>.singleton.SetVisible(true, true);
 		}
 
-		// Token: 0x06010323 RID: 66339 RVA: 0x001EA11D File Offset: 0x001E831D
 		private void OnAddFriendClick(IXUISprite sp)
 		{
 			DlgBase<XFriendsView, XFriendsBehaviour>.singleton.AddFriendById(sp.ID);
 		}
 
-		// Token: 0x06010324 RID: 66340 RVA: 0x003E44B4 File Offset: 0x003E26B4
 		protected override void OnShow()
 		{
 			bool flag = DlgBase<SpectateSceneView, SpectateSceneBehaviour>.singleton.IsVisible();
@@ -72,7 +63,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010325 RID: 66341 RVA: 0x003E44E0 File Offset: 0x003E26E0
 		public void ShowData()
 		{
 			bool flag = DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.IsVisible();
@@ -94,7 +84,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010326 RID: 66342 RVA: 0x003E45C4 File Offset: 0x003E27C4
 		public void InitPool()
 		{
 			base.uiBehaviour.m_TitlePool.ReturnAll(true);
@@ -106,7 +95,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_WinLosePool.ReturnAll(true);
 		}
 
-		// Token: 0x06010327 RID: 66343 RVA: 0x003E4650 File Offset: 0x003E2850
 		public void SetTitle()
 		{
 			int num = -this._doc.WidthTotal / 2;
@@ -133,7 +121,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010328 RID: 66344 RVA: 0x003E47BC File Offset: 0x003E29BC
 		public void SetMember()
 		{
 			int num = -this._doc.WidthTotal / 2;
@@ -189,7 +176,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010329 RID: 66345 RVA: 0x003E4A50 File Offset: 0x003E2C50
 		public void SetHeadIcon(int x, int index, int width, GameObject parentGo)
 		{
 			GameObject gameObject = base.uiBehaviour.m_DetailPool.FetchGameObject(false);
@@ -214,7 +200,6 @@ namespace XMainClient.UI
 			ixuisprite2.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnAddFriendClick));
 		}
 
-		// Token: 0x0601032A RID: 66346 RVA: 0x003E4C38 File Offset: 0x003E2E38
 		private void SetJustText(int x, int index, int type, int width, GameObject parentGo)
 		{
 			GameObject gameObject = base.uiBehaviour.m_LabelPool.FetchGameObject(false);
@@ -244,7 +229,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601032B RID: 66347 RVA: 0x003E4E08 File Offset: 0x003E3008
 		private void SetStar(int x, int index, int width, GameObject parentGo)
 		{
 			uint num = 0U;
@@ -265,7 +249,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601032C RID: 66348 RVA: 0x003E4F34 File Offset: 0x003E3134
 		private void SetWinLose(int x, int index, int width, GameObject parentGo)
 		{
 			GameObject gameObject = base.uiBehaviour.m_WinLosePool.FetchGameObject(false);
@@ -290,7 +273,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601032D RID: 66349 RVA: 0x003E5058 File Offset: 0x003E3258
 		private void SetMvp(int x, int index, int width, GameObject parentGo)
 		{
 			bool flag = this._doc.DataList[index].roleid == this._doc.MvpUid;
@@ -302,7 +284,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601032E RID: 66350 RVA: 0x003E50EC File Offset: 0x003E32EC
 		private int CalStarNum(int num)
 		{
 			int num2 = 0;
@@ -314,10 +295,8 @@ namespace XMainClient.UI
 			return num2;
 		}
 
-		// Token: 0x0400740C RID: 29708
 		private XSpectateLevelRewardDocument _doc;
 
-		// Token: 0x0400740D RID: 29709
 		public int MemberAndSplitHeight;
 	}
 }

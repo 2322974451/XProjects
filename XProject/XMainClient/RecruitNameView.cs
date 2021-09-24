@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000A35 RID: 2613
+
 	internal class RecruitNameView : DlgBase<RecruitNameView, RecruitNameBehaviour>
 	{
-		// Token: 0x17002ED6 RID: 11990
-		// (get) Token: 0x06009F30 RID: 40752 RVA: 0x001A590C File Offset: 0x001A3B0C
+
 		public override string fileName
 		{
 			get
@@ -19,7 +18,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009F31 RID: 40753 RVA: 0x001A5924 File Offset: 0x001A3B24
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -28,27 +26,23 @@ namespace XMainClient
 			base.uiBehaviour._Submit.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnSubmitClick));
 		}
 
-		// Token: 0x06009F32 RID: 40754 RVA: 0x001A5983 File Offset: 0x001A3B83
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.Setup();
 		}
 
-		// Token: 0x06009F33 RID: 40755 RVA: 0x001A5994 File Offset: 0x001A3B94
 		private void Setup()
 		{
 			base.uiBehaviour._NameInput.SetText(string.Empty);
 		}
 
-		// Token: 0x06009F34 RID: 40756 RVA: 0x001A59B0 File Offset: 0x001A3BB0
 		private bool OnCloseClick(IXUIButton btn = null)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x06009F35 RID: 40757 RVA: 0x001A59CC File Offset: 0x001A3BCC
 		private bool OnSubmitClick(IXUIButton btn)
 		{
 			string text = base.uiBehaviour._NameInput.GetText();
@@ -80,7 +74,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x040038C7 RID: 14535
 		private GroupChatDocument _doc;
 	}
 }

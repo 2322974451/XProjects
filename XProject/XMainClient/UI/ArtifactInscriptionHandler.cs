@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017B2 RID: 6066
+
 	internal class ArtifactInscriptionHandler : DlgHandlerBase
 	{
-		// Token: 0x1700387B RID: 14459
-		// (get) Token: 0x0600FAF5 RID: 64245 RVA: 0x003A2604 File Offset: 0x003A0804
+
 		private string EffectPath
 		{
 			get
@@ -24,8 +23,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700387C RID: 14460
-		// (get) Token: 0x0600FAF6 RID: 64246 RVA: 0x003A2640 File Offset: 0x003A0840
 		protected override string FileName
 		{
 			get
@@ -34,7 +31,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FAF7 RID: 64247 RVA: 0x003A2658 File Offset: 0x003A0858
 		protected override void Init()
 		{
 			base.Init();
@@ -49,7 +45,6 @@ namespace XMainClient.UI
 			this.m_effectTra = transform.FindChild("Effect");
 		}
 
-		// Token: 0x0600FAF8 RID: 64248 RVA: 0x003A2738 File Offset: 0x003A0938
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -60,14 +55,12 @@ namespace XMainClient.UI
 			this.m_inscriptionBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnClickInscriptionBtn));
 		}
 
-		// Token: 0x0600FAF9 RID: 64249 RVA: 0x003A27B1 File Offset: 0x003A09B1
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.FillContent();
 		}
 
-		// Token: 0x0600FAFA RID: 64250 RVA: 0x003A27C4 File Offset: 0x003A09C4
 		protected override void OnHide()
 		{
 			base.OnHide();
@@ -78,13 +71,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FAFB RID: 64251 RVA: 0x0022CCF0 File Offset: 0x0022AEF0
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
 		}
 
-		// Token: 0x0600FAFC RID: 64252 RVA: 0x003A27F4 File Offset: 0x003A09F4
 		public override void OnUnload()
 		{
 			base.OnUnload();
@@ -97,13 +88,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FAFD RID: 64253 RVA: 0x003A283D File Offset: 0x003A0A3D
 		public void RefreshUi()
 		{
 			this.FillContent();
 		}
 
-		// Token: 0x0600FAFE RID: 64254 RVA: 0x003A2848 File Offset: 0x003A0A48
 		private void FillContent()
 		{
 			XItem xitem = XBagDocument.BagDoc.GetItemByUID(this.m_doc.ArtifactUid);
@@ -156,7 +145,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FAFF RID: 64255 RVA: 0x003A2A1C File Offset: 0x003A0C1C
 		private bool OnClickInscriptionBtn(IXUIButton btn)
 		{
 			bool flag = this.m_doc.ArtifactUid == 0UL || this.m_doc.InscriptionUid == 0UL;
@@ -183,7 +171,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FB00 RID: 64256 RVA: 0x003A2AE4 File Offset: 0x003A0CE4
 		private bool DoOK(IXUIButton btn)
 		{
 			bool flag = DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.IsVisible();
@@ -197,7 +184,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FB01 RID: 64257 RVA: 0x003A2B48 File Offset: 0x003A0D48
 		private bool DoCancel(IXUIButton btn)
 		{
 			XOptionsDocument specificDocument = XDocuments.GetSpecificDocument<XOptionsDocument>(XOptionsDocument.uuID);
@@ -206,7 +192,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FB02 RID: 64258 RVA: 0x003A2B90 File Offset: 0x003A0D90
 		private void OnClickBox(IXUISprite spr)
 		{
 			bool flag = spr.ID == 1UL;
@@ -220,7 +205,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FB03 RID: 64259 RVA: 0x003A2BE4 File Offset: 0x003A0DE4
 		private void OnClickTips(IXUISprite spr)
 		{
 			bool flag = spr.ID == 0UL;
@@ -236,31 +220,22 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04006E1D RID: 28189
 		private ArtifactInscriptionDocument m_doc;
 
-		// Token: 0x04006E1E RID: 28190
 		private GameObject m_itemGo1;
 
-		// Token: 0x04006E1F RID: 28191
 		private GameObject m_itemGo2;
 
-		// Token: 0x04006E20 RID: 28192
 		private Transform m_effectTra;
 
-		// Token: 0x04006E21 RID: 28193
 		private IXUISprite m_boxSpr1;
 
-		// Token: 0x04006E22 RID: 28194
 		private IXUISprite m_boxSpr2;
 
-		// Token: 0x04006E23 RID: 28195
 		private IXUIButton m_inscriptionBtn;
 
-		// Token: 0x04006E24 RID: 28196
 		private XFx m_fx;
 
-		// Token: 0x04006E25 RID: 28197
 		private string m_effectPath = string.Empty;
 	}
 }

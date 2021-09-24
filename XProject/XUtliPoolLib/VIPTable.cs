@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x02000180 RID: 384
+
 	public class VIPTable : CVSReader
 	{
-		// Token: 0x06000858 RID: 2136 RVA: 0x0002BF2C File Offset: 0x0002A12C
+
 		public VIPTable.RowData GetByVIP(int key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -29,7 +29,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000859 RID: 2137 RVA: 0x0002BF98 File Offset: 0x0002A198
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			VIPTable.RowData rowData = new VIPTable.RowData();
@@ -65,7 +64,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x0600085A RID: 2138 RVA: 0x0002C138 File Offset: 0x0002A338
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -79,52 +77,37 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x040003CC RID: 972
 		public VIPTable.RowData[] Table = null;
 
-		// Token: 0x0200037F RID: 895
 		public class RowData
 		{
-			// Token: 0x04000EF3 RID: 3827
+
 			public int VIP;
 
-			// Token: 0x04000EF4 RID: 3828
 			public uint RMB;
 
-			// Token: 0x04000EF5 RID: 3829
 			public int BuyGoldTimes;
 
-			// Token: 0x04000EF6 RID: 3830
 			public int BuyFatigueTimes;
 
-			// Token: 0x04000EF7 RID: 3831
 			public uint AuctionOnSaleMax;
 
-			// Token: 0x04000EF8 RID: 3832
 			public int BuyDragonCoinTimes;
 
-			// Token: 0x04000EF9 RID: 3833
 			public int ItemID;
 
-			// Token: 0x04000EFA RID: 3834
 			public string[] VIPTips;
 
-			// Token: 0x04000EFB RID: 3835
 			public uint GoldClickTimes;
 
-			// Token: 0x04000EFC RID: 3836
 			public uint EquipMax;
 
-			// Token: 0x04000EFD RID: 3837
 			public uint EmblemMax;
 
-			// Token: 0x04000EFE RID: 3838
 			public uint BagMax;
 
-			// Token: 0x04000EFF RID: 3839
 			public uint ArtifactMax;
 
-			// Token: 0x04000F00 RID: 3840
 			public uint InscriptionMax;
 		}
 	}

@@ -7,11 +7,10 @@ using XMainClient.UI.UICommon;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001753 RID: 5971
+
 	internal class GuildArenaRankDlg : DlgBase<GuildArenaRankDlg, GuildArenaRankBehaviour>
 	{
-		// Token: 0x170037F4 RID: 14324
-		// (get) Token: 0x0600F6A6 RID: 63142 RVA: 0x0037FC30 File Offset: 0x0037DE30
+
 		public override string fileName
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170037F5 RID: 14325
-		// (get) Token: 0x0600F6A7 RID: 63143 RVA: 0x0037FC48 File Offset: 0x0037DE48
 		public override int layer
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170037F6 RID: 14326
-		// (get) Token: 0x0600F6A8 RID: 63144 RVA: 0x0037FC5C File Offset: 0x0037DE5C
 		public override bool autoload
 		{
 			get
@@ -40,14 +35,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F6A9 RID: 63145 RVA: 0x0037FC6F File Offset: 0x0037DE6F
 		protected override void Init()
 		{
 			base.Init();
 			base.uiBehaviour.m_WrapContent.RegisterItemUpdateEventHandler(new WrapItemUpdateEventHandler(this.OnWrapContentUpdate));
 		}
 
-		// Token: 0x0600F6AA RID: 63146 RVA: 0x0037FC98 File Offset: 0x0037DE98
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -56,7 +49,6 @@ namespace XMainClient.UI
 			specificDocument.SendReqGuildArenaHistory();
 		}
 
-		// Token: 0x0600F6AB RID: 63147 RVA: 0x0037FCC8 File Offset: 0x0037DEC8
 		private void OnWrapContentUpdate(Transform t, int index)
 		{
 			IXUILabelSymbol ixuilabelSymbol = t.FindChild("First").GetComponent("XUILabelSymbol") as IXUILabelSymbol;
@@ -83,14 +75,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F6AC RID: 63148 RVA: 0x0037FDE6 File Offset: 0x0037DFE6
 		public void SetHistoryList(List<GuildArenaHistory> historys)
 		{
 			this.m_historys = historys;
 			this.Refresh();
 		}
 
-		// Token: 0x0600F6AD RID: 63149 RVA: 0x0037FDF8 File Offset: 0x0037DFF8
 		public void Refresh()
 		{
 			int num = 0;
@@ -104,27 +94,23 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_NA.gameObject.SetActive(num == 0);
 		}
 
-		// Token: 0x0600F6AE RID: 63150 RVA: 0x0037FE60 File Offset: 0x0037E060
 		private bool ClickShow(IXUIButton btn)
 		{
 			return false;
 		}
 
-		// Token: 0x0600F6AF RID: 63151 RVA: 0x0037FE73 File Offset: 0x0037E073
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			base.uiBehaviour.m_Close.RegisterClickEventHandler(new ButtonClickEventHandler(this.ClickClose));
 		}
 
-		// Token: 0x0600F6B0 RID: 63152 RVA: 0x0037FE9C File Offset: 0x0037E09C
 		private bool ClickClose(IXUIButton btn)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x04006B2E RID: 27438
 		private List<GuildArenaHistory> m_historys;
 	}
 }

@@ -4,15 +4,14 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000FD1 RID: 4049
+
 	internal class WeaponLoadTask : MountLoadTask
 	{
-		// Token: 0x0600D24A RID: 53834 RVA: 0x003110F0 File Offset: 0x0030F2F0
+
 		public WeaponLoadTask(EPartType p, MountLoadCallback mountPartLoadCb) : base(p, mountPartLoadCb)
 		{
 		}
 
-		// Token: 0x0600D24B RID: 53835 RVA: 0x00311104 File Offset: 0x0030F304
 		public override void Reset(XEntity e)
 		{
 			this.processStatus = EProcessStatus.ENotProcess;
@@ -33,7 +32,6 @@ namespace XMainClient
 			this.xgo2 = null;
 		}
 
-		// Token: 0x0600D24C RID: 53836 RVA: 0x0031118C File Offset: 0x0030F38C
 		public override void ProcessEnable(bool enable, bool forceDisable, int layer)
 		{
 			base.ProcessEnable(enable, forceDisable, layer);
@@ -44,7 +42,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D24D RID: 53837 RVA: 0x003111C4 File Offset: 0x0030F3C4
 		public override void ProcessRenderQueue(int renderQueue)
 		{
 			base.ProcessRenderQueue(renderQueue);
@@ -55,7 +52,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D24E RID: 53838 RVA: 0x003111F8 File Offset: 0x0030F3F8
 		public override void ProcessRenderComponent(XEntity e)
 		{
 			base.ProcessRenderComponent(e);
@@ -66,7 +62,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600D24F RID: 53839 RVA: 0x0031122C File Offset: 0x0030F42C
 		private static void _SecondWeaponLoaded(XGameObject gameObject, object o, int commandID)
 		{
 			XEntity xentity = o as XEntity;
@@ -85,7 +80,6 @@ namespace XMainClient
 			MountLoadTask.ProcessRender(gameObject, xentity, layer, enable, -1, false);
 		}
 
-		// Token: 0x0600D250 RID: 53840 RVA: 0x00311288 File Offset: 0x0030F488
 		public void PostProcess(Transform attachPoint0, Transform attachPoint1, XEntity e)
 		{
 			this.xgo.SetParentTrans(attachPoint0);
@@ -120,13 +114,10 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04005F83 RID: 24451
 		public XGameObject xgo2 = null;
 
-		// Token: 0x04005F84 RID: 24452
 		private static Quaternion _defaultSkinRot = Quaternion.Euler(new Vector3(-90f, 0f, 0f));
 
-		// Token: 0x04005F85 RID: 24453
 		private static CommandCallback secondWeaponLoaded = new CommandCallback(WeaponLoadTask._SecondWeaponLoaded);
 	}
 }

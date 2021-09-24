@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000EAC RID: 3756
+
 	internal class XVirtualTab : XSingleton<XVirtualTab>
 	{
-		// Token: 0x170034E9 RID: 13545
-		// (get) Token: 0x0600C81A RID: 51226 RVA: 0x002CC6D4 File Offset: 0x002CA8D4
+
 		public int FingerId
 		{
 			get
@@ -19,9 +18,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170034EA RID: 13546
-		// (get) Token: 0x0600C81B RID: 51227 RVA: 0x002CC6EC File Offset: 0x002CA8EC
-		// (set) Token: 0x0600C81C RID: 51228 RVA: 0x002CC704 File Offset: 0x002CA904
 		public bool Freezed
 		{
 			get
@@ -35,8 +31,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170034EB RID: 13547
-		// (get) Token: 0x0600C81D RID: 51229 RVA: 0x002CC718 File Offset: 0x002CA918
 		public bool Feeding
 		{
 			get
@@ -45,8 +39,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170034EC RID: 13548
-		// (get) Token: 0x0600C81E RID: 51230 RVA: 0x002CC740 File Offset: 0x002CA940
 		public float DeadZone
 		{
 			get
@@ -55,8 +47,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170034ED RID: 13549
-		// (get) Token: 0x0600C81F RID: 51231 RVA: 0x002CC758 File Offset: 0x002CA958
 		public float MaxDistance
 		{
 			get
@@ -65,8 +55,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170034EE RID: 13550
-		// (get) Token: 0x0600C820 RID: 51232 RVA: 0x002CC770 File Offset: 0x002CA970
 		public Vector3 Direction
 		{
 			get
@@ -85,8 +73,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170034EF RID: 13551
-		// (get) Token: 0x0600C821 RID: 51233 RVA: 0x002CC7DC File Offset: 0x002CA9DC
 		public float CentrifugalFactor
 		{
 			get
@@ -95,7 +81,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C822 RID: 51234 RVA: 0x002CC7F4 File Offset: 0x002CA9F4
 		public void OnEnterScene()
 		{
 			this._outer_radius = DlgBase<VirtualJoystick, VirtualJoystickBehaviour>.singleton.GetPanelRadius();
@@ -105,7 +90,6 @@ namespace XMainClient
 			this._bFreeze = false;
 		}
 
-		// Token: 0x0600C823 RID: 51235 RVA: 0x002CC858 File Offset: 0x002CAA58
 		public void Feed(XTouchItem touch)
 		{
 			bool flag = !this._bFreeze && ((this._finger_id == -1 && touch.FingerId != XSingleton<XGesture>.singleton.FingerId) || this._finger_id == touch.FingerId);
@@ -158,7 +142,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C824 RID: 51236 RVA: 0x002CC988 File Offset: 0x002CAB88
 		public void Cancel()
 		{
 			bool bTouch = this._bTouch;
@@ -172,7 +155,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C825 RID: 51237 RVA: 0x002CC9D8 File Offset: 0x002CABD8
 		private void CalcMove(XTouchItem touch, bool newly)
 		{
 			this.TabCulling();
@@ -225,7 +207,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C826 RID: 51238 RVA: 0x002CCBC0 File Offset: 0x002CADC0
 		private void TabCulling()
 		{
 			bool flag = this._center.x - this._max_distance < 0f;
@@ -250,43 +231,30 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04005858 RID: 22616
 		private readonly float _dead_zone = 15f;
 
-		// Token: 0x04005859 RID: 22617
 		private int _finger_id = -1;
 
-		// Token: 0x0400585A RID: 22618
 		private bool _bTouch = false;
 
-		// Token: 0x0400585B RID: 22619
 		private bool _bFeeding = false;
 
-		// Token: 0x0400585C RID: 22620
 		private bool _bFreeze = false;
 
-		// Token: 0x0400585D RID: 22621
 		private float _max_distance = 75f;
 
-		// Token: 0x0400585E RID: 22622
 		private float _velocity = 0f;
 
-		// Token: 0x0400585F RID: 22623
 		private float _outer_radius = 0f;
 
-		// Token: 0x04005860 RID: 22624
 		private float _inner_radius = 0f;
 
-		// Token: 0x04005861 RID: 22625
 		private Vector3 _direction = Vector3.zero;
 
-		// Token: 0x04005862 RID: 22626
 		private Vector2 _center = Vector2.zero;
 
-		// Token: 0x04005863 RID: 22627
 		private Vector2 _rocker_center = Vector2.zero;
 
-		// Token: 0x04005864 RID: 22628
 		private Vector2 _tab_dir = Vector2.up;
 	}
 }

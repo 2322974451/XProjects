@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001882 RID: 6274
+
 	internal class BattleContinueDlg : DlgBase<BattleContinueDlg, BattleContinueDlgBehaviour>
 	{
-		// Token: 0x170039CA RID: 14794
-		// (get) Token: 0x0601052F RID: 66863 RVA: 0x003F47C0 File Offset: 0x003F29C0
+
 		public override string fileName
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170039CB RID: 14795
-		// (get) Token: 0x06010530 RID: 66864 RVA: 0x003F47D8 File Offset: 0x003F29D8
 		public override int layer
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170039CC RID: 14796
-		// (get) Token: 0x06010531 RID: 66865 RVA: 0x003F47EC File Offset: 0x003F29EC
 		public override bool autoload
 		{
 			get
@@ -40,20 +35,17 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010532 RID: 66866 RVA: 0x003F47FF File Offset: 0x003F29FF
 		protected override void Init()
 		{
 			this._doc = (XSingleton<XGame>.singleton.Doc.GetXComponent(XLevelDocument.uuID) as XLevelDocument);
 		}
 
-		// Token: 0x06010533 RID: 66867 RVA: 0x003F4821 File Offset: 0x003F2A21
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			base.uiBehaviour.m_Continue.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnContinueClicked));
 		}
 
-		// Token: 0x06010534 RID: 66868 RVA: 0x003F4848 File Offset: 0x003F2A48
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -80,7 +72,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010535 RID: 66869 RVA: 0x003F490C File Offset: 0x003F2B0C
 		protected bool OnContinueClicked(IXUIButton button)
 		{
 			this.SetVisible(false, true);
@@ -90,7 +81,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x06010536 RID: 66870 RVA: 0x003F4944 File Offset: 0x003F2B44
 		protected bool OnReturnClicked(IXUIButton button)
 		{
 			XSingleton<XLevelFinishMgr>.singleton.ForceLevelFinish(true);
@@ -99,7 +89,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x06010537 RID: 66871 RVA: 0x003F4978 File Offset: 0x003F2B78
 		public void ShowBossrushResult()
 		{
 			this.SetVisible(true, true);
@@ -132,7 +121,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04007591 RID: 30097
 		private XLevelDocument _doc;
 	}
 }

@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017C4 RID: 6084
+
 	internal class SmeltMainHandler : DlgHandlerBase
 	{
-		// Token: 0x1700388D RID: 14477
-		// (get) Token: 0x0600FBFA RID: 64506 RVA: 0x003AA41C File Offset: 0x003A861C
+
 		private XSmeltDocument m_doc
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700388E RID: 14478
-		// (get) Token: 0x0600FBFB RID: 64507 RVA: 0x003AA434 File Offset: 0x003A8634
 		public string EffectPath
 		{
 			get
@@ -36,8 +33,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x1700388F RID: 14479
-		// (get) Token: 0x0600FBFC RID: 64508 RVA: 0x003AA470 File Offset: 0x003A8670
 		protected override string FileName
 		{
 			get
@@ -46,7 +41,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FBFD RID: 64509 RVA: 0x003AA488 File Offset: 0x003A8688
 		protected override void Init()
 		{
 			base.Init();
@@ -80,7 +74,6 @@ namespace XMainClient.UI
 			this.m_tips2Lab.SetText(XSingleton<XStringTable>.singleton.GetString("SmeltNewTips2"));
 		}
 
-		// Token: 0x0600FBFE RID: 64510 RVA: 0x003AA704 File Offset: 0x003A8904
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -89,21 +82,18 @@ namespace XMainClient.UI
 			this.m_Help.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnHelpClicked));
 		}
 
-		// Token: 0x0600FBFF RID: 64511 RVA: 0x003AA764 File Offset: 0x003A8964
 		public bool OnHelpClicked(IXUIButton button)
 		{
 			DlgBase<XCommonHelpTipView, XCommonHelpTipBehaviour>.singleton.ShowHelp(XSysDefine.XSys_Item_Smelting);
 			return true;
 		}
 
-		// Token: 0x0600FC00 RID: 64512 RVA: 0x001F8A12 File Offset: 0x001F6C12
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.RefreshData();
 		}
 
-		// Token: 0x0600FC01 RID: 64513 RVA: 0x003AA784 File Offset: 0x003A8984
 		protected override void OnHide()
 		{
 			this.m_doc.Clear();
@@ -130,7 +120,6 @@ namespace XMainClient.UI
 			base.OnHide();
 		}
 
-		// Token: 0x0600FC02 RID: 64514 RVA: 0x003AA844 File Offset: 0x003A8A44
 		public override void OnUnload()
 		{
 			this.m_doc.View = null;
@@ -144,7 +133,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x0600FC03 RID: 64515 RVA: 0x003AA89C File Offset: 0x003A8A9C
 		public override void RefreshData()
 		{
 			base.RefreshData();
@@ -169,14 +157,12 @@ namespace XMainClient.UI
 			this.ShowUi();
 		}
 
-		// Token: 0x0600FC04 RID: 64516 RVA: 0x00358051 File Offset: 0x00356251
 		public override void StackRefresh()
 		{
 			this.RefreshData();
 			base.StackRefresh();
 		}
 
-		// Token: 0x0600FC05 RID: 64517 RVA: 0x003AA96D File Offset: 0x003A8B6D
 		public void RefreshUi(bool randTips)
 		{
 			this.m_bIsInit = false;
@@ -184,7 +170,6 @@ namespace XMainClient.UI
 			this.FillContent();
 		}
 
-		// Token: 0x0600FC06 RID: 64518 RVA: 0x003AA985 File Offset: 0x003A8B85
 		public void ShowUi()
 		{
 			this.m_bIsInit = true;
@@ -192,7 +177,6 @@ namespace XMainClient.UI
 			this.FillContent();
 		}
 
-		// Token: 0x0600FC07 RID: 64519 RVA: 0x003AA99D File Offset: 0x003A8B9D
 		public void UpdateUi(bool randTips)
 		{
 			this.m_bIsInit = true;
@@ -200,7 +184,6 @@ namespace XMainClient.UI
 			this.FillContent();
 		}
 
-		// Token: 0x0600FC08 RID: 64520 RVA: 0x003AA9B5 File Offset: 0x003A8BB5
 		private void FillContent()
 		{
 			this.FillTop();
@@ -209,7 +192,6 @@ namespace XMainClient.UI
 			this.FillBottom();
 		}
 
-		// Token: 0x0600FC09 RID: 64521 RVA: 0x003AA9D4 File Offset: 0x003A8BD4
 		private void FillTop()
 		{
 			XItem itemByUID = XBagDocument.BagDoc.GetItemByUID(this.m_doc.CurUid);
@@ -252,7 +234,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FC0A RID: 64522 RVA: 0x003AAB18 File Offset: 0x003A8D18
 		private void FillAttrList()
 		{
 			this.m_AttrTplPool.ReturnAll(false);
@@ -274,7 +255,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FC0B RID: 64523 RVA: 0x003AABEC File Offset: 0x003A8DEC
 		private void FillAttrItem(GameObject go, SmeltAttr attr, int index)
 		{
 			bool flag = attr == null;
@@ -326,7 +306,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FC0C RID: 64524 RVA: 0x003AAE64 File Offset: 0x003A9064
 		private void FillResultPanel()
 		{
 			SmeltAttr smeltAttr = this.m_doc.GetSmeltAttr(this.m_doc.SelectIndex);
@@ -388,7 +367,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FC0D RID: 64525 RVA: 0x003AB1E0 File Offset: 0x003A93E0
 		private string GetTips()
 		{
 			SmeltAttr smeltAttr = this.m_doc.GetSmeltAttr(this.m_doc.SelectIndex);
@@ -414,7 +392,6 @@ namespace XMainClient.UI
 			return @string;
 		}
 
-		// Token: 0x0600FC0E RID: 64526 RVA: 0x003AB27C File Offset: 0x003A947C
 		private uint GetAttrValue()
 		{
 			SmeltAttr smeltAttr = this.m_doc.GetSmeltAttr(this.m_doc.SelectIndex);
@@ -431,13 +408,11 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FC0F RID: 64527 RVA: 0x003AB2B7 File Offset: 0x003A94B7
 		public void UpdateNeedItem()
 		{
 			this.FillBottom();
 		}
 
-		// Token: 0x0600FC10 RID: 64528 RVA: 0x003AB2C4 File Offset: 0x003A94C4
 		private void FillBottom()
 		{
 			this.m_NeedGoldLab.SetText(this.m_doc.GetNeedGold().ToString());
@@ -499,7 +474,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FC11 RID: 64529 RVA: 0x003AB534 File Offset: 0x003A9734
 		private void GetShowIndex()
 		{
 			this.m_doc.SelectIndex = 0;
@@ -518,7 +492,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FC12 RID: 64530 RVA: 0x003AB5C4 File Offset: 0x003A97C4
 		private string GetTipsStr()
 		{
 			StringBuilder stringBuilder = new StringBuilder();
@@ -551,14 +524,12 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FC13 RID: 64531 RVA: 0x003AB6D0 File Offset: 0x003A98D0
 		private bool OnCloseClicked(IXUIButton btn)
 		{
 			base.SetVisible(false);
 			return true;
 		}
 
-		// Token: 0x0600FC14 RID: 64532 RVA: 0x003AB6EC File Offset: 0x003A98EC
 		private bool Smelt()
 		{
 			uint needGold = this.m_doc.GetNeedGold();
@@ -641,7 +612,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FC15 RID: 64533 RVA: 0x003AB938 File Offset: 0x003A9B38
 		private bool DoCancel(IXUIButton btn)
 		{
 			XOptionsDocument specificDocument = XDocuments.GetSpecificDocument<XOptionsDocument>(XOptionsDocument.uuID);
@@ -650,7 +620,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FC16 RID: 64534 RVA: 0x003AB980 File Offset: 0x003A9B80
 		private bool DoOK(IXUIButton btn)
 		{
 			this.m_doc.ReqSmelt();
@@ -664,7 +633,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FC17 RID: 64535 RVA: 0x003AB9E4 File Offset: 0x003A9BE4
 		private void OnSelectedItemClicked(IXUISprite iSp)
 		{
 			this.m_bStatus = false;
@@ -672,7 +640,6 @@ namespace XMainClient.UI
 			XSingleton<UiUtility>.singleton.ShowTooltipDialog(XSingleton<XGame>.singleton.Doc.XBagDoc.GetItemByUID(id), null, iSp, false, 0U);
 		}
 
-		// Token: 0x0600FC18 RID: 64536 RVA: 0x003ABA24 File Offset: 0x003A9C24
 		private void OnGetItemAccess(IXUISprite iSp)
 		{
 			this.m_bStatus = false;
@@ -680,7 +647,6 @@ namespace XMainClient.UI
 			XSingleton<UiUtility>.singleton.ShowItemAccess(itemid, null);
 		}
 
-		// Token: 0x0600FC19 RID: 64537 RVA: 0x003ABA50 File Offset: 0x003A9C50
 		public void OnEquipClicked(IXUISprite iSp)
 		{
 			bool flag = !this.m_doc.MesIsBack;
@@ -691,7 +657,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FC1A RID: 64538 RVA: 0x003ABA8C File Offset: 0x003A9C8C
 		private void OnClickCheckBox(IXUISprite iSp)
 		{
 			bool flag = !this.m_doc.MesIsBack;
@@ -712,14 +677,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FC1B RID: 64539 RVA: 0x003ABB69 File Offset: 0x003A9D69
 		private void OnIconPress(IXUIButton btn, bool state)
 		{
 			XSingleton<XDebug>.singleton.AddGreenLog("icon press", null, null, null, null, null);
 			this.m_bStatus = state;
 		}
 
-		// Token: 0x0600FC1C RID: 64540 RVA: 0x003ABB88 File Offset: 0x003A9D88
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
@@ -735,76 +698,52 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04006EC0 RID: 28352
 		private XUIPool m_AttrTplPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006EC1 RID: 28353
 		private IXUIButton m_ClosedBtn;
 
-		// Token: 0x04006EC2 RID: 28354
 		private IXUIButton m_SmeltBtn;
 
-		// Token: 0x04006EC3 RID: 28355
 		private IXUIButton m_Help;
 
-		// Token: 0x04006EC4 RID: 28356
 		private IXUILabel m_TittleLab;
 
-		// Token: 0x04006EC5 RID: 28357
 		private IXUILabel m_NeedGoldLab;
 
-		// Token: 0x04006EC6 RID: 28358
 		private IXUILabel m_tips1Lab;
 
-		// Token: 0x04006EC7 RID: 28359
 		private IXUILabel m_tips2Lab;
 
-		// Token: 0x04006EC8 RID: 28360
 		public GameObject m_btnRedDot;
 
-		// Token: 0x04006EC9 RID: 28361
 		public GameObject m_resultGo;
 
-		// Token: 0x04006ECA RID: 28362
 		private GameObject m_SmeltItemGo;
 
-		// Token: 0x04006ECB RID: 28363
 		private GameObject m_AttrParentGo;
 
-		// Token: 0x04006ECC RID: 28364
 		private List<GameObject> m_itemGoList;
 
-		// Token: 0x04006ECD RID: 28365
 		private Transform m_curTra = null;
 
-		// Token: 0x04006ECE RID: 28366
 		private bool m_needItemIsEnough = true;
 
-		// Token: 0x04006ECF RID: 28367
 		private bool m_bIsInit = true;
 
-		// Token: 0x04006ED0 RID: 28368
 		private bool m_bIsNeedRandTips = true;
 
-		// Token: 0x04006ED1 RID: 28369
 		private List<XTuple<int, int>> m_NeedSmeltStoneLst = new List<XTuple<int, int>>();
 
-		// Token: 0x04006ED2 RID: 28370
 		private int m_smeltItemId = 0;
 
-		// Token: 0x04006ED3 RID: 28371
 		private XFx m_fx;
 
-		// Token: 0x04006ED4 RID: 28372
 		private string m_effectPath = string.Empty;
 
-		// Token: 0x04006ED5 RID: 28373
 		private bool m_bStatus = false;
 
-		// Token: 0x04006ED6 RID: 28374
 		private float m_cdTime = 0.2f;
 
-		// Token: 0x04006ED7 RID: 28375
 		private float m_lastClickTime = 0f;
 	}
 }

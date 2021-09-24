@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001869 RID: 6249
+
 	public class TitleDlg : DlgBase<TitleDlg, TitleDlgBehaviour>
 	{
-		// Token: 0x170039A3 RID: 14755
-		// (get) Token: 0x0601044E RID: 66638 RVA: 0x003EFC1C File Offset: 0x003EDE1C
+
 		public override string fileName
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170039A4 RID: 14756
-		// (get) Token: 0x0601044F RID: 66639 RVA: 0x003EFC34 File Offset: 0x003EDE34
 		public override int sysid
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170039A5 RID: 14757
-		// (get) Token: 0x06010450 RID: 66640 RVA: 0x003EFC50 File Offset: 0x003EDE50
 		public override int layer
 		{
 			get
@@ -40,8 +35,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170039A6 RID: 14758
-		// (get) Token: 0x06010451 RID: 66641 RVA: 0x003EFC64 File Offset: 0x003EDE64
 		public override bool pushstack
 		{
 			get
@@ -50,8 +43,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170039A7 RID: 14759
-		// (get) Token: 0x06010452 RID: 66642 RVA: 0x003EFC78 File Offset: 0x003EDE78
 		public override bool autoload
 		{
 			get
@@ -60,14 +51,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010453 RID: 66643 RVA: 0x003EFC8B File Offset: 0x003EDE8B
 		protected override void OnLoad()
 		{
 			base.OnLoad();
 			this.m_titleDisplay = new List<TitleItemDisplay>();
 		}
 
-		// Token: 0x06010454 RID: 66644 RVA: 0x003EFCA0 File Offset: 0x003EDEA0
 		protected override void OnUnload()
 		{
 			this._Doc.TitleView = null;
@@ -86,7 +75,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x06010455 RID: 66645 RVA: 0x003EFD18 File Offset: 0x003EDF18
 		protected override void Init()
 		{
 			base.Init();
@@ -97,7 +85,6 @@ namespace XMainClient.UI
 			this.m_middlePos = new Vector3(0f, this.m_leftPos.y, this.m_leftPos.z);
 		}
 
-		// Token: 0x06010456 RID: 66646 RVA: 0x003EFDA8 File Offset: 0x003EDFA8
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -106,41 +93,35 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_Help.RegisterClickEventHandler(new ButtonClickEventHandler(this.ClickHelp));
 		}
 
-		// Token: 0x06010457 RID: 66647 RVA: 0x003EFE14 File Offset: 0x003EE014
 		private bool ClickHelp(IXUIButton btn)
 		{
 			DlgBase<XCommonHelpTipView, XCommonHelpTipBehaviour>.singleton.ShowHelp(XSysDefine.XSys_Title);
 			return true;
 		}
 
-		// Token: 0x06010458 RID: 66648 RVA: 0x003EFE34 File Offset: 0x003EE034
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.RefreshTitleDisplay();
 		}
 
-		// Token: 0x06010459 RID: 66649 RVA: 0x003EFE45 File Offset: 0x003EE045
 		public void Refresh()
 		{
 			this.RefreshTitleDisplay();
 		}
 
-		// Token: 0x0601045A RID: 66650 RVA: 0x003EFE4F File Offset: 0x003EE04F
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
 			this.Refresh();
 		}
 
-		// Token: 0x0601045B RID: 66651 RVA: 0x003EFE60 File Offset: 0x003EE060
 		private bool ClickClose(IXUIButton btn)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return false;
 		}
 
-		// Token: 0x0601045C RID: 66652 RVA: 0x003EFE7C File Offset: 0x003EE07C
 		private void RefreshTitleDisplay()
 		{
 			base.uiBehaviour.m_CurrentTitle.Set(this._Doc.CurrentTitle);
@@ -152,7 +133,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_redPoint.SetAlpha((float)(this._Doc.bEnableTitleLevelUp ? 1 : 0));
 		}
 
-		// Token: 0x0601045D RID: 66653 RVA: 0x003EFF64 File Offset: 0x003EE164
 		private void SetNextInfo(TitleTable.RowData rowData)
 		{
 			bool flag = rowData == null;
@@ -209,7 +189,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601045E RID: 66654 RVA: 0x003F0178 File Offset: 0x003EE378
 		private void ResetActive()
 		{
 			bool flag = this.m_titleDisplay != null && this.m_titleDisplay.Count > 0;
@@ -223,26 +202,20 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601045F RID: 66655 RVA: 0x003F01D8 File Offset: 0x003EE3D8
 		private bool ClickPromote(IXUIButton btn)
 		{
 			this._Doc.GetTitleLevelUp();
 			return false;
 		}
 
-		// Token: 0x040074F8 RID: 29944
 		private XTitleDocument _Doc;
 
-		// Token: 0x040074F9 RID: 29945
 		private List<TitleItemDisplay> m_titleDisplay;
 
-		// Token: 0x040074FA RID: 29946
 		private Vector3 m_leftPos;
 
-		// Token: 0x040074FB RID: 29947
 		private Vector3 m_rightPos;
 
-		// Token: 0x040074FC RID: 29948
 		private Vector3 m_middlePos;
 	}
 }

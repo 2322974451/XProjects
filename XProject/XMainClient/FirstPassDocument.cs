@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000CFE RID: 3326
+
 	internal class FirstPassDocument : XDocComponent
 	{
-		// Token: 0x170032B7 RID: 12983
-		// (get) Token: 0x0600BA0E RID: 47630 RVA: 0x0025E4F4 File Offset: 0x0025C6F4
+
 		public override uint ID
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170032B8 RID: 12984
-		// (get) Token: 0x0600BA0F RID: 47631 RVA: 0x0025E50C File Offset: 0x0025C70C
 		public int NeedPassTeamCount
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170032B9 RID: 12985
-		// (get) Token: 0x0600BA10 RID: 47632 RVA: 0x0025E530 File Offset: 0x0025C730
 		public static FirstPassDocument Doc
 		{
 			get
@@ -40,12 +35,8 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170032BA RID: 12986
-		// (get) Token: 0x0600BA11 RID: 47633 RVA: 0x0025E55B File Offset: 0x0025C75B
-		// (set) Token: 0x0600BA12 RID: 47634 RVA: 0x0025E563 File Offset: 0x0025C763
 		public FirstPassMainHandler View { get; set; }
 
-		// Token: 0x0600BA13 RID: 47635 RVA: 0x0025E56C File Offset: 0x0025C76C
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			FirstPassDocument.AsyncLoader.AddTask("Table/FirstPass", FirstPassDocument.sFirstPassTable, false);
@@ -53,19 +44,16 @@ namespace XMainClient
 			FirstPassDocument.AsyncLoader.Execute(callback);
 		}
 
-		// Token: 0x0600BA14 RID: 47636 RVA: 0x00114ACA File Offset: 0x00112CCA
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
 		}
 
-		// Token: 0x0600BA15 RID: 47637 RVA: 0x00114AD5 File Offset: 0x00112CD5
 		protected override void EventSubscribe()
 		{
 			base.EventSubscribe();
 		}
 
-		// Token: 0x0600BA16 RID: 47638 RVA: 0x0025E5A8 File Offset: 0x0025C7A8
 		public override void OnDetachFromHost()
 		{
 			base.OnDetachFromHost();
@@ -80,7 +68,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BA17 RID: 47639 RVA: 0x0025E604 File Offset: 0x0025C804
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 			bool flag = DlgBase<FirstPassRankView, FitstpassRankBehaviour>.singleton.IsVisible();
@@ -106,14 +93,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BA18 RID: 47640 RVA: 0x00114AE9 File Offset: 0x00112CE9
 		public override void OnEnterSceneFinally()
 		{
 			base.OnEnterSceneFinally();
 		}
 
-		// Token: 0x170032BB RID: 12987
-		// (get) Token: 0x0600BA19 RID: 47641 RVA: 0x0025E694 File Offset: 0x0025C894
 		public List<FirstPassAuxData> FirstPassData
 		{
 			get
@@ -132,9 +116,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170032BC RID: 12988
-		// (get) Token: 0x0600BA1A RID: 47642 RVA: 0x0025E704 File Offset: 0x0025C904
-		// (set) Token: 0x0600BA1B RID: 47643 RVA: 0x0025E71C File Offset: 0x0025C91C
 		public bool IsHadOutRedDot
 		{
 			get
@@ -157,13 +138,8 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170032BD RID: 12989
-		// (get) Token: 0x0600BA1C RID: 47644 RVA: 0x0025E76D File Offset: 0x0025C96D
-		// (set) Token: 0x0600BA1D RID: 47645 RVA: 0x0025E775 File Offset: 0x0025C975
 		public FirstPassAuxData CurData { get; set; }
 
-		// Token: 0x170032BE RID: 12990
-		// (get) Token: 0x0600BA1E RID: 47646 RVA: 0x0025E780 File Offset: 0x0025C980
 		public FirstPassRankList RankList
 		{
 			get
@@ -172,8 +148,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170032BF RID: 12991
-		// (get) Token: 0x0600BA1F RID: 47647 RVA: 0x0025E798 File Offset: 0x0025C998
 		public bool IsHadNextData
 		{
 			get
@@ -184,8 +158,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170032C0 RID: 12992
-		// (get) Token: 0x0600BA20 RID: 47648 RVA: 0x0025E7DC File Offset: 0x0025C9DC
 		public bool IsHadLastData
 		{
 			get
@@ -196,8 +168,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x170032C1 RID: 12993
-		// (get) Token: 0x0600BA21 RID: 47649 RVA: 0x0025E814 File Offset: 0x0025CA14
 		public FirstPassAuxData AutoSelectFirstPassData
 		{
 			get
@@ -251,7 +221,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BA22 RID: 47650 RVA: 0x0025E950 File Offset: 0x0025CB50
 		public void SetCurDataByNestType(int nestType)
 		{
 			bool flag = this.FirstPassData.Count <= 0;
@@ -274,7 +243,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BA23 RID: 47651 RVA: 0x0025E9F0 File Offset: 0x0025CBF0
 		public FirstPassAuxData GetNextFirstPassData()
 		{
 			int index = this.GetIndex();
@@ -299,7 +267,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600BA24 RID: 47652 RVA: 0x0025EA58 File Offset: 0x0025CC58
 		public FirstPassAuxData GetLastFirstPassData()
 		{
 			int index = this.GetIndex();
@@ -324,7 +291,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600BA25 RID: 47653 RVA: 0x0025EAB4 File Offset: 0x0025CCB4
 		private int GetIndex()
 		{
 			for (int i = 0; i < this.FirstPassData.Count; i++)
@@ -338,7 +304,6 @@ namespace XMainClient
 			return 0;
 		}
 
-		// Token: 0x0600BA26 RID: 47654 RVA: 0x0025EB0C File Offset: 0x0025CD0C
 		public bool MainArrowRedDot(ArrowDirection direction)
 		{
 			bool flag = this.CurData == null;
@@ -380,7 +345,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600BA27 RID: 47655 RVA: 0x0025EBE8 File Offset: 0x0025CDE8
 		public bool InfoArrowRedDot(ArrowDirection direction)
 		{
 			bool flag = this.CurData == null;
@@ -422,14 +386,12 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600BA28 RID: 47656 RVA: 0x0025EC9C File Offset: 0x0025CE9C
 		public void ReqFirstPassInfo()
 		{
 			RpcC2G_FirstPassInfoReq rpc = new RpcC2G_FirstPassInfoReq();
 			XSingleton<XClientNetwork>.singleton.Send(rpc);
 		}
 
-		// Token: 0x0600BA29 RID: 47657 RVA: 0x0025ECBC File Offset: 0x0025CEBC
 		public void ReqFirstPassReward(int firstPassId)
 		{
 			RpcC2G_GetFirstPassReward rpcC2G_GetFirstPassReward = new RpcC2G_GetFirstPassReward();
@@ -437,7 +399,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_GetFirstPassReward);
 		}
 
-		// Token: 0x0600BA2A RID: 47658 RVA: 0x0025ECEC File Offset: 0x0025CEEC
 		public void ReqCommendFirstPass(int firstPassId)
 		{
 			RpcC2G_CommendFirstPass rpcC2G_CommendFirstPass = new RpcC2G_CommendFirstPass();
@@ -445,7 +406,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_CommendFirstPass);
 		}
 
-		// Token: 0x0600BA2B RID: 47659 RVA: 0x0025ED1C File Offset: 0x0025CF1C
 		public void ReqFirstPassTopRoleInfo(int firstPassId)
 		{
 			RpcC2G_FirstPassGetTopRoleInfo rpcC2G_FirstPassGetTopRoleInfo = new RpcC2G_FirstPassGetTopRoleInfo();
@@ -453,7 +413,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_FirstPassGetTopRoleInfo);
 		}
 
-		// Token: 0x0600BA2C RID: 47660 RVA: 0x0025ED4C File Offset: 0x0025CF4C
 		public void ReqRankList(int firstPassId)
 		{
 			RpcC2M_ClientQueryRankListNtf rpcC2M_ClientQueryRankListNtf = new RpcC2M_ClientQueryRankListNtf();
@@ -462,13 +421,11 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_ClientQueryRankListNtf);
 		}
 
-		// Token: 0x0600BA2D RID: 47661 RVA: 0x0025ED8C File Offset: 0x0025CF8C
 		public void RefreshOutRedDot(bool priseReward, bool passReward)
 		{
 			this.IsHadOutRedDot = true;
 		}
 
-		// Token: 0x0600BA2E RID: 47662 RVA: 0x0025ED98 File Offset: 0x0025CF98
 		public void OnGetFirstPassInfo(FirstPassInfoReqRes oRes)
 		{
 			bool flag = oRes.error > ErrorCode.ERR_SUCCESS;
@@ -490,7 +447,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BA2F RID: 47663 RVA: 0x0025EE24 File Offset: 0x0025D024
 		public void OnGetFirstPassTopRoleInfo(FirstPassGetTopRoleInfoRes oRes)
 		{
 			bool flag = oRes.error > ErrorCode.ERR_SUCCESS;
@@ -524,7 +480,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BA30 RID: 47664 RVA: 0x0025EF20 File Offset: 0x0025D120
 		public void OnGetFirstPassReward(GetFirstPassRewardRes oRes)
 		{
 			bool flag = oRes.error > ErrorCode.ERR_SUCCESS;
@@ -548,7 +503,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BA31 RID: 47665 RVA: 0x0025EF9C File Offset: 0x0025D19C
 		public void OnGetCommendFirstPass(CommendFirstPassRes oRes)
 		{
 			bool flag = oRes.error > ErrorCode.ERR_SUCCESS;
@@ -581,7 +535,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BA32 RID: 47666 RVA: 0x0025F068 File Offset: 0x0025D268
 		public void OnGetRankList(ClientQueryRankListRes oRes)
 		{
 			bool flag = oRes.ErrorCode > ErrorCode.ERR_SUCCESS;
@@ -600,7 +553,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BA33 RID: 47667 RVA: 0x0025F0C4 File Offset: 0x0025D2C4
 		private void SetOutRedDotStatue()
 		{
 			bool flag = false;
@@ -612,7 +564,6 @@ namespace XMainClient
 			this.IsHadOutRedDot = flag;
 		}
 
-		// Token: 0x0600BA34 RID: 47668 RVA: 0x0025F120 File Offset: 0x0025D320
 		private void RefreshFirstPassData(FirstPassStageInfo2Client info)
 		{
 			bool flag = info == null;
@@ -633,28 +584,20 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04004A6E RID: 19054
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("FirstPassDocument");
 
-		// Token: 0x04004A6F RID: 19055
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x04004A70 RID: 19056
 		public static FirstPassTable sFirstPassTable = new FirstPassTable();
 
-		// Token: 0x04004A71 RID: 19057
 		public static FirstPassReward sFirstPassReward = new FirstPassReward();
 
-		// Token: 0x04004A72 RID: 19058
 		public static readonly int MaxAvata = 6;
 
-		// Token: 0x04004A74 RID: 19060
 		private List<FirstPassAuxData> m_FirstPassData = null;
 
-		// Token: 0x04004A75 RID: 19061
 		private bool m_isHadOutRedDot = false;
 
-		// Token: 0x04004A77 RID: 19063
 		private FirstPassRankList m_rankList = null;
 	}
 }

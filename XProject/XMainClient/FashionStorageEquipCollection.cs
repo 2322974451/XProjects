@@ -4,10 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x020008DC RID: 2268
+
 	internal class FashionStorageEquipCollection : FashionStorageTabBase
 	{
-		// Token: 0x0600898B RID: 35211 RVA: 0x001210F8 File Offset: 0x0011F2F8
+
 		public FashionStorageEquipCollection(int suitID)
 		{
 			this.m_equipSuit = XCharacterEquipDocument.SuitManager.GetSuitBySuitId(suitID);
@@ -27,8 +27,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002ADE RID: 10974
-		// (get) Token: 0x0600898C RID: 35212 RVA: 0x001211F8 File Offset: 0x0011F3F8
 		public override bool Active
 		{
 			get
@@ -38,7 +36,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600898D RID: 35213 RVA: 0x0012124C File Offset: 0x0011F44C
 		private void InsertAttributeCharm(int index, SeqListRef<uint> list)
 		{
 			bool flag = list.count == 0;
@@ -59,7 +56,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600898E RID: 35214 RVA: 0x001212C4 File Offset: 0x0011F4C4
 		public override void Refresh()
 		{
 			this.m_redPoint = false;
@@ -86,8 +82,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002ADF RID: 10975
-		// (get) Token: 0x0600898F RID: 35215 RVA: 0x00121358 File Offset: 0x0011F558
 		public override bool ActivateAll
 		{
 			get
@@ -96,13 +90,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008990 RID: 35216 RVA: 0x0012137C File Offset: 0x0011F57C
 		public override List<AttributeCharm> GetAttributeCharm()
 		{
 			return this.m_attributeCharms;
 		}
 
-		// Token: 0x06008991 RID: 35217 RVA: 0x00121394 File Offset: 0x0011F594
 		public override int GetID()
 		{
 			bool flag = this.m_equipSuit != null;
@@ -118,14 +110,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008992 RID: 35218 RVA: 0x001213C4 File Offset: 0x0011F5C4
 		public override int GetCount()
 		{
 			return this.GetItems().Count;
 		}
 
-		// Token: 0x17002AE0 RID: 10976
-		// (get) Token: 0x06008993 RID: 35219 RVA: 0x001213E4 File Offset: 0x0011F5E4
 		public override bool RedPoint
 		{
 			get
@@ -134,13 +123,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008994 RID: 35220 RVA: 0x001213FC File Offset: 0x0011F5FC
 		public override void SetCount(uint count)
 		{
 			this.m_activateCount = count;
 		}
 
-		// Token: 0x06008995 RID: 35221 RVA: 0x00121408 File Offset: 0x0011F608
 		public override string GetName()
 		{
 			bool flag = this.GetItems().Count == this.GetFashionList().Length;
@@ -156,22 +143,16 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x04002BA0 RID: 11168
 		private XFashionStorageDocument m_doc;
 
-		// Token: 0x04002BA1 RID: 11169
 		private EquipSuitTable.RowData m_equipSuit;
 
-		// Token: 0x04002BA2 RID: 11170
 		private List<AttributeCharm> m_attributeCharms;
 
-		// Token: 0x04002BA3 RID: 11171
 		private FashionCharm.RowData m_charm;
 
-		// Token: 0x04002BA4 RID: 11172
 		private bool m_redPoint = false;
 
-		// Token: 0x04002BA5 RID: 11173
 		private uint m_activateCount = 0U;
 	}
 }

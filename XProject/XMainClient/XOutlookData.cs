@@ -5,11 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000B2C RID: 2860
+
 	internal class XOutlookData
 	{
-		// Token: 0x1700300B RID: 12299
-		// (get) Token: 0x0600A77B RID: 42875 RVA: 0x001DA078 File Offset: 0x001D8278
+
 		public FashionPositionInfo[] OutlookList
 		{
 			get
@@ -18,13 +17,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A77C RID: 42876 RVA: 0x001DA090 File Offset: 0x001D8290
 		public static void InitSharedFasionList()
 		{
 			XOutlookData.InitFasionList(ref XOutlookData.sharedFashionList);
 		}
 
-		// Token: 0x0600A77D RID: 42877 RVA: 0x001DA0A0 File Offset: 0x001D82A0
 		public static void InitFasionList(ref FashionPositionInfo[] fashionList)
 		{
 			bool flag = fashionList == null;
@@ -48,7 +45,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A77E RID: 42878 RVA: 0x001DA124 File Offset: 0x001D8324
 		private void SetPart(ref FashionPositionInfo[] partList, int fashionID)
 		{
 			FashionList.RowData fashionConf = XBagDocument.GetFashionConf(fashionID);
@@ -60,7 +56,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A77F RID: 42879 RVA: 0x001DA158 File Offset: 0x001D8358
 		public void SetData(OutLook outlook, uint type = 0U)
 		{
 			this.SetProfType(type);
@@ -87,26 +82,22 @@ namespace XMainClient
 			this.CalculateOutLookFashion();
 		}
 
-		// Token: 0x0600A780 RID: 42880 RVA: 0x001DA1E7 File Offset: 0x001D83E7
 		public void SetProfType(uint type)
 		{
 			this.m_typeID = type;
 		}
 
-		// Token: 0x0600A781 RID: 42881 RVA: 0x001DA1F4 File Offset: 0x001D83F4
 		public uint GetProfType()
 		{
 			return this.m_typeID;
 		}
 
-		// Token: 0x0600A782 RID: 42882 RVA: 0x001DA20C File Offset: 0x001D840C
 		public void SetDefaultFashion(short fashionTemplate)
 		{
 			XOutlookData.InitFasionList(ref this.outlookList);
 			XEquipDocument.GetEquiplistByFashionTemplate(fashionTemplate, ref this.outlookList);
 		}
 
-		// Token: 0x0600A783 RID: 42883 RVA: 0x001DA228 File Offset: 0x001D8428
 		public void SetFashion(int pos, int fashionID)
 		{
 			bool flag = this.fashionList != null;
@@ -120,7 +111,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A784 RID: 42884 RVA: 0x001DA270 File Offset: 0x001D8470
 		public bool SetFashionData(uint[] fashion, bool refresh = true)
 		{
 			bool flag = fashion == null || fashion.Length == 0;
@@ -150,7 +140,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A785 RID: 42885 RVA: 0x001DA2F4 File Offset: 0x001D84F4
 		public bool SetFashionData(List<uint> fashion, uint hairID, uint spacial_effect_id, bool refresh = true)
 		{
 			this.hairColorID = hairID;
@@ -182,7 +171,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A786 RID: 42886 RVA: 0x001DA390 File Offset: 0x001D8590
 		public void CalculateOutLookFashion()
 		{
 			bool flag = this.fashionList == null;
@@ -202,7 +190,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A787 RID: 42887 RVA: 0x001DA41C File Offset: 0x001D861C
 		public bool SetSpriteData(OutLook outlook)
 		{
 			bool flag = outlook == null;
@@ -238,46 +225,33 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A788 RID: 42888 RVA: 0x001DA496 File Offset: 0x001D8696
 		public void SetSpriteData(uint leaderid)
 		{
 			this.sprite.leaderid = leaderid;
 		}
 
-		// Token: 0x04003DF3 RID: 15859
 		public static FashionPositionInfo[] sharedFashionList = new FashionPositionInfo[XFastEnumIntEqualityComparer<FashionPosition>.ToInt(FashionPosition.FASHION_ALL_END)];
 
-		// Token: 0x04003DF4 RID: 15860
 		public XBodyBag equipBag = null;
 
-		// Token: 0x04003DF5 RID: 15861
 		public uint enhanceMasterLevel = 0U;
 
-		// Token: 0x04003DF6 RID: 15862
 		public bool uiAvatar = false;
 
-		// Token: 0x04003DF7 RID: 15863
 		public bool isMainDummy = false;
 
-		// Token: 0x04003DF8 RID: 15864
 		private uint m_typeID = 0U;
 
-		// Token: 0x04003DF9 RID: 15865
 		public uint hairColorID = 0U;
 
-		// Token: 0x04003DFA RID: 15866
 		public uint suitEffectID = 0U;
 
-		// Token: 0x04003DFB RID: 15867
 		public XOutlookState state = new XOutlookState();
 
-		// Token: 0x04003DFC RID: 15868
 		public XOutlookSprite sprite = default(XOutlookSprite);
 
-		// Token: 0x04003DFD RID: 15869
 		private FashionPositionInfo[] fashionList;
 
-		// Token: 0x04003DFE RID: 15870
 		private FashionPositionInfo[] outlookList;
 	}
 }

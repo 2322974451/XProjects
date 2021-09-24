@@ -7,10 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000A38 RID: 2616
+
 	internal class RecruitPublishView<T, V> : DlgBase<T, V> where T : IXUIDlg, new() where V : RecruitPublishBehaviour
 	{
-		// Token: 0x06009F3D RID: 40765 RVA: 0x001A5D44 File Offset: 0x001A3F44
+
 		protected override void OnUnload()
 		{
 			bool flag = this.m_typeVector != null;
@@ -23,7 +23,6 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x06009F3E RID: 40766 RVA: 0x001A5D88 File Offset: 0x001A3F88
 		public void OpenView(uint stageID = 1100U)
 		{
 			this._setupStageID = stageID;
@@ -38,25 +37,21 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009F3F RID: 40767 RVA: 0x001A5DBC File Offset: 0x001A3FBC
 		protected virtual uint GetNormalSelect()
 		{
 			return this._setupStageID;
 		}
 
-		// Token: 0x06009F40 RID: 40768 RVA: 0x001A5DD4 File Offset: 0x001A3FD4
 		protected uint GetSelectStageID()
 		{
 			GroupStageType.RowData groupStage = GroupChatDocument.GetGroupStage(this._curStageID);
 			return (uint)((groupStage != null) ? groupStage.Stage2Expedition : 0);
 		}
 
-		// Token: 0x06009F41 RID: 40769 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public virtual void Refresh()
 		{
 		}
 
-		// Token: 0x06009F42 RID: 40770 RVA: 0x001A5DFE File Offset: 0x001A3FFE
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -65,7 +60,6 @@ namespace XMainClient
 			this.Refresh();
 		}
 
-		// Token: 0x06009F43 RID: 40771 RVA: 0x001A5E20 File Offset: 0x001A4020
 		protected uint GetMemberType()
 		{
 			uint result = 0U;
@@ -84,20 +78,17 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009F44 RID: 40772 RVA: 0x001A5E98 File Offset: 0x001A4098
 		protected int GetTime()
 		{
 			return this._timeFrame.Cur;
 		}
 
-		// Token: 0x06009F45 RID: 40773 RVA: 0x001A5EB5 File Offset: 0x001A40B5
 		protected override void Init()
 		{
 			base.Init();
 			this.SetupView();
 		}
 
-		// Token: 0x06009F46 RID: 40774 RVA: 0x001A5EC8 File Offset: 0x001A40C8
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -105,21 +96,18 @@ namespace XMainClient
 			base.uiBehaviour._Submit.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnSubmitClick));
 		}
 
-		// Token: 0x06009F47 RID: 40775 RVA: 0x001A5F24 File Offset: 0x001A4124
 		protected virtual bool OnSubmitClick(IXUIButton btn)
 		{
 			this.OnCloseClick(null);
 			return true;
 		}
 
-		// Token: 0x06009F48 RID: 40776 RVA: 0x001A5F40 File Offset: 0x001A4140
 		private bool OnCloseClick(IXUIButton btn = null)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x06009F49 RID: 40777 RVA: 0x001A5F5C File Offset: 0x001A415C
 		private void SetupView()
 		{
 			this.m_typeVector = new XBetterDictionary<uint, Transform>(0);
@@ -131,7 +119,6 @@ namespace XMainClient
 			this._timeFrame.Setup(0, 86400, int2 * num, num, new RecruitStepCounterUpdate(this.OnStepCounterUpdate));
 		}
 
-		// Token: 0x06009F4A RID: 40778 RVA: 0x001A5FF8 File Offset: 0x001A41F8
 		private void OnStepCounterUpdate(IXUILabel label)
 		{
 			int cur = this._timeFrame.Cur;
@@ -149,7 +136,6 @@ namespace XMainClient
 			label.SetText(text);
 		}
 
-		// Token: 0x06009F4B RID: 40779 RVA: 0x001A608C File Offset: 0x001A428C
 		private void SetupTypeList()
 		{
 			base.uiBehaviour._levelOnePool.ReturnAll(true);
@@ -207,7 +193,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009F4C RID: 40780 RVA: 0x001A633C File Offset: 0x001A453C
 		private void SetupNormalSeclect()
 		{
 			uint key = 0U;
@@ -233,7 +218,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009F4D RID: 40781 RVA: 0x001A63E4 File Offset: 0x001A45E4
 		private void SetSelectorInfo(Transform t, GroupStageType.RowData rowData)
 		{
 			IXUILabel ixuilabel = t.Find("Label").GetComponent("XUILabel") as IXUILabel;
@@ -248,7 +232,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009F4E RID: 40782 RVA: 0x001A6480 File Offset: 0x001A4680
 		private void OnTypeCheckBoxClick(IXUISprite sprite)
 		{
 			this._curStageID = (uint)sprite.ID;
@@ -256,24 +239,18 @@ namespace XMainClient
 			XSingleton<XDebug>.singleton.AddGreenLog("OnTypeCheckBoxClick", sprite.ID.ToString(), null, null, null, null);
 		}
 
-		// Token: 0x06009F4F RID: 40783 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected virtual void OnStageSelect()
 		{
 		}
 
-		// Token: 0x040038D0 RID: 14544
 		protected GroupChatDocument _doc;
 
-		// Token: 0x040038D1 RID: 14545
 		private XBetterDictionary<uint, Transform> m_typeVector;
 
-		// Token: 0x040038D2 RID: 14546
 		private RecruitStepCounter _timeFrame;
 
-		// Token: 0x040038D3 RID: 14547
 		private uint _setupStageID = 1100U;
 
-		// Token: 0x040038D4 RID: 14548
 		private uint _curStageID = 1100U;
 	}
 }

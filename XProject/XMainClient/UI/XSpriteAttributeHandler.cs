@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200185E RID: 6238
+
 	internal class XSpriteAttributeHandler : DlgHandlerBase
 	{
-		// Token: 0x1700398E RID: 14734
-		// (get) Token: 0x060103E3 RID: 66531 RVA: 0x003ECC10 File Offset: 0x003EAE10
+
 		protected override string FileName
 		{
 			get
@@ -19,7 +18,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060103E4 RID: 66532 RVA: 0x003ECC28 File Offset: 0x003EAE28
 		protected override void Init()
 		{
 			base.Init();
@@ -31,7 +29,6 @@ namespace XMainClient.UI
 			DlgHandlerBase.EnsureCreate<XSpriteAttributeSHandler>(ref this.m_SkillHandler, parent3, true, this);
 		}
 
-		// Token: 0x060103E5 RID: 66533 RVA: 0x003ECCAC File Offset: 0x003EAEAC
 		public override void OnUnload()
 		{
 			DlgHandlerBase.EnsureUnload<XSpriteAttributePHandler>(ref this.m_PropertyHandler);
@@ -40,7 +37,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x060103E6 RID: 66534 RVA: 0x003ECCDA File Offset: 0x003EAEDA
 		public void SetSpriteAttributeInfo(SpriteInfo spriteData, XAttributes attributes, SpriteInfo compareData = null)
 		{
 			this.m_PropertyHandler.SetSpriteAttributeInfo(spriteData, compareData);
@@ -48,7 +44,6 @@ namespace XMainClient.UI
 			this.m_SkillHandler.SetSpriteAttributeInfo(spriteData, compareData);
 		}
 
-		// Token: 0x060103E7 RID: 66535 RVA: 0x003ECD08 File Offset: 0x003EAF08
 		public void SetSpriteAttributeInfo(uint spriteID)
 		{
 			this.m_PropertyHandler.SetSpriteAttributeInfo(spriteID);
@@ -56,7 +51,6 @@ namespace XMainClient.UI
 			this.m_SkillHandler.SetSpriteAttributeInfo(spriteID);
 		}
 
-		// Token: 0x060103E8 RID: 66536 RVA: 0x003ECD34 File Offset: 0x003EAF34
 		public static void GetLevelOneSpriteAttr(SpriteTable.RowData spriteInfo, out List<uint> attrID, out List<double> attrValue, out List<double> attrMaxValue)
 		{
 			attrID = new List<uint>();
@@ -86,13 +80,10 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x040074B2 RID: 29874
 		private XSpriteAttributePHandler m_PropertyHandler;
 
-		// Token: 0x040074B3 RID: 29875
 		private XSpriteAttributeAHandler m_AptitudeHandler;
 
-		// Token: 0x040074B4 RID: 29876
 		private XSpriteAttributeSHandler m_SkillHandler;
 	}
 }

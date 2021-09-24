@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017D3 RID: 6099
+
 	internal class XNPCFavorDramaExchange : DlgHandlerBase
 	{
-		// Token: 0x170038A6 RID: 14502
-		// (get) Token: 0x0600FCAC RID: 64684 RVA: 0x003AF894 File Offset: 0x003ADA94
+
 		private XNPCFavorDrama operate
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170038A7 RID: 14503
-		// (get) Token: 0x0600FCAD RID: 64685 RVA: 0x003AF8AC File Offset: 0x003ADAAC
 		protected override string FileName
 		{
 			get
@@ -31,7 +28,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FCAE RID: 64686 RVA: 0x003AF8C4 File Offset: 0x003ADAC4
 		protected override void Init()
 		{
 			base.Init();
@@ -42,13 +38,11 @@ namespace XMainClient.UI
 			this.closeBtn = (base.transform.Find("Bg/Close").GetComponent("XUIButton") as IXUIButton);
 		}
 
-		// Token: 0x0600FCAF RID: 64687 RVA: 0x001A787A File Offset: 0x001A5A7A
 		protected override void OnShow()
 		{
 			this.RefreshData();
 		}
 
-		// Token: 0x0600FCB0 RID: 64688 RVA: 0x003AF95F File Offset: 0x003ADB5F
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -56,7 +50,6 @@ namespace XMainClient.UI
 			this.closeBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnClickClose));
 		}
 
-		// Token: 0x0600FCB1 RID: 64689 RVA: 0x003AF999 File Offset: 0x003ADB99
 		public override void OnUnload()
 		{
 			this.doc = null;
@@ -64,7 +57,6 @@ namespace XMainClient.UI
 			this.npc2role = null;
 		}
 
-		// Token: 0x0600FCB2 RID: 64690 RVA: 0x003AF9B4 File Offset: 0x003ADBB4
 		public override void RefreshData()
 		{
 			XNPCFavorDrama xnpcfavorDrama = XNPCFavorDocument.IsNpcDialogVisible();
@@ -101,7 +93,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FCB3 RID: 64691 RVA: 0x003AFB04 File Offset: 0x003ADD04
 		private bool OnClickExchange(IXUIButton btn)
 		{
 			bool flag = this.role2npc == null;
@@ -131,14 +122,12 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FCB4 RID: 64692 RVA: 0x003AFBEC File Offset: 0x003ADDEC
 		private bool OnClickClose(IXUIButton btn)
 		{
 			DlgBase<DramaDlg, DramaDlgBehaviour>.singleton.SetVisible(false, true);
 			return true;
 		}
 
-		// Token: 0x0600FCB5 RID: 64693 RVA: 0x003AFC0C File Offset: 0x003ADE0C
 		private bool ConfirmExchange(IXUIButton btn)
 		{
 			XNPCFavorDrama xnpcfavorDrama = XNPCFavorDocument.IsNpcDialogVisible();
@@ -151,7 +140,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FCB6 RID: 64694 RVA: 0x003AFC74 File Offset: 0x003ADE74
 		private void DrawItem(Transform item, int itemId, int itemNum)
 		{
 			XSingleton<XItemDrawerMgr>.singleton.normalItemDrawer.DrawItem(item.gameObject, itemId, itemNum, true);
@@ -163,25 +151,18 @@ namespace XMainClient.UI
 			ixuilabel.SetText((itemConf != null) ? itemConf.ItemName[0] : string.Empty);
 		}
 
-		// Token: 0x04006F18 RID: 28440
 		private XNPCFavorDocument doc;
 
-		// Token: 0x04006F19 RID: 28441
 		private IXUIButton exchangeBtn = null;
 
-		// Token: 0x04006F1A RID: 28442
 		private Transform npcReturnItem = null;
 
-		// Token: 0x04006F1B RID: 28443
 		private Transform myItem = null;
 
-		// Token: 0x04006F1C RID: 28444
 		private IXUIButton closeBtn = null;
 
-		// Token: 0x04006F1D RID: 28445
 		private ItemBrief role2npc = null;
 
-		// Token: 0x04006F1E RID: 28446
 		private ItemBrief npc2role = null;
 	}
 }

@@ -3,10 +3,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x0200089C RID: 2204
+
 	internal class XBuffMob : BuffEffect
 	{
-		// Token: 0x060085FA RID: 34298 RVA: 0x0010CCA8 File Offset: 0x0010AEA8
+
 		public static bool TryCreate(BuffTable.RowData rowData, XBuff buff)
 		{
 			bool flag = rowData.MobID == 0U;
@@ -23,14 +23,12 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060085FB RID: 34299 RVA: 0x0010CCDF File Offset: 0x0010AEDF
 		public XBuffMob(uint templateID, XBuff buff)
 		{
 			this._MobTemplateID = templateID;
 			this._Buff = buff;
 		}
 
-		// Token: 0x060085FC RID: 34300 RVA: 0x0010CD08 File Offset: 0x0010AF08
 		public override void OnAdd(XEntity entity, CombatEffectHelper pEffectHelper)
 		{
 			this._entity = entity;
@@ -54,14 +52,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060085FD RID: 34301 RVA: 0x0010CDE1 File Offset: 0x0010AFE1
 		public override void OnRemove(XEntity entity, bool IsReplaced)
 		{
 			XSingleton<XEntityMgr>.singleton.DestroyEntity(this._Mob);
 			this._Mob = null;
 		}
 
-		// Token: 0x060085FE RID: 34302 RVA: 0x0010CDFC File Offset: 0x0010AFFC
 		public override void OnUpdate()
 		{
 			bool flag = !XEntity.ValideEntity(this._Mob);
@@ -74,16 +70,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x040029B5 RID: 10677
 		private XEntity _entity;
 
-		// Token: 0x040029B6 RID: 10678
 		private XEntity _Mob = null;
 
-		// Token: 0x040029B7 RID: 10679
 		private XBuff _Buff;
 
-		// Token: 0x040029B8 RID: 10680
 		private uint _MobTemplateID = 0U;
 	}
 }

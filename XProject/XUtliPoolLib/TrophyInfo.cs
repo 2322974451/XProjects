@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x02000243 RID: 579
+
 	public class TrophyInfo : CVSReader
 	{
-		// Token: 0x06000CB5 RID: 3253 RVA: 0x00042D08 File Offset: 0x00040F08
+
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			TrophyInfo.RowData rowData = new TrophyInfo.RowData();
@@ -41,7 +41,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x06000CB6 RID: 3254 RVA: 0x00042EA4 File Offset: 0x000410A4
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -55,52 +54,37 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x04000791 RID: 1937
 		public TrophyInfo.RowData[] Table = null;
 
-		// Token: 0x020003D2 RID: 978
 		public class RowData
 		{
-			// Token: 0x0400112D RID: 4397
+
 			public uint ID;
 
-			// Token: 0x0400112E RID: 4398
 			public uint SceneID;
 
-			// Token: 0x0400112F RID: 4399
 			public SeqRef<uint> TrophyScore;
 
-			// Token: 0x04001130 RID: 4400
 			public uint Third;
 
-			// Token: 0x04001131 RID: 4401
 			public uint ThirdPara;
 
-			// Token: 0x04001132 RID: 4402
 			public uint Second;
 
-			// Token: 0x04001133 RID: 4403
 			public uint SecondPara;
 
-			// Token: 0x04001134 RID: 4404
 			public uint First;
 
-			// Token: 0x04001135 RID: 4405
 			public uint FirstPara;
 
-			// Token: 0x04001136 RID: 4406
 			public string Name;
 
-			// Token: 0x04001137 RID: 4407
 			public string ThirdDesc;
 
-			// Token: 0x04001138 RID: 4408
 			public string SecondDesc;
 
-			// Token: 0x04001139 RID: 4409
 			public string FirstDesc;
 
-			// Token: 0x0400113A RID: 4410
 			public string Icon;
 		}
 	}

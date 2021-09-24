@@ -4,11 +4,11 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x020008BA RID: 2234
+
 	[RequireComponent(typeof(Camera))]
 	public class XCustomShadow : MonoBehaviour
 	{
-		// Token: 0x0600871D RID: 34589 RVA: 0x00113D50 File Offset: 0x00111F50
+
 		public static XCustomShadow Create(Transform parent, ShadowMapInfo sg)
 		{
 			GameObject gameObject = new GameObject("ShadowProjector");
@@ -32,7 +32,6 @@ namespace XMainClient
 			return xcustomShadow;
 		}
 
-		// Token: 0x0600871E RID: 34590 RVA: 0x00113E30 File Offset: 0x00112030
 		public void Begin(XGameObject target)
 		{
 			bool flag = this.OnTargetChange(target);
@@ -86,7 +85,6 @@ namespace XMainClient
 			base.enabled = true;
 		}
 
-		// Token: 0x0600871F RID: 34591 RVA: 0x00113F54 File Offset: 0x00112154
 		public void Clear(bool destroy)
 		{
 			bool flag = this.shadowMapInfoRef != null;
@@ -119,12 +117,11 @@ namespace XMainClient
 					Shader.SetGlobalTexture("_ShadowMask", null);
 				}
 				this.m_shadowCameraTransformCache = null;
-				
+
 				UnityEngine.Object.Destroy(base.gameObject);
 			}
 		}
 
-		// Token: 0x06008720 RID: 34592 RVA: 0x00114040 File Offset: 0x00112240
 		public bool OnTargetChange(XGameObject target)
 		{
 			Transform transform = (target != null) ? target.Find("") : null;
@@ -143,7 +140,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008721 RID: 34593 RVA: 0x00114088 File Offset: 0x00112288
 		public void SetCullLayer(bool enable)
 		{
 			bool flag = this.m_shadowCamera != null;
@@ -161,7 +157,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008722 RID: 34594 RVA: 0x001140F8 File Offset: 0x001122F8
 		private void Update()
 		{
 			bool flag = this.m_lightTransformCache == null;
@@ -210,49 +205,34 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04002A8C RID: 10892
 		public int shadowChannel = 0;
 
-		// Token: 0x04002A8D RID: 10893
 		public ShadowMapInfo shadowMapInfoRef = null;
 
-		// Token: 0x04002A8E RID: 10894
 		public Camera m_shadowCamera = null;
 
-		// Token: 0x04002A8F RID: 10895
 		private Transform m_shadowCameraTransformCache = null;
 
-		// Token: 0x04002A90 RID: 10896
 		private Transform m_TargetTransformCache = null;
 
-		// Token: 0x04002A91 RID: 10897
 		public Transform m_modifyEntityTransformCache = null;
 
-		// Token: 0x04002A92 RID: 10898
 		public static float scale = 0.33f;
 
-		// Token: 0x04002A93 RID: 10899
 		public float bias = 0.5f;
 
-		// Token: 0x04002A94 RID: 10900
 		private Vector3 m_lastShadowPos = Vector3.zero;
 
-		// Token: 0x04002A95 RID: 10901
 		private Transform m_lightTransformCache = null;
 
-		// Token: 0x04002A96 RID: 10902
 		private Vector3 m_invLightForwardDir = new Vector3(0f, 0f, -1f);
 
-		// Token: 0x04002A97 RID: 10903
 		private Vector3 m_lightRightDir = new Vector3(1f, 0f, 0f);
 
-		// Token: 0x04002A98 RID: 10904
 		private Vector3 m_lightUpDir = new Vector3(0f, 1f, 0f);
 
-		// Token: 0x04002A99 RID: 10905
 		public Matrix4x4 scaleBiasMatrix = Matrix4x4.identity;
 
-		// Token: 0x04002A9A RID: 10906
 		private static Texture shadowMask = null;
 	}
 }

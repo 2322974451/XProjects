@@ -6,10 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200173F RID: 5951
+
 	internal class XTeamLeagueBattlePrepareBehaviour : DlgBehaviourBase
 	{
-		// Token: 0x0600F613 RID: 62995 RVA: 0x0037B770 File Offset: 0x00379970
+
 		private void Awake()
 		{
 			this.m_UpBtn = (base.transform.Find("Bg/UpDown/LetmedieUp").GetComponent("XUISprite") as IXUISprite);
@@ -38,55 +38,38 @@ namespace XMainClient.UI
 			this.m_UpDownTween = (base.transform.Find("Bg/UpDown").GetComponent("XUIPlayTween") as IXUITweenTool);
 		}
 
-		// Token: 0x04006AB5 RID: 27317
 		public IXUISprite m_UpBtn;
 
-		// Token: 0x04006AB6 RID: 27318
 		public IXUISprite m_DownBtn;
 
-		// Token: 0x04006AB7 RID: 27319
 		public GameObject m_ListView;
 
-		// Token: 0x04006AB8 RID: 27320
 		public Transform m_BlueView;
 
-		// Token: 0x04006AB9 RID: 27321
 		public Transform m_RedView;
 
-		// Token: 0x04006ABA RID: 27322
 		public GameObject m_Info;
 
-		// Token: 0x04006ABB RID: 27323
 		public Transform m_BlueInfo;
 
-		// Token: 0x04006ABC RID: 27324
 		public Transform m_RedInfo;
 
-		// Token: 0x04006ABD RID: 27325
 		public IXUILabel m_LeftTimeTip;
 
-		// Token: 0x04006ABE RID: 27326
 		public IXUISprite m_BlueViewSwitch;
 
-		// Token: 0x04006ABF RID: 27327
 		public IXUISprite m_RedViewSwitch;
 
-		// Token: 0x04006AC0 RID: 27328
 		public XUIPool[] m_MemberPool = new XUIPool[2];
 
-		// Token: 0x04006AC1 RID: 27329
 		public IXUIList[] m_MemberList = new IXUIList[2];
 
-		// Token: 0x04006AC2 RID: 27330
 		public IXUITweenTool m_BlueViewTween;
 
-		// Token: 0x04006AC3 RID: 27331
 		public IXUITweenTool m_RedViewTween;
 
-		// Token: 0x04006AC4 RID: 27332
 		public IXUITweenTool m_UpDownTween;
 
-		// Token: 0x04006AC5 RID: 27333
 		public IXUILabel m_TimeCount;
 	}
 }

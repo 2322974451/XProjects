@@ -4,10 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000976 RID: 2422
+
 	internal class XCardCombination
 	{
-		// Token: 0x060091F2 RID: 37362 RVA: 0x0014FFB4 File Offset: 0x0014E1B4
+
 		public void InitStarPostion(CardsGroup.RowData cdata)
 		{
 			SeqListRef<uint> starFireCondition = cdata.StarFireCondition;
@@ -37,13 +37,10 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x040030A2 RID: 12450
 		public CardCombinationStatus status;
 
-		// Token: 0x040030A3 RID: 12451
 		public CardsGroup.RowData data;
 
-		// Token: 0x040030A4 RID: 12452
 		public List<int> starPostion;
 	}
 }

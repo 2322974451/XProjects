@@ -5,22 +5,20 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C9D RID: 3229
+
 	internal class TooltipButtonOperateSmeltReturn : TooltipButtonOperateBase
 	{
-		// Token: 0x0600B619 RID: 46617 RVA: 0x00240EDC File Offset: 0x0023F0DC
+
 		public override string GetButtonText()
 		{
 			return XStringDefineProxy.GetString("SmeltReturn");
 		}
 
-		// Token: 0x0600B61A RID: 46618 RVA: 0x00240EF8 File Offset: 0x0023F0F8
 		public override bool HasRedPoint(XItem item)
 		{
 			return false;
 		}
 
-		// Token: 0x0600B61B RID: 46619 RVA: 0x00240F0C File Offset: 0x0023F10C
 		public override bool IsButtonVisible(XItem item)
 		{
 			bool flag = !XSingleton<XGameSysMgr>.singleton.IsSystemOpened(XSysDefine.XSys_SmeltReturn);
@@ -54,7 +52,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B61C RID: 46620 RVA: 0x00240F70 File Offset: 0x0023F170
 		public override void OnButtonClick(ulong mainUID, ulong compareUID)
 		{
 			base.OnButtonClick(mainUID, compareUID);
@@ -98,7 +95,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B61D RID: 46621 RVA: 0x002410C8 File Offset: 0x0023F2C8
 		private bool SmeltStoneReturn(IXUIButton btn)
 		{
 			XItem itemByUID = XSingleton<XGame>.singleton.Doc.XBagDoc.GetItemByUID(this.mainItemUID);

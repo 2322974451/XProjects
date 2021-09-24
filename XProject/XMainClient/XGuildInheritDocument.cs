@@ -9,10 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000925 RID: 2341
+
 	internal class XGuildInheritDocument : XDocComponent
 	{
-		// Token: 0x06008D62 RID: 36194 RVA: 0x0013563C File Offset: 0x0013383C
+
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 			bool flag = DlgBase<GuildInheritDlg, GuildInheritBehaviour>.singleton.IsVisible();
@@ -22,8 +22,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002BB3 RID: 11187
-		// (get) Token: 0x06008D63 RID: 36195 RVA: 0x00135660 File Offset: 0x00133860
 		public override uint ID
 		{
 			get
@@ -32,8 +30,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002BB4 RID: 11188
-		// (get) Token: 0x06008D64 RID: 36196 RVA: 0x00135678 File Offset: 0x00133878
 		public uint TeacherCount
 		{
 			get
@@ -42,8 +38,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002BB5 RID: 11189
-		// (get) Token: 0x06008D65 RID: 36197 RVA: 0x00135690 File Offset: 0x00133890
 		public uint StudentCount
 		{
 			get
@@ -52,7 +46,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008D66 RID: 36198 RVA: 0x001356A8 File Offset: 0x001338A8
 		public string GetTeacherLeftTimeString()
 		{
 			bool flag = this.m_teacherTime > 0f;
@@ -71,7 +64,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008D67 RID: 36199 RVA: 0x001356F8 File Offset: 0x001338F8
 		public bool TryGetInheritCountString(out string message)
 		{
 			message = string.Empty;
@@ -106,7 +98,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008D68 RID: 36200 RVA: 0x001357CC File Offset: 0x001339CC
 		public static void TryOutInherit(XEntity entity)
 		{
 			bool isPlayer = entity.IsPlayer;
@@ -137,7 +128,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008D69 RID: 36201 RVA: 0x00135894 File Offset: 0x00133A94
 		public void StopInherit()
 		{
 			this.m_Inheriting = false;
@@ -154,8 +144,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002BB6 RID: 11190
-		// (get) Token: 0x06008D6A RID: 36202 RVA: 0x001358EC File Offset: 0x00133AEC
 		private static int InheritLimitRange
 		{
 			get
@@ -178,7 +166,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008D6B RID: 36203 RVA: 0x00135970 File Offset: 0x00133B70
 		public static void TryInInherit(XEntity entity)
 		{
 			bool isPlayer = entity.IsPlayer;
@@ -202,28 +189,23 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008D6C RID: 36204 RVA: 0x00135A0C File Offset: 0x00133C0C
 		public static bool IsInherit(uint level)
 		{
 			return XGuildInheritDocument.IsInheritInitiator(level) || XGuildInheritDocument.IsInheritReceiver(level);
 		}
 
-		// Token: 0x06008D6D RID: 36205 RVA: 0x00135A30 File Offset: 0x00133C30
 		public static bool IsInheritReceiver(uint level)
 		{
 			bool flag = (ulong)XSingleton<XAttributeMgr>.singleton.XPlayerData.Level < (ulong)((long)XSingleton<XGlobalConfig>.singleton.StudentMinLevel) || (ulong)level < (ulong)((long)XSingleton<XGlobalConfig>.singleton.TeacherMinLevel);
 			return !flag && level - XSingleton<XAttributeMgr>.singleton.XPlayerData.Level >= (uint)XGuildInheritDocument.InheritLimitRange;
 		}
 
-		// Token: 0x06008D6E RID: 36206 RVA: 0x00135A94 File Offset: 0x00133C94
 		public static bool IsInheritInitiator(uint level)
 		{
 			bool flag = (ulong)XSingleton<XAttributeMgr>.singleton.XPlayerData.Level < (ulong)((long)XSingleton<XGlobalConfig>.singleton.TeacherMinLevel) || (ulong)level < (ulong)((long)XSingleton<XGlobalConfig>.singleton.StudentMinLevel);
 			return !flag && XSingleton<XAttributeMgr>.singleton.XPlayerData.Level - level >= (uint)XGuildInheritDocument.InheritLimitRange;
 		}
 
-		// Token: 0x17002BB7 RID: 11191
-		// (get) Token: 0x06008D6F RID: 36207 RVA: 0x00135AF8 File Offset: 0x00133CF8
 		public List<GuildInheritInfo> InheritList
 		{
 			get
@@ -232,9 +214,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002BB8 RID: 11192
-		// (get) Token: 0x06008D70 RID: 36208 RVA: 0x00135B10 File Offset: 0x00133D10
-		// (set) Token: 0x06008D71 RID: 36209 RVA: 0x00135B28 File Offset: 0x00133D28
 		public uint bHasAvailableIconShow
 		{
 			get
@@ -248,7 +227,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008D72 RID: 36210 RVA: 0x00135B44 File Offset: 0x00133D44
 		public override void Update(float fDeltaT)
 		{
 			base.Update(fDeltaT);
@@ -277,7 +255,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008D73 RID: 36211 RVA: 0x00135BCC File Offset: 0x00133DCC
 		public void SynInheritExp(synGuildInheritExp res)
 		{
 			XSingleton<XDebug>.singleton.AddGreenLog("SynInheritExp:", res.teacherId.ToString(), null, null, null, null);
@@ -369,7 +346,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008D74 RID: 36212 RVA: 0x00135F30 File Offset: 0x00134130
 		private void ShowBubble()
 		{
 			bool flag = this.InheritTeacherID == 0UL;
@@ -395,7 +371,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008D75 RID: 36213 RVA: 0x00135FE0 File Offset: 0x001341E0
 		private bool OnAddFriend(IXUIButton btn)
 		{
 			DlgBase<XFriendsView, XFriendsBehaviour>.singleton.AddFriendById(this.m_SelectFriend);
@@ -403,7 +378,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x06008D76 RID: 36214 RVA: 0x00136010 File Offset: 0x00134210
 		public void SynInheritBaseInfo(SynGuildInheritNumInfo res)
 		{
 			XSingleton<XDebug>.singleton.AddGreenLog("XGuildInheritDocument.SynInheritBaseInfo teacherNumber:", res.teacherNum.ToString(), " teacher:", res.lastTime.ToString(), null, null);
@@ -421,14 +395,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008D77 RID: 36215 RVA: 0x001360A0 File Offset: 0x001342A0
 		public void SendInheritList()
 		{
 			RpcC2M_ReqGuildInheritInfo rpc = new RpcC2M_ReqGuildInheritInfo();
 			XSingleton<XClientNetwork>.singleton.Send(rpc);
 		}
 
-		// Token: 0x06008D78 RID: 36216 RVA: 0x001360C0 File Offset: 0x001342C0
 		public void ReceiveInheritList(ReqGuildInheritInfoArg oArg, ReqGuildInheritInfoRes oRes)
 		{
 			this.m_inheritList.Clear();
@@ -461,14 +433,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008D79 RID: 36217 RVA: 0x001361B8 File Offset: 0x001343B8
 		public void SendDelInherit()
 		{
 			RpcC2M_DelGuildInherit rpc = new RpcC2M_DelGuildInherit();
 			XSingleton<XClientNetwork>.singleton.Send(rpc);
 		}
 
-		// Token: 0x06008D7A RID: 36218 RVA: 0x001361D8 File Offset: 0x001343D8
 		public void ReceiveDelInherit(DelGuildInheritRes res)
 		{
 			bool flag = res.errorCode > ErrorCode.ERR_SUCCESS;
@@ -483,7 +453,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008D7B RID: 36219 RVA: 0x0013622C File Offset: 0x0013442C
 		public void SendReqInherit(ulong uid)
 		{
 			RpcC2M_AddGuildInherit rpcC2M_AddGuildInherit = new RpcC2M_AddGuildInherit();
@@ -491,7 +460,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_AddGuildInherit);
 		}
 
-		// Token: 0x06008D7C RID: 36220 RVA: 0x0013625C File Offset: 0x0013445C
 		public void ReceiveReqInherit(AddGuildInheritArg arg, AddGuildInheritRes res)
 		{
 			XSingleton<XDebug>.singleton.AddGreenLog("XGuildInheritDocument.ReceiveReqInherit", null, null, null, null, null);
@@ -506,7 +474,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008D7D RID: 36221 RVA: 0x001362C0 File Offset: 0x001344C0
 		public void SendAccpetInherit(int index)
 		{
 			bool flag = this.m_inheritList == null || index < 0 || index >= this.m_inheritList.Count;
@@ -535,7 +502,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008D7E RID: 36222 RVA: 0x00136398 File Offset: 0x00134598
 		public void ReceiveAccpetInherit(AceptGuildInheritArg arg, AceptGuildInheritRes res)
 		{
 			bool flag = false;
@@ -577,37 +543,26 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04002DDB RID: 11739
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("XGuildInheritDocument");
 
-		// Token: 0x04002DDC RID: 11740
 		private uint m_avilableReqCount = 0U;
 
-		// Token: 0x04002DDD RID: 11741
 		private uint m_teacherCount = 0U;
 
-		// Token: 0x04002DDE RID: 11742
 		private uint m_studentCount = 0U;
 
-		// Token: 0x04002DDF RID: 11743
 		private List<GuildInheritInfo> m_inheritList = new List<GuildInheritInfo>();
 
-		// Token: 0x04002DE0 RID: 11744
 		private ulong m_SelectFriend = 0UL;
 
-		// Token: 0x04002DE1 RID: 11745
 		private float m_teacherTime = 0f;
 
-		// Token: 0x04002DE2 RID: 11746
 		private XFx m_selectEffect = null;
 
-		// Token: 0x04002DE3 RID: 11747
 		private bool m_Inheriting = false;
 
-		// Token: 0x04002DE4 RID: 11748
 		private float m_bubbleTime = 11f;
 
-		// Token: 0x04002DE5 RID: 11749
 		private ulong InheritTeacherID = 0UL;
 	}
 }

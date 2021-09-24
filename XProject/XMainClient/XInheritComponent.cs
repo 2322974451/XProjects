@@ -4,11 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000F31 RID: 3889
+
 	internal class XInheritComponent : XComponent
 	{
-		// Token: 0x170035F9 RID: 13817
-		// (get) Token: 0x0600CE39 RID: 52793 RVA: 0x002FBB8C File Offset: 0x002F9D8C
+
 		public override uint ID
 		{
 			get
@@ -17,7 +16,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CE3A RID: 52794 RVA: 0x002FBBA4 File Offset: 0x002F9DA4
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
@@ -40,7 +38,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CE3B RID: 52795 RVA: 0x002FBCB4 File Offset: 0x002F9EB4
 		public override void OnDetachFromHost()
 		{
 			bool flag = this.m_xfxObj != null;
@@ -62,7 +59,6 @@ namespace XMainClient
 			base.OnDetachFromHost();
 		}
 
-		// Token: 0x0600CE3C RID: 52796 RVA: 0x002FBD50 File Offset: 0x002F9F50
 		public override void Update(float fDeltaT)
 		{
 			base.Update(fDeltaT);
@@ -85,7 +81,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CE3D RID: 52797 RVA: 0x002FBDAC File Offset: 0x002F9FAC
 		private void StartInheritAction()
 		{
 			XRole xrole = this._entity as XRole;
@@ -103,7 +98,6 @@ namespace XMainClient
 			this.m_inInherit = true;
 		}
 
-		// Token: 0x0600CE3E RID: 52798 RVA: 0x002FBE10 File Offset: 0x002FA010
 		private void StopInheritAction()
 		{
 			this.m_inInherit = false;
@@ -112,7 +106,6 @@ namespace XMainClient
 			xrole.PlayStateBack();
 		}
 
-		// Token: 0x0600CE3F RID: 52799 RVA: 0x002FBE48 File Offset: 0x002FA048
 		private int GetRandomNumber(int max, int min = 0)
 		{
 			System.Random random = new System.Random();
@@ -120,7 +113,6 @@ namespace XMainClient
 			return num + 1;
 		}
 
-		// Token: 0x0600CE40 RID: 52800 RVA: 0x002FBE6C File Offset: 0x002FA06C
 		private string GetTargetName(int index)
 		{
 			string result = this._entity.Present.PresentLib.InheritActionOne;
@@ -138,16 +130,12 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x04005BE9 RID: 23529
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("XInheritComponent");
 
-		// Token: 0x04005BEA RID: 23530
 		private float m_timerToken;
 
-		// Token: 0x04005BEB RID: 23531
 		private XFx m_xfxObj;
 
-		// Token: 0x04005BEC RID: 23532
 		private bool m_inInherit = false;
 	}
 }

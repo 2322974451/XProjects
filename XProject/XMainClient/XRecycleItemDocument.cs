@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000A6F RID: 2671
+
 	internal class XRecycleItemDocument : XDocComponent
 	{
-		// Token: 0x17002F5C RID: 12124
-		// (get) Token: 0x0600A25A RID: 41562 RVA: 0x001BA40C File Offset: 0x001B860C
+
 		public override uint ID
 		{
 			get
@@ -20,23 +19,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002F5D RID: 12125
-		// (get) Token: 0x0600A25B RID: 41563 RVA: 0x001BA423 File Offset: 0x001B8623
-		// (set) Token: 0x0600A25C RID: 41564 RVA: 0x001BA42B File Offset: 0x001B862B
 		public RecycleItemOperateView OperateView { get; set; }
 
-		// Token: 0x17002F5E RID: 12126
-		// (get) Token: 0x0600A25D RID: 41565 RVA: 0x001BA434 File Offset: 0x001B8634
-		// (set) Token: 0x0600A25E RID: 41566 RVA: 0x001BA43C File Offset: 0x001B863C
 		public RecycleItemBagView BagView { get; set; }
 
-		// Token: 0x17002F5F RID: 12127
-		// (get) Token: 0x0600A25F RID: 41567 RVA: 0x001BA445 File Offset: 0x001B8645
-		// (set) Token: 0x0600A260 RID: 41568 RVA: 0x001BA44D File Offset: 0x001B864D
 		public XSysDefine CurrentSys { get; set; }
 
-		// Token: 0x17002F60 RID: 12128
-		// (get) Token: 0x0600A261 RID: 41569 RVA: 0x001BA458 File Offset: 0x001B8658
 		public Dictionary<ulong, ulong> SelectedItems
 		{
 			get
@@ -45,14 +33,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A263 RID: 41571 RVA: 0x001BA48D File Offset: 0x001B868D
 		protected override void EventSubscribe()
 		{
 			base.EventSubscribe();
 			base.RegisterEvent(XEventDefine.XEvent_ItemChangeFinished, new XComponent.XEventHandler(this.OnItemChangeFinished));
 		}
 
-		// Token: 0x0600A264 RID: 41572 RVA: 0x001BA4AC File Offset: 0x001B86AC
 		protected bool OnItemChangeFinished(XEventArgs args)
 		{
 			bool flag = this.BagView != null && this.BagView.active;
@@ -63,7 +49,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600A265 RID: 41573 RVA: 0x001BA4E8 File Offset: 0x001B86E8
 		public void RefreshUI()
 		{
 			bool flag = this.BagView != null && this.BagView.active;
@@ -78,7 +63,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A266 RID: 41574 RVA: 0x001BA544 File Offset: 0x001B8744
 		public List<XItem> GetItems()
 		{
 			this.m_ItemList.Clear();
@@ -93,7 +77,6 @@ namespace XMainClient
 			return this.m_ItemList;
 		}
 
-		// Token: 0x0600A267 RID: 41575 RVA: 0x001BA5C8 File Offset: 0x001B87C8
 		public void GetQuickSelectItems(int mask)
 		{
 			List<XItem> items = this.GetItems();
@@ -120,7 +103,6 @@ namespace XMainClient
 			this.RefreshUI();
 		}
 
-		// Token: 0x0600A268 RID: 41576 RVA: 0x001BA684 File Offset: 0x001B8884
 		public void ResetSelection(bool bRefreshUI)
 		{
 			this.m_SelectedItems.Clear();
@@ -130,7 +112,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A269 RID: 41577 RVA: 0x001BA6AC File Offset: 0x001B88AC
 		public bool IsSelected(ulong uid, out int leftCount)
 		{
 			leftCount = 0;
@@ -159,7 +140,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A26A RID: 41578 RVA: 0x001BA724 File Offset: 0x001B8924
 		private bool IsSelectFull(ulong uid)
 		{
 			bool flag = this.m_SelectedItems.ContainsKey(uid);
@@ -185,7 +165,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A26B RID: 41579 RVA: 0x001BA784 File Offset: 0x001B8984
 		public int GetSelectUidCount(ulong uid)
 		{
 			ulong num = 0UL;
@@ -193,8 +172,6 @@ namespace XMainClient
 			return (int)num;
 		}
 
-		// Token: 0x17002F61 RID: 12129
-		// (get) Token: 0x0600A26C RID: 41580 RVA: 0x001BA7AC File Offset: 0x001B89AC
 		public bool IsSelectionFull
 		{
 			get
@@ -203,7 +180,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A26D RID: 41581 RVA: 0x001BA7D8 File Offset: 0x001B89D8
 		public void ToggleItemSelect(ulong uid)
 		{
 			XItem itemByUID = XBagDocument.BagDoc.GetItemByUID(uid);
@@ -226,7 +202,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A26E RID: 41582 RVA: 0x001BA834 File Offset: 0x001B8A34
 		public void ToggleItemUnSelect(ulong uid)
 		{
 			bool flag = this.m_SelectedItems.ContainsKey(uid);
@@ -236,7 +211,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A26F RID: 41583 RVA: 0x001BA868 File Offset: 0x001B8A68
 		public void _ToggleItemSelect(bool select, ulong uid, ulong count, bool bRefreshUI)
 		{
 			bool flag = false;
@@ -298,7 +272,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A270 RID: 41584 RVA: 0x001BAA1C File Offset: 0x001B8C1C
 		public void Recycle()
 		{
 			bool flag = this.m_SelectedItems.Count == 0;
@@ -320,7 +293,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A271 RID: 41585 RVA: 0x001BAAF8 File Offset: 0x001B8CF8
 		public void OnRecycle(DecomposeEquipmentRes oRes)
 		{
 			bool flag = oRes.ErrorCode > ErrorCode.ERR_SUCCESS;
@@ -342,7 +314,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A272 RID: 41586 RVA: 0x001BAB7C File Offset: 0x001B8D7C
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 			bool flag = this.BagView != null && this.BagView.active;
@@ -357,16 +328,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04003A9F RID: 15007
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("RecycleItemDocument");
 
-		// Token: 0x04003AA0 RID: 15008
 		public static readonly uint MAX_RECYCLE_COUNT = 5U;
 
-		// Token: 0x04003AA4 RID: 15012
 		private Dictionary<ulong, ulong> m_SelectedItems = new Dictionary<ulong, ulong>();
 
-		// Token: 0x04003AA5 RID: 15013
 		private List<XItem> m_ItemList = new List<XItem>();
 	}
 }

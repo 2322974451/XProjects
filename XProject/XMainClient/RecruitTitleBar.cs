@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000A3F RID: 2623
+
 	internal class RecruitTitleBar : DlgHandlerBase
 	{
-		// Token: 0x06009F7A RID: 40826 RVA: 0x001A6C98 File Offset: 0x001A4E98
+
 		public override void OnUnload()
 		{
 			bool flag = this.m_titles != null;
@@ -20,8 +20,6 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x17002EDB RID: 11995
-		// (get) Token: 0x06009F7B RID: 40827 RVA: 0x001A6CC8 File Offset: 0x001A4EC8
 		public uint filter
 		{
 			get
@@ -30,8 +28,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002EDC RID: 11996
-		// (get) Token: 0x06009F7C RID: 40828 RVA: 0x001A6CE0 File Offset: 0x001A4EE0
 		public int direction
 		{
 			get
@@ -40,9 +36,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002EDD RID: 11997
-		// (get) Token: 0x06009F7E RID: 40830 RVA: 0x001A6D34 File Offset: 0x001A4F34
-		// (set) Token: 0x06009F7D RID: 40829 RVA: 0x001A6CF8 File Offset: 0x001A4EF8
 		public TitleSelector selector
 		{
 			get
@@ -64,7 +57,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009F7F RID: 40831 RVA: 0x001A6D4C File Offset: 0x001A4F4C
 		protected override void Init()
 		{
 			base.Init();
@@ -101,7 +93,6 @@ namespace XMainClient
 			this.SetState(this.m_titles[XFastEnumIntEqualityComparer<TitleSelector>.ToInt(this.selector)]);
 		}
 
-		// Token: 0x06009F80 RID: 40832 RVA: 0x001A6FB4 File Offset: 0x001A51B4
 		private void OnDropClick(IXUISprite sprite)
 		{
 			uint num = (uint)sprite.ID;
@@ -119,18 +110,15 @@ namespace XMainClient
 			this.OnCloseDrop(null);
 		}
 
-		// Token: 0x06009F81 RID: 40833 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		private void Excute()
 		{
 		}
 
-		// Token: 0x06009F82 RID: 40834 RVA: 0x001A7018 File Offset: 0x001A5218
 		private void OnCloseDrop(IXUISprite sprite = null)
 		{
 			this.m_DropList.gameObject.SetActive(false);
 		}
 
-		// Token: 0x06009F83 RID: 40835 RVA: 0x001A7030 File Offset: 0x001A5230
 		private bool OnTitleClick(IXUIButton btn)
 		{
 			TitleSelector titleSelector = (TitleSelector)btn.ID;
@@ -151,26 +139,22 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x06009F84 RID: 40836 RVA: 0x001A708C File Offset: 0x001A528C
 		public void RegisterTitleChange(RecruitTitleChange eventHandler)
 		{
 			this.m_titleChange = eventHandler;
 		}
 
-		// Token: 0x06009F85 RID: 40837 RVA: 0x001A7096 File Offset: 0x001A5296
 		public void RegisterTitleReSelect(RecruitTitleReSelect selectHandle)
 		{
 			this.m_reselect = selectHandle;
 		}
 
-		// Token: 0x06009F86 RID: 40838 RVA: 0x001A70A0 File Offset: 0x001A52A0
 		public void SetState(TitleSelector select)
 		{
 			this.selector = select;
 			this.SetState(this.m_titles[XFastEnumIntEqualityComparer<TitleSelector>.ToInt(select)]);
 		}
 
-		// Token: 0x06009F87 RID: 40839 RVA: 0x001A70C0 File Offset: 0x001A52C0
 		private void SetState(IXUILabel selector)
 		{
 			TitleSelector titleSelector = (TitleSelector)selector.ID;
@@ -188,7 +172,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009F88 RID: 40840 RVA: 0x001A7150 File Offset: 0x001A5350
 		private void SetupMemberType(IXUILabel select)
 		{
 			Transform transform = select.gameObject.transform.Find("Job");
@@ -204,37 +187,26 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x040038E7 RID: 14567
 		private IXUILabel[] m_titles;
 
-		// Token: 0x040038E8 RID: 14568
 		private Transform m_SortArrow;
 
-		// Token: 0x040038E9 RID: 14569
 		private Transform m_UpArrow;
 
-		// Token: 0x040038EA RID: 14570
 		private Transform m_DownArrow;
 
-		// Token: 0x040038EB RID: 14571
 		private uint m_selectIndex = 0U;
 
-		// Token: 0x040038EC RID: 14572
 		private int m_dir = -1;
 
-		// Token: 0x040038ED RID: 14573
 		private TitleSelector m_selector = TitleSelector.Name;
 
-		// Token: 0x040038EE RID: 14574
 		private Transform m_DropList;
 
-		// Token: 0x040038EF RID: 14575
 		private IXUISprite m_DropClose;
 
-		// Token: 0x040038F0 RID: 14576
 		private RecruitTitleChange m_titleChange;
 
-		// Token: 0x040038F1 RID: 14577
 		private RecruitTitleReSelect m_reselect;
 	}
 }

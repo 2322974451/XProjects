@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x020009A4 RID: 2468
+
 	internal class XGuildSmallMonsterDocument : XDocComponent
 	{
-		// Token: 0x17002CF9 RID: 11513
-		// (get) Token: 0x060094BB RID: 38075 RVA: 0x001603D4 File Offset: 0x0015E5D4
+
 		public override uint ID
 		{
 			get
@@ -19,8 +18,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002CFA RID: 11514
-		// (get) Token: 0x060094BC RID: 38076 RVA: 0x001603EC File Offset: 0x0015E5EC
 		public int LeftEnterCount
 		{
 			get
@@ -29,8 +26,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002CFB RID: 11515
-		// (get) Token: 0x060094BD RID: 38077 RVA: 0x00160404 File Offset: 0x0015E604
 		public int DayLimit
 		{
 			get
@@ -39,8 +34,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002CFC RID: 11516
-		// (get) Token: 0x060094BE RID: 38078 RVA: 0x00160428 File Offset: 0x0015E628
 		public GuildCamp.RowData currCamp
 		{
 			get
@@ -57,8 +50,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002CFD RID: 11517
-		// (get) Token: 0x060094BF RID: 38079 RVA: 0x00160488 File Offset: 0x0015E688
 		public GuildCamp.RowData nextCamp
 		{
 			get
@@ -75,8 +66,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002CFE RID: 11518
-		// (get) Token: 0x060094C0 RID: 38080 RVA: 0x001604E8 File Offset: 0x0015E6E8
 		public uint Small_Monster_SceneID
 		{
 			get
@@ -97,8 +86,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002CFF RID: 11519
-		// (get) Token: 0x060094C1 RID: 38081 RVA: 0x0016054C File Offset: 0x0015E74C
 		public List<GuildCampRankInfo> RankList
 		{
 			get
@@ -107,8 +94,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002D00 RID: 11520
-		// (get) Token: 0x060094C2 RID: 38082 RVA: 0x00160564 File Offset: 0x0015E764
 		public bool isKillType
 		{
 			get
@@ -118,7 +103,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060094C3 RID: 38083 RVA: 0x00160595 File Offset: 0x0015E795
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			XGuildSmallMonsterDocument.AsyncLoader.AddTask("Table/GuildCamp", XGuildSmallMonsterDocument._guildCampTable, false);
@@ -126,7 +110,6 @@ namespace XMainClient
 			XGuildSmallMonsterDocument.AsyncLoader.Execute(callback);
 		}
 
-		// Token: 0x060094C4 RID: 38084 RVA: 0x001605D0 File Offset: 0x0015E7D0
 		protected override void EventSubscribe()
 		{
 			base.EventSubscribe();
@@ -134,13 +117,11 @@ namespace XMainClient
 			base.RegisterEvent(XEventDefine.XEvent_PlayerLevelChange, new XComponent.XEventHandler(this.OnPlayerLevelChange));
 		}
 
-		// Token: 0x060094C5 RID: 38085 RVA: 0x00160608 File Offset: 0x0015E808
 		public bool IsOpen(ExpeditionTable.RowData rowData)
 		{
 			return (long)rowData.DNExpeditionID == (long)((ulong)this.DNExpId);
 		}
 
-		// Token: 0x060094C6 RID: 38086 RVA: 0x0016062C File Offset: 0x0015E82C
 		public override void OnEnterSceneFinally()
 		{
 			base.OnEnterSceneFinally();
@@ -151,7 +132,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060094C7 RID: 38087 RVA: 0x00160660 File Offset: 0x0015E860
 		public bool CheckEnterLevel()
 		{
 			XExpeditionDocument specificDocument = XDocuments.GetSpecificDocument<XExpeditionDocument>(XExpeditionDocument.uuID);
@@ -159,7 +139,6 @@ namespace XMainClient
 			return specificDocument.TeamCategoryMgr.IsExpOpened(expeditionDataByID);
 		}
 
-		// Token: 0x060094C8 RID: 38088 RVA: 0x00160698 File Offset: 0x0015E898
 		public int GetEnterLevel()
 		{
 			XExpeditionDocument specificDocument = XDocuments.GetSpecificDocument<XExpeditionDocument>(XExpeditionDocument.uuID);
@@ -168,7 +147,6 @@ namespace XMainClient
 			return (expeditionDataByID == null) ? 24 : expeditionDataByID.RequiredLevel;
 		}
 
-		// Token: 0x060094C9 RID: 38089 RVA: 0x001606D8 File Offset: 0x0015E8D8
 		private bool GuildStateChanged(XEventArgs args)
 		{
 			XInGuildStateChangedEventArgs xinGuildStateChangedEventArgs = args as XInGuildStateChangedEventArgs;
@@ -184,7 +162,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x060094CA RID: 38090 RVA: 0x00160710 File Offset: 0x0015E910
 		public void SendQuerySmallMonterInfo()
 		{
 			XGuildDocument specificDocument = XDocuments.GetSpecificDocument<XGuildDocument>(XGuildDocument.uuID);
@@ -200,7 +177,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060094CB RID: 38091 RVA: 0x00160764 File Offset: 0x0015E964
 		public void SetGuildSmallMonsterInfo(int leftEnterCount, int currID, int nextID, List<GuildCampRankInfo> rankList)
 		{
 			this._leftEnterCount = leftEnterCount;
@@ -236,21 +212,18 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060094CC RID: 38092 RVA: 0x001608A0 File Offset: 0x0015EAA0
 		public void OpenTeamView()
 		{
 			XTeamDocument specificDocument = XDocuments.GetSpecificDocument<XTeamDocument>(XTeamDocument.uuID);
 			specificDocument.SetAndMatch((int)this.DNExpId);
 		}
 
-		// Token: 0x060094CD RID: 38093 RVA: 0x001608C8 File Offset: 0x0015EAC8
 		private bool OnPlayerLevelChange(XEventArgs arg)
 		{
 			this.SendQuerySmallMonterInfo();
 			return true;
 		}
 
-		// Token: 0x060094CE RID: 38094 RVA: 0x001608E4 File Offset: 0x0015EAE4
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 			bool flag = XSingleton<XGame>.singleton.CurrentStage.Stage == EXStage.Hall;
@@ -260,28 +233,20 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04003247 RID: 12871
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("GuildSmallMonsterDocument");
 
-		// Token: 0x04003248 RID: 12872
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x04003249 RID: 12873
 		public uint DNExpId = 11U;
 
-		// Token: 0x0400324A RID: 12874
 		public uint NextdayDneId = 12U;
 
-		// Token: 0x0400324B RID: 12875
 		private int _leftEnterCount = 0;
 
-		// Token: 0x0400324C RID: 12876
 		private List<GuildCampRankInfo> _rankList = new List<GuildCampRankInfo>();
 
-		// Token: 0x0400324D RID: 12877
 		public static GuildCamp _guildCampTable = new GuildCamp();
 
-		// Token: 0x0400324E RID: 12878
 		public static GuildCampRank _guildRankTable = new GuildCampRank();
 	}
 }

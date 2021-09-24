@@ -7,10 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020018A5 RID: 6309
+
 	internal class XGuildHallBehaviour : DlgBehaviourBase
 	{
-		// Token: 0x060106DA RID: 67290 RVA: 0x00403068 File Offset: 0x00401268
+
 		private void Awake()
 		{
 			this.m_Close = (base.transform.FindChild("Bg/Close").GetComponent("XUIButton") as IXUIButton);
@@ -76,131 +76,90 @@ namespace XMainClient.UI
 			this.m_GrowthBuffHelpFrame.gameObject.SetActive(false);
 		}
 
-		// Token: 0x060106DB RID: 67291 RVA: 0x0040377C File Offset: 0x0040197C
 		private void OnApplicationPause(bool pause)
 		{
 			XGuildDocument specificDocument = XDocuments.GetSpecificDocument<XGuildDocument>(XGuildDocument.uuID);
 			specificDocument.QueryWXGroup();
 		}
 
-		// Token: 0x0400769B RID: 30363
 		public IXUIButton m_Close = null;
 
-		// Token: 0x0400769C RID: 30364
 		public IXUIButton m_BtnExit;
 
-		// Token: 0x0400769D RID: 30365
 		public IXUIButton m_BtnLog;
 
-		// Token: 0x0400769E RID: 30366
 		public IXUIButton m_BtnEditAnnounce;
 
-		// Token: 0x0400769F RID: 30367
 		public IXUIButton m_BtnRank;
 
-		// Token: 0x040076A0 RID: 30368
 		public IXUIButton m_BtnEnter;
 
-		// Token: 0x040076A1 RID: 30369
 		public IXUIButton m_BtnEditPortrait;
 
-		// Token: 0x040076A2 RID: 30370
 		public IXUIButton m_BtnMall;
 
-		// Token: 0x040076A3 RID: 30371
 		public IXUIButton m_BtnSignIn;
 
-		// Token: 0x040076A4 RID: 30372
 		public IXUIButton m_BtnSkill;
 
-		// Token: 0x040076A5 RID: 30373
 		public IXUIButton m_BtnMembers;
 
-		// Token: 0x040076A6 RID: 30374
 		public IXUIButton m_BtnApprove;
 
-		// Token: 0x040076A7 RID: 30375
 		public IXUIButton m_BtnDonate;
 
-		// Token: 0x040076A8 RID: 30376
 		public IXUIButton m_BtnGZ;
 
-		// Token: 0x040076A9 RID: 30377
 		public IXUIButton m_BtnRedPacker;
 
-		// Token: 0x040076AA RID: 30378
 		public IXUIButton m_BtnDmx;
 
-		// Token: 0x040076AB RID: 30379
 		public IXUIButton m_BtnJoker;
 
-		// Token: 0x040076AC RID: 30380
 		public IXUIButton m_BtnConsider;
 
-		// Token: 0x040076AD RID: 30381
 		public IXUIButton m_BtnBuild;
 
-		// Token: 0x040076AE RID: 30382
 		public IXUIButton m_BtnWXGroup;
 
-		// Token: 0x040076AF RID: 30383
 		public IXUIButton m_BtnWXGroupShare;
 
-		// Token: 0x040076B0 RID: 30384
 		public IXUILabel m_WXGroupTip;
 
-		// Token: 0x040076B1 RID: 30385
 		public IXUIButton m_BtnQQGroup;
 
-		// Token: 0x040076B2 RID: 30386
 		public IXUILabel m_QQGroupTip;
 
-		// Token: 0x040076B3 RID: 30387
 		public IXUILabel m_QQGroupName;
 
-		// Token: 0x040076B4 RID: 30388
 		public IXUISprite m_Portrait;
 
-		// Token: 0x040076B5 RID: 30389
 		public IXUISprite m_LivenessTipSprite;
 
-		// Token: 0x040076B6 RID: 30390
 		public IXUILabel m_LivenessTipsLabel;
 
-		// Token: 0x040076B7 RID: 30391
 		public IXUISprite m_PopularityTipSprite;
 
-		// Token: 0x040076B8 RID: 30392
 		public IXUILabel m_PopularityTipLabel;
 
-		// Token: 0x040076B9 RID: 30393
 		public IXUISprite m_ExpTipsSprite;
 
-		// Token: 0x040076BA RID: 30394
 		public IXUILabel m_ExpTipsLabel;
 
-		// Token: 0x040076BB RID: 30395
 		public IXUILabel m_Annoucement;
 
-		// Token: 0x040076BC RID: 30396
 		public GameObject m_EditAnnouncePanel;
 
-		// Token: 0x040076BD RID: 30397
 		public GameObject m_LogPanel;
 
-		// Token: 0x040076BE RID: 30398
 		public List<IXUIButton> m_checkGuildList = new List<IXUIButton>();
 
-		// Token: 0x040076BF RID: 30399
 		public XGuildBasicInfoDisplay m_BasicInfoDisplay = new XGuildBasicInfoDisplay();
 
-		// Token: 0x040076C0 RID: 30400
 		public XUIPool m_ShielterItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x040076C1 RID: 30401
 		public Transform m_GrowthBuffHelpFrame;
 
-		// Token: 0x040076C2 RID: 30402
 		public IXUILabel m_GrowthBuffHelpLabel;
 	}
 }

@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000CBF RID: 3263
+
 	internal class ChatAssistView : DlgBase<ChatAssistView, ChatAssistBehaviour>
 	{
-		// Token: 0x1700326E RID: 12910
-		// (get) Token: 0x0600B757 RID: 46935 RVA: 0x00247F00 File Offset: 0x00246100
+
 		public override string fileName
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700326F RID: 12911
-		// (get) Token: 0x0600B758 RID: 46936 RVA: 0x00247F18 File Offset: 0x00246118
 		public override bool autoload
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003270 RID: 12912
-		// (get) Token: 0x0600B759 RID: 46937 RVA: 0x00247F2C File Offset: 0x0024612C
 		public override bool isHideChat
 		{
 			get
@@ -40,7 +35,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B75A RID: 46938 RVA: 0x00247F40 File Offset: 0x00246140
 		protected override void Init()
 		{
 			base.Init();
@@ -69,7 +63,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B75B RID: 46939 RVA: 0x002480C8 File Offset: 0x002462C8
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -78,20 +71,17 @@ namespace XMainClient
 			base.uiBehaviour.m_sprBg.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.ClosePanel));
 		}
 
-		// Token: 0x0600B75C RID: 46940 RVA: 0x00248134 File Offset: 0x00246334
 		protected override void OnShow()
 		{
 			base.OnShow();
 			base.uiBehaviour.transform.localPosition = new Vector3(-292f, -84f, 0f);
 		}
 
-		// Token: 0x0600B75D RID: 46941 RVA: 0x00248163 File Offset: 0x00246363
 		protected override void OnHide()
 		{
 			base.OnHide();
 		}
 
-		// Token: 0x0600B75E RID: 46942 RVA: 0x00248170 File Offset: 0x00246370
 		public void Close(string str)
 		{
 			bool flag = this.m_func != null;
@@ -102,7 +92,6 @@ namespace XMainClient
 			this.SetVisible(false, true);
 		}
 
-		// Token: 0x0600B75F RID: 46943 RVA: 0x002481A1 File Offset: 0x002463A1
 		public void Show(ChatInputStringBack func, ChatAssetType type)
 		{
 			this.SetVisible(true, true);
@@ -111,21 +100,18 @@ namespace XMainClient
 			this.Toggle(type);
 		}
 
-		// Token: 0x0600B760 RID: 46944 RVA: 0x002481C4 File Offset: 0x002463C4
 		private bool OnEmotionClick(IXUIButton btn)
 		{
 			this.Toggle(ChatAssetType.EMOTION);
 			return true;
 		}
 
-		// Token: 0x0600B761 RID: 46945 RVA: 0x002481E0 File Offset: 0x002463E0
 		private bool OnHistoryClick(IXUIButton btn)
 		{
 			this.Toggle(ChatAssetType.HISTOTY);
 			return true;
 		}
 
-		// Token: 0x0600B762 RID: 46946 RVA: 0x002481FC File Offset: 0x002463FC
 		private void Toggle(ChatAssetType type)
 		{
 			base.uiBehaviour.m_objEmotion.SetActive(type == ChatAssetType.EMOTION);
@@ -139,7 +125,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B763 RID: 46947 RVA: 0x0024827C File Offset: 0x0024647C
 		private void SetTabActive(GameObject go, bool active)
 		{
 			GameObject gameObject = go.transform.Find("InActivated").gameObject;
@@ -148,7 +133,6 @@ namespace XMainClient
 			gameObject2.SetActive(active);
 		}
 
-		// Token: 0x0600B764 RID: 46948 RVA: 0x002482CC File Offset: 0x002464CC
 		private void OnSelectEmotion(IXUISprite sp)
 		{
 			ulong id = sp.ID;
@@ -161,7 +145,6 @@ namespace XMainClient
 			this.SetVisible(false, true);
 		}
 
-		// Token: 0x0600B765 RID: 46949 RVA: 0x00248328 File Offset: 0x00246528
 		private void RefreshHistoryList()
 		{
 			XChatDocument specificDocument = XDocuments.GetSpecificDocument<XChatDocument>(XChatDocument.uuID);
@@ -177,7 +160,6 @@ namespace XMainClient
 			base.uiBehaviour.m_loophistoryView.Init(list, new DelegateHandler(this.RefreshHistoryItem), null, 0, false);
 		}
 
-		// Token: 0x0600B766 RID: 46950 RVA: 0x002483C4 File Offset: 0x002465C4
 		private void RefreshHistoryItem(ILoopItemObject item, LoopItemData data)
 		{
 			RecentMsg recentMsg = data as RecentMsg;
@@ -192,25 +174,19 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B767 RID: 46951 RVA: 0x0024840F File Offset: 0x0024660F
 		private void ClosePanel(IXUISprite spr)
 		{
 			this.SetVisible(false, true);
 		}
 
-		// Token: 0x04004808 RID: 18440
 		private ChatInputStringBack m_func = null;
 
-		// Token: 0x04004809 RID: 18441
 		public ChatAssetType assetType = ChatAssetType.EMOTION;
 
-		// Token: 0x0400480A RID: 18442
 		private string m_Emotion = "fsbq_";
 
-		// Token: 0x0400480B RID: 18443
 		private string m_EmotionText = "z";
 
-		// Token: 0x0400480C RID: 18444
 		private const int CHAT_MAX_EMOTION_NUM = 24;
 	}
 }

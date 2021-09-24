@@ -6,21 +6,17 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000F09 RID: 3849
+
 	internal class XNormalItemDrawer : XItemDrawer, IXNormalItemDrawer, IXInterface
 	{
-		// Token: 0x0600CC67 RID: 52327 RVA: 0x002F0AF2 File Offset: 0x002EECF2
+
 		public void OpenClickShowTooltipEvent(GameObject go, int itemid)
 		{
 			this.OpenClickShowTooltipEvent(go, itemid, new SpriteClickEventHandler(XSingleton<UiUtility>.singleton.OnItemClick));
 		}
 
-		// Token: 0x17003595 RID: 13717
-		// (get) Token: 0x0600CC68 RID: 52328 RVA: 0x002F0B0E File Offset: 0x002EED0E
-		// (set) Token: 0x0600CC69 RID: 52329 RVA: 0x002F0B16 File Offset: 0x002EED16
 		public bool Deprecated { get; set; }
 
-		// Token: 0x0600CC6A RID: 52330 RVA: 0x002F0B20 File Offset: 0x002EED20
 		public void OpenClickShowTooltipEvent(GameObject go, int itemid, SpriteClickEventHandler eventHandler)
 		{
 			bool flag = null == go;
@@ -41,7 +37,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC6B RID: 52331 RVA: 0x002F0B88 File Offset: 0x002EED88
 		public void CloseClickShowTooltipEvent(GameObject go)
 		{
 			bool flag = null == go;
@@ -61,7 +56,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC6C RID: 52332 RVA: 0x002F0BE8 File Offset: 0x002EEDE8
 		public void DrawItem(GameObject go, ItemList.RowData data, int itemCount = 0, bool bForceShowNum = false)
 		{
 			this._GetUI(go);
@@ -89,7 +83,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC6D RID: 52333 RVA: 0x002F0C90 File Offset: 0x002EEE90
 		public void DrawItem(GameObject go, int itemid, int itemCount = 0, bool bForceShowNum = false)
 		{
 			this._GetUI(go);
@@ -114,7 +107,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC6E RID: 52334 RVA: 0x002F0D1C File Offset: 0x002EEF1C
 		public override void DrawItem(GameObject go, XItem realItem, bool bForceShowNum = false)
 		{
 			bool flag = realItem == null;
@@ -147,7 +139,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC6F RID: 52335 RVA: 0x002F0DD0 File Offset: 0x002EEFD0
 		private void _SetUp(GameObject go, int itemid, int itemCount = 0, bool bForceShowNum = false)
 		{
 			this._SetupIcon();
@@ -156,7 +147,6 @@ namespace XMainClient
 			this._SetupNumTop(null);
 		}
 
-		// Token: 0x0600CC70 RID: 52336 RVA: 0x002F0DF4 File Offset: 0x002EEFF4
 		private void SetupLeftUpCorner(XItem realItem = null)
 		{
 			bool flag = realItem == null;
@@ -192,7 +182,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC71 RID: 52337 RVA: 0x002F0EA8 File Offset: 0x002EF0A8
 		private void SetupLeftUpFragment(int itemid)
 		{
 			ItemList.RowData itemConf = XBagDocument.GetItemConf(itemid);
@@ -215,7 +204,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC72 RID: 52338 RVA: 0x002F0F00 File Offset: 0x002EF100
 		private void SetProf(XItem realItem = null)
 		{
 			bool flag = realItem == null || realItem.Type != ItemType.ARTIFACT;
@@ -255,7 +243,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC73 RID: 52339 RVA: 0x002F0FED File Offset: 0x002EF1ED
 		protected override void DrawEmpty()
 		{
 			base.DrawEmpty();

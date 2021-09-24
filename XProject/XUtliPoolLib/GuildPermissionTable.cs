@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x02000112 RID: 274
+
 	public class GuildPermissionTable : CVSReader
 	{
-		// Token: 0x060006BC RID: 1724 RVA: 0x00020ED8 File Offset: 0x0001F0D8
+
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			GuildPermissionTable.RowData rowData = new GuildPermissionTable.RowData();
@@ -25,7 +25,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x060006BD RID: 1725 RVA: 0x00020FA0 File Offset: 0x0001F1A0
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -39,28 +38,21 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x0400035E RID: 862
 		public GuildPermissionTable.RowData[] Table = null;
 
-		// Token: 0x02000311 RID: 785
 		public class RowData
 		{
-			// Token: 0x04000B7A RID: 2938
+
 			public string GuildID;
 
-			// Token: 0x04000B7B RID: 2939
 			public int GPOS_LEADER;
 
-			// Token: 0x04000B7C RID: 2940
 			public int GPOS_VICELEADER;
 
-			// Token: 0x04000B7D RID: 2941
 			public int GPOS_OFFICER;
 
-			// Token: 0x04000B7E RID: 2942
 			public int GPOS_ELITEMEMBER;
 
-			// Token: 0x04000B7F RID: 2943
 			public int GPOS_MEMBER;
 		}
 	}

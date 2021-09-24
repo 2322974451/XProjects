@@ -5,11 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000CF7 RID: 3319
+
 	internal class XShopPurchaseView : DlgHandlerBase
 	{
-		// Token: 0x1700329E RID: 12958
-		// (get) Token: 0x0600B98C RID: 47500 RVA: 0x0025B3CC File Offset: 0x002595CC
+
 		protected override string FileName
 		{
 			get
@@ -18,7 +17,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B98D RID: 47501 RVA: 0x0025B3E4 File Offset: 0x002595E4
 		protected override void Init()
 		{
 			base.Init();
@@ -43,7 +41,6 @@ namespace XMainClient
 			this.mDoBuy = (base.PanelObject.transform.FindChild("OP/OK").GetComponent("XUIButton") as IXUIButton);
 		}
 
-		// Token: 0x0600B98E RID: 47502 RVA: 0x0025B690 File Offset: 0x00259890
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -56,20 +53,17 @@ namespace XMainClient
 			this.mBlock.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnClosePurchaseView));
 		}
 
-		// Token: 0x0600B98F RID: 47503 RVA: 0x0025B74D File Offset: 0x0025994D
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this._doc.PurchaseView = this;
 		}
 
-		// Token: 0x0600B990 RID: 47504 RVA: 0x0019EF07 File Offset: 0x0019D107
 		public override void OnUnload()
 		{
 			base.OnUnload();
 		}
 
-		// Token: 0x0600B991 RID: 47505 RVA: 0x0025B764 File Offset: 0x00259964
 		public int GetMaxConstrainNum(int itemid, ulong moneynum, int price)
 		{
 			int num = (int)moneynum / price;
@@ -100,7 +94,6 @@ namespace XMainClient
 			return num2;
 		}
 
-		// Token: 0x0600B992 RID: 47506 RVA: 0x0025B824 File Offset: 0x00259A24
 		public int CalMaxCanBuyNum(int itemid, ulong moneynum, int price)
 		{
 			ShopTable.RowData dataById = XNormalShopDocument.GetDataById((uint)this.mBuyGoods.item.uid);
@@ -114,7 +107,6 @@ namespace XMainClient
 			return (num < this.mMaxConstrainNum) ? num : this.mMaxConstrainNum;
 		}
 
-		// Token: 0x0600B993 RID: 47507 RVA: 0x0025B899 File Offset: 0x00259A99
 		public void OnBuyItem(XNormalShopGoods goods)
 		{
 			base.SetVisible(true);
@@ -122,7 +114,6 @@ namespace XMainClient
 			this.OnBuyItem(goods.item.itemID, goods.priceType, goods.priceValue);
 		}
 
-		// Token: 0x0600B994 RID: 47508 RVA: 0x0025B8CC File Offset: 0x00259ACC
 		public int GetNeedMoney()
 		{
 			ShopTable.RowData dataById = XNormalShopDocument.GetDataById((uint)this.mBuyGoods.item.uid);
@@ -139,7 +130,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B995 RID: 47509 RVA: 0x0025B938 File Offset: 0x00259B38
 		public void OnBuyItem(int itemid, int moneyid, int price)
 		{
 			this.mItemId = itemid;
@@ -182,7 +172,6 @@ namespace XMainClient
 			this.mMoneyIcon.SetSprite(itemSmallIcon);
 		}
 
-		// Token: 0x0600B996 RID: 47510 RVA: 0x0025BAE0 File Offset: 0x00259CE0
 		public bool OnAddItem(IXUIButton sp)
 		{
 			int num = this.mWantBuyNum;
@@ -227,7 +216,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B997 RID: 47511 RVA: 0x0025BC44 File Offset: 0x00259E44
 		public bool OnMinusItem(IXUIButton sp)
 		{
 			int num = (int)sp.ID;
@@ -253,7 +241,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B998 RID: 47512 RVA: 0x0025BD04 File Offset: 0x00259F04
 		public bool DoPurchase(IXUIButton sp)
 		{
 			bool flag = this._doc.IsExchangeMoney(this.mMoneyType) && !this._doc.IsMoneyOrItemEnough(this.mMoneyType, this.GetNeedMoney());
@@ -282,80 +269,56 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B999 RID: 47513 RVA: 0x0025BDA4 File Offset: 0x00259FA4
 		public bool OnClosePurchaseView(IXUIButton sp)
 		{
 			base.SetVisible(false);
 			return true;
 		}
 
-		// Token: 0x04004A2F RID: 18991
 		public IXUISprite mItemIcon;
 
-		// Token: 0x04004A30 RID: 18992
 		public IXUILabel mItemName;
 
-		// Token: 0x04004A31 RID: 18993
 		public IXUILabel mItemOwnNum;
 
-		// Token: 0x04004A32 RID: 18994
 		public IXUILabel mItemCanBuyNum;
 
-		// Token: 0x04004A33 RID: 18995
 		public IXUIButton mMinusTen;
 
-		// Token: 0x04004A34 RID: 18996
 		public IXUIButton mMinusOne;
 
-		// Token: 0x04004A35 RID: 18997
 		public IXUIButton mAddOne;
 
-		// Token: 0x04004A36 RID: 18998
 		public IXUIButton mAddTen;
 
-		// Token: 0x04004A37 RID: 18999
 		public IXUIButton mClose;
 
-		// Token: 0x04004A38 RID: 19000
 		public IXUIButton mBlock;
 
-		// Token: 0x04004A39 RID: 19001
 		public IXUILabel mCurBuyNum;
 
-		// Token: 0x04004A3A RID: 19002
 		public IXUISprite mMoneyIcon;
 
-		// Token: 0x04004A3B RID: 19003
 		public IXUILabel mMoneyNum;
 
-		// Token: 0x04004A3C RID: 19004
 		public IXUIButton mDoBuy;
 
-		// Token: 0x04004A3D RID: 19005
 		private XNormalShopDocument _doc = null;
 
-		// Token: 0x04004A3E RID: 19006
 		private int mItemId = 0;
 
-		// Token: 0x04004A3F RID: 19007
 		private int mMoneyType = 0;
 
-		// Token: 0x04004A40 RID: 19008
 		private int mWantBuyNum = 0;
 
-		// Token: 0x04004A41 RID: 19009
 		private int mMaxCanBuyNum = 0;
 
-		// Token: 0x04004A42 RID: 19010
 		private int mMaxConstrainNum = 0;
 
-		// Token: 0x04004A43 RID: 19011
 		private int mPrice = 0;
 
-		// Token: 0x04004A44 RID: 19012
 		private XNormalShopGoods mBuyGoods;
 
-		// Token: 0x04004A45 RID: 19013
 		private static readonly int MAX_BUYNUM_ONE_TIME = 9999;
 	}
 }

@@ -8,10 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000BF9 RID: 3065
+
 	internal class GameMallShopHandler : DlgHandlerBase
 	{
-		// Token: 0x0600AE3E RID: 44606 RVA: 0x00209888 File Offset: 0x00207A88
+
 		protected override void Init()
 		{
 			base.Init();
@@ -19,13 +19,11 @@ namespace XMainClient
 			this.m_ShopTypePool.SetupPool(gameObject.transform.parent.gameObject, gameObject, 7U, false);
 		}
 
-		// Token: 0x0600AE3F RID: 44607 RVA: 0x0019EEB0 File Offset: 0x0019D0B0
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 		}
 
-		// Token: 0x0600AE40 RID: 44608 RVA: 0x002098D4 File Offset: 0x00207AD4
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -38,12 +36,10 @@ namespace XMainClient
 			this.RefreshRedPoint();
 		}
 
-		// Token: 0x0600AE41 RID: 44609 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public void Refresh()
 		{
 		}
 
-		// Token: 0x0600AE42 RID: 44610 RVA: 0x00209914 File Offset: 0x00207B14
 		private void OnInitShops()
 		{
 			List<string> list = new List<string>();
@@ -190,20 +186,17 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AE43 RID: 44611 RVA: 0x00209F02 File Offset: 0x00208102
 		protected override void OnHide()
 		{
 			base.OnHide();
 			XSingleton<UiUtility>.singleton.DestroyTextureInActivePool(this.m_ShopTypePool, "Icon");
 		}
 
-		// Token: 0x0600AE44 RID: 44612 RVA: 0x00209F22 File Offset: 0x00208122
 		public override void RefreshData()
 		{
 			base.RefreshData();
 		}
 
-		// Token: 0x0600AE45 RID: 44613 RVA: 0x00209F2C File Offset: 0x0020812C
 		public bool IsShopOpen(XSysDefine sys)
 		{
 			int hour = DateTime.Now.Hour;
@@ -236,7 +229,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600AE46 RID: 44614 RVA: 0x0020A010 File Offset: 0x00208210
 		public void OnOpenShop(IXUISprite sp)
 		{
 			bool flag = this._doc.shopRedPoint.Contains((XSysDefine)sp.ID);
@@ -249,7 +241,6 @@ namespace XMainClient
 			DlgBase<MallSystemDlg, MallSystemBehaviour>.singleton.ShowShopSystem(sys, 0UL);
 		}
 
-		// Token: 0x0600AE47 RID: 44615 RVA: 0x0020A070 File Offset: 0x00208270
 		public void CannotOpenShop(IXUISprite sp)
 		{
 			XSysDefine xsysDefine = (XSysDefine)sp.ID;
@@ -257,13 +248,11 @@ namespace XMainClient
 			XSingleton<UiUtility>.singleton.ShowSystemTip(string.Format(XStringDefineProxy.GetString("SHOP_OPEN_LEVEL"), sysOpenLevel), "fece00");
 		}
 
-		// Token: 0x0600AE48 RID: 44616 RVA: 0x0020A0BD File Offset: 0x002082BD
 		public void OnOpenGuild(IXUISprite sp)
 		{
 			XSingleton<XGameSysMgr>.singleton.OpenSystem(XSysDefine.XSys_Guild, 0UL);
 		}
 
-		// Token: 0x0600AE49 RID: 44617 RVA: 0x0020A0D0 File Offset: 0x002082D0
 		public void RefreshRedPoint()
 		{
 			bool flag = false;
@@ -291,13 +280,10 @@ namespace XMainClient
 			XSingleton<XGameSysMgr>.singleton.RecalculateRedPointState(XSysDefine.XSys_Mall, true);
 		}
 
-		// Token: 0x040041FC RID: 16892
 		private XGameMallDocument _doc = null;
 
-		// Token: 0x040041FD RID: 16893
 		public XUIPool m_ShopTypePool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x040041FE RID: 16894
 		private List<GameObject> _ShopGo = new List<GameObject>();
 	}
 }

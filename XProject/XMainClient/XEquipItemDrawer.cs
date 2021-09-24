@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000F0A RID: 3850
+
 	internal class XEquipItemDrawer : XItemDrawer
 	{
-		// Token: 0x0600CC75 RID: 52341 RVA: 0x002F1000 File Offset: 0x002EF200
+
 		public override void DrawItem(GameObject go, XItem realItem, bool bForceShowNum = false)
 		{
 			this._GetUI(go);
@@ -37,7 +37,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC76 RID: 52342 RVA: 0x002F10C8 File Offset: 0x002EF2C8
 		protected override void _SetupName(XItem equip)
 		{
 			bool flag = this.itemdata == null;
@@ -61,7 +60,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC77 RID: 52343 RVA: 0x002F116C File Offset: 0x002EF36C
 		protected override void _SetupNum(XItem equip)
 		{
 			XEquipItem xequipItem = equip as XEquipItem;
@@ -76,7 +74,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CC78 RID: 52344 RVA: 0x002F11C0 File Offset: 0x002EF3C0
 		protected override void _SetupAttrIcon(XItem equip)
 		{
 			XEquipItem xequipItem = equip as XEquipItem;

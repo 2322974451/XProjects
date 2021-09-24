@@ -9,17 +9,16 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000D94 RID: 3476
+
 	public sealed class XSceneTransfer : MonoBehaviour
 	{
-		// Token: 0x0600BD3F RID: 48447 RVA: 0x00273686 File Offset: 0x00271886
+
 		public void TransferScene(uint sceneid)
 		{
 			this._loading_scene_id = sceneid;
 			base.StartCoroutine(this.TransferLevelInMainCity());
 		}
 
-		// Token: 0x0600BD40 RID: 48448 RVA: 0x0027369D File Offset: 0x0027189D
 		private IEnumerator TransferLevelInMainCity()
 		{
 			XSingleton<XScene>.singleton.OnSceneBeginLoad(this._loading_scene_id);
@@ -91,14 +90,12 @@ namespace XMainClient
 			yield break;
 		}
 
-		// Token: 0x0600BD41 RID: 48449 RVA: 0x002736AC File Offset: 0x002718AC
 		private void CreatePlayer(uint sceneID)
 		{
 			XSingleton<XDebug>.singleton.AddLog("Preload Player", null, null, null, null, null, XDebugColor.XDebug_None);
 			XSingleton<XEntityMgr>.singleton.Add(XSingleton<XEntityMgr>.singleton.CreatePlayer(Vector3.zero, Quaternion.identity, false, XSingleton<XScene>.singleton.IsMustTransform));
 		}
 
-		// Token: 0x0600BD42 RID: 48450 RVA: 0x002736FC File Offset: 0x002718FC
 		private void PreLoadSceneMonster(uint sceneID)
 		{
 			List<uint> list = new List<uint>();
@@ -146,7 +143,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BD43 RID: 48451 RVA: 0x002738E4 File Offset: 0x00271AE4
 		private void PlaceSceneNpc(uint sceneID)
 		{
 			List<uint> npcs = XSingleton<XEntityMgr>.singleton.GetNpcs(sceneID);
@@ -165,13 +161,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BD44 RID: 48452 RVA: 0x00273957 File Offset: 0x00271B57
 		private void ResetLevelAirWall()
 		{
 			XSingleton<XLevelScriptMgr>.singleton.ResetAirWallState();
 		}
 
-		// Token: 0x0600BD45 RID: 48453 RVA: 0x00273968 File Offset: 0x00271B68
 		private void DocPreload(uint sceneid)
 		{
 			for (int i = 0; i < XSingleton<XGame>.singleton.Doc.Components.Count; i++)
@@ -180,14 +174,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BD46 RID: 48454 RVA: 0x002739B8 File Offset: 0x00271BB8
 		private void PlayBGM(uint sceneid)
 		{
 			string sceneBGM = XSingleton<XSceneMgr>.singleton.GetSceneBGM(sceneid);
 			XSingleton<XAudioMgr>.singleton.PlayBGM(sceneBGM);
 		}
 
-		// Token: 0x04004D0A RID: 19722
 		private uint _loading_scene_id = 0U;
 	}
 }

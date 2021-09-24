@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020018EE RID: 6382
+
 	internal class XWelfareDiamondHandler : DlgHandlerBase
 	{
-		// Token: 0x17003A85 RID: 14981
-		// (get) Token: 0x06010A11 RID: 68113 RVA: 0x0041CC8C File Offset: 0x0041AE8C
+
 		protected override string FileName
 		{
 			get
@@ -21,7 +20,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010A12 RID: 68114 RVA: 0x0041CCA4 File Offset: 0x0041AEA4
 		protected override void Init()
 		{
 			base.Init();
@@ -37,7 +35,6 @@ namespace XMainClient.UI
 			this.cardType.Add(2U);
 		}
 
-		// Token: 0x06010A13 RID: 68115 RVA: 0x0041CDD4 File Offset: 0x0041AFD4
 		protected override void OnHide()
 		{
 			base.OnHide();
@@ -55,7 +52,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010A14 RID: 68116 RVA: 0x0041CE60 File Offset: 0x0041B060
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -67,7 +63,6 @@ namespace XMainClient.UI
 			ixuibutton2.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnBuyBtnClicked));
 		}
 
-		// Token: 0x06010A15 RID: 68117 RVA: 0x0041CEF8 File Offset: 0x0041B0F8
 		private bool OnBuyBtnClicked(IXUIButton btn)
 		{
 			uint num = (uint)btn.ID;
@@ -100,7 +95,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x06010A16 RID: 68118 RVA: 0x0041CFE4 File Offset: 0x0041B1E4
 		public override void RefreshData()
 		{
 			XWelfareDocument specificDocument = XDocuments.GetSpecificDocument<XWelfareDocument>(XWelfareDocument.uuID);
@@ -142,7 +136,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010A17 RID: 68119 RVA: 0x0041D180 File Offset: 0x0041B380
 		private void RefreshRemainTime(List<PayCard> payInfo, uint remainTime)
 		{
 			bool flag = false;
@@ -178,7 +171,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010A18 RID: 68120 RVA: 0x0041D294 File Offset: 0x0041B494
 		private void LeftTimeUpdate(object o)
 		{
 			this.currLeftTime--;
@@ -196,7 +188,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010A19 RID: 68121 RVA: 0x0041D338 File Offset: 0x0041B538
 		private void RefreshCard(GameObject card, uint cardType, int index)
 		{
 			bool flag = this.payInfo == null;
@@ -241,40 +232,28 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x040078F9 RID: 30969
 		private IXUILabel m_Tip;
 
-		// Token: 0x040078FA RID: 30970
 		private GameObject m_WeeklyCard;
 
-		// Token: 0x040078FB RID: 30971
 		private GameObject m_MonthlyCard;
 
-		// Token: 0x040078FC RID: 30972
 		private IXUILabel m_RemainTime;
 
-		// Token: 0x040078FD RID: 30973
 		private IXUILabel m_RemainTimeName;
 
-		// Token: 0x040078FE RID: 30974
 		private int currLeftTime;
 
-		// Token: 0x040078FF RID: 30975
 		private uint _CDToken;
 
-		// Token: 0x04007900 RID: 30976
 		private const uint WEEKLY_CARD_TYPE = 1U;
 
-		// Token: 0x04007901 RID: 30977
 		private const uint MONTHLY_CARD_TYPE = 2U;
 
-		// Token: 0x04007902 RID: 30978
 		private List<uint> cardType = new List<uint>();
 
-		// Token: 0x04007903 RID: 30979
 		private List<PayCard> payInfo;
 
-		// Token: 0x04007904 RID: 30980
 		private Dictionary<uint, int> cardState = new Dictionary<uint, int>();
 	}
 }

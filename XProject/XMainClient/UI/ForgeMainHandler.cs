@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200173C RID: 5948
+
 	internal class ForgeMainHandler : DlgHandlerBase
 	{
-		// Token: 0x170037D7 RID: 14295
-		// (get) Token: 0x0600F5C4 RID: 62916 RVA: 0x00378E08 File Offset: 0x00377008
+
 		public ForgeSuccessHandler ForgeSuccessHandler
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170037D8 RID: 14296
-		// (get) Token: 0x0600F5C5 RID: 62917 RVA: 0x00378E20 File Offset: 0x00377020
 		public ForgeReplaceHandler ForgeReplaceHandler
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170037D9 RID: 14297
-		// (get) Token: 0x0600F5C6 RID: 62918 RVA: 0x00378E38 File Offset: 0x00377038
 		protected override string FileName
 		{
 			get
@@ -40,7 +35,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F5C7 RID: 62919 RVA: 0x00378E50 File Offset: 0x00377050
 		protected override void Init()
 		{
 			base.Init();
@@ -74,7 +68,6 @@ namespace XMainClient.UI
 			DlgHandlerBase.EnsureCreate<ForgeReplaceHandler>(ref this.m_forgeReplaceHandler, this.m_resultNewGo, null, false);
 		}
 
-		// Token: 0x0600F5C8 RID: 62920 RVA: 0x00379170 File Offset: 0x00377370
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -85,14 +78,12 @@ namespace XMainClient.UI
 			this.m_checkBoxSpr.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnClickToggle));
 		}
 
-		// Token: 0x0600F5C9 RID: 62921 RVA: 0x001F8A12 File Offset: 0x001F6C12
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.RefreshData();
 		}
 
-		// Token: 0x0600F5CA RID: 62922 RVA: 0x00379200 File Offset: 0x00377400
 		protected override void OnHide()
 		{
 			this.m_doc.Clear();
@@ -110,7 +101,6 @@ namespace XMainClient.UI
 			base.OnHide();
 		}
 
-		// Token: 0x0600F5CB RID: 62923 RVA: 0x00379290 File Offset: 0x00377490
 		public override void OnUnload()
 		{
 			this.m_doc.View = null;
@@ -147,7 +137,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x0600F5CC RID: 62924 RVA: 0x0037936C File Offset: 0x0037756C
 		public override void RefreshData()
 		{
 			base.RefreshData();
@@ -172,20 +161,17 @@ namespace XMainClient.UI
 			this.FillContent();
 		}
 
-		// Token: 0x0600F5CD RID: 62925 RVA: 0x00358051 File Offset: 0x00356251
 		public override void StackRefresh()
 		{
 			this.RefreshData();
 			base.StackRefresh();
 		}
 
-		// Token: 0x0600F5CE RID: 62926 RVA: 0x0037941B File Offset: 0x0037761B
 		public void ShowUI()
 		{
 			this.FillContent();
 		}
 
-		// Token: 0x0600F5CF RID: 62927 RVA: 0x00379428 File Offset: 0x00377628
 		public void ShowEffect(bool isSucceed)
 		{
 			this.DeActiveEffect();
@@ -199,7 +185,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F5D0 RID: 62928 RVA: 0x00379454 File Offset: 0x00377654
 		public void ShowReplaceHandler()
 		{
 			bool flag = this.m_forgeReplaceHandler != null && !this.m_forgeReplaceHandler.IsVisible();
@@ -209,7 +194,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F5D1 RID: 62929 RVA: 0x0037948C File Offset: 0x0037768C
 		private void FillContent()
 		{
 			this.m_tipsLab1.SetText(XSingleton<XStringTable>.singleton.GetString("ForgeTips1"));
@@ -244,7 +228,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F5D2 RID: 62930 RVA: 0x00379618 File Offset: 0x00377818
 		private void FillAttribute(XEquipItem item)
 		{
 			bool flag = item.forgeAttrInfo.ForgeAttr.Count == 0;
@@ -269,7 +252,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F5D3 RID: 62931 RVA: 0x0037972C File Offset: 0x0037792C
 		private void FillNeedItem()
 		{
 			bool flag = this.m_doc.EquipRow == null;
@@ -336,7 +318,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F5D4 RID: 62932 RVA: 0x00379998 File Offset: 0x00377B98
 		private void SetSelectStatus()
 		{
 			bool isSelect = this.m_doc.IsSelect;
@@ -384,7 +365,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F5D5 RID: 62933 RVA: 0x00379AC8 File Offset: 0x00377CC8
 		private void RefreshOnSelectRedfinStone()
 		{
 			bool flag = this.m_doc.EquipRow == null;
@@ -491,8 +471,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170037DA RID: 14298
-		// (get) Token: 0x0600F5D6 RID: 62934 RVA: 0x00379F10 File Offset: 0x00378110
 		public string ForgeSucPath
 		{
 			get
@@ -506,7 +484,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F5D7 RID: 62935 RVA: 0x00379F4C File Offset: 0x0037814C
 		private void PlayForgeSucceedEffect()
 		{
 			bool flag = this.m_ForgeSucceedEffect == null;
@@ -524,14 +501,11 @@ namespace XMainClient.UI
 			this.m_effectToken = XSingleton<XTimerMgr>.singleton.SetTimer(1f, new XTimerMgr.ElapsedEventHandler(this.DelayShowTipsUI), null);
 		}
 
-		// Token: 0x0600F5D8 RID: 62936 RVA: 0x00379FED File Offset: 0x003781ED
 		private void DelayShowTipsUI(object o = null)
 		{
 			this.m_bIsPlayingEffect = false;
 		}
 
-		// Token: 0x170037DB RID: 14299
-		// (get) Token: 0x0600F5D9 RID: 62937 RVA: 0x00379FF8 File Offset: 0x003781F8
 		public string ForgeLostPath
 		{
 			get
@@ -545,7 +519,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F5DA RID: 62938 RVA: 0x0037A034 File Offset: 0x00378234
 		private void PlayForgeLostEffect()
 		{
 			bool flag = this.m_ForgeLostEffect == null;
@@ -560,7 +533,6 @@ namespace XMainClient.UI
 			this.m_ForgeLostEffect.Play(this.m_effectsTra, Vector3.zero, Vector3.one, 1f, true, false);
 		}
 
-		// Token: 0x0600F5DB RID: 62939 RVA: 0x0037A09C File Offset: 0x0037829C
 		private void DeActiveEffect()
 		{
 			bool flag = this.m_ForgeSucceedEffect != null;
@@ -575,27 +547,23 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F5DC RID: 62940 RVA: 0x0037A0DE File Offset: 0x003782DE
 		public void OnEquipClicked(IXUISprite iSp)
 		{
 			this.m_doc.SelectEquip(iSp.ID);
 		}
 
-		// Token: 0x0600F5DD RID: 62941 RVA: 0x0037A0F4 File Offset: 0x003782F4
 		private bool OnHelpClicked(IXUIButton button)
 		{
 			DlgBase<XCommonHelpTipView, XCommonHelpTipBehaviour>.singleton.ShowHelp(XSysDefine.XSys_Item_Forge);
 			return true;
 		}
 
-		// Token: 0x0600F5DE RID: 62942 RVA: 0x0037A118 File Offset: 0x00378318
 		private bool OnCloseClicked(IXUIButton btn)
 		{
 			base.SetVisible(false);
 			return true;
 		}
 
-		// Token: 0x0600F5DF RID: 62943 RVA: 0x0037A134 File Offset: 0x00378334
 		private bool OnClickForge(IXUIButton btn)
 		{
 			bool bIsPlayingEffect = this.m_bIsPlayingEffect;
@@ -640,7 +608,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F5E0 RID: 62944 RVA: 0x0037A204 File Offset: 0x00378404
 		private bool OnClickDetail(IXUIButton btn)
 		{
 			bool bIsPlayingEffect = this.m_bIsPlayingEffect;
@@ -669,7 +636,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F5E1 RID: 62945 RVA: 0x0037A254 File Offset: 0x00378454
 		private void OnClickToggle(IXUISprite spr)
 		{
 			GameObject gameObject = spr.transform.FindChild("selected").gameObject;
@@ -689,7 +655,6 @@ namespace XMainClient.UI
 			this.RefreshOnSelectRedfinStone();
 		}
 
-		// Token: 0x0600F5E2 RID: 62946 RVA: 0x0037A2D0 File Offset: 0x003784D0
 		private void OnGetItemAccess(IXUISprite iSp)
 		{
 			this.DeActiveEffect();
@@ -697,28 +662,24 @@ namespace XMainClient.UI
 			XSingleton<UiUtility>.singleton.ShowItemAccess(itemid, null);
 		}
 
-		// Token: 0x0600F5E3 RID: 62947 RVA: 0x0037A2FC File Offset: 0x003784FC
 		private void OnSelectedItemClicked(IXUISprite iSp)
 		{
 			XItem mainItem = XBagDocument.MakeXItem((int)iSp.ID, false);
 			XSingleton<UiUtility>.singleton.ShowTooltipDialogWithSearchingCompare(mainItem, iSp, false, 0U);
 		}
 
-		// Token: 0x0600F5E4 RID: 62948 RVA: 0x0037A327 File Offset: 0x00378527
 		private void SelectReDefineStone(IXUISprite iSp)
 		{
 			XSingleton<UiUtility>.singleton.OnItemClick(iSp);
 			DlgBase<ItemTooltipDlg, ItemTooltipDlgBehaviour>.singleton.ItemSelector.Hide();
 		}
 
-		// Token: 0x0600F5E5 RID: 62949 RVA: 0x0037A348 File Offset: 0x00378548
 		private void OnSelectedHadItemClicked(IXUISprite iSp)
 		{
 			ulong id = iSp.ID;
 			XSingleton<UiUtility>.singleton.ShowTooltipDialog(XSingleton<XGame>.singleton.Doc.XBagDoc.GetItemByUID(id), null, iSp, false, 0U);
 		}
 
-		// Token: 0x0600F5E6 RID: 62950 RVA: 0x0037A384 File Offset: 0x00378584
 		private bool SetButtonCool(float time)
 		{
 			float num = Time.realtimeSinceStartup - this.m_fLastClickBtnTime;
@@ -736,106 +697,72 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x04006A79 RID: 27257
 		private XForgeDocument m_doc;
 
-		// Token: 0x04006A7A RID: 27258
 		private bool m_bIsPlayingEffect = false;
 
-		// Token: 0x04006A7B RID: 27259
 		private float m_delayTime = 0.5f;
 
-		// Token: 0x04006A7C RID: 27260
 		private float m_fLastClickBtnTime = 0f;
 
-		// Token: 0x04006A7D RID: 27261
 		private uint m_effectToken = 0U;
 
-		// Token: 0x04006A7E RID: 27262
 		private bool m_bStoneIsEnough = false;
 
-		// Token: 0x04006A7F RID: 27263
 		private bool m_bMetailIsEnough = false;
 
-		// Token: 0x04006A80 RID: 27264
 		private XFx m_ForgeSucceedEffect;
 
-		// Token: 0x04006A81 RID: 27265
 		private XFx m_ForgeLostEffect;
 
-		// Token: 0x04006A82 RID: 27266
 		private IXUIButton m_closeBtn;
 
-		// Token: 0x04006A83 RID: 27267
 		private IXUIButton m_detailBtn;
 
-		// Token: 0x04006A84 RID: 27268
 		private IXUIButton m_forgeBtn;
 
-		// Token: 0x04006A85 RID: 27269
 		private IXUIButton m_helpBtn;
 
-		// Token: 0x04006A86 RID: 27270
 		private IXUISprite m_checkBoxSpr;
 
-		// Token: 0x04006A87 RID: 27271
 		private IXUILabel m_rateLab;
 
-		// Token: 0x04006A88 RID: 27272
 		private IXUILabel m_attrValueLab;
 
-		// Token: 0x04006A89 RID: 27273
 		private IXUILabel m_tipsLab;
 
-		// Token: 0x04006A8A RID: 27274
 		private IXUILabel m_tipsLab1;
 
-		// Token: 0x04006A8B RID: 27275
 		private IXUILabel m_emptyLab;
 
-		// Token: 0x04006A8C RID: 27276
 		private IXUILabel m_refreshLab;
 
-		// Token: 0x04006A8D RID: 27277
 		private GameObject m_attrGo;
 
-		// Token: 0x04006A8E RID: 27278
 		private GameObject m_popGo;
 
-		// Token: 0x04006A8F RID: 27279
 		private GameObject m_resultNewGo;
 
-		// Token: 0x04006A90 RID: 27280
 		private GameObject m_topItemGo;
 
-		// Token: 0x04006A91 RID: 27281
 		private GameObject m_redefinStoneGo;
 
-		// Token: 0x04006A92 RID: 27282
 		private Transform m_effectsTra;
 
-		// Token: 0x04006A93 RID: 27283
 		private XUIPool m_needItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006A94 RID: 27284
 		private ForgeAttrPreViewHandler m_forgeAttrPreviewHandler;
 
-		// Token: 0x04006A95 RID: 27285
 		private ForgeSuccessHandler m_forgeSuccessHandler;
 
-		// Token: 0x04006A96 RID: 27286
 		private ForgeReplaceHandler m_forgeReplaceHandler;
 
-		// Token: 0x04006A97 RID: 27287
 		private int m_lessItemId = 0;
 
-		// Token: 0x04006A98 RID: 27288
 		private int m_lessStoneId = 0;
 
-		// Token: 0x04006A99 RID: 27289
 		private string m_forgeSucPath = string.Empty;
 
-		// Token: 0x04006A9A RID: 27290
 		private string m_forgeLostPath = string.Empty;
 	}
 }

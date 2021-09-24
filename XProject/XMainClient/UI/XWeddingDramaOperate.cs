@@ -7,10 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001702 RID: 5890
+
 	internal class XWeddingDramaOperate : XDramaOperate
 	{
-		// Token: 0x0600F2D7 RID: 62167 RVA: 0x0035E5A9 File Offset: 0x0035C7A9
+
 		public override void ShowNpc(XNpc npc)
 		{
 			base.ShowNpc(npc);
@@ -20,7 +20,6 @@ namespace XMainClient.UI
 			XWeddingDocument.Doc.SendMarriageRelationInfo();
 		}
 
-		// Token: 0x0600F2D8 RID: 62168 RVA: 0x0035E5E8 File Offset: 0x0035C7E8
 		public void RefreshOperateStatus()
 		{
 			switch (this.doc.GetMyMarriageRelation())
@@ -79,7 +78,6 @@ namespace XMainClient.UI
 			base._FireEvent(this._param);
 		}
 
-		// Token: 0x0600F2D9 RID: 62169 RVA: 0x0035E9F8 File Offset: 0x0035CBF8
 		private bool ClickToCancel(IXUIButton button)
 		{
 			XDramaOperateParam data = XDataPool<XDramaOperateParam>.GetData();
@@ -99,14 +97,12 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F2DA RID: 62170 RVA: 0x0035EAB4 File Offset: 0x0035CCB4
 		private void ToCancelApplyDivorce(IXUISprite uiSprite)
 		{
 			string message = XSingleton<UiUtility>.singleton.ReplaceReturn(XSingleton<XStringTable>.singleton.GetString("WeddingCancelBreakTip"));
 			XSingleton<UiUtility>.singleton.ShowModalDialog(message, new ButtonClickEventHandler(this.ToSendCancelApplyDivorce));
 		}
 
-		// Token: 0x0600F2DB RID: 62171 RVA: 0x0035EAF4 File Offset: 0x0035CCF4
 		private bool ToSendCancelApplyDivorce(IXUIButton button)
 		{
 			XSingleton<UiUtility>.singleton.CloseModalDlg();
@@ -114,7 +110,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F2DC RID: 62172 RVA: 0x0035EB24 File Offset: 0x0035CD24
 		private bool ToBreakMarriage(IXUIButton button)
 		{
 			int @int = XSingleton<XGlobalConfig>.singleton.GetInt("MarriageFreeDivorceDay");
@@ -137,7 +132,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F2DD RID: 62173 RVA: 0x0035EC24 File Offset: 0x0035CE24
 		private bool ToSendBreakMarriage(IXUIButton button)
 		{
 			XSingleton<UiUtility>.singleton.CloseModalDlg();
@@ -145,7 +139,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F2DE RID: 62174 RVA: 0x0035EC54 File Offset: 0x0035CE54
 		private string GetCostString(string global)
 		{
 			SeqList<int> sequenceList = XSingleton<XGlobalConfig>.singleton.GetSequenceList(global, true);
@@ -154,14 +147,12 @@ namespace XMainClient.UI
 			return num + "X" + XBagDocument.GetItemConf(itemID).ItemName[0];
 		}
 
-		// Token: 0x0600F2DF RID: 62175 RVA: 0x0035ECA8 File Offset: 0x0035CEA8
 		private bool ToGetWeddingCar(IXUIButton button)
 		{
 			XSingleton<UiUtility>.singleton.ShowModalDialog(XStringDefineProxy.GetString("WeddingCarConfirmTip"), new ButtonClickEventHandler(this.ToSendWeddingCar));
 			return true;
 		}
 
-		// Token: 0x0600F2E0 RID: 62176 RVA: 0x0035ECDC File Offset: 0x0035CEDC
 		private bool ToSendWeddingCar(IXUIButton button)
 		{
 			XSingleton<UiUtility>.singleton.CloseModalDlg();
@@ -169,21 +160,18 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F2E1 RID: 62177 RVA: 0x0035ED08 File Offset: 0x0035CF08
 		private bool ToInviteFriends(IXUIButton button)
 		{
 			DlgBase<XWeddingInviteView, XWeddingInviteBehavior>.singleton.SetVisibleWithAnimation(true, null);
 			return true;
 		}
 
-		// Token: 0x0600F2E2 RID: 62178 RVA: 0x0035ED28 File Offset: 0x0035CF28
 		private bool EnterMarriageScene(IXUIButton button)
 		{
 			DlgBase<WeddingEnterApplyView, WeddingEnterApplyBehaviour>.singleton.SetVisibleWithAnimation(true, null);
 			return true;
 		}
 
-		// Token: 0x0600F2E3 RID: 62179 RVA: 0x0035ED48 File Offset: 0x0035CF48
 		private bool ToHoldBetterWedding(IXUIButton button)
 		{
 			bool flag = this.IsAvailableTeam();
@@ -194,7 +182,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F2E4 RID: 62180 RVA: 0x0035ED74 File Offset: 0x0035CF74
 		private bool ToSendBetterWedding(IXUIButton button)
 		{
 			XSingleton<UiUtility>.singleton.CloseModalDlg();
@@ -202,7 +189,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F2E5 RID: 62181 RVA: 0x0035EDA4 File Offset: 0x0035CFA4
 		private bool ToHoldNormalWedding(IXUIButton button)
 		{
 			bool flag = this.IsAvailableTeam();
@@ -213,7 +199,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F2E6 RID: 62182 RVA: 0x0035EDD0 File Offset: 0x0035CFD0
 		private bool IsAvailableTeam()
 		{
 			XTeamDocument specificDocument = XDocuments.GetSpecificDocument<XTeamDocument>(XTeamDocument.uuID);
@@ -231,7 +216,6 @@ namespace XMainClient.UI
 			return false;
 		}
 
-		// Token: 0x0600F2E7 RID: 62183 RVA: 0x0035EE5C File Offset: 0x0035D05C
 		private bool ToSendNormalWedding(IXUIButton button)
 		{
 			XSingleton<UiUtility>.singleton.CloseModalDlg();
@@ -239,14 +223,12 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F2E8 RID: 62184 RVA: 0x0035EE8C File Offset: 0x0035D08C
 		private bool ToHoldWeddingFeast(IXUIButton button)
 		{
 			XSingleton<UiUtility>.singleton.ShowModalDialog(XStringDefineProxy.GetString("WeddingFeastOnlyOnce"), new ButtonClickEventHandler(this.ToSendReqWedding));
 			return true;
 		}
 
-		// Token: 0x0600F2E9 RID: 62185 RVA: 0x0035EEC0 File Offset: 0x0035D0C0
 		private bool ToSendReqWedding(IXUIButton button)
 		{
 			XSingleton<UiUtility>.singleton.CloseModalDlg();
@@ -254,7 +236,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F2EA RID: 62186 RVA: 0x0035EEEC File Offset: 0x0035D0EC
 		private bool ToGetMarriage(IXUIButton button)
 		{
 			XDramaOperateParam data = XDataPool<XDramaOperateParam>.GetData();
@@ -265,7 +246,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F2EB RID: 62187 RVA: 0x0035EF5C File Offset: 0x0035D15C
 		private bool ToKnowMarriage(IXUIButton button)
 		{
 			string text = XSingleton<UiUtility>.singleton.ReplaceReturn(XSingleton<XStringTable>.singleton.GetString("WeddingRule"));
@@ -274,14 +254,12 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F2EC RID: 62188 RVA: 0x0035EFC0 File Offset: 0x0035D1C0
 		private bool ToCloseMarriageIntro(IXUIButton button)
 		{
 			XSingleton<UiUtility>.singleton.CloseModalDlg();
 			return true;
 		}
 
-		// Token: 0x0600F2ED RID: 62189 RVA: 0x0035EFE0 File Offset: 0x0035D1E0
 		public void RefreshMarriageOp(MarriageRelationOpArg oarg, MarriageRelationOpRes oRes)
 		{
 			XDramaOperateParam data = XDataPool<XDramaOperateParam>.GetData();
@@ -308,10 +286,8 @@ namespace XMainClient.UI
 			base._FireEvent(data);
 		}
 
-		// Token: 0x0400681F RID: 26655
 		private XDramaOperateParam _param;
 
-		// Token: 0x04006820 RID: 26656
 		private XWeddingDocument doc;
 	}
 }

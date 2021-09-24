@@ -6,10 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000DF8 RID: 3576
+
 	internal class XCommandForceSlide : XBaseCommand
 	{
-		// Token: 0x0600C156 RID: 49494 RVA: 0x0029247C File Offset: 0x0029067C
+
 		public override bool Execute()
 		{
 			Transform uiwindow = this.GetUIWindow(this._cmd.param1);
@@ -48,14 +48,12 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C157 RID: 49495 RVA: 0x00292608 File Offset: 0x00290808
 		protected void OnDragStart(GameObject go)
 		{
 			GameObject gameObject = this._cloneDst.FindChild("Can").gameObject;
 			gameObject.SetActive(true);
 		}
 
-		// Token: 0x0600C158 RID: 49496 RVA: 0x00292634 File Offset: 0x00290834
 		protected void OnDragEnd(GameObject go, GameObject surface)
 		{
 			IXUISprite ixuisprite = go.GetComponent("XUISprite") as IXUISprite;
@@ -73,7 +71,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C159 RID: 49497 RVA: 0x002926D8 File Offset: 0x002908D8
 		protected Transform CloneWindow(Transform window)
 		{
 			GameObject gameObject = XCommon.Instantiate<GameObject>(window.gameObject);
@@ -87,7 +84,6 @@ namespace XMainClient
 			return gameObject.transform;
 		}
 
-		// Token: 0x0600C15A RID: 49498 RVA: 0x00292778 File Offset: 0x00290978
 		protected void SetupSlide()
 		{
 			this._finger.transform.parent = XBaseCommand._Overlay.transform;
@@ -104,7 +100,6 @@ namespace XMainClient
 			this._finger.transform.Rotate(0f, 0f, num - 180f);
 		}
 
-		// Token: 0x0600C15B RID: 49499 RVA: 0x002928AC File Offset: 0x00290AAC
 		protected Transform GetUIWindow(string name)
 		{
 			Transform transform = XSingleton<XGameUI>.singleton.UIRoot.FindChild("SkillDlg(Clone)");
@@ -122,13 +117,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C15C RID: 49500 RVA: 0x001E3B34 File Offset: 0x001E1D34
 		public override void OnFinish()
 		{
 			this.Stop();
 		}
 
-		// Token: 0x0600C15D RID: 49501 RVA: 0x00292907 File Offset: 0x00290B07
 		public override void Stop()
 		{
 			XResourceLoaderMgr.SafeDestroy(ref this._finger, false);
@@ -136,19 +129,14 @@ namespace XMainClient
 			XSingleton<XTutorialMgr>.singleton.Exculsive = false;
 		}
 
-		// Token: 0x0400517D RID: 20861
 		private GameObject _finger;
 
-		// Token: 0x0400517E RID: 20862
 		private Transform _cloneSrc;
 
-		// Token: 0x0400517F RID: 20863
 		private Transform _cloneDst;
 
-		// Token: 0x04005180 RID: 20864
 		private uint _dragskillID;
 
-		// Token: 0x04005181 RID: 20865
 		private uint _dragSlot;
 	}
 }

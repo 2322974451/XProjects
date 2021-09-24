@@ -5,21 +5,19 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000D9E RID: 3486
+
 	internal abstract class XConcreteStage : XStage
 	{
-		// Token: 0x0600BD89 RID: 48521 RVA: 0x002762E1 File Offset: 0x002744E1
+
 		public XConcreteStage(EXStage eStage) : base(eStage)
 		{
 		}
 
-		// Token: 0x0600BD8A RID: 48522 RVA: 0x002762EC File Offset: 0x002744EC
 		public override void OnEnterStage(EXStage eOld)
 		{
 			base.OnEnterStage(eOld);
 		}
 
-		// Token: 0x0600BD8B RID: 48523 RVA: 0x002762F8 File Offset: 0x002744F8
 		public override void OnLeaveStage(EXStage eNew)
 		{
 			base.OnLeaveStage(eNew);
@@ -31,7 +29,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BD8C RID: 48524 RVA: 0x00276340 File Offset: 0x00274540
 		private void InitTerrain(uint sceneid)
 		{
 			XSingleton<XScene>.singleton.CurrentTerrain = Terrain.activeTerrain;
@@ -51,7 +48,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BD8D RID: 48525 RVA: 0x002763D4 File Offset: 0x002745D4
 		protected virtual void InstallCamera()
 		{
 			XSingleton<XComponentMgr>.singleton.CreateComponent(XSingleton<XScene>.singleton.GameCamera, XCameraActionComponent.uuID);
@@ -60,7 +56,6 @@ namespace XMainClient
 			XSingleton<XScene>.singleton.GameCamera.Target = XSingleton<XEntityMgr>.singleton.Player;
 		}
 
-		// Token: 0x0600BD8E RID: 48526 RVA: 0x0027644C File Offset: 0x0027464C
 		public override void OnEnterScene(uint sceneid, bool transfer)
 		{
 			base.OnEnterScene(sceneid, transfer);
@@ -75,7 +70,6 @@ namespace XMainClient
 			XSingleton<XLevelAIMgr>.singleton.InitAIData();
 		}
 
-		// Token: 0x0600BD8F RID: 48527 RVA: 0x002764C8 File Offset: 0x002746C8
 		public override void OnLeaveScene(bool transfer)
 		{
 			XSingleton<XPostEffectMgr>.singleton.OnLeaveScene();

@@ -5,11 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017A4 RID: 6052
+
 	internal class HomePlantDlg : DlgBase<HomePlantDlg, HomePlantBehaviour>
 	{
-		// Token: 0x17003863 RID: 14435
-		// (get) Token: 0x0600FA28 RID: 64040 RVA: 0x0039C0F0 File Offset: 0x0039A2F0
+
 		public override string fileName
 		{
 			get
@@ -18,8 +17,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003864 RID: 14436
-		// (get) Token: 0x0600FA29 RID: 64041 RVA: 0x0039C108 File Offset: 0x0039A308
 		public override int layer
 		{
 			get
@@ -28,8 +25,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003865 RID: 14437
-		// (get) Token: 0x0600FA2A RID: 64042 RVA: 0x0039C11C File Offset: 0x0039A31C
 		public override bool exclusive
 		{
 			get
@@ -38,8 +33,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003866 RID: 14438
-		// (get) Token: 0x0600FA2B RID: 64043 RVA: 0x0039C130 File Offset: 0x0039A330
 		public override bool autoload
 		{
 			get
@@ -48,7 +41,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FA2C RID: 64044 RVA: 0x0039C144 File Offset: 0x0039A344
 		protected override void Init()
 		{
 			DlgHandlerBase.EnsureCreate<HomeSeedBagHandler>(ref this.m_homeSeedBagHandler, base.uiBehaviour.m_handlerTra, false, this);
@@ -58,14 +50,12 @@ namespace XMainClient.UI
 			base.Init();
 		}
 
-		// Token: 0x0600FA2D RID: 64045 RVA: 0x0039C1A2 File Offset: 0x0039A3A2
 		public override void RegisterEvent()
 		{
 			base.uiBehaviour.m_closedSpr.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnClickClosed));
 			base.RegisterEvent();
 		}
 
-		// Token: 0x0600FA2E RID: 64046 RVA: 0x0039C1CC File Offset: 0x0039A3CC
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -97,7 +87,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FA2F RID: 64047 RVA: 0x0039C2A8 File Offset: 0x0039A4A8
 		public void Show(XEntity npc)
 		{
 			this.m_lastNpc = npc;
@@ -158,7 +147,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FA30 RID: 64048 RVA: 0x0039C458 File Offset: 0x0039A658
 		protected override void OnHide()
 		{
 			XCameraCloseUpEndEventArgs @event = XEventPool<XCameraCloseUpEndEventArgs>.GetEvent();
@@ -172,13 +160,11 @@ namespace XMainClient.UI
 			base.OnHide();
 		}
 
-		// Token: 0x0600FA31 RID: 64049 RVA: 0x0039C4AA File Offset: 0x0039A6AA
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
 		}
 
-		// Token: 0x0600FA32 RID: 64050 RVA: 0x0039C4B4 File Offset: 0x0039A6B4
 		protected override void OnUnload()
 		{
 			DlgHandlerBase.EnsureUnload<HomeSeedBagHandler>(ref this.m_homeSeedBagHandler);
@@ -186,13 +172,11 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x0600FA33 RID: 64051 RVA: 0x0039C4D6 File Offset: 0x0039A6D6
 		public void RefreshUI()
 		{
 			this.ShowSubHandler();
 		}
 
-		// Token: 0x0600FA34 RID: 64052 RVA: 0x0039C4E0 File Offset: 0x0039A6E0
 		private void ShowSubHandler()
 		{
 			Farmland farmland = this.m_doc.GetFarmland(this.m_doc.CurFarmlandId);
@@ -243,7 +227,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FA35 RID: 64053 RVA: 0x0039C5F4 File Offset: 0x0039A7F4
 		private bool ReqBreakNewFarmland(IXUIButton btn)
 		{
 			HomePlantDocument doc = HomePlantDocument.Doc;
@@ -266,7 +249,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FA36 RID: 64054 RVA: 0x0039C66C File Offset: 0x0039A86C
 		private void OnClickClosed(IXUISprite spr)
 		{
 			bool isPlayingAction = this.IsPlayingAction;
@@ -276,22 +258,16 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04006D93 RID: 28051
 		private DlgHandlerBase m_CurrHandler;
 
-		// Token: 0x04006D94 RID: 28052
 		private HomeSeedBagHandler m_homeSeedBagHandler;
 
-		// Token: 0x04006D95 RID: 28053
 		private HomeCropInfoHandler m_homeCropInfoHandler;
 
-		// Token: 0x04006D96 RID: 28054
 		private HomePlantDocument m_doc;
 
-		// Token: 0x04006D97 RID: 28055
 		public bool IsPlayingAction = false;
 
-		// Token: 0x04006D98 RID: 28056
 		private XEntity m_lastNpc = null;
 	}
 }

@@ -9,11 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000B9C RID: 2972
+
 	internal class LevelRewardArenaHandler : DlgHandlerBase
 	{
-		// Token: 0x17003041 RID: 12353
-		// (get) Token: 0x0600AA86 RID: 43654 RVA: 0x001E8C28 File Offset: 0x001E6E28
+
 		protected override string FileName
 		{
 			get
@@ -22,7 +21,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AA87 RID: 43655 RVA: 0x001E8C3F File Offset: 0x001E6E3F
 		protected override void Init()
 		{
 			base.Init();
@@ -30,7 +28,6 @@ namespace XMainClient
 			this.InitUI();
 		}
 
-		// Token: 0x0600AA88 RID: 43656 RVA: 0x001E8C60 File Offset: 0x001E6E60
 		private void InitUI()
 		{
 			this.m_ArenaWinFrame = base.transform.Find("Result/Win");
@@ -62,7 +59,6 @@ namespace XMainClient
 			this.m_HonorUpTip2 = (base.transform.FindChild("Qualifying/HonorUpTip2").GetComponent("XUILabel") as IXUILabel);
 		}
 
-		// Token: 0x0600AA89 RID: 43657 RVA: 0x001E8FF0 File Offset: 0x001E71F0
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -71,34 +67,29 @@ namespace XMainClient
 			this.m_InvitePKReturn.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnContinueClick));
 		}
 
-		// Token: 0x0600AA8A RID: 43658 RVA: 0x001E904D File Offset: 0x001E724D
 		private void OnContinueClick(IXUISprite sp)
 		{
 			this._doc.SendLeaveScene();
 		}
 
-		// Token: 0x0600AA8B RID: 43659 RVA: 0x001E905C File Offset: 0x001E725C
 		private void OnInvitePKAgain(IXUISprite sp)
 		{
 			XPKInvitationDocument specificDocument = XDocuments.GetSpecificDocument<XPKInvitationDocument>(XPKInvitationDocument.uuID);
 			specificDocument.AskInvitePKAgain();
 		}
 
-		// Token: 0x0600AA8C RID: 43660 RVA: 0x001E907C File Offset: 0x001E727C
 		private void ShowQualifying(IXUISprite sp)
 		{
 			base.SetVisible(false);
 			DlgBase<XQualifyingView, XQualifyingBehaviour>.singleton.SetVisibleWithAnimation(true, null);
 		}
 
-		// Token: 0x0600AA8D RID: 43661 RVA: 0x001E9094 File Offset: 0x001E7294
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.ShowArenaFrame();
 		}
 
-		// Token: 0x0600AA8E RID: 43662 RVA: 0x001E90A8 File Offset: 0x001E72A8
 		private void InitAwardList(List<ItemBrief> items)
 		{
 			bool flag = items == null || items.Count == 0;
@@ -139,7 +130,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AA8F RID: 43663 RVA: 0x001E9254 File Offset: 0x001E7454
 		public void ShowArenaFrame()
 		{
 			SceneType currentStage = this._doc.CurrentStage;
@@ -284,7 +274,6 @@ namespace XMainClient
 			this.InitAwardList(this._doc.QualifyingBattleData.QualifyingHonorItems);
 		}
 
-		// Token: 0x0600AA90 RID: 43664 RVA: 0x001E981C File Offset: 0x001E7A1C
 		private void SetBattleResultTitle(PkResultType state)
 		{
 			switch (state)
@@ -307,85 +296,58 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04003F41 RID: 16193
 		private XLevelRewardDocument _doc = null;
 
-		// Token: 0x04003F42 RID: 16194
 		private Transform m_ArenaWinFrame;
 
-		// Token: 0x04003F43 RID: 16195
 		private Transform m_ArenaDrawFrame;
 
-		// Token: 0x04003F44 RID: 16196
 		private Transform m_ArenaLoseFrame;
 
-		// Token: 0x04003F45 RID: 16197
 		private IXUISprite m_ArenaContinue;
 
-		// Token: 0x04003F46 RID: 16198
 		private IXUILabel m_ArenaReturnLabel;
 
-		// Token: 0x04003F47 RID: 16199
 		private IXUILabel m_ArenaRankUpNum;
 
-		// Token: 0x04003F48 RID: 16200
 		private IXUISprite m_ArenaRankUpArrow;
 
-		// Token: 0x04003F49 RID: 16201
 		private IXUISprite m_ArenaRankUp;
 
-		// Token: 0x04003F4A RID: 16202
 		private IXUILabel m_ArenaGemNum;
 
-		// Token: 0x04003F4B RID: 16203
 		private IXUILabel m_ArenaMissTip;
 
-		// Token: 0x04003F4C RID: 16204
 		private IXUILabel m_InvitePKResult;
 
-		// Token: 0x04003F4D RID: 16205
 		private GameObject m_InvitePK;
 
-		// Token: 0x04003F4E RID: 16206
 		private IXUISprite m_InvitePKReturn;
 
-		// Token: 0x04003F4F RID: 16207
 		private IXUISprite m_InvitePKAgain;
 
-		// Token: 0x04003F50 RID: 16208
 		private IXUISprite m_Qualifying;
 
-		// Token: 0x04003F51 RID: 16209
 		private IXUISprite m_QualifyRankUpArrow;
 
-		// Token: 0x04003F52 RID: 16210
 		private IXUILabel m_QualifyFirstRank;
 
-		// Token: 0x04003F53 RID: 16211
 		private GameObject m_QualifyRankTips;
 
-		// Token: 0x04003F54 RID: 16212
 		private IXUILabel m_QualifyRankUpNum;
 
-		// Token: 0x04003F55 RID: 16213
 		private IXUISprite m_QualifyPointUpArrow;
 
-		// Token: 0x04003F56 RID: 16214
 		private IXUILabel m_QualifyPointUpNum;
 
-		// Token: 0x04003F57 RID: 16215
 		private IXUILabel m_QualifyHonorNum;
 
-		// Token: 0x04003F58 RID: 16216
 		private XUIPool m_RewardPool;
 
-		// Token: 0x04003F59 RID: 16217
 		private IXUIList m_RewardList;
 
-		// Token: 0x04003F5A RID: 16218
 		private IXUILabel m_HonorUpTip2;
 
-		// Token: 0x04003F5B RID: 16219
 		private Vector3 m_itemScale = new Vector3(0.6f, 0.6f, 0.6f);
 	}
 }

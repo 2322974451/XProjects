@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200189E RID: 6302
+
 	internal class XGuildBasicInfoDisplay
 	{
-		// Token: 0x06010694 RID: 67220 RVA: 0x00400F2C File Offset: 0x003FF12C
+
 		public void Init(Transform go, bool bFirstInit)
 		{
 			this.Root = go;
@@ -154,7 +154,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010695 RID: 67221 RVA: 0x004012C0 File Offset: 0x003FF4C0
 		public void Set(XGuildBasicData data)
 		{
 			bool flag = this.GuildName != null;
@@ -219,43 +218,30 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0400766F RID: 30319
 		public Transform Root;
 
-		// Token: 0x04007670 RID: 30320
 		public IXUILabel GuildName;
 
-		// Token: 0x04007671 RID: 30321
 		public IXUILabel LeaderName;
 
-		// Token: 0x04007672 RID: 30322
 		public IXUILabel Annoucement;
 
-		// Token: 0x04007673 RID: 30323
 		public IXUILabel Level;
 
-		// Token: 0x04007674 RID: 30324
 		public IXUILabel Rank;
 
-		// Token: 0x04007675 RID: 30325
 		public IXUILabel MemberCount;
 
-		// Token: 0x04007676 RID: 30326
 		public IXUILabel Exp;
 
-		// Token: 0x04007677 RID: 30327
 		public IXUISprite Portrait;
 
-		// Token: 0x04007678 RID: 30328
 		public IXUILabel Liveness;
 
-		// Token: 0x04007679 RID: 30329
 		public IXUILabel Popularity;
 
-		// Token: 0x0400767A RID: 30330
 		public IXUILabel Technology;
 
-		// Token: 0x0400767B RID: 30331
 		public IXUILabel Resources;
 	}
 }

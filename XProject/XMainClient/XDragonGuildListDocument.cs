@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000906 RID: 2310
+
 	internal class XDragonGuildListDocument : XDocComponent
 	{
-		// Token: 0x17002B5D RID: 11101
-		// (get) Token: 0x06008B9C RID: 35740 RVA: 0x0012B7C8 File Offset: 0x001299C8
+
 		public override uint ID
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002B5E RID: 11102
-		// (get) Token: 0x06008B9D RID: 35741 RVA: 0x0012B7E0 File Offset: 0x001299E0
 		public static XDragonGuildListDocument Doc
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002B5F RID: 11103
-		// (get) Token: 0x06008B9E RID: 35742 RVA: 0x0012B80C File Offset: 0x00129A0C
 		public List<XDragonGuildListData> ListData
 		{
 			get
@@ -40,9 +35,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002B60 RID: 11104
-		// (get) Token: 0x06008B9F RID: 35743 RVA: 0x0012B824 File Offset: 0x00129A24
-		// (set) Token: 0x06008BA0 RID: 35744 RVA: 0x0012B83C File Offset: 0x00129A3C
 		public DragonGuildSortType SortType
 		{
 			get
@@ -64,8 +56,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002B61 RID: 11105
-		// (get) Token: 0x06008BA1 RID: 35745 RVA: 0x0012B884 File Offset: 0x00129A84
 		public int SortDirection
 		{
 			get
@@ -74,12 +64,8 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002B62 RID: 11106
-		// (get) Token: 0x06008BA2 RID: 35746 RVA: 0x0012B89C File Offset: 0x00129A9C
-		// (set) Token: 0x06008BA3 RID: 35747 RVA: 0x0012B8A4 File Offset: 0x00129AA4
 		public string SearchText { get; set; }
 
-		// Token: 0x06008BA4 RID: 35748 RVA: 0x0012B8B0 File Offset: 0x00129AB0
 		private void _ClearAllList()
 		{
 			for (int i = 0; i < this._ListData.Count; i++)
@@ -89,7 +75,6 @@ namespace XMainClient
 			this._ListData.Clear();
 		}
 
-		// Token: 0x06008BA5 RID: 35749 RVA: 0x0012B8F8 File Offset: 0x00129AF8
 		private void _AddTail()
 		{
 			XDragonGuildListData data = XDataPool<XDragonGuildListData>.GetData();
@@ -97,7 +82,6 @@ namespace XMainClient
 			this._ListData.Add(data);
 		}
 
-		// Token: 0x06008BA6 RID: 35750 RVA: 0x0012B924 File Offset: 0x00129B24
 		private void _RemoveTail()
 		{
 			bool flag = this._ListData.Count > 0 && this._ListData[this._ListData.Count - 1].uid == 0UL;
@@ -108,7 +92,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008BA7 RID: 35751 RVA: 0x0012B9A4 File Offset: 0x00129BA4
 		public void ReqCreateDragonGuild(string name)
 		{
 			bool flag = name.Length > XDragonGuildListDocument.NAME_LENGTH_LIMIT;
@@ -128,7 +111,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008BA8 RID: 35752 RVA: 0x0012BA20 File Offset: 0x00129C20
 		public void OnCreateDragonGuild(CreateOrJoinDragonGuildArg oArg, CreateOrJoinDragonGuildRes oRes)
 		{
 			bool flag = oRes.result > ErrorCode.ERR_SUCCESS;
@@ -142,7 +124,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008BA9 RID: 35753 RVA: 0x0012BA60 File Offset: 0x00129C60
 		public void ReqApplyDragonGuild(ulong uid, string name)
 		{
 			RpcC2M_CreateOrJoinDragonGuild rpcC2M_CreateOrJoinDragonGuild = new RpcC2M_CreateOrJoinDragonGuild();
@@ -152,7 +133,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_CreateOrJoinDragonGuild);
 		}
 
-		// Token: 0x06008BAA RID: 35754 RVA: 0x0012BAA8 File Offset: 0x00129CA8
 		public void OnApplyDragonGuild(CreateOrJoinDragonGuildArg oArg, CreateOrJoinDragonGuildRes oRes)
 		{
 			bool flag = oRes.result > ErrorCode.ERR_SUCCESS;
@@ -186,13 +166,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008BAB RID: 35755 RVA: 0x0012BB8F File Offset: 0x00129D8F
 		public void ReqQuickJoin()
 		{
 			this.ReqApplyDragonGuild(0UL, "");
 		}
 
-		// Token: 0x06008BAC RID: 35756 RVA: 0x0012BBA0 File Offset: 0x00129DA0
 		public void ReqSearch(string text)
 		{
 			this.SearchText = text;
@@ -208,21 +186,18 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008BAD RID: 35757 RVA: 0x0012BBE7 File Offset: 0x00129DE7
 		public void ReqDragonGuildList()
 		{
 			this._ClearAllList();
 			this._ReqDragonGuildList(0, XDragonGuildListDocument.COUNT_PER_PULL);
 		}
 
-		// Token: 0x06008BAE RID: 35758 RVA: 0x0012BBFE File Offset: 0x00129DFE
 		public void ReqMoreGuilds()
 		{
 			this._RemoveTail();
 			this._ReqDragonGuildList(this._ListData.Count, XDragonGuildListDocument.COUNT_PER_PULL);
 		}
 
-		// Token: 0x06008BAF RID: 35759 RVA: 0x0012BC20 File Offset: 0x00129E20
 		private void _ReqDragonGuildList(int start, int count)
 		{
 			RpcC2M_FetchDragonGuildList rpcC2M_FetchDragonGuildList = new RpcC2M_FetchDragonGuildList();
@@ -235,7 +210,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_FetchDragonGuildList);
 		}
 
-		// Token: 0x06008BB0 RID: 35760 RVA: 0x0012BCBC File Offset: 0x00129EBC
 		public void OnGetDragonGuildList(FetchDragonGuildListArg oArg, FetchDragonGuildRes oRes)
 		{
 			int num = Math.Min(this._ListData.Count, oArg.start);
@@ -303,33 +277,24 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008BB1 RID: 35761 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 		}
 
-		// Token: 0x04002CB8 RID: 11448
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("XDragonGuildListDocument");
 
-		// Token: 0x04002CB9 RID: 11449
 		private static readonly int COUNT_PER_PULL = 5;
 
-		// Token: 0x04002CBA RID: 11450
 		private static readonly int COUNT_ALL = 500;
 
-		// Token: 0x04002CBB RID: 11451
 		private static readonly int NAME_LENGTH_LIMIT = 8;
 
-		// Token: 0x04002CBC RID: 11452
 		private List<XDragonGuildListData> _ListData = new List<XDragonGuildListData>();
 
-		// Token: 0x04002CBD RID: 11453
 		private DragonGuildSortType m_SortType = DragonGuildSortType.DragonGuildSortByLevel;
 
-		// Token: 0x04002CBE RID: 11454
 		private int m_Direction = XGuildListData.DefaultSortDirection[XFastEnumIntEqualityComparer<DragonGuildSortType>.ToInt(DragonGuildSortType.DragonGuildSortByLevel)];
 
-		// Token: 0x04002CC0 RID: 11456
 		public XDragonGuildListHandler View;
 	}
 }

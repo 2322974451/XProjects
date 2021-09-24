@@ -8,10 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C88 RID: 3208
+
 	internal class CareerHomepageHandler : DlgHandlerBase
 	{
-		// Token: 0x0600B528 RID: 46376 RVA: 0x0023AA10 File Offset: 0x00238C10
+
 		protected override void Init()
 		{
 			base.Init();
@@ -43,8 +43,6 @@ namespace XMainClient
 			this.InitInfo();
 		}
 
-		// Token: 0x17003210 RID: 12816
-		// (get) Token: 0x0600B529 RID: 46377 RVA: 0x0023ACB4 File Offset: 0x00238EB4
 		protected override string FileName
 		{
 			get
@@ -53,7 +51,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B52A RID: 46378 RVA: 0x0023ACCC File Offset: 0x00238ECC
 		public override void RegisterEvent()
 		{
 			this.m_SignatureChange.RegisterClickEventHandler(new ButtonClickEventHandler(this._InputBtnClick));
@@ -61,25 +58,21 @@ namespace XMainClient
 			this.m_Share.RegisterClickEventHandler(new ButtonClickEventHandler(this._ShareBtnClick));
 		}
 
-		// Token: 0x0600B52B RID: 46379 RVA: 0x0019F00C File Offset: 0x0019D20C
 		protected override void OnShow()
 		{
 			base.OnShow();
 		}
 
-		// Token: 0x0600B52C RID: 46380 RVA: 0x0019EEFD File Offset: 0x0019D0FD
 		protected override void OnHide()
 		{
 			base.OnHide();
 		}
 
-		// Token: 0x0600B52D RID: 46381 RVA: 0x0019EF07 File Offset: 0x0019D107
 		public override void OnUnload()
 		{
 			base.OnUnload();
 		}
 
-		// Token: 0x0600B52E RID: 46382 RVA: 0x0023AD24 File Offset: 0x00238F24
 		private void InitInfo()
 		{
 			this.m_Username.InputText = "";
@@ -97,7 +90,6 @@ namespace XMainClient
 			this.m_QQSVipIcon.gameObject.SetActive(false);
 		}
 
-		// Token: 0x0600B52F RID: 46383 RVA: 0x0023AE14 File Offset: 0x00239014
 		public void SetData(PersonalHomePage data)
 		{
 			this.m_Username.InputText = XSingleton<XCommon>.singleton.StringCombine(data.play_name, XWelfareDocument.GetMemberPrivilegeIconString(data.paymember_id));
@@ -134,13 +126,11 @@ namespace XMainClient
 			this.m_Share.gameObject.SetActive(DlgBase<PersonalCareerView, PersonalCareerBehaviour>.singleton.roleId == 0UL);
 		}
 
-		// Token: 0x0600B530 RID: 46384 RVA: 0x0023B080 File Offset: 0x00239280
 		public void SetDeclaration(string declaration)
 		{
 			this.m_SignatureLabel.SetText(declaration);
 		}
 
-		// Token: 0x0600B531 RID: 46385 RVA: 0x0023B090 File Offset: 0x00239290
 		private void SetQQVip(uint vip)
 		{
 			bool flag = XSingleton<XLoginDocument>.singleton.Channel == XAuthorizationChannel.XAuthorization_QQ && XSingleton<XGameSysMgr>.singleton.IsSystemOpened(XSysDefine.XSys_QQVIP);
@@ -156,7 +146,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B532 RID: 46386 RVA: 0x0023B11C File Offset: 0x0023931C
 		private int _CompareGrowthProcess(CareerData left, CareerData right)
 		{
 			bool flag = left.time == right.time;
@@ -180,7 +169,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B533 RID: 46387 RVA: 0x0023B1A8 File Offset: 0x002393A8
 		private void SetGrowthProcess(List<CareerData> data)
 		{
 			bool flag = data.Count == 0;
@@ -233,7 +221,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B534 RID: 46388 RVA: 0x0023B464 File Offset: 0x00239664
 		private string GrowthText(CareerData data)
 		{
 			bool flag = data == null;
@@ -283,21 +270,18 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B535 RID: 46389 RVA: 0x0023B568 File Offset: 0x00239768
 		private bool _PushBtnClick(IXUIButton btn)
 		{
 			DlgBase<PersonalCareerView, PersonalCareerBehaviour>.singleton.PushClick(0UL);
 			return true;
 		}
 
-		// Token: 0x0600B536 RID: 46390 RVA: 0x0023B588 File Offset: 0x00239788
 		private bool _ShareBtnClick(IXUIButton btn)
 		{
 			DlgBase<PersonalCareerView, PersonalCareerBehaviour>.singleton.ShareClick();
 			return true;
 		}
 
-		// Token: 0x0600B537 RID: 46391 RVA: 0x0023B5A8 File Offset: 0x002397A8
 		private void test()
 		{
 			this.SetGrowthProcess(new List<CareerData>
@@ -329,7 +313,6 @@ namespace XMainClient
 			});
 		}
 
-		// Token: 0x0600B538 RID: 46392 RVA: 0x0023B660 File Offset: 0x00239860
 		private bool _InputBtnClick(IXUIButton btn)
 		{
 			DlgBase<XChatInputView, XChatInputBehaviour>.singleton.ShowChatInput(new ChatInputStringBack(this.ReqSetDeclaration));
@@ -338,7 +321,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B539 RID: 46393 RVA: 0x0023B6A4 File Offset: 0x002398A4
 		public void ReqSetDeclaration(string str)
 		{
 			RpcC2G_ChangeDeclaration rpcC2G_ChangeDeclaration = new RpcC2G_ChangeDeclaration();
@@ -346,76 +328,55 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_ChangeDeclaration);
 		}
 
-		// Token: 0x040046B6 RID: 18102
 		private IXUILabelSymbol m_Username;
 
-		// Token: 0x040046B7 RID: 18103
 		private IXUILabel m_UID;
 
-		// Token: 0x040046B8 RID: 18104
 		private IXUILabel m_Level;
 
-		// Token: 0x040046B9 RID: 18105
 		private IXUILabel m_Server;
 
-		// Token: 0x040046BA RID: 18106
 		private IXUILabel m_Guild;
 
-		// Token: 0x040046BB RID: 18107
 		private IXUILabel m_Profession;
 
-		// Token: 0x040046BC RID: 18108
 		private IXUILabel m_ContinuousLogin;
 
-		// Token: 0x040046BD RID: 18109
 		private IXUILabel m_OnlineTime;
 
-		// Token: 0x040046BE RID: 18110
 		private IXUILabel m_PPT;
 
-		// Token: 0x040046BF RID: 18111
 		private IXUISprite m_Portrait;
 
-		// Token: 0x040046C0 RID: 18112
 		private Transform m_SignatureSelfShow;
 
-		// Token: 0x040046C1 RID: 18113
 		private IXUIButton m_SignatureChange;
 
-		// Token: 0x040046C2 RID: 18114
 		private IXUILabel m_SignatureLabel;
 
-		// Token: 0x040046C3 RID: 18115
 		private Transform m_QQVipIcon;
 
-		// Token: 0x040046C4 RID: 18116
 		private Transform m_QQSVipIcon;
 
-		// Token: 0x040046C5 RID: 18117
 		private IXUIButton m_Push;
 
-		// Token: 0x040046C6 RID: 18118
 		private IXUIButton m_Share;
 
-		// Token: 0x040046C7 RID: 18119
 		private XUIPool m_CoursePool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x040046C8 RID: 18120
 		private XUIPool m_TimePool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x040046C9 RID: 18121
 		private XUIPool m_LinePool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x020019AC RID: 6572
 		public enum GrowthType
 		{
-			// Token: 0x04007F7B RID: 32635
+
 			NONE,
-			// Token: 0x04007F7C RID: 32636
+
 			Level,
-			// Token: 0x04007F7D RID: 32637
+
 			Nest,
-			// Token: 0x04007F7E RID: 32638
+
 			Dragon
 		}
 	}

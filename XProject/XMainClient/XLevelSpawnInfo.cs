@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000E0E RID: 3598
+
 	internal class XLevelSpawnInfo
 	{
-		// Token: 0x0600C1DC RID: 49628 RVA: 0x002985A0 File Offset: 0x002967A0
+
 		public void Clear()
 		{
 			this._waves.Clear();
@@ -21,7 +21,6 @@ namespace XMainClient
 			this._tasks.Clear();
 		}
 
-		// Token: 0x0600C1DD RID: 49629 RVA: 0x00298630 File Offset: 0x00296830
 		public void ResetDynamicInfo()
 		{
 			foreach (KeyValuePair<int, XLevelDynamicInfo> keyValuePair in this._wavesDynamicInfo)
@@ -30,7 +29,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C1DE RID: 49630 RVA: 0x00298690 File Offset: 0x00296890
 		public void KillSpawn(int waveid)
 		{
 			List<XEntity> list = XSingleton<XEntityMgr>.singleton.GetNeutral();
@@ -53,7 +51,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C1DF RID: 49631 RVA: 0x00298740 File Offset: 0x00296940
 		public void ShowBubble(int typeid, string text, float exist)
 		{
 			List<XEntity> all = XSingleton<XEntityMgr>.singleton.GetAll();
@@ -79,7 +76,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C1E0 RID: 49632 RVA: 0x00298828 File Offset: 0x00296A28
 		public void Update(float time)
 		{
 			bool flag = !XSingleton<XGame>.singleton.SyncMode;
@@ -89,7 +85,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C1E1 RID: 49633 RVA: 0x00298854 File Offset: 0x00296A54
 		protected void _SoloUpdate(float time)
 		{
 			for (int i = 0; i < this._waves.Count; i++)
@@ -231,7 +226,6 @@ namespace XMainClient
 			this.ProcessTaskQueue(time);
 		}
 
-		// Token: 0x0600C1E2 RID: 49634 RVA: 0x00298CB0 File Offset: 0x00296EB0
 		public bool ExecuteWaveExtraScript(int wave)
 		{
 			for (int i = 0; i < this._waves.Count; i++)
@@ -260,14 +254,12 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x0600C1E3 RID: 49635 RVA: 0x00298DD8 File Offset: 0x00296FD8
 		protected void RunExtraScript(object o)
 		{
 			string funcName = (string)o;
 			XSingleton<XLevelScriptMgr>.singleton.RunScript(funcName);
 		}
 
-		// Token: 0x0600C1E4 RID: 49636 RVA: 0x00298DFC File Offset: 0x00296FFC
 		protected void ProcessTaskQueue(float time)
 		{
 			bool flag = true;
@@ -286,7 +278,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C1E5 RID: 49637 RVA: 0x00298E54 File Offset: 0x00297054
 		public XLevelDynamicInfo GetWaveDynamicInfo(int waveid)
 		{
 			XLevelDynamicInfo xlevelDynamicInfo;
@@ -303,7 +294,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600C1E6 RID: 49638 RVA: 0x00298E80 File Offset: 0x00297080
 		protected XLevelWave GetWaveInfo(int waveid)
 		{
 			for (int i = 0; i < this._waves.Count; i++)
@@ -317,7 +307,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x0600C1E7 RID: 49639 RVA: 0x00298ED8 File Offset: 0x002970D8
 		public void OnMonsterDie(XEntity entity)
 		{
 			XLevelDynamicInfo xlevelDynamicInfo;
@@ -330,7 +319,6 @@ namespace XMainClient
 			XSingleton<XLevelDoodadMgr>.singleton.OnMonsterDie(entity);
 		}
 
-		// Token: 0x0600C1E8 RID: 49640 RVA: 0x00298F2C File Offset: 0x0029712C
 		public void GenerateExternalSpawnTask(uint enemyID, Vector3 pos, int rot)
 		{
 			XLevelSpawnTask xlevelSpawnTask = new XLevelSpawnTask(this);
@@ -344,7 +332,6 @@ namespace XMainClient
 			this._tasks.Enqueue(xlevelSpawnTask);
 		}
 
-		// Token: 0x0600C1E9 RID: 49641 RVA: 0x00298F80 File Offset: 0x00297180
 		protected void GenerateNormalTask(XLevelWave wave)
 		{
 			XSingleton<XLevelStatistics>.singleton.ls._monster_refresh_time.Add((uint)(Time.time - XSingleton<XLevelStatistics>.singleton.ls._start_time));
@@ -362,7 +349,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C1EA RID: 49642 RVA: 0x0029907C File Offset: 0x0029727C
 		protected void GenerateRoundTask(XLevelWave wave)
 		{
 			bool flag = wave._roundRidus > 0f && wave._roundCount > 0;
@@ -386,7 +372,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600C1EB RID: 49643 RVA: 0x002991BC File Offset: 0x002973BC
 		protected void GenerateScriptTask(XLevelWave wave)
 		{
 			XLevelScriptTask xlevelScriptTask = new XLevelScriptTask(this);
@@ -394,7 +379,6 @@ namespace XMainClient
 			this._tasks.Enqueue(xlevelScriptTask);
 		}
 
-		// Token: 0x0600C1EC RID: 49644 RVA: 0x002991EC File Offset: 0x002973EC
 		public bool QueryMonsterStaticInfo(uint monsterID, ref Vector3 position, ref float face)
 		{
 			for (int i = 0; i < this._waves.Count; i++)
@@ -417,19 +401,14 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x04005276 RID: 21110
 		public List<XLevelWave> _waves = new List<XLevelWave>();
 
-		// Token: 0x04005277 RID: 21111
 		public Dictionary<int, XLevelDynamicInfo> _wavesDynamicInfo = new Dictionary<int, XLevelDynamicInfo>();
 
-		// Token: 0x04005278 RID: 21112
 		public Dictionary<int, int> _preloadInfo = new Dictionary<int, int>();
 
-		// Token: 0x04005279 RID: 21113
 		private Queue<XLevelBaseTask> _tasks = new Queue<XLevelBaseTask>();
 
-		// Token: 0x0400527A RID: 21114
 		private const int spawn_monster_per_frame = 2;
 	}
 }

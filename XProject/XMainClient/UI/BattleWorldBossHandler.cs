@@ -8,10 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001891 RID: 6289
+
 	internal class BattleWorldBossHandler : DlgHandlerBase, IWorldBossBattleView
 	{
-		// Token: 0x060105DC RID: 67036 RVA: 0x003FB95C File Offset: 0x003F9B5C
+
 		protected override void Init()
 		{
 			base.Init();
@@ -43,7 +43,6 @@ namespace XMainClient.UI
 			this._SetupRank();
 		}
 
-		// Token: 0x060105DD RID: 67037 RVA: 0x003FBCE8 File Offset: 0x003F9EE8
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -58,7 +57,6 @@ namespace XMainClient.UI
 			this.m_RankFrameTween.RegisterOnFinishEventHandler(new OnTweenFinishEventHandler(this._OnTweenFinishEventHandler));
 		}
 
-		// Token: 0x060105DE RID: 67038 RVA: 0x003FBDA8 File Offset: 0x003F9FA8
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
@@ -81,7 +79,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060105DF RID: 67039 RVA: 0x003FBE48 File Offset: 0x003FA048
 		public override void OnUnload()
 		{
 			DlgHandlerBase.EnsureUnload<XWorldBossDamageRankHandler>(ref this._RankHandler);
@@ -120,7 +117,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x060105E0 RID: 67040 RVA: 0x003FBF30 File Offset: 0x003FA130
 		private void _SetupRank()
 		{
 			List<RankeType> list = new List<RankeType>();
@@ -186,7 +182,6 @@ namespace XMainClient.UI
 			this._RankHandler.SetupRanks(list, true);
 		}
 
-		// Token: 0x060105E1 RID: 67041 RVA: 0x003FC1FC File Offset: 0x003FA3FC
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -194,7 +189,6 @@ namespace XMainClient.UI
 			this._OnDamageRankClicked(this._DamageRankBtn);
 		}
 
-		// Token: 0x060105E2 RID: 67042 RVA: 0x003FC21C File Offset: 0x003FA41C
 		private void ReqBattleInfo()
 		{
 			this.BattleSource.ReqBattleInfo();
@@ -202,13 +196,11 @@ namespace XMainClient.UI
 			this._GetBattleInfoToken = XSingleton<XTimerMgr>.singleton.SetTimer(10f, new XTimerMgr.ElapsedEventHandler(this.ReqBattleInfoTimer), null);
 		}
 
-		// Token: 0x060105E3 RID: 67043 RVA: 0x003FC269 File Offset: 0x003FA469
 		private void ReqBattleInfoTimer(object o)
 		{
 			this.ReqBattleInfo();
 		}
 
-		// Token: 0x060105E4 RID: 67044 RVA: 0x003FC274 File Offset: 0x003FA474
 		protected override void OnHide()
 		{
 			bool flag = this._LeaveSceneToken > 0U;
@@ -220,7 +212,6 @@ namespace XMainClient.UI
 			base.OnHide();
 		}
 
-		// Token: 0x060105E5 RID: 67045 RVA: 0x003FC2B0 File Offset: 0x003FA4B0
 		public void RefreshAllEnacourage()
 		{
 			bool flag = this.m_encourageInfos == null;
@@ -242,13 +233,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060105E6 RID: 67046 RVA: 0x003FC312 File Offset: 0x003FA512
 		public void RefreshEncourage()
 		{
 			this.RefreshEncourage(this._SelectIndex);
 		}
 
-		// Token: 0x060105E7 RID: 67047 RVA: 0x003FC324 File Offset: 0x003FA524
 		public void RefreshEncourage(int index)
 		{
 			bool flag = !base.IsVisible();
@@ -281,7 +270,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060105E8 RID: 67048 RVA: 0x003FC480 File Offset: 0x003FA680
 		private bool _OnEncouragePanelClicked(IXUIButton btn)
 		{
 			this._SelectIndex = (int)btn.ID;
@@ -291,7 +279,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x060105E9 RID: 67049 RVA: 0x003FC4E0 File Offset: 0x003FA6E0
 		private bool _OnDamageRankClicked(IXUIButton btn)
 		{
 			bool flag = !base.IsVisible();
@@ -328,7 +315,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x060105EA RID: 67050 RVA: 0x003FC598 File Offset: 0x003FA798
 		private void _OnTweenFinishEventHandler(IXUITweenTool tween)
 		{
 			bool flag = !tween.bPlayForward && this._RankHandler != null;
@@ -338,13 +324,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060105EB RID: 67051 RVA: 0x003FC5CB File Offset: 0x003FA7CB
 		private void _OnEncourageCloseClicked(IXUISprite iSp)
 		{
 			this._EncouragePanel.SetActive(false);
 		}
 
-		// Token: 0x060105EC RID: 67052 RVA: 0x003FC5DC File Offset: 0x003FA7DC
 		private bool _OnEncourageDoClicked(IXUIButton btn)
 		{
 			EncourageShowInfo encourageShowInfo = this.m_encourageInfos[this._SelectIndex];
@@ -372,7 +356,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x060105ED RID: 67053 RVA: 0x003FC67C File Offset: 0x003FA87C
 		public void SetLeftTime(uint leftTime)
 		{
 			bool flag = DlgBase<BattleMain, BattleMainBehaviour>.singleton.IsLoaded();
@@ -387,7 +370,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060105EE RID: 67054 RVA: 0x003FC6C0 File Offset: 0x003FA8C0
 		private bool _OnReviveDoClicked(IXUIButton btn)
 		{
 			RpcC2G_Revive rpcC2G_Revive = new RpcC2G_Revive();
@@ -397,7 +379,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x060105EF RID: 67055 RVA: 0x003FC700 File Offset: 0x003FA900
 		public void SetAutoRevive(int leftTime, uint cost, uint costType)
 		{
 			bool flag = leftTime <= 0;
@@ -412,13 +393,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060105F0 RID: 67056 RVA: 0x003FC77A File Offset: 0x003FA97A
 		public void HideAutoRevive()
 		{
 			this._AutoRevivePanel.SetActive(false);
 		}
 
-		// Token: 0x060105F1 RID: 67057 RVA: 0x003FC78C File Offset: 0x003FA98C
 		public void OnLeaveSceneCountDown(uint time)
 		{
 			this._LeaveSceneTime = time;
@@ -427,7 +406,6 @@ namespace XMainClient.UI
 			this._LeaveSceneToken = XSingleton<XTimerMgr>.singleton.SetTimer(1f, new XTimerMgr.ElapsedEventHandler(this.ShowLeaveSceneTip), null);
 		}
 
-		// Token: 0x060105F2 RID: 67058 RVA: 0x003FC7F4 File Offset: 0x003FA9F4
 		private void ShowLeaveSceneTip(object o)
 		{
 			XSingleton<UiUtility>.singleton.ShowSystemTip(this._LeaveSceneTime.ToString(), "fece00");
@@ -442,85 +420,58 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04007605 RID: 30213
 		private IXUIButton _DamageRankBtn;
 
-		// Token: 0x04007606 RID: 30214
 		private GameObject _EncouragePanel;
 
-		// Token: 0x04007607 RID: 30215
 		private IXUIButton _DoEncourage;
 
-		// Token: 0x04007608 RID: 30216
 		private IXUISprite _EncourageClose;
 
-		// Token: 0x04007609 RID: 30217
 		private IXUILabel _CurrentEncourageEffect;
 
-		// Token: 0x0400760A RID: 30218
 		private IXUILabel _CurrentEncourageTitle;
 
-		// Token: 0x0400760B RID: 30219
 		private IXUILabel _CurrentEncourageType;
 
-		// Token: 0x0400760C RID: 30220
 		private IXUILabel _EncourageEffect;
 
-		// Token: 0x0400760D RID: 30221
 		private IXUILabel _EncourageMoneyCost;
 
-		// Token: 0x0400760E RID: 30222
 		private IXUITweenTool _CurrentEncourageEffectTween;
 
-		// Token: 0x0400760F RID: 30223
 		private GameObject _RankPanel;
 
-		// Token: 0x04007610 RID: 30224
 		private GameObject _AutoRevivePanel;
 
-		// Token: 0x04007611 RID: 30225
 		private IXUILabel _AutoReviveLeftTime;
 
-		// Token: 0x04007612 RID: 30226
 		private IXUILabel _ReviveCost;
 
-		// Token: 0x04007613 RID: 30227
 		private IXUISprite _ReviveCostIcon;
 
-		// Token: 0x04007614 RID: 30228
 		private IXUIButton _DoRevive;
 
-		// Token: 0x04007615 RID: 30229
 		public IXUITweenTool m_EncourageFrameTween;
 
-		// Token: 0x04007616 RID: 30230
 		public IXUITweenTool m_RankFrameTween;
 
-		// Token: 0x04007617 RID: 30231
 		private XWorldBossDamageRankHandler _RankHandler;
 
-		// Token: 0x04007618 RID: 30232
 		public IWorldBossBattleSource BattleSource;
 
-		// Token: 0x04007619 RID: 30233
 		private XElapseTimer m_AutoReviveLeftTime = new XElapseTimer();
 
-		// Token: 0x0400761A RID: 30234
 		private int m_nAutoReviveLeftTime;
 
-		// Token: 0x0400761B RID: 30235
 		private uint _GetBattleInfoToken;
 
-		// Token: 0x0400761C RID: 30236
 		private EncourageShowInfo[] m_encourageInfos;
 
-		// Token: 0x0400761D RID: 30237
 		private uint _LeaveSceneToken = 0U;
 
-		// Token: 0x0400761E RID: 30238
 		private uint _LeaveSceneTime = 0U;
 
-		// Token: 0x0400761F RID: 30239
 		private int _SelectIndex = 0;
 	}
 }

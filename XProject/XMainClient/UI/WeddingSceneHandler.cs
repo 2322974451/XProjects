@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001790 RID: 6032
+
 	internal class WeddingSceneHandler : DlgHandlerBase
 	{
-		// Token: 0x17003845 RID: 14405
-		// (get) Token: 0x0600F8E7 RID: 63719 RVA: 0x00390290 File Offset: 0x0038E490
+
 		protected override string FileName
 		{
 			get
@@ -21,7 +20,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F8E8 RID: 63720 RVA: 0x003902A8 File Offset: 0x0038E4A8
 		protected override void Init()
 		{
 			this.m_exitHomeBtn = (base.PanelObject.transform.FindChild("ExitHome").GetComponent("XUIButton") as IXUIButton);
@@ -55,7 +53,6 @@ namespace XMainClient.UI
 			base.Init();
 		}
 
-		// Token: 0x0600F8E9 RID: 63721 RVA: 0x003906A4 File Offset: 0x0038E8A4
 		public override void RegisterEvent()
 		{
 			this.m_exitHomeBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnClickExitHome));
@@ -69,7 +66,6 @@ namespace XMainClient.UI
 			base.RegisterEvent();
 		}
 
-		// Token: 0x0600F8EA RID: 63722 RVA: 0x0039077C File Offset: 0x0038E97C
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -97,7 +93,6 @@ namespace XMainClient.UI
 			this.m_HasShowVows = false;
 		}
 
-		// Token: 0x0600F8EB RID: 63723 RVA: 0x00390914 File Offset: 0x0038EB14
 		private bool IsWeddingLover()
 		{
 			bool flag = XWeddingDocument.Doc.CurrWeddingInfo != null && XWeddingDocument.Doc.CurrWeddingInfo.role1 != null && XWeddingDocument.Doc.CurrWeddingInfo.role2 != null;
@@ -114,7 +109,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F8EC RID: 63724 RVA: 0x003909A4 File Offset: 0x0038EBA4
 		protected override void OnHide()
 		{
 			base.OnHide();
@@ -135,14 +129,12 @@ namespace XMainClient.UI
 			XSingleton<XTimerMgr>.singleton.KillTimer(this._CDTokenFireworks);
 		}
 
-		// Token: 0x0600F8ED RID: 63725 RVA: 0x00390A3C File Offset: 0x0038EC3C
 		private bool OnClickExitHome(IXUIButton btn)
 		{
 			XSingleton<XScene>.singleton.ReqLeaveScene();
 			return true;
 		}
 
-		// Token: 0x0600F8EE RID: 63726 RVA: 0x00390A5C File Offset: 0x0038EC5C
 		private bool OnClickFlowerBtn(IXUIButton btn)
 		{
 			DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.SetVisible(true, true);
@@ -168,7 +160,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F8EF RID: 63727 RVA: 0x00390B48 File Offset: 0x0038ED48
 		private bool EnsureFlower(IXUIButton btn)
 		{
 			DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.SetVisible(false, true);
@@ -176,13 +167,11 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F8F0 RID: 63728 RVA: 0x00390B74 File Offset: 0x0038ED74
 		public void RefreshInviteRedPoint()
 		{
 			this.m_InviteRedPoint.SetActive(XWeddingDocument.Doc.HasApplyCandidate);
 		}
 
-		// Token: 0x0600F8F1 RID: 63729 RVA: 0x00390B90 File Offset: 0x0038ED90
 		public void OnFlowerRain()
 		{
 			Transform transform = XSingleton<UIManager>.singleton.UIRoot.Find("Camera").transform;
@@ -192,7 +181,6 @@ namespace XMainClient.UI
 			XSingleton<XFxMgr>.singleton.DestroyFx(xfx, false);
 		}
 
-		// Token: 0x0600F8F2 RID: 63730 RVA: 0x00390BF0 File Offset: 0x0038EDF0
 		private bool OnClickFireworksBtn(IXUIButton btn)
 		{
 			DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.SetVisible(true, true);
@@ -218,7 +206,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F8F3 RID: 63731 RVA: 0x00390CDC File Offset: 0x0038EEDC
 		private bool EnsureFireworks(IXUIButton btn)
 		{
 			DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.SetVisible(false, true);
@@ -226,7 +213,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F8F4 RID: 63732 RVA: 0x00390D08 File Offset: 0x0038EF08
 		public void OnFireworks()
 		{
 			bool flag = this.m_Fireworks != null;
@@ -239,7 +225,6 @@ namespace XMainClient.UI
 			this.m_Fireworks = XSingleton<XFxMgr>.singleton.CreateUIFx(value, transform, false);
 		}
 
-		// Token: 0x0600F8F5 RID: 63733 RVA: 0x00390D74 File Offset: 0x0038EF74
 		public void OnCandyFx()
 		{
 			bool flag = this.m_Candy != null;
@@ -252,14 +237,12 @@ namespace XMainClient.UI
 			this.m_Candy = XSingleton<XFxMgr>.singleton.CreateUIFx(value, transform, false);
 		}
 
-		// Token: 0x0600F8F6 RID: 63734 RVA: 0x00390DE0 File Offset: 0x0038EFE0
 		private bool OnClickSwearBtn(IXUIButton btn)
 		{
 			this.m_SwearDlg.SetActive(true);
 			return true;
 		}
 
-		// Token: 0x0600F8F7 RID: 63735 RVA: 0x00390E00 File Offset: 0x0038F000
 		public void CoolDownBtn(WeddingOperType type)
 		{
 			if (type != WeddingOperType.WeddingOper_Flower)
@@ -281,7 +264,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F8F8 RID: 63736 RVA: 0x00390EA4 File Offset: 0x0038F0A4
 		private void StarFlowerTimer()
 		{
 			bool flag = !base.IsVisible();
@@ -292,7 +274,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F8F9 RID: 63737 RVA: 0x00390EF4 File Offset: 0x0038F0F4
 		private void StarFireworksTimer()
 		{
 			bool flag = !base.IsVisible();
@@ -303,7 +284,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F8FA RID: 63738 RVA: 0x00390F44 File Offset: 0x0038F144
 		private void LeftTimeUpdateFlower(object o)
 		{
 			this.m_FlowerTime--;
@@ -320,7 +300,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F8FB RID: 63739 RVA: 0x00390FCC File Offset: 0x0038F1CC
 		private void LeftTimeUpdateFireworks(object o)
 		{
 			this.m_FireworksTime--;
@@ -337,14 +316,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F8FC RID: 63740 RVA: 0x00391054 File Offset: 0x0038F254
 		private bool OnClickInviteFriendsBtn(IXUIButton btn)
 		{
 			DlgBase<XWeddingInviteView, XWeddingInviteBehavior>.singleton.SetVisibleWithAnimation(true, null);
 			return true;
 		}
 
-		// Token: 0x0600F8FD RID: 63741 RVA: 0x00391074 File Offset: 0x0038F274
 		public void ShowPartnerSwearNtf(string name)
 		{
 			DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.SetVisible(true, true);
@@ -358,7 +335,6 @@ namespace XMainClient.UI
 			DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.SetModalCallback(new ButtonClickEventHandler(this.EnsureSwear), new ButtonClickEventHandler(this.NotEnsureSwear));
 		}
 
-		// Token: 0x0600F8FE RID: 63742 RVA: 0x00391118 File Offset: 0x0038F318
 		private bool EnsureSwear(IXUIButton btn)
 		{
 			XWeddingDocument.Doc.WeddingSceneOperator(WeddingOperType.WeddingOper_AgreeVows);
@@ -366,7 +342,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F8FF RID: 63743 RVA: 0x00391144 File Offset: 0x0038F344
 		private bool NotEnsureSwear(IXUIButton btn)
 		{
 			XWeddingDocument.Doc.WeddingSceneOperator(WeddingOperType.WeddingOper_DisAgreeVows);
@@ -374,14 +349,12 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F900 RID: 63744 RVA: 0x00391170 File Offset: 0x0038F370
 		private bool OnAskSwearBtn(IXUIButton btn)
 		{
 			XWeddingDocument.Doc.WeddingSceneOperator(WeddingOperType.WeddingOper_ApplyVows);
 			return true;
 		}
 
-		// Token: 0x0600F901 RID: 63745 RVA: 0x00391190 File Offset: 0x0038F390
 		public void ApplyVowsSuss()
 		{
 			bool activeSelf = this.m_SwearDlg.activeSelf;
@@ -392,14 +365,12 @@ namespace XMainClient.UI
 			XSingleton<UiUtility>.singleton.ShowSystemTip(XStringDefineProxy.GetString("WeddingSwearSucc"), "fece00");
 		}
 
-		// Token: 0x0600F902 RID: 63746 RVA: 0x003911D4 File Offset: 0x0038F3D4
 		private bool OnCloseSwear(IXUIButton btn)
 		{
 			this.m_SwearDlg.SetActive(false);
 			return true;
 		}
 
-		// Token: 0x0600F903 RID: 63747 RVA: 0x003911F4 File Offset: 0x0038F3F4
 		public void UpdateHappiness(uint happiness)
 		{
 			bool flag = (ulong)happiness >= (ulong)((long)XSingleton<XGlobalConfig>.singleton.GetInt("WeddingMaxHappyness")) && !this.m_HasVows && this.IsWeddingLover() && !this.m_HasShowVows;
@@ -413,7 +384,6 @@ namespace XMainClient.UI
 			this.m_Happiness.SetText(happiness.ToString());
 		}
 
-		// Token: 0x0600F904 RID: 63748 RVA: 0x0039127C File Offset: 0x0038F47C
 		public void OnVowsPrepare()
 		{
 			this.m_HasVows = true;
@@ -424,7 +394,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F905 RID: 63749 RVA: 0x003912AC File Offset: 0x0038F4AC
 		public void UpdateWeddingState(WeddingState state, uint lefttime, bool vows)
 		{
 			this.m_HasVows = vows;
@@ -458,7 +427,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F906 RID: 63750 RVA: 0x0039140C File Offset: 0x0038F60C
 		private void LeftTime1Update(object o)
 		{
 			uint num = (uint)o - 1U;
@@ -476,7 +444,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F907 RID: 63751 RVA: 0x0039148C File Offset: 0x0038F68C
 		private void CheckGuestShow(uint weddingLeftTime)
 		{
 			bool flag = this.m_guestIndex >= this.m_vecGuestShowTime.Count;
@@ -494,7 +461,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F908 RID: 63752 RVA: 0x0039150C File Offset: 0x0038F70C
 		private void SetTipTime(IXUILabel label, uint time, string content)
 		{
 			bool flag = time > 0U && time < 60U;
@@ -518,7 +484,6 @@ namespace XMainClient.UI
 			label.gameObject.SetActive(time > 0U);
 		}
 
-		// Token: 0x0600F909 RID: 63753 RVA: 0x003915A4 File Offset: 0x0038F7A4
 		private void OnHappinessClick(IXUISprite btn)
 		{
 			DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.SetVisible(true, true);
@@ -530,128 +495,89 @@ namespace XMainClient.UI
 			DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.SetModalCallback(new ButtonClickEventHandler(this.CloseHappinessDlg), null);
 		}
 
-		// Token: 0x0600F90A RID: 63754 RVA: 0x00391638 File Offset: 0x0038F838
 		private bool CloseHappinessDlg(IXUIButton btn)
 		{
 			DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.SetVisible(false, true);
 			return true;
 		}
 
-		// Token: 0x0600F90B RID: 63755 RVA: 0x00391658 File Offset: 0x0038F858
 		public void OnSwearPop()
 		{
 			this.m_SwearDlg.SetActive(true);
 		}
 
-		// Token: 0x04006CA3 RID: 27811
 		private IXUIButton m_exitHomeBtn;
 
-		// Token: 0x04006CA4 RID: 27812
 		private IXUIButton m_FlowerBtn;
 
-		// Token: 0x04006CA5 RID: 27813
 		private GameObject m_FlowerCD;
 
-		// Token: 0x04006CA6 RID: 27814
 		private IXUILabel m_FlowerCDTime;
 
-		// Token: 0x04006CA7 RID: 27815
 		private IXUIButton m_FireworksBtn;
 
-		// Token: 0x04006CA8 RID: 27816
 		private GameObject m_FireworksCD;
 
-		// Token: 0x04006CA9 RID: 27817
 		private IXUILabel m_FireworksCDTime;
 
-		// Token: 0x04006CAA RID: 27818
 		private IXUIButton m_SwearBtn;
 
-		// Token: 0x04006CAB RID: 27819
 		private IXUIButton m_InviteFriendsBtn;
 
-		// Token: 0x04006CAC RID: 27820
 		private IXUILabel m_Happiness;
 
-		// Token: 0x04006CAD RID: 27821
 		private IXUILabel m_HappinessMax;
 
-		// Token: 0x04006CAE RID: 27822
 		private IXUILabel m_Content;
 
-		// Token: 0x04006CAF RID: 27823
 		private IXUILabel m_WeddingName;
 
-		// Token: 0x04006CB0 RID: 27824
 		private IXUIList m_BtnsGrid;
 
-		// Token: 0x04006CB1 RID: 27825
 		private IXUISprite m_HappinessBtn;
 
-		// Token: 0x04006CB2 RID: 27826
 		private GameObject m_SwearDlg;
 
-		// Token: 0x04006CB3 RID: 27827
 		private IXUIButton m_AskSwearBtn;
 
-		// Token: 0x04006CB4 RID: 27828
 		private IXUILabel m_HappinessValue;
 
-		// Token: 0x04006CB5 RID: 27829
 		private IXUIButton m_CloseSwearBtn;
 
-		// Token: 0x04006CB6 RID: 27830
 		private GameObject m_SwearFX;
 
-		// Token: 0x04006CB7 RID: 27831
 		private GameObject m_InviteRedPoint;
 
-		// Token: 0x04006CB8 RID: 27832
 		private IXUILabel m_Tip1;
 
-		// Token: 0x04006CB9 RID: 27833
 		private IXUILabel m_Tip2;
 
-		// Token: 0x04006CBA RID: 27834
 		private XFx m_Fireworks;
 
-		// Token: 0x04006CBB RID: 27835
 		private XFx m_Candy;
 
-		// Token: 0x04006CBC RID: 27836
 		private uint m_Tip1CDToken;
 
-		// Token: 0x04006CBD RID: 27837
 		private string m_Tip1Content;
 
-		// Token: 0x04006CBE RID: 27838
 		private bool m_UpdateTip2 = false;
 
-		// Token: 0x04006CBF RID: 27839
 		private int m_FlowerTime = 0;
 
-		// Token: 0x04006CC0 RID: 27840
 		private int m_FireworksTime = 0;
 
-		// Token: 0x04006CC1 RID: 27841
 		private uint _CDTokenFlower = 0U;
 
-		// Token: 0x04006CC2 RID: 27842
 		private uint _CDTokenFireworks = 0U;
 
-		// Token: 0x04006CC3 RID: 27843
 		private List<uint> m_vecGuestShowTime = new List<uint>();
 
-		// Token: 0x04006CC4 RID: 27844
 		private int m_guestIndex = 0;
 
-		// Token: 0x04006CC5 RID: 27845
 		private uint m_weddingRunTime = 0U;
 
-		// Token: 0x04006CC6 RID: 27846
 		private bool m_HasVows = false;
 
-		// Token: 0x04006CC7 RID: 27847
 		private bool m_HasShowVows = false;
 	}
 }

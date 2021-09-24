@@ -6,10 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000D07 RID: 3335
+
 	internal class XQualifyingChallengeRecordWindow
 	{
-		// Token: 0x0600BA73 RID: 47731 RVA: 0x002609E4 File Offset: 0x0025EBE4
+
 		public XQualifyingChallengeRecordWindow(GameObject go)
 		{
 			this.m_Go = go;
@@ -29,14 +29,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BA74 RID: 47732 RVA: 0x00260BB7 File Offset: 0x0025EDB7
 		public void SetVisible(bool v)
 		{
 			this.m_Go.SetActive(v);
 		}
 
-		// Token: 0x170032D9 RID: 13017
-		// (get) Token: 0x0600BA75 RID: 47733 RVA: 0x00260BC8 File Offset: 0x0025EDC8
 		public bool IsVisible
 		{
 			get
@@ -45,34 +42,24 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04004AA8 RID: 19112
 		public GameObject m_Go;
 
-		// Token: 0x04004AA9 RID: 19113
 		public XUIPool m_RecordPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04004AAA RID: 19114
 		public IXUIButton m_Close;
 
-		// Token: 0x04004AAB RID: 19115
 		public IXUIScrollView m_ScrollView;
 
-		// Token: 0x04004AAC RID: 19116
 		public IXUILabel MatchTotalWin;
 
-		// Token: 0x04004AAD RID: 19117
 		public IXUILabel MatchTotalLose;
 
-		// Token: 0x04004AAE RID: 19118
 		public IXUILabel RateOfTotalWin;
 
-		// Token: 0x04004AAF RID: 19119
 		public IXUILabel MaxConsecutiveWin;
 
-		// Token: 0x04004AB0 RID: 19120
 		public IXUILabel MaxConsecutiveLose;
 
-		// Token: 0x04004AB1 RID: 19121
 		public List<IXUILabel> RateOfWinProf = new List<IXUILabel>();
 	}
 }

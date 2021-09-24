@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x020009DC RID: 2524
+
 	internal class XSpectateLevelRewardDocument : XDocComponent
 	{
-		// Token: 0x17002DEB RID: 11755
-		// (get) Token: 0x060099DD RID: 39389 RVA: 0x00182CB8 File Offset: 0x00180EB8
+
 		public override uint ID
 		{
 			get
@@ -21,14 +20,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060099DE RID: 39390 RVA: 0x00182CCF File Offset: 0x00180ECF
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			XSpectateLevelRewardDocument.AsyncLoader.AddTask("Table/SpectateLevelRewardConfig", XSpectateLevelRewardDocument._levelRewardConfig, false);
 			XSpectateLevelRewardDocument.AsyncLoader.Execute(callback);
 		}
 
-		// Token: 0x060099DF RID: 39391 RVA: 0x00182CF4 File Offset: 0x00180EF4
 		public bool InitData()
 		{
 			this.DamageSum = 0.0;
@@ -54,7 +51,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x060099E0 RID: 39392 RVA: 0x00182DAC File Offset: 0x00180FAC
 		public void SetWidth()
 		{
 			this.WidthList.Clear();
@@ -116,12 +112,10 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060099E1 RID: 39393 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 		}
 
-		// Token: 0x060099E2 RID: 39394 RVA: 0x00182ECC File Offset: 0x001810CC
 		public void SetData(BattleWatcherNtf ntf)
 		{
 			this.DataList = ntf.data;
@@ -150,7 +144,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060099E3 RID: 39395 RVA: 0x00182FBC File Offset: 0x001811BC
 		public void LevelScene()
 		{
 			bool flag = Time.time - this.LastLevelSceneTime < 5f;
@@ -161,7 +154,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x060099E4 RID: 39396 RVA: 0x00182FFC File Offset: 0x001811FC
 		private void CalWinOrLoseMess()
 		{
 			bool flag = this.WinUid == 0UL;
@@ -191,49 +183,34 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x040034D8 RID: 13528
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("SpectateLevelRewardDocument");
 
-		// Token: 0x040034D9 RID: 13529
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x040034DA RID: 13530
 		private static SpectateLevelRewardConfig _levelRewardConfig = new SpectateLevelRewardConfig();
 
-		// Token: 0x040034DB RID: 13531
 		public List<BattleStatisticsData> DataList;
 
-		// Token: 0x040034DC RID: 13532
 		public Dictionary<ulong, uint> StarDict = new Dictionary<ulong, uint>();
 
-		// Token: 0x040034DD RID: 13533
 		public uint WatchNum;
 
-		// Token: 0x040034DE RID: 13534
 		public uint CommendNum;
 
-		// Token: 0x040034DF RID: 13535
 		public ulong WinUid;
 
-		// Token: 0x040034E0 RID: 13536
 		public ulong MvpUid;
 
-		// Token: 0x040034E1 RID: 13537
 		public int[] DataType;
 
-		// Token: 0x040034E2 RID: 13538
 		public List<int> WidthList = new List<int>();
 
-		// Token: 0x040034E3 RID: 13539
 		public int WidthTotal;
 
-		// Token: 0x040034E4 RID: 13540
 		public int WinTag;
 
-		// Token: 0x040034E5 RID: 13541
 		public double DamageSum;
 
-		// Token: 0x040034E6 RID: 13542
 		private float LastLevelSceneTime = 0f;
 	}
 }

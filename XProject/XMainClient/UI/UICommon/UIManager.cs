@@ -8,12 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI.UICommon
 {
-	// Token: 0x0200192C RID: 6444
+
 	internal class UIManager : XSingleton<UIManager>
 	{
-		// Token: 0x17003B1F RID: 15135
-		// (get) Token: 0x06010EDB RID: 69339 RVA: 0x0044AC34 File Offset: 0x00448E34
-		// (set) Token: 0x06010EDC RID: 69340 RVA: 0x0044AC4C File Offset: 0x00448E4C
+
 		public Transform UIRoot
 		{
 			get
@@ -26,7 +24,6 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x06010EDD RID: 69341 RVA: 0x0044AC58 File Offset: 0x00448E58
 		public void OnEnterScene()
 		{
 			this.m_LFU.Clear();
@@ -39,7 +36,6 @@ namespace XMainClient.UI.UICommon
 			this.unloadUICount = 0;
 		}
 
-		// Token: 0x06010EDE RID: 69342 RVA: 0x0044ACBC File Offset: 0x00448EBC
 		public void OnLeaveScene(bool transfer)
 		{
 			for (int i = this.m_iterDlgs.Count - 1; i >= 0; i--)
@@ -54,7 +50,6 @@ namespace XMainClient.UI.UICommon
 			this.unloadUICount = 0;
 		}
 
-		// Token: 0x06010EDF RID: 69343 RVA: 0x0044AD38 File Offset: 0x00448F38
 		public override bool Init()
 		{
 			RuntimePlatform platform = Application.platform;
@@ -78,12 +73,10 @@ namespace XMainClient.UI.UICommon
 			return true;
 		}
 
-		// Token: 0x06010EE0 RID: 69344 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public override void Uninit()
 		{
 		}
 
-		// Token: 0x06010EE1 RID: 69345 RVA: 0x0044ADA0 File Offset: 0x00448FA0
 		public void LoadUI(string strUIFile, LoadUIFinishedEventHandler eventHandler)
 		{
 			bool flag = eventHandler != null;
@@ -93,7 +86,6 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x06010EE2 RID: 69346 RVA: 0x0044ADC0 File Offset: 0x00448FC0
 		public void Update(float fDeltaT)
 		{
 			int i = 0;
@@ -124,7 +116,6 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x06010EE3 RID: 69347 RVA: 0x0044AE60 File Offset: 0x00449060
 		public void PostUpdate(float fDeltaT)
 		{
 			for (int i = 0; i < this.m_iterDlgs.Count; i++)
@@ -146,7 +137,6 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x06010EE4 RID: 69348 RVA: 0x0044AF08 File Offset: 0x00449108
 		public bool IsUIShowed()
 		{
 			bool flag = this.m_ShowUIStack.Count > 0;
@@ -179,19 +169,16 @@ namespace XMainClient.UI.UICommon
 			return result;
 		}
 
-		// Token: 0x06010EE5 RID: 69349 RVA: 0x0044AF84 File Offset: 0x00449184
 		public bool IsHideTutorial()
 		{
 			return this.m_TutorialClashUICount != 0;
 		}
 
-		// Token: 0x06010EE6 RID: 69350 RVA: 0x0044AFA0 File Offset: 0x004491A0
 		public int GetUIStackCount()
 		{
 			return this.m_ShowUIStack.Count;
 		}
 
-		// Token: 0x06010EE7 RID: 69351 RVA: 0x0044AFC0 File Offset: 0x004491C0
 		public int GetFullScreenUICount()
 		{
 			int num = 0;
@@ -206,7 +193,6 @@ namespace XMainClient.UI.UICommon
 			return num;
 		}
 
-		// Token: 0x06010EE8 RID: 69352 RVA: 0x0044B028 File Offset: 0x00449228
 		public void RemoveDlg(IXUIDlg dlg)
 		{
 			List<IXUIDlg> list = null;
@@ -240,7 +226,6 @@ namespace XMainClient.UI.UICommon
 			this.m_AvatarStack.Remove(dlg);
 		}
 
-		// Token: 0x06010EE9 RID: 69353 RVA: 0x0044B108 File Offset: 0x00449308
 		public bool AddDlg(IXUIDlg dlg)
 		{
 			bool flag = this.m_dicDlgs.ContainsKey(dlg.fileName);
@@ -271,7 +256,6 @@ namespace XMainClient.UI.UICommon
 			return result;
 		}
 
-		// Token: 0x06010EEA RID: 69354 RVA: 0x0044B1B8 File Offset: 0x004493B8
 		protected void CacheExclusiveUI()
 		{
 			this.m_CachedExculsiveUI.Clear();
@@ -281,7 +265,6 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x06010EEB RID: 69355 RVA: 0x0044B208 File Offset: 0x00449408
 		public void CloseAllUI()
 		{
 			this.ClearUIinStack();
@@ -300,7 +283,6 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x06010EEC RID: 69356 RVA: 0x0044B298 File Offset: 0x00449498
 		public void OnDlgShow(IXUIDlg dlg)
 		{
 			bool exclusive = dlg.exclusive;
@@ -398,7 +380,6 @@ namespace XMainClient.UI.UICommon
 			DlgBase<XChatView, XChatBehaviour>.singleton.TryCloseChat(dlg);
 		}
 
-		// Token: 0x06010EED RID: 69357 RVA: 0x0044B5B4 File Offset: 0x004497B4
 		public void UIBlurEffect(bool bOn)
 		{
 			bool flag = DlgBase<XMainInterface, XMainInterfaceBehaviour>.singleton.IsLoaded();
@@ -408,7 +389,6 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x06010EEE RID: 69358 RVA: 0x0044B5E0 File Offset: 0x004497E0
 		public void OnDlgHide(IXUIDlg dlg)
 		{
 			bool exclusive = dlg.exclusive;
@@ -507,13 +487,11 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x06010EEF RID: 69359 RVA: 0x0044B8F0 File Offset: 0x00449AF0
 		public List<IXUIDlg> GetShowedUI()
 		{
 			return this.m_ShowedDlg;
 		}
 
-		// Token: 0x06010EF0 RID: 69360 RVA: 0x0044B908 File Offset: 0x00449B08
 		public void ClearUIinStack()
 		{
 			while (this.m_ShowUIStack.Count > 0)
@@ -529,7 +507,6 @@ namespace XMainClient.UI.UICommon
 			this.UIBlurEffect(false);
 		}
 
-		// Token: 0x06010EF1 RID: 69361 RVA: 0x0044B95C File Offset: 0x00449B5C
 		public void HideAllUIWithOutCall()
 		{
 			for (int i = 0; i < this.m_ShowedDlg.Count; i++)
@@ -547,7 +524,6 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x06010EF2 RID: 69362 RVA: 0x0044BA10 File Offset: 0x00449C10
 		public void RestoreAllUIWithOutCall()
 		{
 			for (int i = 0; i < this.m_StoreUIList.Count; i++)
@@ -561,7 +537,6 @@ namespace XMainClient.UI.UICommon
 			this.m_StoreUIList.Clear();
 		}
 
-		// Token: 0x06010EF3 RID: 69363 RVA: 0x0044BA70 File Offset: 0x00449C70
 		private void ChangeTutorialClashUI(bool isAdd)
 		{
 			if (isAdd)
@@ -582,46 +557,32 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x04007C75 RID: 31861
 		private Dictionary<string, IXUIDlg> m_dicDlgs = new Dictionary<string, IXUIDlg>();
 
-		// Token: 0x04007C76 RID: 31862
 		private Dictionary<int, List<IXUIDlg>> m_dicUILayer = new Dictionary<int, List<IXUIDlg>>();
 
-		// Token: 0x04007C77 RID: 31863
 		private List<IXUIDlg> m_iterDlgs = new List<IXUIDlg>();
 
-		// Token: 0x04007C78 RID: 31864
 		private Transform m_uiRoot = null;
 
-		// Token: 0x04007C79 RID: 31865
 		private Dictionary<int, IXUIDlg> m_GroupDlg = new Dictionary<int, IXUIDlg>();
 
-		// Token: 0x04007C7A RID: 31866
 		private List<IXUIDlg> m_ShowedDlg = new List<IXUIDlg>();
 
-		// Token: 0x04007C7B RID: 31867
 		private int m_TutorialClashUICount = 0;
 
-		// Token: 0x04007C7C RID: 31868
 		private List<IXUIDlg> m_ToBeUnloadDlg = new List<IXUIDlg>();
 
-		// Token: 0x04007C7D RID: 31869
 		private XLFU<IXUIDlg> m_LFU = new XLFU<IXUIDlg>(5);
 
-		// Token: 0x04007C7E RID: 31870
 		private List<IXUIDlg> m_CachedExculsiveUI = new List<IXUIDlg>();
 
-		// Token: 0x04007C7F RID: 31871
 		private Stack<IXUIDlg> m_ShowUIStack = new Stack<IXUIDlg>();
 
-		// Token: 0x04007C80 RID: 31872
 		private List<IXUIDlg> m_StoreUIList = new List<IXUIDlg>();
 
-		// Token: 0x04007C81 RID: 31873
 		private List<IXUIDlg> m_AvatarStack = new List<IXUIDlg>();
 
-		// Token: 0x04007C82 RID: 31874
 		public int unloadUICount = 0;
 	}
 }

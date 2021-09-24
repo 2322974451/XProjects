@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x02000257 RID: 599
+
 	public class NpcFeeling : CVSReader
 	{
-		// Token: 0x06000D00 RID: 3328 RVA: 0x00044858 File Offset: 0x00042A58
+
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			NpcFeeling.RowData rowData = new NpcFeeling.RowData();
@@ -59,7 +59,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x06000D01 RID: 3329 RVA: 0x00044AE8 File Offset: 0x00042CE8
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -73,79 +72,55 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x040007A5 RID: 1957
 		public NpcFeeling.RowData[] Table = null;
 
-		// Token: 0x020003E6 RID: 998
 		public class RowData
 		{
-			// Token: 0x040011A4 RID: 4516
+
 			public uint npcId;
 
-			// Token: 0x040011A5 RID: 4517
 			public string name;
 
-			// Token: 0x040011A6 RID: 4518
 			public string introduction;
 
-			// Token: 0x040011A7 RID: 4519
 			public uint openLevel;
 
-			// Token: 0x040011A8 RID: 4520
 			public SeqRef<uint> feelingLevel;
 
-			// Token: 0x040011A9 RID: 4521
 			public SeqListRef<uint> likeItem;
 
-			// Token: 0x040011AA RID: 4522
 			public SeqListRef<uint> randomItem;
 
-			// Token: 0x040011AB RID: 4523
 			public SeqListRef<uint> favorItem;
 
-			// Token: 0x040011AC RID: 4524
 			public SeqListRef<uint> clientItem;
 
-			// Token: 0x040011AD RID: 4525
 			public SeqListRef<uint> exchangeGive;
 
-			// Token: 0x040011AE RID: 4526
 			public SeqListRef<uint> exchangeGet;
 
-			// Token: 0x040011AF RID: 4527
 			public SeqListRef<uint> npcReturn;
 
-			// Token: 0x040011B0 RID: 4528
 			public string[] giveWords;
 
-			// Token: 0x040011B1 RID: 4529
 			public string[] giveSuccessWords;
 
-			// Token: 0x040011B2 RID: 4530
 			public string[] exchangeWords;
 
-			// Token: 0x040011B3 RID: 4531
 			public string[] exchangeSuccessWords;
 
-			// Token: 0x040011B4 RID: 4532
 			public uint npcReturnMailConf;
 
-			// Token: 0x040011B5 RID: 4533
 			public string icon;
 
-			// Token: 0x040011B6 RID: 4534
 			public uint unionId;
 
-			// Token: 0x040011B7 RID: 4535
 			public string relicsName;
 
-			// Token: 0x040011B8 RID: 4536
 			public string relicsIcon;
 
-			// Token: 0x040011B9 RID: 4537
 			public string relicsDesc;
 
-			// Token: 0x040011BA RID: 4538
 			public uint xnpclistid;
 		}
 	}

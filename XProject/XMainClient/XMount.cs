@@ -5,11 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000A96 RID: 2710
+
 	internal class XMount : XEntity
 	{
-		// Token: 0x17002FDD RID: 12253
-		// (get) Token: 0x0600A4D8 RID: 42200 RVA: 0x001C9968 File Offset: 0x001C7B68
+
 		public override string Prefab
 		{
 			get
@@ -18,8 +17,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002FDE RID: 12254
-		// (get) Token: 0x0600A4D9 RID: 42201 RVA: 0x001C998C File Offset: 0x001C7B8C
 		public bool HasTurnPresetation
 		{
 			get
@@ -28,8 +25,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002FDF RID: 12255
-		// (get) Token: 0x0600A4DA RID: 42202 RVA: 0x001C99A4 File Offset: 0x001C7BA4
 		public int AngularSpeed
 		{
 			get
@@ -38,8 +33,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002FE0 RID: 12256
-		// (get) Token: 0x0600A4DB RID: 42203 RVA: 0x001C99C8 File Offset: 0x001C7BC8
 		public XEntity Copilot
 		{
 			get
@@ -58,7 +51,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A4DC RID: 42204 RVA: 0x001C9A04 File Offset: 0x001C7C04
 		private static void _Init(XGameObject gameObject, object o, int commandID)
 		{
 			XMount xmount = o as XMount;
@@ -156,7 +148,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A4DD RID: 42205 RVA: 0x001C9D30 File Offset: 0x001C7F30
 		public bool Initilize(XEntity mainbody, uint present_id, bool isCopilot)
 		{
 			this._eEntity_Type |= XEntity.EnitityType.Entity_Mount;
@@ -188,7 +179,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A4DE RID: 42206 RVA: 0x001C9F1C File Offset: 0x001C811C
 		public override bool Initilize(int flag)
 		{
 			this._present = (XSingleton<XComponentMgr>.singleton.CreateComponent(this, XPresentComponent.uuID) as XPresentComponent);
@@ -222,8 +212,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x17002FE1 RID: 12257
-		// (get) Token: 0x0600A4DF RID: 42207 RVA: 0x001CA120 File Offset: 0x001C8320
 		public override uint PresentID
 		{
 			get
@@ -232,7 +220,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A4E0 RID: 42208 RVA: 0x001CA138 File Offset: 0x001C8338
 		public override void OnCreated()
 		{
 			base.OnCreated();
@@ -243,7 +230,6 @@ namespace XMainClient
 			base.SetCollisionLayer(this._layer);
 		}
 
-		// Token: 0x0600A4E1 RID: 42209 RVA: 0x001CA198 File Offset: 0x001C8398
 		public override void OnDestroy()
 		{
 			bool flag = this._xobject != null;
@@ -259,13 +245,11 @@ namespace XMainClient
 			this.Uninitilize();
 		}
 
-		// Token: 0x0600A4E2 RID: 42210 RVA: 0x001CA1F4 File Offset: 0x001C83F4
 		public override bool CastFakeShadow()
 		{
 			return this._mainbody.CastFakeShadow();
 		}
 
-		// Token: 0x0600A4E3 RID: 42211 RVA: 0x001CA214 File Offset: 0x001C8414
 		private void InnerPlayFx()
 		{
 			bool flag = this._fx != "";
@@ -276,14 +260,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A4E4 RID: 42212 RVA: 0x001CA270 File Offset: 0x001C8470
 		public void PlayFx(string fx)
 		{
 			this._fx = fx;
 			this.InnerPlayFx();
 		}
 
-		// Token: 0x0600A4E5 RID: 42213 RVA: 0x001CA284 File Offset: 0x001C8484
 		public void UnMountEntity(XEntity entity)
 		{
 			bool flag = this._mount_component != null;
@@ -293,7 +275,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A4E6 RID: 42214 RVA: 0x001CA2B0 File Offset: 0x001C84B0
 		public void UnMountAll()
 		{
 			bool flag = this._mount_component != null;
@@ -303,7 +284,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A4E7 RID: 42215 RVA: 0x001CA2DC File Offset: 0x001C84DC
 		public bool MountCopilot(XEntity entity)
 		{
 			bool copilot_enabled = this._copilot_enabled;
@@ -334,7 +314,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A4E8 RID: 42216 RVA: 0x001CA380 File Offset: 0x001C8580
 		public float GetRadius()
 		{
 			bool flag = this._Render != null;
@@ -353,13 +332,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A4E9 RID: 42217 RVA: 0x001CA3F4 File Offset: 0x001C85F4
 		private static bool ForceDisableEffect(XEntity e)
 		{
 			return !XQualitySetting.GetQuality(EFun.ECommonHigh) && !e.IsPlayer;
 		}
 
-		// Token: 0x0600A4EA RID: 42218 RVA: 0x001CA420 File Offset: 0x001C8620
 		public void SetActive(bool enable)
 		{
 			bool flag = this._xobject != null && this._xobject.IsLoaded;
@@ -396,7 +373,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A4EB RID: 42219 RVA: 0x001CA51C File Offset: 0x001C871C
 		private void RealMountFx(XFx fx, bool copilot)
 		{
 			bool flag = fx != null;
@@ -415,7 +391,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A4EC RID: 42220 RVA: 0x001CA588 File Offset: 0x001C8788
 		public void MountFx(XFx fx, bool copilot)
 		{
 			if (copilot)
@@ -433,58 +408,40 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04003C0B RID: 15371
 		private static Dictionary<uint, Quaternion> _basic_rotation = new Dictionary<uint, Quaternion>();
 
-		// Token: 0x04003C0C RID: 15372
 		private uint _present_id;
 
-		// Token: 0x04003C0D RID: 15373
 		private int _commandID = -1;
 
-		// Token: 0x04003C0E RID: 15374
 		private XEntity _mainbody = null;
 
-		// Token: 0x04003C0F RID: 15375
 		private Renderer _Render = null;
 
-		// Token: 0x04003C10 RID: 15376
 		private bool _castShadow = false;
 
-		// Token: 0x04003C11 RID: 15377
 		private bool _copilot_enabled = false;
 
-		// Token: 0x04003C12 RID: 15378
 		private string _prefab;
 
-		// Token: 0x04003C13 RID: 15379
 		private bool _has_turn_anims = false;
 
-		// Token: 0x04003C14 RID: 15380
 		private Transform _mountPoint0 = null;
 
-		// Token: 0x04003C15 RID: 15381
 		private Transform _mountPoint1 = null;
 
-		// Token: 0x04003C16 RID: 15382
 		private XFx _specialFx = null;
 
-		// Token: 0x04003C17 RID: 15383
 		private XFx _specialCopilotFx = null;
 
-		// Token: 0x04003C18 RID: 15384
 		private Quaternion _init_rotation0 = Quaternion.identity;
 
-		// Token: 0x04003C19 RID: 15385
 		private Quaternion _init_rotation1 = Quaternion.identity;
 
-		// Token: 0x04003C1A RID: 15386
 		protected XMountComponent _mount_component = null;
 
-		// Token: 0x04003C1B RID: 15387
 		private string _fx = "";
 
-		// Token: 0x04003C1C RID: 15388
 		private static CommandCallback _initCb = new CommandCallback(XMount._Init);
 	}
 }

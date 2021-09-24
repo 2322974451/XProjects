@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000BB9 RID: 3001
+
 	internal class XArtifactAttrView<T> : XAttrCommonHandler<T> where T : XAttrCommonFile, new()
 	{
-		// Token: 0x0600ABC6 RID: 43974 RVA: 0x001F74FC File Offset: 0x001F56FC
+
 		public void SetBaseData(XBodyBag equipments)
 		{
 			this.SetShowData(equipments);
@@ -19,7 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600ABC7 RID: 43975 RVA: 0x001F7524 File Offset: 0x001F5724
 		public void SetBaseData(List<Item> lst)
 		{
 			this.SetShowData(lst);
@@ -30,7 +29,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600ABC8 RID: 43976 RVA: 0x001F754C File Offset: 0x001F574C
 		public override void SetData()
 		{
 			base.SetData();
@@ -124,7 +122,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600ABC9 RID: 43977 RVA: 0x001F78C8 File Offset: 0x001F5AC8
 		private void SetShowData(XBodyBag artifacts)
 		{
 			int num = XBagDocument.BodyPosition<ArtifactPosition>(ArtifactPosition.ARTIFACT_START);
@@ -276,7 +273,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600ABCA RID: 43978 RVA: 0x001F7E18 File Offset: 0x001F6018
 		private void SetShowData(List<Item> lst)
 		{
 			bool flag = this.m_attrDataList == null;
@@ -445,7 +441,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600ABCB RID: 43979 RVA: 0x001F83C8 File Offset: 0x001F65C8
 		private ArtifactTotalAttrData FindTheSameAttri(uint nameId, bool isPrecent)
 		{
 			if (isPrecent)
@@ -473,7 +468,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x0600ABCC RID: 43980 RVA: 0x001F8478 File Offset: 0x001F6678
 		private void SetHadSuitList(ref List<XArtifactAttrView<T>.SuitStatistics> suits, ArtifactSuit suit)
 		{
 			bool flag = false;
@@ -497,25 +491,19 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04004082 RID: 16514
 		private List<ArtifactTotalAttrData> m_attrDataList;
 
-		// Token: 0x04004083 RID: 16515
 		private List<ArtifactTotalAttrData> m_percentAttrDataList;
 
-		// Token: 0x04004084 RID: 16516
 		private List<ArtifactTotalAttrData> m_effectDataList;
 
-		// Token: 0x04004085 RID: 16517
 		private List<List<ArtifactTotalAttrData>> m_suitDataList;
 
-		// Token: 0x0200199E RID: 6558
 		private class SuitStatistics
 		{
-			// Token: 0x04007F47 RID: 32583
+
 			public ArtifactSuit Suit;
 
-			// Token: 0x04007F48 RID: 32584
 			public int Count = 0;
 		}
 	}

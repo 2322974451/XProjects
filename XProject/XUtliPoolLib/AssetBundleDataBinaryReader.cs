@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x02000045 RID: 69
+
 	internal class AssetBundleDataBinaryReader : AssetBundleDataReader
 	{
-		// Token: 0x06000231 RID: 561 RVA: 0x00012464 File Offset: 0x00010664
+
 		public override void Read(XBinaryReader reader)
 		{
 			for (;;)

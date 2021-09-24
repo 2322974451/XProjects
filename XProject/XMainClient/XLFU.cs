@@ -4,10 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000F20 RID: 3872
+
 	internal class XLFU<T>
 	{
-		// Token: 0x0600CD04 RID: 52484 RVA: 0x002F3E3C File Offset: 0x002F203C
+
 		public XLFU(int size)
 		{
 			bool flag = size <= 0;
@@ -18,7 +18,6 @@ namespace XMainClient
 			this.m_Size = size;
 		}
 
-		// Token: 0x0600CD05 RID: 52485 RVA: 0x002F3EA5 File Offset: 0x002F20A5
 		public void Clear()
 		{
 			this.m_Items.Clear();
@@ -27,7 +26,6 @@ namespace XMainClient
 			this.m_CurTotalCount = 0U;
 		}
 
-		// Token: 0x0600CD06 RID: 52486 RVA: 0x002F3ED0 File Offset: 0x002F20D0
 		public T Add(T t)
 		{
 			this._AdjustFrequent();
@@ -68,7 +66,6 @@ namespace XMainClient
 			return default(T);
 		}
 
-		// Token: 0x0600CD07 RID: 52487 RVA: 0x002F3FEC File Offset: 0x002F21EC
 		public void MarkCanPop(T t, bool bCanPop)
 		{
 			XLFUItem<T> xlfuitem = null;
@@ -87,7 +84,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CD08 RID: 52488 RVA: 0x002F4030 File Offset: 0x002F2230
 		public void Remove(T t)
 		{
 			XLFUItem<T> xlfuitem = null;
@@ -102,7 +98,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CD09 RID: 52489 RVA: 0x002F40AC File Offset: 0x002F22AC
 		private void _AdjustFrequent()
 		{
 			this.m_CurTotalCount += 1U;
@@ -117,7 +112,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CD0A RID: 52490 RVA: 0x002F4118 File Offset: 0x002F2318
 		public T Pop()
 		{
 			bool flag = this.m_HeapSize > 0;
@@ -137,7 +131,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CD0B RID: 52491 RVA: 0x002F41AC File Offset: 0x002F23AC
 		public T Peek()
 		{
 			bool flag = this.m_HeapSize > 0;
@@ -153,7 +146,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600CD0C RID: 52492 RVA: 0x002F41EC File Offset: 0x002F23EC
 		private void Swap(int x, int y)
 		{
 			XLFUItem<T> value = this.m_Items[x];
@@ -163,7 +155,6 @@ namespace XMainClient
 			this.m_Items[y].index = y;
 		}
 
-		// Token: 0x0600CD0D RID: 52493 RVA: 0x002F4254 File Offset: 0x002F2454
 		private void _PercolateDown(XLFUItem<T> item)
 		{
 			int i = item.index;
@@ -196,7 +187,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600CD0E RID: 52494 RVA: 0x002F4330 File Offset: 0x002F2530
 		private void _PercolateUp(XLFUItem<T> item)
 		{
 			int num;
@@ -219,22 +209,16 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04005B31 RID: 23345
 		private static readonly uint DURATION_COUNT = 16U;
 
-		// Token: 0x04005B32 RID: 23346
 		private List<XLFUItem<T>> m_Items = new List<XLFUItem<T>>();
 
-		// Token: 0x04005B33 RID: 23347
 		private Dictionary<T, XLFUItem<T>> m_dicItems = new Dictionary<T, XLFUItem<T>>();
 
-		// Token: 0x04005B34 RID: 23348
 		private int m_HeapSize = 0;
 
-		// Token: 0x04005B35 RID: 23349
 		private int m_Size = 5;
 
-		// Token: 0x04005B36 RID: 23350
 		private uint m_CurTotalCount = 0U;
 	}
 }

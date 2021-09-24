@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000BAC RID: 2988
+
 	internal class LevelRewardSuperRiskHandler : DlgHandlerBase
 	{
-		// Token: 0x17003051 RID: 12369
-		// (get) Token: 0x0600AB50 RID: 43856 RVA: 0x001F33D8 File Offset: 0x001F15D8
+
 		protected override string FileName
 		{
 			get
@@ -21,7 +20,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AB51 RID: 43857 RVA: 0x001F33EF File Offset: 0x001F15EF
 		protected override void Init()
 		{
 			base.Init();
@@ -29,7 +27,6 @@ namespace XMainClient
 			this.InitUI();
 		}
 
-		// Token: 0x0600AB52 RID: 43858 RVA: 0x001F3410 File Offset: 0x001F1610
 		private void InitUI()
 		{
 			this.m_SuperRisk = base.transform.Find("Bg/ItemList/SuperRisk");
@@ -40,14 +37,12 @@ namespace XMainClient
 			this.m_ItemPool.SetupPool(transform.parent.gameObject, transform.gameObject, 5U, true);
 		}
 
-		// Token: 0x0600AB53 RID: 43859 RVA: 0x001F34C4 File Offset: 0x001F16C4
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			this.m_ReturnButton.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnReturnButtonClicked));
 		}
 
-		// Token: 0x0600AB54 RID: 43860 RVA: 0x001F34E8 File Offset: 0x001F16E8
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -72,14 +67,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AB55 RID: 43861 RVA: 0x001F35CC File Offset: 0x001F17CC
 		private bool OnReturnButtonClicked(IXUIButton button)
 		{
 			this._doc.SendLeaveScene();
 			return true;
 		}
 
-		// Token: 0x0600AB56 RID: 43862 RVA: 0x001F35EC File Offset: 0x001F17EC
 		public void RefreshReward(List<ItemBrief> item)
 		{
 			this.m_ItemPool.ReturnAll(false);
@@ -103,28 +96,21 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AB57 RID: 43863 RVA: 0x001F3736 File Offset: 0x001F1936
 		public void RefreshMine(uint count)
 		{
 			this.m_MineCount.SetText(count.ToString());
 		}
 
-		// Token: 0x04004018 RID: 16408
 		private XLevelRewardDocument _doc = null;
 
-		// Token: 0x04004019 RID: 16409
 		private IXUIButton m_ReturnButton;
 
-		// Token: 0x0400401A RID: 16410
 		private XUIPool m_ItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x0400401B RID: 16411
 		private Transform m_SuperRisk;
 
-		// Token: 0x0400401C RID: 16412
 		private Transform m_GuildMine;
 
-		// Token: 0x0400401D RID: 16413
 		private IXUILabel m_MineCount;
 	}
 }

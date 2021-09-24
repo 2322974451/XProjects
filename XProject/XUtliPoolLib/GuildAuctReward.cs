@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x02000102 RID: 258
+
 	public class GuildAuctReward : CVSReader
 	{
-		// Token: 0x0600067D RID: 1661 RVA: 0x0001F8C4 File Offset: 0x0001DAC4
+
 		public GuildAuctReward.RowData GetByID(short key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -21,7 +21,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x0600067E RID: 1662 RVA: 0x0001F8FC File Offset: 0x0001DAFC
 		private GuildAuctReward.RowData BinarySearchID(short key)
 		{
 			int num = 0;
@@ -80,7 +79,6 @@ namespace XUtliPoolLib
 			return null;
 		}
 
-		// Token: 0x0600067F RID: 1663 RVA: 0x0001F9D8 File Offset: 0x0001DBD8
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			GuildAuctReward.RowData rowData = new GuildAuctReward.RowData();
@@ -94,7 +92,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x06000680 RID: 1664 RVA: 0x0001FA50 File Offset: 0x0001DC50
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -108,19 +105,15 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x0400034E RID: 846
 		public GuildAuctReward.RowData[] Table = null;
 
-		// Token: 0x02000301 RID: 769
 		public class RowData
 		{
-			// Token: 0x04000B2B RID: 2859
+
 			public short ID;
 
-			// Token: 0x04000B2C RID: 2860
 			public byte ActType;
 
-			// Token: 0x04000B2D RID: 2861
 			public uint[] RewardShow;
 		}
 	}

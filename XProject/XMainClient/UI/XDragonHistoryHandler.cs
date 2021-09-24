@@ -7,10 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020016DD RID: 5853
+
 	internal class XDragonHistoryHandler : DlgHandlerBase
 	{
-		// Token: 0x0600F16E RID: 61806 RVA: 0x00354904 File Offset: 0x00352B04
+
 		protected override void Init()
 		{
 			base.Init();
@@ -31,7 +31,6 @@ namespace XMainClient.UI
 			this._DetailWrapContent.RegisterItemUpdateEventHandler(new WrapItemUpdateEventHandler(this.OnDetailWrapContentUpdate));
 		}
 
-		// Token: 0x0600F16F RID: 61807 RVA: 0x00354A31 File Offset: 0x00352C31
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -39,21 +38,18 @@ namespace XMainClient.UI
 			this._doc.SendDragonGroupRecord();
 		}
 
-		// Token: 0x0600F170 RID: 61808 RVA: 0x00354A4E File Offset: 0x00352C4E
 		public override void OnUnload()
 		{
 			this._avatarList = null;
 			base.OnUnload();
 		}
 
-		// Token: 0x0600F171 RID: 61809 RVA: 0x00354A5F File Offset: 0x00352C5F
 		public override void RefreshData()
 		{
 			this.SetupDetailList();
 			this.SetupSelectMember(0);
 		}
 
-		// Token: 0x0600F172 RID: 61810 RVA: 0x00354A74 File Offset: 0x00352C74
 		private void SetupSelectMember(int index = 0)
 		{
 			bool flag = this._avatarList == null;
@@ -103,7 +99,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F173 RID: 61811 RVA: 0x00354C20 File Offset: 0x00352E20
 		private void OnSelectDetail(IXUISprite sprite)
 		{
 			bool flag = this._SelectItemGB != sprite.gameObject && this._SelectItemGB != null && !this._SelectItemGB.activeSelf;
@@ -123,7 +118,6 @@ namespace XMainClient.UI
 			this._selectedIndex = num;
 		}
 
-		// Token: 0x0600F174 RID: 61812 RVA: 0x00354CB8 File Offset: 0x00352EB8
 		private void ForceSetToggleFlag(GameObject obj, bool flag)
 		{
 			bool flag2 = obj == null;
@@ -138,7 +132,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F175 RID: 61813 RVA: 0x00354CF4 File Offset: 0x00352EF4
 		private void OnMemberWrapContentUpdate(Transform t, int index)
 		{
 			bool flag = this._RoleInfoList == null || this._RoleInfoList.Count < index;
@@ -157,7 +150,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F176 RID: 61814 RVA: 0x00354DF8 File Offset: 0x00352FF8
 		private void SetupDetailList()
 		{
 			this._RecordList = this._doc.RecordList;
@@ -174,7 +166,6 @@ namespace XMainClient.UI
 			this._DetailScrollView.ResetPosition();
 		}
 
-		// Token: 0x0600F177 RID: 61815 RVA: 0x00354E98 File Offset: 0x00353098
 		private void OnDetailWrapContentUpdate(Transform t, int index)
 		{
 			bool flag = this._RecordList == null || index >= this._RecordList.Count;
@@ -248,47 +239,34 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F178 RID: 61816 RVA: 0x003552EC File Offset: 0x003534EC
 		private void OnClickAvatar(IXUISprite sp)
 		{
 			ulong id = sp.ID;
 			XCharacterCommonMenuDocument.ReqCharacterMenuInfo(id, false);
 		}
 
-		// Token: 0x04006725 RID: 26405
 		private IXUIWrapContent _DetailWrapContent;
 
-		// Token: 0x04006726 RID: 26406
 		private IXUIScrollView _DetailScrollView;
 
-		// Token: 0x04006727 RID: 26407
 		private List<DragonGroupRecordInfoList> _RecordList;
 
-		// Token: 0x04006728 RID: 26408
 		private List<DragonGroupRoleInfo> _RoleInfoList;
 
-		// Token: 0x04006729 RID: 26409
 		private XExpeditionDocument _expDoc = null;
 
-		// Token: 0x0400672A RID: 26410
 		private XDragonNestDocument _dnDoc = null;
 
-		// Token: 0x0400672B RID: 26411
 		private XDragonPartnerDocument _doc = null;
 
-		// Token: 0x0400672C RID: 26412
 		private Transform[] _avatarList;
 
-		// Token: 0x0400672D RID: 26413
 		private Transform _EmptyDetail;
 
-		// Token: 0x0400672E RID: 26414
 		private Transform _EmptyMember;
 
-		// Token: 0x0400672F RID: 26415
 		private GameObject _SelectItemGB;
 
-		// Token: 0x04006730 RID: 26416
 		private int _selectedIndex = -1;
 	}
 }

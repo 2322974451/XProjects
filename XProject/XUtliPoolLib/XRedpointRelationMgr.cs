@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace XUtliPoolLib
 {
-	// Token: 0x020001BD RID: 445
+
 	public abstract class XRedpointRelationMgr : XRedpointDirtyMgr, IXRedpointRelationMgr
 	{
-		// Token: 0x06000A27 RID: 2599 RVA: 0x00035294 File Offset: 0x00033494
+
 		public void AddRelation(int child, int parent, bool bImmUpdateUI = false)
 		{
 			bool flag = child == 0;
@@ -52,7 +52,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000A28 RID: 2600 RVA: 0x0003536C File Offset: 0x0003356C
 		public void AddRelations(int child, int[] parents, bool bImmUpdateUI = false)
 		{
 			bool flag = child == 0;
@@ -101,7 +100,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000A29 RID: 2601 RVA: 0x0003548C File Offset: 0x0003368C
 		public void RemoveRelation(int child, int parent, bool bImmUpdateUI = false)
 		{
 			bool flag = child == 0;
@@ -137,7 +135,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000A2A RID: 2602 RVA: 0x00035530 File Offset: 0x00033730
 		public void RemoveRelations(int child, int[] parents, bool bImmUpdateUI = false)
 		{
 			bool flag = child == 0;
@@ -180,7 +177,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000A2B RID: 2603 RVA: 0x0003561C File Offset: 0x0003381C
 		public void RemoveAllRelations(int child, bool bImmUpdateUI = false)
 		{
 			bool flag = child == 0;
@@ -210,7 +206,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000A2C RID: 2604 RVA: 0x000356BC File Offset: 0x000338BC
 		public void ClearAllRelations(bool bImmUpdateUI = false)
 		{
 			foreach (int item in this.mParentChildRelationDic.Keys)
@@ -229,7 +224,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000A2D RID: 2605 RVA: 0x00035798 File Offset: 0x00033998
 		protected bool _InsertValue(ref int[] array, int value)
 		{
 			for (int i = 0; i < array.Length; i++)
@@ -248,7 +242,6 @@ namespace XUtliPoolLib
 			return true;
 		}
 
-		// Token: 0x06000A2E RID: 2606 RVA: 0x00035800 File Offset: 0x00033A00
 		protected void _DeleteValue(ref int[] array, int parent)
 		{
 			for (int i = 0; i < array.Length; i++)
@@ -277,16 +270,12 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x040004B9 RID: 1209
 		public const int BASE_ARRAY_LENGTH = 4;
 
-		// Token: 0x040004BA RID: 1210
 		public const int NULL_ID = 0;
 
-		// Token: 0x040004BB RID: 1211
 		protected Dictionary<int, int[]> mChildParentRelationDic = new Dictionary<int, int[]>();
 
-		// Token: 0x040004BC RID: 1212
 		protected Dictionary<int, int[]> mParentChildRelationDic = new Dictionary<int, int[]>();
 	}
 }

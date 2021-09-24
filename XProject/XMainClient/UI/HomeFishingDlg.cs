@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200179D RID: 6045
+
 	internal class HomeFishingDlg : DlgBase<HomeFishingDlg, HomeFishingBehaviour>
 	{
-		// Token: 0x17003853 RID: 14419
-		// (get) Token: 0x0600F9B7 RID: 63927 RVA: 0x003980FC File Offset: 0x003962FC
+
 		public override string fileName
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003854 RID: 14420
-		// (get) Token: 0x0600F9B8 RID: 63928 RVA: 0x00398114 File Offset: 0x00396314
 		public override int layer
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003855 RID: 14421
-		// (get) Token: 0x0600F9B9 RID: 63929 RVA: 0x00398128 File Offset: 0x00396328
 		public override bool autoload
 		{
 			get
@@ -40,7 +35,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F9BA RID: 63930 RVA: 0x0039813C File Offset: 0x0039633C
 		protected override void Init()
 		{
 			base.Init();
@@ -53,14 +47,12 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_LowQualityFx.SetActive(false);
 		}
 
-		// Token: 0x0600F9BB RID: 63931 RVA: 0x003981C7 File Offset: 0x003963C7
 		protected override void OnLoad()
 		{
 			DlgHandlerBase.EnsureCreate<XYuyinView>(ref this._yuyinHandler, base.uiBehaviour.transform, true, this);
 			this._yuyinHandler.SetVisible(false);
 		}
 
-		// Token: 0x0600F9BC RID: 63932 RVA: 0x003981F0 File Offset: 0x003963F0
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -74,7 +66,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_LevelFrameCloseBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnFishLevelFrameCloseBtnClick));
 		}
 
-		// Token: 0x0600F9BD RID: 63933 RVA: 0x003982F0 File Offset: 0x003964F0
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -87,7 +78,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F9BE RID: 63934 RVA: 0x00398344 File Offset: 0x00396544
 		protected override void OnHide()
 		{
 			bool isFishing = this._doc.IsFishing;
@@ -108,7 +98,6 @@ namespace XMainClient.UI
 			base.OnHide();
 		}
 
-		// Token: 0x0600F9BF RID: 63935 RVA: 0x003983E0 File Offset: 0x003965E0
 		protected override void OnUnload()
 		{
 			bool isFishing = this._doc.IsFishing;
@@ -123,7 +112,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x0600F9C0 RID: 63936 RVA: 0x00398448 File Offset: 0x00396648
 		public void Refresh(bool showFishResult = false)
 		{
 			this._itemDoc.ToggleBlock(false);
@@ -184,7 +172,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F9C1 RID: 63937 RVA: 0x00398840 File Offset: 0x00396A40
 		private void ShowFishLevelFrame()
 		{
 			uint fishingLevel = this._doc.FishingLevel;
@@ -272,21 +259,18 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F9C2 RID: 63938 RVA: 0x00398D14 File Offset: 0x00396F14
 		private bool OnFishLevelBtnClick(IXUIButton btn)
 		{
 			this.ShowFishLevelFrame();
 			return true;
 		}
 
-		// Token: 0x0600F9C3 RID: 63939 RVA: 0x00398D30 File Offset: 0x00396F30
 		private bool OnFishLevelFrameCloseBtnClick(IXUIButton btn)
 		{
 			base.uiBehaviour.m_FishLevelFrame.SetActive(false);
 			return true;
 		}
 
-		// Token: 0x0600F9C4 RID: 63940 RVA: 0x00398D58 File Offset: 0x00396F58
 		private bool OnSweepButtonClicked(IXUIButton button)
 		{
 			bool flag = DlgBase<XWelfareView, XWelfareBehaviour>.singleton.CheckActiveMemberPrivilege(MemberPrivilege.KingdomPrivilege_Adventurer);
@@ -324,7 +308,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F9C5 RID: 63941 RVA: 0x00398EA8 File Offset: 0x003970A8
 		private bool OnStartFishingBtnClick(IXUIButton btn)
 		{
 			bool flag = XBagDocument.BagDoc.GetItemCount(XHomeFishingDocument.stoshID) == 0UL;
@@ -366,21 +349,18 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600F9C6 RID: 63942 RVA: 0x00398FE4 File Offset: 0x003971E4
 		private bool OnHomeMainBtnClick(IXUIButton btn)
 		{
 			DlgBase<HomeMainDlg, TabDlgBehaviour>.singleton.ShowWorkGameSystem(XSysDefine.XSys_Home);
 			return true;
 		}
 
-		// Token: 0x0600F9C7 RID: 63943 RVA: 0x00399008 File Offset: 0x00397208
 		private bool OnHomeCookingBtnClick(IXUIButton btn)
 		{
 			DlgBase<HomeMainDlg, TabDlgBehaviour>.singleton.ShowWorkGameSystem(XSysDefine.XSys_Home_Cooking);
 			return true;
 		}
 
-		// Token: 0x0600F9C8 RID: 63944 RVA: 0x0039902C File Offset: 0x0039722C
 		public bool OnCloseBtnClick(IXUIButton btn)
 		{
 			this._yuyinHandler.SetVisible(false);
@@ -403,20 +383,17 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F9C9 RID: 63945 RVA: 0x00399127 File Offset: 0x00397327
 		public void SetFishingTipsState(bool state)
 		{
 			base.uiBehaviour.m_FishingTips.SetActive(state);
 		}
 
-		// Token: 0x0600F9CA RID: 63946 RVA: 0x0039913C File Offset: 0x0039733C
 		private bool OnHomeShopBtnClick(IXUIButton btn)
 		{
 			DlgBase<MallSystemDlg, MallSystemBehaviour>.singleton.ShowShopSystem(XSysDefine.XSys_Mall_Home, 0UL);
 			return true;
 		}
 
-		// Token: 0x0600F9CB RID: 63947 RVA: 0x00399164 File Offset: 0x00397364
 		public void SetUIState(bool state)
 		{
 			if (state)
@@ -431,7 +408,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F9CC RID: 63948 RVA: 0x003991B4 File Offset: 0x003973B4
 		public void PlayGetFishFx(bool high)
 		{
 			base.uiBehaviour.m_HighQualityFx.SetActive(false);
@@ -446,34 +422,26 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F9CD RID: 63949 RVA: 0x00399211 File Offset: 0x00397411
 		public void DelayShowFish()
 		{
 			this._timeToken = XSingleton<XTimerMgr>.singleton.SetTimer(2f, new XTimerMgr.ElapsedEventHandler(this.ShowGetFish), null);
 		}
 
-		// Token: 0x0600F9CE RID: 63950 RVA: 0x00399236 File Offset: 0x00397436
 		private void ShowGetFish(object o = null)
 		{
 			this.Refresh(true);
 		}
 
-		// Token: 0x04006D57 RID: 27991
 		private XHomeFishingDocument _doc = null;
 
-		// Token: 0x04006D58 RID: 27992
 		private XCharacterItemDocument _itemDoc = null;
 
-		// Token: 0x04006D59 RID: 27993
 		private XSweepDocument _sweepDoc = null;
 
-		// Token: 0x04006D5A RID: 27994
 		private XWelfareDocument _welfareDoc = null;
 
-		// Token: 0x04006D5B RID: 27995
 		public XYuyinView _yuyinHandler;
 
-		// Token: 0x04006D5C RID: 27996
 		private uint _timeToken;
 	}
 }

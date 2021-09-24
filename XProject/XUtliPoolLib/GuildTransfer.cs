@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x02000119 RID: 281
+
 	public class GuildTransfer : CVSReader
 	{
-		// Token: 0x060006D4 RID: 1748 RVA: 0x0002198C File Offset: 0x0001FB8C
+
 		public GuildTransfer.RowData GetByid(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -29,7 +29,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x060006D5 RID: 1749 RVA: 0x000219F8 File Offset: 0x0001FBF8
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			GuildTransfer.RowData rowData = new GuildTransfer.RowData();
@@ -45,7 +44,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x060006D6 RID: 1750 RVA: 0x00021A8C File Offset: 0x0001FC8C
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -59,22 +57,17 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x04000365 RID: 869
 		public GuildTransfer.RowData[] Table = null;
 
-		// Token: 0x02000318 RID: 792
 		public class RowData
 		{
-			// Token: 0x04000BB9 RID: 3001
+
 			public uint id;
 
-			// Token: 0x04000BBA RID: 3002
 			public string name;
 
-			// Token: 0x04000BBB RID: 3003
 			public uint sceneid;
 
-			// Token: 0x04000BBC RID: 3004
 			public string icon;
 		}
 	}

@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200175F RID: 5983
+
 	internal class GuildPositionMenu : DlgBase<GuildPositionMenu, GuildPositionBehaviour>
 	{
-		// Token: 0x17003807 RID: 14343
-		// (get) Token: 0x0600F718 RID: 63256 RVA: 0x00382CEC File Offset: 0x00380EEC
+
 		public override string fileName
 		{
 			get
@@ -19,7 +18,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F719 RID: 63257 RVA: 0x00382D04 File Offset: 0x00380F04
 		public void ShowMenu(ulong MemberID)
 		{
 			this._MemberID = MemberID;
@@ -34,28 +32,24 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F71A RID: 63258 RVA: 0x00382D35 File Offset: 0x00380F35
 		protected override void Init()
 		{
 			base.Init();
 			this._memberDoc = XDocuments.GetSpecificDocument<XGuildMemberDocument>(XGuildMemberDocument.uuID);
 		}
 
-		// Token: 0x0600F71B RID: 63259 RVA: 0x00382D4F File Offset: 0x00380F4F
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.RefreshView();
 		}
 
-		// Token: 0x0600F71C RID: 63260 RVA: 0x00382D60 File Offset: 0x00380F60
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			base.uiBehaviour.m_memuSprite.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.ClickClose));
 		}
 
-		// Token: 0x0600F71D RID: 63261 RVA: 0x00382D88 File Offset: 0x00380F88
 		private void RefreshView()
 		{
 			base.uiBehaviour.m_MenuPool.ReturnAll(false);
@@ -95,7 +89,6 @@ namespace XMainClient.UI
 			base.uiBehaviour.m_memuSprite.spriteHeight = spriteHeight;
 		}
 
-		// Token: 0x0600F71E RID: 63262 RVA: 0x00382F74 File Offset: 0x00381174
 		private bool ClickHandler(IXUIButton btn)
 		{
 			DlgBase<GuildPositionMenu, GuildPositionBehaviour>.singleton.SetVisibleWithAnimation(false, null);
@@ -116,7 +109,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F71F RID: 63263 RVA: 0x00383014 File Offset: 0x00381214
 		private bool OnSelectPositionHandler(IXUIButton btn)
 		{
 			XSingleton<UiUtility>.singleton.CloseModalDlg();
@@ -124,19 +116,15 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600F720 RID: 63264 RVA: 0x0038304A File Offset: 0x0038124A
 		private void ClickClose(IXUISprite sprite)
 		{
 			this.SetVisibleWithAnimation(false, null);
 		}
 
-		// Token: 0x04006B72 RID: 27506
 		private GuildPosition _SelectPosition;
 
-		// Token: 0x04006B73 RID: 27507
 		private ulong _MemberID;
 
-		// Token: 0x04006B74 RID: 27508
 		private XGuildMemberDocument _memberDoc;
 	}
 }

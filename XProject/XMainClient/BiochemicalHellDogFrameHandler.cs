@@ -9,10 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C78 RID: 3192
+
 	internal class BiochemicalHellDogFrameHandler : DlgHandlerBase
 	{
-		// Token: 0x0600B46A RID: 46186 RVA: 0x00233C98 File Offset: 0x00231E98
+
 		protected override void Init()
 		{
 			base.Init();
@@ -31,8 +31,6 @@ namespace XMainClient
 			this.InitShow();
 		}
 
-		// Token: 0x170031F2 RID: 12786
-		// (get) Token: 0x0600B46B RID: 46187 RVA: 0x00233DC8 File Offset: 0x00231FC8
 		protected override string FileName
 		{
 			get
@@ -41,44 +39,37 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B46C RID: 46188 RVA: 0x00233DDF File Offset: 0x00231FDF
 		public override void RegisterEvent()
 		{
 			this.m_HelpReward.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnHelpRewardOpenClick));
 			this.m_Help.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnHelpClicked));
 		}
 
-		// Token: 0x0600B46D RID: 46189 RVA: 0x00233E12 File Offset: 0x00232012
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.Refresh();
 		}
 
-		// Token: 0x0600B46E RID: 46190 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		public override void StackRefresh()
 		{
 		}
 
-		// Token: 0x0600B46F RID: 46191 RVA: 0x0019EEFD File Offset: 0x0019D0FD
 		protected override void OnHide()
 		{
 			base.OnHide();
 		}
 
-		// Token: 0x0600B470 RID: 46192 RVA: 0x00233E23 File Offset: 0x00232023
 		public override void OnUnload()
 		{
 			DlgHandlerBase.EnsureUnload<ActivityHelpRewardHandler>(ref this.m_HelpRewardHandler);
 			base.OnUnload();
 		}
 
-		// Token: 0x0600B471 RID: 46193 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		private void InitShow()
 		{
 		}
 
-		// Token: 0x0600B472 RID: 46194 RVA: 0x00233E3C File Offset: 0x0023203C
 		public void Refresh()
 		{
 			SuperActivityTime.RowData actInfo = this.doc.ActInfo;
@@ -200,19 +191,16 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B473 RID: 46195 RVA: 0x00234535 File Offset: 0x00232735
 		public void RefreshRedPoint()
 		{
 			this.m_HelpRewardRedPoint.gameObject.SetActive(this.doc.GetRedPoint());
 		}
 
-		// Token: 0x0600B474 RID: 46196 RVA: 0x00234554 File Offset: 0x00232754
 		private void OnHelpClicked(IXUISprite btn)
 		{
 			DlgBase<XCommonHelpTipView, XCommonHelpTipBehaviour>.singleton.ShowHelp(XSysDefine.XSys_ThemeActivity_HellDog);
 		}
 
-		// Token: 0x0600B475 RID: 46197 RVA: 0x00234568 File Offset: 0x00232768
 		private bool OnJoinClick(IXUIButton btn)
 		{
 			XSingleton<XDebug>.singleton.AddGreenLog(btn.ID.ToString(), null, null, null, null, null);
@@ -223,7 +211,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B476 RID: 46198 RVA: 0x002345C8 File Offset: 0x002327C8
 		private bool OnHelpRewardOpenClick(IXUIButton btn)
 		{
 			DlgHandlerBase.EnsureCreate<ActivityHelpRewardHandler>(ref this.m_HelpRewardHandler, this.RewardPos, true, this);
@@ -233,41 +220,30 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B477 RID: 46199 RVA: 0x00234624 File Offset: 0x00232824
 		private bool OnRankOpenClick(IXUIButton btn)
 		{
 			DlgBase<BiochemicalHellDogRankView, BiochemicalHellDogRankBehaviour>.singleton.SetVisibleWithAnimation(true, null);
 			return true;
 		}
 
-		// Token: 0x04004600 RID: 17920
 		private BiochemicalHellDogDocument doc = null;
 
-		// Token: 0x04004601 RID: 17921
 		public ActivityHelpRewardHandler m_HelpRewardHandler;
 
-		// Token: 0x04004602 RID: 17922
 		private IXUILabel m_Time;
 
-		// Token: 0x04004603 RID: 17923
 		private IXUISprite m_Help;
 
-		// Token: 0x04004604 RID: 17924
 		private IXUIButton m_HelpReward;
 
-		// Token: 0x04004605 RID: 17925
 		private Transform m_HelpRewardRedPoint;
 
-		// Token: 0x04004606 RID: 17926
 		private Transform RewardPos;
 
-		// Token: 0x04004607 RID: 17927
 		private Transform RankPos;
 
-		// Token: 0x04004608 RID: 17928
 		private XUIPool m_MonsterPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04004609 RID: 17929
 		private XUIPool m_ItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 	}
 }

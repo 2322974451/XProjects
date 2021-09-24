@@ -9,11 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000CCD RID: 3277
+
 	public class XYuyinView : DlgHandlerBase
 	{
-		// Token: 0x17003275 RID: 12917
-		// (get) Token: 0x0600B7A6 RID: 47014 RVA: 0x0024A208 File Offset: 0x00248408
+
 		protected override string FileName
 		{
 			get
@@ -22,7 +21,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B7A7 RID: 47015 RVA: 0x0024A220 File Offset: 0x00248420
 		public void ResetPool()
 		{
 			bool flag = this.m_CommonPool != null;
@@ -32,7 +30,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B7A8 RID: 47016 RVA: 0x0024A248 File Offset: 0x00248448
 		protected override void Init()
 		{
 			base.Init();
@@ -50,7 +47,6 @@ namespace XMainClient
 			this.m_CommonPool.SetupPool(this.m_pool, this.m_goCommon, 2U, true);
 		}
 
-		// Token: 0x0600B7A9 RID: 47017 RVA: 0x0024A3C8 File Offset: 0x002485C8
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -59,13 +55,11 @@ namespace XMainClient
 			this.m_btnSpeak.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnSpeakClick));
 		}
 
-		// Token: 0x0600B7AA RID: 47018 RVA: 0x0024A425 File Offset: 0x00248625
 		public void Init(int depth)
 		{
 			this.m_panel.SetDepth(depth);
 		}
 
-		// Token: 0x0600B7AB RID: 47019 RVA: 0x0024A438 File Offset: 0x00248638
 		public override void OnUpdate()
 		{
 			bool flag = this.chatDoc != null;
@@ -95,19 +89,16 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B7AC RID: 47020 RVA: 0x0024A4CB File Offset: 0x002486CB
 		public void Show(bool active)
 		{
 			this.m_panel.gameObject.SetActive(active);
 		}
 
-		// Token: 0x0600B7AD RID: 47021 RVA: 0x0024A4E0 File Offset: 0x002486E0
 		public void Show(YuyinIconType type, int depth = 1)
 		{
 			this.Show((int)type, depth);
 		}
 
-		// Token: 0x0600B7AE RID: 47022 RVA: 0x0024A4EC File Offset: 0x002486EC
 		public void Show(int type, int depth = 1)
 		{
 			this.mType = type;
@@ -115,13 +106,11 @@ namespace XMainClient
 			this.Refresh(type);
 		}
 
-		// Token: 0x0600B7AF RID: 47023 RVA: 0x0024A506 File Offset: 0x00248706
 		public void Refresh(YuyinIconType type)
 		{
 			this.Refresh((int)type);
 		}
 
-		// Token: 0x0600B7B0 RID: 47024 RVA: 0x0024A514 File Offset: 0x00248714
 		public void Refresh(int type)
 		{
 			bool flag = this.chatDoc == null;
@@ -192,7 +181,6 @@ namespace XMainClient
 			this.GridItems(type);
 		}
 
-		// Token: 0x0600B7B1 RID: 47025 RVA: 0x0024A854 File Offset: 0x00248A54
 		private void GridItems(int type)
 		{
 			bool flag = this.openRow == null;
@@ -207,7 +195,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B7B2 RID: 47026 RVA: 0x0024A8F4 File Offset: 0x00248AF4
 		public void OnItemPress(IXUIButton btn, bool isPressed)
 		{
 			GameObject gameObject = btn.gameObject.transform.Find("Effect").gameObject;
@@ -246,19 +233,16 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B7B3 RID: 47027 RVA: 0x0024A9E8 File Offset: 0x00248BE8
 		public void OnVoiceButtonDrag(IXUIButton sp, Vector2 delta)
 		{
 			this.m_DragDistance += delta;
 			this.m_CancelRecord = (this.m_DragDistance.magnitude >= 100f);
 		}
 
-		// Token: 0x0600B7B4 RID: 47028 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		private void ChatOver()
 		{
 		}
 
-		// Token: 0x0600B7B5 RID: 47029 RVA: 0x0024AA18 File Offset: 0x00248C18
 		private bool OpenInputView(IXUIButton btn)
 		{
 			DlgBase<XChatInputView, XChatInputBehaviour>.singleton.ShowChatInput(new ChatInputStringBack(this.SendInputMsg));
@@ -266,7 +250,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B7B6 RID: 47030 RVA: 0x0024AA50 File Offset: 0x00248C50
 		public void SendInputMsg(string str)
 		{
 			bool flag = !XSingleton<UiUtility>.singleton.IsSystemExpress(str);
@@ -277,14 +260,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B7B7 RID: 47031 RVA: 0x0024AAA2 File Offset: 0x00248CA2
 		private void HideVoiceEff(object o = null)
 		{
 			this.ShowVoiceEff(this.m_btnMusic, false);
 			this.ShowVoiceEff(this.m_btnSpeak, false);
 		}
 
-		// Token: 0x0600B7B8 RID: 47032 RVA: 0x0024AAC4 File Offset: 0x00248CC4
 		public void ShowVoiceEff(IXUIButton btn, bool show)
 		{
 			bool flag = btn != null && btn.gameObject != null;
@@ -299,7 +280,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B7B9 RID: 47033 RVA: 0x0024AB18 File Offset: 0x00248D18
 		public bool OnMusicClick(IXUIButton btn)
 		{
 			this.ShowVoiceEff(btn, false);
@@ -307,7 +287,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B7BA RID: 47034 RVA: 0x0024AB3C File Offset: 0x00248D3C
 		public void SetMusic(bool on)
 		{
 			XApolloDocument specificDocument = XDocuments.GetSpecificDocument<XApolloDocument>(XApolloDocument.uuID);
@@ -329,7 +308,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B7BB RID: 47035 RVA: 0x0024ABC0 File Offset: 0x00248DC0
 		public bool OnSpeakClick(IXUIButton btn)
 		{
 			this.ShowVoiceEff(btn, false);
@@ -337,7 +315,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B7BC RID: 47036 RVA: 0x0024ABE4 File Offset: 0x00248DE4
 		public void SetSpeak(bool on)
 		{
 			XApolloDocument specificDocument = XDocuments.GetSpecificDocument<XApolloDocument>(XApolloDocument.uuID);
@@ -358,7 +335,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B7BD RID: 47037 RVA: 0x0024AC5C File Offset: 0x00248E5C
 		private void OnRealVoiceClick(int click)
 		{
 			IApolloManager xapolloManager = XSingleton<XUpdater.XUpdater>.singleton.XApolloManager;
@@ -440,73 +416,50 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04004851 RID: 18513
 		public GameObject m_pool;
 
-		// Token: 0x04004852 RID: 18514
 		public GameObject m_goCommon;
 
-		// Token: 0x04004853 RID: 18515
 		public GameObject m_goFriend;
 
-		// Token: 0x04004854 RID: 18516
 		public IXUIButton m_btnSetting;
 
-		// Token: 0x04004855 RID: 18517
 		public IXUIButton m_btnMusic;
 
-		// Token: 0x04004856 RID: 18518
 		public IXUIButton m_btnSpeak;
 
-		// Token: 0x04004857 RID: 18519
 		public GameObject m_objMusic;
 
-		// Token: 0x04004858 RID: 18520
 		public GameObject m_objSpeak;
 
-		// Token: 0x04004859 RID: 18521
 		public IXUIPanel m_panel;
 
-		// Token: 0x0400485A RID: 18522
 		public GameObject m_leftRoot;
 
-		// Token: 0x0400485B RID: 18523
 		public GameObject m_rightRoot;
 
-		// Token: 0x0400485C RID: 18524
 		public IXUITweenTool m_tween;
 
-		// Token: 0x0400485D RID: 18525
 		public XUIPool m_CommonPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x0400485E RID: 18526
 		private bool m_CancelRecord = false;
 
-		// Token: 0x0400485F RID: 18527
 		private Vector2 m_DragDistance = Vector2.zero;
 
-		// Token: 0x04004860 RID: 18528
 		private int mType = 1;
 
-		// Token: 0x04004861 RID: 18529
 		private static bool hideRealEff = false;
 
-		// Token: 0x04004862 RID: 18530
 		public Vector3 farway = new Vector3(2000f, 2000f, 0f);
 
-		// Token: 0x04004863 RID: 18531
 		private bool cacheGuild = false;
 
-		// Token: 0x04004864 RID: 18532
 		private bool cacheTeam = false;
 
-		// Token: 0x04004865 RID: 18533
 		private List<Transform> m_trans = new List<Transform>();
 
-		// Token: 0x04004866 RID: 18534
 		private XChatDocument chatDoc;
 
-		// Token: 0x04004867 RID: 18535
 		private ChatOpen.RowData openRow;
 	}
 }

@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200182B RID: 6187
+
 	public class XPlayerInfoChildBaseView
 	{
-		// Token: 0x06010112 RID: 65810 RVA: 0x003D59D8 File Offset: 0x003D3BD8
+
 		public virtual void FindFrom(Transform t)
 		{
 			Transform transform = t.Find("name");
@@ -30,13 +30,10 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04007293 RID: 29331
 		public IXUILabelSymbol lbName;
 
-		// Token: 0x04007294 RID: 29332
 		public IXUILabel lbLevel;
 
-		// Token: 0x04007295 RID: 29333
 		public IXUISprite sprHead;
 	}
 }

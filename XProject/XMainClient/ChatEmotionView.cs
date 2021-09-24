@@ -6,11 +6,10 @@ using XMainClient.UI.UICommon;
 
 namespace XMainClient
 {
-	// Token: 0x02000CC2 RID: 3266
+
 	internal class ChatEmotionView : DlgBase<ChatEmotionView, ChatEmotionBehaviour>
 	{
-		// Token: 0x17003271 RID: 12913
-		// (get) Token: 0x0600B771 RID: 46961 RVA: 0x00248548 File Offset: 0x00246748
+
 		public override string fileName
 		{
 			get
@@ -19,8 +18,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003272 RID: 12914
-		// (get) Token: 0x0600B772 RID: 46962 RVA: 0x00248560 File Offset: 0x00246760
 		public override bool autoload
 		{
 			get
@@ -29,7 +26,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B773 RID: 46963 RVA: 0x00248574 File Offset: 0x00246774
 		protected override void Init()
 		{
 			base.Init();
@@ -52,14 +48,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B774 RID: 46964 RVA: 0x002486B9 File Offset: 0x002468B9
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			base.uiBehaviour.m_sprP.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.CloseEmotion));
 		}
 
-		// Token: 0x0600B775 RID: 46965 RVA: 0x002486E0 File Offset: 0x002468E0
 		public void ShowChatEmotion(ChatSelectStringBack func, Vector3 pos, int pivot)
 		{
 			this._func = func;
@@ -68,7 +62,6 @@ namespace XMainClient
 			this.SetPivot(pivot);
 		}
 
-		// Token: 0x0600B776 RID: 46966 RVA: 0x00248718 File Offset: 0x00246918
 		public void SetPivot(int pivot)
 		{
 			bool flag = pivot == 0;
@@ -94,13 +87,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B777 RID: 46967 RVA: 0x00248778 File Offset: 0x00246978
 		private void CloseEmotion(IXUISprite spr)
 		{
 			this.SetVisible(false, true);
 		}
 
-		// Token: 0x0600B778 RID: 46968 RVA: 0x00248784 File Offset: 0x00246984
 		public void OnSelectEmotion(IXUISprite sp)
 		{
 			ulong id = sp.ID;
@@ -113,7 +104,6 @@ namespace XMainClient
 			this.CloseEmotion(sp);
 		}
 
-		// Token: 0x0600B779 RID: 46969 RVA: 0x002487DC File Offset: 0x002469DC
 		public string OnParseEmotion(string content)
 		{
 			this.emotion.Clear();
@@ -150,7 +140,6 @@ namespace XMainClient
 			return content;
 		}
 
-		// Token: 0x0600B77A RID: 46970 RVA: 0x00248938 File Offset: 0x00246B38
 		public string OnRemoveEmotion(string content)
 		{
 			this.emotion.Clear();
@@ -184,19 +173,14 @@ namespace XMainClient
 			return content;
 		}
 
-		// Token: 0x04004810 RID: 18448
 		private string m_Emotion = "fsbq_";
 
-		// Token: 0x04004811 RID: 18449
 		private string m_EmotionText = "z";
 
-		// Token: 0x04004812 RID: 18450
 		private const int CHAT_MAX_EMOTION_NUM = 24;
 
-		// Token: 0x04004813 RID: 18451
 		private ChatSelectStringBack _func = null;
 
-		// Token: 0x04004814 RID: 18452
 		private List<string> emotion = new List<string>();
 	}
 }

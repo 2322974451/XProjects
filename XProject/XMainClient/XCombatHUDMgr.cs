@@ -4,16 +4,15 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000DBC RID: 3516
+
 	internal class XCombatHUDMgr : XSingleton<XCombatHUDMgr>
 	{
-		// Token: 0x0600BE8C RID: 48780 RVA: 0x0027CCA8 File Offset: 0x0027AEA8
+
 		public bool Initialize()
 		{
 			return true;
 		}
 
-		// Token: 0x0600BE8D RID: 48781 RVA: 0x0027CCBC File Offset: 0x0027AEBC
 		public GameObject GetHUDTemplateByDamageResult(ProjectDamageResult config, bool isPlayer)
 		{
 			bool flag = config.Result == ProjectResultType.PJRES_IMMORTAL;
@@ -54,7 +53,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600BE8E RID: 48782 RVA: 0x0027CDA0 File Offset: 0x0027AFA0
 		public string GetHUDText(ProjectDamageResult config, bool isDigitalText)
 		{
 			string text = "";
@@ -79,7 +77,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600BE8F RID: 48783 RVA: 0x0027CE30 File Offset: 0x0027B030
 		public string GetElementSprite(DamageElement element)
 		{
 			string result;
@@ -104,7 +101,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600BE90 RID: 48784 RVA: 0x0027CE84 File Offset: 0x0027B084
 		public void GetElementColor(DamageElement element, ref bool applyGradient, ref Color top, ref Color bottom)
 		{
 			switch (element)
@@ -135,22 +131,16 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04004DEB RID: 19947
 		public static string HUD_NORMAL = "UI/Billboard/HUDNormal2";
 
-		// Token: 0x04004DEC RID: 19948
 		public static string HUD_CRITICAL = "UI/Billboard/HUDCritical";
 
-		// Token: 0x04004DED RID: 19949
 		public static string HUD_POFANG = "UI/Billboard/HUDPofang";
 
-		// Token: 0x04004DEE RID: 19950
 		public static string HUD_PLAYER = "UI/Billboard/HUDPlayer";
 
-		// Token: 0x04004DEF RID: 19951
 		public static string HUD_IMMORTAL = "UI/Billboard/HUDImmortal";
 
-		// Token: 0x04004DF0 RID: 19952
 		public static string HUD_MISS = "UI/Billboard/HUDMiss";
 	}
 }

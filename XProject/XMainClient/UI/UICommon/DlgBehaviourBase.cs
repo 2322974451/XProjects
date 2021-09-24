@@ -1,8 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: XMainClient.UI.UICommon.DlgBehaviourBase
-// Assembly: XMainClient, Version=1.0.6733.32538, Culture=neutral, PublicKeyToken=null
-// MVID: 71510397-FE89-4B5C-BC50-B6D560866D97
-// Assembly location: F:\龙之谷\Client\Assets\Lib\XMainClient.dll
+﻿
 
 using System.Runtime.CompilerServices;
 using UILib;
@@ -72,7 +68,5 @@ namespace XMainClient.UI.UICommon
         {
         }
 
-        //[SpecialName]
-        //GameObject IXUIObject.get_gameObject() => this.gameObject;
     }
 }

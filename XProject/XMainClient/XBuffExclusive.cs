@@ -4,10 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000DB0 RID: 3504
+
 	internal struct XBuffExclusive
 	{
-		// Token: 0x0600BDE6 RID: 48614 RVA: 0x00277B24 File Offset: 0x00275D24
+
 		public void Set(BuffTable.RowData rowData)
 		{
 			bool flag = rowData == null;
@@ -38,33 +38,28 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BDE7 RID: 48615 RVA: 0x00277C10 File Offset: 0x00275E10
 		public bool CanAdd(byte clearType)
 		{
 			bool flag = this._ClearTypes == null;
 			return flag || !this._ClearTypes.Contains(clearType);
 		}
 
-		// Token: 0x0600BDE8 RID: 48616 RVA: 0x00277C44 File Offset: 0x00275E44
 		public bool IsSingleEffectConflict(XBuffExclusive other)
 		{
 			return XBuffExclusive._Overlaped(this._SingleEffects, other._SingleEffects);
 		}
 
-		// Token: 0x0600BDE9 RID: 48617 RVA: 0x00277C68 File Offset: 0x00275E68
 		private static bool _Overlaped(HashSet<byte> left, HashSet<byte> right)
 		{
 			bool flag = left == null || right == null || left.Count == 0 || right.Count == 0;
 			return !flag && left.Overlaps(right);
 		}
 
-		// Token: 0x0600BDEA RID: 48618 RVA: 0x00277CA4 File Offset: 0x00275EA4
 		public bool ShouldClear(byte clearType)
 		{
 			return this.CanAdd(clearType);
 		}
 
-		// Token: 0x0600BDEB RID: 48619 RVA: 0x00277CC0 File Offset: 0x00275EC0
 		public void Destroy()
 		{
 			bool flag = this._ClearTypes != null;
@@ -81,10 +76,8 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04004D84 RID: 19844
 		private HashSet<byte> _ClearTypes;
 
-		// Token: 0x04004D85 RID: 19845
 		private HashSet<byte> _SingleEffects;
 	}
 }

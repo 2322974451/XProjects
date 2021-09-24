@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x020008C1 RID: 2241
+
 	internal class ArtifactComposeDocument : XDocComponent
 	{
-		// Token: 0x17002A6E RID: 10862
-		// (get) Token: 0x06008773 RID: 34675 RVA: 0x00115B2C File Offset: 0x00113D2C
+
 		public override uint ID
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002A6F RID: 10863
-		// (get) Token: 0x06008775 RID: 34677 RVA: 0x00115B60 File Offset: 0x00113D60
 		public static ArtifactComposeDocument Doc
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002A70 RID: 10864
-		// (get) Token: 0x06008776 RID: 34678 RVA: 0x00115B8C File Offset: 0x00113D8C
 		public List<ulong> SelectedItems
 		{
 			get
@@ -40,8 +35,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002A71 RID: 10865
-		// (get) Token: 0x06008777 RID: 34679 RVA: 0x00115BA4 File Offset: 0x00113DA4
 		public int CurSelectTabLevel
 		{
 			get
@@ -50,32 +43,27 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008778 RID: 34680 RVA: 0x00115BC0 File Offset: 0x00113DC0
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			ArtifactComposeDocument.AsyncLoader.AddTask("Table/ArtifactCompose", ArtifactComposeDocument.m_artifactComposeTab, false);
 			ArtifactComposeDocument.AsyncLoader.Execute(callback);
 		}
 
-		// Token: 0x06008779 RID: 34681 RVA: 0x00114ACA File Offset: 0x00112CCA
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
 		}
 
-		// Token: 0x0600877A RID: 34682 RVA: 0x00114AD5 File Offset: 0x00112CD5
 		protected override void EventSubscribe()
 		{
 			base.EventSubscribe();
 		}
 
-		// Token: 0x0600877B RID: 34683 RVA: 0x00114ADF File Offset: 0x00112CDF
 		public override void OnDetachFromHost()
 		{
 			base.OnDetachFromHost();
 		}
 
-		// Token: 0x0600877C RID: 34684 RVA: 0x00115BE8 File Offset: 0x00113DE8
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 			this.IsComposing = false;
@@ -100,13 +88,11 @@ namespace XMainClient
 			this.RefreshUi();
 		}
 
-		// Token: 0x0600877D RID: 34685 RVA: 0x00114AE9 File Offset: 0x00112CE9
 		public override void OnEnterSceneFinally()
 		{
 			base.OnEnterSceneFinally();
 		}
 
-		// Token: 0x0600877E RID: 34686 RVA: 0x00115C88 File Offset: 0x00113E88
 		public void ReqCoposeArtifact()
 		{
 			RpcC2G_ArtifactCompose rpcC2G_ArtifactCompose = new RpcC2G_ArtifactCompose();
@@ -118,7 +104,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_ArtifactCompose);
 		}
 
-		// Token: 0x0600877F RID: 34687 RVA: 0x00115CF0 File Offset: 0x00113EF0
 		public void ReqOneKeyCompose(List<uint> lst)
 		{
 			RpcC2G_ArtifactCompose rpcC2G_ArtifactCompose = new RpcC2G_ArtifactCompose();
@@ -131,7 +116,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_ArtifactCompose);
 		}
 
-		// Token: 0x06008780 RID: 34688 RVA: 0x00115D5C File Offset: 0x00113F5C
 		public void OnReqCoposeArtifactBack(ArtifactComposeType type, ArtifactComposeRes oRes)
 		{
 			this.IsComposing = false;
@@ -205,7 +189,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008781 RID: 34689 RVA: 0x00115FD4 File Offset: 0x001141D4
 		private string GetQuanlityDes(int quanlity)
 		{
 			string result;
@@ -230,8 +213,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x17002A72 RID: 10866
-		// (get) Token: 0x06008782 RID: 34690 RVA: 0x00116028 File Offset: 0x00114228
 		public bool IsSelectionFull
 		{
 			get
@@ -279,7 +260,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008783 RID: 34691 RVA: 0x00116120 File Offset: 0x00114320
 		public void Additem(ulong uid)
 		{
 			bool flag = this.SelectedItems.Count > 0;
@@ -309,7 +289,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008784 RID: 34692 RVA: 0x001161F8 File Offset: 0x001143F8
 		public void RefreshUi()
 		{
 			bool flag = this.ComposeHandler != null && this.ComposeHandler.IsVisible();
@@ -320,19 +299,16 @@ namespace XMainClient
 			ArtifactDeityStoveDocument.Doc.RefreshUi();
 		}
 
-		// Token: 0x06008785 RID: 34693 RVA: 0x00116237 File Offset: 0x00114437
 		public void ToggleItemSelect(ulong uid)
 		{
 			this.ToggleItemSelect(!this.m_SelectedItems.Contains(uid), uid, true);
 		}
 
-		// Token: 0x06008786 RID: 34694 RVA: 0x00116254 File Offset: 0x00114454
 		public bool IsSelected(ulong uid)
 		{
 			return this.m_SelectedItems.Contains(uid);
 		}
 
-		// Token: 0x06008787 RID: 34695 RVA: 0x00116274 File Offset: 0x00114474
 		public void ResetSelection(bool isRefreshUi)
 		{
 			this.m_SelectedItems.Clear();
@@ -342,7 +318,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008788 RID: 34696 RVA: 0x0011629C File Offset: 0x0011449C
 		private void ToggleItemSelect(bool select, ulong uid, bool bRefreshUI)
 		{
 			bool flag = select && !this.IsSelectionFull;
@@ -377,8 +352,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002A73 RID: 10867
-		// (get) Token: 0x06008789 RID: 34697 RVA: 0x00116344 File Offset: 0x00114544
 		public bool IsNumFit
 		{
 			get
@@ -423,7 +396,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600878A RID: 34698 RVA: 0x00116408 File Offset: 0x00114608
 		public ArtifactComposeTable.RowData GetComposeRowData(int level, int quanlity)
 		{
 			for (int i = 0; i < ArtifactComposeDocument.m_artifactComposeTab.Table.Length; i++)
@@ -438,25 +410,18 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x04002AB9 RID: 10937
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("ArtifactComposeDocument");
 
-		// Token: 0x04002ABA RID: 10938
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x04002ABB RID: 10939
 		public static readonly uint MAX_RECYCLE_COUNT = 2U;
 
-		// Token: 0x04002ABC RID: 10940
 		private static ArtifactComposeTable m_artifactComposeTab = new ArtifactComposeTable();
 
-		// Token: 0x04002ABD RID: 10941
 		private List<ulong> m_SelectedItems = new List<ulong>();
 
-		// Token: 0x04002ABE RID: 10942
 		public bool IsComposing = false;
 
-		// Token: 0x04002ABF RID: 10943
 		public ArtifactComposeHandler ComposeHandler;
 	}
 }

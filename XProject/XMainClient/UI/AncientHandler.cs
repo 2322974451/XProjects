@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017DA RID: 6106
+
 	internal class AncientHandler : DlgHandlerBase
 	{
-		// Token: 0x170038AE RID: 14510
-		// (get) Token: 0x0600FD0C RID: 64780 RVA: 0x003B3054 File Offset: 0x003B1254
+
 		protected override string FileName
 		{
 			get
@@ -20,7 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FD0D RID: 64781 RVA: 0x003B306C File Offset: 0x003B126C
 		protected override void Init()
 		{
 			base.Init();
@@ -50,7 +48,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FD0E RID: 64782 RVA: 0x003B3318 File Offset: 0x003B1518
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -69,7 +66,6 @@ namespace XMainClient.UI
 			this.m_sprEnd.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnChestClick));
 		}
 
-		// Token: 0x0600FD0F RID: 64783 RVA: 0x003B33E8 File Offset: 0x003B15E8
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -81,7 +77,6 @@ namespace XMainClient.UI
 			this.m_Dummy = XSingleton<X3DAvatarMgr>.singleton.CreateCommonEntityDummy(this.m_dummPool, this.present, this.m_Snapshot, this.m_Dummy, 1f);
 		}
 
-		// Token: 0x0600FD10 RID: 64784 RVA: 0x003B3480 File Offset: 0x003B1680
 		public void RefreshList()
 		{
 			XAncientDocument specificDocument = XDocuments.GetSpecificDocument<XAncientDocument>(XAncientDocument.uuID);
@@ -101,7 +96,6 @@ namespace XMainClient.UI
 			this.RefreshChest();
 		}
 
-		// Token: 0x0600FD11 RID: 64785 RVA: 0x003B3540 File Offset: 0x003B1740
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
@@ -112,7 +106,6 @@ namespace XMainClient.UI
 			this.m_Dummy = XSingleton<X3DAvatarMgr>.singleton.CreateCommonEntityDummy(this.m_dummPool, this.present, this.m_Snapshot, this.m_Dummy, 1f);
 		}
 
-		// Token: 0x0600FD12 RID: 64786 RVA: 0x003B35A8 File Offset: 0x003B17A8
 		public override void LeaveStackTop()
 		{
 			base.LeaveStackTop();
@@ -120,7 +113,6 @@ namespace XMainClient.UI
 			this.m_Dummy = null;
 		}
 
-		// Token: 0x0600FD13 RID: 64787 RVA: 0x003B35D0 File Offset: 0x003B17D0
 		protected override void OnHide()
 		{
 			base.Return3DAvatarPool();
@@ -128,7 +120,6 @@ namespace XMainClient.UI
 			base.OnHide();
 		}
 
-		// Token: 0x0600FD14 RID: 64788 RVA: 0x003B35E8 File Offset: 0x003B17E8
 		public override void OnUnload()
 		{
 			base.Return3DAvatarPool();
@@ -136,7 +127,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x0600FD15 RID: 64789 RVA: 0x003B3600 File Offset: 0x003B1800
 		protected bool OnAvatarDrag(Vector2 delta)
 		{
 			bool flag = this.m_Dummy != null;
@@ -147,7 +137,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FD16 RID: 64790 RVA: 0x003B3648 File Offset: 0x003B1848
 		public void RefreshChest()
 		{
 			XAncientDocument specificDocument = XDocuments.GetSpecificDocument<XAncientDocument>(XAncientDocument.uuID);
@@ -171,7 +160,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FD17 RID: 64791 RVA: 0x003B3728 File Offset: 0x003B1928
 		private void OnChestClick(IXUISprite spr)
 		{
 			int i = 0;
@@ -189,7 +177,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FD18 RID: 64792 RVA: 0x003B3788 File Offset: 0x003B1988
 		private bool OnTaskBtnclick(IXUIButton btn)
 		{
 			bool flag = !DlgBase<AncientTaskView, AnicentTaskBhaviour>.singleton.IsVisible();
@@ -200,7 +187,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FD19 RID: 64793 RVA: 0x003B37BC File Offset: 0x003B19BC
 		private void UpdateItem(Transform t, int index)
 		{
 			bool flag = index < this.list.Count;
@@ -224,7 +210,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FD1A RID: 64794 RVA: 0x003B393C File Offset: 0x003B1B3C
 		private void SetBtn(IXUIButton btn, ActivityTaskState state)
 		{
 			btn.SetVisible(state != ActivityTaskState.Fetched);
@@ -235,7 +220,6 @@ namespace XMainClient.UI
 			btn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnItemBtnClick));
 		}
 
-		// Token: 0x0600FD1B RID: 64795 RVA: 0x003B39E0 File Offset: 0x003B1BE0
 		private bool OnItemBtnClick(IXUIButton btn)
 		{
 			BigPrizeNode bigPrizeNode = this.list[(int)btn.ID];
@@ -252,67 +236,46 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x04006F59 RID: 28505
 		private const int cnt = 4;
 
-		// Token: 0x04006F5A RID: 28506
 		private uint present;
 
-		// Token: 0x04006F5B RID: 28507
 		private IXUIProgress m_prograss;
 
-		// Token: 0x04006F5C RID: 28508
 		public IXUIButton m_btn;
 
-		// Token: 0x04006F5D RID: 28509
 		public IXUISprite m_sprRBg;
 
-		// Token: 0x04006F5E RID: 28510
 		public IXUILabel m_lblPoint;
 
-		// Token: 0x04006F5F RID: 28511
 		public IXUILabel m_bldesc;
 
-		// Token: 0x04006F60 RID: 28512
 		private XDummy m_Dummy;
 
-		// Token: 0x04006F61 RID: 28513
 		private IUIDummy m_Snapshot;
 
-		// Token: 0x04006F62 RID: 28514
 		public IXUILabel m_lblName;
 
-		// Token: 0x04006F63 RID: 28515
 		public IXUILabel m_lblTime;
 
-		// Token: 0x04006F64 RID: 28516
 		private IXUISprite m_sprEnd;
 
-		// Token: 0x04006F65 RID: 28517
 		private IXUISprite m_sprEndRed;
 
-		// Token: 0x04006F66 RID: 28518
 		private IXUISprite[] chests = new IXUISprite[4];
 
-		// Token: 0x04006F67 RID: 28519
 		private Transform[] reds = new Transform[4];
 
-		// Token: 0x04006F68 RID: 28520
 		private Transform[] chests2 = new Transform[4];
 
-		// Token: 0x04006F69 RID: 28521
 		private IXUIWrapContent m_wrap;
 
-		// Token: 0x04006F6A RID: 28522
 		private IXUIScrollView m_scroll;
 
-		// Token: 0x04006F6B RID: 28523
 		private List<BigPrizeNode> list;
 
-		// Token: 0x04006F6C RID: 28524
 		private int maxPoint = 0;
 
-		// Token: 0x04006F6D RID: 28525
 		private int itemid = 0;
 	}
 }

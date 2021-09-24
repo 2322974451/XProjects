@@ -5,11 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI.UICommon
 {
-	// Token: 0x0200192D RID: 6445
+
 	internal class VirtualJoystick : DlgBase<VirtualJoystick, VirtualJoystickBehaviour>
 	{
-		// Token: 0x17003B20 RID: 15136
-		// (get) Token: 0x06010EF5 RID: 69365 RVA: 0x0044BBC0 File Offset: 0x00449DC0
+
 		public override string fileName
 		{
 			get
@@ -18,8 +17,6 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x17003B21 RID: 15137
-		// (get) Token: 0x06010EF6 RID: 69366 RVA: 0x0044BBD8 File Offset: 0x00449DD8
 		public override int layer
 		{
 			get
@@ -28,14 +25,11 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x06010EF7 RID: 69367 RVA: 0x0044BBEB File Offset: 0x00449DEB
 		protected override void Init()
 		{
 			this.Hide();
 		}
 
-		// Token: 0x17003B22 RID: 15138
-		// (get) Token: 0x06010EF8 RID: 69368 RVA: 0x0044BBF8 File Offset: 0x00449DF8
 		public override bool autoload
 		{
 			get
@@ -44,7 +38,6 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x06010EF9 RID: 69369 RVA: 0x0044BC0C File Offset: 0x00449E0C
 		protected void Hide()
 		{
 			bool flag = !base.IsLoaded();
@@ -55,7 +48,6 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x06010EFA RID: 69370 RVA: 0x0044BC64 File Offset: 0x00449E64
 		public void ShowPanel(bool bShow, Vector2 screenPos = default(Vector2))
 		{
 			if (bShow)
@@ -82,7 +74,6 @@ namespace XMainClient.UI.UICommon
 			}
 		}
 
-		// Token: 0x06010EFB RID: 69371 RVA: 0x0044BD2C File Offset: 0x00449F2C
 		public void SetJoystickPos(float radius, float angle)
 		{
 			float num = this.GetPanelRadius() + this.GetJoystickRadius();
@@ -93,7 +84,6 @@ namespace XMainClient.UI.UICommon
 			base.uiBehaviour.m_Direction.gameObject.transform.localPosition = new Vector3(num4, num5, 0f);
 		}
 
-		// Token: 0x06010EFC RID: 69372 RVA: 0x0044BD9C File Offset: 0x00449F9C
 		public float GetPanelRadius()
 		{
 			bool flag = !this.m_bLoaded && this.autoload;
@@ -104,7 +94,6 @@ namespace XMainClient.UI.UICommon
 			return (float)(base.uiBehaviour.m_Panel.spriteWidth / 2);
 		}
 
-		// Token: 0x06010EFD RID: 69373 RVA: 0x0044BDE0 File Offset: 0x00449FE0
 		public float GetJoystickRadius()
 		{
 			bool flag = !this.m_bLoaded && this.autoload;
@@ -115,7 +104,6 @@ namespace XMainClient.UI.UICommon
 			return (float)(base.uiBehaviour.m_Joystick.spriteWidth / 2 - 15);
 		}
 
-		// Token: 0x06010EFE RID: 69374 RVA: 0x0044BE28 File Offset: 0x0044A028
 		protected Vector3 LimitPosition(Vector3 vec)
 		{
 			Vector3 result = vec;
@@ -145,7 +133,6 @@ namespace XMainClient.UI.UICommon
 			return result;
 		}
 
-		// Token: 0x04007C83 RID: 31875
 		private bool _bLogicalVisible;
 	}
 }

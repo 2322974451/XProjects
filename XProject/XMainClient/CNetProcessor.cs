@@ -6,10 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000B3C RID: 2876
+
 	public class CNetProcessor : ILuaNetProcess, INetProcess
 	{
-		// Token: 0x0600A823 RID: 43043 RVA: 0x001DF078 File Offset: 0x001DD278
+
 		public void OnLuaProcessBuffer(NetEvent evt)
 		{
 			bool flag = this.m_oNetwork.IsOnlyDispacherInLua(this.head.type);
@@ -75,7 +75,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A824 RID: 43044 RVA: 0x001DF2CC File Offset: 0x001DD4CC
 		public void OnLuaProcess(NetEvent evt)
 		{
 			LuaNetNode node = evt.node;
@@ -107,7 +106,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A825 RID: 43045 RVA: 0x001DF394 File Offset: 0x001DD594
 		public CNetProcessor(CNetwork network, INetObserver ob)
 		{
 			this.m_oNetwork = network;
@@ -116,7 +114,6 @@ namespace XMainClient
 			this.zDecompress = new ZlibStream(this.RecvStream, CompressionMode.Decompress, true);
 		}
 
-		// Token: 0x0600A826 RID: 43046 RVA: 0x001DF404 File Offset: 0x001DD604
 		public void OnConnect(bool bSuccess)
 		{
 			bool flag = this.m_oObserver != null;
@@ -126,7 +123,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A827 RID: 43047 RVA: 0x001DF430 File Offset: 0x001DD630
 		public void OnClosed(NetErrCode nErrCode)
 		{
 			bool flag = this.m_oObserver != null;
@@ -136,7 +132,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A828 RID: 43048 RVA: 0x001DF45C File Offset: 0x001DD65C
 		private void ProcessStream(NetEvent evt)
 		{
 			bool flag = (long)evt.m_oBuffer.Count < 12L;
@@ -172,7 +167,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A829 RID: 43049 RVA: 0x001DF5AC File Offset: 0x001DD7AC
 		private void ProcessDeSerialize(NetEvent evt)
 		{
 			evt.IsPtc = this.head.IsPtc;
@@ -276,7 +270,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A82A RID: 43050 RVA: 0x001DF878 File Offset: 0x001DDA78
 		public void OnPrePropress(NetEvent evt)
 		{
 			this.ProcessStream(evt);
@@ -284,7 +277,6 @@ namespace XMainClient
 			this.OnLuaProcessBuffer(evt);
 		}
 
-		// Token: 0x0600A82B RID: 43051 RVA: 0x001DF894 File Offset: 0x001DDA94
 		public void OnProcess(NetEvent evt)
 		{
 			CNetProcessor.m_sCurrentEvent = evt;
@@ -335,7 +327,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A82C RID: 43052 RVA: 0x001DF9EC File Offset: 0x001DDBEC
 		public void OnPostProcess(NetEvent evt)
 		{
 			bool flag = evt.protocol != null;
@@ -346,7 +337,6 @@ namespace XMainClient
 			CNetProcessor.m_sCurrentEvent = null;
 		}
 
-		// Token: 0x0600A82D RID: 43053 RVA: 0x001DFA1C File Offset: 0x001DDC1C
 		public static void ManualReturnProtocol()
 		{
 			bool flag = CNetProcessor.m_sCurrentEvent != null;
@@ -356,28 +346,20 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04003E48 RID: 15944
 		private CNetwork m_oNetwork;
 
-		// Token: 0x04003E49 RID: 15945
 		private INetObserver m_oObserver;
 
-		// Token: 0x04003E4A RID: 15946
 		private Random r;
 
-		// Token: 0x04003E4B RID: 15947
 		public static int MaxBuffSize = 65536;
 
-		// Token: 0x04003E4C RID: 15948
 		private MemoryStream RecvStream = new MemoryStream(65536);
 
-		// Token: 0x04003E4D RID: 15949
 		private ProtocolHead head = new ProtocolHead();
 
-		// Token: 0x04003E4E RID: 15950
 		private ZlibStream zDecompress = null;
 
-		// Token: 0x04003E4F RID: 15951
 		private static NetEvent m_sCurrentEvent = null;
 	}
 }

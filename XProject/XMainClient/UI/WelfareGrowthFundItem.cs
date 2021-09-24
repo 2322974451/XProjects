@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020018E2 RID: 6370
+
 	public class WelfareGrowthFundItem
 	{
-		// Token: 0x06010992 RID: 67986 RVA: 0x00417A64 File Offset: 0x00415C64
+
 		public void Init(Transform tf)
 		{
 			this.m_transform = tf;
@@ -20,7 +20,6 @@ namespace XMainClient.UI
 			this.m_getBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnClickGetHandler));
 		}
 
-		// Token: 0x06010993 RID: 67987 RVA: 0x00417B34 File Offset: 0x00415D34
 		private bool OnClickGetHandler(IXUIButton btn)
 		{
 			bool flag = this.m_type == 0;
@@ -38,7 +37,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x06010994 RID: 67988 RVA: 0x00417B78 File Offset: 0x00415D78
 		public void Set(int type, int key, int value)
 		{
 			this.m_type = type;
@@ -59,7 +57,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010995 RID: 67989 RVA: 0x00417C1C File Offset: 0x00415E1C
 		public void Refresh()
 		{
 			XWelfareDocument specificDocument = XDocuments.GetSpecificDocument<XWelfareDocument>(XWelfareDocument.uuID);
@@ -142,31 +139,22 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04007883 RID: 30851
 		private Transform m_transform;
 
-		// Token: 0x04007884 RID: 30852
 		private IXUIButton m_getBtn;
 
-		// Token: 0x04007885 RID: 30853
 		private IXUILabel m_contentLabel;
 
-		// Token: 0x04007886 RID: 30854
 		private IXUILabel m_valueLabel;
 
-		// Token: 0x04007887 RID: 30855
 		private IXUILabel m_messageLabel;
 
-		// Token: 0x04007888 RID: 30856
 		private IXUISprite m_hasBuySprite;
 
-		// Token: 0x04007889 RID: 30857
 		private int m_type;
 
-		// Token: 0x0400788A RID: 30858
 		private int m_key;
 
-		// Token: 0x0400788B RID: 30859
 		private int m_value;
 	}
 }

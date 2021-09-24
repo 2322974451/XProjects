@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000BA0 RID: 2976
+
 	internal class LevelRewardHeroBattleHandler : DlgHandlerBase
 	{
-		// Token: 0x17003045 RID: 12357
-		// (get) Token: 0x0600AAC2 RID: 43714 RVA: 0x001EC348 File Offset: 0x001EA548
+
 		protected override string FileName
 		{
 			get
@@ -21,7 +20,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AAC3 RID: 43715 RVA: 0x001EC360 File Offset: 0x001EA560
 		protected override void Init()
 		{
 			base.Init();
@@ -48,7 +46,6 @@ namespace XMainClient
 			this.m_ItemPool.SetupPool(transform2.parent.gameObject, transform2.gameObject, 24U, false);
 		}
 
-		// Token: 0x0600AAC4 RID: 43716 RVA: 0x001EC5F4 File Offset: 0x001EA7F4
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -58,7 +55,6 @@ namespace XMainClient
 			this.m_ShareBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnShareBtnClick));
 		}
 
-		// Token: 0x0600AAC5 RID: 43717 RVA: 0x001EC66C File Offset: 0x001EA86C
 		private bool OnBackBtnClick(IXUIButton btn)
 		{
 			bool flag = Time.time - this.m_leaveTime < 5f;
@@ -76,21 +72,18 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600AAC6 RID: 43718 RVA: 0x001EC6B0 File Offset: 0x001EA8B0
 		private bool OnBattleDataBtnClick(IXUIButton btn)
 		{
 			this.m_PVPDataFrame.SetActive(true);
 			return true;
 		}
 
-		// Token: 0x0600AAC7 RID: 43719 RVA: 0x001EC6D0 File Offset: 0x001EA8D0
 		private bool OnBattleDataCloseBtnClick(IXUIButton btn)
 		{
 			this.m_PVPDataFrame.SetActive(false);
 			return true;
 		}
 
-		// Token: 0x0600AAC8 RID: 43720 RVA: 0x001EC6F0 File Offset: 0x001EA8F0
 		private bool OnShareBtnClick(IXUIButton btn)
 		{
 			XSingleton<PDatabase>.singleton.shareCallbackType = ShareCallBackType.WeekShare;
@@ -99,13 +92,11 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600AAC9 RID: 43721 RVA: 0x0019F00C File Offset: 0x0019D20C
 		protected override void OnShow()
 		{
 			base.OnShow();
 		}
 
-		// Token: 0x0600AACA RID: 43722 RVA: 0x001EC727 File Offset: 0x001EA927
 		public void PlayCutScene()
 		{
 			this._doc = XDocuments.GetSpecificDocument<XLevelRewardDocument>(XLevelRewardDocument.uuID);
@@ -113,7 +104,6 @@ namespace XMainClient
 			this._heroDoc.StartMvpCutScene();
 		}
 
-		// Token: 0x0600AACB RID: 43723 RVA: 0x001EC758 File Offset: 0x001EA958
 		public void ShowUI()
 		{
 			DlgBase<XLevelRewardView, XLevelRewardBehaviour>.singleton.SetVisible(true, true);
@@ -174,7 +164,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AACC RID: 43724 RVA: 0x001ECB74 File Offset: 0x001EAD74
 		private void SetupData(GameObject go, XLevelRewardDocument.PVPRoleInfo data, int index, bool isLeft)
 		{
 			Vector3 tplPos = this.m_PlayerPool_L.TplPos;
@@ -262,7 +251,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AACD RID: 43725 RVA: 0x001ED004 File Offset: 0x001EB204
 		private void OnReportBtnClick(IXUISprite iSp)
 		{
 			bool flag = !DlgBase<XLevelRewardView, XLevelRewardBehaviour>.singleton.IsVisible();
@@ -290,7 +278,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AACE RID: 43726 RVA: 0x001ED10C File Offset: 0x001EB30C
 		private void SetupIconList(Transform ts, XLevelRewardDocument.PVPRoleInfo data, bool isLeft)
 		{
 			int num = 0;
@@ -347,7 +334,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AACF RID: 43727 RVA: 0x001ED21C File Offset: 0x001EB41C
 		private void AddIcon(Transform ts, string iconName, int index, bool isLeft)
 		{
 			GameObject gameObject = this.m_IconPool.FetchGameObject(false);
@@ -358,7 +344,6 @@ namespace XMainClient
 			ixuisprite.spriteName = iconName;
 		}
 
-		// Token: 0x0600AAD0 RID: 43728 RVA: 0x001ED28C File Offset: 0x001EB48C
 		private void SetupBattleDataUI()
 		{
 			this.m_PVPDataFrame.SetActive(false);
@@ -382,7 +367,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AAD1 RID: 43729 RVA: 0x001ED428 File Offset: 0x001EB628
 		private void SetupBattleDataDetailUI(GameObject go, XLevelRewardDocument.PVPRoleInfo data, bool isteam1)
 		{
 			IXUISprite ixuisprite = go.transform.Find("Detail/Avatar").GetComponent("XUISprite") as IXUISprite;
@@ -424,70 +408,48 @@ namespace XMainClient
 			ixuilabel6.SetText(XSingleton<UiUtility>.singleton.NumberFormat(data.Heal));
 		}
 
-		// Token: 0x04003F90 RID: 16272
 		private XLevelRewardDocument _doc = null;
 
-		// Token: 0x04003F91 RID: 16273
 		private XHeroBattleDocument _heroDoc = null;
 
-		// Token: 0x04003F92 RID: 16274
 		private XUIPool m_PlayerPool_L = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04003F93 RID: 16275
 		private XUIPool m_PlayerPool_R = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04003F94 RID: 16276
 		private XUIPool m_IconPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04003F95 RID: 16277
 		private XUIPool m_ItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04003F96 RID: 16278
 		private XUIPool m_BattleDataPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04003F97 RID: 16279
 		private GameObject m_Win;
 
-		// Token: 0x04003F98 RID: 16280
 		private GameObject m_Lose;
 
-		// Token: 0x04003F99 RID: 16281
 		private GameObject m_Draw;
 
-		// Token: 0x04003F9A RID: 16282
 		private IXUIButton m_BackBtn;
 
-		// Token: 0x04003F9B RID: 16283
 		private IXUIButton m_BattleDataBtn;
 
-		// Token: 0x04003F9C RID: 16284
 		private IXUIButton m_BattleDataCloseBtn;
 
-		// Token: 0x04003F9D RID: 16285
 		private IXUILabel m_Time;
 
-		// Token: 0x04003F9E RID: 16286
 		private IXUIButton m_ShareBtn;
 
-		// Token: 0x04003F9F RID: 16287
 		public GameObject m_PVPDataFrame;
 
-		// Token: 0x04003FA0 RID: 16288
 		private float m_leaveTime;
 
-		// Token: 0x04003FA1 RID: 16289
 		private int _killMax;
 
-		// Token: 0x04003FA2 RID: 16290
 		private int _DeathMin;
 
-		// Token: 0x04003FA3 RID: 16291
 		private int _AssistsMax;
 
-		// Token: 0x04003FA4 RID: 16292
 		private ulong _DamageMax;
 
-		// Token: 0x04003FA5 RID: 16293
 		private uint _BeHitMax;
 	}
 }

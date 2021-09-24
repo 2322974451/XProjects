@@ -6,10 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000E51 RID: 3665
+
 	internal class XQualifyingBehaviour : DlgBehaviourBase
 	{
-		// Token: 0x0600C489 RID: 50313 RVA: 0x002AF084 File Offset: 0x002AD284
+
 		private void Awake()
 		{
 			this.m_Bg = base.transform.FindChild("Bg");
@@ -51,115 +51,78 @@ namespace XMainClient
 			this.m_PointRewardWindow = new XQualifyingPointRewardWindow(this.m_Bg.FindChild("PointRewardFrame").gameObject);
 		}
 
-		// Token: 0x0400558E RID: 21902
 		public IXUIButton m_Close;
 
-		// Token: 0x0400558F RID: 21903
 		public IXUIButton m_Help;
 
-		// Token: 0x04005590 RID: 21904
 		public XUIPool m_TabPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04005591 RID: 21905
 		public IXUISprite m_UnOpen2V2;
 
-		// Token: 0x04005592 RID: 21906
 		public Transform m_Bg;
 
-		// Token: 0x04005593 RID: 21907
 		public IXUIButton m_ShopBtn;
 
-		// Token: 0x04005594 RID: 21908
 		public IXUIButton m_RankBtn;
 
-		// Token: 0x04005595 RID: 21909
 		public IXUIButton m_BattleRecordBtn;
 
-		// Token: 0x04005596 RID: 21910
 		public IXUIButton m_TrainBtn;
 
-		// Token: 0x04005597 RID: 21911
 		public IXUITexture m_PointRewardBtn;
 
-		// Token: 0x04005598 RID: 21912
 		public Transform m_PointRewardRedPoint;
 
-		// Token: 0x04005599 RID: 21913
 		public IXUIButton m_RankRewardBtn;
 
-		// Token: 0x0400559A RID: 21914
 		public IXUIButton m_Match1V1Btn;
 
-		// Token: 0x0400559B RID: 21915
 		public IXUILabel m_Match1V1BtnLabel;
 
-		// Token: 0x0400559C RID: 21916
 		public IXUIButton m_Match2V2Btn;
 
-		// Token: 0x0400559D RID: 21917
 		public IXUILabel m_Match2V2BtnLabel;
 
-		// Token: 0x0400559E RID: 21918
 		public IXUIButton m_TeamBtn;
 
-		// Token: 0x0400559F RID: 21919
 		public Transform m_Message;
 
-		// Token: 0x040055A0 RID: 21920
 		public IXUILabel m_TotalRecords;
 
-		// Token: 0x040055A1 RID: 21921
 		public IXUILabel m_WinRecord;
 
-		// Token: 0x040055A2 RID: 21922
 		public IXUILabel m_LoseRecord;
 
-		// Token: 0x040055A3 RID: 21923
 		public IXUILabel m_WinRate;
 
-		// Token: 0x040055A4 RID: 21924
 		public IXUILabel m_CurrentRank;
 
-		// Token: 0x040055A5 RID: 21925
 		public IXUILabel m_RankEndTips;
 
-		// Token: 0x040055A6 RID: 21926
 		public Transform m_ChallengeFrame;
 
-		// Token: 0x040055A7 RID: 21927
 		public IXUITexture m_Tier;
 
-		// Token: 0x040055A8 RID: 21928
 		public IXUILabel m_WinOfPoint;
 
-		// Token: 0x040055A9 RID: 21929
 		public XNumberTween m_NumberTween;
 
-		// Token: 0x040055AA RID: 21930
 		public IXUILabelSymbol m_ChallengeTip;
 
-		// Token: 0x040055AB RID: 21931
 		public IXUILabel m_ChallengeTipText;
 
-		// Token: 0x040055AC RID: 21932
 		public GameObject m_FxFireworkGo;
 
-		// Token: 0x040055AD RID: 21933
 		public XUIPool m_RankTabPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x040055AE RID: 21934
 		public IXUICheckBox m_RankTypeAll;
 
-		// Token: 0x040055AF RID: 21935
 		public XQualifyingRankWindow m_RankWindow;
 
-		// Token: 0x040055B0 RID: 21936
 		public XQualifyingRankRewardWindow m_RankRewardWindow;
 
-		// Token: 0x040055B1 RID: 21937
 		public XQualifyingPointRewardWindow m_PointRewardWindow;
 
-		// Token: 0x040055B2 RID: 21938
 		public GameObject m_BattleRecordFrame;
 	}
 }

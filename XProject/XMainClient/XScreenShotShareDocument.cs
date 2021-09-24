@@ -9,11 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x0200096C RID: 2412
+
 	internal class XScreenShotShareDocument : XDocComponent
 	{
-		// Token: 0x17002C61 RID: 11361
-		// (get) Token: 0x06009150 RID: 37200 RVA: 0x0014CD68 File Offset: 0x0014AF68
+
 		public override uint ID
 		{
 			get
@@ -22,12 +21,8 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002C62 RID: 11362
-		// (get) Token: 0x06009151 RID: 37201 RVA: 0x0014CD7F File Offset: 0x0014AF7F
-		// (set) Token: 0x06009152 RID: 37202 RVA: 0x0014CD86 File Offset: 0x0014AF86
 		public static CommentType ShareIndex { get; set; }
 
-		// Token: 0x06009153 RID: 37203 RVA: 0x0014CD90 File Offset: 0x0014AF90
 		public XScreenShotShareDocument()
 		{
 			for (int i = 0; i < XScreenShotShareDocument._EffectCfgReader.Table.Length; i++)
@@ -40,7 +35,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009154 RID: 37204 RVA: 0x0014CE38 File Offset: 0x0014B038
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			XScreenShotShareDocument.AsyncLoader.AddTask("Table/PhotographEffect", XScreenShotShareDocument._EffectCfgReader, false);
@@ -49,12 +43,10 @@ namespace XMainClient
 			XScreenShotShareDocument.AsyncLoader.Execute(callback);
 		}
 
-		// Token: 0x06009155 RID: 37205 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 		}
 
-		// Token: 0x06009156 RID: 37206 RVA: 0x0014CE94 File Offset: 0x0014B094
 		public void OnGetPhotoGraphEffect(PhotographEffect res)
 		{
 			this.EffectListId.Clear();
@@ -70,7 +62,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009157 RID: 37207 RVA: 0x0014CF14 File Offset: 0x0014B114
 		public List<PhotographEffectCfg.RowData> GetRowDataById(uint effectid)
 		{
 			this.EffectCfgList.Clear();
@@ -85,7 +76,6 @@ namespace XMainClient
 			return this.EffectCfgList;
 		}
 
-		// Token: 0x06009158 RID: 37208 RVA: 0x0014CF88 File Offset: 0x0014B188
 		public XTuple<string, string> GetShareBgTexturePath()
 		{
 			for (int i = 0; i < XScreenShotShareDocument._shareBgTextureTable.Table.Length; i++)
@@ -148,7 +138,6 @@ namespace XMainClient
 			return new XTuple<string, string>("", "");
 		}
 
-		// Token: 0x06009159 RID: 37209 RVA: 0x0014D10C File Offset: 0x0014B30C
 		public static ShareTable.RowData GetShareInfoById(int index)
 		{
 			for (int i = 0; i < XScreenShotShareDocument._ShareTable.Table.Length; i++)
@@ -162,7 +151,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x0600915A RID: 37210 RVA: 0x0014D164 File Offset: 0x0014B364
 		public static void DoShowShare()
 		{
 			XScreenShotShareDocument._choice_index = XFastEnumIntEqualityComparer<CommentType>.ToInt(XScreenShotShareDocument.ShareIndex);
@@ -177,7 +165,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600915B RID: 37211 RVA: 0x0014D1F0 File Offset: 0x0014B3F0
 		private static bool OpenAppStorePraise(IXUIButton btn)
 		{
 			DlgBase<ModalThreeDlg, ModalThreeDlgBehaviour>.singleton.SetVisible(false, true);
@@ -190,7 +177,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600915C RID: 37212 RVA: 0x0014D22C File Offset: 0x0014B42C
 		private static bool OnShareInfo(IXUIButton btn)
 		{
 			DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.SetVisible(false, true);
@@ -198,43 +184,30 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x04003042 RID: 12354
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("XScreenShotShareDocument");
 
-		// Token: 0x04003043 RID: 12355
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x04003044 RID: 12356
 		public ScreenShotShareView ScreenShotView;
 
-		// Token: 0x04003045 RID: 12357
 		private static PhotographEffectCfg _EffectCfgReader = new PhotographEffectCfg();
 
-		// Token: 0x04003046 RID: 12358
 		private static ShareTable _ShareTable = new ShareTable();
 
-		// Token: 0x04003047 RID: 12359
 		private static ShareBgTexture _shareBgTextureTable = new ShareBgTexture();
 
-		// Token: 0x04003048 RID: 12360
 		public List<uint> EffectListId = new List<uint>();
 
-		// Token: 0x04003049 RID: 12361
 		public List<uint> EffectAllListId = new List<uint>();
 
-		// Token: 0x0400304A RID: 12362
 		public List<PhotographEffectCfg.RowData> EffectCfgList = new List<PhotographEffectCfg.RowData>();
 
-		// Token: 0x0400304B RID: 12363
 		public uint CharmVal = 0U;
 
-		// Token: 0x0400304C RID: 12364
 		public ShareBgType CurShareBgType = ShareBgType.NoneType;
 
-		// Token: 0x0400304D RID: 12365
 		public uint SpriteID = 0U;
 
-		// Token: 0x0400304E RID: 12366
 		private static int _choice_index = 0;
 	}
 }

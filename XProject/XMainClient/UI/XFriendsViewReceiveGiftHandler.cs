@@ -8,10 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200182F RID: 6191
+
 	internal class XFriendsViewReceiveGiftHandler : DlgHandlerBase
 	{
-		// Token: 0x06010126 RID: 65830 RVA: 0x003D5DFC File Offset: 0x003D3FFC
+
 		private void _ResetReceiveGiftRank(List<XFriendData> friendData)
 		{
 			this.friendGiftSortData.Clear();
@@ -44,7 +44,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010127 RID: 65831 RVA: 0x003D5F3C File Offset: 0x003D413C
 		private void _SortItemByReceiveTime(List<XFriendData> list)
 		{
 			uint num = (uint)XFastEnumIntEqualityComparer<FriendGiftReceive>.ToInt(FriendGiftReceive.FriendGift_ReceiveTaken);
@@ -74,19 +73,16 @@ namespace XMainClient.UI
 			list.AddRange(list2);
 		}
 
-		// Token: 0x06010128 RID: 65832 RVA: 0x003D6010 File Offset: 0x003D4210
 		private int CompareFriendGiftData(XFriendData a, XFriendData b)
 		{
 			return b.receiveAll.CompareTo(a.receiveAll);
 		}
 
-		// Token: 0x06010129 RID: 65833 RVA: 0x003D6034 File Offset: 0x003D4234
 		private int CompareFriendGiftDataByTime(XFriendData a, XFriendData b)
 		{
 			return (int)(b.receivetime - a.receivetime);
 		}
 
-		// Token: 0x0601012A RID: 65834 RVA: 0x003D6054 File Offset: 0x003D4254
 		public void RefreshList(List<XFriendData> list)
 		{
 			bool flag = !base.IsVisible();
@@ -112,7 +108,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0601012B RID: 65835 RVA: 0x003D6108 File Offset: 0x003D4308
 		public void RefreshList()
 		{
 			this._SortItemByReceiveTime(this.mList);
@@ -131,7 +126,6 @@ namespace XMainClient.UI
 			this.lbNum.SetText(string.Format(XSingleton<XFriendsStaticData>.singleton.CommonCountTotalFmt, DlgBase<XFriendsView, XFriendsBehaviour>.singleton.TodayReceiveCount, XSingleton<XFriendsStaticData>.singleton.ReceiveGifMaxTimes));
 		}
 
-		// Token: 0x0601012C RID: 65836 RVA: 0x003D61C4 File Offset: 0x003D43C4
 		protected override void Init()
 		{
 			base.Init();
@@ -143,7 +137,6 @@ namespace XMainClient.UI
 			this.mListTempView = new XPlayerInfoChildBaseView();
 		}
 
-		// Token: 0x0601012D RID: 65837 RVA: 0x003D6284 File Offset: 0x003D4484
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -152,29 +145,24 @@ namespace XMainClient.UI
 			this.mListWrapContent.RegisterItemUpdateEventHandler(new WrapItemUpdateEventHandler(this._RankWrapListUpdated));
 		}
 
-		// Token: 0x0601012E RID: 65838 RVA: 0x0019F00C File Offset: 0x0019D20C
 		protected override void OnShow()
 		{
 			base.OnShow();
 		}
 
-		// Token: 0x0601012F RID: 65839 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void OnHide()
 		{
 		}
 
-		// Token: 0x06010130 RID: 65840 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		private void OnHideTweenFinished(IXUITweenTool tween)
 		{
 		}
 
-		// Token: 0x06010131 RID: 65841 RVA: 0x001A6C1F File Offset: 0x001A4E1F
 		private void OnClose(IXUISprite sprClose)
 		{
 			base.SetVisible(false);
 		}
 
-		// Token: 0x06010132 RID: 65842 RVA: 0x003D62EC File Offset: 0x003D44EC
 		private void _RankWrapListUpdated(Transform t, int i)
 		{
 			XFriendData xfriendData = this.mList[i];
@@ -234,25 +222,18 @@ namespace XMainClient.UI
 			xplayerInfoChildBaseView.lbName.InputText = XSingleton<XCommon>.singleton.StringCombine(XTitleDocument.GetTitleWithFormat(xfriendData.titleID, xfriendData.name), XStringDefineProxy.GetString("FRIEND_RECEIVE_GIFT_INFO"), XRechargeDocument.GetVIPIconString(xfriendData.viplevel));
 		}
 
-		// Token: 0x0400729F RID: 29343
 		private IXUITweenTool mTweenTool;
 
-		// Token: 0x040072A0 RID: 29344
 		private IXUIWrapContent mListWrapContent;
 
-		// Token: 0x040072A1 RID: 29345
 		private IXUIScrollView mListScrollView;
 
-		// Token: 0x040072A2 RID: 29346
 		private IXUILabel lbNum;
 
-		// Token: 0x040072A3 RID: 29347
 		private XPlayerInfoChildBaseView mListTempView;
 
-		// Token: 0x040072A4 RID: 29348
 		private List<XFriendData> mList = new List<XFriendData>();
 
-		// Token: 0x040072A5 RID: 29349
 		public List<XFriendData> friendGiftSortData = new List<XFriendData>();
 	}
 }

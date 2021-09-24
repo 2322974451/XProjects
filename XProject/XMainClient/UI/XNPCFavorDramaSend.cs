@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017D4 RID: 6100
+
 	internal class XNPCFavorDramaSend : DlgHandlerBase
 	{
-		// Token: 0x170038A8 RID: 14504
-		// (get) Token: 0x0600FCB8 RID: 64696 RVA: 0x003AFD44 File Offset: 0x003ADF44
+
 		private XNPCFavorDrama operate
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x170038A9 RID: 14505
-		// (get) Token: 0x0600FCB9 RID: 64697 RVA: 0x003AFD5C File Offset: 0x003ADF5C
 		protected override string FileName
 		{
 			get
@@ -30,7 +27,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FCBA RID: 64698 RVA: 0x003AFD74 File Offset: 0x003ADF74
 		protected override void Init()
 		{
 			base.Init();
@@ -40,32 +36,27 @@ namespace XMainClient.UI
 			this.m_WrapContent = (base.transform.Find("Panel/WrapContent").GetComponent("XUIWrapContent") as IXUIWrapContent);
 		}
 
-		// Token: 0x0600FCBB RID: 64699 RVA: 0x001A787A File Offset: 0x001A5A7A
 		protected override void OnShow()
 		{
 			this.RefreshData();
 		}
 
-		// Token: 0x0600FCBC RID: 64700 RVA: 0x003AFE08 File Offset: 0x003AE008
 		public override void OnUnload()
 		{
 			this.doc = null;
 		}
 
-		// Token: 0x0600FCBD RID: 64701 RVA: 0x003AFE14 File Offset: 0x003AE014
 		public override void RefreshData()
 		{
 			this.m_LeftTimes.SetText(this.doc.GiveLeftCount.ToString());
 			this.RefreshList();
 		}
 
-		// Token: 0x0600FCBE RID: 64702 RVA: 0x003AFE48 File Offset: 0x003AE048
 		public override void RegisterEvent()
 		{
 			this.m_WrapContent.RegisterItemUpdateEventHandler(new WrapItemUpdateEventHandler(this.WrapListUpdate));
 		}
 
-		// Token: 0x0600FCBF RID: 64703 RVA: 0x003AFE64 File Offset: 0x003AE064
 		private void RefreshList()
 		{
 			XNPCFavorDrama xnpcfavorDrama = XNPCFavorDocument.IsNpcDialogVisible();
@@ -87,7 +78,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FCC0 RID: 64704 RVA: 0x003AFF00 File Offset: 0x003AE100
 		private void WrapListUpdate(Transform item, int index)
 		{
 			bool flag = this.likeItems == null || index >= this.likeItems.Count;
@@ -109,7 +99,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FCC1 RID: 64705 RVA: 0x003AFFBC File Offset: 0x003AE1BC
 		private static int Compare(NpcLikeItem x, NpcLikeItem y)
 		{
 			bool flag = x.type != y.type;
@@ -125,7 +114,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FCC2 RID: 64706 RVA: 0x003B000C File Offset: 0x003AE20C
 		private void DrawItem(Transform item, uint itemId, uint itemNum, uint favorAdd, int index, NpcFlItemType type)
 		{
 			IXUIButton ixuibutton = item.FindChild("SendBtn").GetComponent("XUIButton") as IXUIButton;
@@ -173,7 +161,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FCC3 RID: 64707 RVA: 0x003B020C File Offset: 0x003AE40C
 		private bool OnClickSendBtn(IXUIButton btn)
 		{
 			bool flag = this.doc.GiveLeftCount <= 0U;
@@ -239,19 +226,14 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x04006F1F RID: 28447
 		private XNPCFavorDocument doc;
 
-		// Token: 0x04006F20 RID: 28448
 		private IXUILabel m_LeftTimes;
 
-		// Token: 0x04006F21 RID: 28449
 		private IXUIScrollView m_ScrollView;
 
-		// Token: 0x04006F22 RID: 28450
 		private IXUIWrapContent m_WrapContent;
 
-		// Token: 0x04006F23 RID: 28451
 		private List<NpcLikeItem> likeItems;
 	}
 }

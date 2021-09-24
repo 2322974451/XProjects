@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000924 RID: 2340
+
 	internal class XGuildDonateDocument : XDocComponent
 	{
-		// Token: 0x17002BAF RID: 11183
-		// (get) Token: 0x06008D43 RID: 36163 RVA: 0x00134CD4 File Offset: 0x00132ED4
+
 		public override uint ID
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002BB0 RID: 11184
-		// (get) Token: 0x06008D44 RID: 36164 RVA: 0x00134CEC File Offset: 0x00132EEC
 		public static XGuildDonateDocument Doc
 		{
 			get
@@ -30,42 +27,35 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008D45 RID: 36165 RVA: 0x00134D17 File Offset: 0x00132F17
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			XGuildDonateDocument.AsyncLoader.Execute(callback);
 		}
 
-		// Token: 0x06008D46 RID: 36166 RVA: 0x00114ACA File Offset: 0x00112CCA
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
 		}
 
-		// Token: 0x06008D47 RID: 36167 RVA: 0x00114AD5 File Offset: 0x00112CD5
 		protected override void EventSubscribe()
 		{
 			base.EventSubscribe();
 		}
 
-		// Token: 0x06008D48 RID: 36168 RVA: 0x00114ADF File Offset: 0x00112CDF
 		public override void OnDetachFromHost()
 		{
 			base.OnDetachFromHost();
 		}
 
-		// Token: 0x06008D49 RID: 36169 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 		}
 
-		// Token: 0x06008D4A RID: 36170 RVA: 0x00114AE9 File Offset: 0x00112CE9
 		public override void OnEnterSceneFinally()
 		{
 			base.OnEnterSceneFinally();
 		}
 
-		// Token: 0x06008D4B RID: 36171 RVA: 0x00134D28 File Offset: 0x00132F28
 		public GuildDonateRankInfo GetRankInfoByIndex(int index, DonateRankType type)
 		{
 			bool flag = type == DonateRankType.TodayRank && index < this._todayRankList.Count;
@@ -89,7 +79,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008D4C RID: 36172 RVA: 0x00134D8C File Offset: 0x00132F8C
 		public void SortRankListWithRankType(DonateRankType type)
 		{
 			bool flag = type == DonateRankType.HistoryRank;
@@ -103,9 +92,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002BB1 RID: 11185
-		// (get) Token: 0x06008D4D RID: 36173 RVA: 0x00134DD8 File Offset: 0x00132FD8
-		// (set) Token: 0x06008D4E RID: 36174 RVA: 0x00134DF0 File Offset: 0x00132FF0
 		public List<GuildDonateItemInfo> DailyDonateOverviewList
 		{
 			get
@@ -118,9 +104,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002BB2 RID: 11186
-		// (get) Token: 0x06008D4F RID: 36175 RVA: 0x00134DFC File Offset: 0x00132FFC
-		// (set) Token: 0x06008D50 RID: 36176 RVA: 0x00134E14 File Offset: 0x00133014
 		public uint DailyDonatedNum
 		{
 			get
@@ -133,14 +116,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008D51 RID: 36177 RVA: 0x00134E20 File Offset: 0x00133020
 		public void SendGetDonateBaseInfo()
 		{
 			RpcC2M_GetGuildDonateInfo rpc = new RpcC2M_GetGuildDonateInfo();
 			XSingleton<XClientNetwork>.singleton.Send(rpc);
 		}
 
-		// Token: 0x06008D52 RID: 36178 RVA: 0x00134E40 File Offset: 0x00133040
 		public void OnGetDonateInfo(GetGuildDonateInfoRes res)
 		{
 			List<GuildMemberAskInfo> info = res.info;
@@ -194,7 +175,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008D53 RID: 36179 RVA: 0x00135060 File Offset: 0x00133260
 		private void UpdateRankList(List<GuildMemberDonateRankItem> rankitem)
 		{
 			this._rankList.Clear();
@@ -220,7 +200,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008D54 RID: 36180 RVA: 0x00135140 File Offset: 0x00133340
 		public GuildDonateItemInfo GetDonateItemInfoByIndex(GuildDonateType type, int index)
 		{
 			List<GuildDonateItemInfo> list = (type == GuildDonateType.DailyDonate) ? this._dailyDonateItemList : this._weeklyDonateItemList;
@@ -237,7 +216,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008D55 RID: 36181 RVA: 0x0013517C File Offset: 0x0013337C
 		public void SendDonateMemberItem(uint id, uint count, List<ulong> itemList = null)
 		{
 			RpcC2M_DonateMemberItem rpcC2M_DonateMemberItem = new RpcC2M_DonateMemberItem();
@@ -251,7 +229,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_DonateMemberItem);
 		}
 
-		// Token: 0x06008D56 RID: 36182 RVA: 0x001351D0 File Offset: 0x001333D0
 		public int GetMyRankIndex(DonateRankType type)
 		{
 			List<GuildDonateRankInfo> list = (type == DonateRankType.TodayRank) ? this._todayRankList : this._rankList;
@@ -266,13 +243,11 @@ namespace XMainClient
 			return -1;
 		}
 
-		// Token: 0x06008D57 RID: 36183 RVA: 0x00135234 File Offset: 0x00133434
 		public int GetRankContentCount(DonateRankType type)
 		{
 			return (type == DonateRankType.TodayRank) ? this._todayRankList.Count : this._rankList.Count;
 		}
 
-		// Token: 0x06008D58 RID: 36184 RVA: 0x00135264 File Offset: 0x00133464
 		public void OnGetDonateMemberReply(DonateMemberItemArg oArg, DonateMemberItemRes oRes)
 		{
 			bool flag = oRes.result == ErrorCode.ERR_SUCCESS;
@@ -315,7 +290,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008D59 RID: 36185 RVA: 0x001353F4 File Offset: 0x001335F4
 		public void ShowViewWithID(uint id, GuildDonateType type = GuildDonateType.DailyDonate)
 		{
 			bool inGuild = XGuildDocument.InGuild;
@@ -331,7 +305,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008D5A RID: 36186 RVA: 0x00135444 File Offset: 0x00133644
 		public void ShowViewWithType(GuildDonateType type)
 		{
 			bool inGuild = XGuildDocument.InGuild;
@@ -346,14 +319,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008D5B RID: 36187 RVA: 0x00135488 File Offset: 0x00133688
 		public uint GetCanDonateMaxNum()
 		{
 			int @int = XSingleton<XGlobalConfig>.singleton.GetInt("DailyTaskDonateNum");
 			return (uint)(((long)@int <= (long)((ulong)this._dailyDonatedNum)) ? 0 : (@int - (int)this._dailyDonatedNum));
 		}
 
-		// Token: 0x06008D5C RID: 36188 RVA: 0x001354C0 File Offset: 0x001336C0
 		private int SortHistory(GuildDonateRankInfo x, GuildDonateRankInfo y)
 		{
 			bool flag = x.totalCount != y.totalCount;
@@ -369,7 +340,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008D5D RID: 36189 RVA: 0x00135504 File Offset: 0x00133704
 		private int SortToday(GuildDonateRankInfo x, GuildDonateRankInfo y)
 		{
 			bool flag = x.todayCount != y.todayCount;
@@ -385,7 +355,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008D5E RID: 36190 RVA: 0x00135548 File Offset: 0x00133748
 		public int GetDonationListCount(GuildDonateType donateType)
 		{
 			int result;
@@ -407,7 +376,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008D5F RID: 36191 RVA: 0x00135584 File Offset: 0x00133784
 		public GuildDonateItemInfo GetDonationItemInfoWithTypeID(GuildDonateType donateType, uint id)
 		{
 			List<GuildDonateItemInfo> list = (donateType == GuildDonateType.DailyDonate) ? this._dailyDonateItemList : this._weeklyDonateItemList;
@@ -422,25 +390,18 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x04002DD4 RID: 11732
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("GuildDonateDocument");
 
-		// Token: 0x04002DD5 RID: 11733
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x04002DD6 RID: 11734
 		private List<GuildDonateRankInfo> _todayRankList = new List<GuildDonateRankInfo>();
 
-		// Token: 0x04002DD7 RID: 11735
 		private List<GuildDonateItemInfo> _dailyDonateItemList = new List<GuildDonateItemInfo>();
 
-		// Token: 0x04002DD8 RID: 11736
 		private List<GuildDonateRankInfo> _rankList = new List<GuildDonateRankInfo>();
 
-		// Token: 0x04002DD9 RID: 11737
 		private List<GuildDonateItemInfo> _weeklyDonateItemList = new List<GuildDonateItemInfo>();
 
-		// Token: 0x04002DDA RID: 11738
 		private uint _dailyDonatedNum = 0U;
 	}
 }

@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200172F RID: 5935
+
 	internal class XBuffMonitorHandler : DlgHandlerBase
 	{
-		// Token: 0x0600F512 RID: 62738 RVA: 0x00373CFC File Offset: 0x00371EFC
+
 		protected override void Init()
 		{
 			base.Init();
@@ -29,14 +29,12 @@ namespace XMainClient.UI
 			this.m_BuffPool.SetupPool(base.PanelObject, this.m_TplGo, this.m_MaxDisplayBuffCount, false);
 		}
 
-		// Token: 0x0600F513 RID: 62739 RVA: 0x00373DF8 File Offset: 0x00371FF8
 		public override void OnUnload()
 		{
 			XResourceLoaderMgr.SafeDestroy(ref this.m_TplGo, true);
 			base.OnUnload();
 		}
 
-		// Token: 0x0600F514 RID: 62740 RVA: 0x00373E10 File Offset: 0x00372010
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
@@ -50,7 +48,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F515 RID: 62741 RVA: 0x00373E5C File Offset: 0x0037205C
 		public void InitMonitor(uint maxDisplayCount, bool bLeftToRight = true, bool bShowTime = true)
 		{
 			this.m_MaxDisplayBuffCount = maxDisplayCount;
@@ -72,7 +69,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F516 RID: 62742 RVA: 0x00373F3C File Offset: 0x0037213C
 		public void OnBuffChanged(List<UIBuffInfo> buffList)
 		{
 			int num = 0;
@@ -92,16 +88,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04006A06 RID: 27142
 		private XUIPool m_BuffPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006A07 RID: 27143
 		private XBuffIcon[] m_BuffList;
 
-		// Token: 0x04006A08 RID: 27144
 		private GameObject m_TplGo;
 
-		// Token: 0x04006A09 RID: 27145
 		private uint m_MaxDisplayBuffCount = 5U;
 	}
 }

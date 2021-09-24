@@ -8,10 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000CB1 RID: 3249
+
 	internal class SkyArenaWaitHandler : DlgHandlerBase
 	{
-		// Token: 0x0600B6DF RID: 46815 RVA: 0x00245460 File Offset: 0x00243660
+
 		protected override void Init()
 		{
 			base.Init();
@@ -29,8 +29,6 @@ namespace XMainClient
 			this.m_Info.SetText("");
 		}
 
-		// Token: 0x17003252 RID: 12882
-		// (get) Token: 0x0600B6E0 RID: 46816 RVA: 0x002455BC File Offset: 0x002437BC
 		protected override string FileName
 		{
 			get
@@ -39,7 +37,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B6E1 RID: 46817 RVA: 0x002455D4 File Offset: 0x002437D4
 		public override void RegisterEvent()
 		{
 			this.m_Close.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseClicked));
@@ -47,7 +44,6 @@ namespace XMainClient
 			this.m_RewardBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnRewardClicked));
 		}
 
-		// Token: 0x0600B6E2 RID: 46818 RVA: 0x0024562C File Offset: 0x0024382C
 		public bool OnCloseClicked(IXUIButton btn)
 		{
 			XTeamDocument specificDocument = XDocuments.GetSpecificDocument<XTeamDocument>(XTeamDocument.uuID);
@@ -65,7 +61,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B6E3 RID: 46819 RVA: 0x002456A4 File Offset: 0x002438A4
 		private bool _Leave(IXUIButton btn)
 		{
 			this.isWaitEnd = false;
@@ -74,7 +69,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B6E4 RID: 46820 RVA: 0x002456D4 File Offset: 0x002438D4
 		private void OnHelpClicked(IXUISprite sp)
 		{
 			bool flag = XSingleton<XScene>.singleton.SceneType == SceneType.SKYCITY_WAITING;
@@ -99,7 +93,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B6E5 RID: 46821 RVA: 0x00245774 File Offset: 0x00243974
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -115,13 +108,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B6E6 RID: 46822 RVA: 0x0019EEFD File Offset: 0x0019D0FD
 		protected override void OnHide()
 		{
 			base.OnHide();
 		}
 
-		// Token: 0x0600B6E7 RID: 46823 RVA: 0x002457CD File Offset: 0x002439CD
 		public override void OnUnload()
 		{
 			this.isLeftTime = true;
@@ -130,14 +121,12 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x0600B6E8 RID: 46824 RVA: 0x002457F6 File Offset: 0x002439F6
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
 			this._CDCounter.Update();
 		}
 
-		// Token: 0x0600B6E9 RID: 46825 RVA: 0x0024580C File Offset: 0x00243A0C
 		public void RefreshMapName(int param = 0)
 		{
 			bool flag = XSingleton<XScene>.singleton.SceneType == SceneType.SCENE_BIGMELEE_READY;
@@ -157,7 +146,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B6EA RID: 46826 RVA: 0x002458C0 File Offset: 0x00243AC0
 		public void StartTime(uint time)
 		{
 			bool flag = this.isLeftTime;
@@ -170,7 +158,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B6EB RID: 46827 RVA: 0x00245940 File Offset: 0x00243B40
 		private void _OnLeftTimeOver(object o)
 		{
 			this.isLeftTime = false;
@@ -185,14 +172,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B6EC RID: 46828 RVA: 0x00245997 File Offset: 0x00243B97
 		public void SetWaitEnd()
 		{
 			this.isWaitEnd = true;
 			this.m_Text.SetText(XSingleton<XStringTable>.singleton.GetString("SKY_ARENA_MATCHING_END"));
 		}
 
-		// Token: 0x0600B6ED RID: 46829 RVA: 0x002459BC File Offset: 0x00243BBC
 		public void NextWaitStart()
 		{
 			this.isLeftTime = true;
@@ -203,7 +188,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B6EE RID: 46830 RVA: 0x00245A04 File Offset: 0x00243C04
 		public bool OnRewardClicked(IXUIButton btn)
 		{
 			DlgHandlerBase.EnsureCreate<PointRewardHandler>(ref this._PointRewardHandler, this.m_Bg, false, null);
@@ -211,40 +195,28 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x040047A7 RID: 18343
 		private XSkyArenaEntranceDocument doc = null;
 
-		// Token: 0x040047A8 RID: 18344
 		private PointRewardHandler _PointRewardHandler;
 
-		// Token: 0x040047A9 RID: 18345
 		private XLeftTimeCounter _CDCounter;
 
-		// Token: 0x040047AA RID: 18346
 		private bool isWaitEnd = false;
 
-		// Token: 0x040047AB RID: 18347
 		private bool isLeftTime = true;
 
-		// Token: 0x040047AC RID: 18348
 		private Transform m_Bg;
 
-		// Token: 0x040047AD RID: 18349
 		private IXUIButton m_Close;
 
-		// Token: 0x040047AE RID: 18350
 		private IXUISprite m_Help;
 
-		// Token: 0x040047AF RID: 18351
 		private IXUILabel m_MapName;
 
-		// Token: 0x040047B0 RID: 18352
 		private IXUILabel m_Info;
 
-		// Token: 0x040047B1 RID: 18353
 		private IXUILabel m_Text;
 
-		// Token: 0x040047B2 RID: 18354
 		private IXUIButton m_RewardBtn;
 	}
 }

@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200176C RID: 5996
+
 	internal class GuildQualifierHandler : DlgHandlerBase
 	{
-		// Token: 0x17003816 RID: 14358
-		// (get) Token: 0x0600F78C RID: 63372 RVA: 0x0038617C File Offset: 0x0038437C
+
 		protected override string FileName
 		{
 			get
@@ -19,7 +18,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F78D RID: 63373 RVA: 0x00386194 File Offset: 0x00384394
 		protected override void Init()
 		{
 			base.Init();
@@ -30,28 +28,24 @@ namespace XMainClient.UI
 			this.m_qualifierContent.RegisterItemUpdateEventHandler(new WrapItemUpdateEventHandler(this.GuildQualifierWrapUpdate));
 		}
 
-		// Token: 0x0600F78E RID: 63374 RVA: 0x00386240 File Offset: 0x00384440
 		protected override void OnHide()
 		{
 			base.OnHide();
 			XSingleton<XTimerMgr>.singleton.KillTimer(this.refreshTime);
 		}
 
-		// Token: 0x0600F78F RID: 63375 RVA: 0x0038625B File Offset: 0x0038445B
 		public override void OnUnload()
 		{
 			XSingleton<XTimerMgr>.singleton.KillTimer(this.refreshTime);
 			base.OnUnload();
 		}
 
-		// Token: 0x0600F790 RID: 63376 RVA: 0x00386276 File Offset: 0x00384476
 		public override void OnUpdate()
 		{
 			base.OnUpdate();
 			this.CheckActive();
 		}
 
-		// Token: 0x0600F791 RID: 63377 RVA: 0x00386288 File Offset: 0x00384488
 		public override void RefreshData()
 		{
 			base.RefreshData();
@@ -73,7 +67,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F792 RID: 63378 RVA: 0x00386330 File Offset: 0x00384530
 		private void CheckActive()
 		{
 			bool flag = this._Doc.ActiveTime > 0.0;
@@ -90,14 +83,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600F793 RID: 63379 RVA: 0x003863A6 File Offset: 0x003845A6
 		private void UpdateTimeFrame(object o)
 		{
 			XSingleton<XTimerMgr>.singleton.KillTimer(this.refreshTime);
 			this._Doc.SendGuildLadderRankInfo();
 		}
 
-		// Token: 0x0600F794 RID: 63380 RVA: 0x003863C8 File Offset: 0x003845C8
 		private void GuildQualifierWrapUpdate(Transform t, int index)
 		{
 			bool flag = index >= this._Doc.GuildRankList.Count;
@@ -126,19 +117,14 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04006BCE RID: 27598
 		private IXUIWrapContent m_qualifierContent;
 
-		// Token: 0x04006BCF RID: 27599
 		private IXUIScrollView m_qualifierScrollView;
 
-		// Token: 0x04006BD0 RID: 27600
 		private IXUILabel m_timeLabel;
 
-		// Token: 0x04006BD1 RID: 27601
 		private XGuildQualifierDocument _Doc;
 
-		// Token: 0x04006BD2 RID: 27602
 		private uint refreshTime = 0U;
 	}
 }

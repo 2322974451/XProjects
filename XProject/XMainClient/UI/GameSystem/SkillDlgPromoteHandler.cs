@@ -8,10 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI.GameSystem
 {
-	// Token: 0x02001928 RID: 6440
+
 	internal class SkillDlgPromoteHandler : DlgHandlerBase
 	{
-		// Token: 0x06010E64 RID: 69220 RVA: 0x00447F0C File Offset: 0x0044610C
+
 		protected override void Init()
 		{
 			base.Init();
@@ -43,7 +43,6 @@ namespace XMainClient.UI.GameSystem
 			this.m_AwakeDesc = (base.PanelObject.transform.Find("Awake/Text").GetComponent("XUILabel") as IXUILabel);
 		}
 
-		// Token: 0x06010E65 RID: 69221 RVA: 0x004482FC File Offset: 0x004464FC
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -52,14 +51,12 @@ namespace XMainClient.UI.GameSystem
 			this.m_PlayBtn.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnPlayBtnClick));
 		}
 
-		// Token: 0x06010E66 RID: 69222 RVA: 0x0044835C File Offset: 0x0044655C
 		public bool OnWindowCloseClicked(IXUIButton go)
 		{
 			this.m_PreviewWindow.SetActive(false);
 			return true;
 		}
 
-		// Token: 0x06010E67 RID: 69223 RVA: 0x0044837C File Offset: 0x0044657C
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -107,7 +104,6 @@ namespace XMainClient.UI.GameSystem
 			}
 		}
 
-		// Token: 0x06010E68 RID: 69224 RVA: 0x004484C0 File Offset: 0x004466C0
 		protected override void OnHide()
 		{
 			this.m_BgTex.SetTexturePath("");
@@ -126,13 +122,11 @@ namespace XMainClient.UI.GameSystem
 			base.OnHide();
 		}
 
-		// Token: 0x06010E69 RID: 69225 RVA: 0x0019EF07 File Offset: 0x0019D107
 		public override void OnUnload()
 		{
 			base.OnUnload();
 		}
 
-		// Token: 0x06010E6A RID: 69226 RVA: 0x0044854C File Offset: 0x0044674C
 		private void CalPro()
 		{
 			int num = 1;
@@ -158,7 +152,6 @@ namespace XMainClient.UI.GameSystem
 			}
 		}
 
-		// Token: 0x06010E6B RID: 69227 RVA: 0x00448654 File Offset: 0x00446854
 		private void ChangeGo()
 		{
 			bool flag = XSingleton<XProfessionSkillMgr>.singleton.IsExistProf(this._pro_L);
@@ -221,14 +214,12 @@ namespace XMainClient.UI.GameSystem
 			this.old_branch = num;
 		}
 
-		// Token: 0x06010E6C RID: 69228 RVA: 0x00448818 File Offset: 0x00446A18
 		private void SetInfo()
 		{
 			this.ChangeGo();
 			this.SetProfBtnInfo();
 		}
 
-		// Token: 0x06010E6D RID: 69229 RVA: 0x0044882C File Offset: 0x00446A2C
 		private void SetProfBtnInfo()
 		{
 			bool flag = this.IsAvengr(this._currChoosePro);
@@ -282,7 +273,6 @@ namespace XMainClient.UI.GameSystem
 			}
 		}
 
-		// Token: 0x06010E6E RID: 69230 RVA: 0x00448A48 File Offset: 0x00446C48
 		private void SetAwakeInfo()
 		{
 			int num = 1;
@@ -336,7 +326,6 @@ namespace XMainClient.UI.GameSystem
 			this.m_AwakePoint.SetText(string.Format("{0}{1}/{2}", (num2 < @int) ? "[e60012]" : "", num2, @int));
 		}
 
-		// Token: 0x06010E6F RID: 69231 RVA: 0x00448CBC File Offset: 0x00446EBC
 		private void SetProGo(GameObject go, int pro, int branch)
 		{
 			IXUILabel ixuilabel = go.transform.Find("Name").GetComponent("XUILabel") as IXUILabel;
@@ -401,7 +390,6 @@ namespace XMainClient.UI.GameSystem
 			}
 		}
 
-		// Token: 0x06010E70 RID: 69232 RVA: 0x00448FBC File Offset: 0x004471BC
 		private bool OnProClick(IXUICheckBox icb)
 		{
 			bool flag = !icb.bChecked;
@@ -420,20 +408,17 @@ namespace XMainClient.UI.GameSystem
 			return result;
 		}
 
-		// Token: 0x06010E71 RID: 69233 RVA: 0x00449010 File Offset: 0x00447210
 		private bool IsAvengr(int prof)
 		{
 			return prof > 10 && prof / 10 % 10 == 3;
 		}
 
-		// Token: 0x06010E72 RID: 69234 RVA: 0x00449040 File Offset: 0x00447240
 		private bool OnPreViewBtnClick(IXUIButton btn)
 		{
 			this.ShowPreView();
 			return true;
 		}
 
-		// Token: 0x06010E73 RID: 69235 RVA: 0x0044905A File Offset: 0x0044725A
 		private void ShowPreView()
 		{
 			this.m_PreviewWindow.SetActive(true);
@@ -441,7 +426,6 @@ namespace XMainClient.UI.GameSystem
 			this.SetupPreViewInfo();
 		}
 
-		// Token: 0x06010E74 RID: 69236 RVA: 0x00449078 File Offset: 0x00447278
 		private bool OnPreViewCheckBoxClick(IXUICheckBox icb)
 		{
 			bool flag = !icb.bChecked;
@@ -477,7 +461,6 @@ namespace XMainClient.UI.GameSystem
 			return result;
 		}
 
-		// Token: 0x06010E75 RID: 69237 RVA: 0x00449120 File Offset: 0x00447320
 		private void SetupPreViewTab()
 		{
 			IXUICheckBox ixuicheckBox = base.PanelObject.transform.Find("PreviewWindow/ShowFrame/Tab1").GetComponent("XUICheckBox") as IXUICheckBox;
@@ -546,7 +529,6 @@ namespace XMainClient.UI.GameSystem
 			}
 		}
 
-		// Token: 0x06010E76 RID: 69238 RVA: 0x00449438 File Offset: 0x00447638
 		private void SetupPreViewInfo()
 		{
 			List<uint> profSkillID = XSingleton<XProfessionSkillMgr>.singleton.GetProfSkillID(this._currChoosePro);
@@ -589,7 +571,6 @@ namespace XMainClient.UI.GameSystem
 			}
 		}
 
-		// Token: 0x06010E77 RID: 69239 RVA: 0x004495F0 File Offset: 0x004477F0
 		private bool OnSkillPreViewClick(IXUICheckBox icb)
 		{
 			bool flag = !icb.bChecked;
@@ -607,7 +588,6 @@ namespace XMainClient.UI.GameSystem
 			return result;
 		}
 
-		// Token: 0x06010E78 RID: 69240 RVA: 0x00449628 File Offset: 0x00447828
 		private void SetupSkillInfo()
 		{
 			SkillList.RowData skillConfig = XSingleton<XSkillEffectMgr>.singleton.GetSkillConfig((uint)this._currSkill, 0U);
@@ -618,20 +598,17 @@ namespace XMainClient.UI.GameSystem
 			XSingleton<XSkillPreViewMgr>.singleton.SkillShowBegin(this._doc.Dummy, this._doc.BlackHouseCamera);
 		}
 
-		// Token: 0x06010E79 RID: 69241 RVA: 0x004496B0 File Offset: 0x004478B0
 		private void OnPlayBtnClick(IXUISprite iSp)
 		{
 			this.PlaySkill(this._currSkill);
 		}
 
-		// Token: 0x06010E7A RID: 69242 RVA: 0x004496C0 File Offset: 0x004478C0
 		private void PlaySkill(int pro)
 		{
 			this.m_PlayBtn.SetVisible(false);
 			XSingleton<XSkillPreViewMgr>.singleton.ShowSkill(this._doc.Dummy, (uint)this._currSkill, 0U);
 		}
 
-		// Token: 0x06010E7B RID: 69243 RVA: 0x004496F0 File Offset: 0x004478F0
 		protected bool OnTurnProBtnClick(IXUIButton go)
 		{
 			DlgBase<ModalDlg, ModalDlgBehaviour>.singleton._bHasGrey = false;
@@ -643,7 +620,6 @@ namespace XMainClient.UI.GameSystem
 			return true;
 		}
 
-		// Token: 0x06010E7C RID: 69244 RVA: 0x0044978C File Offset: 0x0044798C
 		private bool OnPromoteConfirmed(IXUIButton go)
 		{
 			RpcC2G_ChooseProfession rpcC2G_ChooseProfession = new RpcC2G_ChooseProfession();
@@ -653,7 +629,6 @@ namespace XMainClient.UI.GameSystem
 			return true;
 		}
 
-		// Token: 0x06010E7D RID: 69245 RVA: 0x004497D0 File Offset: 0x004479D0
 		private bool OnGoToTask(IXUIButton btn)
 		{
 			bool flag = XSingleton<XScene>.singleton.SceneType != SceneType.SCENE_HALL;
@@ -673,14 +648,12 @@ namespace XMainClient.UI.GameSystem
 			return result;
 		}
 
-		// Token: 0x06010E7E RID: 69246 RVA: 0x004498A0 File Offset: 0x00447AA0
 		private bool OnCanNotGoToTaskClick(IXUIButton btn)
 		{
 			XSingleton<UiUtility>.singleton.ShowSystemTip(XStringDefineProxy.GetString("TURNPROF_LEVELFAIL"), "fece00");
 			return true;
 		}
 
-		// Token: 0x06010E7F RID: 69247 RVA: 0x004498D0 File Offset: 0x00447AD0
 		public void SetUVRectangle()
 		{
 			Rect rect = this._doc.BlackHouseCamera.rect;
@@ -689,7 +662,6 @@ namespace XMainClient.UI.GameSystem
 			this.m_Snapshot.SetUVRect(rect);
 		}
 
-		// Token: 0x06010E80 RID: 69248 RVA: 0x00449940 File Offset: 0x00447B40
 		private bool OnAwakeComplete(IXUIButton btn)
 		{
 			XSingleton<XDebug>.singleton.AddLog("Awake Completed", null, null, null, null, null, XDebugColor.XDebug_None);
@@ -699,7 +671,6 @@ namespace XMainClient.UI.GameSystem
 			return true;
 		}
 
-		// Token: 0x06010E81 RID: 69249 RVA: 0x00449990 File Offset: 0x00447B90
 		private bool OnGoToAwakeTask(IXUIButton btn)
 		{
 			bool flag = XSingleton<XScene>.singleton.SceneType != SceneType.SCENE_HALL;
@@ -719,140 +690,96 @@ namespace XMainClient.UI.GameSystem
 			return result;
 		}
 
-		// Token: 0x06010E82 RID: 69250 RVA: 0x00449A60 File Offset: 0x00447C60
 		private bool OnCanNotGoToAwakeTaskClick(IXUIButton btn)
 		{
 			XSingleton<UiUtility>.singleton.ShowSystemTip(XStringDefineProxy.GetString("TURNAWAKE_LEVELFAIL"), "fece00");
 			return true;
 		}
 
-		// Token: 0x04007C35 RID: 31797
 		private XSkillTreeDocument _doc = null;
 
-		// Token: 0x04007C36 RID: 31798
 		public int CurrStage;
 
-		// Token: 0x04007C37 RID: 31799
 		public bool IsShowAwake = false;
 
-		// Token: 0x04007C38 RID: 31800
 		private GameObject m_NormalTurnPro;
 
-		// Token: 0x04007C39 RID: 31801
 		private GameObject m_PreviewWindow;
 
-		// Token: 0x04007C3A RID: 31802
 		private GameObject m_AwakePage;
 
-		// Token: 0x04007C3B RID: 31803
 		private IXUILabel m_AwakePoint;
 
-		// Token: 0x04007C3C RID: 31804
 		private IXUILabel m_AwakeTips;
 
-		// Token: 0x04007C3D RID: 31805
 		private IXUITexture m_AwakeBgTex;
 
-		// Token: 0x04007C3E RID: 31806
 		private IXUIButton m_TurnAwakeBtn;
 
-		// Token: 0x04007C3F RID: 31807
 		private IXUILabel m_TurnAwakeBtnText;
 
-		// Token: 0x04007C40 RID: 31808
 		private IXUILabel m_AwakeDesc;
 
-		// Token: 0x04007C41 RID: 31809
 		private int _awakePro;
 
-		// Token: 0x04007C42 RID: 31810
 		private int _pro_L;
 
-		// Token: 0x04007C43 RID: 31811
 		private int _pro_R;
 
-		// Token: 0x04007C44 RID: 31812
 		private int _pro_V;
 
-		// Token: 0x04007C45 RID: 31813
 		private int _currChoosePro;
 
-		// Token: 0x04007C46 RID: 31814
 		private int _currSkill;
 
-		// Token: 0x04007C47 RID: 31815
 		private IXUIButton m_PreviewClose;
 
-		// Token: 0x04007C48 RID: 31816
 		private IXUITexture m_BgTex;
 
-		// Token: 0x04007C49 RID: 31817
 		private readonly string TEXPATH = "atlas/UI/common/ProfPic";
 
-		// Token: 0x04007C4A RID: 31818
 		private string _texPath;
 
-		// Token: 0x04007C4B RID: 31819
 		private GameObject m_BranchGo1;
 
-		// Token: 0x04007C4C RID: 31820
 		private GameObject m_BranchGo2;
 
-		// Token: 0x04007C4D RID: 31821
 		private GameObject m_BranchGo3;
 
-		// Token: 0x04007C4E RID: 31822
 		private IXUIButton m_PreViewBtn;
 
-		// Token: 0x04007C4F RID: 31823
 		private IXUIButton m_TurnProBtn;
 
-		// Token: 0x04007C50 RID: 31824
 		private IXUILabel m_CurrSelectPro;
 
-		// Token: 0x04007C51 RID: 31825
 		private IXUILabel m_TurnProTips;
 
-		// Token: 0x04007C52 RID: 31826
 		private IXUILabel m_TurnProBtnText;
 
-		// Token: 0x04007C53 RID: 31827
 		private IXUICheckBox m_ProChoose_L;
 
-		// Token: 0x04007C54 RID: 31828
 		private IXUICheckBox m_ProChoose_R;
 
-		// Token: 0x04007C55 RID: 31829
 		private IXUICheckBox m_ProChoose_V;
 
-		// Token: 0x04007C56 RID: 31830
 		private XUIPool m_PreViewSkillPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04007C57 RID: 31831
 		public IXUITexture m_Snapshot;
 
-		// Token: 0x04007C58 RID: 31832
 		private RenderTexture skillPreView;
 
-		// Token: 0x04007C59 RID: 31833
 		public IXUISprite m_PlayBtn;
 
-		// Token: 0x04007C5A RID: 31834
 		private IXUILabel m_SkillName;
 
-		// Token: 0x04007C5B RID: 31835
 		private IXUILabel m_SkillDesc;
 
-		// Token: 0x04007C5C RID: 31836
 		private XUIPool m_Star_L = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04007C5D RID: 31837
 		private XUIPool m_Star_R = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04007C5E RID: 31838
 		private XUIPool m_Star_V = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04007C5F RID: 31839
 		private int old_branch = 0;
 	}
 }

@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x0200015B RID: 347
+
 	public class QuestionLibraryTable : CVSReader
 	{
-		// Token: 0x060007C9 RID: 1993 RVA: 0x00027794 File Offset: 0x00025994
+
 		public QuestionLibraryTable.RowData GetByID(int key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -21,7 +21,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x060007CA RID: 1994 RVA: 0x000277CC File Offset: 0x000259CC
 		private QuestionLibraryTable.RowData BinarySearchID(int key)
 		{
 			int num = 0;
@@ -80,7 +79,6 @@ namespace XUtliPoolLib
 			return null;
 		}
 
-		// Token: 0x060007CB RID: 1995 RVA: 0x000278A8 File Offset: 0x00025AA8
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			QuestionLibraryTable.RowData rowData = new QuestionLibraryTable.RowData();
@@ -96,7 +94,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x060007CC RID: 1996 RVA: 0x0002793C File Offset: 0x00025B3C
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -110,22 +107,17 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x040003A7 RID: 935
 		public QuestionLibraryTable.RowData[] Table = null;
 
-		// Token: 0x0200035A RID: 858
 		public class RowData
 		{
-			// Token: 0x04000D6A RID: 3434
+
 			public int ID;
 
-			// Token: 0x04000D6B RID: 3435
 			public string Question;
 
-			// Token: 0x04000D6C RID: 3436
 			public int TimeLimit;
 
-			// Token: 0x04000D6D RID: 3437
 			public uint Week;
 		}
 	}

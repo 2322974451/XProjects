@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x020000B7 RID: 183
+
 	public class BossRushBuffTable : CVSReader
 	{
-		// Token: 0x06000550 RID: 1360 RVA: 0x00017970 File Offset: 0x00015B70
+
 		public BossRushBuffTable.RowData GetByBossRushBuffID(int key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -29,7 +29,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000551 RID: 1361 RVA: 0x000179DC File Offset: 0x00015BDC
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			BossRushBuffTable.RowData rowData = new BossRushBuffTable.RowData();
@@ -47,7 +46,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x06000552 RID: 1362 RVA: 0x00017A88 File Offset: 0x00015C88
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -61,25 +59,19 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x040002DD RID: 733
 		public BossRushBuffTable.RowData[] Table = null;
 
-		// Token: 0x020002B5 RID: 693
 		public class RowData
 		{
-			// Token: 0x04000915 RID: 2325
+
 			public int BossRushBuffID;
 
-			// Token: 0x04000916 RID: 2326
 			public float RewardBuff;
 
-			// Token: 0x04000917 RID: 2327
 			public string icon;
 
-			// Token: 0x04000918 RID: 2328
 			public int Quality;
 
-			// Token: 0x04000919 RID: 2329
 			public string Comment;
 		}
 	}

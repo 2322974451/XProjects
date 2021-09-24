@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x0200097F RID: 2431
+
 	internal class XPushSubscribeDocument : XDocComponent
 	{
-		// Token: 0x17002C9A RID: 11418
-		// (get) Token: 0x06009258 RID: 37464 RVA: 0x00151D70 File Offset: 0x0014FF70
+
 		public override uint ID
 		{
 			get
@@ -20,13 +19,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009259 RID: 37465 RVA: 0x00114ACA File Offset: 0x00112CCA
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
 		}
 
-		// Token: 0x0600925A RID: 37466 RVA: 0x00151D88 File Offset: 0x0014FF88
 		public override void OnEnterSceneFinally()
 		{
 			bool flag = this.OptionsDefault.Count == 0 && XSingleton<XClientNetwork>.singleton.AccountType == LoginType.LGOIN_WECHAT_PF;
@@ -36,13 +33,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600925B RID: 37467 RVA: 0x00114AD5 File Offset: 0x00112CD5
 		protected override void EventSubscribe()
 		{
 			base.EventSubscribe();
 		}
 
-		// Token: 0x0600925C RID: 37468 RVA: 0x00151DC0 File Offset: 0x0014FFC0
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 			bool flag = this.OptionsDefault.Count == 0 && XSingleton<XClientNetwork>.singleton.AccountType == LoginType.LGOIN_WECHAT_PF;
@@ -52,26 +47,22 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600925D RID: 37469 RVA: 0x00151DF8 File Offset: 0x0014FFF8
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			XPushSubscribeDocument.AsyncLoader.AddTask("Table/PushSubscribe", XPushSubscribeDocument._PushSubscribeTable, false);
 			XPushSubscribeDocument.AsyncLoader.Execute(callback);
 		}
 
-		// Token: 0x0600925E RID: 37470 RVA: 0x00151E20 File Offset: 0x00150020
 		public static PushSubscribeTable.RowData GetPushSubscribe(PushSubscribeOptions type)
 		{
 			return XPushSubscribeDocument.GetPushSubscribe((uint)XFastEnumIntEqualityComparer<PushSubscribeOptions>.ToInt(type));
 		}
 
-		// Token: 0x0600925F RID: 37471 RVA: 0x00151E40 File Offset: 0x00150040
 		public static PushSubscribeTable.RowData GetPushSubscribe(uint id)
 		{
 			return XPushSubscribeDocument._PushSubscribeTable.GetByMsgId(id);
 		}
 
-		// Token: 0x06009260 RID: 37472 RVA: 0x00151E60 File Offset: 0x00150060
 		private void ReqListSubscribe()
 		{
 			XSingleton<XDebug>.singleton.AddLog("ReqListSubscribe", null, null, null, null, null, XDebugColor.XDebug_None);
@@ -80,7 +71,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_GetListSubscribe);
 		}
 
-		// Token: 0x06009261 RID: 37473 RVA: 0x00151EAC File Offset: 0x001500AC
 		public void OnListSubscribe(List<SubScribe> data)
 		{
 			this.OptionsDefault.Clear();
@@ -106,7 +96,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009262 RID: 37474 RVA: 0x00151FC0 File Offset: 0x001501C0
 		public void ReqSetSubscribe(PushSubscribeOptions type, bool op)
 		{
 			XSingleton<XDebug>.singleton.AddLog(string.Concat(new object[]
@@ -123,7 +112,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2M_SetSubscribe);
 		}
 
-		// Token: 0x06009263 RID: 37475 RVA: 0x00152060 File Offset: 0x00150260
 		public void OnSetSubscribe(SetSubscirbeArg data)
 		{
 			int num = (int)data.msgid[0];
@@ -180,7 +168,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009264 RID: 37476 RVA: 0x001521A8 File Offset: 0x001503A8
 		public bool GetCurSubscribeStatus(PushSubscribeOptions type)
 		{
 			int num = XFastEnumIntEqualityComparer<PushSubscribeOptions>.ToInt(type);
@@ -204,16 +191,12 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x040030F4 RID: 12532
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("PushSubscribeDocument");
 
-		// Token: 0x040030F5 RID: 12533
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x040030F6 RID: 12534
 		private static PushSubscribeTable _PushSubscribeTable = new PushSubscribeTable();
 
-		// Token: 0x040030F7 RID: 12535
 		public List<bool> OptionsDefault = new List<bool>();
 	}
 }

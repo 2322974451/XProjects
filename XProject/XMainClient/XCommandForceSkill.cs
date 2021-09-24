@@ -8,10 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000DA1 RID: 3489
+
 	internal class XCommandForceSkill : XBaseCommand
 	{
-		// Token: 0x0600BD99 RID: 48537 RVA: 0x002766F0 File Offset: 0x002748F0
+
 		public override bool Execute()
 		{
 			Transform transform = XSingleton<XGameUI>.singleton.UIRoot.FindChild(this._cmd.param1);
@@ -31,7 +31,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600BD9A RID: 48538 RVA: 0x0027677C File Offset: 0x0027497C
 		public override void Stop()
 		{
 			bool flag = this._time1 > 0U;
@@ -67,7 +66,6 @@ namespace XMainClient
 			XSingleton<XTutorialMgr>.singleton.Exculsive = false;
 		}
 
-		// Token: 0x0600BD9B RID: 48539 RVA: 0x00276898 File Offset: 0x00274A98
 		protected void ShowFinger(object o)
 		{
 			base.SetOverlay();
@@ -85,7 +83,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BD9C RID: 48540 RVA: 0x002768FC File Offset: 0x00274AFC
 		protected void _SetupFinger()
 		{
 			bool flag = this._finger == null;
@@ -108,7 +105,6 @@ namespace XMainClient
 			this.SetupCloneButton(this._clickGo.gameObject, this._cloneGo);
 		}
 
-		// Token: 0x0600BD9D RID: 48541 RVA: 0x002769F4 File Offset: 0x00274BF4
 		protected override void OnMouseClick(IXUISprite sp)
 		{
 			base.OnMouseClick(sp);
@@ -119,7 +115,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600BD9E RID: 48542 RVA: 0x00276A2C File Offset: 0x00274C2C
 		protected void SetupCloneButton(GameObject targetGo, GameObject cloneGo)
 		{
 			XSingleton<UiUtility>.singleton.AddChild(cloneGo.transform, this._finger.transform);
@@ -139,7 +134,6 @@ namespace XMainClient
 			XSingleton<XTutorialMgr>.singleton.Exculsive = true;
 		}
 
-		// Token: 0x0600BD9F RID: 48543 RVA: 0x00276B4C File Offset: 0x00274D4C
 		protected bool OnBtnClick(IXUIButton go)
 		{
 			int num = int.Parse(this._cmd.param2);
@@ -148,7 +142,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600BDA0 RID: 48544 RVA: 0x00276BA4 File Offset: 0x00274DA4
 		protected void CastSkill(object o)
 		{
 			int num = (int)o;
@@ -174,25 +167,18 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04004D3C RID: 19772
 		private GameObject _finger;
 
-		// Token: 0x04004D3D RID: 19773
 		private GameObject _clickGo;
 
-		// Token: 0x04004D3E RID: 19774
 		private GameObject _cloneGo;
 
-		// Token: 0x04004D3F RID: 19775
 		private int orgWidth;
 
-		// Token: 0x04004D40 RID: 19776
 		private int orgHeight;
 
-		// Token: 0x04004D41 RID: 19777
 		private uint _time1 = 0U;
 
-		// Token: 0x04004D42 RID: 19778
 		private uint _time2 = 0U;
 	}
 }

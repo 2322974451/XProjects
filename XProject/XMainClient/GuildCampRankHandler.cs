@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C0C RID: 3084
+
 	internal class GuildCampRankHandler : DlgHandlerBase
 	{
-		// Token: 0x170030E3 RID: 12515
-		// (get) Token: 0x0600AF32 RID: 44850 RVA: 0x00212764 File Offset: 0x00210964
+
 		protected override string FileName
 		{
 			get
@@ -21,7 +20,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AF33 RID: 44851 RVA: 0x0021277C File Offset: 0x0021097C
 		protected override void Init()
 		{
 			base.Init();
@@ -34,7 +32,6 @@ namespace XMainClient
 			this.m_RewardItemPool.SetupPool(base.transform.gameObject, this.m_objTpl, 30U, false);
 		}
 
-		// Token: 0x0600AF34 RID: 44852 RVA: 0x00212863 File Offset: 0x00210A63
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -43,20 +40,17 @@ namespace XMainClient
 			this.m_wrapContent.SetContentCount(XGuildSmallMonsterDocument._guildRankTable.Table.Length, false);
 		}
 
-		// Token: 0x0600AF35 RID: 44853 RVA: 0x0019EEFD File Offset: 0x0019D0FD
 		protected override void OnHide()
 		{
 			base.OnHide();
 		}
 
-		// Token: 0x0600AF36 RID: 44854 RVA: 0x00212899 File Offset: 0x00210A99
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			this.m_btnClose.RegisterClickEventHandler(new ButtonClickEventHandler(DlgBase<XGuildSmallMonsterView, XGuildSmallMonsterBehaviour>.singleton.CloseRankHandler));
 		}
 
-		// Token: 0x0600AF37 RID: 44855 RVA: 0x002128C0 File Offset: 0x00210AC0
 		private void RefreshItems(Transform t, int index)
 		{
 			GuildCampRank.RowData[] table = XGuildSmallMonsterDocument._guildRankTable.Table;
@@ -76,7 +70,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AF38 RID: 44856 RVA: 0x00212A1C File Offset: 0x00210C1C
 		private GameObject FetchItem()
 		{
 			GameObject gameObject = XCommon.Instantiate<GameObject>(this.m_objTpl);
@@ -85,7 +78,6 @@ namespace XMainClient
 			return gameObject;
 		}
 
-		// Token: 0x0600AF39 RID: 44857 RVA: 0x00212A50 File Offset: 0x00210C50
 		private void DestroyItems()
 		{
 			for (int i = 0; i < this.list.Count; i++)
@@ -99,25 +91,18 @@ namespace XMainClient
 			this.list.Clear();
 		}
 
-		// Token: 0x040042C6 RID: 17094
 		private XGuildSmallMonsterDocument _doc = null;
 
-		// Token: 0x040042C7 RID: 17095
 		private GameObject m_objTpl;
 
-		// Token: 0x040042C8 RID: 17096
 		private IXUIWrapContent m_wrapContent;
 
-		// Token: 0x040042C9 RID: 17097
 		private IXUIScrollView m_scrool;
 
-		// Token: 0x040042CA RID: 17098
 		private IXUIButton m_btnClose;
 
-		// Token: 0x040042CB RID: 17099
 		public XUIPool m_RewardItemPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x040042CC RID: 17100
 		private List<GameObject> list = new List<GameObject>();
 	}
 }

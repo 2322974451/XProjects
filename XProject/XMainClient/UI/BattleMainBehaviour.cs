@@ -6,10 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020018F8 RID: 6392
+
 	internal class BattleMainBehaviour : DlgBehaviourBase
 	{
-		// Token: 0x06010AD8 RID: 68312 RVA: 0x00425F24 File Offset: 0x00424124
+
 		private void Awake()
 		{
 			this.m_canvas = base.transform.FindChild("_canvas");
@@ -118,262 +118,176 @@ namespace XMainClient.UI
 			this.m_BtnDamageStatistics = (this.m_Menu.gameObject.transform.Find("BtnDamageStatistics").GetComponent("XUIButton") as IXUIButton);
 		}
 
-		// Token: 0x04007984 RID: 31108
 		public IXUISprite m_GuildMineBuff;
 
-		// Token: 0x04007985 RID: 31109
 		public IXUILabel m_GuildMineBuffText;
 
-		// Token: 0x04007986 RID: 31110
 		public IXUIButton m_HorseRide;
 
-		// Token: 0x04007987 RID: 31111
 		public Transform m_canvas;
 
-		// Token: 0x04007988 RID: 31112
 		public Transform m_RoleInfo;
 
-		// Token: 0x04007989 RID: 31113
 		public Transform m_PingFrame;
 
-		// Token: 0x0400798A RID: 31114
 		public IXUISprite m_Hpbar = null;
 
-		// Token: 0x0400798B RID: 31115
 		public IXUISprite m_Mpbar = null;
 
-		// Token: 0x0400798C RID: 31116
 		public IXUILabel m_HpText;
 
-		// Token: 0x0400798D RID: 31117
 		public IXUILabel m_MpText;
 
-		// Token: 0x0400798E RID: 31118
 		public IXUISprite m_HpBackdrop;
 
-		// Token: 0x0400798F RID: 31119
 		public IXUISprite m_avatar = null;
 
-		// Token: 0x04007990 RID: 31120
 		public IXUISprite m_sprFrame = null;
 
-		// Token: 0x04007991 RID: 31121
 		public IXUITexture m_txtHead = null;
 
-		// Token: 0x04007992 RID: 31122
 		public IXUILabel m_Level = null;
 
-		// Token: 0x04007993 RID: 31123
 		public IXUILabel m_Name = null;
 
-		// Token: 0x04007994 RID: 31124
 		public GameObject m_TeamLeader = null;
 
-		// Token: 0x04007995 RID: 31125
 		public IXUISlider m_sliderBattery;
 
-		// Token: 0x04007996 RID: 31126
 		public IXUILabel m_lblTime;
 
-		// Token: 0x04007997 RID: 31127
 		public IXUILabel m_lblfree;
 
-		// Token: 0x04007998 RID: 31128
 		public GameObject m_avatarGO = null;
 
-		// Token: 0x04007999 RID: 31129
 		public IXUILabel m_leftTimes = null;
 
-		// Token: 0x0400799A RID: 31130
 		public IXUILabel m_winConditionTips = null;
 
-		// Token: 0x0400799B RID: 31131
 		public IXUILabel m_BattleExplainTips = null;
 
-		// Token: 0x0400799C RID: 31132
 		public IXUIButton m_pause = null;
 
-		// Token: 0x0400799D RID: 31133
 		public IXPositionGroup m_pauseGroup = null;
 
-		// Token: 0x0400799E RID: 31134
 		public IXUISprite m_sprwifi;
 
-		// Token: 0x0400799F RID: 31135
 		public GameObject m_ComboFrame = null;
 
-		// Token: 0x040079A0 RID: 31136
 		public IXUILabel m_ComboText = null;
 
-		// Token: 0x040079A1 RID: 31137
 		public IXUITweenTool m_ComboTextTween = null;
 
-		// Token: 0x040079A2 RID: 31138
 		public IXUITweenTool m_ComboBgTween = null;
 
-		// Token: 0x040079A3 RID: 31139
 		public IXUIProgress m_ComboBuffTime = null;
 
-		// Token: 0x040079A4 RID: 31140
 		public IXUILabel m_ComboBuffName = null;
 
-		// Token: 0x040079A5 RID: 31141
 		public BattleSkillHandler m_SkillHandler;
 
-		// Token: 0x040079A6 RID: 31142
 		public BattleTargetHandler m_BattleTargetHandler;
 
-		// Token: 0x040079A7 RID: 31143
 		public GameObject m_NoticeFrame = null;
 
-		// Token: 0x040079A8 RID: 31144
 		public IXUILabel m_Notice = null;
 
-		// Token: 0x040079A9 RID: 31145
 		public Vector3 m_NoticePos;
 
-		// Token: 0x040079AA RID: 31146
 		public Transform m_PromptFrame;
 
-		// Token: 0x040079AB RID: 31147
 		public IXUILabel m_PromptLabel;
 
-		// Token: 0x040079AC RID: 31148
 		public BattleIndicateHandler m_IndicateHandler;
 
-		// Token: 0x040079AD RID: 31149
 		public IXUILabel m_LeftTime = null;
 
-		// Token: 0x040079AE RID: 31150
 		public BattleWorldBossHandler m_WorldBossHandler;
 
-		// Token: 0x040079AF RID: 31151
 		public XTeamMonitorHandler m_TeamMonitor;
 
-		// Token: 0x040079B0 RID: 31152
 		public XBattleEnemyInfoHandler m_EnemyInfoHandler;
 
-		// Token: 0x040079B1 RID: 31153
 		public XBattleTeamTowerHandler m_TeamTowerHandler;
 
-		// Token: 0x040079B2 RID: 31154
 		public XBuffMonitorHandler m_PlayerBuffMonitorHandler;
 
-		// Token: 0x040079B3 RID: 31155
 		public GameObject m_DpsPanel;
 
-		// Token: 0x040079B4 RID: 31156
 		public GameObject m_LowHP;
 
-		// Token: 0x040079B5 RID: 31157
 		public IXUISprite m_AutoPlayBorad;
 
-		// Token: 0x040079B6 RID: 31158
 		public IXUISprite m_AutoPlayCancelBoard;
 
-		// Token: 0x040079B7 RID: 31159
 		public IXUIButton m_AutoPlay;
 
-		// Token: 0x040079B8 RID: 31160
 		public IXUIButton m_CancelAuto;
 
-		// Token: 0x040079B9 RID: 31161
 		public IXUILabel m_AutoPlayLock;
 
-		// Token: 0x040079BA RID: 31162
 		public IXUISprite m_AutoPlayTip;
 
-		// Token: 0x040079BB RID: 31163
 		public IXUILabel m_lblKill;
 
-		// Token: 0x040079BC RID: 31164
 		public IXUILabel m_WarTime;
 
-		// Token: 0x040079BD RID: 31165
 		public IXUILabel m_SceneName;
 
-		// Token: 0x040079BE RID: 31166
 		public Transform m_CountDownFrame;
 
-		// Token: 0x040079BF RID: 31167
 		public Transform m_CountDownBeginFrame;
 
-		// Token: 0x040079C0 RID: 31168
 		public Transform m_CountDownTimeFrame;
 
-		// Token: 0x040079C1 RID: 31169
 		public IXUIProgress m_StrengthPresevedBar;
 
-		// Token: 0x040079C2 RID: 31170
 		public Transform m_3D25D;
 
-		// Token: 0x040079C3 RID: 31171
 		public Transform m_SightSelect;
 
-		// Token: 0x040079C4 RID: 31172
 		public IXUIButton m_25D;
 
-		// Token: 0x040079C5 RID: 31173
 		public IXUIButton m_3D;
 
-		// Token: 0x040079C6 RID: 31174
 		public IXUIButton m_3DFree;
 
-		// Token: 0x040079C7 RID: 31175
 		public IXUIButton m_Sight;
 
-		// Token: 0x040079C8 RID: 31176
 		public IXUISprite m_SightPic;
 
-		// Token: 0x040079C9 RID: 31177
 		public IXUISprite m_SelectPic;
 
-		// Token: 0x040079CA RID: 31178
 		public GameObject m_objBossRush;
 
-		// Token: 0x040079CB RID: 31179
 		public IXUISprite m_sprBuff1;
 
-		// Token: 0x040079CC RID: 31180
 		public IXUILabel m_lblBuff1;
 
-		// Token: 0x040079CD RID: 31181
 		public IXUISprite m_sprBuff2;
 
-		// Token: 0x040079CE RID: 31182
 		public IXUILabel m_lblBuff2;
 
-		// Token: 0x040079CF RID: 31183
 		public IXUILabel m_lblTitle;
 
-		// Token: 0x040079D0 RID: 31184
 		public GameObject m_objRwd;
 
-		// Token: 0x040079D1 RID: 31185
 		public IXUISprite m_sprBossbg;
 
-		// Token: 0x040079D2 RID: 31186
 		public XUIPool m_rwdpool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x040079D3 RID: 31187
 		public GameObject m_SpectateInfo;
 
-		// Token: 0x040079D4 RID: 31188
 		public IXUILabel m_WatchNum;
 
-		// Token: 0x040079D5 RID: 31189
 		public IXUILabel m_CommendNum;
 
-		// Token: 0x040079D6 RID: 31190
 		public IXUILabel m_SkyAreanStage;
 
-		// Token: 0x040079D7 RID: 31191
 		public IXUISimpleList m_Menu;
 
-		// Token: 0x040079D8 RID: 31192
 		public GameObject m_AutoPlayContent;
 
-		// Token: 0x040079D9 RID: 31193
 		public IXUIButton m_BtnDamageStatistics;
 	}
 }

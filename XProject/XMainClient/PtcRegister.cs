@@ -2,10 +2,10 @@
 
 namespace XMainClient
 {
-	// Token: 0x02000ED5 RID: 3797
+
 	internal class PtcRegister
 	{
-		// Token: 0x0600C902 RID: 51458 RVA: 0x002D01CC File Offset: 0x002CE3CC
+
 		public static void RegistProtocol()
 		{
 			Protocol.RegistProtocol(new PtcG2C_NotifyAccountData());

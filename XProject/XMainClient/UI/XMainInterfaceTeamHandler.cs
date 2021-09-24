@@ -8,10 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200183D RID: 6205
+
 	internal class XMainInterfaceTeamHandler : DlgHandlerBase
 	{
-		// Token: 0x060101E5 RID: 66021 RVA: 0x003DA738 File Offset: 0x003D8938
+
 		protected override void Init()
 		{
 			base.Init();
@@ -29,7 +29,6 @@ namespace XMainClient.UI
 			this._TeamDoc = XDocuments.GetSpecificDocument<XTeamDocument>(XTeamDocument.uuID);
 		}
 
-		// Token: 0x060101E6 RID: 66022 RVA: 0x003DA8CC File Offset: 0x003D8ACC
 		public void SetupRedPoint()
 		{
 			this.m_BtnGroupChat.SetVisible(XSingleton<XGameSysMgr>.singleton.IsSystemOpened(XSysDefine.XSys_GroupRecruit));
@@ -37,7 +36,6 @@ namespace XMainClient.UI
 			this.m_RecruitRedPoint.SetActive(specificDocument.bShowMotion);
 		}
 
-		// Token: 0x060101E7 RID: 66023 RVA: 0x003DA914 File Offset: 0x003D8B14
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -47,14 +45,12 @@ namespace XMainClient.UI
 			this.m_InTeamBg.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this._OnBgClicked));
 		}
 
-		// Token: 0x060101E8 RID: 66024 RVA: 0x003DA989 File Offset: 0x003D8B89
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.TeamInfoChange(this._TeamDoc.MyTeam);
 		}
 
-		// Token: 0x060101E9 RID: 66025 RVA: 0x003DA9A8 File Offset: 0x003D8BA8
 		public void TeamInfoChange(XTeam team)
 		{
 			this.SetupRedPoint();
@@ -101,7 +97,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060101EA RID: 66026 RVA: 0x003DAB8C File Offset: 0x003D8D8C
 		public void OnTeamInfoChanged()
 		{
 			bool flag = this._teamList.Count == 0;
@@ -171,76 +166,57 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x060101EB RID: 66027 RVA: 0x003DAE38 File Offset: 0x003D9038
 		private bool _OnGroupChatClicked(IXUIButton btn)
 		{
 			XSingleton<XGameSysMgr>.singleton.OpenSystem(XSysDefine.XSys_GroupRecruit, 0UL);
 			return true;
 		}
 
-		// Token: 0x060101EC RID: 66028 RVA: 0x003DAE60 File Offset: 0x003D9060
 		private bool _OnCreateClicked(IXUIButton btn)
 		{
 			DlgBase<XTeamView, TabDlgBehaviour>.singleton.ShowTeamView();
 			return true;
 		}
 
-		// Token: 0x060101ED RID: 66029 RVA: 0x003DAE7E File Offset: 0x003D907E
 		private void _OnBgClicked(IXUISprite iSp)
 		{
 			DlgBase<XTeamView, TabDlgBehaviour>.singleton.ShowTeamView();
 		}
 
-		// Token: 0x060101EE RID: 66030 RVA: 0x003DAE8C File Offset: 0x003D908C
 		private bool _OnJoinClicked(IXUIButton btn)
 		{
 			DlgBase<XTeamListView, XTeamListBehaviour>.singleton.SetVisibleWithAnimation(true, null);
 			return true;
 		}
 
-		// Token: 0x040072FB RID: 29435
 		private GameObject m_InTeamFrame;
 
-		// Token: 0x040072FC RID: 29436
 		private GameObject m_OutTeamFrame;
 
-		// Token: 0x040072FD RID: 29437
 		private GameObject m_MatchingGo;
 
-		// Token: 0x040072FE RID: 29438
 		private GameObject m_RecruitRedPoint;
 
-		// Token: 0x040072FF RID: 29439
 		private IXUIButton m_BtnCreate;
 
-		// Token: 0x04007300 RID: 29440
 		private IXUIButton m_BtnJoin;
 
-		// Token: 0x04007301 RID: 29441
 		private IXUIButton m_BtnGroupChat;
 
-		// Token: 0x04007302 RID: 29442
 		private IXUISprite m_InTeamBg;
 
-		// Token: 0x04007303 RID: 29443
 		private int m_InTeamOriginHeight;
 
-		// Token: 0x04007304 RID: 29444
 		private XTeamDocument _TeamDoc;
 
-		// Token: 0x04007305 RID: 29445
 		private XUIPool m_TeamUIPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04007306 RID: 29446
 		private List<XMainInterfaceMemberMonitor> m_Members = new List<XMainInterfaceMemberMonitor>();
 
-		// Token: 0x04007307 RID: 29447
 		private List<XTeamBloodUIData> _teamList = new List<XTeamBloodUIData>();
 
-		// Token: 0x04007308 RID: 29448
 		private int m_MaxTeamCount;
 
-		// Token: 0x04007309 RID: 29449
 		private int m_PreActiveCount = 0;
 	}
 }

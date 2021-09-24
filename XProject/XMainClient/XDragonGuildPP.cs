@@ -6,16 +6,15 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000A11 RID: 2577
+
 	internal class XDragonGuildPP
 	{
-		// Token: 0x06009DE6 RID: 40422 RVA: 0x0019D098 File Offset: 0x0019B298
+
 		public static int PemissionNameToIndex(string pemstr)
 		{
 			return XDragonGuildPP.Permission2Int((DragonGuildPermission)Enum.Parse(typeof(DragonGuildPermission), pemstr));
 		}
 
-		// Token: 0x06009DE7 RID: 40423 RVA: 0x0019D0C4 File Offset: 0x0019B2C4
 		public void InitTable(DragonGuildPermissionTable table)
 		{
 			this.PositionName.Clear();
@@ -46,7 +45,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009DE8 RID: 40424 RVA: 0x0019D24C File Offset: 0x0019B44C
 		public string GetPositionName(DragonGuildPosition position, bool bWithColor = false)
 		{
 			bool flag = position == DragonGuildPosition.DGPOS_COUNT;
@@ -62,7 +60,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009DE9 RID: 40425 RVA: 0x0019D298 File Offset: 0x0019B498
 		public Color GetPositionColor(DragonGuildPosition position)
 		{
 			bool flag = position == DragonGuildPosition.DGPOS_COUNT;
@@ -78,7 +75,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009DEA RID: 40426 RVA: 0x0019D2CC File Offset: 0x0019B4CC
 		public bool HasPermission(DragonGuildPosition pos, DragonGuildPermission pem)
 		{
 			bool flag = pem == DragonGuildPermission.DGEM_DONOTHING;
@@ -95,7 +91,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009DEB RID: 40427 RVA: 0x0019D320 File Offset: 0x0019B520
 		public bool HasLowerPosition(DragonGuildPosition pos)
 		{
 			int num = XFastEnumIntEqualityComparer<DragonGuildPosition>.ToInt(pos);
@@ -103,7 +98,6 @@ namespace XMainClient
 			return !flag;
 		}
 
-		// Token: 0x06009DEC RID: 40428 RVA: 0x0019D350 File Offset: 0x0019B550
 		public int GetLowerPosition(DragonGuildPosition pos)
 		{
 			int num = XFastEnumIntEqualityComparer<DragonGuildPosition>.ToInt(pos);
@@ -120,7 +114,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009DED RID: 40429 RVA: 0x0019D380 File Offset: 0x0019B580
 		public bool HasHigherPosition(DragonGuildPosition pos)
 		{
 			int num = XFastEnumIntEqualityComparer<DragonGuildPosition>.ToInt(pos);
@@ -128,7 +121,6 @@ namespace XMainClient
 			return !flag;
 		}
 
-		// Token: 0x06009DEE RID: 40430 RVA: 0x0019D3AC File Offset: 0x0019B5AC
 		public int GetHigherPosition(DragonGuildPosition pos)
 		{
 			int num = XFastEnumIntEqualityComparer<DragonGuildPosition>.ToInt(pos);
@@ -145,7 +137,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009DEF RID: 40431 RVA: 0x0019D3D8 File Offset: 0x0019B5D8
 		public DragonGuildPermission GetSetPositionPermission(DragonGuildPosition higherPos, DragonGuildPosition targetPos)
 		{
 			bool flag = targetPos == DragonGuildPosition.DGPOS_COUNT || targetPos == DragonGuildPosition.DGPOS_INVALID;
@@ -175,34 +166,26 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06009DF0 RID: 40432 RVA: 0x0019D424 File Offset: 0x0019B624
 		private static int Position2Int(DragonGuildPosition pos)
 		{
 			return XFastEnumIntEqualityComparer<DragonGuildPosition>.ToInt(pos);
 		}
 
-		// Token: 0x06009DF1 RID: 40433 RVA: 0x0019D43C File Offset: 0x0019B63C
 		private static int Permission2Int(DragonGuildPermission pem)
 		{
 			return XFastEnumIntEqualityComparer<DragonGuildPermission>.ToInt(pem);
 		}
 
-		// Token: 0x040037D3 RID: 14291
 		public static int POSITION_COUNT;
 
-		// Token: 0x040037D4 RID: 14292
 		private List<string> PositionName = new List<string>();
 
-		// Token: 0x040037D5 RID: 14293
 		private List<Color> PositionColor = new List<Color>();
 
-		// Token: 0x040037D6 RID: 14294
 		private List<string> PositionNameWithColor = new List<string>();
 
-		// Token: 0x040037D7 RID: 14295
 		public static int PERMISSION_COUNT;
 
-		// Token: 0x040037D8 RID: 14296
 		private int[][] DragonGuildPermissionMatrix;
 	}
 }

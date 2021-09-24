@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x0200180F RID: 6159
+
 	internal class SpriteResolveFrame : DlgHandlerBase
 	{
-		// Token: 0x170038FD RID: 14589
-		// (get) Token: 0x0600FF7F RID: 65407 RVA: 0x003C5FE8 File Offset: 0x003C41E8
+
 		protected override string FileName
 		{
 			get
@@ -21,7 +20,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FF80 RID: 65408 RVA: 0x003C6000 File Offset: 0x003C4200
 		protected override void Init()
 		{
 			base.Init();
@@ -37,7 +35,6 @@ namespace XMainClient.UI
 			DlgHandlerBase.EnsureCreate<SpriteSelectHandler>(ref this._SpriteSelectHandler, base.PanelObject.transform.Find("SelectHandlerParent"), false, this);
 		}
 
-		// Token: 0x0600FF81 RID: 65409 RVA: 0x003C6156 File Offset: 0x003C4356
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -45,28 +42,24 @@ namespace XMainClient.UI
 			this.CheckSelectList();
 		}
 
-		// Token: 0x0600FF82 RID: 65410 RVA: 0x003C6174 File Offset: 0x003C4374
 		protected override void OnHide()
 		{
 			base.OnHide();
 			this._SpriteSelectHandler.SetVisible(false);
 		}
 
-		// Token: 0x0600FF83 RID: 65411 RVA: 0x003C618B File Offset: 0x003C438B
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			this.m_ResolveBtn.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnResolveBtnClick));
 		}
 
-		// Token: 0x0600FF84 RID: 65412 RVA: 0x003C61AD File Offset: 0x003C43AD
 		public override void OnUnload()
 		{
 			DlgHandlerBase.EnsureUnload<SpriteSelectHandler>(ref this._SpriteSelectHandler);
 			base.OnUnload();
 		}
 
-		// Token: 0x0600FF85 RID: 65413 RVA: 0x003C61C4 File Offset: 0x003C43C4
 		public void CheckSelectList()
 		{
 			this.SelectList.Clear();
@@ -97,7 +90,6 @@ namespace XMainClient.UI
 			this.SetSpriteList(true);
 		}
 
-		// Token: 0x0600FF86 RID: 65414 RVA: 0x003C6308 File Offset: 0x003C4508
 		public void SetSpriteList(bool resetScrollPos = true)
 		{
 			bool flag = !base.IsVisible();
@@ -135,7 +127,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FF87 RID: 65415 RVA: 0x003C65D4 File Offset: 0x003C47D4
 		private void SetStar(Transform ts, uint num)
 		{
 			uint num2 = num / XSpriteSystemDocument.MOONWORTH;
@@ -156,13 +147,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FF88 RID: 65416 RVA: 0x003C6668 File Offset: 0x003C4868
 		public bool ScrollViewHasSprite(ulong id)
 		{
 			return this._resolveHash.Contains(id);
 		}
 
-		// Token: 0x0600FF89 RID: 65417 RVA: 0x003C6688 File Offset: 0x003C4888
 		public void OnSpriteListClick(IXUISprite iSp)
 		{
 			bool flag = (int)iSp.ID >= this._doc.ResolveList.Count;
@@ -203,7 +192,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FF8A RID: 65418 RVA: 0x003C6804 File Offset: 0x003C4A04
 		public void OnSpriteScorllViewListClick(IXUISprite iSp)
 		{
 			this._resolveHash.Remove(this.SelectList[(int)iSp.ID].uid);
@@ -212,7 +200,6 @@ namespace XMainClient.UI
 			this._SpriteSelectHandler.SetSpriteList(this._doc.ResolveList, false);
 		}
 
-		// Token: 0x0600FF8B RID: 65419 RVA: 0x003C6868 File Offset: 0x003C4A68
 		public void OnResolveBtnClick(IXUISprite iSp)
 		{
 			bool flag = this.SelectList.Count == 0;
@@ -241,7 +228,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FF8C RID: 65420 RVA: 0x003C692C File Offset: 0x003C4B2C
 		private bool CheckWhetherNeedToTips()
 		{
 			int i = 0;
@@ -269,7 +255,6 @@ namespace XMainClient.UI
 			return false;
 		}
 
-		// Token: 0x0600FF8D RID: 65421 RVA: 0x003C69B0 File Offset: 0x003C4BB0
 		private bool OnResolveSure(IXUIButton btn)
 		{
 			this.SendResolveList();
@@ -277,14 +262,12 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FF8E RID: 65422 RVA: 0x003C69D7 File Offset: 0x003C4BD7
 		private void SendResolveList()
 		{
 			XSingleton<XDebug>.singleton.AddLog("Resolve", null, null, null, null, null, XDebugColor.XDebug_None);
 			this._doc.QueryResolveSprite(this.SelectList);
 		}
 
-		// Token: 0x0600FF8F RID: 65423 RVA: 0x003C6A02 File Offset: 0x003C4C02
 		public void Clean()
 		{
 			this.SelectList.Clear();
@@ -293,34 +276,24 @@ namespace XMainClient.UI
 			this._SpriteSelectHandler.SetSpriteList(this._doc.ResolveList, true);
 		}
 
-		// Token: 0x0400711C RID: 28956
 		private XSpriteSystemDocument _doc;
 
-		// Token: 0x0400711D RID: 28957
 		public SpriteSelectHandler _SpriteSelectHandler;
 
-		// Token: 0x0400711E RID: 28958
 		public XUIPool m_SpritePool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x0400711F RID: 28959
 		public IXUIScrollView m_ScrollView;
 
-		// Token: 0x04007120 RID: 28960
 		public IXUISprite m_ResolveBtn;
 
-		// Token: 0x04007121 RID: 28961
 		public GameObject m_ResolveTips;
 
-		// Token: 0x04007122 RID: 28962
 		public IXUILabel m_JustTips;
 
-		// Token: 0x04007123 RID: 28963
 		private HashSet<ulong> _resolveHash = new HashSet<ulong>();
 
-		// Token: 0x04007124 RID: 28964
 		public List<SpriteInfo> SelectList = new List<SpriteInfo>();
 
-		// Token: 0x04007125 RID: 28965
 		private uint _resolveMaxNum;
 	}
 }

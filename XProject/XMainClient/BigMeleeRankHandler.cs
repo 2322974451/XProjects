@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000B99 RID: 2969
+
 	internal class BigMeleeRankHandler : DlgHandlerBase
 	{
-		// Token: 0x1700303E RID: 12350
-		// (get) Token: 0x0600AA63 RID: 43619 RVA: 0x001E7C98 File Offset: 0x001E5E98
+
 		protected override string FileName
 		{
 			get
@@ -19,7 +18,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AA64 RID: 43620 RVA: 0x001E7CB0 File Offset: 0x001E5EB0
 		protected override void Init()
 		{
 			base.Init();
@@ -35,7 +33,6 @@ namespace XMainClient
 			this.m_MyRankFrame = base.transform.Find("MyRankFrame");
 		}
 
-		// Token: 0x0600AA65 RID: 43621 RVA: 0x001E7DD6 File Offset: 0x001E5FD6
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -43,14 +40,12 @@ namespace XMainClient
 			this.m_Close.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseClicked));
 		}
 
-		// Token: 0x0600AA66 RID: 43622 RVA: 0x001E7E10 File Offset: 0x001E6010
 		public bool OnCloseClicked(IXUIButton btn)
 		{
 			base.SetVisible(false);
 			return true;
 		}
 
-		// Token: 0x0600AA67 RID: 43623 RVA: 0x001E7E2B File Offset: 0x001E602B
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -58,19 +53,16 @@ namespace XMainClient
 			this.InitShow();
 		}
 
-		// Token: 0x0600AA68 RID: 43624 RVA: 0x0019EF07 File Offset: 0x0019D107
 		public override void OnUnload()
 		{
 			base.OnUnload();
 		}
 
-		// Token: 0x0600AA69 RID: 43625 RVA: 0x001E7E49 File Offset: 0x001E6049
 		private void InitShow()
 		{
 			this.RefreshList(true);
 		}
 
-		// Token: 0x0600AA6A RID: 43626 RVA: 0x001E7E54 File Offset: 0x001E6054
 		public void WrapListUpdated(Transform t, int index)
 		{
 			bool flag = index < 0 || index >= this.entDoc.RankList.rankList.Count;
@@ -80,7 +72,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AA6B RID: 43627 RVA: 0x001E7E94 File Offset: 0x001E6094
 		public void SetRankTpl(Transform t, int index, bool isMy)
 		{
 			XBigMeleeRankInfo xbigMeleeRankInfo = (isMy ? this.entDoc.RankList.myRankInfo : this.entDoc.RankList.rankList[index]) as XBigMeleeRankInfo;
@@ -104,7 +95,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AA6C RID: 43628 RVA: 0x001E8018 File Offset: 0x001E6218
 		public void RefreshList(bool bResetPosition = true)
 		{
 			this.SetRankTpl(this.m_MyRankFrame, 0, true);
@@ -120,7 +110,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600AA6D RID: 43629 RVA: 0x001E809F File Offset: 0x001E629F
 		public void SetType(bool isRank)
 		{
 			this.IsRank = isRank;
@@ -128,7 +117,6 @@ namespace XMainClient
 			this.m_Title.gameObject.SetActive(isRank);
 		}
 
-		// Token: 0x0600AA6E RID: 43630 RVA: 0x001E80D0 File Offset: 0x001E62D0
 		public void SetCongratulate()
 		{
 			bool flag = this.entDoc.RankList.rankList.Count == 0;
@@ -139,34 +127,24 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04003F23 RID: 16163
 		private XBigMeleeEntranceDocument entDoc = null;
 
-		// Token: 0x04003F24 RID: 16164
 		private XBigMeleeBattleDocument batDoc = null;
 
-		// Token: 0x04003F25 RID: 16165
 		public bool IsRank;
 
-		// Token: 0x04003F26 RID: 16166
 		private IXUIButton m_Close;
 
-		// Token: 0x04003F27 RID: 16167
 		private IXUILabel m_Congratulate;
 
-		// Token: 0x04003F28 RID: 16168
 		private IXUILabel m_Title;
 
-		// Token: 0x04003F29 RID: 16169
 		private Transform m_Empty;
 
-		// Token: 0x04003F2A RID: 16170
 		private Transform m_MyRankFrame;
 
-		// Token: 0x04003F2B RID: 16171
 		private IXUIScrollView m_ScrollView;
 
-		// Token: 0x04003F2C RID: 16172
 		private IXUIWrapContent m_WrapContent;
 	}
 }

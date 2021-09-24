@@ -8,10 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000CE4 RID: 3300
+
 	internal class GameItemsMallHander : DlgHandlerBase
 	{
-		// Token: 0x0600B8CD RID: 47309 RVA: 0x00255568 File Offset: 0x00253768
+
 		protected override void Init()
 		{
 			base.Init();
@@ -21,14 +21,12 @@ namespace XMainClient
 			this.m_WrapContent.RegisterItemUpdateEventHandler(new WrapItemUpdateEventHandler(this.WrapContentItemUpdated));
 		}
 
-		// Token: 0x0600B8CE RID: 47310 RVA: 0x002555EF File Offset: 0x002537EF
 		protected override void OnHide()
 		{
 			this._selectItemIndex = -1;
 			base.OnHide();
 		}
 
-		// Token: 0x0600B8CF RID: 47311 RVA: 0x00255600 File Offset: 0x00253800
 		public void Refresh()
 		{
 			this._selectItemIndex = -1;
@@ -58,7 +56,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B8D0 RID: 47312 RVA: 0x0025574C File Offset: 0x0025394C
 		private void WrapContentItemUpdated(Transform t, int index)
 		{
 			bool flag = this._doc != null;
@@ -77,7 +74,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B8D1 RID: 47313 RVA: 0x002557C8 File Offset: 0x002539C8
 		protected void SetHItem(Transform t, CUIIBShop info)
 		{
 			Transform t2 = t.Find("item1");
@@ -91,7 +87,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B8D2 RID: 47314 RVA: 0x00255830 File Offset: 0x00253A30
 		private void SetItem(Transform t, CIBShop info, int index = -1)
 		{
 			IXUISprite ixuisprite = t.Find("Have to buy").GetComponent("XUISprite") as IXUISprite;
@@ -131,7 +126,6 @@ namespace XMainClient
 			ixuisprite3.SetSprite(strSprite, strAtlas, false);
 		}
 
-		// Token: 0x0600B8D3 RID: 47315 RVA: 0x00255B94 File Offset: 0x00253D94
 		private void OnIconClick(IXUISprite sp)
 		{
 			int num = (int)sp.ID;
@@ -145,7 +139,6 @@ namespace XMainClient
 			XSingleton<UiUtility>.singleton.ShowTooltipDialog(xitem, null, sp, false, 0U);
 		}
 
-		// Token: 0x0600B8D4 RID: 47316 RVA: 0x00255BE8 File Offset: 0x00253DE8
 		private void OnSelectItem(IXUILabel s)
 		{
 			int itemid = (int)s.ID;
@@ -157,7 +150,6 @@ namespace XMainClient
 			DlgBase<GameMallDlg, TabDlgBehaviour>.singleton.Refresh(itemid);
 		}
 
-		// Token: 0x0600B8D5 RID: 47317 RVA: 0x00255C58 File Offset: 0x00253E58
 		private void CloseSelectAll()
 		{
 			List<GameObject> list = ListPool<GameObject>.Get();
@@ -177,16 +169,12 @@ namespace XMainClient
 			ListPool<GameObject>.Release(list);
 		}
 
-		// Token: 0x0400495E RID: 18782
 		public IXUIWrapContent m_WrapContent;
 
-		// Token: 0x0400495F RID: 18783
 		public IXUIScrollView m_scrollView;
 
-		// Token: 0x04004960 RID: 18784
 		private XGameMallDocument _doc = null;
 
-		// Token: 0x04004961 RID: 18785
 		private int _selectItemIndex = -1;
 	}
 }

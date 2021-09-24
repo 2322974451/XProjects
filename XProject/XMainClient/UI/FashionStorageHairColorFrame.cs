@@ -6,10 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001808 RID: 6152
+
 	internal class FashionStorageHairColorFrame : DlgHandlerBase
 	{
-		// Token: 0x0600FF09 RID: 65289 RVA: 0x003C1550 File Offset: 0x003BF750
+
 		protected override void Init()
 		{
 			this.m_Doc = XDocuments.GetSpecificDocument<XFashionStorageDocument>(XFashionStorageDocument.uuID);
@@ -25,14 +25,12 @@ namespace XMainClient.UI
 			this.m_WrapContent.RegisterItemUpdateEventHandler(new WrapItemUpdateEventHandler(this.OnWrapContentUpdate));
 		}
 
-		// Token: 0x0600FF0A RID: 65290 RVA: 0x001F8A12 File Offset: 0x001F6C12
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.RefreshData();
 		}
 
-		// Token: 0x0600FF0B RID: 65291 RVA: 0x003C16C4 File Offset: 0x003BF8C4
 		protected override void OnHide()
 		{
 			bool flag = this.m_Doc.preview == FashionStoragePreview.Hair;
@@ -46,7 +44,6 @@ namespace XMainClient.UI
 			base.OnHide();
 		}
 
-		// Token: 0x0600FF0C RID: 65292 RVA: 0x003C172C File Offset: 0x003BF92C
 		public override void OnUnload()
 		{
 			bool flag = (this.m_Doc.preview & FashionStoragePreview.Hair) == FashionStoragePreview.Hair;
@@ -58,7 +55,6 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x0600FF0D RID: 65293 RVA: 0x003C1770 File Offset: 0x003BF970
 		public override void RefreshData()
 		{
 			base.RefreshData();
@@ -78,7 +74,6 @@ namespace XMainClient.UI
 			this.m_ScrollView.ResetPosition();
 		}
 
-		// Token: 0x0600FF0E RID: 65294 RVA: 0x003C1838 File Offset: 0x003BFA38
 		private void OnWrapContentUpdate(Transform tr, int index)
 		{
 			Transform transform = tr.Find("detal");
@@ -121,7 +116,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FF0F RID: 65295 RVA: 0x003C1A48 File Offset: 0x003BFC48
 		private void OnSelectHairColor(IXUISprite sprite)
 		{
 			this.m_SelectColorID = (uint)sprite.ID;
@@ -147,7 +141,6 @@ namespace XMainClient.UI
 			this.ShowActivateHairPortrait();
 		}
 
-		// Token: 0x0600FF10 RID: 65296 RVA: 0x003C1B20 File Offset: 0x003BFD20
 		private void ShowActivateHairPortrait()
 		{
 			uint num = default;
@@ -164,7 +157,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FF11 RID: 65297 RVA: 0x003C1BC0 File Offset: 0x003BFDC0
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -173,58 +165,44 @@ namespace XMainClient.UI
 			this.m_EditPortrait.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnEditPortrait));
 		}
 
-		// Token: 0x0600FF12 RID: 65298 RVA: 0x003C1C20 File Offset: 0x003BFE20
 		private bool OnCloseHandle(IXUIButton btn)
 		{
 			DlgBase<FashionStorageDlg, FashionStorageBehaviour>.singleton.Switch(FashionStoragePreview.None);
 			return true;
 		}
 
-		// Token: 0x0600FF13 RID: 65299 RVA: 0x003C1C40 File Offset: 0x003BFE40
 		private bool OnEditPortrait(IXUIButton btn)
 		{
 			this.m_Doc.GetActivateHairColor(this.m_Doc.selectHairID, this.m_Doc.previewHairColor);
 			return true;
 		}
 
-		// Token: 0x0600FF14 RID: 65300 RVA: 0x003C1C78 File Offset: 0x003BFE78
 		private bool OnSubmitHandle(IXUIButton btn)
 		{
 			XSingleton<UiUtility>.singleton.ShowItemAccess(XFastEnumIntEqualityComparer<ItemEnum>.ToInt(ItemEnum.HAIR_COLORING), null);
 			return true;
 		}
 
-		// Token: 0x040070B9 RID: 28857
 		private IXUIButton m_Submit;
 
-		// Token: 0x040070BA RID: 28858
 		private IXUIButton m_Close;
 
-		// Token: 0x040070BB RID: 28859
 		private IXUIButton m_EditPortrait;
 
-		// Token: 0x040070BC RID: 28860
 		private IXUILabelSymbol m_EditorPortraitLabel;
 
-		// Token: 0x040070BD RID: 28861
 		private IXUIScrollView m_ScrollView;
 
-		// Token: 0x040070BE RID: 28862
 		private IXUIWrapContent m_WrapContent;
 
-		// Token: 0x040070BF RID: 28863
 		private XFashionStorageDocument m_Doc;
 
-		// Token: 0x040070C0 RID: 28864
 		private uint m_SelectColorID = 0U;
 
-		// Token: 0x040070C1 RID: 28865
 		private IFashionStorageSelect m_SelectHairData;
 
-		// Token: 0x040070C2 RID: 28866
 		private IXUILabel m_HairNameLabel;
 
-		// Token: 0x040070C3 RID: 28867
 		private IXUILabel m_MessageLabel;
 	}
 }

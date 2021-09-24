@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x0200021F RID: 543
+
 	public class SkillTreeConfigTable : CVSReader
 	{
-		// Token: 0x06000C2E RID: 3118 RVA: 0x0003FF70 File Offset: 0x0003E170
+
 		public SkillTreeConfigTable.RowData GetByLevel(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -21,7 +21,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000C2F RID: 3119 RVA: 0x0003FFA8 File Offset: 0x0003E1A8
 		private SkillTreeConfigTable.RowData BinarySearchLevel(uint key)
 		{
 			int num = 0;
@@ -80,7 +79,6 @@ namespace XUtliPoolLib
 			return null;
 		}
 
-		// Token: 0x06000C30 RID: 3120 RVA: 0x00040084 File Offset: 0x0003E284
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			SkillTreeConfigTable.RowData rowData = new SkillTreeConfigTable.RowData();
@@ -92,7 +90,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x06000C31 RID: 3121 RVA: 0x000400E4 File Offset: 0x0003E2E4
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -106,16 +103,13 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x0400076D RID: 1901
 		public SkillTreeConfigTable.RowData[] Table = null;
 
-		// Token: 0x020003AE RID: 942
 		public class RowData
 		{
-			// Token: 0x0400107C RID: 4220
+
 			public uint Level;
 
-			// Token: 0x0400107D RID: 4221
 			public int RedPointShowNum;
 		}
 	}

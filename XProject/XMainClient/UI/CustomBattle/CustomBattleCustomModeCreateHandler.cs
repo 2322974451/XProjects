@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI.CustomBattle
 {
-	// Token: 0x02001932 RID: 6450
+
 	internal class CustomBattleCustomModeCreateHandler : DlgHandlerBase
 	{
-		// Token: 0x17003B27 RID: 15143
-		// (get) Token: 0x06010F36 RID: 69430 RVA: 0x0044E3C0 File Offset: 0x0044C5C0
+
 		protected override string FileName
 		{
 			get
@@ -21,7 +20,6 @@ namespace XMainClient.UI.CustomBattle
 			}
 		}
 
-		// Token: 0x06010F37 RID: 69431 RVA: 0x0044E3D8 File Offset: 0x0044C5D8
 		protected override void Init()
 		{
 			base.Init();
@@ -65,7 +63,6 @@ namespace XMainClient.UI.CustomBattle
 			this._fx_point = base.transform.Find("Box/Box/Fx");
 		}
 
-		// Token: 0x06010F38 RID: 69432 RVA: 0x0044E90F File Offset: 0x0044CB0F
 		protected override void OnHide()
 		{
 			this._doc.DestoryFx(this._fx);
@@ -73,7 +70,6 @@ namespace XMainClient.UI.CustomBattle
 			base.OnHide();
 		}
 
-		// Token: 0x06010F39 RID: 69433 RVA: 0x0044E934 File Offset: 0x0044CB34
 		public override void OnUnload()
 		{
 			List<GameObject> list = ListPool<GameObject>.Get();
@@ -90,7 +86,6 @@ namespace XMainClient.UI.CustomBattle
 			base.OnUnload();
 		}
 
-		// Token: 0x06010F3A RID: 69434 RVA: 0x0044E9D8 File Offset: 0x0044CBD8
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -113,7 +108,6 @@ namespace XMainClient.UI.CustomBattle
 			this._change_frame_close.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnChangeFrameCloseClicked));
 		}
 
-		// Token: 0x06010F3B RID: 69435 RVA: 0x0044EB88 File Offset: 0x0044CD88
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -126,7 +120,6 @@ namespace XMainClient.UI.CustomBattle
 			this.RefreshTypeList();
 		}
 
-		// Token: 0x06010F3C RID: 69436 RVA: 0x0044EC00 File Offset: 0x0044CE00
 		private void RefreshTypeList()
 		{
 			this._game_type_pool.ReturnAll(false);
@@ -178,7 +171,6 @@ namespace XMainClient.UI.CustomBattle
 			}
 		}
 
-		// Token: 0x06010F3D RID: 69437 RVA: 0x0044EE28 File Offset: 0x0044D028
 		public override void RefreshData()
 		{
 			base.RefreshData();
@@ -196,53 +188,45 @@ namespace XMainClient.UI.CustomBattle
 			this.ShowGameType(1U);
 		}
 
-		// Token: 0x06010F3E RID: 69438 RVA: 0x0044EF20 File Offset: 0x0044D120
 		public void SetPasswordSwitchSprite(bool flag)
 		{
 			this.SetSwitchSprite(this._password_switch, flag);
 			XSingleton<UiUtility>.singleton.ShowSystemTip(flag ? XSingleton<XStringTable>.singleton.GetString("SetPasswordSucc") : XSingleton<XStringTable>.singleton.GetString("CancelPassword"), "fece00");
 		}
 
-		// Token: 0x06010F3F RID: 69439 RVA: 0x0044EF6F File Offset: 0x0044D16F
 		internal void SetSwitchSprite(IXUISprite sp, bool flag)
 		{
 			sp.SetSprite(flag ? "UI_Sw_on" : "UI_Sw_off");
 		}
 
-		// Token: 0x06010F40 RID: 69440 RVA: 0x0044EF88 File Offset: 0x0044D188
 		private bool OnCloseButtonClicked(IXUIButton button)
 		{
 			base.SetVisible(false);
 			return true;
 		}
 
-		// Token: 0x06010F41 RID: 69441 RVA: 0x0044EFA4 File Offset: 0x0044D1A4
 		private void OnAddRewardClicked(IXUISprite sp)
 		{
 			uint customBattleNextID = this._doc.GetCustomBattleNextID(this._doc.CustomCreateData.gameType, this._doc.CustomCreateData.configID);
 			this.ShowConfig(customBattleNextID);
 		}
 
-		// Token: 0x06010F42 RID: 69442 RVA: 0x0044EFE8 File Offset: 0x0044D1E8
 		private void OnSubRewardClicked(IXUISprite sp)
 		{
 			uint customBattlePreID = this._doc.GetCustomBattlePreID(this._doc.CustomCreateData.gameType, this._doc.CustomCreateData.configID);
 			this.ShowConfig(customBattlePreID);
 		}
 
-		// Token: 0x06010F43 RID: 69443 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		private void OnRewardBoxClicked(IXUISprite sp)
 		{
 		}
 
-		// Token: 0x06010F44 RID: 69444 RVA: 0x0044F02C File Offset: 0x0044D22C
 		private bool OnRewardInfoPressed(IXUISprite sp, bool isPressed)
 		{
 			this._reward_tip.Alpha = (float)(isPressed ? 1 : 0);
 			return true;
 		}
 
-		// Token: 0x06010F45 RID: 69445 RVA: 0x0044F054 File Offset: 0x0044D254
 		private void OnGameTimeAddClicked(IXUISprite sp)
 		{
 			CustomBattleTable.RowData customBattleData = this._doc.GetCustomBattleData(this._doc.CustomCreateData.configID);
@@ -256,7 +240,6 @@ namespace XMainClient.UI.CustomBattle
 			this._game_time.SetText(XSingleton<UiUtility>.singleton.TimeAccFormatString((int)customBattleData.timespan[(int)this._doc.CustomCreateData.battleTimeIndex], 4, 0));
 		}
 
-		// Token: 0x06010F46 RID: 69446 RVA: 0x0044F0E8 File Offset: 0x0044D2E8
 		private void OnGameTimeSubClicked(IXUISprite sp)
 		{
 			CustomBattleTable.RowData customBattleData = this._doc.GetCustomBattleData(this._doc.CustomCreateData.configID);
@@ -269,13 +252,11 @@ namespace XMainClient.UI.CustomBattle
 			this._game_time.SetText(XSingleton<UiUtility>.singleton.TimeAccFormatString((int)customBattleData.timespan[(int)this._doc.CustomCreateData.battleTimeIndex], 4, 0));
 		}
 
-		// Token: 0x06010F47 RID: 69447 RVA: 0x0044F16D File Offset: 0x0044D36D
 		private void OnGameNameEditClicked(IXUISprite sp)
 		{
 			this._game_name.selected(true);
 		}
 
-		// Token: 0x06010F48 RID: 69448 RVA: 0x0044F180 File Offset: 0x0044D380
 		private void OnFriendOnlySwitchClicked(IXUISprite sp)
 		{
 			uint num = 1U << XFastEnumIntEqualityComparer<CustomBattleScale>.ToInt(CustomBattleScale.CustomBattle_Scale_Friend);
@@ -285,7 +266,6 @@ namespace XMainClient.UI.CustomBattle
 			this.SetSwitchSprite(this._friendsonly_switch, flag);
 		}
 
-		// Token: 0x06010F49 RID: 69449 RVA: 0x0044F1D4 File Offset: 0x0044D3D4
 		private void OnGuildOnlySwitchClicked(IXUISprite sp)
 		{
 			uint num = 1U << XFastEnumIntEqualityComparer<CustomBattleScale>.ToInt(CustomBattleScale.CustomBattle_Scale_Guild);
@@ -295,14 +275,12 @@ namespace XMainClient.UI.CustomBattle
 			this.SetSwitchSprite(this._guildonly_switch, flag);
 		}
 
-		// Token: 0x06010F4A RID: 69450 RVA: 0x0044F228 File Offset: 0x0044D428
 		private void OnFairModeSwitchClicked(IXUISprite sp)
 		{
 			this._doc.CustomCreateData.isFair = !this._doc.CustomCreateData.isFair;
 			this.SetSwitchSprite(this._fairmode_switch, this._doc.CustomCreateData.isFair);
 		}
 
-		// Token: 0x06010F4B RID: 69451 RVA: 0x0044F278 File Offset: 0x0044D478
 		private void OnPasswordSwitchClicked(IXUISprite sp)
 		{
 			bool flag = !this._doc.CustomCreateData.hasPassword;
@@ -318,13 +296,11 @@ namespace XMainClient.UI.CustomBattle
 			}
 		}
 
-		// Token: 0x06010F4C RID: 69452 RVA: 0x0044F2D5 File Offset: 0x0044D4D5
 		private void OnGameTypeChangeClicked(IXUITexture sp)
 		{
 			this._change_frame.gameObject.SetActive(true);
 		}
 
-		// Token: 0x06010F4D RID: 69453 RVA: 0x0044F2EC File Offset: 0x0044D4EC
 		private bool OnGameCreateButtonClicked(IXUIButton button)
 		{
 			this._check_game_name.SetText(this._game_name.GetText());
@@ -347,27 +323,23 @@ namespace XMainClient.UI.CustomBattle
 			return true;
 		}
 
-		// Token: 0x06010F4E RID: 69454 RVA: 0x0044F458 File Offset: 0x0044D658
 		private bool OnCheckCancelButtonClicked(IXUIButton button)
 		{
 			this._check_frame.gameObject.SetActive(false);
 			return true;
 		}
 
-		// Token: 0x06010F4F RID: 69455 RVA: 0x0044F480 File Offset: 0x0044D680
 		private bool OnCheckCreateButtonClicked(IXUIButton button)
 		{
 			this._doc.SendCustomBattleCreate();
 			return true;
 		}
 
-		// Token: 0x06010F50 RID: 69456 RVA: 0x0044F49F File Offset: 0x0044D69F
 		private void OnChangeFrameCloseClicked(IXUISprite sp)
 		{
 			this._change_frame.gameObject.SetActive(false);
 		}
 
-		// Token: 0x06010F51 RID: 69457 RVA: 0x0044F4B4 File Offset: 0x0044D6B4
 		private void OnTypeSelect(IXUISprite sp)
 		{
 			uint num = (uint)sp.ID;
@@ -380,7 +352,6 @@ namespace XMainClient.UI.CustomBattle
 			}
 		}
 
-		// Token: 0x06010F52 RID: 69458 RVA: 0x0044F514 File Offset: 0x0044D714
 		private void ShowGameType(uint typeid)
 		{
 			uint customBattleFirstID = this._doc.GetCustomBattleFirstID(typeid);
@@ -390,7 +361,6 @@ namespace XMainClient.UI.CustomBattle
 			this.ShowConfig(customBattleFirstID);
 		}
 
-		// Token: 0x06010F53 RID: 69459 RVA: 0x0044F574 File Offset: 0x0044D774
 		private void ShowConfig(uint configID)
 		{
 			CustomBattleTable.RowData customBattleData = this._doc.GetCustomBattleData(configID);
@@ -446,115 +416,78 @@ namespace XMainClient.UI.CustomBattle
 			}
 		}
 
-		// Token: 0x04007CBB RID: 31931
 		private XCustomBattleDocument _doc = null;
 
-		// Token: 0x04007CBC RID: 31932
 		private IXUIButton _close;
 
-		// Token: 0x04007CBD RID: 31933
 		private IXUILabelSymbol _reward1;
 
-		// Token: 0x04007CBE RID: 31934
 		private IXUILabelSymbol _reward2;
 
-		// Token: 0x04007CBF RID: 31935
 		private IXUISprite _add_reward;
 
-		// Token: 0x04007CC0 RID: 31936
 		private IXUISprite _sub_reward;
 
-		// Token: 0x04007CC1 RID: 31937
 		private IXUISprite _reward_box;
 
-		// Token: 0x04007CC2 RID: 31938
 		private IXUISprite _reward_info;
 
-		// Token: 0x04007CC3 RID: 31939
 		private IXUILabel _reward_tip;
 
-		// Token: 0x04007CC4 RID: 31940
 		private IXUILabel _game_size;
 
-		// Token: 0x04007CC5 RID: 31941
 		private IXUILabel _game_wait_time;
 
-		// Token: 0x04007CC6 RID: 31942
 		private IXUILabel _game_time;
 
-		// Token: 0x04007CC7 RID: 31943
 		private IXUISprite _game_time_add;
 
-		// Token: 0x04007CC8 RID: 31944
 		private IXUISprite _game_time_sub;
 
-		// Token: 0x04007CC9 RID: 31945
 		private IXUIInput _game_name;
 
-		// Token: 0x04007CCA RID: 31946
 		private IXUISprite _game_name_edit;
 
-		// Token: 0x04007CCB RID: 31947
 		private IXUISprite _friendsonly_switch;
 
-		// Token: 0x04007CCC RID: 31948
 		private IXUISprite _guildonly_switch;
 
-		// Token: 0x04007CCD RID: 31949
 		private IXUISprite _fairmode_switch;
 
-		// Token: 0x04007CCE RID: 31950
 		private IXUISprite _password_switch;
 
-		// Token: 0x04007CCF RID: 31951
 		private IXUITexture _game_type_change;
 
-		// Token: 0x04007CD0 RID: 31952
 		private IXUILabel _game_type_name;
 
-		// Token: 0x04007CD1 RID: 31953
 		private IXUIButton _game_create;
 
-		// Token: 0x04007CD2 RID: 31954
 		private IXUILabelSymbol _game_create_cost;
 
-		// Token: 0x04007CD3 RID: 31955
 		private Transform _check_frame;
 
-		// Token: 0x04007CD4 RID: 31956
 		private IXUILabel _check_game_name;
 
-		// Token: 0x04007CD5 RID: 31957
 		private IXUILabelSymbol _check_game_reward1;
 
-		// Token: 0x04007CD6 RID: 31958
 		private IXUILabelSymbol _check_game_reward2;
 
-		// Token: 0x04007CD7 RID: 31959
 		private IXUIButton _check_cancel;
 
-		// Token: 0x04007CD8 RID: 31960
 		private IXUIButton _check_create;
 
-		// Token: 0x04007CD9 RID: 31961
 		private IXUILabelSymbol _check_create_cost;
 
-		// Token: 0x04007CDA RID: 31962
 		private Transform _change_frame;
 
-		// Token: 0x04007CDB RID: 31963
 		private IXUIScrollView _game_type_scrollview;
 
-		// Token: 0x04007CDC RID: 31964
 		private XUIPool _game_type_pool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04007CDD RID: 31965
 		private IXUISprite _change_frame_close;
 
-		// Token: 0x04007CDE RID: 31966
 		private Transform _fx_point;
 
-		// Token: 0x04007CDF RID: 31967
 		private XFx _fx = null;
 	}
 }

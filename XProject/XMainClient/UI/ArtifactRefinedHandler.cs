@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017B6 RID: 6070
+
 	internal class ArtifactRefinedHandler : DlgHandlerBase
 	{
-		// Token: 0x17003880 RID: 14464
-		// (get) Token: 0x0600FB31 RID: 64305 RVA: 0x003A3D0C File Offset: 0x003A1F0C
+
 		public RefinedReplaceHandler Handler
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003881 RID: 14465
-		// (get) Token: 0x0600FB32 RID: 64306 RVA: 0x003A3D24 File Offset: 0x003A1F24
 		protected override string FileName
 		{
 			get
@@ -30,7 +27,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FB33 RID: 64307 RVA: 0x003A3D3C File Offset: 0x003A1F3C
 		protected override void Init()
 		{
 			base.Init();
@@ -45,7 +41,6 @@ namespace XMainClient.UI
 			DlgHandlerBase.EnsureCreate<RefinedReplaceHandler>(ref this.m_handler, this.m_resultNewGo, null, false);
 		}
 
-		// Token: 0x0600FB34 RID: 64308 RVA: 0x003A3E1E File Offset: 0x003A201E
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -53,38 +48,32 @@ namespace XMainClient.UI
 			this.m_refinedBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnClickRefinedBtn));
 		}
 
-		// Token: 0x0600FB35 RID: 64309 RVA: 0x0019F00C File Offset: 0x0019D20C
 		protected override void OnShow()
 		{
 			base.OnShow();
 		}
 
-		// Token: 0x0600FB36 RID: 64310 RVA: 0x0019EEFD File Offset: 0x0019D0FD
 		protected override void OnHide()
 		{
 			base.OnHide();
 		}
 
-		// Token: 0x0600FB37 RID: 64311 RVA: 0x0022CCF0 File Offset: 0x0022AEF0
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
 		}
 
-		// Token: 0x0600FB38 RID: 64312 RVA: 0x003A3E58 File Offset: 0x003A2058
 		public override void OnUnload()
 		{
 			base.OnUnload();
 			this.m_doc.Handler = null;
 		}
 
-		// Token: 0x0600FB39 RID: 64313 RVA: 0x003A3E6E File Offset: 0x003A206E
 		public void RefreshUi()
 		{
 			this.FillContent();
 		}
 
-		// Token: 0x0600FB3A RID: 64314 RVA: 0x003A3E78 File Offset: 0x003A2078
 		public void ShowReplaceHandler()
 		{
 			bool flag = this.m_handler != null && !this.m_handler.IsVisible();
@@ -94,7 +83,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FB3B RID: 64315 RVA: 0x003A3EB0 File Offset: 0x003A20B0
 		private void FillContent()
 		{
 			bool flag = this.m_doc.SelectUid == 0UL;
@@ -155,7 +143,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FB3C RID: 64316 RVA: 0x003A4114 File Offset: 0x003A2314
 		private void FillNull()
 		{
 			XSingleton<XItemDrawerMgr>.singleton.DrawItem(this.m_itemGoMain, null);
@@ -169,7 +156,6 @@ namespace XMainClient.UI
 			ixuisprite.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnClickTips));
 		}
 
-		// Token: 0x0600FB3D RID: 64317 RVA: 0x003A41E8 File Offset: 0x003A23E8
 		private bool OnClickRefinedBtn(IXUIButton btn)
 		{
 			bool flag = this.SetButtonCool(this.m_delayTime);
@@ -228,7 +214,6 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x0600FB3E RID: 64318 RVA: 0x003A4370 File Offset: 0x003A2570
 		private bool DoOK(IXUIButton btn)
 		{
 			bool flag = DlgBase<ModalDlg, ModalDlgBehaviour>.singleton.IsVisible();
@@ -242,7 +227,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FB3F RID: 64319 RVA: 0x003A43D8 File Offset: 0x003A25D8
 		private bool DoCancel(IXUIButton btn)
 		{
 			XOptionsDocument specificDocument = XDocuments.GetSpecificDocument<XOptionsDocument>(XOptionsDocument.uuID);
@@ -251,13 +235,11 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FB40 RID: 64320 RVA: 0x003A4420 File Offset: 0x003A2620
 		private void OnClickBox(IXUISprite spr)
 		{
 			XSingleton<UiUtility>.singleton.ShowSystemTip(XStringDefineProxy.GetString("ArtifactRefinedTips1"), "fece00");
 		}
 
-		// Token: 0x0600FB41 RID: 64321 RVA: 0x003A4440 File Offset: 0x003A2640
 		private void OnClickTips(IXUISprite spr)
 		{
 			XItem xitem = XBagDocument.BagDoc.GetItemByUID(spr.ID);
@@ -278,7 +260,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FB42 RID: 64322 RVA: 0x003A44A8 File Offset: 0x003A26A8
 		private bool SetButtonCool(float time)
 		{
 			float num = Time.realtimeSinceStartup - this.m_fLastClickBtnTime;
@@ -296,40 +277,28 @@ namespace XMainClient.UI
 			return result;
 		}
 
-		// Token: 0x04006E3C RID: 28220
 		private ArtifactRefinedDocument m_doc;
 
-		// Token: 0x04006E3D RID: 28221
 		private GameObject m_itemGoMain;
 
-		// Token: 0x04006E3E RID: 28222
 		private GameObject m_itemGoMet;
 
-		// Token: 0x04006E3F RID: 28223
 		private GameObject m_resultNewGo;
 
-		// Token: 0x04006E40 RID: 28224
 		private IXUISprite m_boxSprMain;
 
-		// Token: 0x04006E41 RID: 28225
 		private IXUIButton m_refinedBtn;
 
-		// Token: 0x04006E42 RID: 28226
 		private bool m_bIsEnough = true;
 
-		// Token: 0x04006E43 RID: 28227
 		private int m_needItemId = 0;
 
-		// Token: 0x04006E44 RID: 28228
 		private float m_delayTime = 0.5f;
 
-		// Token: 0x04006E45 RID: 28229
 		private float m_fLastClickBtnTime = 0f;
 
-		// Token: 0x04006E46 RID: 28230
 		private uint m_needNum = 0U;
 
-		// Token: 0x04006E47 RID: 28231
 		private RefinedReplaceHandler m_handler;
 	}
 }

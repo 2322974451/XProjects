@@ -4,10 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017BD RID: 6077
+
 	internal class EnchantAttrPreviewHandler : DlgHandlerBase
 	{
-		// Token: 0x0600FBA1 RID: 64417 RVA: 0x003A75A8 File Offset: 0x003A57A8
+
 		protected override void Init()
 		{
 			base.Init();
@@ -17,21 +17,18 @@ namespace XMainClient.UI
 			this.m_AttrValue = (base.PanelObject.transform.Find("Detail/AttrValue").GetComponent("XUILabel") as IXUILabel);
 		}
 
-		// Token: 0x0600FBA2 RID: 64418 RVA: 0x003A764B File Offset: 0x003A584B
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			this.m_Close.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this._OnCloseClicked));
 		}
 
-		// Token: 0x0600FBA3 RID: 64419 RVA: 0x001F8A12 File Offset: 0x001F6C12
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.RefreshData();
 		}
 
-		// Token: 0x0600FBA4 RID: 64420 RVA: 0x003A7670 File Offset: 0x003A5870
 		public override void RefreshData()
 		{
 			base.RefreshData();
@@ -62,13 +59,11 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FBA5 RID: 64421 RVA: 0x001A6C1F File Offset: 0x001A4E1F
 		private void _OnCloseClicked(IXUISprite iSp)
 		{
 			base.SetVisible(false);
 		}
 
-		// Token: 0x0600FBA6 RID: 64422 RVA: 0x003A782C File Offset: 0x003A5A2C
 		public void Show(int itemid)
 		{
 			this.m_Data = this._doc.GetEnchantEquipData(itemid);
@@ -83,19 +78,14 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04006E74 RID: 28276
 		private XEnchantDocument _doc = null;
 
-		// Token: 0x04006E75 RID: 28277
 		private IXUISprite m_Close;
 
-		// Token: 0x04006E76 RID: 28278
 		private IXUILabel m_AttrName;
 
-		// Token: 0x04006E77 RID: 28279
 		private IXUILabel m_AttrValue;
 
-		// Token: 0x04006E78 RID: 28280
 		private EnchantEquip.RowData m_Data;
 	}
 }

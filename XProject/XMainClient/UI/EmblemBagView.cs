@@ -8,11 +8,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x02001913 RID: 6419
+
 	internal class EmblemBagView : DlgHandlerBase
 	{
-		// Token: 0x17003ADD RID: 15069
-		// (get) Token: 0x06010C93 RID: 68755 RVA: 0x0043709C File Offset: 0x0043529C
+
 		private XItemMorePowerfulTipMgr powerfullMgr
 		{
 			get
@@ -21,8 +20,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003ADE RID: 15070
-		// (get) Token: 0x06010C94 RID: 68756 RVA: 0x004370B8 File Offset: 0x004352B8
 		private XItemMorePowerfulTipMgr newItemMgr
 		{
 			get
@@ -31,8 +28,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003ADF RID: 15071
-		// (get) Token: 0x06010C95 RID: 68757 RVA: 0x004370D4 File Offset: 0x004352D4
 		private XBagWindow bagWindow
 		{
 			get
@@ -41,8 +36,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003AE0 RID: 15072
-		// (get) Token: 0x06010C96 RID: 68758 RVA: 0x004370F0 File Offset: 0x004352F0
 		public string IdentifyEffectPath
 		{
 			get
@@ -56,8 +49,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003AE1 RID: 15073
-		// (get) Token: 0x06010C97 RID: 68759 RVA: 0x0043712C File Offset: 0x0043532C
 		protected override string FileName
 		{
 			get
@@ -66,7 +57,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010C98 RID: 68760 RVA: 0x00437144 File Offset: 0x00435344
 		protected override void Init()
 		{
 			base.Init();
@@ -80,7 +70,6 @@ namespace XMainClient.UI
 			this.EffectTra = base.PanelObject.transform.FindChild("Effect");
 		}
 
-		// Token: 0x06010C99 RID: 68761 RVA: 0x0043722A File Offset: 0x0043542A
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -88,21 +77,18 @@ namespace XMainClient.UI
 			this.m_expandBagBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnBagExpandClicked));
 		}
 
-		// Token: 0x06010C9A RID: 68762 RVA: 0x00437264 File Offset: 0x00435464
 		public bool OnHelpClicked(IXUIButton button)
 		{
 			DlgBase<XCommonHelpTipView, XCommonHelpTipBehaviour>.singleton.ShowHelp(XSysDefine.XSys_Char_Emblem);
 			return true;
 		}
 
-		// Token: 0x06010C9B RID: 68763 RVA: 0x00437287 File Offset: 0x00435487
 		protected override void OnShow()
 		{
 			base.OnShow();
 			this.Show();
 		}
 
-		// Token: 0x06010C9C RID: 68764 RVA: 0x00437298 File Offset: 0x00435498
 		private void Show()
 		{
 			this.bagWindow.ChangeData(new ItemUpdateHandler(this.WrapContentItemUpdated), new GetItemHandler(this._doc.GetEmblemItems));
@@ -111,7 +97,6 @@ namespace XMainClient.UI
 			this._doc.NewItems.bCanClear = true;
 		}
 
-		// Token: 0x06010C9D RID: 68765 RVA: 0x004372F4 File Offset: 0x004354F4
 		protected override void OnHide()
 		{
 			this.powerfullMgr.ReturnAll();
@@ -124,14 +109,12 @@ namespace XMainClient.UI
 			base.OnHide();
 		}
 
-		// Token: 0x06010C9E RID: 68766 RVA: 0x00437368 File Offset: 0x00435568
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
 			this.Show();
 		}
 
-		// Token: 0x06010C9F RID: 68767 RVA: 0x0043737C File Offset: 0x0043557C
 		public override void OnUnload()
 		{
 			this._doc._BagHandler = null;
@@ -144,14 +127,12 @@ namespace XMainClient.UI
 			base.OnUnload();
 		}
 
-		// Token: 0x06010CA0 RID: 68768 RVA: 0x004373C5 File Offset: 0x004355C5
 		public void Refresh()
 		{
 			this.bagWindow.RefreshWindow();
 			this.SetBagNum();
 		}
 
-		// Token: 0x06010CA1 RID: 68769 RVA: 0x004373DC File Offset: 0x004355DC
 		public void RefreshTips(ulong uid)
 		{
 			IXUISprite ixuisprite;
@@ -166,7 +147,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010CA2 RID: 68770 RVA: 0x00437410 File Offset: 0x00435610
 		private void SetBagNum()
 		{
 			int count = this._doc.GetEmblemItems().Count;
@@ -194,7 +174,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010CA3 RID: 68771 RVA: 0x004374E0 File Offset: 0x004356E0
 		private void WrapContentItemUpdated(Transform t, int index)
 		{
 			Transform transform = t.FindChild("Icon/SupplementBrought");
@@ -249,7 +228,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010CA4 RID: 68772 RVA: 0x00437704 File Offset: 0x00435904
 		public void ShowEmblemIdentifyEffect()
 		{
 			bool flag = this.m_identifyFx == null;
@@ -266,7 +244,6 @@ namespace XMainClient.UI
 			this.m_emblemIdentifyToken = XSingleton<XTimerMgr>.singleton.SetTimerAccurate(5f, new XTimerMgr.AccurateElapsedEventHandler(this.OnEmblemIdentifyTimer), null);
 		}
 
-		// Token: 0x06010CA5 RID: 68773 RVA: 0x0043779C File Offset: 0x0043599C
 		private void OnEmblemIdentifyTimer(object param, float delay)
 		{
 			this.HideEffect(this.m_identifyFx);
@@ -274,7 +251,6 @@ namespace XMainClient.UI
 			this.m_emblemIdentifyToken = 0U;
 		}
 
-		// Token: 0x06010CA6 RID: 68774 RVA: 0x004377C4 File Offset: 0x004359C4
 		private void HideEffect(XFx fx)
 		{
 			bool flag = fx != null;
@@ -285,7 +261,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010CA7 RID: 68775 RVA: 0x004377EC File Offset: 0x004359EC
 		public void OnItemClicked(IXUISprite iSp)
 		{
 			XItem itemByUID = XSingleton<XGame>.singleton.Doc.XBagDoc.GetItemByUID(iSp.ID);
@@ -301,70 +276,55 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010CA8 RID: 68776 RVA: 0x0043784E File Offset: 0x00435A4E
 		public void OnAddItem()
 		{
 			this.bagWindow.UpdateBag();
 			this.SetBagNum();
 		}
 
-		// Token: 0x06010CA9 RID: 68777 RVA: 0x0043784E File Offset: 0x00435A4E
 		public void OnRemoveItem()
 		{
 			this.bagWindow.UpdateBag();
 			this.SetBagNum();
 		}
 
-		// Token: 0x06010CAA RID: 68778 RVA: 0x00437864 File Offset: 0x00435A64
 		public void OnItemCountChanged(XItem item)
 		{
 			this.bagWindow.UpdateItem(item);
 		}
 
-		// Token: 0x06010CAB RID: 68779 RVA: 0x00437874 File Offset: 0x00435A74
 		public void OnSwapItem(XItem item1, XItem item2, int slot)
 		{
 			this.bagWindow.ReplaceItem(item1, item2);
 		}
 
-		// Token: 0x06010CAC RID: 68780 RVA: 0x00437864 File Offset: 0x00435A64
 		public void OnUpdateItem(XItem item)
 		{
 			this.bagWindow.UpdateItem(item);
 		}
 
-		// Token: 0x06010CAD RID: 68781 RVA: 0x00437888 File Offset: 0x00435A88
 		public bool OnBagExpandClicked(IXUIButton button)
 		{
 			XBagDocument.BagDoc.UseBagExpandTicket(BagType.EmblemBag);
 			return true;
 		}
 
-		// Token: 0x04007B24 RID: 31524
 		public IXUIButton m_Help;
 
-		// Token: 0x04007B25 RID: 31525
 		private XEmblemDocument _doc;
 
-		// Token: 0x04007B26 RID: 31526
 		private IXUILabel m_bagNumLab;
 
-		// Token: 0x04007B27 RID: 31527
 		private Dictionary<ulong, IXUISprite> itemBtnDic = new Dictionary<ulong, IXUISprite>();
 
-		// Token: 0x04007B28 RID: 31528
 		public IXUIButton m_expandBagBtn;
 
-		// Token: 0x04007B29 RID: 31529
 		private Transform EffectTra;
 
-		// Token: 0x04007B2A RID: 31530
 		private XFx m_identifyFx;
 
-		// Token: 0x04007B2B RID: 31531
 		private uint m_emblemIdentifyToken = 0U;
 
-		// Token: 0x04007B2C RID: 31532
 		private string m_identifyEffectPath = string.Empty;
 	}
 }

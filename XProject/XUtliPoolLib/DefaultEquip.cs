@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x020000D9 RID: 217
+
 	public class DefaultEquip : CVSReader
 	{
-		// Token: 0x060005E6 RID: 1510 RVA: 0x0001B8A0 File Offset: 0x00019AA0
+
 		public DefaultEquip.RowData GetByProfID(int key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -21,7 +21,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x060005E7 RID: 1511 RVA: 0x0001B8D8 File Offset: 0x00019AD8
 		private DefaultEquip.RowData BinarySearchProfID(int key)
 		{
 			int num = 0;
@@ -80,7 +79,6 @@ namespace XUtliPoolLib
 			return null;
 		}
 
-		// Token: 0x060005E8 RID: 1512 RVA: 0x0001B9B4 File Offset: 0x00019BB4
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			DefaultEquip.RowData rowData = new DefaultEquip.RowData();
@@ -128,7 +126,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x060005E9 RID: 1513 RVA: 0x0001BBF0 File Offset: 0x00019DF0
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -142,70 +139,49 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x04000325 RID: 805
 		public DefaultEquip.RowData[] Table = null;
 
-		// Token: 0x020002D8 RID: 728
 		public class RowData
 		{
-			// Token: 0x040009E5 RID: 2533
+
 			public int ProfID;
 
-			// Token: 0x040009E6 RID: 2534
 			public string Helmet;
 
-			// Token: 0x040009E7 RID: 2535
 			public string Face;
 
-			// Token: 0x040009E8 RID: 2536
 			public string Body;
 
-			// Token: 0x040009E9 RID: 2537
 			public string Leg;
 
-			// Token: 0x040009EA RID: 2538
 			public string Boots;
 
-			// Token: 0x040009EB RID: 2539
 			public string Glove;
 
-			// Token: 0x040009EC RID: 2540
 			public string Weapon;
 
-			// Token: 0x040009ED RID: 2541
 			public string[] WeaponPoint;
 
-			// Token: 0x040009EE RID: 2542
 			public string WingPoint;
 
-			// Token: 0x040009EF RID: 2543
 			public string SecondWeapon;
 
-			// Token: 0x040009F0 RID: 2544
 			public string Wing;
 
-			// Token: 0x040009F1 RID: 2545
 			public string Tail;
 
-			// Token: 0x040009F2 RID: 2546
 			public string Decal;
 
-			// Token: 0x040009F3 RID: 2547
 			public string Hair;
 
-			// Token: 0x040009F4 RID: 2548
 			public string TailPoint;
 
-			// Token: 0x040009F5 RID: 2549
 			public string FishingPoint;
 
-			// Token: 0x040009F6 RID: 2550
 			public string[] SideWeaponPoint;
 
-			// Token: 0x040009F7 RID: 2551
 			public string RootPoint;
 
-			// Token: 0x040009F8 RID: 2552
 			public byte id;
 		}
 	}

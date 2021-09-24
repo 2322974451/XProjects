@@ -5,11 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020018D5 RID: 6357
+
 	internal class FriendsWeddingLevelUpView : DlgBase<FriendsWeddingLevelUpView, FriendsWeddingLevelUpBehaviour>
 	{
-		// Token: 0x17003A66 RID: 14950
-		// (get) Token: 0x06010920 RID: 67872 RVA: 0x00414A80 File Offset: 0x00412C80
+
 		public override bool autoload
 		{
 			get
@@ -18,8 +17,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x17003A67 RID: 14951
-		// (get) Token: 0x06010921 RID: 67873 RVA: 0x00414A94 File Offset: 0x00412C94
 		public override string fileName
 		{
 			get
@@ -28,7 +25,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010922 RID: 67874 RVA: 0x00414AAC File Offset: 0x00412CAC
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -79,14 +75,12 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x06010923 RID: 67875 RVA: 0x00414C97 File Offset: 0x00412E97
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			base.uiBehaviour.m_GetBtn.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseBtnClicked));
 		}
 
-		// Token: 0x06010924 RID: 67876 RVA: 0x00414CC0 File Offset: 0x00412EC0
 		private bool OnCloseBtnClicked(IXUIButton btn)
 		{
 			XWeddingDocument specificDocument = XDocuments.GetSpecificDocument<XWeddingDocument>(XWeddingDocument.uuID);

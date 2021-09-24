@@ -4,10 +4,10 @@ using System.IO;
 
 namespace XUtliPoolLib
 {
-	// Token: 0x02000047 RID: 71
+
 	public class AssetBundleDataReader
 	{
-		// Token: 0x06000234 RID: 564 RVA: 0x00012544 File Offset: 0x00010744
+
 		public virtual void Read(XBinaryReader reader)
 		{
 			MemoryStream stream = new MemoryStream(reader.GetBuffer());
@@ -53,7 +53,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000235 RID: 565 RVA: 0x000126D0 File Offset: 0x000108D0
 		public void Analyze()
 		{
 			foreach (KeyValuePair<uint, AssetBundleData> keyValuePair in this.infoMap)
@@ -62,7 +61,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000236 RID: 566 RVA: 0x00012710 File Offset: 0x00010910
 		private void Analyze(AssetBundleData abd)
 		{
 			bool flag = !abd.isAnalyzed;
@@ -83,7 +81,6 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x06000237 RID: 567 RVA: 0x00012794 File Offset: 0x00010994
 		public uint GetFullName(uint shortName)
 		{
 			uint result = 0U;
@@ -91,7 +88,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000238 RID: 568 RVA: 0x000127B8 File Offset: 0x000109B8
 		public AssetBundleData GetAssetBundleInfoByShortName(uint shortName)
 		{
 			uint fullName = this.GetFullName(shortName);
@@ -108,7 +104,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000239 RID: 569 RVA: 0x000127F8 File Offset: 0x000109F8
 		public AssetBundleData GetAssetBundleInfo(uint fullName)
 		{
 			bool flag = fullName > 0U;
@@ -123,10 +118,8 @@ namespace XUtliPoolLib
 			return null;
 		}
 
-		// Token: 0x04000213 RID: 531
 		public Dictionary<uint, AssetBundleData> infoMap = new Dictionary<uint, AssetBundleData>();
 
-		// Token: 0x04000214 RID: 532
 		protected Dictionary<uint, uint> shortName2FullName = new Dictionary<uint, uint>();
 	}
 }

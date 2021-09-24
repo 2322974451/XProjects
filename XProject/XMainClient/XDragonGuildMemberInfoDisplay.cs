@@ -5,10 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000A49 RID: 2633
+
 	internal class XDragonGuildMemberInfoDisplay
 	{
-		// Token: 0x06009FD5 RID: 40917 RVA: 0x001A88EC File Offset: 0x001A6AEC
+
 		public void Init(Transform go, bool bFirstInit)
 		{
 			this.Root = go;
@@ -106,7 +106,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06009FD6 RID: 40918 RVA: 0x001A8B58 File Offset: 0x001A6D58
 		public void Set(XDragonGuildMember data)
 		{
 			bool flag = this.Name != null;
@@ -158,31 +157,22 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04003915 RID: 14613
 		public Transform Root;
 
-		// Token: 0x04003916 RID: 14614
 		public IXUILabelSymbol Name;
 
-		// Token: 0x04003917 RID: 14615
 		public IXUILabel Level;
 
-		// Token: 0x04003918 RID: 14616
 		public IXUILabel Position;
 
-		// Token: 0x04003919 RID: 14617
 		public IXUILabel PPT;
 
-		// Token: 0x0400391A RID: 14618
 		public IXUISprite Portrait;
 
-		// Token: 0x0400391B RID: 14619
 		public IXUISprite Profession;
 
-		// Token: 0x0400391C RID: 14620
 		public IXUILabel Liveness;
 
-		// Token: 0x0400391D RID: 14621
 		public IXUISpriteAnimation Title;
 	}
 }

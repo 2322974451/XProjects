@@ -4,11 +4,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x020008CB RID: 2251
+
 	internal class ArtifactSuit
 	{
-		// Token: 0x17002A96 RID: 10902
-		// (get) Token: 0x06008824 RID: 34852 RVA: 0x00119070 File Offset: 0x00117270
+
 		public HashSet<uint> Artifacts
 		{
 			get
@@ -27,7 +26,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008825 RID: 34853 RVA: 0x001190C0 File Offset: 0x001172C0
 		private void GetSuitArtifacts(ref HashSet<uint> sets)
 		{
 			sets.Clear();
@@ -46,7 +44,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x06008826 RID: 34854 RVA: 0x00119130 File Offset: 0x00117330
 		public int GetEquipedSuitCount(XBodyBag artifactsOnBody)
 		{
 			int num = 0;
@@ -72,7 +69,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008827 RID: 34855 RVA: 0x001191AC File Offset: 0x001173AC
 		public List<int> GetArtifactSuitPos(XBodyBag artifactsOnBody)
 		{
 			bool flag = artifactsOnBody.Length != XBagDocument.ArtifactMax;
@@ -98,7 +94,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x06008828 RID: 34856 RVA: 0x00119230 File Offset: 0x00117430
 		public bool WillChangeEquipedCount(int newItemID, int oldItemID)
 		{
 			bool flag = this.Artifacts.Contains((uint)newItemID);
@@ -106,7 +101,6 @@ namespace XMainClient
 			return flag ^ flag2;
 		}
 
-		// Token: 0x06008829 RID: 34857 RVA: 0x00119260 File Offset: 0x00117460
 		public bool WillChangeEquipedCount(int itemid, XBodyBag equipsOnBody)
 		{
 			ArtifactListTable.RowData artifactListRowData = ArtifactDocument.GetArtifactListRowData((uint)itemid);
@@ -125,14 +119,11 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600882A RID: 34858 RVA: 0x001192B0 File Offset: 0x001174B0
 		public bool IsEffectJustActivated(int equipCount)
 		{
 			return this.activeCount.Contains(equipCount);
 		}
 
-		// Token: 0x17002A97 RID: 10903
-		// (get) Token: 0x0600882B RID: 34859 RVA: 0x001192D0 File Offset: 0x001174D0
 		public int EffectsNum
 		{
 			get
@@ -154,40 +145,28 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x04002AF3 RID: 10995
 		private HashSet<uint> m_artifacts = null;
 
-		// Token: 0x04002AF4 RID: 10996
 		public uint Id = 0U;
 
-		// Token: 0x04002AF5 RID: 10997
 		public uint Level = 0U;
 
-		// Token: 0x04002AF6 RID: 10998
 		public uint SuitId = 0U;
 
-		// Token: 0x04002AF7 RID: 10999
 		public uint ElementType = 0U;
 
-		// Token: 0x04002AF8 RID: 11000
 		public byte SuitQuality = 0;
 
-		// Token: 0x04002AF9 RID: 11001
 		public bool IsCreateShow = false;
 
-		// Token: 0x04002AFA RID: 11002
 		public uint MaxSuitEffectCount = 0U;
 
-		// Token: 0x04002AFB RID: 11003
 		public string Name = string.Empty;
 
-		// Token: 0x04002AFC RID: 11004
 		public SeqListRef<uint>[] effects = new SeqListRef<uint>[XBagDocument.ArtifactMax + 3];
 
-		// Token: 0x04002AFD RID: 11005
 		public HashSet<int> activeCount = new HashSet<int>();
 
-		// Token: 0x04002AFE RID: 11006
 		private int m_effectsNum = -1;
 	}
 }

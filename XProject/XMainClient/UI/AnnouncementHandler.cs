@@ -6,11 +6,10 @@ using XUtliPoolLib;
 
 namespace XMainClient.UI
 {
-	// Token: 0x020017D9 RID: 6105
+
 	internal class AnnouncementHandler : DlgHandlerBase
 	{
-		// Token: 0x170038AD RID: 14509
-		// (get) Token: 0x0600FD00 RID: 64768 RVA: 0x003B24C0 File Offset: 0x003B06C0
+
 		protected override string FileName
 		{
 			get
@@ -19,7 +18,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FD01 RID: 64769 RVA: 0x003B24D8 File Offset: 0x003B06D8
 		protected override void Init()
 		{
 			this._doc = XDocuments.GetSpecificDocument<XAnnouncementDocument>(XAnnouncementDocument.uuID);
@@ -33,7 +31,6 @@ namespace XMainClient.UI
 			this.m_TabPool.SetupPool(transform.parent.gameObject, transform.gameObject, 2U, false);
 		}
 
-		// Token: 0x0600FD02 RID: 64770 RVA: 0x003B25C6 File Offset: 0x003B07C6
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -42,14 +39,12 @@ namespace XMainClient.UI
 			this.RefreshData();
 		}
 
-		// Token: 0x0600FD03 RID: 64771 RVA: 0x003B25EF File Offset: 0x003B07EF
 		protected override void OnHide()
 		{
 			base.OnHide();
 			XSingleton<UiUtility>.singleton.DestroyTextureInActivePool(this.m_NoticePool, "ChildList/LevelTwoTpl/Texture");
 		}
 
-		// Token: 0x0600FD04 RID: 64772 RVA: 0x003B2610 File Offset: 0x003B0810
 		public override void RefreshData()
 		{
 			base.RefreshData();
@@ -69,7 +64,6 @@ namespace XMainClient.UI
 			this._last_notice = null;
 		}
 
-		// Token: 0x0600FD05 RID: 64773 RVA: 0x003B265C File Offset: 0x003B085C
 		public void RefreshTab()
 		{
 			this.m_TabPool.ReturnAll(false);
@@ -90,7 +84,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FD06 RID: 64774 RVA: 0x003B27CC File Offset: 0x003B09CC
 		private bool OnTabClicked(IXUICheckBox checkbox)
 		{
 			bool bChecked = checkbox.bChecked;
@@ -102,7 +95,6 @@ namespace XMainClient.UI
 			return true;
 		}
 
-		// Token: 0x0600FD07 RID: 64775 RVA: 0x003B2804 File Offset: 0x003B0A04
 		public void RefreshActivityList()
 		{
 			this.m_ActivityPool.ReturnAll(false);
@@ -131,7 +123,6 @@ namespace XMainClient.UI
 			this.m_Table.RePositionNow();
 		}
 
-		// Token: 0x0600FD08 RID: 64776 RVA: 0x003B29D8 File Offset: 0x003B0BD8
 		public void RefreshNoticeList()
 		{
 			this.m_ActivityPool.ReturnAll(false);
@@ -184,7 +175,6 @@ namespace XMainClient.UI
 			this.m_Table.RePositionNow();
 		}
 
-		// Token: 0x0600FD09 RID: 64777 RVA: 0x003B2D40 File Offset: 0x003B0F40
 		private void OnNoticeClicked(IXUISprite sp)
 		{
 			bool flag = sp.gameObject == this._last_notice;
@@ -221,7 +211,6 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x0600FD0A RID: 64778 RVA: 0x003B2ED0 File Offset: 0x003B10D0
 		private void OnActivityClicked(IXUITexture tex)
 		{
 			bool flag = tex.gameObject == this._last_notice;
@@ -252,22 +241,16 @@ namespace XMainClient.UI
 			}
 		}
 
-		// Token: 0x04006F53 RID: 28499
 		private XAnnouncementDocument _doc;
 
-		// Token: 0x04006F54 RID: 28500
 		private IXUITable m_Table;
 
-		// Token: 0x04006F55 RID: 28501
 		private XUIPool m_NoticePool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006F56 RID: 28502
 		private XUIPool m_ActivityPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006F57 RID: 28503
 		private XUIPool m_TabPool = new XUIPool(XSingleton<XGameUI>.singleton.m_uiTool);
 
-		// Token: 0x04006F58 RID: 28504
 		private GameObject _last_notice = null;
 	}
 }

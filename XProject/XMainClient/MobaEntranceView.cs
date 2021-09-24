@@ -9,11 +9,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000C90 RID: 3216
+
 	internal class MobaEntranceView : DlgBase<MobaEntranceView, MobaEntranceBehaviour>
 	{
-		// Token: 0x17003223 RID: 12835
-		// (get) Token: 0x0600B599 RID: 46489 RVA: 0x0023DDB4 File Offset: 0x0023BFB4
+
 		public override bool autoload
 		{
 			get
@@ -22,8 +21,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003224 RID: 12836
-		// (get) Token: 0x0600B59A RID: 46490 RVA: 0x0023DDC8 File Offset: 0x0023BFC8
 		public override bool pushstack
 		{
 			get
@@ -32,8 +29,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003225 RID: 12837
-		// (get) Token: 0x0600B59B RID: 46491 RVA: 0x0023DDDC File Offset: 0x0023BFDC
 		public override bool hideMainMenu
 		{
 			get
@@ -42,8 +37,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003226 RID: 12838
-		// (get) Token: 0x0600B59C RID: 46492 RVA: 0x0023DDF0 File Offset: 0x0023BFF0
 		public override bool fullscreenui
 		{
 			get
@@ -52,8 +45,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003227 RID: 12839
-		// (get) Token: 0x0600B59D RID: 46493 RVA: 0x0023DE04 File Offset: 0x0023C004
 		public override string fileName
 		{
 			get
@@ -62,8 +53,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17003228 RID: 12840
-		// (get) Token: 0x0600B59E RID: 46494 RVA: 0x0023DE1C File Offset: 0x0023C01C
 		public override int sysid
 		{
 			get
@@ -72,7 +61,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B59F RID: 46495 RVA: 0x0023DE38 File Offset: 0x0023C038
 		protected override void Init()
 		{
 			base.Init();
@@ -87,7 +75,6 @@ namespace XMainClient
 			base.uiBehaviour.m_RankBtn.gameObject.SetActive(false);
 		}
 
-		// Token: 0x0600B5A0 RID: 46496 RVA: 0x0023DF00 File Offset: 0x0023C100
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
@@ -106,7 +93,6 @@ namespace XMainClient
 			base.uiBehaviour.m_Privilege.RegisterSpriteClickEventHandler(new SpriteClickEventHandler(this.OnPrivilegeClick));
 		}
 
-		// Token: 0x0600B5A1 RID: 46497 RVA: 0x0023E08C File Offset: 0x0023C28C
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -118,7 +104,6 @@ namespace XMainClient
 			this.Refresh();
 		}
 
-		// Token: 0x0600B5A2 RID: 46498 RVA: 0x0023E0EC File Offset: 0x0023C2EC
 		protected override void OnHide()
 		{
 			this.ClearSelectFx();
@@ -135,7 +120,6 @@ namespace XMainClient
 			base.OnHide();
 		}
 
-		// Token: 0x0600B5A3 RID: 46499 RVA: 0x0023E15C File Offset: 0x0023C35C
 		public override void StackRefresh()
 		{
 			base.StackRefresh();
@@ -148,7 +132,6 @@ namespace XMainClient
 			this.RefreshSelectMsg();
 		}
 
-		// Token: 0x0600B5A4 RID: 46500 RVA: 0x0023E1A0 File Offset: 0x0023C3A0
 		public override void LeaveStackTop()
 		{
 			base.LeaveStackTop();
@@ -163,7 +146,6 @@ namespace XMainClient
 			this.m_Dummy = null;
 		}
 
-		// Token: 0x0600B5A5 RID: 46501 RVA: 0x0023E204 File Offset: 0x0023C404
 		protected override void OnUnload()
 		{
 			this.ClearSelectFx();
@@ -175,7 +157,6 @@ namespace XMainClient
 			base.OnUnload();
 		}
 
-		// Token: 0x0600B5A6 RID: 46502 RVA: 0x0023E258 File Offset: 0x0023C458
 		private void ClearSelectFx()
 		{
 			for (int i = this._selectFxList.Count - 1; i >= 0; i--)
@@ -190,7 +171,6 @@ namespace XMainClient
 			this._selectFxToken.Clear();
 		}
 
-		// Token: 0x0600B5A7 RID: 46503 RVA: 0x0023E304 File Offset: 0x0023C504
 		private void _SetSelectFxDelay(XGameObject gameObject, object o, int commandID)
 		{
 			string[] array = o as string[];
@@ -208,7 +188,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B5A8 RID: 46504 RVA: 0x0023E394 File Offset: 0x0023C594
 		public void FxDelayPlay(object o)
 		{
 			string text = o as string;
@@ -243,7 +222,6 @@ namespace XMainClient
 			xfx.Play();
 		}
 
-		// Token: 0x0600B5A9 RID: 46505 RVA: 0x0023E486 File Offset: 0x0023C686
 		public void Refresh()
 		{
 			this.RefreshMatch();
@@ -252,7 +230,6 @@ namespace XMainClient
 			this.RefreshRaward();
 		}
 
-		// Token: 0x0600B5AA RID: 46506 RVA: 0x0023E4A8 File Offset: 0x0023C6A8
 		public void RefreshMatch()
 		{
 			XTeamDocument specificDocument = XDocuments.GetSpecificDocument<XTeamDocument>(XTeamDocument.uuID);
@@ -260,7 +237,6 @@ namespace XMainClient
 			base.uiBehaviour.m_TeamMatch.SetEnable(specificDocument.SoloMatchType != KMatchType.KMT_MOBA, false);
 		}
 
-		// Token: 0x0600B5AB RID: 46507 RVA: 0x0023E51C File Offset: 0x0023C71C
 		public void RefreshRaward()
 		{
 			base.uiBehaviour.m_ClickGet.SetVisible(this._doc.RewardState == XMobaEntranceDocument.MobaRewardState.CanGet);
@@ -302,7 +278,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B5AC RID: 46508 RVA: 0x0023E82C File Offset: 0x0023CA2C
 		public void RefreshSelectMsg()
 		{
 			bool flag = !this._skillDoc.IsPreViewShow && !this._skillDoc.AlreadyGetList.Contains(this._skillDoc.CurrentSelect);
@@ -393,7 +368,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B5AD RID: 46509 RVA: 0x0023ED24 File Offset: 0x0023CF24
 		public void SetIdleAnimation(object o)
 		{
 			string animationGetLength = o as string;
@@ -404,7 +378,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B5AE RID: 46510 RVA: 0x0023ED54 File Offset: 0x0023CF54
 		private void RefreshSkillInfo()
 		{
 			List<uint> list = this.m_HeroBattleSkillHandler.SkillInfo();
@@ -440,27 +413,23 @@ namespace XMainClient
 			base.uiBehaviour.m_SkillsPool.ActualReturnAll(false);
 		}
 
-		// Token: 0x0600B5AF RID: 46511 RVA: 0x0023EF10 File Offset: 0x0023D110
 		private bool OnCloseBtnClick(IXUIButton btn)
 		{
 			this.SetVisibleWithAnimation(false, null);
 			return true;
 		}
 
-		// Token: 0x0600B5B0 RID: 46512 RVA: 0x0023EF2C File Offset: 0x0023D12C
 		private bool OnHelpBtnClicked(IXUIButton btn)
 		{
 			DlgBase<XCommonHelpTipView, XCommonHelpTipBehaviour>.singleton.ShowHelp(XSysDefine.XSys_Moba);
 			return true;
 		}
 
-		// Token: 0x0600B5B1 RID: 46513 RVA: 0x0023EF4F File Offset: 0x0023D14F
 		private void OnGetRewardClick(IXUISprite iSp)
 		{
 			this._doc.ReqMobaGetReward();
 		}
 
-		// Token: 0x0600B5B2 RID: 46514 RVA: 0x0023EF60 File Offset: 0x0023D160
 		private bool OnMonsterDrag(Vector2 delta)
 		{
 			bool flag = this.m_Dummy != null;
@@ -471,42 +440,36 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B5B3 RID: 46515 RVA: 0x0023EFA0 File Offset: 0x0023D1A0
 		private bool OnBattleRecordBtnClick(IXUIButton btn)
 		{
 			this.m_MobaBattleRecordHandler.SetVisible(true);
 			return true;
 		}
 
-		// Token: 0x0600B5B4 RID: 46516 RVA: 0x0023EFC0 File Offset: 0x0023D1C0
 		private bool OnShopBtnClick(IXUIButton btn)
 		{
 			DlgBase<MallSystemDlg, MallSystemBehaviour>.singleton.ShowShopSystem(XSysDefine.XSys_Mall_Honer, 0UL);
 			return true;
 		}
 
-		// Token: 0x0600B5B5 RID: 46517 RVA: 0x0023EFE8 File Offset: 0x0023D1E8
 		private bool OnSkillBtnClick(IXUIButton btn)
 		{
 			this.m_HeroBattleSkillHandler.SetSkillPreViewState(true, (int)btn.ID);
 			return true;
 		}
 
-		// Token: 0x0600B5B6 RID: 46518 RVA: 0x0023F010 File Offset: 0x0023D210
 		private bool OnSkillPreViewBtnClick(IXUIButton btn)
 		{
 			this.m_HeroBattleSkillHandler.SetSkillPreViewState(true, 0);
 			return true;
 		}
 
-		// Token: 0x0600B5B7 RID: 46519 RVA: 0x0023F034 File Offset: 0x0023D234
 		private bool OnBuyBtnClick(IXUIButton btn)
 		{
 			this._skillDoc.QueryBuyHero(this._skillDoc.CurrentSelect);
 			return true;
 		}
 
-		// Token: 0x0600B5B8 RID: 46520 RVA: 0x0023F060 File Offset: 0x0023D260
 		private bool OnSingleMatchBtnClick(IXUIButton btn)
 		{
 			XTeamDocument specificDocument = XDocuments.GetSpecificDocument<XTeamDocument>(XTeamDocument.uuID);
@@ -526,7 +489,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600B5B9 RID: 46521 RVA: 0x0023F0C0 File Offset: 0x0023D2C0
 		private bool OnTeamMatchBtnClick(IXUIButton btn)
 		{
 			this.SetVisible(false, true);
@@ -541,7 +503,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B5BA RID: 46522 RVA: 0x0023F120 File Offset: 0x0023D320
 		private bool OnRewardPreViewBtnClick(IXUIButton btn)
 		{
 			base.uiBehaviour.m_RewardPreViewFrame.SetActive(true);
@@ -549,14 +510,12 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600B5BB RID: 46523 RVA: 0x0023F14C File Offset: 0x0023D34C
 		private bool OnRewardPreViewCloseBtnClick(IXUIButton btn)
 		{
 			base.uiBehaviour.m_RewardPreViewFrame.SetActive(false);
 			return true;
 		}
 
-		// Token: 0x0600B5BC RID: 46524 RVA: 0x0023F174 File Offset: 0x0023D374
 		private void SetupRewardPreView()
 		{
 			base.uiBehaviour.m_PreViewItemPool.ReturnAll(true);
@@ -599,13 +558,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B5BD RID: 46525 RVA: 0x0023F430 File Offset: 0x0023D630
 		private void OnPrivilegeClick(IXUISprite btn)
 		{
 			DlgBase<XWelfareView, XWelfareBehaviour>.singleton.CheckActiveMemberPrivilege(MemberPrivilege.KingdomPrivilege_Adventurer);
 		}
 
-		// Token: 0x0600B5BE RID: 46526 RVA: 0x0023F440 File Offset: 0x0023D640
 		private void RefreshPrivilegeInfo()
 		{
 			XWelfareDocument specificDocument = XDocuments.GetSpecificDocument<XWelfareDocument>(XWelfareDocument.uuID);
@@ -623,34 +580,24 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0400471F RID: 18207
 		private XMobaEntranceDocument _doc = null;
 
-		// Token: 0x04004720 RID: 18208
 		private XHeroBattleDocument _heroDoc = null;
 
-		// Token: 0x04004721 RID: 18209
 		private XHeroBattleSkillDocument _skillDoc = null;
 
-		// Token: 0x04004722 RID: 18210
 		public HeroBattleSkillHandler m_HeroBattleSkillHandler;
 
-		// Token: 0x04004723 RID: 18211
 		public MobaBattleRecordHandler m_MobaBattleRecordHandler;
 
-		// Token: 0x04004724 RID: 18212
 		private XDummy m_Dummy;
 
-		// Token: 0x04004725 RID: 18213
 		private uint _selectAnimToken;
 
-		// Token: 0x04004726 RID: 18214
 		private HashSet<uint> _selectFxToken = new HashSet<uint>();
 
-		// Token: 0x04004727 RID: 18215
 		private List<XFx> _selectFxList = new List<XFx>();
 
-		// Token: 0x04004728 RID: 18216
 		public static readonly uint SKILL_MAX = 4U;
 	}
 }

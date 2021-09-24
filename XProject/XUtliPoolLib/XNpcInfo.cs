@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x02000186 RID: 390
+
 	public class XNpcInfo : CVSReader
 	{
-		// Token: 0x06000870 RID: 2160 RVA: 0x0002D640 File Offset: 0x0002B840
+
 		public XNpcInfo.RowData GetByNPCID(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -21,7 +21,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000871 RID: 2161 RVA: 0x0002D678 File Offset: 0x0002B878
 		private XNpcInfo.RowData BinarySearchNPCID(uint key)
 		{
 			int num = 0;
@@ -80,7 +79,6 @@ namespace XUtliPoolLib
 			return null;
 		}
 
-		// Token: 0x06000872 RID: 2162 RVA: 0x0002D754 File Offset: 0x0002B954
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			XNpcInfo.RowData rowData = new XNpcInfo.RowData();
@@ -128,7 +126,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x06000873 RID: 2163 RVA: 0x0002D990 File Offset: 0x0002BB90
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -142,70 +139,49 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x040003D2 RID: 978
 		public XNpcInfo.RowData[] Table = null;
 
-		// Token: 0x02000385 RID: 901
 		public class RowData
 		{
-			// Token: 0x04000F9B RID: 3995
+
 			public uint ID;
 
-			// Token: 0x04000F9C RID: 3996
 			public string Name;
 
-			// Token: 0x04000F9D RID: 3997
 			public uint PresentID;
 
-			// Token: 0x04000F9E RID: 3998
 			public string Icon;
 
-			// Token: 0x04000F9F RID: 3999
 			public string Portrait;
 
-			// Token: 0x04000FA0 RID: 4000
 			public uint SceneID;
 
-			// Token: 0x04000FA1 RID: 4001
 			public float[] Position;
 
-			// Token: 0x04000FA2 RID: 4002
 			public float[] Rotation;
 
-			// Token: 0x04000FA3 RID: 4003
 			public uint RequiredTaskID;
 
-			// Token: 0x04000FA4 RID: 4004
 			public string[] Content;
 
-			// Token: 0x04000FA5 RID: 4005
 			public int[] FunctionList;
 
-			// Token: 0x04000FA6 RID: 4006
 			public uint Gazing;
 
-			// Token: 0x04000FA7 RID: 4007
 			public string[] Voice;
 
-			// Token: 0x04000FA8 RID: 4008
 			public string[] ShowUp;
 
-			// Token: 0x04000FA9 RID: 4009
 			public bool OnlyHead;
 
-			// Token: 0x04000FAA RID: 4010
 			public int LinkSystem;
 
-			// Token: 0x04000FAB RID: 4011
 			public uint NPCType;
 
-			// Token: 0x04000FAC RID: 4012
 			public uint DisappearTask;
 
-			// Token: 0x04000FAD RID: 4013
 			public string SpecialAnim;
 
-			// Token: 0x04000FAE RID: 4014
 			public string SpecialChat;
 		}
 	}

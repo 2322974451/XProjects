@@ -7,11 +7,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000A5E RID: 2654
+
 	internal class XGuildWeeklyBountyDocument : XDocComponent
 	{
-		// Token: 0x17002F09 RID: 12041
-		// (get) Token: 0x0600A0D3 RID: 41171 RVA: 0x001B00B4 File Offset: 0x001AE2B4
+
 		public override uint ID
 		{
 			get
@@ -20,8 +19,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002F0A RID: 12042
-		// (get) Token: 0x0600A0D4 RID: 41172 RVA: 0x001B00CC File Offset: 0x001AE2CC
 		public static XGuildWeeklyBountyDocument Doc
 		{
 			get
@@ -30,8 +27,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002F0B RID: 12043
-		// (get) Token: 0x0600A0D5 RID: 41173 RVA: 0x001B00F8 File Offset: 0x001AE2F8
 		public List<GuildWeeklyTaskInfo> CurGuildWeeklyTaskList
 		{
 			get
@@ -40,8 +35,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002F0C RID: 12044
-		// (get) Token: 0x0600A0D6 RID: 41174 RVA: 0x001B0110 File Offset: 0x001AE310
 		public List<uint> RewardedBoxList
 		{
 			get
@@ -50,8 +43,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002F0D RID: 12045
-		// (get) Token: 0x0600A0D7 RID: 41175 RVA: 0x001B0128 File Offset: 0x001AE328
 		public uint WeeklyScore
 		{
 			get
@@ -60,8 +51,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002F0E RID: 12046
-		// (get) Token: 0x0600A0D8 RID: 41176 RVA: 0x001B0140 File Offset: 0x001AE340
 		public uint WeeklyAskedHelpNum
 		{
 			get
@@ -70,8 +59,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002F0F RID: 12047
-		// (get) Token: 0x0600A0D9 RID: 41177 RVA: 0x001B0158 File Offset: 0x001AE358
 		public List<uint> ChestValueList
 		{
 			get
@@ -80,8 +67,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002F10 RID: 12048
-		// (get) Token: 0x0600A0DA RID: 41178 RVA: 0x001B0170 File Offset: 0x001AE370
 		public List<TaskHelpInfo> TaskHelpInfoList
 		{
 			get
@@ -90,9 +75,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002F11 RID: 12049
-		// (get) Token: 0x0600A0DB RID: 41179 RVA: 0x001B0188 File Offset: 0x001AE388
-		// (set) Token: 0x0600A0DC RID: 41180 RVA: 0x001B01A0 File Offset: 0x001AE3A0
 		public double ActivityLeftTime
 		{
 			get
@@ -105,8 +87,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x17002F12 RID: 12050
-		// (get) Token: 0x0600A0DD RID: 41181 RVA: 0x001B01AC File Offset: 0x001AE3AC
 		public uint RemainedFreshTimes
 		{
 			get
@@ -115,49 +95,41 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A0DE RID: 41182 RVA: 0x001B01C4 File Offset: 0x001AE3C4
 		public static void Execute(OnLoadedCallback callback = null)
 		{
 			XGuildWeeklyBountyDocument.AsyncLoader.Execute(callback);
 		}
 
-		// Token: 0x0600A0DF RID: 41183 RVA: 0x00114ACA File Offset: 0x00112CCA
 		public override void OnAttachToHost(XObject host)
 		{
 			base.OnAttachToHost(host);
 		}
 
-		// Token: 0x0600A0E0 RID: 41184 RVA: 0x00114AD5 File Offset: 0x00112CD5
 		protected override void EventSubscribe()
 		{
 			base.EventSubscribe();
 		}
 
-		// Token: 0x0600A0E1 RID: 41185 RVA: 0x00114ADF File Offset: 0x00112CDF
 		public override void OnDetachFromHost()
 		{
 			base.OnDetachFromHost();
 		}
 
-		// Token: 0x0600A0E2 RID: 41186 RVA: 0x000FEEFC File Offset: 0x000FD0FC
 		protected override void OnReconnected(XReconnectedEventArgs arg)
 		{
 		}
 
-		// Token: 0x0600A0E3 RID: 41187 RVA: 0x00114AE9 File Offset: 0x00112CE9
 		public override void OnEnterSceneFinally()
 		{
 			base.OnEnterSceneFinally();
 		}
 
-		// Token: 0x0600A0E4 RID: 41188 RVA: 0x001B01D4 File Offset: 0x001AE3D4
 		public void SendGetWeeklyTaskInfo()
 		{
 			RpcC2G_GetWeeklyTaskInfo rpc = new RpcC2G_GetWeeklyTaskInfo();
 			XSingleton<XClientNetwork>.singleton.Send(rpc);
 		}
 
-		// Token: 0x0600A0E5 RID: 41189 RVA: 0x001B01F4 File Offset: 0x001AE3F4
 		public void OnGetWeeklyTaskInfo(GetWeeklyTaskInfoRes oRes)
 		{
 			this._weeklyScore = oRes.score;
@@ -176,13 +148,11 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A0E6 RID: 41190 RVA: 0x001B0288 File Offset: 0x001AE488
 		public bool HasFinishWeeklyTasks()
 		{
 			return this.IsAllBoxsReward() && this.IsAllTaskFinished();
 		}
 
-		// Token: 0x0600A0E7 RID: 41191 RVA: 0x001B02AC File Offset: 0x001AE4AC
 		public void SendToGetWeeklyTaskReward(uint type, uint value)
 		{
 			RpcC2G_GetWeeklyTaskReward rpcC2G_GetWeeklyTaskReward = new RpcC2G_GetWeeklyTaskReward();
@@ -191,7 +161,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_GetWeeklyTaskReward);
 		}
 
-		// Token: 0x0600A0E8 RID: 41192 RVA: 0x001B02E8 File Offset: 0x001AE4E8
 		public void OnGetWeeklyTaskReward(GetWeeklyTaskRewardArg oArg, GetWeeklyTaskRewardRes oRes)
 		{
 			bool flag = oArg.type == 1U && (ulong)oArg.value < (ulong)((long)this._curGuildWeeklyTaskList.Count);
@@ -235,7 +204,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A0E9 RID: 41193 RVA: 0x001B0404 File Offset: 0x001AE604
 		private bool IsAllBoxsReward()
 		{
 			List<uint> chestValueList = XGuildWeeklyBountyDocument.Doc.ChestValueList;
@@ -250,7 +218,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600A0EA RID: 41194 RVA: 0x001B0458 File Offset: 0x001AE658
 		private bool IsAllTaskFinished()
 		{
 			for (int i = 0; i < this._curGuildWeeklyTaskList.Count; i++)
@@ -264,7 +231,6 @@ namespace XMainClient
 			return true;
 		}
 
-		// Token: 0x0600A0EB RID: 41195 RVA: 0x001B04A4 File Offset: 0x001AE6A4
 		private void UpdateTaskContent(List<WeeklyTaskInfo> task)
 		{
 			this.CurGuildWeeklyTaskList.Clear();
@@ -285,7 +251,6 @@ namespace XMainClient
 			this._curGuildWeeklyTaskList.Sort(new Comparison<GuildWeeklyTaskInfo>(this.SortWeeklyTaskList));
 		}
 
-		// Token: 0x0600A0EC RID: 41196 RVA: 0x001B0558 File Offset: 0x001AE758
 		private int SortWeeklyTaskList(GuildWeeklyTaskInfo x, GuildWeeklyTaskInfo y)
 		{
 			DailyTask.RowData dailyTaskTableInfoByID = XGuildDailyTaskDocument.Doc.GetDailyTaskTableInfoByID(x.taskID);
@@ -338,7 +303,6 @@ namespace XMainClient
 			return (int)(x.taskID - y.taskID);
 		}
 
-		// Token: 0x0600A0ED RID: 41197 RVA: 0x001B0680 File Offset: 0x001AE880
 		private void ResetRewardsMap()
 		{
 			this._guildTaskRewardWithMap.Clear();
@@ -379,7 +343,6 @@ namespace XMainClient
 			this._chestValueList.Sort();
 		}
 
-		// Token: 0x0600A0EE RID: 41198 RVA: 0x001B081C File Offset: 0x001AEA1C
 		public List<GuildTaskReward> GetSingleTaskRewardInfoByID(GuildTaskType type, uint taskID)
 		{
 			DailyTask.RowData dailyTaskTableInfoByID = XGuildDailyTaskDocument.Doc.GetDailyTaskTableInfoByID(taskID);
@@ -397,7 +360,6 @@ namespace XMainClient
 			return new List<GuildTaskReward>();
 		}
 
-		// Token: 0x0600A0EF RID: 41199 RVA: 0x001B087C File Offset: 0x001AEA7C
 		public List<GuildTaskReward> GetTotalTaskRewardInfo(GuildTaskType type, uint count)
 		{
 			uint mappingValueWithQualityAndType = XGuildDailyTaskDocument.GetMappingValueWithQualityAndType(type, 2U, count);
@@ -415,7 +377,6 @@ namespace XMainClient
 			return result;
 		}
 
-		// Token: 0x0600A0F0 RID: 41200 RVA: 0x001B08BC File Offset: 0x001AEABC
 		public void SendCommitWeeklyItem(uint index, List<ulong> items)
 		{
 			RpcC2G_TurnOverWeeklyTaskItem rpcC2G_TurnOverWeeklyTaskItem = new RpcC2G_TurnOverWeeklyTaskItem();
@@ -425,7 +386,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_TurnOverWeeklyTaskItem);
 		}
 
-		// Token: 0x0600A0F1 RID: 41201 RVA: 0x001B090C File Offset: 0x001AEB0C
 		public void OnTurnOverWeeklyTaskReply(TurnOverWeeklyTaskItemArg oArg, TurnOverWeeklyTaskItemRes oRes)
 		{
 			XSingleton<UiUtility>.singleton.ShowSystemTip(XStringDefineProxy.GetString("weeklyCommitSuccess"), "fece00");
@@ -450,7 +410,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A0F2 RID: 41202 RVA: 0x001B09D4 File Offset: 0x001AEBD4
 		public void SendToRefreshTaskList(uint taskIndex)
 		{
 			RpcC2G_RefreshWeeklyTask rpcC2G_RefreshWeeklyTask = new RpcC2G_RefreshWeeklyTask();
@@ -458,7 +417,6 @@ namespace XMainClient
 			XSingleton<XClientNetwork>.singleton.Send(rpcC2G_RefreshWeeklyTask);
 		}
 
-		// Token: 0x0600A0F3 RID: 41203 RVA: 0x001B0A04 File Offset: 0x001AEC04
 		internal void OnRefreshTaskList(RefreshWeeklyTaskArg oArg, RefreshWeeklyTaskRes oRes)
 		{
 			bool flag = this._remainedFreshTimes > 0U;
@@ -492,7 +450,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A0F4 RID: 41204 RVA: 0x001B0AFC File Offset: 0x001AECFC
 		public int GetTaskOriginalIndexByID(uint curSelectTaskID)
 		{
 			for (int i = 0; i < this._curGuildWeeklyTaskList.Count; i++)
@@ -506,7 +463,6 @@ namespace XMainClient
 			return -1;
 		}
 
-		// Token: 0x0600A0F5 RID: 41205 RVA: 0x001B0B58 File Offset: 0x001AED58
 		public GuildWeeklyTaskInfo GetTaskInfoByTaskID(uint curSelectTaskID)
 		{
 			for (int i = 0; i < this._curGuildWeeklyTaskList.Count; i++)
@@ -520,7 +476,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x0600A0F6 RID: 41206 RVA: 0x001B0BB0 File Offset: 0x001AEDB0
 		public GuildWeeklyTaskInfo GetTaskInfoByIndex(uint curSelectIndex)
 		{
 			for (int i = 0; i < this._curGuildWeeklyTaskList.Count; i++)
@@ -534,7 +489,6 @@ namespace XMainClient
 			return null;
 		}
 
-		// Token: 0x0600A0F7 RID: 41207 RVA: 0x001B0C08 File Offset: 0x001AEE08
 		public int GetRewardedTaskCount()
 		{
 			int num = 0;
@@ -549,7 +503,6 @@ namespace XMainClient
 			return num;
 		}
 
-		// Token: 0x0600A0F8 RID: 41208 RVA: 0x001B0C54 File Offset: 0x001AEE54
 		public void OnGetWeeklyHelpReply(DailyTaskAskHelpArg oArg, DailyTaskAskHelpRes oRes)
 		{
 			bool flag = oRes.code == ErrorCode.ERR_SUCCESS;
@@ -584,7 +537,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600A0F9 RID: 41209 RVA: 0x001B0D60 File Offset: 0x001AEF60
 		public bool GoToTakeTask()
 		{
 			XTaskDocument specificDocument = XDocuments.GetSpecificDocument<XTaskDocument>(XTaskDocument.uuID);
@@ -600,40 +552,28 @@ namespace XMainClient
 			return false;
 		}
 
-		// Token: 0x040039DC RID: 14812
 		public new static readonly uint uuID = XSingleton<XCommon>.singleton.XHash("XGuildWeeklyBountyDocument");
 
-		// Token: 0x040039DD RID: 14813
 		public static XTableAsyncLoader AsyncLoader = new XTableAsyncLoader();
 
-		// Token: 0x040039DE RID: 14814
 		private uint _weeklyScore;
 
-		// Token: 0x040039DF RID: 14815
 		private uint _weeklyAskedHelpNum;
 
-		// Token: 0x040039E0 RID: 14816
 		private uint _taskRoleLevel = 0U;
 
-		// Token: 0x040039E1 RID: 14817
 		private List<uint> _rewardedBoxList = new List<uint>();
 
-		// Token: 0x040039E2 RID: 14818
 		private List<GuildWeeklyTaskInfo> _curGuildWeeklyTaskList = new List<GuildWeeklyTaskInfo>();
 
-		// Token: 0x040039E3 RID: 14819
 		private Dictionary<uint, List<GuildTaskReward>> _guildTaskRewardWithMap = new Dictionary<uint, List<GuildTaskReward>>();
 
-		// Token: 0x040039E4 RID: 14820
 		private List<uint> _chestValueList = new List<uint>();
 
-		// Token: 0x040039E5 RID: 14821
 		private List<TaskHelpInfo> _taskHelpInfoList = new List<TaskHelpInfo>();
 
-		// Token: 0x040039E6 RID: 14822
 		private double _activityLeftTime = 0.0;
 
-		// Token: 0x040039E7 RID: 14823
 		private uint _remainedFreshTimes = 0U;
 	}
 }

@@ -5,11 +5,10 @@ using XUtliPoolLib;
 
 namespace XMainClient
 {
-	// Token: 0x02000CAE RID: 3246
+
 	internal class XQQWXGameCenterPrivilegeView : DlgBase<XQQWXGameCenterPrivilegeView, XQQWXGameCenterPrivilegeBehaviour>
 	{
-		// Token: 0x1700324E RID: 12878
-		// (get) Token: 0x0600B6B5 RID: 46773 RVA: 0x00243CB4 File Offset: 0x00241EB4
+
 		public override string fileName
 		{
 			get
@@ -18,8 +17,6 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x1700324F RID: 12879
-		// (get) Token: 0x0600B6B6 RID: 46774 RVA: 0x00243CCC File Offset: 0x00241ECC
 		public override bool autoload
 		{
 			get
@@ -28,14 +25,12 @@ namespace XMainClient
 			}
 		}
 
-		// Token: 0x0600B6B7 RID: 46775 RVA: 0x00243CDF File Offset: 0x00241EDF
 		public override void RegisterEvent()
 		{
 			base.RegisterEvent();
 			base.uiBehaviour.m_Close.RegisterClickEventHandler(new ButtonClickEventHandler(this.OnCloseBtnClicked));
 		}
 
-		// Token: 0x0600B6B8 RID: 46776 RVA: 0x00243D08 File Offset: 0x00241F08
 		protected override void OnShow()
 		{
 			base.OnShow();
@@ -66,7 +61,6 @@ namespace XMainClient
 			base.uiBehaviour.m_WXIcon.SetActive(XSingleton<XLoginDocument>.singleton.Channel == XAuthorizationChannel.XAuthorization_WeChat);
 		}
 
-		// Token: 0x0600B6B9 RID: 46777 RVA: 0x00243E6C File Offset: 0x0024206C
 		private bool OnCloseBtnClicked(IXUIButton btn)
 		{
 			this.SetVisibleWithAnimation(false, null);

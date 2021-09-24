@@ -2,10 +2,10 @@
 
 namespace XUtliPoolLib
 {
-	// Token: 0x02000124 RID: 292
+
 	public class JadeTable : CVSReader
 	{
-		// Token: 0x06000702 RID: 1794 RVA: 0x00022E44 File Offset: 0x00021044
+
 		public JadeTable.RowData GetByJadeID(uint key)
 		{
 			bool flag = this.Table == null || this.Table.Length == 0;
@@ -21,7 +21,6 @@ namespace XUtliPoolLib
 			return result;
 		}
 
-		// Token: 0x06000703 RID: 1795 RVA: 0x00022E7C File Offset: 0x0002107C
 		private JadeTable.RowData BinarySearchJadeID(uint key)
 		{
 			int num = 0;
@@ -80,7 +79,6 @@ namespace XUtliPoolLib
 			return null;
 		}
 
-		// Token: 0x06000704 RID: 1796 RVA: 0x00022F58 File Offset: 0x00021158
 		protected override void ReadLine(XBinaryReader reader)
 		{
 			JadeTable.RowData rowData = new JadeTable.RowData();
@@ -100,7 +98,6 @@ namespace XUtliPoolLib
 			this.columnno = -1;
 		}
 
-		// Token: 0x06000705 RID: 1797 RVA: 0x00023020 File Offset: 0x00021220
 		protected override void OnClear(int lineCount)
 		{
 			bool flag = lineCount > 0;
@@ -114,28 +111,21 @@ namespace XUtliPoolLib
 			}
 		}
 
-		// Token: 0x04000370 RID: 880
 		public JadeTable.RowData[] Table = null;
 
-		// Token: 0x02000323 RID: 803
 		public class RowData
 		{
-			// Token: 0x04000C17 RID: 3095
+
 			public uint JadeID;
 
-			// Token: 0x04000C18 RID: 3096
 			public uint JadeEquip;
 
-			// Token: 0x04000C19 RID: 3097
 			public SeqListRef<uint> JadeAttributes;
 
-			// Token: 0x04000C1A RID: 3098
 			public SeqRef<uint> JadeCompose;
 
-			// Token: 0x04000C1B RID: 3099
 			public uint JadeLevel;
 
-			// Token: 0x04000C1C RID: 3100
 			public string MosaicPlace;
 		}
 	}
