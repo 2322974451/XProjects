@@ -1,0 +1,12 @@
+D:\XProjects\XProject\XMainClient\bin\Debug\XMainClient.dll
+D:\XProjects\XProject\XMainClient\bin\Debug\XMainClient.pdb
+D:\XProjects\XProject\XMainClient\bin\Debug\UILib.dll
+D:\XProjects\XProject\XMainClient\bin\Debug\UnityEngine5.dll
+D:\XProjects\XProject\XMainClient\bin\Debug\XUtliPoolLib.dll
+D:\XProjects\XProject\XMainClient\bin\Debug\UILib.pdb
+D:\XProjects\XProject\XMainClient\bin\Debug\XUtliPoolLib.pdb
+D:\XProjects\XProject\XMainClient\obj\Debug\XMainClient.csproj.AssemblyReference.cache
+D:\XProjects\XProject\XMainClient\obj\Debug\XMainClient.csproj.CoreCompileInputs.cache
+D:\XProjects\XProject\XMainClient\obj\Debug\XMainClient.csproj.CopyComplete
+D:\XProjects\XProject\XMainClient\obj\Debug\XMainClient.dll
+D:\XProjects\XProject\XMainClient\obj\Debug\XMainClient.pdb
